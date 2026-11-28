@@ -104,9 +104,9 @@ export class RulesPlaygroundPage {
   /** Ticks when the locale changes or a message scope (`play`) finishes loading. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
   /** Every schema and tool; the list is short, so the page searches and sorts it. */
-  readonly #schemas = computed((): readonly RulesPickerRow<RulesTool>[] => {
+  readonly #schemas = computed((): ReadonlyArray<RulesPickerRow<RulesTool>> => {
     this.#messages();
-    const schemas: readonly string[] = Object.values(RulesSchema);
+    const schemas: ReadonlyArray<string> = Object.values(RulesSchema);
 
     return Object.values(RulesTool).map((tool) => ({
       value: tool,
@@ -117,17 +117,12 @@ export class RulesPlaygroundPage {
   protected readonly schemaQuery = signal('');
   protected readonly schemaSort = signal<PickerSort | undefined>(undefined);
   protected readonly schemas = computed(() => shownRulesRows(this.#schemas(), this.schemaQuery(), this.schemaSort()));
-  protected readonly schemaColumns = computed(() => {
-    this.#messages();
-
-    return rulesPickerColumns<RulesTool>(
-      this.#i18n.translate('play.rules.columns.name'),
-      this.#i18n.translate('play.rules.columns.group'),
-    );
-  });
+  protected readonly schemaColumns = computed(() =>
+    rulesPickerColumns<RulesTool>('play.rules.columns.name', 'play.rules.columns.group'),
+  );
 
   /** Example entries for the content entry mode, one per kind with a schema. */
-  readonly #entryKinds = computed((): readonly RulesPickerRow<RegisteredKind>[] => {
+  readonly #entryKinds = computed((): ReadonlyArray<RulesPickerRow<RegisteredKind>> => {
     this.#messages();
 
     return REGISTERED_KINDS.map((kind) => ({
@@ -141,14 +136,9 @@ export class RulesPlaygroundPage {
   protected readonly entryKinds = computed(() =>
     shownRulesRows(this.#entryKinds(), this.entryKindQuery(), this.entryKindSort()),
   );
-  protected readonly entryKindColumns = computed(() => {
-    this.#messages();
-
-    return rulesPickerColumns<RegisteredKind>(
-      this.#i18n.translate('play.rules.columns.name'),
-      this.#i18n.translate('play.rules.columns.kind'),
-    );
-  });
+  protected readonly entryKindColumns = computed(() =>
+    rulesPickerColumns<RegisteredKind>('play.rules.columns.name', 'play.rules.columns.kind'),
+  );
   protected readonly rowValue = rulesRowValue;
   protected readonly rowLabel = rulesRowLabel;
 

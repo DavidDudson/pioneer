@@ -81,7 +81,7 @@ const TWO = Hands.parse(2);
 const WORN: Carry = { state: CarryState.Worn };
 
 /** The ids and fixtures `kitted` adds: leather and hide armour, a greatsword and a cloak. */
-const KIT: readonly (readonly [InventoryItemId, ItemFixture])[] = [
+const KIT: ReadonlyArray<readonly [InventoryItemId, ItemFixture]> = [
   [armorId, ItemFixture.LeatherArmor],
   [hideId, ItemFixture.HideArmor],
   [greatswordId, ItemFixture.Greatsword],

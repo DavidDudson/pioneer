@@ -11,9 +11,9 @@ function sameLine(left: ItemAcknowledgement, right: ItemAcknowledgement): boolea
 
 /** Repository adapter for tests and local experiments. */
 export class InMemoryCharacterItemAcknowledgementRepository extends CharacterItemAcknowledgementRepository {
-  readonly #rows = new Map<CharacterId, readonly ItemAcknowledgement[]>();
+  readonly #rows = new Map<CharacterId, ReadonlyArray<ItemAcknowledgement>>();
 
-  public override async listForCharacter(characterId: CharacterId): Promise<readonly ItemAcknowledgement[]> {
+  public override async listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<ItemAcknowledgement>> {
     return this.#rows.get(characterId) ?? [];
   }
 

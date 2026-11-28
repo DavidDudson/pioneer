@@ -21,7 +21,7 @@ export type ChoiceSelection =
       readonly legacy?: true;
       readonly unsupported?: true;
       /** The entries that replace this pick, when it is a legacy entry with newer versions. */
-      readonly replacedBy?: readonly ChoiceReplacement[];
+      readonly replacedBy?: ReadonlyArray<ChoiceReplacement>;
     };
 
 /** An entry a pick can be changed to: its id, which is what the slot then picks, and its name. */

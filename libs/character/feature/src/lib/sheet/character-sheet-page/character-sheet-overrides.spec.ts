@@ -164,7 +164,7 @@ describe('CharacterSheet override authors', () => {
     ],
   };
 
-  async function breakdownText(authors: readonly JsonObject[]): Promise<string> {
+  async function breakdownText(authors: ReadonlyArray<JsonObject>): Promise<string> {
     fakeDialog();
     const { root, harness } = await openSheet(ADJUSTED, { authors });
     const page = TestBed.inject(Router).url.split('?')[0] ?? '';

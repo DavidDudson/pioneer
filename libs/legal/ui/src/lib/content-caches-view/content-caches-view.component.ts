@@ -52,7 +52,7 @@ const PLACEHOLDERS = ['first', 'second', 'third'] as const;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContentCachesView {
-  public readonly caches = input.required<AsyncQuery<readonly CachePack[]>>();
+  public readonly caches = input.required<AsyncQuery<ReadonlyArray<CachePack>>>();
   protected readonly placeholders = PLACEHOLDERS;
   readonly #format = inject(LocaleFormat);
 

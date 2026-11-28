@@ -80,7 +80,11 @@ export interface ShieldLine {
 }
 
 /** The shields the character holds, with the damage the play state records on each. */
-export function shieldLines(registry: ContentRegistry, character: Character, play: PlayState): readonly ShieldLine[] {
+export function shieldLines(
+  registry: ContentRegistry,
+  character: Character,
+  play: PlayState,
+): ReadonlyArray<ShieldLine> {
   const slots = sheetSlotContent(registry);
   const items = itemContent(registry);
   const held = heldShields(character.document.inventory, items, () => equippedRules(character.document, items, slots));

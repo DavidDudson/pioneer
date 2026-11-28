@@ -10,9 +10,9 @@ import {
 import type { CharacterDocument, LoreNames, SkillOption, SkillSlot, SlotContent } from '@pioneer/character/domain';
 import { ChoiceValue, Level, Proficiency, ProficiencySchema } from '@pioneer/rules/sdk';
 import type { Selector, SlotKey, Slug } from '@pioneer/rules/sdk';
+import { foldName } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
-import { matchKey } from './content-lookup';
 import { PathbuilderName } from './import-kind';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 
@@ -33,10 +33,10 @@ export interface SkillPlacement {
   readonly choices: SkillPicks;
   /** The names of the Lores no content defines that the picks took, as the export named them (#572). */
   readonly lores: LoreNames;
-  readonly gaps: readonly SkillGap[];
+  readonly gaps: ReadonlyArray<SkillGap>;
 }
 
-const RANK_ORDER: readonly Proficiency[] = Object.values(Proficiency);
+const RANK_ORDER: ReadonlyArray<Proficiency> = Object.values(Proficiency);
 
 function order(rank: Proficiency | undefined): number {
   return RANK_ORDER.indexOf(rank ?? Proficiency.Untrained);
@@ -57,24 +57,24 @@ export type SkillRanks = Pick<PathbuilderImport, 'lores' | 'skills'>;
  * The Lores the export ranks that no content defines, by topic and as the export named them: a skill slot can take one as
  * a custom Lore (#572). A Lore whose name makes no topic is left out, and so comes back as a gap.
  */
-function undefinedLores(skills: readonly SkillOption[], { lores }: SkillRanks): LoreNames {
-  const known = new Set(skills.map(({ name }) => matchKey(name)));
+function undefinedLores(skills: ReadonlyArray<SkillOption>, { lores }: SkillRanks): LoreNames {
+  const known = new Set(skills.map(({ name }) => foldName(name)));
 
-  const entries = lores.flatMap(({ name }): [Slug, LoreName][] => {
+  const entries = lores.flatMap(({ name }): Array<[Slug, LoreName]> => {
     const lore = LoreName.safeParse(name);
     const topic = lore.success ? loreTopicOf(lore.data) : undefined;
 
-    return lore.success && topic !== undefined && !known.has(matchKey(`${name} Lore`)) ? [[topic, lore.data]] : [];
+    return lore.success && topic !== undefined && !known.has(foldName(`${name} Lore`)) ? [[topic, lore.data]] : [];
   });
 
   return Object.fromEntries(entries);
 }
 
-function targets(skills: readonly SkillOption[], { skills: ranked, lores }: SkillRanks): Target[] {
+function targets(skills: ReadonlyArray<SkillOption>, { skills: ranked, lores }: SkillRanks): Array<Target> {
   const find = (name: string): SkillOption | undefined =>
-    skills.find((skill) => matchKey(skill.name) === matchKey(name));
+    skills.find((skill) => foldName(skill.name) === foldName(name));
 
-  const named = Object.entries(ranked).flatMap(([key, rank]): Target[] => {
+  const named = Object.entries(ranked).flatMap(([key, rank]): Array<Target> => {
     const skill = find(key);
 
     return skill === undefined ? [] : [{ name: PathbuilderName.parse(skill.name), rank, skill }];
@@ -102,7 +102,7 @@ function reached(document: CharacterDocument, content: SlotContent): ReadonlyMap
 /** The skill `slot` offers that raises furthest toward its target, the largest shortfall first. */
 function choose(
   slot: SkillSlot,
-  wanted: readonly Target[],
+  wanted: ReadonlyArray<Target>,
   ranks: ReadonlyMap<Selector, Proficiency>,
 ): SkillOption | undefined {
   const shortfall = (option: SkillOption): number => {
@@ -121,7 +121,7 @@ function choose(
 function advance(
   document: CharacterDocument,
   content: SlotContent,
-  wanted: readonly Target[],
+  wanted: ReadonlyArray<Target>,
 ): [SlotKey, SkillOption] | undefined {
   const level = Level.parse(document.level);
   const ranks = reached(document, content);
@@ -137,8 +137,8 @@ function advance(
   return undefined;
 }
 
-function gapsOf(wanted: readonly Target[], ranks: ReadonlyMap<Selector, Proficiency>): SkillGap[] {
-  return wanted.flatMap(({ name, rank, skill }): SkillGap[] => {
+function gapsOf(wanted: ReadonlyArray<Target>, ranks: ReadonlyMap<Selector, Proficiency>): Array<SkillGap> {
+  return wanted.flatMap(({ name, rank, skill }): Array<SkillGap> => {
     const got = skill === undefined ? undefined : (ranks.get(skill.selector) ?? Proficiency.Untrained);
 
     return order(got) >= order(rank) ? [] : [{ name, wanted: rank, reached: got }];

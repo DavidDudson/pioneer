@@ -22,7 +22,7 @@ export interface RovingFocusHostItem {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RovingFocusHost {
-  public readonly items = input.required<readonly RovingFocusHostItem[]>();
+  public readonly items = input.required<ReadonlyArray<RovingFocusHostItem>>();
   public readonly orientation = input<RovingOrientation>(RovingOrientation.Horizontal);
   public readonly wrap = input(false);
   public readonly columns = input<number | undefined>(undefined);

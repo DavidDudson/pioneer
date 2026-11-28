@@ -92,7 +92,7 @@ interface MemberJson {
 
 interface RosterJson {
   readonly viewerRole: string;
-  readonly members: readonly MemberJson[];
+  readonly members: ReadonlyArray<MemberJson>;
 }
 
 async function json<TBody>(response: Response): Promise<TBody> {
@@ -156,7 +156,7 @@ describe('member routes', () => {
     const rejoin = await api.handle(request('POST', '/campaigns/join', { as: ezren, body: { token: vaults.token } }));
     expect(rejoin.status).toBe(410);
 
-    const open = await json<readonly unknown[]>(
+    const open = await json<ReadonlyArray<unknown>>(
       await api.handle(request('GET', `/campaigns/${vaults.id}/invites`, { as: amiri })),
     );
 
@@ -254,7 +254,7 @@ describe('member routes', () => {
     const left = await api.handle(request('POST', `/campaigns/${vaults.id}/leave`, { as: seelah }));
     expect(left.status).toBe(200);
     expect(await left.json()).toStrictEqual({});
-    const listed = await json<readonly unknown[]>(await api.handle(request('GET', '/campaigns', { as: seelah })));
+    const listed = await json<ReadonlyArray<unknown>>(await api.handle(request('GET', '/campaigns', { as: seelah })));
     expect(listed).toStrictEqual([]);
 
     const gm = await api.handle(request('POST', `/campaigns/${vaults.id}/leave`, { as: amiri }));

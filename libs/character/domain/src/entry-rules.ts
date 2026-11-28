@@ -46,7 +46,7 @@ export function rulesOf(
   resolution: GrantResolution,
   context: EntryContext,
   keep: (origin: Origin) => boolean,
-): RuleInPlay[] {
+): Array<RuleInPlay> {
   return resolution.items
     .filter(({ origin }) => keep(origin))
     .flatMap(({ entry, origin, value }) => {
@@ -67,7 +67,7 @@ export function equippedRulesOf(
   resolution: GrantResolution,
   context: EntryContext,
   lookup: ContentLookup,
-): RuleInPlay[] {
+): Array<RuleInPlay> {
   return [
     ...rulesOf(resolution, context, fromInventory),
     ...chosenRuneRules(context.inventory, context.content, lookup),

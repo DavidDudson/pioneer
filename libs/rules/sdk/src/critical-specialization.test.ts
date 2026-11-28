@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { criticalSpecializationOf } from './critical-specialization';
 import { WeaponGroup } from './weapon';
 
-const GROUPS: readonly WeaponGroup[] = Object.values(WeaponGroup);
+const GROUPS: ReadonlyArray<WeaponGroup> = Object.values(WeaponGroup);
 
 describe('criticalSpecializationOf', () => {
   test.each(GROUPS)('%s has an effect, headed by its name', (group) => {

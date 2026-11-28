@@ -8,6 +8,7 @@ import {
   field,
   id,
   openInventory,
+  openInventoryUnder,
   patchSent,
   pickRow,
   present,
@@ -18,6 +19,13 @@ import {
   typeInto,
 } from '../../../testing/inventory-sheet-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/provide-server-state-testing';
+
+/** The core rules pack's Automatic Bonus Progression, as the character's list names it. */
+const AUTOMATIC_BONUS_PROGRESSION = {
+  variantId: '177bfa5d-9553-593c-9264-f4fddf67ca0c',
+  name: 'Automatic Bonus Progression',
+  packTitle: 'Core Rules',
+};
 
 describe('InventorySection', () => {
   // Loads and bundles the packs once, outside every test's timeout.
@@ -34,6 +42,20 @@ describe('InventorySection', () => {
     expect(rope.textContent).toContain('× 2');
     expect(field(section, 'Gold (gp)').textContent).toContain('15');
     expect(field(section, 'Silver (sp)').textContent).toContain('0');
+  });
+
+  it('shows the coins in gold and every change to them, newest first', async () => {
+    const section = await openInventory();
+    const ledger = present(section.querySelector('pio-coin-ledger'));
+    expect(ledger.textContent).toContain('15 gp in all');
+
+    const entries = [...ledger.querySelectorAll('fr-list-item')].map((entry) =>
+      entry.textContent.replaceAll(/\s+/gu, ' ').trim(),
+    );
+
+    expect(entries).toHaveLength(2);
+    expect(entries[0]).toMatch(/Shop purchase.*-5 gp/u);
+    expect(entries[1]).toMatch(/Starting coins.*\+20 gp/u);
   });
 
   it('meters the Bulk carried against the limits Strength sets, the rope in the backpack ignored', async () => {
@@ -119,5 +141,26 @@ describe('InventorySection', () => {
       expectedVersion: 3,
       patch: { field: 'setCoins', coins: { pp: 0, gp: 15, sp: 7, cp: 0 } },
     });
+  });
+
+  it('says why runes add nothing while Automatic Bonus Progression is on', async () => {
+    const variantRules = {
+      decidedBy: 'character',
+      manageable: true,
+      enabled: [AUTOMATIC_BONUS_PROGRESSION],
+      available: [],
+    };
+
+    const section = await openInventoryUnder(variantRules);
+
+    await vi.waitFor(() => {
+      expect(section.querySelector('fr-message')?.textContent).toContain('Automatic Bonus Progression is on');
+    });
+  });
+
+  it('shows no such note without the variant rule', async () => {
+    const section = await openInventory();
+
+    expect(section.querySelector('fr-message')).toBeNull();
   });
 });

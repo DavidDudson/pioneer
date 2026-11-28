@@ -37,22 +37,22 @@ export interface SpellOption {
   readonly id: ContentId;
   readonly name: ContentText;
   readonly rank: SpellRank;
-  readonly traditions: readonly MagicTradition[];
+  readonly traditions: ReadonlyArray<MagicTradition>;
   readonly rarity: Rarity;
   readonly cantrip: boolean;
   /** Whether it has the `focus` trait: cast with a Focus Point, never from a slot. */
   readonly focus: boolean;
   /** The actions it takes to cast: one, or each of a variable cost. */
-  readonly cast: readonly CastActions[];
-  readonly range: readonly RangeBand[];
+  readonly cast: ReadonlyArray<CastActions>;
+  readonly range: ReadonlyArray<RangeBand>;
   /** The shape of its area, or none. */
   readonly area: AreaValue;
-  readonly targets: readonly TargetValue[];
+  readonly targets: ReadonlyArray<TargetValue>;
   /** What it is rolled against: an attack or a save, or none. */
-  readonly defense: readonly DefenseValue[];
-  readonly duration: readonly DurationValue[];
-  readonly traits: readonly Trait[];
-  readonly sources: readonly SourceRef[];
+  readonly defense: ReadonlyArray<DefenseValue>;
+  readonly duration: ReadonlyArray<DurationValue>;
+  readonly traits: ReadonlyArray<Trait>;
+  readonly sources: ReadonlyArray<SourceRef>;
 }
 
 /**
@@ -61,7 +61,7 @@ export interface SpellOption {
  * spell, focus spells included, for the focus spells a character has (ADR-0050).
  */
 export interface SpellContent {
-  readonly spells: readonly SpellOption[];
+  readonly spells: ReadonlyArray<SpellOption>;
   readonly spell: (pick: ChoiceValue) => SpellOption | undefined;
   readonly anySpell: (id: ContentId) => SpellOption | undefined;
 }

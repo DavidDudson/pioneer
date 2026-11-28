@@ -1039,7 +1039,10 @@
             }
           ]
         }
-      ]
+      ],
+      "triggerEvent": {
+        "event": "initiative"
+      }
     }
   },
   {

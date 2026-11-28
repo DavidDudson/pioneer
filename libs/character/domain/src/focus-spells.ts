@@ -9,13 +9,13 @@ import type { SpellContent, SpellOption } from './spell-content';
 /** A focus entry's focus spells as its `FocusSpells` elements name them; one whose content isn't loaded is left out. */
 export interface FocusEntrySpells {
   readonly entry: SpellcastingInPlay;
-  readonly spells: readonly SpellOption[];
+  readonly spells: ReadonlyArray<SpellOption>;
 }
 
 /** What the character's focus spells come to (ADR-0050). */
 export interface CharacterFocus {
   /** Each focus entry with its spells, in slug order. */
-  readonly entries: readonly FocusEntrySpells[];
+  readonly entries: ReadonlyArray<FocusEntrySpells>;
   /** The rank every focus spell, focus cantrips included, is cast at: half the level, rounded up (Player Core). */
   readonly rank: SpellRank;
   /** The most Focus Points the pool holds: one per focus spell that isn't a cantrip, at most 3 (Player Core). */
@@ -28,7 +28,7 @@ export interface CharacterFocus {
  * can't be read.
  */
 export function characterFocus(
-  entries: readonly SpellcastingInPlay[],
+  entries: ReadonlyArray<SpellcastingInPlay>,
   content: SpellContent,
   level: CharacterLevel,
 ): CharacterFocus {

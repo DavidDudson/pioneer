@@ -12,7 +12,7 @@ export const FIGHTER_MODIFIERS = new AttributeModifiers(
 );
 
 /** The class key attribute and one free boost still to place. */
-export const OPEN_BOOSTS: readonly OpenBoostLine[] = [
+export const OPEN_BOOSTS: ReadonlyArray<OpenBoostLine> = [
   { key: SlotKey.parse('boost:1:class:0'), label: message(AttributesMessage.ClassBoost) },
   { key: SlotKey.parse('boost:1:free:3'), label: message(AttributesMessage.FreeBoost, { level: 1 }) },
 ];

@@ -19,7 +19,7 @@ type FormStrike = NonNullable<NonNullable<BattleFormElement['form']['strikes']>[
 
 /** The weapons a character's Strikes are made from, and the statistics derived for them. */
 export interface StrikeSources {
-  readonly weapons: readonly WeaponInputs[];
+  readonly weapons: ReadonlyArray<WeaponInputs>;
   readonly results: ReadonlyMap<Selector, StatisticResult>;
 }
 
@@ -162,7 +162,7 @@ function readerFor({ inputs, scope }: FormStrikeRules): ResolveReference {
 }
 
 /** The character's statistics with those the form Strikes bring; a form's wins on the same selector. */
-function merged(own: StrikeSources['results'], made: readonly StrikeSources[]): StrikeSources['results'] {
+function merged(own: StrikeSources['results'], made: ReadonlyArray<StrikeSources>): StrikeSources['results'] {
   const results = new Map(own);
 
   for (const { results: given } of made) {

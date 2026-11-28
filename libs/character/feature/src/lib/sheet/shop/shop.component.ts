@@ -13,8 +13,10 @@ import {
   LocaleFormat,
   SearchInput,
   Stack,
+  TableToolbar,
   Text,
   ToggleButton,
+  ToolbarFilters,
 } from '@pioneer/frontier';
 import { availableItems, filterFromQuery, filterToQuery, Level } from '@pioneer/rules/sdk';
 import type { ContentId, FilterState, QueryParams } from '@pioneer/rules/sdk';
@@ -56,8 +58,10 @@ const CLEARED: Readonly<Record<string, undefined>> = Object.fromEntries(
     ShopOffersView,
     ShopOrder,
     Stack,
+    TableToolbar,
     Text,
     ToggleButton,
+    ToolbarFilters,
     TranslocoPipe,
   ],
   templateUrl: './shop.component.html',
@@ -128,7 +132,7 @@ export class Shop {
    * item (`track` by id) rather than carrying the last item's quantity or error over. The form stays after a gift,
    * so its tick shows and focus stays on its button.
    */
-  protected readonly pickedItems: Signal<readonly ItemEntry[]> = computed(() => {
+  protected readonly pickedItems: Signal<ReadonlyArray<ItemEntry>> = computed(() => {
     const id = this.picked();
     const offered = this.list()?.offers.some((offer) => offer.id === id) === true;
     const item = id === undefined || !offered ? undefined : this.content()?.get(id);

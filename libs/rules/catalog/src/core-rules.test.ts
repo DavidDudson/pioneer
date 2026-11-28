@@ -99,7 +99,7 @@ function bonusTo(target: string): RuleInPlay {
 }
 
 /** Which of `statistics` a +1 to `target` raises, sorted. */
-function reachedBy(target: string, content = core, character = fighter): readonly string[] {
+function reachedBy(target: string, content = core, character = fighter): ReadonlyArray<string> {
   const without = totals(deriveStatistics(content, character));
   const facts = noFacts();
   const withBonus = totals(deriveStatistics(content, character, { rules: [bonusTo(target)], facts }));
@@ -121,11 +121,11 @@ function failure(key: string, position: number): StatisticFailure {
   return { ok: false, error: { key }, position };
 }
 
-function sorted(selectors: readonly string[]): readonly string[] {
+function sorted(selectors: ReadonlyArray<string>): ReadonlyArray<string> {
   return selectors.toSorted();
 }
 
-function checksKeyedTo(attribute: Attribute): readonly string[] {
+function checksKeyedTo(attribute: Attribute): ReadonlyArray<string> {
   const skills = Object.entries(SKILLS).flatMap(([slug, key]) => (key === attribute ? [`skill:${slug}`] : []));
 
   return [`attribute:${attribute}`, ...skills];
@@ -144,8 +144,11 @@ describe('core rules pack', () => {
     expect(registry.statistics()).toHaveLength(selectors.length);
 
     const variants = [
+      'ancestry-paragon',
+      'automatic-bonus-progression',
       'dual-class',
       'free-archetype',
+      'gradual-attribute-boosts',
       'legacy-content',
       'no-dedication-lock',
       'no-encumbrance',

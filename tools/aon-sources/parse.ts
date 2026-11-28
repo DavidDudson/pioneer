@@ -27,8 +27,8 @@ export interface ListedEntry {
 
 /** What a Sources page held: the entries with a usable URL, and the links that were not one entry. */
 export interface SourcesListing {
-  readonly entries: readonly ListedEntry[];
-  readonly skipped: readonly string[];
+  readonly entries: ReadonlyArray<ListedEntry>;
+  readonly skipped: ReadonlyArray<string>;
 }
 
 /** The character a numeric or named entity stands for; an unknown name stays as written. */
@@ -51,8 +51,8 @@ function decode(text: string): string {
 }
 
 export function parseSources(html: string): SourcesListing {
-  const entries: ListedEntry[] = [];
-  const skipped: string[] = [];
+  const entries: Array<ListedEntry> = [];
+  const skipped: Array<string> = [];
 
   for (const { groups: section } of html.matchAll(SECTION)) {
     for (const { groups: link } of (section?.['body'] ?? '').matchAll(LINK)) {

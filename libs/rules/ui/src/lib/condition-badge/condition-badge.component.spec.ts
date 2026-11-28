@@ -7,7 +7,7 @@ import { ConditionBadge } from './condition-badge.component';
 import { CONDITION_ICONS } from './condition-icons';
 import { CONDITIONS_BY_SERIOUSNESS, ConditionSlug } from './condition-seriousness';
 
-async function render(conditions: readonly string[]): Promise<HTMLElement> {
+async function render(conditions: ReadonlyArray<string>): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture: ComponentFixture<ConditionBadge> = TestBed.createComponent(ConditionBadge);
   fixture.componentRef.setInput('conditions', conditions);

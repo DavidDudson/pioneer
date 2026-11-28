@@ -17,7 +17,7 @@ import type { ActiveItem } from './active-items';
 import type { Inventory, InventoryItemId } from './inventory';
 import { activeState, equippedState } from './inventory-content';
 import type { ItemContent } from './inventory-content';
-import { alteredItem, feetOf, potencyOf } from './item-alteration-inputs';
+import { alteredItem, feetOf, gradeOf, potencyOf } from './item-alteration-inputs';
 import { itemRunes } from './item-runes';
 import { itemSlugs, NO_PICKED_ITEMS } from './owned-items';
 import type { PickedItems } from './owned-items';
@@ -28,7 +28,7 @@ export interface EquippedInputs {
   readonly armor?: ArmorInputs;
   /** The worn armour's Dexterity cap, when it has one. */
   readonly dexterityCap?: AttributeModifier;
-  readonly weapons: readonly WeaponInputs[];
+  readonly weapons: ReadonlyArray<WeaponInputs>;
 }
 
 const NO_POTENCY = 0;
@@ -43,7 +43,7 @@ const CONSUMABLE = Trait.parse('consumable');
 function armorInputs(
   active: ActiveItem | undefined,
   rules: ModifierInputs,
-  picked: readonly RuleSlug[],
+  picked: ReadonlyArray<RuleSlug>,
 ): Pick<EquippedInputs, 'armor' | 'dexterityCap'> {
   if (active?.entry.kind !== ContentKind.Armor) {
     return {};
@@ -51,7 +51,14 @@ function armorInputs(
 
   const { item, entry } = active;
   const runes = activeState(item, entry) === undefined ? NO_RUNES : itemRunes(item, entry);
-  const altered = alteredItem(rules, entry, { picked, item: item.id, potency: runes.potency });
+
+  const altered = alteredItem(rules, entry, {
+    picked,
+    item: item.id,
+    potency: runes.potency,
+    resilient: runes.resilient,
+  });
+
   const { numbers } = altered;
   const acBonus = numbers.get(NumericItemProperty.AcBonus) ?? entry.data.acBonus;
   const dexCap = numbers.get(NumericItemProperty.DexCap);
@@ -60,7 +67,7 @@ function armorInputs(
 
   const armor = {
     bonus: Modifier.parse(acBonus + (potencyOf(altered) ?? NO_POTENCY)),
-    resilient: runes.resilient,
+    resilient: gradeOf(altered, NumericItemProperty.Resilient),
     checkPenalty: checkPenalty === undefined || checkPenalty === 0 ? undefined : CheckPenalty.parse(checkPenalty),
     strength: strength === undefined ? undefined : AttributeModifier.parse(strength),
     origin: originOf(active),
@@ -92,7 +99,7 @@ function favoredBy(favored: ReadonlySet<BaseWeapon>, base: BaseWeapon | undefine
  * What a predicate over `item:` reads of a held weapon: its own roll options, its damage type (`damage:type:slashing`)
  * and each property rune in force (`rune:property:underwater`), so an environment can tell a weapon etched for it.
  */
-function strikeRollOptions(altered: AlteredItem): readonly RollOptionTail[] {
+function strikeRollOptions(altered: AlteredItem): ReadonlyArray<RollOptionTail> {
   const damageType = altered.damageType === undefined ? [] : [`damage:type:${altered.damageType}`];
   const runes = altered.propertyRunes.map((rune) => `rune:property:${rune}`);
 
@@ -104,10 +111,10 @@ function strikeRollOptions(altered: AlteredItem): readonly RollOptionTail[] {
  * rune adds damage dice. One whose base the character's deity favours is marked so (ADR-0048).
  */
 function weaponInputs(
-  active: readonly ActiveItem[],
+  active: ReadonlyArray<ActiveItem>,
   { favored, rules, slugs, picked }: WeaponContext,
-): readonly WeaponInputs[] {
-  return active.flatMap((each): WeaponInputs[] => {
+): ReadonlyArray<WeaponInputs> {
+  return active.flatMap((each): Array<WeaponInputs> => {
     const { entry } = each;
 
     if (entry.kind !== ContentKind.Weapon) {
@@ -128,6 +135,7 @@ function weaponInputs(
       favored: favoredBy(favored, entry.data.baseItem),
       item: each.item.id,
       potency: runes.potency ?? entry.data.itemBonus,
+      striking: runes.striking,
     });
 
     return [
@@ -142,7 +150,7 @@ function weaponInputs(
         range: feetOf(altered, NumericItemProperty.RangeIncrement),
         reach: feetOf(altered, NumericItemProperty.Reach),
         potency: potencyOf(altered),
-        striking: runes.striking,
+        striking: gradeOf(altered, NumericItemProperty.Striking),
         damage:
           altered.damageType === undefined
             ? entry.data.damage

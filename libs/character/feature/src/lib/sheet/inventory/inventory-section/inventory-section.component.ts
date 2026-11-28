@@ -3,7 +3,7 @@ import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { attributeModifiers, itemContent, runeContent } from '@pioneer/character/domain';
 import type { InvestedCount, ItemContent, RunedContent } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, Heading, Stack } from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Heading, Message, Stack } from '@pioneer/frontier';
 import type { AsyncQuery } from '@pioneer/frontier';
 import { Attribute } from '@pioneer/rules/sdk';
 import type { AttributeModifier, ContentRegistry } from '@pioneer/rules/sdk';
@@ -14,7 +14,7 @@ import { CharacterRuleLimitStore } from '../../../data/character-rule-limit-stor
 import { CharacterStore } from '../../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/content-registry-query';
 import { sheetSectionPreviews } from '../../sheet-section-previews';
-import { sheetSlotContent } from '../../sheet-slot-content';
+import { sheetHasAutomaticBonusProgression, sheetSlotContent } from '../../sheet-slot-content';
 import { CoinsSection } from '../coins-section/coins-section.component';
 import { CustomItems } from '../custom-items/custom-items.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
@@ -47,6 +47,7 @@ import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
     ItemEdits,
     ItemOffer,
     ItemRuneEdits,
+    Message,
     PartyInventory,
     Stack,
     TranslocoPipe,
@@ -57,7 +58,7 @@ import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
 })
 export class InventorySection {
   /** The invested items and what each turns on, worked out with the sheet's statistics; undefined while they load. */
-  public readonly investments = input<readonly Investment[] | undefined>();
+  public readonly investments = input<ReadonlyArray<Investment> | undefined>();
   /** The query the investments' registry comes from, so a failure shows in place of the panel. */
   public readonly engine = input.required<AsyncQuery<ContentRegistry>>();
   /** Whether a battle form has the worn and held gear melded into it, which its rows say. */
@@ -84,6 +85,12 @@ export class InventorySection {
       ? undefined
       : attributeModifiers(character.document, sheetSlotContent(registry).boosts).get(Attribute.Strength);
   });
+  /** Whether Automatic Bonus Progression is on, which is why the runes' bonuses read as nothing. */
+  protected readonly bonusProgression: Signal<boolean> = computed(() => {
+    const registry = this.items.data();
+
+    return registry !== undefined && sheetHasAutomaticBonusProgression(registry);
+  });
   protected readonly content: Signal<ItemContent | undefined> = computed(() => {
     const registry = this.items.data();
 
@@ -107,7 +114,7 @@ export class InventorySection {
   });
   /** Each item by the name its row shows, so every control's label names it. */
   protected readonly names = injectItemNames(this.runed);
-  protected readonly groups: Signal<readonly InventoryGroup[] | undefined> = computed(() => {
+  protected readonly groups: Signal<ReadonlyArray<InventoryGroup> | undefined> = computed(() => {
     const runed = this.runed();
     const character = this.#store.selected();
 

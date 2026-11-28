@@ -12,6 +12,7 @@ import { BugReportId, OAuthProviderSchema, SessionId } from './identity-fields';
 import type { OAuthProvider } from './identity-fields';
 import { Preferences } from './preferences';
 import { SessionSummary } from './session';
+import { TableEntity, TableViewPreferences } from './table-view-preferences';
 import { User } from './user';
 
 /** Acknowledgement with nothing to return. */
@@ -19,6 +20,7 @@ const Done = z.strictObject({});
 
 const BySessionId = z.object({ id: SessionId });
 const ByBugReportId = z.object({ id: BugReportId });
+const ByTableEntity = z.object({ entity: TableEntity });
 
 /** A PATCH that changes nothing would only touch `updated_at` and the audit log, so it is a 422. */
 const PreferencesChange = Preferences.refine((change) => Object.values(change).some((value) => value !== undefined));
@@ -96,6 +98,24 @@ export const IdentityContract = {
     query: NoQuery,
     body: PreferencesChange,
     response: Preferences,
+  }),
+  /** The signed-in user's view preferences for one table; fields never chosen are absent. */
+  tableView: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/me/table-views/:entity',
+    params: ByTableEntity,
+    query: NoQuery,
+    body: NoBody,
+    response: TableViewPreferences,
+  }),
+  /** Replaces the signed-in user's view preferences for one table with the body; answers with what is stored. */
+  saveTableView: new Endpoint({
+    method: HttpMethod.Put,
+    path: '/me/table-views/:entity',
+    params: ByTableEntity,
+    query: NoQuery,
+    body: TableViewPreferences,
+    response: TableViewPreferences,
   }),
   /** Files a bug report as the signed-in user; 429 once they have sent too many in an hour. */
   reportBug: new Endpoint({

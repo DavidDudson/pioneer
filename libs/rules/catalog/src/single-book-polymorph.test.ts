@@ -6,7 +6,7 @@ import { darkArchiveRemasteredPack, divineMysteriesPack } from './json-packs';
 import type { PackLoader } from './pack-loader';
 
 /** The rules of the effect `slug` in `pack` as plain JSON, so a test can compare them with the data it reads. */
-async function rulesOf(pack: PackLoader, slug: string): Promise<readonly unknown[]> {
+async function rulesOf(pack: PackLoader, slug: string): Promise<ReadonlyArray<unknown>> {
   const found = contentPackFromContents(await pack()).otherEntries.find((entry) => entry.slug === slug);
 
   if (found === undefined) {

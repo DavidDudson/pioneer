@@ -11,7 +11,7 @@ export interface FormDetail {
 /** The form in force, as the banner words it: its name, then its source, rank and the time it has left. */
 export interface FormSummary {
   readonly name: string;
-  readonly details: readonly FormDetail[];
+  readonly details: ReadonlyArray<FormDetail>;
 }
 
 /** Message keys the banner renders with, spelled out so the key check sees them. */

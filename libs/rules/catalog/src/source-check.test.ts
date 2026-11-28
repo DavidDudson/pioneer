@@ -23,7 +23,7 @@ import type { SourcedEntry } from './source-check';
 const AUTHOR = '00000000-0000-4000-8000-000000000002';
 
 /** The issues with `homebrew/sanity` citing `sources`. */
-function issuesCiting(...sources: readonly z.input<typeof SourceRef>[]): readonly FieldIssue[] {
+function issuesCiting(...sources: ReadonlyArray<z.input<typeof SourceRef>>): ReadonlyArray<FieldIssue> {
   const entry: SourcedEntry = {
     pack: PackId.parse('homebrew'),
     slug: EntrySlug.parse('statistic:sanity'),
@@ -42,7 +42,7 @@ function homebrew(pack: string): z.input<typeof SourceRef> {
 }
 
 /** The entries `checkPackSources` rejects in `pack`. */
-function rejected(pack: ContentPack): readonly string[] {
+function rejected(pack: ContentPack): ReadonlyArray<string> {
   try {
     checkPackSources(pack, bookRegistry);
 

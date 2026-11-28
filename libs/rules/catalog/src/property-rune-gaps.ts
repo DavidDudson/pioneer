@@ -3,12 +3,13 @@ import type { ContentEntry } from '@pioneer/rules/sdk';
 
 import { loadRunes } from './rune-fixtures';
 
-/**
- * Weapon property runes the play state models instead of rule elements, so their `rules` stay empty: shifting lets the
- * weapon take the shape of another (`weapon-shifts.ts`), a choice the sheet keeps per item, and authorized hurts a
- * wielder the item's state does not name (`authorized-weapon.ts`).
- */
-export const MODELLED_IN_PLAY: ReadonlySet<string> = new Set(['rune:shifting', 'rune:authorized']);
+/** Property runes the play state models instead of rule elements, so their `rules` stay empty. */
+export const MODELLED_IN_PLAY: ReadonlySet<string> = new Set([
+  'rune:shifting',
+  'rune:authorized',
+  'rune:ready',
+  'rune:ready-greater',
+]);
 
 /** Whether a rune is a property rune for `item` with no activation (those belong to the activations stories). */
 function isPlainProperty(entry: ContentEntry, item: string): boolean {
@@ -28,7 +29,7 @@ function ruled(slug: string): boolean {
 }
 
 /** Plain property runes for `item` with neither rules nor a recorded gap. */
-export function unaccounted(item: string, gaps: ReadonlySet<string>): readonly string[] {
+export function unaccounted(item: string, gaps: ReadonlySet<string>): ReadonlyArray<string> {
   return RUNES.filter((entry) => isPlainProperty(entry, item))
     .filter(
       (entry) =>
@@ -38,7 +39,7 @@ export function unaccounted(item: string, gaps: ReadonlySet<string>): readonly s
 }
 
 /** Recorded gaps whose rune is gone or has since got rules. */
-export function staleGaps(gaps: ReadonlySet<string>): readonly string[] {
+export function staleGaps(gaps: ReadonlySet<string>): ReadonlyArray<string> {
   return [...gaps].filter((slug) => {
     const rune = RUNES.find((entry) => entry.slug === slug);
 

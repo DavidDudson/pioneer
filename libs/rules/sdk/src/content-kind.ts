@@ -14,6 +14,7 @@ export const ContentKind = {
   Background: 'background',
   Class: 'class',
   ClassFeature: 'class-feature',
+  CompanionSpecies: 'companion-species',
   Condition: 'condition',
   Consumable: 'consumable',
   Creature: 'creature',

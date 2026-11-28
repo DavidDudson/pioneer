@@ -100,7 +100,7 @@ describe('PlayService breath', () => {
     const instance = out.play.breath?.unconscious;
 
     expect(out.play.conditions).toHaveLength(1);
-    const ids: readonly unknown[] = out.play.conditions.map(({ id }) => id);
+    const ids: ReadonlyArray<unknown> = out.play.conditions.map(({ id }) => id);
     expect(ids).toEqual([instance]);
 
     const breathing = await play.patch(amiri, kyra.id, { expectedRevision: out.revision, command: hold(5) });

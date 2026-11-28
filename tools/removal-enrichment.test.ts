@@ -15,7 +15,7 @@ import type { JsonObject, JsonValue } from './entry-json.ts';
 import { enrichRemovalFile, removalMatches } from './removal-enrichment.ts';
 
 const PACK = PackId.parse('player-core');
-const prose = (words: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const prose = (words: string): Array<JsonValue> => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** The id and key an entry of the test pack has. */
 function idOf(slug: string): ContentId {
@@ -46,7 +46,7 @@ function entry(slug: string, kind: string, data: JsonObject): object {
 }
 
 /** A condition that names `by` as easing it. */
-function condition(slug: string, by: readonly string[]): object {
+function condition(slug: string, by: ReadonlyArray<string>): object {
   return entry(slug, 'condition', {
     valued: true,
     overrides: [],

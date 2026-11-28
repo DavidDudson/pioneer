@@ -50,7 +50,7 @@ export function actionCosts(registry: ContentRegistry): ReadonlyMap<ContentId, A
   const read = new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
-      .flatMap((entry): [ContentId, ActionCostRange][] => {
+      .flatMap((entry): Array<[ContentId, ActionCostRange]> => {
         const cost = costOf(entry);
 
         return cost === undefined ? [] : [[entry.id, cost]];

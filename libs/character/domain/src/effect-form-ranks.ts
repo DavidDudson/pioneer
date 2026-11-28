@@ -25,7 +25,7 @@ function rankOf(statement: PredicateStatement): SpellRank | undefined {
  * (`humanoid-form:large`). A form with no gate on the rank is left out, and so is a gate that is not a plain `gte`
  * on the rank of the spell.
  */
-export function formRanks(rules: readonly RuleElement[]): ReadonlyMap<RollOption, SpellRank> {
+export function formRanks(rules: ReadonlyArray<RuleElement>): ReadonlyMap<RollOption, SpellRank> {
   const ranks = new Map<RollOption, SpellRank>();
 
   for (const rule of rules) {

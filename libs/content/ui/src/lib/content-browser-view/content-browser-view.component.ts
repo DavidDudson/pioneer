@@ -3,16 +3,16 @@ import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { AsyncData, AsyncPending, AsyncRegion, Button, HeadingLevel, Skeleton, Stack } from '@pioneer/frontier';
 import type { AsyncQuery, FilterField, SelectOption } from '@pioneer/frontier';
+import { TableDensity } from '@pioneer/frontier/data';
 import type { TableColumn, TableViewSort } from '@pioneer/frontier/data';
 import type { ContentKind, FilterState } from '@pioneer/rules/sdk';
 
 import type { BrowseRow } from '../browse-row';
-import { BrowserFilters } from '../browser-filters/browser-filters.component';
 import type { ContentBrowserEntry, ContentBrowserList } from '../browser-list';
 import { BrowserRows } from '../browser-rows/browser-rows.component';
-import { BrowserSearch } from '../browser-search/browser-search.component';
 import { ContentBrowserTier } from '../browser-state';
 import type { ContentBrowserState, ContentEntryRef } from '../browser-state';
+import { BrowserToolbar } from '../browser-toolbar/browser-toolbar.component';
 import { ContentEntryView } from '../entry-view/content-entry-view.component';
 import { tierRegions } from '../tier-regions';
 import type { TierRegions } from '../tier-regions';
@@ -40,9 +40,8 @@ const LOADING_ROWS = ['first', 'second', 'third', 'fourth'];
     AsyncData,
     AsyncPending,
     AsyncRegion,
-    BrowserFilters,
     BrowserRows,
-    BrowserSearch,
+    BrowserToolbar,
     Button,
     ContentEntryView,
     Skeleton,
@@ -55,17 +54,19 @@ const LOADING_ROWS = ['first', 'second', 'third', 'fourth'];
 export class ContentBrowserView {
   public readonly tier = input.required<ContentBrowserTier>();
   public readonly state = model.required<ContentBrowserState>();
-  public readonly kindOptions = input.required<readonly SelectOption<ContentKind>[]>();
+  public readonly kindOptions = input.required<ReadonlyArray<SelectOption<ContentKind>>>();
   /** What the filter bar offers. */
-  public readonly fields = input.required<readonly FilterField[]>();
+  public readonly fields = input.required<ReadonlyArray<FilterField>>();
   /** What the filters mean for the list's facets. */
   public readonly facetState = input.required<FilterState>();
   public readonly list = input.required<AsyncQuery<ContentBrowserList>>();
   public readonly entry = input.required<AsyncQuery<ContentBrowserEntry>>();
-  public readonly columns = input.required<readonly TableColumn<BrowseRow>[]>();
+  public readonly columns = input.required<ReadonlyArray<TableColumn<BrowseRow>>>();
   /** The table's sort and hidden columns, which only the page tier has. */
-  public readonly sorting = model<readonly TableViewSort[]>([]);
-  public readonly hidden = model<readonly string[] | undefined>(undefined);
+  public readonly sorting = model<ReadonlyArray<TableViewSort>>([]);
+  public readonly hidden = model<ReadonlyArray<string> | undefined>(undefined);
+  /** The table's row spacing, which only the page tier has. */
+  public readonly density = model<TableDensity>(TableDensity.Comfortable);
   /** The facet panel changed a filter. */
   public readonly facetChange = output<FilterState>();
   /** "Show more" was pressed. */
@@ -77,6 +78,10 @@ export class ContentBrowserView {
   /** The entry shows when one is picked, and always where there is no list to fall back to. */
   protected readonly showEntry = computed(
     () => this.regions().entry && (this.state().selected !== undefined || !this.regions().list),
+  );
+  /** The loaded list while the list region shows: the toolbar's filters and count come from it. */
+  protected readonly listShown: Signal<ContentBrowserList | undefined> = computed(() =>
+    this.regions().list && !this.showEntry() ? this.list().data() : undefined,
   );
   protected readonly headingLevel = computed(() =>
     this.tier() === ContentBrowserTier.Page ? HeadingLevel.Two : HeadingLevel.Three,

@@ -9,7 +9,7 @@ import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
  * browser, so a kind seen before needs no request and the list works offline.
  */
 export function injectBrowseRegistry(
-  kinds: () => readonly ContentKind[] | undefined,
+  kinds: () => ReadonlyArray<ContentKind> | undefined,
 ): CreateQueryResult<ContentRegistry> {
   const loader = inject(ContentLoader);
   const scope = inject(CONTENT_SCOPE);

@@ -9,7 +9,7 @@ export interface BodyFontRow {
 }
 
 /** The one column of the font picker: the font's name. */
-export function bodyFontColumns(header: string): readonly TableColumn<BodyFontRow>[] {
+export function bodyFontColumns(header: string): ReadonlyArray<TableColumn<BodyFontRow>> {
   return tableSchema<BodyFontRow>()
     .addText({ id: 'name', header, value: (row) => row.name, width: 'md' })
     .build();

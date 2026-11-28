@@ -47,10 +47,10 @@ interface SenseFields extends RuleJson {
   sense: ContentId;
   acuity?: string;
   range?: number;
-  predicate?: readonly JsonValue[];
+  predicate?: ReadonlyArray<JsonValue>;
 }
 
-function rulesOf(elements: readonly Placed[]): RuleInPlay[] {
+function rulesOf(elements: ReadonlyArray<Placed>): Array<RuleInPlay> {
   return elements.map(({ sense, acuity, range, gated }, rule) => {
     const element: SenseFields = { key: 'Sense', sense };
 
@@ -88,11 +88,11 @@ function beats(left: Reading, right: Reading): boolean {
 }
 
 /** Each sense as `id acuity reach`, one line per distinct reading. */
-function linesOf(readings: readonly Reading[]): string[] {
+function linesOf(readings: ReadonlyArray<Reading>): Array<string> {
   return [...new Set(readings.map(({ sense, acuity, reach }) => `${sense} ${acuity} ${reach}`))].toSorted();
 }
 
-function sensesOf(elements: readonly Placed[]): string[] {
+function sensesOf(elements: ReadonlyArray<Placed>): Array<string> {
   const senses = sensesInPlay({ rules: rulesOf(elements), facts });
 
   return linesOf(

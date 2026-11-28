@@ -40,13 +40,13 @@ function selectorOf(
  * those, a selector of its own pick: the rest of its rules read the character's roll options, which the first take
  * already put in play, and would count twice.
  */
-export function resolvedRules(resolution: GrantResolution): readonly ResolvedRule[] {
+export function resolvedRules(resolution: GrantResolution): ReadonlyArray<ResolvedRule> {
   const picks = new Map(
     resolution.answered.map(({ origin, take, flag, pick }) => [pickKey(origin.entry, take, flag), pick]),
   );
 
   return resolution.items.flatMap(({ entry, origin, take }) =>
-    entry.rules.flatMap((element, index): ResolvedRule[] => {
+    entry.rules.flatMap((element, index): Array<ResolvedRule> => {
       const rule = RuleIndex.parse(index);
 
       if (element.key !== RuleElementKey.Proficiency || !isChoiceSelector(element.selector)) {

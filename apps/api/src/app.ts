@@ -21,7 +21,7 @@ import { PioneerCharacterSnapshots } from './pioneer-character-snapshots';
 export type AppExtension = (identity: Identity) => AnyElysia;
 
 /** Composition root: the only place adapters, services and routes meet. */
-export function createApp(db: Database, env: Env, extensions: readonly AppExtension[] = []): AnyElysia {
+export function createApp(db: Database, env: Env, extensions: ReadonlyArray<AppExtension> = []): AnyElysia {
   const clock = systemClock;
   // Identity needs the character export for bug report snapshots, and the characters need identity's authenticator.
   const snapshots = new PioneerCharacterSnapshots();

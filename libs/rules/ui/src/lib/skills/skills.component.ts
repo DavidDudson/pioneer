@@ -44,7 +44,7 @@ const LORE_SUFFIX = /\s+Lore$/u;
 })
 export class SkillsView {
   /** Undefined while loading. */
-  public readonly statistics = input.required<readonly NamedStatistic[] | undefined>();
+  public readonly statistics = input.required<ReadonlyArray<NamedStatistic> | undefined>();
   /** Display names of the entries the breakdown lines come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   /** Names for what the breakdown lines' origin chains refer to beyond entries. */
@@ -59,7 +59,7 @@ export class SkillsView {
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
-  protected readonly options = computed((): readonly SelectOption<SkillsTab>[] => {
+  protected readonly options = computed((): ReadonlyArray<SelectOption<SkillsTab>> => {
     this.#messages();
 
     return [
@@ -72,7 +72,7 @@ export class SkillsView {
    * The statistics of the tab shown; undefined while they load. The Lores tab lists only the character's own: those it
    * has any rank in, not every Lore the content defines, each named without its "Lore" since the tab says it.
    */
-  protected readonly shown = computed((): readonly NamedStatistic[] | undefined => {
+  protected readonly shown = computed((): ReadonlyArray<NamedStatistic> | undefined => {
     const lores = this.tab() === SkillsTab.Lores;
 
     const own = this.statistics()?.filter(

@@ -46,7 +46,7 @@ const CompanionPickerMessage = {
 export class CompanionPicker {
   /** The feature that grants the companion, by name. */
   public readonly source = input.required<string>();
-  public readonly options = input.required<readonly CompanionSpeciesOption[]>();
+  public readonly options = input.required<ReadonlyArray<CompanionSpeciesOption>>();
   /** The species picked, by its value; undefined until one is. */
   public readonly picked = model<string | undefined>(undefined);
   public readonly name = model('');
@@ -57,7 +57,7 @@ export class CompanionPicker {
 
   protected readonly Message = CompanionPickerMessage;
 
-  protected readonly selectOptions = computed((): readonly SelectOption<string>[] =>
+  protected readonly selectOptions = computed((): ReadonlyArray<SelectOption<string>> =>
     this.options().map(({ value, label }) => ({ value, label })),
   );
 

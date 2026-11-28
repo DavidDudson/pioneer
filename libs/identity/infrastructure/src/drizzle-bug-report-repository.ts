@@ -51,7 +51,7 @@ export class DrizzleBugReportRepository extends BugReportRepository {
     return row?.total ?? 0;
   }
 
-  public override async list(limit: number): Promise<BugReportListItem[]> {
+  public override async list(limit: number): Promise<Array<BugReportListItem>> {
     const rows = await this.#db
       .select({ report: bugReports, reporterName: users.displayName })
       .from(bugReports)

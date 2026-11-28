@@ -31,7 +31,7 @@ interface EnergyRune {
 }
 
 /** The extra damage each energy rune adds: one `d6` of its type, and the persistent dice on a critical hit. Greater grades ignore resistance. */
-const ENERGY_RUNES: readonly EnergyRune[] = [
+const ENERGY_RUNES: ReadonlyArray<EnergyRune> = [
   { slug: 'rune:corrosive', type: 'acid' },
   { slug: 'rune:corrosive-greater', type: 'acid' },
   { slug: 'rune:flaming', type: 'fire', persistent: 1 },
@@ -45,7 +45,7 @@ const ENERGY_RUNES: readonly EnergyRune[] = [
 ];
 
 /** The rules an energy rune is expected to carry. */
-function expectedRules({ slug, type, persistent }: EnergyRune): readonly object[] {
+function expectedRules({ slug, type, persistent }: EnergyRune): ReadonlyArray<object> {
   const ignores = slug.endsWith('-greater') ? { ignoreResistance: true } : {};
   const extra = { key: 'DamageDice', selectors: [ETCHED_DAMAGE], damageType: type, ...ignores };
 

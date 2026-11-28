@@ -32,9 +32,9 @@ export interface PageHits {
   readonly count: number;
   readonly pages: ReadonlyMap<AonUrl, PageNumber>;
   /** Every hit that is one named entry, with or without a page. */
-  readonly entries: readonly AonListedEntry[];
+  readonly entries: ReadonlyArray<AonListedEntry>;
   /** Legacy entry URL to the URLs of the remaster entries AoN says replace it. */
-  readonly replacedBy: ReadonlyMap<AonUrl, readonly AonUrl[]>;
+  readonly replacedBy: ReadonlyMap<AonUrl, ReadonlyArray<AonUrl>>;
   readonly skipped: number;
 }
 
@@ -58,7 +58,11 @@ const DOCUMENT_ID = /^(?<category>[a-z-]+)-(?<number>\d+)$/u;
  * The URLs of the entries that replace the one at `url` (document `id`): its `remaster_id`s, in the same category,
  * so the page is the legacy entry's own. A replacement in another category is left out.
  */
-export function replacements(id: string | undefined, url: AonUrl, remasterIds: readonly string[]): readonly AonUrl[] {
+export function replacements(
+  id: string | undefined,
+  url: AonUrl,
+  remasterIds: ReadonlyArray<string>,
+): ReadonlyArray<AonUrl> {
   const category = DOCUMENT_ID.exec(id ?? '')?.groups?.['category'];
 
   const urls = remasterIds.flatMap((remasterId) => {
@@ -92,8 +96,8 @@ function readHit(source: z.infer<typeof Source>, sourceId: string): ReadHit {
 }
 
 /** Each hit's legacy URL with the URLs AoN says replace it. */
-function replacedByIn(hits: readonly z.infer<typeof Hit>[]): ReadonlyMap<AonUrl, readonly AonUrl[]> {
-  const replacedBy = new Map<AonUrl, readonly AonUrl[]>();
+function replacedByIn(hits: ReadonlyArray<z.infer<typeof Hit>>): ReadonlyMap<AonUrl, ReadonlyArray<AonUrl>> {
+  const replacedBy = new Map<AonUrl, ReadonlyArray<AonUrl>>();
 
   for (const { _id: id, _source: source } of hits) {
     const { data: url } = AonUrl.safeParse(`${ORIGIN}${source.url}`);
@@ -109,7 +113,7 @@ function replacedByIn(hits: readonly z.infer<typeof Hit>[]): ReadonlyMap<AonUrl,
 
 export function parseHits({ hits }: Answer, sourceId: string): PageHits {
   const pages = new Map<AonUrl, PageNumber>();
-  const entries: AonListedEntry[] = [];
+  const entries: Array<AonListedEntry> = [];
   let skipped = 0;
 
   for (const { _source: source } of hits.hits) {

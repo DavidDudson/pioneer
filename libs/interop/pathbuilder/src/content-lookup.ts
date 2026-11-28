@@ -1,6 +1,7 @@
 import { ContentKind, effectiveLicense, isLegacyLicense } from '@pioneer/rules/sdk';
 import type { ContentRegistry, ContentText, ExternalId } from '@pioneer/rules/sdk';
 import type { Uuid } from '@pioneer/shared/kernel';
+import { foldName } from '@pioneer/shared/utils';
 
 import { ImportKind, ImportKindSchema } from './import-kind';
 import type { PathbuilderName } from './import-kind';
@@ -30,27 +31,13 @@ export interface LookupEntry extends ContentMatch {
   readonly legacy?: boolean;
 }
 
-/**
- * Name as compared: case, accents, apostrophes and punctuation ignored, so "Healing Potion (Moderate)" meets
- * "Healing Potion, Moderate" and "Nature’s Reprisal" meets "Nature's Reprisal".
- */
-export function matchKey(name: string): string {
-  return name
-    .normalize('NFKD')
-    .replaceAll(/\p{Diacritic}/gu, '')
-    .replaceAll(/['’‘`]/gu, '')
-    .toLowerCase()
-    .replaceAll(/[^\p{Letter}\p{Number}]+/gu, ' ')
-    .trim();
-}
-
 /** Shortest name a typo is forgiven in; below this, one edit often makes a different word. */
 const MIN_FUZZY_LENGTH = 10;
 
 /** Pre-remaster names per kind, as match keys: legacy key to remaster key. */
 const LEGACY_KEYS: Partial<Record<ImportKind, ReadonlyMap<string, string>>> = {
-  [ImportKind.Item]: new Map(LEGACY_ITEM_NAMES.map(([legacy, remaster]) => [matchKey(legacy), matchKey(remaster)])),
-  [ImportKind.Spell]: new Map(LEGACY_SPELL_NAMES.map(([legacy, remaster]) => [matchKey(legacy), matchKey(remaster)])),
+  [ImportKind.Item]: new Map(LEGACY_ITEM_NAMES.map(([legacy, remaster]) => [foldName(legacy), foldName(remaster)])),
+  [ImportKind.Spell]: new Map(LEGACY_SPELL_NAMES.map(([legacy, remaster]) => [foldName(legacy), foldName(remaster)])),
 };
 
 function digitsOf(key: string): string {
@@ -97,7 +84,7 @@ class NameIndex {
   readonly #byLegacyName = new Map<string, ContentMatch>();
   readonly #legacy: ReadonlyMap<string, string>;
 
-  public constructor(entries: readonly LookupEntry[], legacy: ReadonlyMap<string, string> = new Map()) {
+  public constructor(entries: ReadonlyArray<LookupEntry>, legacy: ReadonlyMap<string, string> = new Map()) {
     this.#legacy = legacy;
 
     for (const entry of entries) {
@@ -105,15 +92,15 @@ class NameIndex {
       const external = entry.externalIds?.pathbuilder;
 
       if (external !== undefined) {
-        this.#byExternal.set(matchKey(external), match);
+        this.#byExternal.set(foldName(external), match);
       }
 
-      (entry.legacy === true ? this.#byLegacyName : this.#byName).set(matchKey(entry.name), match);
+      (entry.legacy === true ? this.#byLegacyName : this.#byName).set(foldName(entry.name), match);
     }
   }
 
   public resolve(name: PathbuilderName): ContentMatch | undefined {
-    const key = matchKey(name);
+    const key = foldName(name);
 
     return this.#exact(key) ?? this.#exact(this.#legacy.get(key)) ?? this.#byLegacyName.get(key) ?? this.#nearby(key);
   }
@@ -141,7 +128,7 @@ class NameIndex {
 }
 
 /** A lookup over in-memory entries per kind; a kind left out is not loaded. */
-export function entryLookup(entries: Partial<Record<ImportKind, readonly LookupEntry[]>>): ContentLookup {
+export function entryLookup(entries: Partial<Record<ImportKind, ReadonlyArray<LookupEntry>>>): ContentLookup {
   const indexes = new Map(
     Object.entries(entries).map(
       ([kind, list]) =>
@@ -156,9 +143,9 @@ export function entryLookup(entries: Partial<Record<ImportKind, readonly LookupE
 }
 
 /** The packs' envelope entries of any of `kinds`, as lookup entries. */
-function envelopeEntries(registry: ContentRegistry, ...kinds: readonly ContentKind[]): LookupEntry[] {
+function envelopeEntries(registry: ContentRegistry, ...kinds: ReadonlyArray<ContentKind>): Array<LookupEntry> {
   return registry.packs.flatMap((pack) =>
-    pack.otherEntries.flatMap((entry): LookupEntry[] => {
+    pack.otherEntries.flatMap((entry): Array<LookupEntry> => {
       if (!kinds.includes(entry.kind)) {
         return [];
       }

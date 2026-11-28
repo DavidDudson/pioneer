@@ -34,9 +34,9 @@ import { wordSense } from './word-sense';
 })
 export class SensesView {
   /** Undefined while loading: the panel then shows a skeleton. */
-  public readonly senses = input.required<readonly SenseInPlay[] | undefined>();
+  public readonly senses = input.required<ReadonlyArray<SenseInPlay> | undefined>();
   /** The senses the character has without its battle form, when the form replaced them; none otherwise. */
-  public readonly own = input<readonly SenseInPlay[]>([]);
+  public readonly own = input<ReadonlyArray<SenseInPlay>>([]);
   /** Display names of the senses and of the entries the origins come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   /** Names for what the origin chains refer to beyond entries: users, slots, items, events and packs. */

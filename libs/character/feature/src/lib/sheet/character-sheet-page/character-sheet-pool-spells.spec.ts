@@ -45,12 +45,12 @@ async function preparedOf(root: HTMLElement): Promise<HTMLElement> {
   return vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-sheet-prepared-spells')));
 }
 
-function headingsIn(prepared: HTMLElement): string[] {
+function headingsIn(prepared: HTMLElement): Array<string> {
   return [...prepared.querySelectorAll('fr-heading')].map((heading) => textOf(heading));
 }
 
 /** The labels of the inline pickers within `root`. */
-function pickerLabels(root: HTMLElement): string[] {
+function pickerLabels(root: HTMLElement): Array<string> {
   return [...root.querySelectorAll('fr-inline-field')].map((field) => textOf(present(field.querySelector('fr-text'))));
 }
 

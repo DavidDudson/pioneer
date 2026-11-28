@@ -35,7 +35,7 @@ const BUDGET_MS = 1;
 const spellId = (index: number): ContentId =>
   ContentId.parse(`00000000-0000-4000-8000-${String(index).padStart(12, '0')}`);
 
-function spells(): readonly SpellOption[] {
+function spells(): ReadonlyArray<SpellOption> {
   return Array.from({ length: SPELLS }, (_value, index): SpellOption => ({
     id: spellId(index),
     name: ContentText.parse(`Spell ${index}`),

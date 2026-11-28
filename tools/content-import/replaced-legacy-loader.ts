@@ -17,7 +17,7 @@ const Listed = z.looseObject({ entries: z.array(AonListedEntry) });
 const AON = path.resolve(import.meta.dir, '..', '..', 'content', 'aon');
 
 /** The entries of an AoN file that lists them, or none when the file is absent. */
-async function listed(file: string): Promise<readonly AonListedEntry[]> {
+async function listed(file: string): Promise<ReadonlyArray<AonListedEntry>> {
   const source = Bun.file(file);
   const present = await source.exists();
 
@@ -36,7 +36,7 @@ async function namesOf(book: string): Promise<ReadonlyMap<AonUrl, string>> {
 export async function loadReplacedLegacy(): Promise<ReplacedLegacy> {
   const files = await Array.fromAsync(new Glob('*.json').scan({ cwd: path.join(AON, 'supersedes') }));
 
-  const books: BookReplacements[] = await Promise.all(
+  const books: Array<BookReplacements> = await Promise.all(
     files.map(async (file) => {
       const book = path.basename(file, '.json');
       const { replacedBy } = AonSupersedesFile.parse(await Bun.file(path.join(AON, 'supersedes', file)).json());

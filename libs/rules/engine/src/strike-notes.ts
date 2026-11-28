@@ -22,12 +22,12 @@ export interface StrikeNote {
   readonly title: ContentText | undefined;
   readonly text: RichText;
   /** The degrees of success it shows on; undefined for all of them. */
-  readonly outcome: readonly DegreeOfSuccess[] | undefined;
+  readonly outcome: ReadonlyArray<DegreeOfSuccess> | undefined;
   readonly origin: Origin;
 }
 
 /** The notes of one `Note` element, for each of the Strike's rolls it reaches. */
-function notesOf(rule: RuleInPlay, element: NoteElement, targets: StrikeTargets): StrikeNote[] {
+function notesOf(rule: RuleInPlay, element: NoteElement, targets: StrikeTargets): Array<StrikeNote> {
   const { selectors, title, text, outcome } = element;
   const note = { title, text, outcome, origin: rule.origin };
   const owns = ownsStrike(rule, targets);
@@ -63,10 +63,10 @@ function specializationText(element: CriticalSpecializationElement, { group }: S
  * one only to the weapon it is etched onto.
  */
 function withCriticalSpecialization(
-  notes: readonly StrikeNote[],
+  notes: ReadonlyArray<StrikeNote>,
   rule: SpecializingRule,
   targets: StrikeTargets,
-): readonly StrikeNote[] {
+): ReadonlyArray<StrikeNote> {
   const { element } = rule;
 
   if (element.etched === true && !ownsStrike(rule, targets)) {
@@ -94,7 +94,11 @@ function withCriticalSpecialization(
 }
 
 /** `notes` with what `rule` adds to them: the notes of a `Note` element, or a group's critical specialization. */
-export function notedBy(notes: readonly StrikeNote[], rule: RuleInPlay, targets: StrikeTargets): readonly StrikeNote[] {
+export function notedBy(
+  notes: ReadonlyArray<StrikeNote>,
+  rule: RuleInPlay,
+  targets: StrikeTargets,
+): ReadonlyArray<StrikeNote> {
   const { element } = rule;
 
   if (element.key === RuleElementKey.Note) {

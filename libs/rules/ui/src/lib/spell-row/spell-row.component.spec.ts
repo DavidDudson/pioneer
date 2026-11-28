@@ -81,7 +81,7 @@ function textOf(fixture: ComponentFixture<SpellRow>): string {
   return (fixture.nativeElement as HTMLElement).textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
-function buttons(fixture: ComponentFixture<SpellRow>): HTMLButtonElement[] {
+function buttons(fixture: ComponentFixture<SpellRow>): Array<HTMLButtonElement> {
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')];
 }

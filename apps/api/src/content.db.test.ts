@@ -60,14 +60,14 @@ interface AncestryEntryJson {
   readonly slug: string;
   readonly name: string;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly object[];
-  readonly description: readonly object[];
-  readonly rules: readonly object[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<object>;
+  readonly description: ReadonlyArray<object>;
+  readonly rules: ReadonlyArray<object>;
   readonly data: object;
 }
 
-function ancestryEntry(slug: string, name: string, description: readonly object[] = []): AncestryEntryJson {
+function ancestryEntry(slug: string, name: string, description: ReadonlyArray<object> = []): AncestryEntryJson {
   return {
     id: contentId(PACK, EntrySlug.parse(`ancestry:${slug}`)),
     pack: PACK,
@@ -92,7 +92,7 @@ function ancestryEntry(slug: string, name: string, description: readonly object[
   };
 }
 
-function ancestryPack(name: string, description: readonly object[] = []): PackContents {
+function ancestryPack(name: string, description: ReadonlyArray<object> = []): PackContents {
   const packFile = { id: PACK, title: 'Test Pack', publisher: 'Pioneer', license: 'homebrew' };
 
   return packContentsFromFiles(packFile, [[ancestryEntry('dwarf', name, description)]]);
@@ -202,7 +202,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
 
     const dwarf = AncestryId.parse(contentId(PACK, EntrySlug.parse('ancestry:dwarf')));
     // SAFETY: the mechanics route answers with a JSON array of entries; only its length is read.
-    const entries = (await mechanicsResponse.json()) as readonly object[];
+    const entries = (await mechanicsResponse.json()) as ReadonlyArray<object>;
     expect(entries).toHaveLength(1);
     expect(entries[0]).not.toHaveProperty('name');
     expect(entries[0]).not.toHaveProperty('description');

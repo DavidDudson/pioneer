@@ -1,7 +1,7 @@
 import { grantLookup, resolveGrants } from '@pioneer/rules/grants';
 import type { ContentLookup, GrantResolution, GrantRoot, OwnedItem, RootSlotDefinition } from '@pioneer/rules/grants';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
-import { LEGACY_CONTENT_VARIANT, Level, SlotKey } from '@pioneer/rules/sdk';
+import { LEGACY_CONTENT_VARIANT, Level, SlotKey, VariantStructure } from '@pioneer/rules/sdk';
 import type {
   AttributeModifiers,
   ChoiceValue,
@@ -43,22 +43,27 @@ export interface SlotContent {
   readonly lookup: ContentLookup;
   readonly namespaces: NamespaceTable;
   /** The slots the character has itself: the second class's too while Dual Class is in force. */
-  readonly rootSlots: readonly RootSlotDefinition[];
+  readonly rootSlots: ReadonlyArray<RootSlotDefinition>;
   /** The variant rules in force that add slots of their own (Free Archetype's feat slots), as grant roots. */
-  readonly variantRoots: readonly GrantRoot[];
+  readonly variantRoots: ReadonlyArray<GrantRoot>;
   readonly boosts: BoostContent;
   readonly skills: SkillContent;
   readonly languages: LanguageContent;
   readonly spells: SpellContent;
   readonly feats: FeatContent;
   /** The roll options a roll supplies (an initiative roll's), which the facts every predicate reads include. */
-  readonly situation?: readonly RollOption[] | undefined;
+  readonly situation?: ReadonlyArray<RollOption> | undefined;
   /** The kinds of companion the character has live (ADR-0079). */
-  readonly companions?: readonly CompanionKind[] | undefined;
+  readonly companions?: ReadonlyArray<CompanionKind> | undefined;
   /** The items the loaded packs offer, which the character's inventory is read against; none when absent. */
   readonly items?: ItemContent | undefined;
   /** The runes the loaded packs offer, which a shifting weapon's property runes are read against; none when absent. */
   readonly runes?: RuneContent | undefined;
+}
+
+/** Whether a variant in force spreads the free boosts over the levels (Gradual Attribute Boosts). */
+function gradualBoosts(variants: ReadonlyArray<VariantRuleEntry>): boolean {
+  return variants.some(({ definition }) => definition.structure?.includes(VariantStructure.GradualBoosts) === true);
 }
 
 /**
@@ -67,7 +72,7 @@ export interface SlotContent {
  */
 export function slotContent(
   registry: ContentRegistry,
-  variants: readonly VariantRuleEntry[] = [],
+  variants: ReadonlyArray<VariantRuleEntry> = [],
   legacyContent = variants.some((variant) => variant.id === LEGACY_CONTENT_VARIANT),
 ): SlotContent {
   const rootSlots = characterRootSlots(variants);
@@ -78,7 +83,7 @@ export function slotContent(
     namespaces: registry.rollOptionNamespaces(),
     rootSlots,
     variantRoots: variantGrantRoots(variants),
-    boosts: boostContent(registry, rootSlots, () => lookup),
+    boosts: boostContent(registry, { rootSlots, lookup: () => lookup, gradual: gradualBoosts(variants) }),
     skills: skillContent(registry),
     languages: languageContent(registry),
     spells: spellContent(registry),
@@ -92,7 +97,7 @@ export function slotContent(
 export interface SlotContext extends SlotContent {
   readonly picks: ReadonlyMap<SlotKey, ChoiceValue>;
   /** The items the character owns, which a `ChoiceSet` over owned items offers. */
-  readonly owned?: readonly OwnedItem[] | undefined;
+  readonly owned?: ReadonlyArray<OwnedItem> | undefined;
   /** The character's attribute modifiers at a level, which the engine sets `attribute:str:mod:2` from. */
   readonly modifiersAt?: ((level: Level) => AttributeModifiers) | undefined;
 }
@@ -140,7 +145,7 @@ export function attributesAt(document: CharacterDocument, content: SlotContent):
 }
 
 /** `content` read for a character that has a live companion of each of `companions` (ADR-0079). */
-export function withCompanions(content: SlotContent, companions: readonly CompanionKind[]): SlotContent {
+export function withCompanions(content: SlotContent, companions: ReadonlyArray<CompanionKind>): SlotContent {
   return companions.length === 0 ? content : { ...content, companions };
 }
 

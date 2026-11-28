@@ -3,7 +3,7 @@ import * as z from 'zod';
 const SEPARATOR = ',';
 
 const CommaSeparated = z.codec(z.string(), z.array(z.string()), {
-  decode: (text): string[] => (text === '' ? [] : text.split(SEPARATOR)),
+  decode: (text): Array<string> => (text === '' ? [] : text.split(SEPARATOR)),
   encode: (items): string => items.join(SEPARATOR),
 });
 

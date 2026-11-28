@@ -11,7 +11,7 @@ export interface LegalBook {
 }
 
 /** Every book in the registry, in registry order. */
-export const LEGAL_BOOKS: readonly LegalBook[] = bookRegistry.books.map((book) => ({
+export const LEGAL_BOOKS: ReadonlyArray<LegalBook> = bookRegistry.books.map((book) => ({
   id: book.id,
   titleKey: bookTitle(book.id),
   publisherKey: PUBLISHER_LABELS[book.publisher],

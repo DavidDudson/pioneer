@@ -49,7 +49,7 @@ const acknowledgedOnce = {
 
 interface ApprovalsBody {
   readonly acknowledgeable: boolean;
-  readonly approvals: readonly object[];
+  readonly approvals: ReadonlyArray<object>;
 }
 
 /** The write invalidates the approvals, so the panel asks for them again: answer that read. */

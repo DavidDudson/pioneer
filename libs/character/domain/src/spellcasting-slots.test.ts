@@ -54,7 +54,7 @@ function slotsOf(builder: CharacterBuilder): string | undefined {
 }
 
 /** The first entry's pools, each as its slug and its slots as written. */
-function poolsOf(builder: CharacterBuilder): string[][] {
+function poolsOf(builder: CharacterBuilder): Array<Array<string>> {
   return (entryOf(builder)?.pools ?? []).map((pool) => [pool.pool, written(pool)]);
 }
 
@@ -62,7 +62,7 @@ function poolsOf(builder: CharacterBuilder): string[][] {
  * Player Core's spells per day, which the bard, cleric, druid, witch and wizard tables share, by level: cantrips, then
  * slots of each rank.
  */
-const SPELLS_PER_DAY: readonly (readonly [number, string])[] = [
+const SPELLS_PER_DAY: ReadonlyArray<readonly [number, string]> = [
   [1, '5 | 1:2'],
   [2, '5 | 1:3'],
   [3, '5 | 1:3 2:2'],

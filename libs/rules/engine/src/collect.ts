@@ -20,7 +20,7 @@ const ALL = Domain.parse('all');
  * Whether any of `targets` reaches the statistic: its selector, one of its domains, or `all`. `all` means every check
  * and DC, so a value such as Hit Points or a Speed is not reached by it.
  */
-export function reaches(targets: readonly ModifierTarget[], definition: StatisticDefinition): boolean {
+export function reaches(targets: ReadonlyArray<ModifierTarget>, definition: StatisticDefinition): boolean {
   const everything = definition.kind === StatisticKind.Value ? [] : [ALL];
   const reached: ReadonlySet<string> = new Set([definition.selector, ...everything, ...definition.domains]);
 
@@ -45,10 +45,10 @@ type Step =
 /** Collects, adjusts, gates and stacks the modifiers that reach one statistic. */
 class Collection {
   readonly #context: RuleContext;
-  readonly #adjustments: readonly Adjustment[];
+  readonly #adjustments: ReadonlyArray<Adjustment>;
   readonly #situation: ReadonlySet<RuleId>;
 
-  public constructor(context: RuleContext, adjustments: readonly Adjustment[], situation: ReadonlySet<RuleId>) {
+  public constructor(context: RuleContext, adjustments: ReadonlyArray<Adjustment>, situation: ReadonlySet<RuleId>) {
     this.#context = context;
     this.#adjustments = adjustments;
     this.#situation = situation;
@@ -70,7 +70,7 @@ class Collection {
   #adjust(source: ModifierSource, written: FormulaValue): BreakdownLine {
     const { modifier } = source;
     let value = written;
-    const adjustedBy: RuleId[] = [];
+    const adjustedBy: Array<RuleId> = [];
 
     for (const adjustment of this.#adjustments.filter(({ slug }) => slug === undefined || slug === modifier.slug)) {
       adjustedBy.push(adjustment.id);
@@ -164,7 +164,7 @@ export function collectLines(
   definition: StatisticDefinition,
   rules: ModifierRules,
   { situation, ...context }: CollectContext,
-): readonly BreakdownLine[] {
+): ReadonlyArray<BreakdownLine> {
   const reaching = rules.adjustments.filter((adjustment) => reaches(adjustment.targets, definition));
 
   const adjustments = reaching

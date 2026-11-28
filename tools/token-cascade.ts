@@ -10,7 +10,7 @@ import type { Rule } from 'postcss';
 
 /** Custom properties set by one `:root…` rule. */
 export interface TokenRule {
-  readonly conditions: readonly AttributeCondition[];
+  readonly conditions: ReadonlyArray<AttributeCondition>;
   readonly specificity: number;
   readonly declarations: ReadonlyMap<string, string>;
 }
@@ -27,7 +27,7 @@ const ROOT = ':root';
 const CONDITION = /(?<not>:not\()?\[(?<name>[\w-]+)=['"]?(?<value>[\w-]+)['"]?\]\)?/gu;
 
 /** The attribute conditions of `:root[…]:not([…])`, or undefined for any other selector. */
-function parseRootSelector(selector: string): readonly AttributeCondition[] | undefined {
+function parseRootSelector(selector: string): ReadonlyArray<AttributeCondition> | undefined {
   const compact = selector.trim();
 
   if (!compact.startsWith(ROOT)) {
@@ -50,6 +50,9 @@ function parseRootSelector(selector: string): readonly AttributeCondition[] | un
 
 const TOKEN_PREFIX = '--fr-';
 
+/** Token families that no contrast pair reads (sizes, the status arc's animated angle), so a nested rule may set them: the check can skip it safely. */
+const NON_COLOUR_PREFIXES: ReadonlyArray<string> = ['--fr-size-', '--fr-status-angle'];
+
 /** The custom properties a rule sets itself, not those of rules nested in it. */
 function ownDeclarations(rule: Rule): Map<string, string> {
   const declarations = new Map<string, string>();
@@ -64,7 +67,7 @@ function ownDeclarations(rule: Rule): Map<string, string> {
 }
 
 /** One rule's token rules, or none when it sets no custom properties. */
-function tokenRulesOf(rule: Rule): TokenRule[] {
+function tokenRulesOf(rule: Rule): Array<TokenRule> {
   const declarations = ownDeclarations(rule);
 
   if (declarations.size === 0) {
@@ -74,6 +77,14 @@ function tokenRulesOf(rule: Rule): TokenRule[] {
   const nested = rule.parent?.type !== 'root';
   const conditionSets = rule.selectors.map(parseRootSelector);
   const setsTokens = [...declarations.keys()].some((name) => name.startsWith(TOKEN_PREFIX));
+
+  const setsOnlyNonColour = [...declarations.keys()].every((name) =>
+    NON_COLOUR_PREFIXES.some((prefix) => name.startsWith(prefix)),
+  );
+
+  if (nested && setsOnlyNonColour) {
+    return [];
+  }
 
   if (setsTokens && (nested || conditionSets.includes(undefined))) {
     throw new Error(
@@ -90,11 +101,11 @@ function tokenRulesOf(rule: Rule): TokenRule[] {
 /**
  * The `:root…` rules of each stylesheet, in order. A rule that sets `--fr-*` tokens anywhere else (another
  * selector, a combinator, nesting, inside `@media` or `@layer`) throws: skipping it would let the check
- * measure tokens the browser never uses.
+ * measure tokens the browser never uses. Nested rules that set only non-colour tokens (`--fr-size-*`, `--fr-status-angle`) are skipped.
  */
-export function parseTokenRules(stylesheets: readonly string[]): TokenRule[] {
+export function parseTokenRules(stylesheets: ReadonlyArray<string>): Array<TokenRule> {
   return stylesheets.flatMap((css) => {
-    const rules: TokenRule[] = [];
+    const rules: Array<TokenRule> = [];
     parse(css).walkRules((rule) => {
       rules.push(...tokenRulesOf(rule));
     });
@@ -108,7 +119,7 @@ function matches(rule: TokenRule, attributes: Attributes): boolean {
 }
 
 /** The custom properties `<html>` ends up with for these attributes. */
-export function cascade(rules: readonly TokenRule[], attributes: Attributes): ReadonlyMap<string, string> {
+export function cascade(rules: ReadonlyArray<TokenRule>, attributes: Attributes): ReadonlyMap<string, string> {
   const applied = rules
     .values()
     .map((rule, order) => ({ rule, order }))
@@ -130,7 +141,11 @@ export function cascade(rules: readonly TokenRule[], attributes: Attributes): Re
 const VAR_OPEN = 'var(';
 
 /** A token's value with every `var()` substituted. Throws on an undefined token or a cycle. */
-export function resolveToken(tokens: ReadonlyMap<string, string>, name: string, seen: readonly string[] = []): string {
+export function resolveToken(
+  tokens: ReadonlyMap<string, string>,
+  name: string,
+  seen: ReadonlyArray<string> = [],
+): string {
   if (seen.includes(name)) {
     throw new Error(`${[...seen, name].join(' -> ')} is a cycle`);
   }
@@ -196,7 +211,7 @@ function scanArguments(value: string, from: number): ArgumentScan {
 }
 
 /** Substitutes each `var()`; a fallback is read only when its token is undefined, as in CSS. */
-function substituteReferences(tokens: ReadonlyMap<string, string>, value: string, seen: readonly string[]): string {
+function substituteReferences(tokens: ReadonlyMap<string, string>, value: string, seen: ReadonlyArray<string>): string {
   const reference = findVarReference(value);
 
   if (reference === undefined) {

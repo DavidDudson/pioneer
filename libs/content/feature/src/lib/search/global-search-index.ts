@@ -14,7 +14,7 @@ import { registryEntries, traitNamesOf } from '../entry/entry-lookup';
 type IndexedKind = BrowseKind | typeof ContentKind.Trait;
 
 /** The trait vocabulary first, so tags are named before the entries that carry them load. */
-const INDEXED_KINDS: readonly IndexedKind[] = [ContentKind.Trait, ...BROWSE_KINDS];
+const INDEXED_KINDS: ReadonlyArray<IndexedKind> = [ContentKind.Trait, ...BROWSE_KINDS];
 
 /**
  * The entries, official and in the homebrew packs in scope, the global search matches names in, loaded one kind at a time when the browser is idle. A
@@ -33,7 +33,7 @@ export class GlobalSearchIndex {
   #running = false;
 
   /** The entries loaded so far, and by id. */
-  public readonly entries = computed<readonly ContentEntry[]>(() => [...this.#byId().values()]);
+  public readonly entries = computed<ReadonlyArray<ContentEntry>>(() => [...this.#byId().values()]);
   public readonly byId = this.#byId.asReadonly();
   /** The name of each trait loaded, for the tags an option shows; traits are named here, never listed as results. */
   public readonly traitNames = this.#traitNames.asReadonly();

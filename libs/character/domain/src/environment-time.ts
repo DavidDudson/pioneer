@@ -44,7 +44,7 @@ interface Passing {
 }
 
 /** `passing` moved on to `play`, with the `events` that led there. */
-function moved({ outcome, inputs }: Passing, play: PlayState, events: readonly TurnEvent[]): Passing {
+function moved({ outcome, inputs }: Passing, play: PlayState, events: ReadonlyArray<TurnEvent>): Passing {
   return { outcome: { play, events: [...outcome.events, ...events] }, inputs };
 }
 

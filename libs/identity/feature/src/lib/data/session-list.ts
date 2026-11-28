@@ -19,7 +19,7 @@ export class SessionList {
 
   public readonly list = injectQuery(() => ({
     queryKey: sessionListKey,
-    queryFn: async (): Promise<SessionSummary[]> =>
+    queryFn: async (): Promise<Array<SessionSummary>> =>
       this.#api.call(IdentityContract.sessions, { params: {}, body: undefined }),
     enabled: this.#session.user() !== undefined,
   }));
@@ -36,7 +36,7 @@ export class SessionList {
       return;
     }
 
-    this.#client.setQueryData<SessionSummary[]>(sessionListKey, (sessions) =>
+    this.#client.setQueryData<Array<SessionSummary>>(sessionListKey, (sessions) =>
       sessions?.filter((each) => each.id !== session.id),
     );
   }

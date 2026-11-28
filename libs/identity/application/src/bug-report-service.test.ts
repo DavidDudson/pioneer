@@ -53,7 +53,7 @@ interface Seeding {
 }
 
 async function seed({ repository, reporter, count, at }: Seeding): Promise<void> {
-  const stored: BugReport[] = Array.from({ length: count }, () => ({
+  const stored: Array<BugReport> = Array.from({ length: count }, () => ({
     ...SUBMISSION,
     id: BugReportId.parse(newId()),
     reporter,

@@ -28,7 +28,7 @@ function check(fields: JsonObject = {}): RuleJson {
   return { key: 'CriticalHitCheck', selectors: ['ac'], dc: FORTIFICATION_DC, ...fields };
 }
 
-function checks(rules: readonly RuleInPlay[]): readonly CriticalHitCheckLine[] {
+function checks(rules: ReadonlyArray<RuleInPlay>): ReadonlyArray<CriticalHitCheckLine> {
   return deriveDefences(content, inputs, { rules, facts }).criticalHitChecks;
 }
 

@@ -54,7 +54,7 @@ function cloisteredCleric(registry: ContentRegistry, level: number): CharacterBu
 }
 
 /** Each entry as its source and its statistics' names and totals. */
-function shown(lines: readonly SpellcastingEntryLine[]): string[][] {
+function shown(lines: ReadonlyArray<SpellcastingEntryLine>): Array<Array<string>> {
   return lines.map(({ source, statistics }) => [
     source,
     ...statistics.map(({ name, result }) => `${name} ${result.ok ? result.total : 'failed'}`),

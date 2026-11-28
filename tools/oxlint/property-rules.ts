@@ -53,7 +53,7 @@ export const maxPropertyRuns: Rule.RuleModule = {
     const max = options.success ? options.data.max : DEFAULT_MAX_PROPERTY_RUNS;
     const constants = new Map<string, number>();
     const redeclared = new Set<string>();
-    const properties: { readonly node: Rule.Node; readonly property: RunsProperty }[] = [];
+    const properties: Array<{ readonly node: Rule.Node; readonly property: RunsProperty }> = [];
 
     return {
       VariableDeclarator(node): void {

@@ -29,7 +29,7 @@ export class CampaignKeyItemHolder {
 
   protected readonly chosen = signal<string | undefined>(undefined);
   /** The party's characters, less the one holding the key item already. */
-  protected readonly options = computed((): readonly SelectOption<string>[] => {
+  protected readonly options = computed((): ReadonlyArray<SelectOption<string>> => {
     const { holder } = this.keyItem();
 
     return (this.#campaigns.party.data()?.characters ?? [])

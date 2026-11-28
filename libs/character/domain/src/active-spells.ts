@@ -109,29 +109,29 @@ function activeSpellWith(
 }
 
 /** `spells` without the spell `id`: dismissing a spell ends it and the effects it had. */
-export function withoutSpell(spells: readonly ActiveSpell[], id: ActiveSpellId): readonly ActiveSpell[] {
+export function withoutSpell(spells: ReadonlyArray<ActiveSpell>, id: ActiveSpellId): ReadonlyArray<ActiveSpell> {
   return spells.filter((spell) => spell.id !== id);
 }
 
 /** `spells` after the edit `command`. */
 export function applyActiveSpellCommand(
-  spells: readonly ActiveSpell[],
+  spells: ReadonlyArray<ActiveSpell>,
   { id }: ActiveSpellCommand,
-): readonly ActiveSpell[] {
+): ReadonlyArray<ActiveSpell> {
   return withoutSpell(spells, id);
 }
 
 /** The spell `id` among `spells`, if it is active. */
-export function activeSpellOf(spells: readonly ActiveSpell[], id: ActiveSpellId): ActiveSpell | undefined {
+export function activeSpellOf(spells: ReadonlyArray<ActiveSpell>, id: ActiveSpellId): ActiveSpell | undefined {
   return spells.find((spell) => spell.id === id);
 }
 
 /** `spells` with `spell` marked sustained this turn, or marked not (taking the sustain back). */
 export function withSustained(
-  spells: readonly ActiveSpell[],
+  spells: ReadonlyArray<ActiveSpell>,
   id: ActiveSpellId,
   sustainedThisTurn: boolean,
-): readonly ActiveSpell[] {
+): ReadonlyArray<ActiveSpell> {
   return spells.map((spell) => (spell.id === id ? activeSpellWith(spell, { sustainedThisTurn }) : spell));
 }
 
@@ -141,12 +141,12 @@ export function canSustain({ remaining }: ActiveSpell): boolean {
 }
 
 /** The spells End turn would end: those neither cast nor sustained since the last End turn. */
-export function lapsingSpells(spells: readonly ActiveSpell[]): readonly ActiveSpell[] {
+export function lapsingSpells(spells: ReadonlyArray<ActiveSpell>): ReadonlyArray<ActiveSpell> {
   return spells.filter((spell) => !spell.sustainedThisTurn);
 }
 
 /** `spells` after End turn: those that were not sustained are gone, and the rest must be sustained again next turn. */
-export function spellsAfterTurnEnd(spells: readonly ActiveSpell[]): readonly ActiveSpell[] {
+export function spellsAfterTurnEnd(spells: ReadonlyArray<ActiveSpell>): ReadonlyArray<ActiveSpell> {
   return spells
     .values()
     .filter((spell) => spell.sustainedThisTurn)
@@ -156,12 +156,12 @@ export function spellsAfterTurnEnd(spells: readonly ActiveSpell[]): readonly Act
 
 /** `spells` a round on at Start turn, and those whose rounds have run out, which are gone. */
 export interface CountedSpells {
-  readonly kept: readonly ActiveSpell[];
-  readonly ended: readonly ActiveSpell[];
+  readonly kept: ReadonlyArray<ActiveSpell>;
+  readonly ended: ReadonlyArray<ActiveSpell>;
 }
 
 /** Each spell counts down a round at Start turn; one on its last round has run out. */
-export function spellsCountedDown(spells: readonly ActiveSpell[]): CountedSpells {
+export function spellsCountedDown(spells: ReadonlyArray<ActiveSpell>): CountedSpells {
   const ended = spells.filter(({ remaining }) => remaining <= ONE_ROUND);
 
   const kept = spells

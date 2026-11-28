@@ -24,7 +24,7 @@ interface GearFields {
   readonly name: string;
   readonly level: number;
   readonly rarity?: string;
-  readonly traits?: readonly string[];
+  readonly traits?: ReadonlyArray<string>;
 }
 
 /** A Player Core piece of gear with its level, rarity and traits. */
@@ -68,7 +68,7 @@ const byName = (left: string, right: string): number => left.localeCompare(right
 const AVAILABLE = availableItems(Level.parse(2));
 const QUERY: ShopQuery = { search: '', state: AVAILABLE };
 
-const names = (query: Partial<ShopQuery> = {}): readonly string[] =>
+const names = (query: Partial<ShopQuery> = {}): ReadonlyArray<string> =>
   shopList(content, { ...QUERY, ...query }, byName).offers.map((offer) => offer.name);
 
 describe(shopList, () => {

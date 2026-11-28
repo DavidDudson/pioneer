@@ -8,7 +8,7 @@ import { RefreshableInput } from './refreshable-input.component';
 type Load = () => Promise<string>;
 
 /** A load that answers each call from the next of `answers`, in order. */
-function loadingFrom(answers: readonly Promise<string>[]): Load {
+function loadingFrom(answers: ReadonlyArray<Promise<string>>): Load {
   const remaining = [...answers];
 
   return async () => remaining.splice(0, 1)[0] ?? Promise.reject(new Error('No answer left'));
@@ -36,17 +36,29 @@ function element(fixture: ComponentFixture<RefreshableInput>, selector: string):
 }
 
 describe(RefreshableInput, () => {
-  it('loads when it appears and shows a spinner meanwhile', async () => {
+  it('loads when it appears and turns the border of the input meanwhile', async () => {
     const pending = Promise.withResolvers<string>();
     const fixture = render(loadingFrom([pending.promise]));
-    expect(element(fixture, 'fr-spinner').tagName).toBe('FR-SPINNER');
+    expect(element(fixture, 'fr-text-input').dataset['status']).toBe('pending');
     pending.resolve('Seelah');
     await vi.waitFor(() => {
       expect(fixture.componentInstance.value()).toBe('Seelah');
     });
     fixture.detectChanges();
     // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
-    expect((fixture.nativeElement as HTMLElement).querySelector('fr-spinner')).toBeNull();
+    expect(element(fixture, 'fr-text-input').dataset['status']).toBeUndefined();
+  });
+
+  it('flashes the border red when a load fails, and clears it on the next load', async () => {
+    const failure = Promise.reject(new Error('load failed'));
+    const fixture = render(loadingFrom([failure, Promise.resolve('Seelah')]));
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(element(fixture, 'fr-text-input').dataset['status']).toBe('error');
+    });
+    await fixture.componentInstance.refresh();
+    fixture.detectChanges();
+    expect(element(fixture, 'fr-text-input').dataset['status']).toBeUndefined();
   });
 
   it('loads again when refresh is pressed', async () => {

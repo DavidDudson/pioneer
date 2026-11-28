@@ -48,7 +48,7 @@ describe.skipIf(adminUrl === undefined)('seeded descriptions (postgres)', () => 
   }
 
   /** The pack's text rows, in the order of its entries' slugs. */
-  async function storedTexts(contents: PackContents): Promise<readonly TextRow[]> {
+  async function storedTexts(contents: PackContents): Promise<ReadonlyArray<TextRow>> {
     const rows = await database.db
       .select({ text: contentEntryTexts })
       .from(contentEntryTexts)

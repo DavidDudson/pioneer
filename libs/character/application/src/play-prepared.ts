@@ -15,7 +15,7 @@ export interface PreparedEdit {
 }
 
 /** The spells a daily preparations prepares in place of the build's; none for any other edit. */
-export function preparedPicksOf(command: PlayEdit): readonly PreparedPick[] {
+export function preparedPicksOf(command: PlayEdit): ReadonlyArray<PreparedPick> {
   return command.field === PlayCommandField.DailyPreparations ? (command.prepared ?? []) : [];
 }
 

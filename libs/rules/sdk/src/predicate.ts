@@ -28,17 +28,17 @@ export type PredicateComparison =
   | { readonly lte: ComparisonOperands };
 
 export type PredicateCompound =
-  | { readonly and: readonly PredicateStatement[] }
-  | { readonly or: readonly PredicateStatement[] }
-  | { readonly xor: readonly PredicateStatement[] }
-  | { readonly nand: readonly PredicateStatement[] }
-  | { readonly nor: readonly PredicateStatement[] }
-  | { readonly iff: readonly PredicateStatement[] }
+  | { readonly and: ReadonlyArray<PredicateStatement> }
+  | { readonly or: ReadonlyArray<PredicateStatement> }
+  | { readonly xor: ReadonlyArray<PredicateStatement> }
+  | { readonly nand: ReadonlyArray<PredicateStatement> }
+  | { readonly nor: ReadonlyArray<PredicateStatement> }
+  | { readonly iff: ReadonlyArray<PredicateStatement> }
   | { readonly not: PredicateStatement }
   | { readonly if: PredicateStatement; readonly then: PredicateStatement };
 
 /** Every statement in an array must hold; an empty array always holds. */
-export type Predicate = readonly PredicateStatement[];
+export type Predicate = ReadonlyArray<PredicateStatement>;
 
 /** Deepest JSON nesting a predicate may have (arrays and objects both count), so a parse can't exhaust the stack. */
 export const PREDICATE_DEPTH_MAX = 32;
@@ -99,14 +99,18 @@ export const PredicateStatement: z.ZodType<PredicateStatement> = depthGuarded(St
 /** A whole predicate: the statements that must all hold. */
 export const Predicate: z.ZodType<Predicate> = depthGuarded(z.array(Statement));
 
+/** `RollOption` and `PredicateNumber` compiled to fast paths: the guards below run for every statement evaluated. */
+const CompiledRollOption = z.compile(RollOption);
+const CompiledPredicateNumber = z.compile(PredicateNumber);
+
 /** Whether a statement is a bare roll option rather than a comparison or compound. */
 export function isRollOptionStatement(statement: PredicateStatement): statement is RollOption {
-  return RollOption.safeParse(statement).success;
+  return CompiledRollOption.validate(statement);
 }
 
 /** Whether a comparison's right operand is another roll option rather than a number. */
 export function isRollOptionOperand(operand: RollOption | PredicateNumber): operand is RollOption {
-  return !PredicateNumber.safeParse(operand).success;
+  return !CompiledPredicateNumber.validate(operand);
 }
 
 /** Whether a statement is a numeric or text comparison (`eq`, `gt`, `gte`, `lt`, `lte`) rather than an option or compound. */

@@ -4,7 +4,7 @@
  * Each school's curriculum, as its description's table lists it: its cantrips, then its spells of each rank from 1st to
  * 9th. Unified Magical Theory has none.
  */
-export const CURRICULA: ReadonlyMap<string, readonly (readonly string[])[]> = new Map([
+export const CURRICULA: ReadonlyMap<string, ReadonlyArray<ReadonlyArray<string>>> = new Map([
   [
     'school-of-ars-grammatica',
     [

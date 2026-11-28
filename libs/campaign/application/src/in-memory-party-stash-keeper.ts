@@ -24,7 +24,7 @@ export interface RecordedMove {
  * lines; the character context's `giveLine` does that, and has its own tests.
  */
 export class InMemoryPartyStashKeeper extends PartyStashKeeper {
-  public readonly moves: RecordedMove[] = [];
+  public readonly moves: Array<RecordedMove> = [];
   readonly #held = new Map<ReviewedItemId, { character: CharacterId | undefined; line: PartyStashLine }>();
 
   /** The character holds this line. */

@@ -22,7 +22,7 @@ export function present<TValue>(value: TValue | null | undefined): TValue {
 }
 
 /** Opens the playground; `providers` replace defaults such as the statistics loader. */
-export async function openPlayground(providers: readonly Provider[] = []): Promise<RouterTestingHarness> {
+export async function openPlayground(providers: ReadonlyArray<Provider> = []): Promise<RouterTestingHarness> {
   TestBed.configureTestingModule({
     providers: [
       ...providers,
@@ -94,7 +94,7 @@ export function secondTextArea(harness: RouterTestingHarness): HTMLTextAreaEleme
   return present(present(harness.routeNativeElement).querySelectorAll('textarea').item(1));
 }
 
-export function textAreas(harness: RouterTestingHarness): HTMLTextAreaElement[] {
+export function textAreas(harness: RouterTestingHarness): Array<HTMLTextAreaElement> {
   return [...present(harness.routeNativeElement).querySelectorAll('textarea')];
 }
 

@@ -13,15 +13,15 @@ export interface DeityPickerRow {
   /** Undefined when the deity sanctifies no one. */
   readonly sanctification: DeitySanctificationLine | undefined;
   /** The divine fonts a cleric of the deity gets; none for a philosophy. */
-  readonly fonts: readonly DivineFont[];
-  readonly domains: readonly DeityDomain[];
+  readonly fonts: ReadonlyArray<DivineFont>;
+  readonly domains: ReadonlyArray<DeityDomain>;
   /** Favoured weapons, by name. */
-  readonly favoredWeapons: readonly string[];
+  readonly favoredWeapons: ReadonlyArray<string>;
   /** Divine skills, by name. */
-  readonly skills: readonly string[];
+  readonly skills: ReadonlyArray<string>;
   /** Its description, which holds its edicts and anathema. */
   readonly description: RichText;
-  readonly sources: readonly SourceRef[];
+  readonly sources: ReadonlyArray<SourceRef>;
   /** Why the deity can't be picked, already translated; undefined when it can. */
   readonly disabledReason: string | undefined;
 }

@@ -69,7 +69,7 @@ function referenceProblem(
  * What stops `text` from being a stored formula whose references may read `scopes`: the parse error, or one
  * problem per reference the vocabulary does not know or the scopes leave out (ADR-0016). Empty when it is fine.
  */
-export function formulaProblems(text: FormulaText, scopes: ReadonlySet<ReferenceScope>): readonly FormulaProblem[] {
+export function formulaProblems(text: FormulaText, scopes: ReadonlySet<ReferenceScope>): ReadonlyArray<FormulaProblem> {
   const parsed = parseFormula(text);
 
   if (!parsed.ok) {
@@ -83,7 +83,7 @@ export function formulaProblems(text: FormulaText, scopes: ReadonlySet<Reference
  * The references in `text` the vocabulary knows but `scopes` leave out, one problem each; empty when it does not
  * parse. For a schema that checks the formula's vocabulary on the field and its scopes against a sibling field.
  */
-export function scopeProblems(text: FormulaText, scopes: ReadonlySet<ReferenceScope>): readonly FormulaProblem[] {
+export function scopeProblems(text: FormulaText, scopes: ReadonlySet<ReferenceScope>): ReadonlyArray<FormulaProblem> {
   const parsed = parseFormula(text);
 
   if (!parsed.ok) {
@@ -110,7 +110,7 @@ const ACTOR_SCOPES: ReadonlySet<ReferenceScope> = new Set([ReferenceScope.Actor]
 export function formulaIssues(
   text: FormulaText,
   scopes: ReadonlySet<ReferenceScope> = RULE_ELEMENT_SCOPES,
-): z.core.$ZodRawIssue[] {
+): Array<z.core.$ZodRawIssue> {
   return formulaProblems(text, scopes).map(({ error }) => {
     const { params } = issueParams(error);
 

@@ -16,11 +16,11 @@ export function paramText(query: TableViewQuery, key: string): string | undefine
 }
 
 /** The non-empty items of a comma-separated param. */
-export function listOf(text: string | undefined): readonly string[] {
+export function listOf(text: string | undefined): ReadonlyArray<string> {
   return text === undefined ? [] : text.split(LIST_SEPARATOR).filter((item) => item !== '');
 }
 
-export function listText(items: readonly string[]): string {
+export function listText(items: ReadonlyArray<string>): string {
   return items.join(LIST_SEPARATOR);
 }
 

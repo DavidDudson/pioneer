@@ -25,7 +25,7 @@ const OthersDraft = z.string().max(OTHERS_MAX_LENGTH);
 const SEPARATOR = ',';
 
 /** The names in a comma-separated list, without the blank ones. */
-function namesIn(list: string): readonly AuthorizedName[] {
+function namesIn(list: string): ReadonlyArray<AuthorizedName> {
   return list
     .split(SEPARATOR)
     .map((each) => each.trim())

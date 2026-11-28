@@ -14,7 +14,7 @@ export class AncestryOptions {
   readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, CHARACTER_CONTENT_KINDS));
 
   /** Every loaded ancestry with the facts to choose by, by name; none while the content loads. */
-  public readonly rows = computed((): readonly AncestryPickerRow[] => {
+  public readonly rows = computed((): ReadonlyArray<AncestryPickerRow> => {
     const registry = this.#registry.data();
 
     return registry === undefined ? [] : ancestryRows(registry, undefined);

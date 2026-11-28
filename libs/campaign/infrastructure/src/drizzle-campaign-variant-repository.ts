@@ -31,7 +31,7 @@ export class DrizzleCampaignVariantRepository extends CampaignVariantRepository 
     this.#db = db;
   }
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignVariantRule[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignVariantRule>> {
     const rows = await this.#db
       .select()
       .from(campaignVariantRules)

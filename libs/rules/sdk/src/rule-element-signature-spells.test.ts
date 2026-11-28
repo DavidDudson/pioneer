@@ -7,14 +7,14 @@ import * as z from 'zod';
 import type { JsonValue } from './json-bounds';
 import { RuleElement } from './rule-element';
 
-function issues(value: JsonValue): readonly FieldIssue[] {
+function issues(value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = RuleElement.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
 /** A bard's signature spells, and the same gated on a level. */
-const examples: object[] = [
+const examples: Array<object> = [
   { key: 'SignatureSpells', entry: 'bard' },
   { key: 'SignatureSpells', entry: 'bard', predicate: [{ gte: ['self:level', 3] }] },
 ];

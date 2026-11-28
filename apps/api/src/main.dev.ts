@@ -13,6 +13,7 @@ import { devSignInRoutes } from './dev/dev-sign-in';
 import { assertLocalOrigin, assertTunnelOrigin, DEV_HOSTNAME } from './dev/local-only';
 import { seedDevData } from './dev/seed';
 import { readEnv } from './env';
+import { spa } from './spa';
 
 /** `main.dev.ts seed` migrates and seeds content and the dev users, then exits; no argument also serves. */
 const SEED_COMMAND = 'seed';
@@ -49,6 +50,13 @@ if (command === SEED_COMMAND) {
   console.info('dev data seeded');
 } else {
   // Loopback only: nothing else on the network can reach the dev sign-in.
-  new Elysia().use(createApp(db, env, [devSignInRoutes])).listen({ port: env.PORT, hostname: DEV_HOSTNAME });
+  const server = new Elysia().use(createApp(db, env, [devSignInRoutes]));
+
+  // WEB_DIST serves the production build from this origin, keeping the dev sign-in; unset, the Angular dev server serves the app.
+  if (env.WEB_DIST !== undefined) {
+    server.use(spa(env.WEB_DIST));
+  }
+
+  server.listen({ port: env.PORT, hostname: DEV_HOSTNAME });
   console.info(`pioneer api (dev) listening on ${DEV_HOSTNAME}:${env.PORT}`);
 }

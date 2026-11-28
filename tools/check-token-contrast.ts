@@ -19,7 +19,7 @@ const RELATIVE_IMPORT = /^['"](?<target>\.{1,2}\/[^'"]+)['"]$/u;
 const PACKAGE_IMPORT = /^['"]tailwindcss['"]/u;
 
 const entryCss = await Bun.file(ENTRY).text();
-const importPaths: string[] = [];
+const importPaths: Array<string> = [];
 
 parse(entryCss).walkAtRules('import', (rule) => {
   if (PACKAGE_IMPORT.test(rule.params)) {

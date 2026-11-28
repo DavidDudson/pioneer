@@ -16,7 +16,7 @@ import type { RuleLimits } from './rule-limits';
  */
 export interface EditInputs {
   readonly newItemId?: InventoryItemId | undefined;
-  readonly kitItems?: readonly NewItem[] | undefined;
+  readonly kitItems?: ReadonlyArray<NewItem> | undefined;
   readonly cost?: CopperValue | undefined;
   /** The slot edit is the level's repertoire swap, which it records (#594). */
   readonly countsAsSwap?: boolean | undefined;

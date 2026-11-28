@@ -35,7 +35,7 @@ function addTo(play: PlayState, condition: ActiveCondition): PlayState {
 }
 
 /** A fresh character with `conditions` added in turn. */
-function afflictedWith(conditions: readonly ActiveCondition[]): PlayState {
+function afflictedWith(conditions: ReadonlyArray<ActiveCondition>): PlayState {
   let play = FRESH_PLAY;
 
   for (const condition of conditions) {
@@ -46,7 +46,7 @@ function afflictedWith(conditions: readonly ActiveCondition[]): PlayState {
 }
 
 /** The roll options the character has with `conditions` on it. */
-function optionsOf(conditions: readonly ActiveCondition[]): readonly string[] {
+function optionsOf(conditions: ReadonlyArray<ActiveCondition>): ReadonlyArray<string> {
   const roots = conditionRoots(conditions);
 
   return resolveGrants(inputsOf({ entries: CONTENT, roots })).rollOptions.map(String);

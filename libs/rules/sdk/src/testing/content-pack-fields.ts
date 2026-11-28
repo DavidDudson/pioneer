@@ -8,14 +8,14 @@ export type DeityFields = Partial<
 > & {
   readonly category?: string;
   readonly sanctification?: JsonObject;
-  readonly description?: readonly JsonObject[];
+  readonly description?: ReadonlyArray<JsonObject>;
 };
 
 /** An item's kind `data`, with the traits (`invested`) and rule elements as JSON a magic item has. */
 export interface MagicItemFields {
   readonly data: JsonObject;
-  readonly traits?: readonly string[];
-  readonly rules?: readonly JsonObject[];
+  readonly traits?: ReadonlyArray<string>;
+  readonly rules?: ReadonlyArray<JsonObject>;
   /** Its item level, 0 when left out. */
   readonly level?: number;
 }
@@ -25,7 +25,7 @@ export interface ConditionFields {
   /** Whether it carries a value (Clumsy 1). */
   readonly valued?: boolean;
   /** How it recovers, by trigger (Fatigued is removed by Rest). */
-  readonly recovery?: readonly ConditionEnding[];
+  readonly recovery?: ReadonlyArray<ConditionEnding>;
   /** What each value means (Dying's stages, Clumsy's formula). */
   readonly values?: ConditionValues;
 }
@@ -33,14 +33,14 @@ export interface ConditionFields {
 /** What a test action has beyond its cost. */
 export interface ActionFields {
   /** The effects using it can put on the user: ids, or ids with the predicate that offers them. */
-  readonly effects?: readonly (string | { readonly effect: string; readonly predicate: readonly string[] })[];
+  readonly effects?: ReadonlyArray<string | { readonly effect: string; readonly predicate: ReadonlyArray<string> }>;
 }
 
 /** What a test spell has: its rank and traditions, and its traits (`cantrip`, `focus`) and rarity. */
 export interface SpellFields {
   readonly rank: number;
-  readonly traditions: readonly string[];
-  readonly traits?: readonly string[];
+  readonly traditions: ReadonlyArray<string>;
+  readonly traits?: ReadonlyArray<string>;
   readonly rarity?: string;
   /** How long it lasts, as the content writes it. */
   readonly duration?: JsonObject;
@@ -49,7 +49,7 @@ export interface SpellFields {
   /** What ending it early needs, when it is not the Dismiss action. */
   readonly dismissNote?: RichText;
   /** The effects casting it can put on the caster: ids, or ids with the predicate that offers them. */
-  readonly effects?: readonly (string | { readonly effect: string; readonly predicate: readonly string[] })[];
+  readonly effects?: ReadonlyArray<string | { readonly effect: string; readonly predicate: ReadonlyArray<string> }>;
   /** Whether casting it changes the form the caster is in. */
   readonly shiftsForm?: true;
 }
@@ -57,14 +57,14 @@ export interface SpellFields {
 /** What a test class has beyond its key attribute. */
 export interface ClassFields {
   readonly hitPoints?: number;
-  readonly rules?: readonly JsonObject[];
-  readonly roles?: readonly string[];
+  readonly rules?: ReadonlyArray<JsonObject>;
+  readonly roles?: ReadonlyArray<string>;
 }
 
 /** What a test class feature has. */
 export interface ClassFeatureFields {
-  readonly tags?: readonly string[];
-  readonly rules?: readonly JsonObject[];
+  readonly tags?: ReadonlyArray<string>;
+  readonly rules?: ReadonlyArray<JsonObject>;
   /** Attributes it adds to its class's key attribute options (a rogue's racket). */
-  readonly keyAttributeOptions?: readonly string[];
+  readonly keyAttributeOptions?: ReadonlyArray<string>;
 }

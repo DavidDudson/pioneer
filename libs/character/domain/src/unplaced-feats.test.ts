@@ -16,7 +16,7 @@ const toughness = ContentId.parse(contentId(pack, EntrySlug.parse('feat:toughnes
 const slot = SlotKey.parse('feat:class:2');
 
 /** A character carrying the feats an import found no slot for. */
-function keeping(...feats: (typeof nimble)[]): Character {
+function keeping(...feats: Array<typeof nimble>): Character {
   const { document } = new CharacterBuilder().build();
 
   return Character.create({

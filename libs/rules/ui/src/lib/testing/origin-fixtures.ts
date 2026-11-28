@@ -35,7 +35,7 @@ const TWO_DAYS_AGO: Temporal.Instant = Temporal.Now.zonedDateTimeISO().subtract(
 
 const SOURCES = [{ kind: 'book', book: 'player-core', page: 266 }];
 
-function origin(hops: readonly unknown[], holder: ContentId = SHIELD_BLOCK): Origin {
+function origin(hops: ReadonlyArray<unknown>, holder: ContentId = SHIELD_BLOCK): Origin {
   return Origin.parse({ hops, entry: holder, sources: SOURCES });
 }
 

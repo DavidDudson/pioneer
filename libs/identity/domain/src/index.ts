@@ -54,4 +54,21 @@ export { HOME_PATH, ReturnPath, returnPathOr } from './return-path';
 
 export { Session, SESSION_LIFETIME, SessionSummary, SessionToken, TokenHash } from './session';
 
+export {
+  NO_TABLE_VIEW_PREFERENCES,
+  SAVED_VIEWS_MAX,
+  SavedView,
+  SavedViewName,
+  TABLE_COLUMN_ID_MAX_LENGTH,
+  TABLE_ENTITY_MAX_LENGTH,
+  TABLE_VIEW_COLUMNS_MAX,
+  TableColumnId,
+  TableDensity,
+  TableDensitySchema,
+  TableEntity,
+  TableViewPreferences,
+} from './table-view-preferences';
+
+export type { TableViewTarget } from './table-view-preferences';
+
 export { User, UserWire } from './user';

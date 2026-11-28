@@ -21,7 +21,7 @@ describe('rich text (properties)', () => {
     assert(
       property(richTextJson, (json) => {
         // SAFETY: the richTextJson arbitrary generates a JSON array of nodes.
-        const withUnknown = [...(json as unknown[]), { type: 'html', html: '<b>x</b>' }];
+        const withUnknown = [...(json as Array<unknown>), { type: 'html', html: '<b>x</b>' }];
         expect(RichText.safeParse(withUnknown).success).toBe(false);
       }),
     );

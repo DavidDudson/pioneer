@@ -41,7 +41,7 @@ function character(level = 6): CharacterBuilder {
 }
 
 /** A character with each feat picked in the slot of the level of its position: the first at 1st level, and so on. */
-function taking(...feats: readonly DedicationFixture[]): CharacterBuilder {
+function taking(...feats: ReadonlyArray<DedicationFixture>): CharacterBuilder {
   let builder = character();
 
   for (const [index, feat] of feats.entries()) {
@@ -250,7 +250,7 @@ describe('slotRefusal for a locked dedication', () => {
   });
 });
 
-const FEATS: readonly DedicationFixture[] = [
+const FEATS: ReadonlyArray<DedicationFixture> = [
   'medic-dedication',
   'medic-basic',
   'medic-advanced',
@@ -266,7 +266,7 @@ const SLOT_PICKS = 6;
 const picks = array(featPick, { minLength: SLOT_PICKS, maxLength: SLOT_PICKS });
 
 /** The character with each feat that is picked in the slot of its position. */
-function withPicks(chosen: readonly (DedicationFixture | undefined)[]): CharacterDocument {
+function withPicks(chosen: ReadonlyArray<DedicationFixture | undefined>): CharacterDocument {
   let builder = character();
 
   for (const [index, feat] of chosen.entries()) {

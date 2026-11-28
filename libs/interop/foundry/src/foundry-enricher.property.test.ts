@@ -9,7 +9,7 @@ import type { EnricherPart } from './foundry-enricher';
 /** Text and well-formed enrichers in reading order, and the parts `enricherParts` should find in them. */
 interface Source {
   readonly text: string;
-  readonly parts: readonly EnricherPart[];
+  readonly parts: ReadonlyArray<EnricherPart>;
 }
 
 const PART_MAX = 6;
@@ -46,8 +46,8 @@ const command: Arbitrary<Source> = tuple(
 const words: Arbitrary<Source> = plain.map((text) => ({ text, parts: text === '' ? [] : [text] }));
 
 /** Adjacent text parts as one, as `enricherParts` returns them. */
-function mergedText(parts: readonly EnricherPart[]): EnricherPart[] {
-  const out: EnricherPart[] = [];
+function mergedText(parts: ReadonlyArray<EnricherPart>): Array<EnricherPart> {
+  const out: Array<EnricherPart> = [];
 
   for (const part of parts) {
     const last = out.at(-1);

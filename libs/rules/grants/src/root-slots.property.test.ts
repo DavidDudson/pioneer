@@ -11,11 +11,11 @@ import type { RootSlotDefinition } from './root-slots';
 import { entry, grantOf, idOf, inputsOf, picksOf } from './testing/builders';
 
 const ANCESTRY = SlotKey.parse('ancestry');
-const ROOT_SLOTS: readonly RootSlotDefinition[] = [{ key: ANCESTRY, kind: ContentKind.Ancestry }];
+const ROOT_SLOTS: ReadonlyArray<RootSlotDefinition> = [{ key: ANCESTRY, kind: ContentKind.Ancestry }];
 const SLUGS = ['dwarf', 'elf', 'goblin', 'human', 'orc'] as const;
 
 /** Each slug as an ancestry that grants its own feature, or as a class feature. */
-function contentOf(isAncestry: readonly boolean[]): GrantEntry[] {
+function contentOf(isAncestry: ReadonlyArray<boolean>): Array<GrantEntry> {
   return SLUGS.flatMap((slug, index) => {
     const kind = isAncestry[index] === true ? ContentKind.Ancestry : ContentKind.ClassFeature;
 
@@ -23,9 +23,9 @@ function contentOf(isAncestry: readonly boolean[]): GrantEntry[] {
   });
 }
 
-const kinds: Arbitrary<boolean[]> = tuple(boolean(), boolean(), boolean(), boolean(), boolean());
+const kinds: Arbitrary<Array<boolean>> = tuple(boolean(), boolean(), boolean(), boolean(), boolean());
 
-function resolve(content: readonly GrantEntry[], pick: string | undefined): GrantResolution {
+function resolve(content: ReadonlyArray<GrantEntry>, pick: string | undefined): GrantResolution {
   const picks = picksOf(pick === undefined ? [] : [[ANCESTRY, idOf(pick)]]);
 
   return resolveGrants(inputsOf({ entries: content, roots: [], picks, rootSlots: ROOT_SLOTS }));

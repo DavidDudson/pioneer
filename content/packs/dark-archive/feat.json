@@ -1345,6 +1345,9 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "frequency": {
           "max": 1,
           "per": "minute"
@@ -5532,6 +5535,9 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "frequency": {
           "max": 1,
           "per": "day"
@@ -6976,7 +6982,10 @@
               }
             ]
           }
-        ]
+        ],
+        "triggerEvent": {
+          "event": "turn-start"
+        }
       }
     }
   },
@@ -13147,6 +13156,9 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "frequency": {
           "max": 1,
           "per": "ten-minutes"

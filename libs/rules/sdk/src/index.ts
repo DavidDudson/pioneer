@@ -148,6 +148,8 @@ export {
 
 export { CompanionKind, companionRollOption } from './companion-kind';
 
+export { CompanionSpeciesData } from './companion-species';
+
 export {
   CompanionSpecialization,
   CompanionSpecializationSchema,
@@ -158,6 +160,8 @@ export {
 export {
   COMPANION_SKILL_ATTRIBUTE,
   CompanionAttack,
+  CompanionMovement,
+  CompanionMovements,
   CompanionSkill,
   CompanionSkillSchema,
   CompanionStatBlock,
@@ -184,7 +188,7 @@ export {
   PackVisibility,
 } from './content-pack';
 
-export { contentId, ContentId, ContentKey, contentKey, ContentPackId, contentPackId } from './content-id';
+export { contentId, ContentId, contentIdOf, ContentKey, contentKey, ContentPackId, contentPackId } from './content-id';
 
 export {
   EntrySlug,
@@ -238,11 +242,13 @@ export { LanguageData, LanguageScript } from './language';
 
 export { SenseAcuity, SenseData } from './sense';
 
-export { VariantRuleData, VariantRuleDefinition, VariantRuleId, VariantStructure } from './variant-rule';
+export { VariantRuleData, VariantRuleId, VariantStructure } from './variant-rule';
 
-export { mergeVariantLimits, VariantLimitValue, VariantRuleLimits, variantLimitsInForce } from './variant-rule-limits';
+export { mergeVariantLimits, VariantLimitValue, VariantRuleLimits } from './variant-rule-limits';
 
-export { ContentEntry } from './content-entry';
+export { ContentEntry } from './typed-content-entry';
+
+export { CreatureAbility, CreatureData, CreatureDefinition, KIND_DATA, VariantRuleDefinition } from './typed-content';
 
 export {
   BundleBody,
@@ -263,8 +269,10 @@ export {
   CanonicalJson,
   canonicalJson,
   contentPackFromBundles,
+  contentPackFromKindEntries,
   descriptionFromBundle,
   descriptionShard,
+  entriesFromBundles,
 } from './content-bundle';
 
 export type { DescriptionBundle, DescriptionShard, FetchedKind, KindBundles, PackBundles } from './content-bundle';
@@ -291,7 +299,7 @@ export {
 
 export { AdditionalFeat, ArchetypeData, DEDICATION_LOCK_DEFAULT, DedicationLock } from './archetype';
 
-export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
+export { REGISTERED_KINDS, type RegisteredKind } from './kind-data';
 
 export { ClassRole, ClassRoleSchema, SkillCount } from './character-class';
 
@@ -372,27 +380,18 @@ export {
   type CreatureEntry,
   type StatisticEntry,
   type VariantRuleEntry,
+  variantLimitsInForce,
 } from './content-registry';
 
 export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
 
 export { SOURCE_SLUG_MAX, StatisticPer } from './statistic';
 
-export {
-  CreatureData,
-  CreatureDefinition,
-  CreatureId,
-  CreatureRole,
-  DamageTarget,
-  NO_DEFENCES,
-  NpcDetails,
-  NpcLevelRange,
-} from './creature';
+export { CreatureId, CreatureRole, DamageTarget, NO_DEFENCES, NpcDetails, NpcLevelRange } from './creature';
 
 export { CREATURE_FACETS } from './creature-facets';
 
 export {
-  CreatureAbility,
   CreatureDamage,
   CreatureItem,
   CreatureSense,
@@ -497,8 +496,6 @@ export { EnrichmentMapping, EnrichmentMappingFile } from './enrichment-mapping';
 
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
 
-export { default as rulesMessages } from './i18n/en.json';
-
 export { ActorFormulaSource, type FormulaProblem, formulaProblems, FormulaSource } from './formula-source';
 
 export {
@@ -569,7 +566,7 @@ export {
   TraitAlterationMode,
 } from './rule-element-item-alteration';
 
-export { raisesPotency } from './potency-element';
+export { raisesPotency } from './rule-element-potency';
 
 export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 
@@ -619,7 +616,14 @@ export {
   grievousSpecializationOf,
 } from './critical-specialization';
 
-export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';
+export {
+  FastHealingElement,
+  FastHealingType,
+  HealingBonusElement,
+  TempHPElement,
+  TurnStartSaveElement,
+  TurnStartSaveTarget,
+} from './rule-element-healing';
 
 export { BattleFormBracket, BattleFormElement, BattleFormVariant, FormMovement } from './rule-element-battle-form';
 

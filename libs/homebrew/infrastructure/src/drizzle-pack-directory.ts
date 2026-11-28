@@ -37,7 +37,7 @@ function toListed(row: PackRow): ListedPack {
 
 export class DrizzlePackDirectory extends PackDirectory {
   readonly #db: BunSQLDatabase;
-  readonly #everyPack = new RequestMemo<'all', readonly ListedPack[]>();
+  readonly #everyPack = new RequestMemo<'all', ReadonlyArray<ListedPack>>();
 
   public constructor(db: BunSQLDatabase) {
     super();
@@ -54,7 +54,7 @@ export class DrizzlePackDirectory extends PackDirectory {
     return row === undefined ? undefined : toListed(row);
   }
 
-  public override async all(): Promise<readonly ListedPack[]> {
+  public override async all(): Promise<ReadonlyArray<ListedPack>> {
     return this.#everyPack.of('all', async () => {
       // In primary key order, which the index serves; re-sorted by title here, as there are few packs.
       const rows = await this.#db

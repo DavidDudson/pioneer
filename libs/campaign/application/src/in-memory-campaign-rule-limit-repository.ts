@@ -5,9 +5,9 @@ import { CampaignRuleLimitRepository } from './campaign-rule-limit-repository';
 
 /** Repository adapter for tests and local experiments. */
 export class InMemoryCampaignRuleLimitRepository extends CampaignRuleLimitRepository {
-  readonly #rows = new Map<CampaignId, CampaignRuleLimit[]>();
+  readonly #rows = new Map<CampaignId, Array<CampaignRuleLimit>>();
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignRuleLimit[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignRuleLimit>> {
     return this.#rows.get(campaignId) ?? [];
   }
 

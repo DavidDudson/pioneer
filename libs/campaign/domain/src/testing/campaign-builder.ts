@@ -18,7 +18,7 @@ export const fixtureGmId: UserId = UserId.parse(derivedId(FixtureNamespace, 'use
 export class CampaignBuilder {
   #name: CampaignName = CampaignName.parse('Abomination Vaults');
   #gmId: UserId = fixtureGmId;
-  #players: UserId[] = [];
+  #players: Array<UserId> = [];
   #at: Temporal.Instant = fixedClock('2026-01-01T00:00:00Z').now();
 
   public named(name: string): this {

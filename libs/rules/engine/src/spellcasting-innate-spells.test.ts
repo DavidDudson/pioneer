@@ -21,7 +21,7 @@ const entry = (preparation: string, slug = 'grown-of-oak'): RuleJson => ({
 });
 
 const innate = (
-  spells: readonly (readonly [string | number, string])[],
+  spells: ReadonlyArray<readonly [string | number, string]>,
   extra: JsonObject = {},
   on = 'grown-of-oak',
 ): RuleJson => ({
@@ -32,14 +32,14 @@ const innate = (
 });
 
 /** The innate spells of `caster`, each as its rank and the spell's id. */
-function ranked(caster: SpellcastingInPlay | undefined): readonly (readonly [string | number, string])[] {
+function ranked(caster: SpellcastingInPlay | undefined): ReadonlyArray<readonly [string | number, string]> {
   return (caster?.innateSpells ?? []).map(({ rank, spell }) => [rank, String(spell)]);
 }
 
 function entriesOf(
-  placed: readonly (readonly [RuleJson, string])[],
-  options: readonly string[] = [],
-): SpellcastingInPlay[] {
+  placed: ReadonlyArray<readonly [RuleJson, string]>,
+  options: ReadonlyArray<string> = [],
+): Array<SpellcastingInPlay> {
   const rules = placed.map(([element, source], rule) => inPlay(element, source, { rule }));
 
   const facts = new PredicateFacts(
@@ -86,7 +86,7 @@ describe('spellcastingInPlay: innate spells', () => {
   });
 
   test('an element gives its spells only while it holds', () => {
-    const placed: (readonly [RuleJson, string])[] = [
+    const placed: Array<readonly [RuleJson, string]> = [
       [entry('innate', 'fey-influence'), 'fey-influence'],
       [innate([[1, ILL_OMEN]], { predicate: ['fey-influence:cursed-bluebird'] }, 'fey-influence'), 'fey-influence'],
       [innate([[1, OAKEN_RESILIENCE]], { predicate: ['fey-influence:dryad'] }, 'fey-influence'), 'fey-influence'],

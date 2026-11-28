@@ -60,24 +60,24 @@ const predicate: Arbitrary<Predicate> = array(statementJson, { maxLength: LIST_M
   Predicate.parse(json),
 );
 
-const numericOptions = (name: string): Arbitrary<readonly string[]> =>
+const numericOptions = (name: string): Arbitrary<ReadonlyArray<string>> =>
   subarray([0, 1, 2, VALUE_MAX]).map((values) => values.map((each) => `${name}:${each}`));
 
 /** Present options drawn from the vocabulary, numeric ones included. */
-const options: Arbitrary<readonly string[]> = tuple(
+const options: Arbitrary<ReadonlyArray<string>> = tuple(
   subarray([...KNOWN_OPTIONS, ...SITUATIONAL_OPTIONS]),
   numericOptions(KNOWN_PREFIX),
   numericOptions(SITUATIONAL_PREFIX),
 ).map((parts) => parts.flat());
 
-function toFacts(present: readonly string[], table: NamespaceTable): PredicateFacts {
+function toFacts(present: ReadonlyArray<string>, table: NamespaceTable): PredicateFacts {
   return new PredicateFacts(
     present.map((option) => RollOption.parse(option)),
     table,
   );
 }
 
-const defaultFacts = (present: readonly string[]): PredicateFacts => toFacts(present, CORE_NAMESPACES);
+const defaultFacts = (present: ReadonlyArray<string>): PredicateFacts => toFacts(present, CORE_NAMESPACES);
 
 /** Every vocabulary namespace known: the two-valued world Foundry evaluates in. */
 const ALL_KNOWN = namespaceTable({
@@ -97,7 +97,7 @@ const ALL_KNOWN = namespaceTable({
 type FoundryOrder = (left: number, right: number) => boolean;
 
 /** Foundry's `getValues`: a number as itself, an option as every number written after it, else `[NaN]`. */
-function foundryValues(operand: string | number, domain: ReadonlySet<string>): readonly number[] {
+function foundryValues(operand: string | number, domain: ReadonlySet<string>): ReadonlyArray<number> {
   const asNumber = Number(operand);
 
   if (!Number.isNaN(asNumber)) {
@@ -273,7 +273,7 @@ describe('evaluatePredicate (properties)', () => {
           (option) =>
             // SAFETY: widening only: the tuple of option names is assignable to readonly string[].
             // Includes() takes a string.
-            (SITUATIONAL_OPTIONS as readonly string[]).includes(option) ||
+            (SITUATIONAL_OPTIONS as ReadonlyArray<string>).includes(option) ||
             (option.startsWith(`${SITUATIONAL_PREFIX}:`) && !settled.has(SITUATIONAL_PREFIX)),
         );
 

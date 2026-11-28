@@ -60,10 +60,10 @@ const phrase = (key: string, params: Readonly<Record<string, string>> = {}): Phr
   params,
 });
 
-const row = (label: string, text: string | undefined): readonly DetailRow[] =>
+const row = (label: string, text: string | undefined): ReadonlyArray<DetailRow> =>
   text === undefined ? [] : [{ label, text }];
 
-const keyRow = (label: string, key: string | undefined): readonly DetailRow[] =>
+const keyRow = (label: string, key: string | undefined): ReadonlyArray<DetailRow> =>
   key === undefined ? [] : [{ label, key }];
 
 /** The page a web or homebrew source links to, when it has one. */
@@ -134,7 +134,7 @@ export class SourceBadge {
     return title === undefined ? phrase(SourceBadgeMessage.UnregisteredBook, { book: source.book }) : phrase(title);
   });
 
-  protected readonly rows = computed((): readonly DetailRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<DetailRow> => {
     const book = this.book();
     const source = this.source();
 
@@ -161,7 +161,7 @@ export class SourceBadge {
     ];
   });
 
-  protected readonly links = computed((): readonly DetailLink[] => {
+  protected readonly links = computed((): ReadonlyArray<DetailLink> => {
     const source = this.source();
     const book = this.book();
     const entry = source.kind === SourceKind.Book ? source.aon : undefined;

@@ -11,15 +11,15 @@ import { KeyItemMessage } from './key-item-message';
 export class InMemoryKeyItemHolders extends KeyItemHolders {
   readonly #lines = new Map<CharacterId, Set<KeyItemId>>();
   readonly #inventory = new Map<ReviewedItemId, { character: CharacterId; line: LineToPromote }>();
-  readonly #actors: UserId[] = [];
+  readonly #actors: Array<UserId> = [];
 
   /** The key items the character has a line of. */
-  public linesOf(character: CharacterId): readonly KeyItemId[] {
+  public linesOf(character: CharacterId): ReadonlyArray<KeyItemId> {
     return [...(this.#lines.get(character) ?? [])];
   }
 
   /** Every actor that wrote a line, oldest first. */
-  public get actors(): readonly UserId[] {
+  public get actors(): ReadonlyArray<UserId> {
     return this.#actors;
   }
 

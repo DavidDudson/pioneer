@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
 import { FEAT_FACETS } from './action-facets';
-import { ContentEntry } from './content-entry';
 import { contentId, entrySlug, PackId, Slug, slugName } from './content-id';
 import { ContentKind } from './content-kind';
 import { COMMON_FACETS, FacetId, FacetType, FacetValue, facetValues, RangeBound, UNKNOWN } from './facet';
@@ -12,6 +11,7 @@ import { FeatCategory } from './feat';
 import { filterFromQuery, filterToQuery } from './filter-query';
 import { facetsFor } from './kind-facets';
 import { SPELL_FACETS } from './spell-facets';
+import { ContentEntry } from './typed-content-entry';
 
 const description = [{ type: 'paragraph', content: [{ type: 'text', text: 'A trait.' }] }];
 
@@ -19,8 +19,8 @@ interface EntryFields {
   readonly slug: string;
   readonly level?: number;
   readonly rarity?: string;
-  readonly traits?: readonly string[];
-  readonly books?: readonly string[];
+  readonly traits?: ReadonlyArray<string>;
+  readonly books?: ReadonlyArray<string>;
   readonly pack?: string;
 }
 
@@ -62,16 +62,18 @@ function facet(id: string): FacetDefinition {
   return found;
 }
 
-const values = (...texts: string[]): FacetValue[] => texts.map((text) => FacetValue.parse(text));
-const slugs = (entries: readonly ContentEntry[]): readonly string[] => entries.map((each) => slugName(each.slug));
+const values = (...texts: Array<string>): Array<FacetValue> => texts.map((text) => FacetValue.parse(text));
 
-const include = (...texts: string[]): FacetSelection => ({
+const slugs = (entries: ReadonlyArray<ContentEntry>): ReadonlyArray<string> =>
+  entries.map((each) => slugName(each.slug));
+
+const include = (...texts: Array<string>): FacetSelection => ({
   kind: SelectionKind.Values,
   include: values(...texts),
   exclude: [],
 });
 
-const exclude = (...texts: string[]): FacetSelection => ({
+const exclude = (...texts: Array<string>): FacetSelection => ({
   kind: SelectionKind.Values,
   include: [],
   exclude: values(...texts),
@@ -81,7 +83,7 @@ const state = (selections: Record<string, FacetSelection>): FilterState =>
   new Map(Object.entries(selections).map(([id, selection]) => [FacetId.parse(id), selection]));
 
 /** A facet's counts as plain pairs. */
-function pairs(counts: readonly FacetCounts[], id: string): (readonly [string, number])[] {
+function pairs(counts: ReadonlyArray<FacetCounts>, id: string): Array<readonly [string, number]> {
   const found = counts.find((each) => each.facet.id === id);
 
   return (found?.values ?? []).map(({ value, count }) => [value, count]);
@@ -94,7 +96,7 @@ const plain = entry({ slug: 'plain', traits: [], pack: 'homebrew' });
 const ENTRIES = [fire, cold, acid, plain];
 
 /** The slugs of the entries `selections` keep, over `ENTRIES`. */
-function kept(selections: Record<string, FacetSelection>, facets = COMMON_FACETS): readonly string[] {
+function kept(selections: Record<string, FacetSelection>, facets = COMMON_FACETS): ReadonlyArray<string> {
   return slugs(filterEntries(ENTRIES, facets, state(selections)));
 }
 

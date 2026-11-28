@@ -13,7 +13,7 @@ export interface KeyItemHolderChoice {
 }
 
 /** The characters holding at least one key item, by name, each once. */
-export function holderChoices(keyItems: readonly KeyItemView[]): readonly KeyItemHolderChoice[] {
+export function holderChoices(keyItems: ReadonlyArray<KeyItemView>): ReadonlyArray<KeyItemHolderChoice> {
   const byId = new Map<string, string>();
 
   for (const { holder, holderName } of keyItems) {
@@ -26,7 +26,7 @@ export function holderChoices(keyItems: readonly KeyItemView[]): readonly KeyIte
 }
 
 /** The key items `filter` keeps: all, those in the party stash, or those one character holds. */
-export function filterKeyItems(keyItems: readonly KeyItemView[], filter: string): readonly KeyItemView[] {
+export function filterKeyItems(keyItems: ReadonlyArray<KeyItemView>, filter: string): ReadonlyArray<KeyItemView> {
   if (filter === ALL_HOLDERS) {
     return keyItems;
   }

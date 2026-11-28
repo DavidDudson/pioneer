@@ -22,7 +22,7 @@ const HYPNOTIC_PATTERN = spellRow({
 });
 
 const FIREBALL = spellRow({ id: 'fireball', name: 'Fireball', rank: 3 });
-const SPELLS: readonly SpellPickerRow[] = [ELECTRIC_ARC, HYPNOTIC_PATTERN, FIREBALL];
+const SPELLS: ReadonlyArray<SpellPickerRow> = [ELECTRIC_ARC, HYPNOTIC_PATTERN, FIREBALL];
 
 interface Rendered {
   readonly fixture: ComponentFixture<SpellPicker>;
@@ -45,7 +45,7 @@ async function settle(fixture: ComponentFixture<SpellPicker>): Promise<void> {
   fixture.detectChanges();
 }
 
-async function render(rows: readonly SpellPickerRow[], value?: string): Promise<Rendered> {
+async function render(rows: ReadonlyArray<SpellPickerRow>, value?: string): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(SpellPicker);
   fixture.componentRef.setInput('rows', rows);
@@ -87,12 +87,12 @@ function firstRow(rendered: Rendered): Element {
   return row;
 }
 
-function headers(rendered: Rendered): string[] {
+function headers(rendered: Rendered): Array<string> {
   return [...rendered.host.querySelectorAll('[role="columnheader"]')].map((cell) => textOf(cell));
 }
 
 /** The first cell of each rendered row: a spell's name, and why it can't be picked when it can't. */
-function nameCells(rendered: Rendered): HTMLElement[] {
+function nameCells(rendered: Rendered): Array<HTMLElement> {
   return [...rendered.host.querySelectorAll<HTMLElement>('fr-picker-row')].flatMap((row) => {
     const cell = row.querySelector<HTMLElement>('[role="gridcell"]');
 

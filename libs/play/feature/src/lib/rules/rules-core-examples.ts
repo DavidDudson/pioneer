@@ -86,6 +86,22 @@ export const darkvision = {
   data: { acuity: SenseAcuity.Precise, unlimitedRange: true },
 };
 
+export const wolf = {
+  ...playerCore('companion-species:wolf', 'Wolf', 'Your companion is a wolf or a similar canine.'),
+  kind: ContentKind.CompanionSpecies,
+  rules: [],
+  data: {
+    block: {
+      size: 'small',
+      attributes: { str: 2, dex: 2, con: 1, int: -4, wis: 1, cha: 0 },
+      ancestryHp: 8,
+      extraSkill: 'survival',
+      speed: 35,
+      attacks: [{ slug: 'jaws', attribute: 'str', damage: { dice: 1, die: 'd8', damageType: 'piercing' } }],
+    },
+  },
+};
+
 export const draconic = {
   ...playerCore('language:draconic', 'Draconic', 'The language of dragons and dragonkin.'),
   kind: ContentKind.Language,

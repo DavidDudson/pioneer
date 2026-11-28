@@ -1,4 +1,5 @@
-import { matchKey } from './content-lookup';
+import { foldName } from '@pioneer/shared/utils';
+
 import { PathbuilderContainerKey, PathbuilderName } from './import-kind';
 import type { EquipmentFlag, PathbuilderBuild } from './pathbuilder-export';
 
@@ -7,7 +8,7 @@ export interface ImportedRunes {
   readonly potency: number | undefined;
   readonly striking: number | undefined;
   readonly resilient: number | undefined;
-  readonly property: readonly PathbuilderName[];
+  readonly property: ReadonlyArray<PathbuilderName>;
 }
 
 /** One line of the export's gear: equipment, a weapon or armour, with how it is carried. */
@@ -78,7 +79,7 @@ interface RuneRow {
   readonly pot?: number | null | undefined;
   readonly str?: string | null | undefined;
   readonly res?: string | null | undefined;
-  readonly runes: readonly string[];
+  readonly runes: ReadonlyArray<string>;
 }
 
 function chosen(name: string | null | undefined): PathbuilderName | undefined {
@@ -104,12 +105,12 @@ function runesOf(row: RuneRow): ImportedRunes | undefined {
 function displayName(base: string, display: string | undefined): PathbuilderName | undefined {
   const shown = chosen(display);
 
-  return shown === undefined || matchKey(shown).includes(matchKey(base)) ? undefined : shown;
+  return shown === undefined || foldName(shown).includes(foldName(base)) ? undefined : shown;
 }
 
 type Carried = Pick<ImportedItem, 'worn' | 'invested' | 'runes' | 'displayName' | 'container'>;
 
-function line(name: string, quantity: number, carried: Carried): ImportedItem[] {
+function line(name: string, quantity: number, carried: Carried): Array<ImportedItem> {
   const chosenName = chosen(name);
 
   return chosenName === undefined || quantity === 0 ? [] : [{ name: chosenName, quantity, ...carried }];
@@ -121,7 +122,7 @@ type ArmorRow = PathbuilderBuild['armor'][number];
  * One armour row as an item. An `Unarmored` row on the unarmored proficiency with runes is the clothing they are
  * etched on, worn when no other armour is; any other `Unarmored` row names nothing and is dropped.
  */
-function armourLine(armor: ArmorRow, otherWorn: boolean): ImportedItem[] {
+function armourLine(armor: ArmorRow, otherWorn: boolean): Array<ImportedItem> {
   const runes = runesOf(armor);
 
   if (armor.name !== UNARMORED) {
@@ -148,7 +149,10 @@ function armourLine(armor: ArmorRow, otherWorn: boolean): ImportedItem[] {
 }
 
 /** The container an equipment row's trailing flags name, when the export lists it; "Invested" and the rest are not. */
-function containerOf(build: PathbuilderBuild, flags: readonly EquipmentFlag[]): PathbuilderContainerKey | undefined {
+function containerOf(
+  build: PathbuilderBuild,
+  flags: ReadonlyArray<EquipmentFlag>,
+): PathbuilderContainerKey | undefined {
   const keys = flags.flatMap((flag) => {
     const key = PathbuilderContainerKey.safeParse(flag);
 
@@ -159,7 +163,7 @@ function containerOf(build: PathbuilderBuild, flags: readonly EquipmentFlag[]): 
 }
 
 /** Pathbuilder's gear containers in export order. */
-export function importedContainers(build: PathbuilderBuild): ImportedContainer[] {
+export function importedContainers(build: PathbuilderBuild): Array<ImportedContainer> {
   return Object.entries(build.equipmentContainers).flatMap(([key, container]) => {
     const name = chosen(container.containerName);
 
@@ -177,7 +181,7 @@ export function importedContainers(build: PathbuilderBuild): ImportedContainer[]
 }
 
 /** Equipment, then weapons, then armour, in export order. */
-export function importedItems(build: PathbuilderBuild): ImportedItem[] {
+export function importedItems(build: PathbuilderBuild): Array<ImportedItem> {
   return [
     ...build.equipment.flatMap(([name, quantity, ...flags]) =>
       line(name, quantity, {

@@ -8,7 +8,7 @@ import type { RuleTranslation } from './translate-rules';
 
 const ENTRY = ContentId.parse('00000000-0000-5000-8000-000000000000');
 
-function translated(raws: readonly object[]): RuleTranslation {
+function translated(raws: ReadonlyArray<object>): RuleTranslation {
   return translateRules(ENTRY, raws, { lang: { PF2E: { Weapon: 'Pick a weapon.' } }, values: { item: 'Spirit Edge' } });
 }
 

@@ -1,0 +1,70 @@
+import { inject, InjectionToken } from '@angular/core';
+import type { Provider, Type } from '@angular/core';
+import { TranslocoService } from '@jsverse/transloco';
+
+import { LocaleFormat } from '../../locale/locale-format';
+import { FRONTIER_PROPERTY_KINDS } from './property-kinds';
+import type { PropertyContext, PropertyKind } from './property.types';
+
+export type PropertyKindMap = ReadonlyMap<string, PropertyKind>;
+
+function kindMap(kinds: ReadonlyArray<PropertyKind>, base: PropertyKindMap): PropertyKindMap {
+  const merged = new Map(base);
+
+  for (const kind of kinds) {
+    merged.set(kind.id, kind);
+  }
+
+  return merged;
+}
+
+const DEFAULT_KINDS: PropertyKindMap = kindMap(FRONTIER_PROPERTY_KINDS, new Map());
+
+/** Every kind by id. Frontier's four by default; `providePropertyKinds` adds more. */
+export const PROPERTY_KINDS = new InjectionToken<PropertyKindMap>('PROPERTY_KINDS', {
+  providedIn: 'root',
+  factory: (): PropertyKindMap => DEFAULT_KINDS,
+});
+
+/** Adds kinds to the ones above, or replaces a kind of the same id. */
+export function providePropertyKinds(...kinds: ReadonlyArray<PropertyKind>): Provider {
+  return {
+    provide: PROPERTY_KINDS,
+    useFactory: (): PropertyKindMap => {
+      const parent = inject(PROPERTY_KINDS, { skipSelf: true, optional: true });
+
+      return kindMap(kinds, parent ?? DEFAULT_KINDS);
+    },
+  };
+}
+
+/** The kind with this id; an unknown id is a mistake in a property list, so it throws. */
+export function findPropertyKind(kinds: PropertyKindMap, id: string): PropertyKind {
+  const kind = kinds.get(id);
+
+  if (kind === undefined) {
+    throw new Error(`No property kind "${id}" is registered. Provide it with providePropertyKinds().`);
+  }
+
+  return kind;
+}
+
+/** The component rendered for a property that has no cell of its own and whose kind has none. */
+export const ENTITY_CELL = new InjectionToken<Type<unknown> | undefined>('ENTITY_CELL', {
+  providedIn: 'root',
+  factory: (): undefined => undefined,
+});
+
+/** The viewer's locale as the kinds need it. Call in an injection context. */
+export function injectPropertyContext(): PropertyContext {
+  const format = inject(LocaleFormat);
+  const i18n = inject(TranslocoService);
+
+  return {
+    compareText: (left, right) => format.compare(left, right),
+    formatNumber: (value) => format.number(value),
+    formatDate: (value) => value.toLocaleString(format.locale(), { dateStyle: 'medium' }),
+    // The language is passed so reading it makes a cell's text follow a locale switch.
+    translate: (key) => i18n.translate(key, {}, format.locale()),
+  };
+}

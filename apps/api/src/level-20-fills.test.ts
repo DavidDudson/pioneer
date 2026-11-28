@@ -71,7 +71,7 @@ function anElf(carrying: boolean): CharacterDocument {
 }
 
 /** The values the owned-item `ChoiceSet` slot would take, best first; none if the slot is not open. */
-function edgeCandidates(document: CharacterDocument): readonly string[] | undefined {
+function edgeCandidates(document: CharacterDocument): ReadonlyArray<string> | undefined {
   const fill = openFills(document, content).find(({ slot }) => slot === EDGE_SLOT);
 
   return fill?.candidates.map(String);

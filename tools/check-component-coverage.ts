@@ -11,11 +11,6 @@ const ROOT = 'libs/frontier/src/lib';
 
 /** Parts covered by the component that assembles them. Paths are relative to `ROOT`. */
 const EXEMPTIONS = {
-  'actions/section-link/section-link.component.ts': {
-    reason: 'One link of fr-section-index; only meaningful inside it.',
-    spec: 'actions/section-index/section-index.component.spec.ts',
-    story: 'actions/section-index/section-index.stories.ts',
-  },
   'actions/stepper/step.component.ts': {
     reason: 'One step of fr-stepper; its Back, Next and Edit only work inside it.',
     spec: 'actions/stepper/stepper.component.spec.ts',
@@ -59,6 +54,16 @@ const EXEMPTIONS = {
     reason: 'Only renders inside a table header.',
     story: 'data/table/table.stories.ts',
   },
+  'layout/card/card-content.component.ts': {
+    reason: 'A body of the card; it only projects its content, padded from the card.',
+    spec: 'layout/card/card.component.spec.ts',
+    story: 'layout/card/card.stories.ts',
+  },
+  'layout/card/card-footer.component.ts': {
+    reason: 'The end row of the card; the card draws the rule above it.',
+    spec: 'layout/card/card.component.spec.ts',
+    story: 'layout/card/card.stories.ts',
+  },
   'forms/field/error/error.component.ts': {
     reason: 'A field part, shown assembled.',
     story: 'forms/field/field.stories.ts',
@@ -85,10 +90,20 @@ const EXEMPTIONS = {
     spec: 'list/description-list/description-list.component.spec.ts',
     story: 'list/description-list/description-list.stories.ts',
   },
-  'list/list-item/list-item.component.ts': {
-    reason: 'A list row; its markup is only valid inside the list.',
-    spec: 'list/list/list.component.spec.ts',
-    story: 'list/list/list.stories.ts',
+  'list/item/item-actions.component.ts': {
+    reason: 'The trailing part of fr-list-item; only meaningful inside it.',
+    spec: 'list/list-item/list-item.component.spec.ts',
+    story: 'list/list-item/list-item.stories.ts',
+  },
+  'list/item/item-content.component.ts': {
+    reason: 'The middle part of fr-list-item; only meaningful inside it.',
+    spec: 'list/list-item/list-item.component.spec.ts',
+    story: 'list/list-item/list-item.stories.ts',
+  },
+  'list/item/item-media.component.ts': {
+    reason: 'The leading part of fr-list-item; only meaningful inside it.',
+    spec: 'list/list-item/list-item.component.spec.ts',
+    story: 'list/list-item/list-item.stories.ts',
   },
   'text/text/phrase.component.ts': {
     reason: 'Internal to fr-text, reached through its element input.',

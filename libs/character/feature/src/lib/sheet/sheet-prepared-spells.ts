@@ -32,15 +32,15 @@ import type { SpellOnSheet } from './sheet-spell-details';
 import { slotKeyOf } from './sheet-spell-use';
 
 /** The kinds the spell pickers read: the character's, so its entries resolve, and the spells. */
-export const SPELL_CONTENT_KINDS: readonly ContentKind[] = [...CHARACTER_CONTENT_KINDS, ContentKind.Spell];
+export const SPELL_CONTENT_KINDS: ReadonlyArray<ContentKind> = [...CHARACTER_CONTENT_KINDS, ContentKind.Spell];
 
 /** One prepared slot on the sheet: its label, the spells it offers by name, and why its pick counts for nothing. */
 export interface SheetPreparedSlot {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
-  readonly options: readonly SelectOption<string>[];
+  readonly options: ReadonlyArray<SelectOption<string>>;
   /** The same spells with the facts a picker table shows. */
-  readonly spells: readonly SpellOption[];
+  readonly spells: ReadonlyArray<SpellOption>;
   /** The rank a spell cast from the slot has; undefined for a signature slot, whose spell is cast at a range of ranks. */
   readonly castRank: SpellRank | undefined;
   /** Whether it picks a signature spell from the entry's repertoire: never one the repertoire already holds twice. */
@@ -69,7 +69,7 @@ interface SheetPreparedRank {
   readonly heading: MessageDescriptor;
   /** Why a pool's slots offer nothing: the choice that names its spells isn't made yet. */
   readonly note: MessageDescriptor | undefined;
-  readonly slots: readonly SheetPreparedSlot[];
+  readonly slots: ReadonlyArray<SheetPreparedSlot>;
 }
 
 /** A prepared entry's slots, rank by rank, then its pools', rank by rank; or a spontaneous entry's repertoire. */
@@ -77,7 +77,7 @@ export interface SheetPreparedEntry {
   readonly key: Slug;
   readonly preparation: PickedPreparation;
   readonly tradition: MagicTradition;
-  readonly ranks: readonly SheetPreparedRank[];
+  readonly ranks: ReadonlyArray<SheetPreparedRank>;
 }
 
 /** A prepared slot with the name of the pool it is one of, if any. */
@@ -111,7 +111,7 @@ function slotLabel({ slot, pool }: NamedSlot, place: number): MessageDescriptor 
 /** How a slot's spell is cast and listed: the rank, the badges and where it comes from. */
 interface SpellContext {
   readonly rank: SpellRank;
-  readonly tags: readonly string[];
+  readonly tags: ReadonlyArray<string>;
   readonly source: string | undefined;
 }
 
@@ -174,21 +174,21 @@ function optionOf(spell: SpellOption): SelectOption<string> {
 }
 
 /** The invalid reason the server read for `key`, if its pick is invalid. */
-function reasonOf(slots: readonly CharacterSlot[], key: SlotKey): MessageDescriptor | undefined {
+function reasonOf(slots: ReadonlyArray<CharacterSlot>, key: SlotKey): MessageDescriptor | undefined {
   const read = slots.find((each) => each.key === key);
 
   return read?.status === SlotStatus.Invalid ? read.reason : undefined;
 }
 
 /** The signature slot of the rank `named` is in, if its entry has one there: never a cantrip's or a pool's. */
-function signatureIn(signatures: readonly SignatureSlot[], { slot }: NamedSlot): SignatureSlot | undefined {
+function signatureIn(signatures: ReadonlyArray<SignatureSlot>, { slot }: NamedSlot): SignatureSlot | undefined {
   return slot.pool === undefined
     ? signatures.find((each) => each.entry === slot.entry && each.rank === slot.rank)
     : undefined;
 }
 
 /** The prepared slots, each with the name of the entry that gave its pool. */
-function namedSlots(slots: readonly PreparedSlot[], content: SlotContent): NamedSlot[] {
+function namedSlots(slots: ReadonlyArray<PreparedSlot>, content: SlotContent): Array<NamedSlot> {
   return slots.map((slot): NamedSlot => ({
     slot,
     pool: slot.pool === undefined ? undefined : (content.lookup.entry(slot.pool.origin.entry)?.name ?? slot.pool.slug),
@@ -196,13 +196,13 @@ function namedSlots(slots: readonly PreparedSlot[], content: SlotContent): Named
 }
 
 /** The badge a slot of `rank` puts on its spell: a cantrip says so. */
-function cantripTags(rank: PreparedSlot['rank']): readonly string[] {
+function cantripTags(rank: PreparedSlot['rank']): ReadonlyArray<string> {
   return rank === SlotRank.Cantrip ? [SpellListMessage.TagCantrip] : [];
 }
 
 /** What a signature slot is read against: the server's slots, the content, and the entry that gives the spell. */
 interface SignatureContext {
-  readonly slots: readonly CharacterSlot[];
+  readonly slots: ReadonlyArray<CharacterSlot>;
   readonly content: SlotContent;
   readonly source: string | undefined;
 }
@@ -246,8 +246,8 @@ function entryNamesOf(character: Character, content: SlotContent): ReadonlyMap<s
 export function sheetPreparedSlots(
   registry: ContentRegistry,
   character: Character,
-  slots: readonly CharacterSlot[],
-): readonly SheetPreparedEntry[] {
+  slots: ReadonlyArray<CharacterSlot>,
+): ReadonlyArray<SheetPreparedEntry> {
   const content = sheetSlotContent(registry);
   const entryNames = entryNamesOf(character, content);
   const sourceOf = ({ slot, pool }: NamedSlot): string | undefined => pool ?? entryNames.get(slot.entry);

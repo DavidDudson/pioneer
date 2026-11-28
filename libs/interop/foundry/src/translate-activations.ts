@@ -30,16 +30,16 @@ interface Limit {
   readonly overcharge: boolean;
 }
 
-const COUNT_WORDS: readonly string[] = ['one', 'two', 'three', 'four', 'five', 'six'];
+const COUNT_WORDS: ReadonlyArray<string> = ['one', 'two', 'three', 'four', 'five', 'six'];
 
 /** Words that stand for a count without being numbered. */
 const ONCE = 1;
 const TWICE = 2;
 
 /** What follows "once per" or "three times every": a unit with its number of them. */
-const PERIODS: readonly (readonly [RegExp, FrequencyPeriod])[] = [
-  [/^(?:turn)$/u, FrequencyPeriod.Turn],
-  [/^(?:round)$/u, FrequencyPeriod.Round],
+const PERIODS: ReadonlyArray<readonly [RegExp, FrequencyPeriod]> = [
+  [/^turn$/u, FrequencyPeriod.Turn],
+  [/^round$/u, FrequencyPeriod.Round],
   [/^(?:1 )?minute$/u, FrequencyPeriod.Minute],
   [/^10 minutes$/u, FrequencyPeriod.TenMinutes],
   [/^(?:1 )?hour$/u, FrequencyPeriod.Hour],

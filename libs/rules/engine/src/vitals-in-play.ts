@@ -4,10 +4,12 @@ import type {
   CreatureSizeElement,
   DamageType,
   FastHealingElement,
+  HealingBonusElement,
   ModifierValue,
   Origin,
   RuleValue,
   TempHPElement,
+  TurnStartSaveElement,
 } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
@@ -26,16 +28,29 @@ export interface RecoveryInPlay {
   readonly type: ValueOf<typeof FastHealingType>;
   readonly amount: HitPoints;
   /** Damage of these types switches it off until the next turn; empty when nothing does. */
-  readonly deactivatedBy: readonly DamageType[];
+  readonly deactivatedBy: ReadonlyArray<DamageType>;
   /** Every element that gives this amount of this kind, in the order found. */
-  readonly origins: readonly Origin[];
+  readonly origins: ReadonlyArray<Origin>;
 }
 
 /** Temporary Hit Points elements give: the most any gives. */
 export interface TemporaryHitPointsInPlay {
   readonly amount: HitPoints;
   /** Every element that gives this amount, in the order found. */
-  readonly origins: readonly Origin[];
+  readonly origins: ReadonlyArray<Origin>;
+}
+
+/** Hit Points a spell or effect adds to the first healing it gives: the most any element gives. */
+interface HealingBonusInPlay {
+  readonly amount: HitPoints;
+  /** Every element that gives this amount, in the order found. */
+  readonly origins: ReadonlyArray<Origin>;
+}
+
+/** A new save the character may attempt at the start of each turn against a hostile spell: what gives it. */
+interface TurnStartSaveInPlay {
+  /** Every element that gives it, in the order found. */
+  readonly origins: ReadonlyArray<Origin>;
 }
 
 /** The character's size after its `CreatureSize` elements. */
@@ -47,16 +62,20 @@ export interface SizeInPlay {
   /** Whether the gear grows or shrinks with the character: some element says so. */
   readonly resizeEquipment: boolean;
   /** Every element that changes the size, in the order found. */
-  readonly origins: readonly Origin[];
+  readonly origins: ReadonlyArray<Origin>;
   /** The battle form that sets the size the elements start from; absent when none does. */
   readonly form?: Origin;
 }
 
 export interface VitalsInPlay {
   /** Fast healing, then regeneration; at most one of each. */
-  readonly recovery: readonly RecoveryInPlay[];
+  readonly recovery: ReadonlyArray<RecoveryInPlay>;
   /** Absent when no element gives temporary Hit Points. */
   readonly temporaryHitPoints?: TemporaryHitPointsInPlay;
+  /** Absent when no element adds Hit Points to healing from a spell or effect. */
+  readonly healingBonus?: HealingBonusInPlay;
+  /** Absent when no element gives a new save against a hostile spell at the start of a turn. */
+  readonly turnStartSave?: TurnStartSaveInPlay;
   /** Absent when no element changes the size. */
   readonly size?: SizeInPlay;
 }
@@ -69,7 +88,7 @@ export interface VitalsScope {
   readonly size: Size;
 }
 
-const SIZES: readonly Size[] = [Size.Tiny, Size.Small, Size.Medium, Size.Large, Size.Huge, Size.Gargantuan];
+const SIZES: ReadonlyArray<Size> = [Size.Tiny, Size.Small, Size.Medium, Size.Large, Size.Huge, Size.Gargantuan];
 
 /** The reach a size gives a creature of normal build. */
 const SIZE_REACH: Readonly<Record<Size, number>> = {
@@ -87,7 +106,7 @@ type Kind<Element extends RuleInPlay['element']> = RuleInPlay & { readonly eleme
 function active<Element extends RuleInPlay['element']>(
   { rules, facts }: ModifierInputs,
   isKind: (element: RuleInPlay['element']) => element is Element,
-): readonly Kind<Element>[] {
+): ReadonlyArray<Kind<Element>> {
   return rules.filter(
     (rule): rule is Kind<Element> => isKind(rule.element) && truthOf(rule.element.predicate, facts) === Truth.True,
   );
@@ -97,6 +116,12 @@ const isFastHealing = (element: RuleInPlay['element']): element is FastHealingEl
   element.key === RuleElementKey.FastHealing;
 
 const isTempHp = (element: RuleInPlay['element']): element is TempHPElement => element.key === RuleElementKey.TempHP;
+
+const isHealingBonus = (element: RuleInPlay['element']): element is HealingBonusElement =>
+  element.key === RuleElementKey.HealingBonus;
+
+const isTurnStartSave = (element: RuleInPlay['element']): element is TurnStartSaveElement =>
+  element.key === RuleElementKey.TurnStartSave;
 
 const isCreatureSize = (element: RuleInPlay['element']): element is CreatureSizeElement =>
   element.key === RuleElementKey.CreatureSize;
@@ -123,17 +148,17 @@ function reachOf(size: Size, reach: CreatureSizeElement['reach']): Feet {
 interface Given {
   readonly amount: HitPoints;
   readonly origin: Origin;
-  readonly deactivatedBy: readonly DamageType[];
+  readonly deactivatedBy: ReadonlyArray<DamageType>;
 }
 
 /** The highest amount given, and every origin that gives it. */
 interface Highest {
   readonly top: Given;
-  readonly origins: readonly Origin[];
+  readonly origins: ReadonlyArray<Origin>;
 }
 
 /** The highest of `given`, with the origin of every one that gives as much. */
-function highest(given: readonly Given[]): Highest | undefined {
+function highest(given: ReadonlyArray<Given>): Highest | undefined {
   let top: Given | undefined = undefined;
 
   for (const each of given) {
@@ -157,7 +182,11 @@ function highest(given: readonly Given[]): Highest | undefined {
 }
 
 /** The amount, origin and deactivators a rule gives, none when its formula has no value or the value is below 1. */
-function givenBy(rule: Kind<FastHealingElement | TempHPElement>, scope: VitalsScope, rules: ModifierInputs): Given[] {
+function givenBy(
+  rule: Kind<FastHealingElement | HealingBonusElement | TempHPElement>,
+  scope: VitalsScope,
+  rules: ModifierInputs,
+): Array<Given> {
   const deactivatedBy = rule.element.key === RuleElementKey.FastHealing ? (rule.element.deactivatedBy ?? []) : [];
   const source = { value: rule.element.value, origin: rule.origin, item: itemScopeOf(rule), deactivatedBy };
 
@@ -175,10 +204,13 @@ interface AmountSource {
   readonly value: ModifierValue | RuleValue;
   readonly origin: Origin;
   readonly item: ItemScope;
-  readonly deactivatedBy: readonly DamageType[];
+  readonly deactivatedBy: ReadonlyArray<DamageType>;
 }
 
-function givenFrom({ value, origin, item, deactivatedBy }: AmountSource, { scope, rules }: VitalsReading): Given[] {
+function givenFrom(
+  { value, origin, item, deactivatedBy }: AmountSource,
+  { scope, rules }: VitalsReading,
+): Array<Given> {
   const proficiency = proficiencyBonuses(scope.statistics.proficiencyBonus, {
     rules: rules.rules,
     facts: rules.facts,
@@ -196,7 +228,11 @@ function givenFrom({ value, origin, item, deactivatedBy }: AmountSource, { scope
 }
 
 /** The size after `resizes`, in order, with the reach the last element that names one gives. */
-function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size, form: FormInPlay | undefined): SizeInPlay {
+function resized(
+  resizes: ReadonlyArray<Kind<CreatureSizeElement>>,
+  base: Size,
+  form: FormInPlay | undefined,
+): SizeInPlay {
   let size = form?.form.size ?? base;
   let reach: CreatureSizeElement['reach'] = undefined;
 
@@ -218,7 +254,7 @@ function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size, form
 }
 
 /** The temporary Hit Points a battle form gives, credited to the form; none when it gives none or its formula has no value. */
-function formTempHp(form: FormInPlay | undefined, reading: VitalsReading): Given[] {
+function formTempHp(form: FormInPlay | undefined, reading: VitalsReading): Array<Given> {
   const value = form?.form.tempHP;
 
   return form === undefined || value === undefined
@@ -227,7 +263,7 @@ function formTempHp(form: FormInPlay | undefined, reading: VitalsReading): Given
 }
 
 /**
- * What the character's `FastHealing`, `TempHP` and `CreatureSize` elements give. An element whose predicate fails or
+ * What the character's `FastHealing`, `TempHP`, `HealingBonus`, `TurnStartSave` and `CreatureSize` elements give. An element whose predicate fails or
  * depends on the situation gives nothing on the sheet, and one whose formula has no value, or a value below 1, is
  * ignored. Recovery and temporary Hit Points do not add up (Player Core): of each kind the highest counts, with every
  * element that gives it as an origin. Sizes apply in the order found, a named size setting it and a number of steps
@@ -238,7 +274,7 @@ function formTempHp(form: FormInPlay | undefined, reading: VitalsReading): Given
 export function vitalsInPlay(inputs: ModifierInputs, scope: VitalsScope): VitalsInPlay {
   const healing = active(inputs, isFastHealing);
 
-  const recovery = Object.values(FastHealingType).flatMap((type): RecoveryInPlay[] => {
+  const recovery = Object.values(FastHealingType).flatMap((type): Array<RecoveryInPlay> => {
     const found = highest(
       healing
         .filter(({ element }) => (element.type ?? FastHealingType.FastHealing) === type)
@@ -257,14 +293,18 @@ export function vitalsInPlay(inputs: ModifierInputs, scope: VitalsScope): Vitals
     ...formTempHp(form, { scope, rules: inputs }),
   ]);
 
+  const bonus = highest(active(inputs, isHealingBonus).flatMap((rule) => givenBy(rule, scope, inputs)));
+
+  const spellSaves = active(inputs, isTurnStartSave);
+
   const resizes = active(inputs, isCreatureSize);
 
-  const recovered: VitalsInPlay = { recovery };
-
-  const warmed: VitalsInPlay =
-    temp === undefined
-      ? recovered
-      : { ...recovered, temporaryHitPoints: { amount: temp.top.amount, origins: temp.origins } };
+  const warmed: VitalsInPlay = {
+    recovery,
+    ...(temp !== undefined && { temporaryHitPoints: { amount: temp.top.amount, origins: temp.origins } }),
+    ...(bonus !== undefined && { healingBonus: { amount: bonus.top.amount, origins: bonus.origins } }),
+    ...(spellSaves.length > 0 && { turnStartSave: { origins: spellSaves.map(({ origin }) => origin) } }),
+  };
 
   return resizes.length === 0 && form?.form.size === undefined
     ? warmed

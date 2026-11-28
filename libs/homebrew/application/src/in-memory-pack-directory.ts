@@ -40,7 +40,7 @@ export class InMemoryPackDirectory extends PackDirectory {
     return pack === undefined ? this.#official.get(id) : listedHomebrew(pack);
   }
 
-  public override async all(): Promise<readonly ListedPack[]> {
+  public override async all(): Promise<ReadonlyArray<ListedPack>> {
     const packs = await this.#homebrew.all();
 
     return [...this.#official.values(), ...packs.map((pack) => listedHomebrew(pack))].toSorted(

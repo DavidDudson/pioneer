@@ -10902,6 +10902,9 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "frequency": {
           "max": 1,
           "per": "hour"
@@ -19204,6 +19207,9 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "frequency": {
           "max": 1,
           "per": "day"
@@ -20476,6 +20482,9 @@
             ]
           }
         ],
+        "triggerEvent": {
+          "event": "turn-start"
+        },
         "selfEffect": "637a6261-8aab-59ea-a5c8-a7cc0506449d"
       }
     }

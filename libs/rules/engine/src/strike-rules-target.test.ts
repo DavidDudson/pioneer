@@ -52,7 +52,7 @@ describe('rule elements conditioned on the target', () => {
 
   /** The Strike with `element` in play, `options` known about the target, and `claimed` rules claimed for the roll, or for the Strike of a selector. */
   function strikeWith(
-    options: readonly string[],
+    options: ReadonlyArray<string>,
     claimed: boolean | Selector,
     element: RuleJson = VITALIZING,
   ): Strike | undefined {

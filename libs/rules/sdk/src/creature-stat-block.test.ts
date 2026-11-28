@@ -2,12 +2,12 @@ import { describe, expect, test } from 'bun:test';
 
 import { fieldIssues } from '@pioneer/shared/kernel';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
 import type { JsonObject, JsonValue } from './testing/json-value';
+import { ContentEntry } from './typed-content-entry';
 
-const text = (value: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: value }] }];
+const text = (value: string): Array<JsonValue> => [{ type: 'paragraph', content: [{ type: 'text', text: value }] }];
 const SPELL = contentId(PackId.parse('player-core'), EntrySlug.parse('spell:fireball'));
 const ITEM = contentId(PackId.parse('player-core'), EntrySlug.parse('weapon:longsword'));
 
@@ -86,10 +86,10 @@ interface CreatureFixture {
   readonly name: string;
   readonly level: number;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly JsonValue[];
-  readonly description: readonly JsonValue[];
-  readonly rules: readonly JsonValue[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<JsonValue>;
+  readonly description: ReadonlyArray<JsonValue>;
+  readonly rules: ReadonlyArray<JsonValue>;
   readonly data: JsonObject;
 }
 
@@ -111,10 +111,10 @@ function creature(data: JsonObject): CreatureFixture {
 }
 
 interface PathIssue {
-  readonly path: readonly PropertyKey[];
+  readonly path: ReadonlyArray<PropertyKey>;
 }
 
-function issuesOf(data: JsonObject): readonly PathIssue[] {
+function issuesOf(data: JsonObject): ReadonlyArray<PathIssue> {
   const result = ContentEntry.safeParse(creature(data));
 
   return result.success ? [] : fieldIssues(result.error.issues);

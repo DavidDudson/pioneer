@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import type { BreadcrumbItem } from '../../actions/breadcrumbs/breadcrumbs.component';
 import { HeaderCrumbs } from './header-crumbs';
 
-const trail = (label: string): BreadcrumbItem[] => [{ label: 'Characters', to: '/characters' }, { label }];
+const trail = (label: string): Array<BreadcrumbItem> => [{ label: 'Characters', to: '/characters' }, { label }];
 
 describe(HeaderCrumbs, () => {
   it('is empty until a page shows a trail', () => {

@@ -33,12 +33,12 @@ export interface FormRowInputs {
 }
 
 /** `list` worded as one line, or undefined when it is empty. */
-function listed(names: readonly string[]): string | undefined {
+function listed(names: ReadonlyArray<string>): string | undefined {
   return names.length === 0 ? undefined : names.join(', ');
 }
 
 /** The row for `name` when the form's `form` differs from `own`. */
-function differing(name: string, own: string | undefined, form: string | undefined): readonly FormPreviewRow[] {
+function differing(name: string, own: string | undefined, form: string | undefined): ReadonlyArray<FormPreviewRow> {
   return form === undefined || own === form ? [] : [{ name, own: own ?? '', form }];
 }
 
@@ -47,7 +47,7 @@ function entryName(registry: ContentRegistry, id: ContentId): string {
   return registry.packs.flatMap((pack) => pack.otherEntries).find((entry) => entry.id === id)?.name ?? id;
 }
 
-function sizeRow({ registry, own, morphed, translate }: FormRowInputs): readonly FormPreviewRow[] {
+function sizeRow({ registry, own, morphed, translate }: FormRowInputs): ReadonlyArray<FormPreviewRow> {
   const inForm = sheetVitalsInPlay(registry, morphed)?.size;
   const outOfForm = sheetVitalsInPlay(registry, own)?.size?.size ?? inForm?.base;
 
@@ -58,17 +58,17 @@ function sizeRow({ registry, own, morphed, translate }: FormRowInputs): readonly
   );
 }
 
-function strikesRow({ registry, own, morphed, translate }: FormRowInputs): readonly FormPreviewRow[] {
-  const names = (character: Character): readonly string[] =>
+function strikesRow({ registry, own, morphed, translate }: FormRowInputs): ReadonlyArray<FormPreviewRow> {
+  const names = (character: Character): ReadonlyArray<string> =>
     sheetStrikes(registry, character).map(({ name, nameKey }) => (nameKey === undefined ? name : translate(nameKey)));
 
   return differing(translate(RowMessage.Strikes), listed(names(own)), listed(names(morphed)));
 }
 
-function sensesRow({ registry, own, morphed, translate }: FormRowInputs): readonly FormPreviewRow[] {
+function sensesRow({ registry, own, morphed, translate }: FormRowInputs): ReadonlyArray<FormPreviewRow> {
   const inForm = sheetSenses(registry, morphed).senses;
 
-  const names = (senses: readonly { readonly sense: ContentId }[]): string | undefined =>
+  const names = (senses: ReadonlyArray<{ readonly sense: ContentId }>): string | undefined =>
     listed(senses.map(({ sense }) => entryName(registry, sense)));
 
   // A form without senses of its own leaves the character's, so only a form that lists some is a change.
@@ -79,10 +79,10 @@ function sensesRow({ registry, own, morphed, translate }: FormRowInputs): readon
     : [];
 }
 
-function limitsRows({ registry, morphed, translate }: FormRowInputs): readonly FormPreviewRow[] {
+function limitsRows({ registry, morphed, translate }: FormRowInputs): ReadonlyArray<FormPreviewRow> {
   const limits = formLimits(morphed.document, itemContent(registry), sheetSlotContent(registry));
 
-  const row = (forbidden: boolean | undefined, name: string): readonly FormPreviewRow[] =>
+  const row = (forbidden: boolean | undefined, name: string): ReadonlyArray<FormPreviewRow> =>
     forbidden === true
       ? [{ name: translate(name), own: translate(RowMessage.Can), form: translate(RowMessage.Cannot) }]
       : [];
@@ -95,6 +95,6 @@ function limitsRows({ registry, morphed, translate }: FormRowInputs): readonly F
 }
 
 /** The rows for what a form changes besides the numbers: size, Strikes, senses and what the character can no longer do. */
-export function formRows(inputs: FormRowInputs): readonly FormPreviewRow[] {
+export function formRows(inputs: FormRowInputs): ReadonlyArray<FormPreviewRow> {
   return [...sizeRow(inputs), ...strikesRow(inputs), ...sensesRow(inputs), ...limitsRows(inputs)];
 }

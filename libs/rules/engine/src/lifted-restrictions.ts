@@ -11,7 +11,7 @@ export interface LiftedRestriction {
   /** The environment it is lifted in; absent when the element lifts it in any environment that lists it. */
   readonly environment?: ContentId;
   /** Every `LiftRestriction` element that lifts it, in the order found. */
-  readonly origins: readonly Origin[];
+  readonly origins: ReadonlyArray<Origin>;
 }
 
 /**
@@ -19,8 +19,8 @@ export interface LiftedRestriction {
  * origins that lift it, so the sheet can say which source did. Elements that name the same restriction and environment
  * are one lift with each origin.
  */
-export function liftedRestrictions({ rules, facts }: ModifierInputs): readonly LiftedRestriction[] {
-  const lifted: LiftedRestriction[] = [];
+export function liftedRestrictions({ rules, facts }: ModifierInputs): ReadonlyArray<LiftedRestriction> {
+  const lifted: Array<LiftedRestriction> = [];
 
   for (const { element, origin } of rules) {
     if (element.key === RuleElementKey.LiftRestriction && truthOf(element.predicate, facts) === Truth.True) {

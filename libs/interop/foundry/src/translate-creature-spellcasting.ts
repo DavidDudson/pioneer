@@ -83,7 +83,7 @@ function placedIn(item: Embedded, entry: string): boolean {
   return typeof location === 'object' && location !== null && 'value' in location && location.value === entry;
 }
 
-function entryOf(entry: Embedded, items: readonly Embedded[], input: KindInput): object | undefined {
+function entryOf(entry: Embedded, items: ReadonlyArray<Embedded>, input: KindInput): object | undefined {
   const system = itemSystem(FoundrySpellcasting, entry, input);
   const { _id: id } = entry;
   const spells = items.filter((item) => item.type === 'spell' && placedIn(item, id));
@@ -101,7 +101,7 @@ function entryOf(entry: Embedded, items: readonly Embedded[], input: KindInput):
 }
 
 /** The creature's spellcasting, one entry per `spellcastingEntry` item. */
-export function spellcastingOf(items: readonly Embedded[], input: KindInput): readonly object[] {
+export function spellcastingOf(items: ReadonlyArray<Embedded>, input: KindInput): ReadonlyArray<object> {
   return items
     .filter((item) => item.type === 'spellcastingEntry')
     .flatMap((entry) => entryOf(entry, items, input) ?? []);

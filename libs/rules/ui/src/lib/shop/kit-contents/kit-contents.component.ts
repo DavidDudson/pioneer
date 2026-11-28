@@ -19,7 +19,7 @@ import type { KitLine } from '../shop-offer';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KitContents {
-  public readonly lines = input.required<readonly KitLine[]>();
+  public readonly lines = input.required<ReadonlyArray<KitLine>>();
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);

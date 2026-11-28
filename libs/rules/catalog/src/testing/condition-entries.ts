@@ -7,7 +7,7 @@ const file = await import('@pioneer/content/packs/player-core/condition.json');
 export type ConditionEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Condition }>;
 
 /** Every Player Core condition. */
-export const conditions: readonly ConditionEntry[] = ContentEntryFile.parse(file.default).filter(
+export const conditions: ReadonlyArray<ConditionEntry> = ContentEntryFile.parse(file.default).filter(
   (each): each is ConditionEntry => each.kind === ContentKind.Condition,
 );
 
@@ -23,7 +23,7 @@ function sourcesOf({ sources, slug }: ConditionEntry): GrantEntry['sources'] {
 }
 
 /** Every Player Core condition as grant resolution reads it. */
-export const conditionGrantEntries: readonly GrantEntry[] = conditions.map((each) => ({
+export const conditionGrantEntries: ReadonlyArray<GrantEntry> = conditions.map((each) => ({
   id: each.id,
   kind: each.kind,
   slug: slugName(each.slug),

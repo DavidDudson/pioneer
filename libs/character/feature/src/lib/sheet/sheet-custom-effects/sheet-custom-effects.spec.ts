@@ -34,7 +34,7 @@ const BLESSING = {
 
 const NAMES = [{ userId: AUTHOR, displayName: 'Ada' }];
 
-async function openWith(customEffects: readonly JsonObject[]): Promise<HTMLElement> {
+async function openWith(customEffects: ReadonlyArray<JsonObject>): Promise<HTMLElement> {
   const { root } = await openSheet({ ...FIGHTER, customEffects }, { authors: NAMES });
   await openConfiguration(root);
 
@@ -164,7 +164,7 @@ describe('CharacterSheet custom effects section', () => {
   it('offers Adjust or Set on a line, and a type only for an adjust', async () => {
     const root = await openWith([]);
     const form = await vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-sheet-custom-effect-form')));
-    const buttons = (): HTMLButtonElement[] => [...form.querySelectorAll<HTMLButtonElement>('button')];
+    const buttons = (): Array<HTMLButtonElement> => [...form.querySelectorAll<HTMLButtonElement>('button')];
     const named = (label: string): HTMLButtonElement | undefined => buttons().find((each) => textOf(each) === label);
 
     expect(named('Adjust')).toBeDefined();

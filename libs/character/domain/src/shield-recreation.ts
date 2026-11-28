@@ -12,7 +12,7 @@ export function shieldCleared(shields: KeptShields, item: InventoryItemId): Kept
 }
 
 /** Whether a destroyed shield stays so for its spell to recreate: its grant says so, and its effect came from an active spell. */
-export function awaitsSustain(effects: readonly ActiveEffect[], granted: ShieldGrant | undefined): boolean {
+export function awaitsSustain(effects: ReadonlyArray<ActiveEffect>, granted: ShieldGrant | undefined): boolean {
   return (
     granted?.recreatedOnSustain === true &&
     effects.some((each) => each.effect === granted.effect && each.spell !== undefined)

@@ -100,7 +100,7 @@ export class SheetActions {
   }
 
   /** The actions as the engine decides them for the character now; undefined while the content or play state loads. */
-  protected readonly lines = computed((): readonly ActionLine[] | undefined => {
+  protected readonly lines = computed((): ReadonlyArray<ActionLine> | undefined => {
     const registry = this.#staff() ? this.#staffRegistry.data() : this.registry.data();
     const character = this.#sheet.character();
     const read = this.#play.play.data();

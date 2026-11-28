@@ -14,11 +14,11 @@ type Answer = (url: string) => Response | Promise<Response>;
 /** A fetcher answering with `answer`, and the URLs it was asked for. */
 interface FetcherUnderTest {
   readonly fetcher: HttpPathbuilderExportFetcher;
-  readonly asked: string[];
+  readonly asked: Array<string>;
 }
 
 function fetcherOf(answer: Answer): FetcherUnderTest {
-  const asked: string[] = [];
+  const asked: Array<string> = [];
 
   const fetcher = new HttpPathbuilderExportFetcher(async (url, init) => {
     asked.push(url);
@@ -31,7 +31,7 @@ function fetcherOf(answer: Answer): FetcherUnderTest {
 }
 
 /** The next of the queued answers; the test is wrong if it asks for more than it queued. */
-function nextOf(answers: Response[]): Response {
+function nextOf(answers: Array<Response>): Response {
   const [next] = answers.splice(0, 1);
 
   if (next === undefined) {

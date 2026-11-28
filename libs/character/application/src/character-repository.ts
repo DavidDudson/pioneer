@@ -32,7 +32,7 @@ export abstract class CharacterRepository {
    * One owner's live characters, sorted by an enumerated, indexed option; `id` breaks ties so pages
    * are stable.
    */
-  public abstract listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]>;
+  public abstract listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<ReadonlyArray<Character>>;
 
   /**
    * One page of one owner's live characters, in `listForOwner`'s orders, with the filters in `query` combined with AND and the
@@ -41,7 +41,7 @@ export abstract class CharacterRepository {
   public abstract pageForOwner(ownerId: UserId, query: CharacterPageQuery): Promise<CharacterPage>;
 
   /** One owner's archived characters (ADR-0062), in the same orders as `listForOwner`. */
-  public abstract listArchivedForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]>;
+  public abstract listArchivedForOwner(ownerId: UserId, query: CharacterListQuery): Promise<ReadonlyArray<Character>>;
 
   /** Any owner's live character; an archived one reads as missing. The service applies the access policy. */
   public abstract findById(id: CharacterId): Promise<Character | undefined>;
@@ -50,7 +50,7 @@ export abstract class CharacterRepository {
   public abstract findOwner(id: CharacterId): Promise<UserId | undefined>;
 
   /** Any owner's live characters among `ids`, in one read; archived and unknown ids are left out. */
-  public abstract findByIds(ids: readonly CharacterId[]): Promise<readonly Character[]>;
+  public abstract findByIds(ids: ReadonlyArray<CharacterId>): Promise<ReadonlyArray<Character>>;
 
   /** Any owner's archived character; a live one reads as missing here. */
   public abstract findArchivedById(id: CharacterId): Promise<Character | undefined>;

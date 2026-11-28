@@ -11,11 +11,11 @@ export class FakeInfiniteQuery<TItem> implements LoadMoreQuery {
   public readonly hasNextPage = signal(true);
   public readonly isFetchingNextPage = signal(false);
   public readonly fetches = signal(0);
-  readonly #pages = signal<readonly (readonly TItem[])[]>([]);
-  public readonly items: Signal<readonly TItem[]> = computed(() => this.#pages().flat());
+  readonly #pages = signal<ReadonlyArray<ReadonlyArray<TItem>>>([]);
+  public readonly items: Signal<ReadonlyArray<TItem>> = computed(() => this.#pages().flat());
   #settle: ((fetch: PageFetch) => void) | undefined = undefined;
 
-  public constructor(first: readonly TItem[]) {
+  public constructor(first: ReadonlyArray<TItem>) {
     this.#pages.set([first]);
   }
 
@@ -29,7 +29,7 @@ export class FakeInfiniteQuery<TItem> implements LoadMoreQuery {
   };
 
   /** The next page arrives; `last` when the server says there are no more. */
-  public land(page: readonly TItem[], last = false): void {
+  public land(page: ReadonlyArray<TItem>, last = false): void {
     this.#pages.update((pages) => [...pages, page]);
     this.hasNextPage.set(!last);
     this.#finish({ isError: false, error: undefined });

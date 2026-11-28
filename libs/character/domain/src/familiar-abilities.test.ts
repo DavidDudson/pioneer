@@ -5,12 +5,12 @@ import { Level, RollOption } from '@pioneer/rules/sdk';
 import { familiarAbilities, FamiliarAbilityCount, FamiliarAbilitySource } from './familiar-abilities';
 import type { FamiliarAbilities } from './familiar-abilities';
 
-const at = (level: number, ...options: string[]): FamiliarAbilities =>
+const at = (level: number, ...options: Array<string>): FamiliarAbilities =>
   familiarAbilities({ level: Level.parse(level), options: options.map((option) => RollOption.parse(option)) });
 
-const totalAt = (level: number, ...options: string[]): number => at(level, ...options).total;
+const totalAt = (level: number, ...options: Array<string>): number => at(level, ...options).total;
 
-const sourcesOf = (level: number, ...options: string[]): readonly FamiliarAbilitySource[] =>
+const sourcesOf = (level: number, ...options: Array<string>): ReadonlyArray<FamiliarAbilitySource> =>
   at(level, ...options).parts.map(({ source }) => source);
 
 describe('familiar abilities', () => {

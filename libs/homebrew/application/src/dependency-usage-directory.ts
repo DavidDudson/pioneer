@@ -7,5 +7,5 @@ import type { ContentPackId } from '@pioneer/rules/sdk';
  */
 export abstract class DependencyUsageDirectory {
   /** The names of the entries in `pack` that reference an entry of `dependsOn`, alphabetically. */
-  public abstract entriesUsing(pack: ContentPackId, dependsOn: ContentPackId): Promise<readonly UsingEntryName[]>;
+  public abstract entriesUsing(pack: ContentPackId, dependsOn: ContentPackId): Promise<ReadonlyArray<UsingEntryName>>;
 }

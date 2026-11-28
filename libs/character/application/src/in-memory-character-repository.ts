@@ -31,15 +31,15 @@ function matches(character: Character, filter: CharacterFilter): boolean {
 export class InMemoryCharacterRepository extends CharacterRepository {
   readonly #rows = new Map<CharacterId, Character>();
   readonly #plays = new Map<CharacterId, CharacterPlay>();
-  readonly #audits: CharacterAudit[] = [];
+  readonly #audits: Array<CharacterAudit> = [];
   readonly #archived = new Set<CharacterId>();
 
   /** Every write's audit context, oldest first, for tests to assert which command ran. */
-  public get audits(): readonly CharacterAudit[] {
+  public get audits(): ReadonlyArray<CharacterAudit> {
     return this.#audits;
   }
 
-  public override async listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]> {
+  public override async listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<ReadonlyArray<Character>> {
     return this.#listFor(ownerId, query, false);
   }
 
@@ -58,11 +58,11 @@ export class InMemoryCharacterRepository extends CharacterRepository {
   public override async listArchivedForOwner(
     ownerId: UserId,
     query: CharacterListQuery,
-  ): Promise<readonly Character[]> {
+  ): Promise<ReadonlyArray<Character>> {
     return this.#listFor(ownerId, query, true);
   }
 
-  #listFor(ownerId: UserId, query: CharacterListQuery, archived: boolean): readonly Character[] {
+  #listFor(ownerId: UserId, query: CharacterListQuery, archived: boolean): ReadonlyArray<Character> {
     const sign = query.direction === SortDirection.Asc ? 1 : -1;
 
     const key = (character: Character): string =>
@@ -84,8 +84,8 @@ export class InMemoryCharacterRepository extends CharacterRepository {
     return this.#archived.has(id) ? undefined : this.#rows.get(id)?.ownerId;
   }
 
-  public override async findByIds(ids: readonly CharacterId[]): Promise<readonly Character[]> {
-    return [...new Set(ids)].flatMap((id): Character[] => {
+  public override async findByIds(ids: ReadonlyArray<CharacterId>): Promise<ReadonlyArray<Character>> {
+    return [...new Set(ids)].flatMap((id): Array<Character> => {
       const character = this.#rows.get(id);
 
       return character === undefined || this.#archived.has(id) ? [] : [this.#withPlay(character)];

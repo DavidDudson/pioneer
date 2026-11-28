@@ -23,7 +23,7 @@ const items = itemFixtureContent();
 const spells = spellContent(itemFixtureRegistry());
 
 /** A prepared entry of `tradition` with slots of `ranks`, one each. */
-function entry(slug: string, tradition: 'arcane' | 'primal', ranks: readonly number[]): SpellcastingInPlay {
+function entry(slug: string, tradition: 'arcane' | 'primal', ranks: ReadonlyArray<number>): SpellcastingInPlay {
   return casterEntry({
     slug,
     tradition,

@@ -21,6 +21,8 @@ import { inventoryTarget } from './inventory-target';
 import { isCustomEffectPatch, isOverridePatch } from './override-patches';
 import type { CustomEffectPatch, OverridePatch } from './override-patches';
 import { OverrideId } from './override-schema';
+import { retrainDaysFor } from './retraining-fields';
+import type { RetrainingPatch } from './retraining-patch';
 import { CharacterBuilder, inventory } from './testing';
 import type { UnplacedPickPatch } from './unplaced-pick-patch';
 
@@ -74,7 +76,7 @@ interface Aim {
 }
 
 /** The id of the item at `index`, wrapping round; undefined for an empty inventory. */
-function itemAt(items: readonly InventoryItem[], index: number): InventoryItemId | undefined {
+function itemAt(items: ReadonlyArray<InventoryItem>, index: number): InventoryItemId | undefined {
   return items.length === 0 ? undefined : items[index % items.length]?.id;
 }
 
@@ -102,11 +104,13 @@ type UnaimedField =
   | typeof CharacterPatchField.SelectSlot
   | typeof CharacterPatchField.ClearSlot
   | typeof CharacterPatchField.SetCoins
+  | typeof CharacterPatchField.EarnIncome
   | typeof CharacterPatchField.GrantSpellAccess
   | typeof CharacterPatchField.RevokeSpellAccess
   | UnplacedPickPatch['field']
   | OverridePatch['field']
   | CustomEffectPatch['field']
+  | RetrainingPatch['field']
   | typeof CharacterPatchField.SetAppearance
   | typeof CharacterPatchField.SetPersonality;
 
@@ -118,6 +122,7 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.SelectSlot,
   CharacterPatchField.ClearSlot,
   CharacterPatchField.SetCoins,
+  CharacterPatchField.EarnIncome,
   CharacterPatchField.GrantSpellAccess,
   CharacterPatchField.RevokeSpellAccess,
   CharacterPatchField.DismissUnplacedFeat,
@@ -131,6 +136,9 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.AddCustomEffect,
   CharacterPatchField.ToggleCustomEffect,
   CharacterPatchField.RemoveCustomEffect,
+  CharacterPatchField.StartRetraining,
+  CharacterPatchField.WorkRetraining,
+  CharacterPatchField.CancelRetraining,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
 ]);
@@ -172,7 +180,7 @@ function isIdOnlyPatch(patch: CharacterPatch): patch is IdOnlyPatch {
  * `patch` aimed at the character's own items, so every inventory command is exercised rather than refused for naming
  * an item the character hasn't: the item it changes is the one at `index`, the container the one at `target` or none.
  */
-function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, target }: Aim): CharacterPatch {
+function aimed(patch: CharacterPatch, items: ReadonlyArray<InventoryItem>, { index, target }: Aim): CharacterPatch {
   if (!isItemPatch(patch)) {
     return patch;
   }
@@ -214,7 +222,7 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
 }
 
 /** The one line a kit edit adds under `id`, stowed where the edit says, standing in for what `kitItems` expands. */
-function kitLines(patch: CharacterPatch, id: InventoryItemId): readonly NewItem[] | undefined {
+function kitLines(patch: CharacterPatch, id: InventoryItemId): ReadonlyArray<NewItem> | undefined {
   const isKit = patch.field === CharacterPatchField.GiftKit || patch.field === CharacterPatchField.BuyKit;
 
   return isKit ? [{ id, item: patch.kit, quantity: ONE, container: patch.container }] : undefined;
@@ -234,6 +242,17 @@ function overrideRefusal(held: Character, patch: CharacterPatch): OverrideProble
 /** Why `patch` is not allowed as a custom effect edit of `character`; undefined for any other edit. */
 function customEffectRefusal(held: Character, patch: CharacterPatch): CustomEffectProblem | undefined {
   return isCustomEffectPatch(patch) ? customEffectProblem(held.document, patch) : undefined;
+}
+
+/** Whether `patch` is a retraining edit the character can't take (a second project, or work on none), which the service refuses. */
+function retrainingRefused(held: Character, patch: CharacterPatch): boolean {
+  const { retraining } = held.document.build;
+
+  if (patch.field === CharacterPatchField.StartRetraining) {
+    return retraining !== undefined || retrainDaysFor(patch.slot) === undefined;
+  }
+
+  return patch.field === CharacterPatchField.WorkRetraining && retraining === undefined;
 }
 
 /** What an inventory edit touches, as `inventoryRefusal` reads it. */
@@ -263,6 +282,7 @@ describe('Character (properties)', () => {
         // Likewise an override edit names one the character has, which the service checks.
         pre(overrideRefusal(original, patch) === undefined);
         pre(customEffectRefusal(original, patch) === undefined);
+        pre(!retrainingRefused(original, patch));
 
         const next = original.apply(patch, later, {
           newItemId,

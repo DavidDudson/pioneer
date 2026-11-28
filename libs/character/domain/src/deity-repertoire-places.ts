@@ -20,7 +20,7 @@ export function deityRepertoirePlaces(
   entry: SpellcastingInPlay,
   home: SlotHome,
   { resolution, lookup }: PreparedReads,
-): SlotPlace[] {
+): Array<SlotPlace> {
   const rank = highestRank(entry);
 
   if (rank === undefined) {

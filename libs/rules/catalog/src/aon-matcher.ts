@@ -1,8 +1,9 @@
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { AonListedEntry, AonUrl, BookId, EnrichmentMapping, EntrySlug, SourceRef } from '@pioneer/rules/sdk';
+import { foldName } from '@pioneer/shared/utils';
 
 /** The AoN page that lists each kind of entry (`Feats.aspx?ID=…`), and so the kinds it can hold. */
-const KINDS_BY_PAGE: ReadonlyMap<string, readonly ContentKind[]> = new Map<string, readonly ContentKind[]>([
+const KINDS_BY_PAGE: ReadonlyMap<string, ReadonlyArray<ContentKind>> = new Map<string, ReadonlyArray<ContentKind>>([
   ['Actions', [ContentKind.Action]],
   ['Ancestries', [ContentKind.Ancestry]],
   ['Archetypes', [ContentKind.Archetype]],
@@ -34,13 +35,20 @@ const KINDS_BY_PAGE: ReadonlyMap<string, readonly ContentKind[]> = new Map<strin
  * Weapons, Armor or Shields, which hold the base items. An entry of these kinds falls back to the Equipment page only
  * when its own page has no match, so a base item is never made ambiguous by an Equipment row of the same name.
  */
-const EQUIPMENT_FALLBACK_KINDS: readonly ContentKind[] = [ContentKind.Weapon, ContentKind.Armor, ContentKind.Shield];
+const EQUIPMENT_FALLBACK_KINDS: ReadonlyArray<ContentKind> = [
+  ContentKind.Weapon,
+  ContentKind.Armor,
+  ContentKind.Shield,
+];
 
 /**
  * The other AoN pages a kind falls back to: the Equipment page for items (above), and the Feats page for an action a
  * feat grants, which AoN prints under the feat of the same name.
  */
-const FALLBACK_KINDS_BY_PAGE: ReadonlyMap<string, readonly ContentKind[]> = new Map<string, readonly ContentKind[]>([
+const FALLBACK_KINDS_BY_PAGE: ReadonlyMap<string, ReadonlyArray<ContentKind>> = new Map<
+  string,
+  ReadonlyArray<ContentKind>
+>([
   ['Equipment', EQUIPMENT_FALLBACK_KINDS],
   ['Feats', [ContentKind.Action]],
 ]);
@@ -63,13 +71,13 @@ export interface AonMatchable {
   readonly slug: EntrySlug;
   readonly kind: ContentKind;
   readonly name: string;
-  readonly sources: readonly SourceRef[];
+  readonly sources: ReadonlyArray<SourceRef>;
 }
 
 /** A book's listing, as stored in `content/aon/<book>.json`. */
 export interface AonListing {
   readonly book: BookId;
-  readonly entries: readonly AonListedEntry[];
+  readonly entries: ReadonlyArray<AonListedEntry>;
   /** The URLs the book prints a page for (`content/aon/pages/<book>.json`); AoN rows without one are not in the book. */
   readonly printed?: ReadonlySet<AonUrl>;
 }
@@ -80,20 +88,9 @@ export interface AonListing {
  */
 export interface AonProposals {
   readonly proposals: ReadonlyMap<EntrySlug, EnrichmentMapping>;
-  readonly ambiguous: readonly EntrySlug[];
+  readonly ambiguous: ReadonlyArray<EntrySlug>;
   readonly unlisted: number;
-  readonly unmatched: readonly EntrySlug[];
-}
-
-/** Lowercase words with straight apostrophes and no diacritics: "Warrior’s Regret" finds "Warrior's Regret". */
-function normalise(name: string): string {
-  return name
-    .normalize('NFD')
-    .replaceAll(/\p{M}/gu, '')
-    .replaceAll('’', "'")
-    .replaceAll(/\s+/gu, ' ')
-    .trim()
-    .toLowerCase();
+  readonly unmatched: ReadonlyArray<EntrySlug>;
 }
 
 function pageOf(url: AonUrl): string {
@@ -104,7 +101,7 @@ function pageOf(url: AonUrl): string {
  * "Alchemist's Lab (Expanded)" and "Rope, Silk" also look up "Alchemist's Lab" and "Rope", after the full name, and
  * "Windlass Bola" looks up AoN's plural "Windlass Bolas" last.
  */
-function nameVariants(name: string): readonly string[] {
+function nameVariants(name: string): ReadonlyArray<string> {
   const withoutParenthetical = name.replace(/\s*\([^)]*\)\s*$/u, '');
   const withoutSuffix = withoutParenthetical.replace(/,.*$/u, '');
 
@@ -112,14 +109,14 @@ function nameVariants(name: string): readonly string[] {
 }
 
 /** Listing entries by normalised name and the kinds their page holds; the Equipment fallback is keyed apart. */
-type ListingIndex = ReadonlyMap<string, readonly AonUrl[]>;
+type ListingIndex = ReadonlyMap<string, ReadonlyArray<AonUrl>>;
 
 function indexKey(name: string, kind: ContentKind, fallback = false): string {
-  return `${kind}\u0000${fallback ? 'equipment\u0000' : ''}${normalise(name)}`;
+  return `${kind}\u0000${fallback ? 'equipment\u0000' : ''}${foldName(name)}`;
 }
 
 function indexListing({ entries }: AonListing): ListingIndex {
-  const index = new Map<string, AonUrl[]>();
+  const index = new Map<string, Array<AonUrl>>();
 
   for (const { name, url } of entries) {
     const page = pageOf(url);
@@ -154,7 +151,7 @@ type Outcome =
   | { readonly kind: 'ambiguous' | 'unmatched' | 'unlisted' | 'skipped' };
 
 /** The distinct URLs of the first name variant that the listing holds under `fallback`; rows sharing a URL are one. */
-function candidatesIn(index: ListingIndex, entry: AonMatchable, fallback: boolean): readonly AonUrl[] {
+function candidatesIn(index: ListingIndex, entry: AonMatchable, fallback: boolean): ReadonlyArray<AonUrl> {
   for (const name of nameVariants(entry.name)) {
     const rows = index.get(indexKey(name, entry.kind, fallback));
     const found = rows === undefined ? [] : [...new Set(rows)];
@@ -168,7 +165,7 @@ function candidatesIn(index: ListingIndex, entry: AonMatchable, fallback: boolea
 }
 
 /** The candidates on the entry's own pages, else, for a weapon, armor or shield, on the Equipment page. */
-function candidates(index: ListingIndex, entry: AonMatchable): readonly AonUrl[] {
+function candidates(index: ListingIndex, entry: AonMatchable): ReadonlyArray<AonUrl> {
   const own = candidatesIn(index, entry, false);
 
   return own.length > 0 || !FALLBACK_KINDS.has(entry.kind) ? own : candidatesIn(index, entry, true);
@@ -178,7 +175,7 @@ function candidates(index: ListingIndex, entry: AonMatchable): readonly AonUrl[]
  * AoN keeps a row for the legacy and the remastered page of an item, and a book prints only one of them: with more
  * than one candidate, the one URL the book's own page table holds. Several, or none, stay ambiguous.
  */
-function printedIn(urls: readonly AonUrl[], printed: ReadonlySet<AonUrl> | undefined): readonly AonUrl[] {
+function printedIn(urls: ReadonlyArray<AonUrl>, printed: ReadonlySet<AonUrl> | undefined): ReadonlyArray<AonUrl> {
   const inBook = printed === undefined ? [] : urls.filter((url) => printed.has(url));
 
   return inBook.length === 1 ? inBook : urls;
@@ -191,7 +188,7 @@ function printedIn(urls: readonly AonUrl[], printed: ReadonlySet<AonUrl> | undef
  * ambiguous. A creature whose name carries a parenthetical ("Gurglegut (Level 12)") is one of several rows that differ
  * by level, not a superseded one, so it stays ambiguous.
  */
-function newest(entry: AonMatchable, urls: readonly AonUrl[]): readonly AonUrl[] {
+function newest(entry: AonMatchable, urls: ReadonlyArray<AonUrl>): ReadonlyArray<AonUrl> {
   const pages = new Set(urls.map((url) => pageOf(url)));
   const ids = urls.map((url) => ({ url, id: Number(new URL(url).searchParams.get('ID')) }));
 
@@ -214,7 +211,7 @@ function newest(entry: AonMatchable, urls: readonly AonUrl[]): readonly AonUrl[]
  * For a weapon, armor or shield its cited books' listings lack (a base item AoN lists in the book that remastered it):
  * the one URL every other listing holds for the name. The page, which only the cited book gives, is not proposed.
  */
-function elsewhere(entry: AonMatchable, indexes: ReadonlyMap<BookId, ListingIndex>): readonly AonUrl[] {
+function elsewhere(entry: AonMatchable, indexes: ReadonlyMap<BookId, ListingIndex>): ReadonlyArray<AonUrl> {
   if (!EQUIPMENT_FALLBACK_KINDS.includes(entry.kind)) {
     return [];
   }
@@ -260,8 +257,8 @@ function matchEntry(
  * from the book.
  */
 export function proposeAonMappings(
-  entries: readonly AonMatchable[],
-  listings: readonly AonListing[],
+  entries: ReadonlyArray<AonMatchable>,
+  listings: ReadonlyArray<AonListing>,
   mapped: ReadonlySet<EntrySlug>,
 ): AonProposals {
   const indexes = new Map(listings.map((listing) => [listing.book, indexListing(listing)]));
@@ -273,7 +270,7 @@ export function proposeAonMappings(
     .map((entry) => ({ entry, outcome: matchEntry(entry, indexes, printed) }))
     .toArray();
 
-  const slugsOf = (kind: Outcome['kind']): readonly EntrySlug[] =>
+  const slugsOf = (kind: Outcome['kind']): ReadonlyArray<EntrySlug> =>
     results
       .values()
       .filter(({ outcome }) => outcome.kind === kind)
@@ -281,7 +278,7 @@ export function proposeAonMappings(
       .toArray();
 
   const proposals = new Map(
-    results.flatMap(({ entry, outcome }): [EntrySlug, EnrichmentMapping][] =>
+    results.flatMap(({ entry, outcome }): Array<[EntrySlug, EnrichmentMapping]> =>
       outcome.kind === 'proposal' ? [[entry.slug, outcome.mapping]] : [],
     ),
   );

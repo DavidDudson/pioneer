@@ -31,7 +31,9 @@ function textOf(element: Element): string {
   return element.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
-async function render(statistics: readonly NamedStatistic[] | undefined): Promise<ComponentFixture<StatisticsView>> {
+async function render(
+  statistics: ReadonlyArray<NamedStatistic> | undefined,
+): Promise<ComponentFixture<StatisticsView>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(StatisticsView);
   fixture.componentRef.setInput('statistics', statistics);
@@ -57,12 +59,12 @@ function partsOf(element: Element): string {
 }
 
 /** The statistics' rows, without the breakdowns' own list items. */
-function itemsOf(host: HTMLElement): Element[] {
+function itemsOf(host: HTMLElement): Array<Element> {
   return [...host.querySelectorAll('[role="listitem"]')].filter((item) => item.closest('pio-breakdown') === null);
 }
 
 /** Each row as read: a disclosure's summary, which names what it opens, or a failure's parts. */
-function rows(host: HTMLElement): string[] {
+function rows(host: HTMLElement): Array<string> {
   return itemsOf(host).map((item) => {
     const summary = item.querySelector('summary');
 
@@ -71,7 +73,7 @@ function rows(host: HTMLElement): string[] {
 }
 
 /** Each row's conditional lines, as summarised under its disclosure. */
-function conditions(host: HTMLElement): string[][] {
+function conditions(host: HTMLElement): Array<Array<string>> {
   return itemsOf(host).map((item) =>
     [...item.querySelectorAll('pio-statistic-conditions fr-text')].map((part) => textOf(part)),
   );
@@ -91,7 +93,7 @@ describe(StatisticsView, () => {
 
   it("shows a statistic's note beside its row, and none beside the others", async () => {
     // SAFETY: FIGHTER_STATISTICS is a non-empty fixture list, so it has the head the tuple type promises.
-    const [first, ...rest] = FIGHTER_STATISTICS as [NamedStatistic, ...NamedStatistic[]];
+    const [first, ...rest] = FIGHTER_STATISTICS as [NamedStatistic, ...Array<NamedStatistic>];
     const note = 'Trained by Acolyte and Cleric; the second training is lost';
     const host = hostOf(await render([{ ...first, note }, ...rest]));
 

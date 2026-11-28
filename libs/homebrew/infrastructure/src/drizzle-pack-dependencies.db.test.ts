@@ -57,16 +57,17 @@ async function insertUser(database: TestDatabase, id: UserId): Promise<void> {
 async function lockedAgainstOthers(database: TestDatabase, id: ContentPackId): Promise<boolean> {
   const probe = sql`select id from content_packs where id = ${id} for update nowait`;
 
-  return database.db
-    .transaction(async (tx) => tx.execute(probe))
-    .then(
-      () => false,
-      () => true,
-    );
+  try {
+    await database.db.transaction(async (tx) => tx.execute(probe));
+  } catch {
+    return true;
+  }
+
+  return false;
 }
 
 /** The reasons of the settled promises that were rejected. */
-function reasons(outcomes: readonly PromiseSettledResult<unknown>[]): readonly Error[] {
+function reasons(outcomes: ReadonlyArray<PromiseSettledResult<unknown>>): ReadonlyArray<Error> {
   const rejected = outcomes.filter((outcome): outcome is PromiseRejectedResult => outcome.status === 'rejected');
 
   return rejected.map((outcome): Error =>
@@ -116,7 +117,7 @@ describe.skipIf(adminUrl === undefined)('pack dependencies (postgres)', () => {
   }
 
   /** The dependencies stored for one pack. */
-  async function edgesOf(id: ContentPackId): Promise<readonly PackDependencyEdge[]> {
+  async function edgesOf(id: ContentPackId): Promise<ReadonlyArray<PackDependencyEdge>> {
     const edges = await dependencies.edges();
 
     return edges.filter((edge) => edge.pack === id);
@@ -191,7 +192,7 @@ describe.skipIf(adminUrl === undefined)('pack dependencies (postgres)', () => {
   test('add holds both packs locked while it checks, and stores nothing if the check throws', async () => {
     const mine = await pack('dep-lock');
     const refusal = new Error('refused');
-    const locked: boolean[] = [];
+    const locked: Array<boolean> = [];
 
     const outcome = dependencies.add(fixtureOwnerId, { pack: mine, dependsOn: official }, async () => {
       locked.push(...(await Promise.all([mine, official].map(async (id) => lockedAgainstOthers(database, id)))));
@@ -215,7 +216,7 @@ describe.skipIf(adminUrl === undefined)('pack dependencies (postgres)', () => {
     const refused = reasons(outcomes);
     const stored = [...(await edgesOf(first)), ...(await edgesOf(second))];
     expect(refused).toHaveLength(1);
-    expect(refused).toSatisfy((all: readonly unknown[]) => all.every((reason) => reason instanceof ConflictError));
+    expect(refused).toSatisfy((all: ReadonlyArray<unknown>) => all.every((reason) => reason instanceof ConflictError));
     expect(stored).toHaveLength(1);
   });
 
@@ -232,7 +233,7 @@ describe.skipIf(adminUrl === undefined)('pack dependencies (postgres)', () => {
 
     const refused = reasons(outcomes);
     expect(refused).toHaveLength(1);
-    expect(refused).toSatisfy((all: readonly unknown[]) => all.every((reason) => reason instanceof ConflictError));
+    expect(refused).toSatisfy((all: ReadonlyArray<unknown>) => all.every((reason) => reason instanceof ConflictError));
   });
 
   test('the directory finds official and homebrew packs, and lists all of them by title', async () => {

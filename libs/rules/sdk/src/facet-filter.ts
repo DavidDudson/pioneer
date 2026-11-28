@@ -1,7 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import { FacetType, facetValues, RangeBound, UNKNOWN } from './facet';
 import type { FacetDefinition, FacetId, FacetValue } from './facet';
 
@@ -12,8 +12,8 @@ export type SelectionKind = ValueOf<typeof SelectionKind>;
 /** What a `set` or `flag` facet keeps: entries with any `include` value (all, if none) and no `exclude` value. */
 export interface ValuesSelection {
   readonly kind: typeof SelectionKind.Values;
-  readonly include: readonly FacetValue[];
-  readonly exclude: readonly FacetValue[];
+  readonly include: ReadonlyArray<FacetValue>;
+  readonly exclude: ReadonlyArray<FacetValue>;
 }
 
 /**
@@ -47,7 +47,7 @@ export interface ValueCount {
  */
 export interface FacetCounts {
   readonly facet: FacetDefinition;
-  readonly values: readonly ValueCount[];
+  readonly values: ReadonlyArray<ValueCount>;
   readonly unknown: EntryCount;
 }
 
@@ -61,7 +61,7 @@ function inRange(value: FacetValue, { min, max }: RangeSelection): boolean {
   return (min === undefined || number >= min) && (max === undefined || number <= max);
 }
 
-function keeps(values: readonly FacetValue[], selection: FacetSelection): boolean {
+function keeps(values: ReadonlyArray<FacetValue>, selection: FacetSelection): boolean {
   if (selection.kind === SelectionKind.Range) {
     const unbounded = selection.min === undefined && selection.max === undefined;
 
@@ -73,7 +73,7 @@ function keeps(values: readonly FacetValue[], selection: FacetSelection): boolea
   return included && !values.some((value) => selection.exclude.includes(value));
 }
 
-function matches(entry: ContentEntry, facets: readonly FacetDefinition[], state: FilterState): boolean {
+function matches(entry: ContentEntryModel, facets: ReadonlyArray<FacetDefinition>, state: FilterState): boolean {
   return facets.every((facet) => {
     const selection = state.get(facet.id);
 
@@ -82,11 +82,11 @@ function matches(entry: ContentEntry, facets: readonly FacetDefinition[], state:
 }
 
 /** The entries `state` keeps: OR within a facet, AND across facets. Order is kept. */
-export function filterEntries(
-  entries: readonly ContentEntry[],
-  facets: readonly FacetDefinition[],
+export function filterEntries<Entry extends ContentEntryModel>(
+  entries: ReadonlyArray<Entry>,
+  facets: ReadonlyArray<FacetDefinition>,
   state: FilterState,
-): readonly ContentEntry[] {
+): ReadonlyArray<Entry> {
   return entries.filter((entry) => matches(entry, facets, state));
 }
 
@@ -109,13 +109,13 @@ export function onlyValue(state: FilterState, facet: FacetDefinition, value: Fac
   return new Map([...state, [facet.id, { kind: SelectionKind.Values, include: [value], exclude }]]);
 }
 
-function selectedValues(selection: FacetSelection | undefined): readonly FacetValue[] {
+function selectedValues(selection: FacetSelection | undefined): ReadonlyArray<FacetValue> {
   return selection?.kind === SelectionKind.Values ? [...selection.include, ...selection.exclude] : [];
 }
 
 /** How many of `entries` have each value of `facet`, skipping entries with a value the selection excludes. */
 function tally(
-  entries: readonly ContentEntry[],
+  entries: ReadonlyArray<ContentEntryModel>,
   facet: FacetDefinition,
   selection: FacetSelection | undefined,
 ): Map<FacetValue, EntryCount> {
@@ -136,7 +136,7 @@ function tally(
 }
 
 /** Range values in number order; the rest by count, most first, then by value. */
-function sortCounts(type: FacetType, counts: readonly ValueCount[]): readonly ValueCount[] {
+function sortCounts(type: FacetType, counts: ReadonlyArray<ValueCount>): ReadonlyArray<ValueCount> {
   return type === FacetType.Range
     ? counts.toSorted((left, right) => Number(left.value) - Number(right.value))
     : counts.toSorted((left, right) => right.count - left.count || left.value.localeCompare(right.value));
@@ -144,10 +144,10 @@ function sortCounts(type: FacetType, counts: readonly ValueCount[]): readonly Va
 
 /** Each facet's value counts over `entries` under `state` (see `FacetCounts`). */
 export function facetCounts(
-  entries: readonly ContentEntry[],
-  facets: readonly FacetDefinition[],
+  entries: ReadonlyArray<ContentEntryModel>,
+  facets: ReadonlyArray<FacetDefinition>,
   state: FilterState,
-): readonly FacetCounts[] {
+): ReadonlyArray<FacetCounts> {
   return facets.map((facet): FacetCounts => {
     const others = new Map(state);
     others.delete(facet.id);

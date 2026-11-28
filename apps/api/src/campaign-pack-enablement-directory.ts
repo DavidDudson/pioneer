@@ -18,7 +18,7 @@ export class CampaignPackEnablementDirectory extends PackEnablementDirectory {
     this.#db = db;
   }
 
-  public override async campaignsEnabling(pack: ReadablePack): Promise<readonly EnablingCampaignName[]> {
+  public override async campaignsEnabling(pack: ReadablePack): Promise<ReadonlyArray<EnablingCampaignName>> {
     const rows = await this.#db
       .select({ name: campaigns.name })
       .from(campaignPacks)

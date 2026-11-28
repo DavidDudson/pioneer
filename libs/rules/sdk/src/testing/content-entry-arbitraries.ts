@@ -87,7 +87,7 @@ const variableCost: Arbitrary<JsonObject> = constantFrom(...COUNTED_COSTS).chain
   }),
 );
 
-const skills: Arbitrary<string[]> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
+const skills: Arbitrary<Array<string>> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
 
 /** A reaction always has a trigger; anything else may. */
 const untriggeredAction: Arbitrary<JsonObject> = oneof(
@@ -118,14 +118,14 @@ const classFeatureData: Arbitrary<JsonObject> = withOptional(constant({}), {
 
 const ancestryFeatureData: Arbitrary<JsonObject> = withOptional(constant({}), { action: actionData });
 
-const conditionRefs: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
+const conditionRefs: Arbitrary<Array<string>> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
 
 const conditionData: Arbitrary<JsonObject> = withOptional(
   record({ valued: boolean(), overrides: conditionRefs, implies: conditionRefs, recovery: constant([]) }),
   { group: constantFrom(...Object.values(ConditionGroup)) },
 );
 
-const environmentRestriction: Arbitrary<{ id: string; reason: string; blocks: string[] }> = record({
+const environmentRestriction: Arbitrary<{ id: string; reason: string; blocks: Array<string> }> = record({
   id: slugText,
   reason: contentText,
   blocks: array(slugText, { maxLength: LIST_MAX }),
@@ -155,6 +155,18 @@ const traitData: Arbitrary<JsonObject> = record({ appliesTo: uniqueArray(content
 
 const emptyData: Arbitrary<JsonObject> = constant({});
 
+/** A companion species's block: one valid wolf-like block, as the kind has no free-form fields worth varying. */
+const companionSpeciesData: Arbitrary<JsonObject> = constant({
+  block: {
+    size: 'small',
+    attributes: { str: 2, dex: 2, con: 1, int: -4, wis: 1, cha: 0 },
+    ancestryHp: 8,
+    extraSkill: 'survival',
+    speed: 35,
+    attacks: [{ slug: 'jaws', attribute: 'str', damage: { dice: 1, die: 'd8', damageType: 'piercing' } }],
+  },
+});
+
 /** A level from any kind but creatures, and a creature's level. */
 const entryLevel: Arbitrary<number> = integer({ min: 0, max: CONTENT_LEVEL_MAX });
 const creatureLevel: Arbitrary<number> = integer({ min: LEVEL_MIN, max: LEVEL_MAX });
@@ -174,6 +186,7 @@ const KIND_ARBITRARIES: Readonly<Record<RegisteredKind, KindArbitrary>> = {
   [ContentKind.Background]: { data: backgroundData },
   [ContentKind.Class]: { data: classData },
   [ContentKind.ClassFeature]: { data: classFeatureData, level: entryLevel },
+  [ContentKind.CompanionSpecies]: { data: companionSpeciesData },
   [ContentKind.Condition]: { data: conditionData },
   [ContentKind.Creature]: { data: creatureData, level: creatureLevel },
   [ContentKind.DamageType]: { data: emptyData },
@@ -221,7 +234,7 @@ function identity(kind: RegisteredKind): Arbitrary<EntryIdentity> {
 /** A kind's `data` with rules that keep it valid. */
 interface DataAndRules {
   readonly data: JsonObject;
-  readonly rules: JsonObject[];
+  readonly rules: Array<JsonObject>;
 }
 
 /** A valid content entry of `kind`, as plain JSON (unparsed), with every optional field sometimes present. */

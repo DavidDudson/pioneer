@@ -85,6 +85,8 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0078](0078-a-rune-that-raises-potency-takes-no-property-slot.md)            | A rune that raises potency takes no property rune slot                                        |
 | [0079](0079-a-familiar-is-a-companion-row-with-derived-statistics.md)        | A familiar is a companion row whose statistics are derived                                    |
 | [0080](0080-an-animal-companion-is-a-companion-row-with-a-species.md)        | An animal companion is a companion row whose form names its species                           |
+| [0081](0081-small-shared-helpers-live-in-shared-utils.md)                    | Small shared helpers live in `shared/utils`                                                   |
+| [0082](0082-the-coin-ledger-is-stored-beside-the-coins-it-explains.md)       | The coin ledger is stored beside the coins it explains                                        |
 | [0083](0083-frontier-primitive-tokens-are-dtcg-generated-by-terrazzo.md)     | Frontier primitive tokens are DTCG, generated to CSS by Terrazzo                              |
 
 Template:

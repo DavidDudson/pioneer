@@ -48,7 +48,7 @@ async function appWith(): Promise<Fixture> {
   return { api, pack };
 }
 
-function post(as: UserId | undefined, packs: readonly string[]): Request {
+function post(as: UserId | undefined, packs: ReadonlyArray<string>): Request {
   const headers = new Headers(as === undefined ? undefined : actingAs(as));
   headers.set('content-type', 'application/json');
 

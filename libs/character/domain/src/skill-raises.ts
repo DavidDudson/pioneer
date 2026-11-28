@@ -3,10 +3,11 @@ import type { GrantResolution } from '@pioneer/rules/grants';
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import { Proficiency, RuleElementKey, Selector, SkillCount } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
+import { sum } from '@pioneer/shared/utils';
 
 import { SKILL_PREFIX } from './skill-content';
 
-export const RANKS: readonly Proficiency[] = Object.values(Proficiency);
+export const RANKS: ReadonlyArray<Proficiency> = Object.values(Proficiency);
 
 /** The higher of two ranks, undefined for neither. */
 export function higher(left: Proficiency | undefined, right: Proficiency | undefined): Proficiency | undefined {
@@ -28,10 +29,10 @@ function isSkill(selector: Selector): boolean {
 }
 
 /** The raises the effective set makes of the selectors `ranked` accepts, a choice-driven selector resolved to its pick. */
-function rankRaises(resolution: GrantResolution, ranked: (selector: Selector) => boolean): SkillRaise[] {
+function rankRaises(resolution: GrantResolution, ranked: (selector: Selector) => boolean): Array<SkillRaise> {
   const { facts } = resolution;
 
-  return resolvedRules(resolution).flatMap(({ entry, element }): SkillRaise[] => {
+  return resolvedRules(resolution).flatMap(({ entry, element }): Array<SkillRaise> => {
     if (element.key !== RuleElementKey.Proficiency) {
       return [];
     }
@@ -48,7 +49,7 @@ function rankRaises(resolution: GrantResolution, ranked: (selector: Selector) =>
   });
 }
 
-function skillRaises(resolution: GrantResolution): SkillRaise[] {
+function skillRaises(resolution: GrantResolution): Array<SkillRaise> {
   return rankRaises(resolution, isSkill);
 }
 
@@ -79,14 +80,14 @@ export function duplicateTrainings(resolution: GrantResolution): SkillCount {
 
   const twice = [...trainers.values()].map((raises) => new Set(raises.map(({ entry }) => entry)).size - 1);
 
-  return SkillCount.parse(twice.reduce((total, count) => total + count, 0));
+  return SkillCount.parse(sum(twice));
 }
 
 /** The entries of the effective set whose raises `wanted` accepts for each skill, by selector. */
 function entriesRaising(
   resolution: GrantResolution,
   wanted: (rank: Proficiency) => boolean,
-): ReadonlyMap<Selector, readonly ContentId[]> {
+): ReadonlyMap<Selector, ReadonlyArray<ContentId>> {
   const trainers = Map.groupBy(
     skillRaises(resolution).filter(({ rank }) => wanted(rank)),
     ({ selector }) => selector,
@@ -98,11 +99,11 @@ function entriesRaising(
 }
 
 /** The entries of the effective set that train each skill, by selector. */
-export function trainingEntries(resolution: GrantResolution): ReadonlyMap<Selector, readonly ContentId[]> {
+export function trainingEntries(resolution: GrantResolution): ReadonlyMap<Selector, ReadonlyArray<ContentId>> {
   return entriesRaising(resolution, (rank) => rank !== Proficiency.Untrained);
 }
 
 /** The entries of the effective set that raise each skill to trained exactly, by selector; a higher rank trains nothing. */
-export function trainedEntries(resolution: GrantResolution): ReadonlyMap<Selector, readonly ContentId[]> {
+export function trainedEntries(resolution: GrantResolution): ReadonlyMap<Selector, ReadonlyArray<ContentId>> {
   return entriesRaising(resolution, (rank) => rank === Proficiency.Trained);
 }

@@ -12,29 +12,29 @@ import type { TestInputs } from './testing/builders';
 import { entry, grantOf, inputsOf, picked, picksOf, slotOf, toggleOf } from './testing/builders';
 
 function resolve(
-  entries: readonly GrantEntry[],
-  roots: readonly GrantRoot[],
+  entries: ReadonlyArray<GrantEntry>,
+  roots: ReadonlyArray<GrantRoot>,
   more: Partial<TestInputs> = {},
 ): GrantResolution {
   return resolveGrants(inputsOf({ entries, roots, ...more }));
 }
 
-const names = (result: GrantResolution): string[] => result.items.map((item) => item.entry.name);
-const options = (result: GrantResolution): string[] => result.rollOptions.map(String);
+const names = (result: GrantResolution): Array<string> => result.items.map((item) => item.entry.name);
+const options = (result: GrantResolution): Array<string> => result.rollOptions.map(String);
 
 /** The names on the character once `entries` resolve from `roots`. */
 const namesOf = (
-  entries: readonly GrantEntry[],
-  roots: readonly GrantRoot[],
+  entries: ReadonlyArray<GrantEntry>,
+  roots: ReadonlyArray<GrantRoot>,
   more: Partial<TestInputs> = {},
-): string[] => names(resolve(entries, roots, more));
+): Array<string> => names(resolve(entries, roots, more));
 
 /** The roll options the character has once `entries` resolve from `roots`. */
 const optionsOf = (
-  entries: readonly GrantEntry[],
-  roots: readonly GrantRoot[],
+  entries: ReadonlyArray<GrantEntry>,
+  roots: ReadonlyArray<GrantRoot>,
   more: Partial<TestInputs> = {},
-): string[] => options(resolve(entries, roots, more));
+): Array<string> => options(resolve(entries, roots, more));
 
 /** `entry` of another kind. */
 const ofKind = (made: GrantEntry, kind: ContentKind): GrantEntry => ({ ...made, kind });

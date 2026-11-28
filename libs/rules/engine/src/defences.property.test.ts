@@ -37,7 +37,7 @@ interface DefenceSpec {
   readonly key: string;
   readonly type: string;
   readonly value: number | string;
-  readonly predicate: readonly string[] | undefined;
+  readonly predicate: ReadonlyArray<string> | undefined;
 }
 
 const defenceSpec: Arbitrary<DefenceSpec> = record({
@@ -48,7 +48,7 @@ const defenceSpec: Arbitrary<DefenceSpec> = record({
 });
 
 /** Each spec as a rule in play on its own entry, so ids are distinct. */
-function rules(specs: readonly DefenceSpec[]): RuleInPlay[] {
+function rules(specs: ReadonlyArray<DefenceSpec>): Array<RuleInPlay> {
   return specs.map(({ key, type, value, predicate }, index) =>
     inPlay(
       predicate === undefined ? { key, type: [type], value } : { key, type: [type], value, predicate },
@@ -57,12 +57,12 @@ function rules(specs: readonly DefenceSpec[]): RuleInPlay[] {
   );
 }
 
-function derive(rulesInPlay: readonly RuleInPlay[]): Defences {
+function derive(rulesInPlay: ReadonlyArray<RuleInPlay>): Defences {
   return deriveDefences(content, inputs, { rules: rulesInPlay, facts });
 }
 
 /** Checks one type's lines against the specs that gave them. */
-function checkType(lines: readonly AdjustmentLine[], specs: readonly DefenceSpec[]): void {
+function checkType(lines: ReadonlyArray<AdjustmentLine>, specs: ReadonlyArray<DefenceSpec>): void {
   const kept = specs.filter(({ predicate, value }) => predicate !== FAILS && value !== NOTHING);
   const failing = kept.filter(({ value }) => value === FAILING);
   const valued = kept.filter(({ value }) => value !== FAILING);

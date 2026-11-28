@@ -8,7 +8,7 @@ interface Row {
   readonly size: number;
 }
 
-const rows: readonly Row[] = [
+const rows: ReadonlyArray<Row> = [
   { name: 'Backpack', size: 4 },
   { name: 'Satchel', size: 10 },
   { name: 'Belt pouch', size: 4 },
@@ -19,7 +19,7 @@ const order: RowOrder<Row> = {
   sortKey: { name: (row) => row.name, size: (row) => row.size },
 };
 
-const names = (shown: readonly Row[]): readonly string[] => shown.map((row) => row.name);
+const names = (shown: ReadonlyArray<Row>): ReadonlyArray<string> => shown.map((row) => row.name);
 
 describe(shownRows, () => {
   it('keeps the given order when no sort is asked for', () => {

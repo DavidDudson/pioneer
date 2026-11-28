@@ -12,7 +12,7 @@ const VIEWPORT_PX = 220;
 const ROW_PX = 44;
 export const LONG_LIST = 500;
 
-export const FEATS: readonly ComboboxOption<string>[] = [
+export const FEATS: ReadonlyArray<ComboboxOption<string>> = [
   { value: 'power-attack', label: 'Power Attack' },
   { value: 'sudden-charge', label: 'Sudden Charge' },
   { value: 'reactive-shield', label: 'Reactive Shield' },
@@ -26,7 +26,7 @@ export function stubLayout(): void {
   );
 }
 
-export function longList(): readonly ComboboxOption<string>[] {
+export function longList(): ReadonlyArray<ComboboxOption<string>> {
   return Array.from({ length: LONG_LIST }, (_entry, index) => ({
     value: `feat-${index}`,
     label: `Feat ${index + 1}`,
@@ -37,19 +37,19 @@ export interface Rendered {
   readonly fixture: ComponentFixture<Combobox<string>>;
   readonly host: HTMLElement;
   readonly input: HTMLInputElement;
-  readonly searches: string[];
+  readonly searches: Array<string>;
   readonly commits: () => number;
   readonly cancels: () => number;
 }
 
 interface Outputs {
-  readonly searches: string[];
+  readonly searches: Array<string>;
   readonly commits: () => number;
   readonly cancels: () => number;
 }
 
 function recordOutputs(combobox: Combobox<string>): Outputs {
-  const searches: string[] = [];
+  const searches: Array<string> = [];
   let commits = 0;
   let cancels = 0;
   combobox.searched.subscribe((query) => {
@@ -65,7 +65,7 @@ function recordOutputs(combobox: Combobox<string>): Outputs {
   return { searches, commits: (): number => commits, cancels: (): number => cancels };
 }
 
-export function render(options: readonly ComboboxOption<string>[] = FEATS, value?: string): Rendered {
+export function render(options: ReadonlyArray<ComboboxOption<string>> = FEATS, value?: string): Rendered {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(Combobox<string>);
   fixture.componentRef.setInput('ariaLabel', 'Feat');
@@ -118,7 +118,7 @@ export function listbox(rendered: Rendered): HTMLElement | null {
   return rendered.host.querySelector('[role="listbox"]');
 }
 
-export function optionElements(rendered: Rendered): HTMLElement[] {
+export function optionElements(rendered: Rendered): Array<HTMLElement> {
   return [...rendered.host.querySelectorAll<HTMLElement>('[role="option"]')];
 }
 

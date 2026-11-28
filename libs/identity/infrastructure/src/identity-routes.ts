@@ -38,7 +38,7 @@ interface VerifiedCallback {
   readonly returnTo: ReturnPath;
 }
 
-function redirect(location: string, cookies: readonly string[]): Response {
+function redirect(location: string, cookies: ReadonlyArray<string>): Response {
   const headers = new Headers({ location, 'cache-control': 'no-store' });
 
   for (const value of cookies) {
@@ -102,7 +102,7 @@ async function completeSignIn({ provider, service, policy }: SignInFlow, request
 /** HTTP adapter for identity: provider redirects, sign-out, the current user and their sessions. */
 export function identityRoutes(
   service: IdentityService,
-  providers: readonly OAuthProviderPort[],
+  providers: ReadonlyArray<OAuthProviderPort>,
   policy: CookiePolicy,
 ): Elysia {
   const app = new Elysia({ name: 'identity-routes' });

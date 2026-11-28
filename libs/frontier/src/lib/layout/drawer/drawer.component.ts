@@ -16,6 +16,7 @@ import {
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { clamp } from '@pioneer/shared/utils';
 import { cva } from 'class-variance-authority';
 import { X } from 'lucide';
 
@@ -222,7 +223,7 @@ export class Drawer {
     }
 
     event.preventDefault();
-    const width = WIDTHS[Math.min(Math.max(next, 0), WIDTHS.length - 1)];
+    const width = WIDTHS[clamp(next, 0, WIDTHS.length - 1)];
 
     if (width !== undefined) {
       this.width.set(width);

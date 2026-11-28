@@ -37,14 +37,14 @@ interface AddModel {
 })
 export class PackDependencyAdder {
   public readonly packId = input.required<ContentPackId>();
-  public readonly candidates = input.required<readonly PackSummary[]>();
+  public readonly candidates = input.required<ReadonlyArray<PackSummary>>();
 
   readonly #store = inject(HomebrewStore);
   readonly #i18n = inject(TranslocoService);
 
   protected readonly query = signal('');
   /** The candidates whose title or author contains what was typed in the picker. */
-  protected readonly matching = computed((): readonly PackSummary[] => {
+  protected readonly matching = computed((): ReadonlyArray<PackSummary> => {
     const typed = this.query().trim().toLowerCase();
 
     return typed === ''
@@ -52,17 +52,17 @@ export class PackDependencyAdder {
       : this.candidates().filter((pack) => `${pack.title} ${pack.publisher}`.toLowerCase().includes(typed));
   });
 
-  protected readonly columns = computed((): readonly TableColumn<PackSummary>[] =>
+  protected readonly columns = computed((): ReadonlyArray<TableColumn<PackSummary>> =>
     tableSchema<PackSummary>()
       .addText({
         id: 'title',
-        header: this.#i18n.translate('homebrew.dependencies.titleColumn'),
+        header: 'homebrew.dependencies.titleColumn',
         value: (pack) => pack.title,
         sortable: false,
       })
       .addText({
         id: 'publisher',
-        header: this.#i18n.translate('homebrew.dependencies.publisherColumn'),
+        header: 'homebrew.dependencies.publisherColumn',
         value: (pack) => pack.publisher,
         sortable: false,
       })

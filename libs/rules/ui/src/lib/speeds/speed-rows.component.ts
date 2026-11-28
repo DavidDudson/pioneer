@@ -66,7 +66,7 @@ const ICONS: Readonly<Record<Movement, IconGlyph>> = {
 })
 export class SpeedRows {
   /** Undefined while loading: each row then shows a placeholder. */
-  public readonly speeds = input.required<readonly SpeedRow[] | undefined>();
+  public readonly speeds = input.required<ReadonlyArray<SpeedRow> | undefined>();
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
@@ -74,7 +74,7 @@ export class SpeedRows {
   protected readonly Message = SpeedsMessage;
   protected readonly inline = ButtonVariant.Inline;
   protected readonly loaded = computed((): boolean => this.speeds() !== undefined);
-  protected readonly rows = computed((): readonly ShownSpeed[] => {
+  protected readonly rows = computed((): ReadonlyArray<ShownSpeed> => {
     const speeds = this.speeds();
 
     return Object.values(Movement).map((movement): ShownSpeed => {

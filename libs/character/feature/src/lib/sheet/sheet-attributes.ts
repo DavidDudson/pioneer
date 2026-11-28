@@ -12,7 +12,7 @@ import { sheetSlotContent } from './sheet-slot-content';
 /** What the sheet's attributes section shows: the modifiers the boosts give, then the boosts not placed yet. */
 export interface SheetAttributes {
   readonly modifiers: AttributeModifiers;
-  readonly open: readonly OpenBoostLine[];
+  readonly open: ReadonlyArray<OpenBoostLine>;
 }
 
 /** What each boost slot is called, by where its boost comes from. */
@@ -32,7 +32,7 @@ export const BOOST_LABEL_KEYS: Readonly<Record<BoostSource, string>> = {
 export function sheetAttributes(registry: ContentRegistry, character: Character): SheetAttributes {
   const content = sheetSlotContent(registry).boosts;
 
-  const open = boostSlots(character.document, content).flatMap((slot): OpenBoostLine[] =>
+  const open = boostSlots(character.document, content).flatMap((slot): Array<OpenBoostLine> =>
     slot.pick === undefined && slot.source !== BoostSource.Free && slot.level <= character.level
       ? [{ key: slot.key, label: message(BOOST_LABEL_KEYS[slot.source], { level: slot.level }) }]
       : [],
@@ -45,9 +45,9 @@ export function sheetAttributes(registry: ContentRegistry, character: Character)
 export interface SheetPlannedBoost {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
-  readonly options: readonly Attribute[];
+  readonly options: ReadonlyArray<Attribute>;
   /** What the attribute table shows of each attribute on offer. */
-  readonly rows: readonly AttributePickerRow[];
+  readonly rows: ReadonlyArray<AttributePickerRow>;
 }
 
 /**
@@ -58,7 +58,7 @@ function boostRows(
   slot: BoostSlot,
   modifiers: AttributeModifiers,
   translate: (key: string) => string,
-): readonly AttributePickerRow[] {
+): ReadonlyArray<AttributePickerRow> {
   return slot.options.map((attribute): AttributePickerRow => {
     const current = modifiers.get(attribute) - (slot.pick === attribute ? 1 : 0);
 
@@ -77,7 +77,7 @@ export function sheetPlannedBoosts(
   registry: ContentRegistry,
   character: Character,
   translate: (key: string) => string,
-): readonly SheetPlannedBoost[] {
+): ReadonlyArray<SheetPlannedBoost> {
   const content = sheetSlotContent(registry).boosts;
   const planned = boostSlots(character.document, content);
   const modifiers = attributeModifiers(character.document, content);
@@ -91,7 +91,7 @@ export function sheetPlannedBoosts(
 }
 
 /** A planned boost's label, numbered when its level has several of its source ("Level 5 boost 2"), so each picker has a name of its own. */
-function plannedBoostLabel(slot: BoostSlot, planned: readonly BoostSlot[]): MessageDescriptor {
+function plannedBoostLabel(slot: BoostSlot, planned: ReadonlyArray<BoostSlot>): MessageDescriptor {
   const level = { level: slot.level };
   const alike = planned.filter((each) => each.source === slot.source && each.level === slot.level);
 

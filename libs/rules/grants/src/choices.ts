@@ -1,6 +1,6 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { ContentId, OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
+import { ContentId, contentIdOf, OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
 import type {
   ChoiceSetElement,
   ChoiceValue,
@@ -40,7 +40,7 @@ export interface ChoiceSlot {
   readonly prompt: ContentText | undefined;
   /** Whether the player may leave it unanswered. */
   readonly optional: boolean;
-  readonly options: readonly OfferedOption[];
+  readonly options: ReadonlyArray<OfferedOption>;
 }
 
 /** A slot the player has answered with one of its offered options. */
@@ -59,7 +59,7 @@ export interface ChoiceContext {
   readonly picks: ChoicePicks;
   readonly lookup: ContentLookup;
   /** The items the character owns, which a `ChoiceSet` over owned items offers. */
-  readonly owned: readonly OwnedItem[];
+  readonly owned: ReadonlyArray<OwnedItem>;
 }
 
 /** An entry on the character and the hops down to it. */
@@ -69,8 +69,8 @@ export interface EntryAt {
   /** The slot whose pick put this take there, for a repeatable feat: it names the take's slots. */
   readonly via: SlotKey | undefined;
   /** The `via` of each earlier take of the entry, in take order. */
-  readonly before: readonly (SlotKey | undefined)[];
-  readonly hops: readonly OriginHop[];
+  readonly before: ReadonlyArray<SlotKey | undefined>;
+  readonly hops: ReadonlyArray<OriginHop>;
 }
 
 /** A pick that stands: one of the options its slot offers. */
@@ -84,15 +84,15 @@ export interface EntryChoices {
   readonly picks: ReadonlyMap<RuleSlug, Pick>;
   /** Every flag the entry's `ChoiceSet`s declare, whether or not their slot is open. */
   readonly flags: ReadonlySet<RuleSlug>;
-  readonly open: readonly ChoiceSlot[];
-  readonly answered: readonly AnsweredSlot[];
-  readonly errors: readonly GrantError[];
+  readonly open: ReadonlyArray<ChoiceSlot>;
+  readonly answered: ReadonlyArray<AnsweredSlot>;
+  readonly errors: ReadonlyArray<GrantError>;
 }
 
 /** What a `GrantItem` grants, and the hops between its entry and its own grant hop (a pick's choice hop). */
 export interface GrantTarget {
   readonly id: ContentId;
-  readonly hops: readonly OriginHop[];
+  readonly hops: ReadonlyArray<OriginHop>;
 }
 
 /** A `ChoiceSet` and its place in its entry's rules. */
@@ -115,7 +115,7 @@ type SlotPlace = Omit<ChoiceSlot, 'options'>;
 function slotOf(place: SlotPlace, offer: Offer): ChoiceSlot {
   return {
     ...place,
-    get options(): readonly OfferedOption[] {
+    get options(): ReadonlyArray<OfferedOption> {
       return offer.options;
     },
   };
@@ -126,7 +126,7 @@ function answeredOf(place: SlotPlace, offer: Offer, answer: SlotAnswer): Answere
   return {
     ...place,
     ...answer,
-    get options(): readonly OfferedOption[] {
+    get options(): ReadonlyArray<OfferedOption> {
       return offer.options;
     },
   };
@@ -139,9 +139,9 @@ const choiceHop = (slot: SlotKey): OriginHop => ({ kind: OriginHopKind.Choice, s
  * (`feat:order-explorer:leaf-order`), else the plain option as it is.
  */
 function pickName(value: ChoiceValue, lookup: ContentLookup): string {
-  const id = ContentId.safeParse(value);
+  const id = contentIdOf(value);
 
-  return (id.success ? lookup.entry(id.data)?.slug : undefined) ?? value;
+  return (id === undefined ? undefined : lookup.entry(id)?.slug) ?? value;
 }
 
 /** Collects one entry's slots, answered and open, as it reads them in rule order. */
@@ -150,9 +150,9 @@ class ChoiceReader {
   readonly #context: ChoiceContext;
   readonly #picks = new Map<RuleSlug, Pick>();
   readonly #flags = new Set<RuleSlug>();
-  readonly #open: ChoiceSlot[] = [];
-  readonly #answered: AnsweredSlot[] = [];
-  readonly #errors: GrantError[] = [];
+  readonly #open: Array<ChoiceSlot> = [];
+  readonly #answered: Array<AnsweredSlot> = [];
+  readonly #errors: Array<GrantError> = [];
 
   public constructor(at: EntryAt, context: ChoiceContext) {
     this.#at = at;

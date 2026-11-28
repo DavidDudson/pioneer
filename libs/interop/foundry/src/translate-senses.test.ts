@@ -14,7 +14,7 @@ const DARKVISION = coreRulesId('sense:darkvision');
 const SCENT = coreRulesId('sense:scent');
 
 /** A Player Core heritage with `rules`, shaped as `pf2e-8.6.0` has it. */
-function heritage(rules: readonly object[]): DocumentFixture {
+function heritage(rules: ReadonlyArray<object>): DocumentFixture {
   return {
     id: 'hErItAgE00000000',
     name: 'Cavern Elf',
@@ -40,7 +40,7 @@ function feat(subfeatures: Fields, category = 'general'): DocumentFixture {
   };
 }
 
-function heritageRules(rules: readonly object[]): unknown[] {
+function heritageRules(rules: ReadonlyArray<object>): Array<unknown> {
   const translation = translate([heritage(rules)]);
 
   return rulesIn(translation, 'cavern-elf');

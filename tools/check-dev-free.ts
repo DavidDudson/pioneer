@@ -7,7 +7,7 @@ import path from 'node:path';
 
 import { findMarkers } from './dev-markers.ts';
 
-function filesUnder(target: string): string[] {
+function filesUnder(target: string): Array<string> {
   const isDirectory = statSync(target).isDirectory();
 
   if (!isDirectory) {

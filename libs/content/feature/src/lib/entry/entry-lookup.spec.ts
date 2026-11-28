@@ -6,7 +6,7 @@ import { registryEntries, traitLabel, traitNamesOf } from './entry-lookup';
 
 const VERSATILE = Trait.parse('versatile-p');
 
-function registryOf(...packs: readonly ContentPackBuilder[]): ContentRegistry {
+function registryOf(...packs: ReadonlyArray<ContentPackBuilder>): ContentRegistry {
   const registry = new ContentRegistry();
 
   for (const pack of packs) {

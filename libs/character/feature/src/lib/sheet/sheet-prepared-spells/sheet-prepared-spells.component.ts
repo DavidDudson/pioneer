@@ -29,7 +29,7 @@ export const PREPARED_HEADINGS: Readonly<Record<PickedPreparation, string>> = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetPreparedSpells {
-  public readonly entries = input.required<readonly PreparedEntryFields[]>();
+  public readonly entries = input.required<ReadonlyArray<PreparedEntryFields>>();
 
   protected readonly traditions = TRADITION_MESSAGES;
   protected readonly headings = PREPARED_HEADINGS;

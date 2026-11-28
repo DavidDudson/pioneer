@@ -92,7 +92,7 @@ interface IssuedJson {
 
 interface RosterJson {
   readonly viewerRole: string;
-  readonly members: readonly { readonly displayName: string; readonly role: string }[];
+  readonly members: ReadonlyArray<{ readonly displayName: string; readonly role: string }>;
 }
 
 async function json<TBody>(response: Response): Promise<TBody> {

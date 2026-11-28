@@ -13,7 +13,7 @@ import {
 } from '@pioneer/rules/sdk';
 import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
-import { matchTrigger, triggerMatches } from './trigger-matcher';
+import { matchTrigger, triggerMatches, triggerPhrasing } from './trigger-matcher';
 import type { RefNames } from './trigger-matcher';
 
 const PACK = 'player-core';
@@ -22,8 +22,8 @@ const STRIKE = idOf('action:strike');
 const NAMES: RefNames = new Map([[STRIKE, ContentText.parse('Strike')]]);
 
 const text = (words: string): JsonObject => ({ type: 'text', text: words });
-const paragraph = (...content: readonly JsonObject[]): JsonObject => ({ type: 'paragraph', content });
-const trigger = (...blocks: readonly JsonObject[]): RichText => RichText.parse(blocks);
+const paragraph = (...content: ReadonlyArray<JsonObject>): JsonObject => ({ type: 'paragraph', content });
+const trigger = (...blocks: ReadonlyArray<JsonObject>): RichText => RichText.parse(blocks);
 const prose = (words: string): RichText => trigger(paragraph(text(words)));
 
 const ref = (id: ContentId, label?: string): JsonObject =>
@@ -53,6 +53,13 @@ describe('trigger matcher', () => {
     ['You make a Strike.', { event: 'strike' }],
     ['You attempt a Strike.', { event: 'strike' }],
     ['You take damage.', { event: 'damage-taken' }],
+    ['You are dealt damage.', { event: 'damage-taken' }],
+    ['You roll for initiative.', { event: 'initiative' }],
+    ['You start your turn.', { event: 'turn-start' }],
+    ['Your turn starts.', { event: 'turn-start' }],
+    ['You finish your turn.', { event: 'turn-end' }],
+    ['You are damaged.', { event: 'damage-taken' }],
+    ['Your turn begins .', { event: 'turn-start' }],
   ])('reads "%s"', (words, expected) => {
     expect(matchTrigger(prose(words), NAMES)).toStrictEqual(event(expected));
   });
@@ -84,6 +91,9 @@ describe('trigger matcher', () => {
 
   test.each([
     ['a condition the event cannot carry', prose('You Strike a creature that is off-guard.')],
+    ['a hit rather than a Strike', prose('You are hit by a Strike.')],
+    ['a condition on the damage', prose('You take damage from a Strike or spell.')],
+    ['a condition on the spell', prose('You cast a non-cantrip spell that targets only your animal companion.')],
     ['another creature’s action', prose('A creature within your reach uses a move action.')],
     ['an unknown wording', prose('constructor')],
     ['more than one paragraph', TWO_PARAGRAPHS],
@@ -153,5 +163,22 @@ describe('trigger matches', () => {
     ];
 
     expect(triggerMatches(entries, NAMES)).toStrictEqual([]);
+  });
+});
+
+describe('trigger phrasing', () => {
+  test('normalises case, spacing and the full stop, and names links', () => {
+    const linked = trigger(paragraph(text('  You  USE '), ref(STRIKE), text('.')));
+
+    expect(triggerPhrasing(linked, NAMES)).toBe('you use strike');
+    expect(triggerPhrasing(prose('Your turn begins .'), NAMES)).toBe('your turn begins');
+  });
+
+  test('marks what is not words, and joins paragraphs', () => {
+    const unnamed = trigger(paragraph(text('You use '), ref(OTHER)));
+
+    expect(triggerPhrasing(WITH_GLYPH, NAMES)).toBe('you cast a spell <…>');
+    expect(triggerPhrasing(unnamed, NAMES)).toBe('you use <…>');
+    expect(triggerPhrasing(TWO_PARAGRAPHS, NAMES)).toBe('your turn begins / your turn ends');
   });
 });

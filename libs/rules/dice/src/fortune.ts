@@ -29,8 +29,8 @@ export const RollModeSchema = z.enum(RollMode);
  * mean one extra roll; the roll only needs to know whether any are present.
  */
 export interface FortuneSources {
-  readonly fortune: readonly MessageDescriptor[];
-  readonly misfortune: readonly MessageDescriptor[];
+  readonly fortune: ReadonlyArray<MessageDescriptor>;
+  readonly misfortune: ReadonlyArray<MessageDescriptor>;
 }
 
 export const NO_FORTUNE: FortuneSources = { fortune: [], misfortune: [] };

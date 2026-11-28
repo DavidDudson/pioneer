@@ -80,7 +80,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
 }
 
 /** Every button whose text starts with `label`, in document order. */
-function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
+function buttons(root: HTMLElement, label: string): Array<HTMLButtonElement> {
   return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.trim().startsWith(label));
 }
 
@@ -91,7 +91,7 @@ interface Opened {
 }
 
 /** Opens the Party Inventory page as Ezren, answering the offers list with `transfers`. */
-async function open(transfers: readonly object[]): Promise<Opened> {
+async function open(transfers: ReadonlyArray<object>): Promise<Opened> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'campaigns', children: campaignRoutes }], withComponentInputBinding()),

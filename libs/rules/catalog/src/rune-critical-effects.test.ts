@@ -19,7 +19,7 @@ const ELECTRIC_ARC = {
 const ARMOR_ACID = { kind: 'damage', damageType: 'acid', target: { type: 'armor' } };
 
 /** What each energy rune does besides its damage on a critical hit, by grade. */
-const CRITICAL_EFFECTS: readonly (readonly [string, object])[] = [
+const CRITICAL_EFFECTS: ReadonlyArray<readonly [string, object]> = [
   ['rune:frost', { kind: 'condition', condition: 'slowed', value: 1, duration: NEXT_TURN_END, save: FORTITUDE_24 }],
   [
     'rune:frost-greater',
@@ -47,7 +47,7 @@ const CRITICAL_EFFECTS: readonly (readonly [string, object])[] = [
 
 describe('critical effects of the energy runes', () => {
   test.each(CRITICAL_EFFECTS)('%s does its effect on a critical hit', (slug, effect) => {
-    const critical: readonly unknown[] = RUNES.filter((rune) => rune.slug === slug).flatMap(({ rules }) =>
+    const critical: ReadonlyArray<unknown> = RUNES.filter((rune) => rune.slug === slug).flatMap(({ rules }) =>
       rules.filter(({ key }) => key === 'CriticalEffect'),
     );
 
@@ -55,7 +55,7 @@ describe('critical effects of the energy runes', () => {
   });
 });
 
-const ROOTING_RUNES: readonly string[] = [
+const ROOTING_RUNES: ReadonlyArray<string> = [
   'rune:rooting',
   'rune:rooting-greater',
   'rune:rooting-major',
@@ -64,7 +64,7 @@ const ROOTING_RUNES: readonly string[] = [
 
 describe('critical effects of the rooting family', () => {
   test.each(ROOTING_RUNES)('%s immobilizes the target and makes it clumsy for a round', (slug) => {
-    const critical: readonly unknown[] = RUNES.filter((rune) => rune.slug === slug).flatMap(({ rules }) =>
+    const critical: ReadonlyArray<unknown> = RUNES.filter((rune) => rune.slug === slug).flatMap(({ rules }) =>
       rules.filter(({ key }) => key === 'CriticalEffect'),
     );
 
@@ -87,7 +87,7 @@ describe('critical effects of the rooting family', () => {
 
 describe('critical range of the keen rune', () => {
   test('a natural 19 is a critical hit for the weapon it is etched on', () => {
-    const rules: readonly unknown[] = RUNES.filter((rune) => rune.slug === 'rune:keen').flatMap(
+    const rules: ReadonlyArray<unknown> = RUNES.filter((rune) => rune.slug === 'rune:keen').flatMap(
       ({ rules: own }) => own,
     );
 

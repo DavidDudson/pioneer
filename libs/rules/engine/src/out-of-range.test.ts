@@ -23,7 +23,7 @@ const ac = statistic('ac', '10');
 /** Just under the safe integer range on its own; two of them are past it. */
 const NEARLY_UNSAFE = '999999 * 999999 * 9000';
 
-function derive(rules: readonly RuleInPlay[]): StatisticResult | undefined {
+function derive(rules: ReadonlyArray<RuleInPlay>): StatisticResult | undefined {
   return deriveStatistics({ definitions: [ac], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs, {
     rules,
     facts: new PredicateFacts([], CORE_NAMESPACES),

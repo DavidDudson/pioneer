@@ -7,12 +7,9 @@ import { RulesMessage } from './messages';
 import { ruleElementBase, RuleElementKey } from './rule-element-base';
 import { uniqueItems } from './unique-items';
 
+export { LanguageCount } from './language-count';
+
 const GRANTED_MAX = 16;
-
-/** How many languages a character picks from one source. */
-export const LanguageCount = Pg.smallint().nonnegative().brand<'LanguageCount'>();
-
-export type LanguageCount = z.infer<typeof LanguageCount>;
 
 /** The slots a `Language` element opens: at least one. */
 const LanguageSlots = Pg.smallint().positive().brand<'LanguageCount'>();

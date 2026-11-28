@@ -43,7 +43,7 @@ const pins = array(
   ),
 );
 
-function derive(rules: readonly RuleInPlay[]): StatisticResult | undefined {
+function derive(rules: ReadonlyArray<RuleInPlay>): StatisticResult | undefined {
   return deriveStatistics({ definitions: [ac], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs, {
     rules,
     facts,
@@ -56,7 +56,7 @@ function priorityOf(rule: RuleInPlay): number {
 }
 
 /** The set override that should win: the last by priority, then id. */
-function lastPin(pinRules: readonly RuleInPlay[]): RuleInPlay | undefined {
+function lastPin(pinRules: ReadonlyArray<RuleInPlay>): RuleInPlay | undefined {
   return pinRules
     .toSorted((left, right) => priorityOf(left) - priorityOf(right) || (ruleIdOf(left) < ruleIdOf(right) ? -1 : 1))
     .at(-1);

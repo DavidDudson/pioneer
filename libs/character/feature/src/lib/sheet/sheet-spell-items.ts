@@ -39,8 +39,12 @@ function detailOf(
 }
 
 /** One row for each wand the character holds, the spell it casts with its casts left as the source. */
-export function wandRows(registry: ContentRegistry, wands: readonly WandLine[], words: ItemWords): SpellRowLine[] {
-  return wands.flatMap((wand): SpellRowLine[] => {
+export function wandRows(
+  registry: ContentRegistry,
+  wands: ReadonlyArray<WandLine>,
+  words: ItemWords,
+): Array<SpellRowLine> {
+  return wands.flatMap((wand): Array<SpellRowLine> => {
     const source = words.translate(SOURCE_MESSAGES.wand, { name: wand.name, ...wand.use });
 
     const detail = detailOf(
@@ -59,9 +63,13 @@ function castRank(spell: StaffSpellLine): SpellRank | undefined {
 }
 
 /** One row for each spell of each staff the character holds, the staff with its charges left as the source. */
-export function staffRows(registry: ContentRegistry, staves: readonly StaffLine[], words: ItemWords): SpellRowLine[] {
+export function staffRows(
+  registry: ContentRegistry,
+  staves: ReadonlyArray<StaffLine>,
+  words: ItemWords,
+): Array<SpellRowLine> {
   return staves.flatMap((staff) =>
-    staff.spells.flatMap((spell): SpellRowLine[] => {
+    staff.spells.flatMap((spell): Array<SpellRowLine> => {
       const rank = castRank(spell);
 
       const source =
@@ -104,10 +112,10 @@ export interface ScrollSource {
 }
 
 /** The scrolls the character has in hand, in inventory order: a scroll is cast from the hand. */
-export function scrollSources(registry: ContentRegistry, character: Character): readonly ScrollSource[] {
+export function scrollSources(registry: ContentRegistry, character: Character): ReadonlyArray<ScrollSource> {
   const items = itemContent(registry);
 
-  return character.document.inventory.items.flatMap((held): readonly ScrollSource[] => {
+  return character.document.inventory.items.flatMap((held): ReadonlyArray<ScrollSource> => {
     const entry = items.get(held.item);
     const spell = entry?.kind === ContentKind.Consumable ? entry.data.spell : undefined;
 
@@ -137,12 +145,12 @@ export interface ScrollWords extends ItemWords {
 /** One row for each scroll held, the scroll as the source, castable while the turn can pay for its spell. */
 export function scrollRows(
   registry: ContentRegistry,
-  scrolls: readonly ScrollSource[],
+  scrolls: ReadonlyArray<ScrollSource>,
   { turn, translate }: ScrollWords,
-): SpellRowLine[] {
+): Array<SpellRowLine> {
   const spells = spellContent(registry);
 
-  return scrolls.flatMap((scroll): SpellRowLine[] => {
+  return scrolls.flatMap((scroll): Array<SpellRowLine> => {
     const option = spells.anySpell(scroll.spell);
     const range = option === undefined ? undefined : spellCost(option);
     const castable = affordability(turn, range?.cost ?? ActionCost.Free, undefined).affordable ?? true;

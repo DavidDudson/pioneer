@@ -12,7 +12,7 @@ import { SKILL_STATISTICS } from '../testing/skill-fixtures';
 import { SkillsView } from './skills.component';
 
 async function render(
-  statistics: readonly NamedStatistic[] | undefined,
+  statistics: ReadonlyArray<NamedStatistic> | undefined,
   withPanel = false,
 ): Promise<ComponentFixture<SkillsView>> {
   TestBed.configureTestingModule({
@@ -50,7 +50,7 @@ function hostOf(fixture: ComponentFixture<SkillsView>): HTMLElement {
   return fixture.nativeElement as HTMLElement;
 }
 
-function rowNames(host: HTMLElement): string[] {
+function rowNames(host: HTMLElement): Array<string> {
   return [...host.querySelectorAll('pio-statistics [role="listitem"]')]
     .values()
     .filter((item) => item.closest('pio-breakdown') === null)

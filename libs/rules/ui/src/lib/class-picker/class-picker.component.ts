@@ -27,7 +27,7 @@ import { classPickerColumns, shownClassRows } from './class-picker-table';
 })
 export class ClassPicker {
   /** Every class the slot offers, with the facts of each. */
-  public readonly rows = input.required<readonly ClassPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<ClassPickerRow>>();
   /** The picked class; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

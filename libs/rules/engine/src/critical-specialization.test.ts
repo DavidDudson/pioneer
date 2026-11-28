@@ -46,15 +46,15 @@ const only = (option: string): RuleJson => ({ ...ELEMENT, predicate: [option] })
 
 /** The roll options the character has, and its proficiency ranks by selector. */
 interface Given {
-  readonly options?: readonly string[];
+  readonly options?: ReadonlyArray<string>;
   readonly ranks?: Readonly<Record<string, string>>;
 }
 
-const RAGING: readonly string[] = ['self:effect:rage'];
+const RAGING: ReadonlyArray<string> = ['self:effect:rage'];
 const TRAINED = { 'attack:martial': 'trained' };
 
 /** The first Strike of a level 5 character wielding `weapon`, with `CriticalSpecialization` elements in play. */
-function strikeOf(elements: readonly RuleJson[], weapon: JsonObject, given: Given = {}): Strike | undefined {
+function strikeOf(elements: ReadonlyArray<RuleJson>, weapon: JsonObject, given: Given = {}): Strike | undefined {
   const inputs = StatisticInputsJson.parse({
     level: 5,
     attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },

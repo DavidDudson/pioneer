@@ -9,9 +9,9 @@ import type { StatisticSources } from './character-statistics';
 
 /** What the character senses: its senses in play, and the ones it has out of form when a battle form replaced them. */
 export interface CharacterSenses {
-  readonly senses: readonly SenseInPlay[];
+  readonly senses: ReadonlyArray<SenseInPlay>;
   /** The senses without the battle form; empty when no form lists senses, as nothing then replaces them. */
-  readonly own: readonly SenseInPlay[];
+  readonly own: ReadonlyArray<SenseInPlay>;
 }
 
 /** The vision the character's ancestry gives, with the ancestry as its origin; none while it is unpicked or has none. */

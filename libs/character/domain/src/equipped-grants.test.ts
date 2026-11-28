@@ -43,7 +43,7 @@ function wielding(carry: Carry): CharacterDocument {
 }
 
 /** The inventory items whose rune-granted entries are the clumsy condition. */
-function grantedBy(document: CharacterDocument): readonly (InventoryItemId | undefined)[] {
+function grantedBy(document: CharacterDocument): ReadonlyArray<InventoryItemId | undefined> {
   const slots = slotContent(itemFixtureRegistry());
 
   return equippedGrants(document, itemFixtureContent(), slots)

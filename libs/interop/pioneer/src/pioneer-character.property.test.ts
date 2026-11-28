@@ -17,7 +17,7 @@ import type { NamedCharacter } from './testing/named-character';
 
 installRulesFakes();
 
-function unnamedOf(result: PioneerExportResult): readonly ContentId[] {
+function unnamedOf(result: PioneerExportResult): ReadonlyArray<ContentId> {
   return result.ok ? [] : result.unnamed;
 }
 

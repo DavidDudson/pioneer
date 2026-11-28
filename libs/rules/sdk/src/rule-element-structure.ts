@@ -1,7 +1,7 @@
 import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { ContentId, LoreChoice, Slug } from './content-id';
+import { ChoiceValue, ContentId, Slug } from './content-id';
 import { ContentKindSchema } from './content-kind';
 import { ContentText } from './content-text';
 import { RulesMessage } from './messages';
@@ -12,19 +12,19 @@ import { RollOptionNamespace } from './roll-option-namespace';
 import { ruleElementBase, RuleElementKey, RuleSlug } from './rule-element-base';
 import { Domain } from './selector';
 
-/** A choice's stored value: a content entry (`ContentId`), a plain option (`forest`) or a custom Lore (`lore:sailing`). */
-export const ChoiceValue = z.union([ContentId, Slug, LoreChoice]);
-
-export type ChoiceValue = z.infer<typeof ChoiceValue>;
+export { ChoiceValue } from './content-id';
 
 /** Grants the selection a `ChoiceSet` stored under `choice`, rather than a fixed entry. */
 export const ChoiceRef = z.strictObject({ choice: RuleSlug });
 
 export type ChoiceRef = z.infer<typeof ChoiceRef>;
 
+/** `ChoiceRef` compiled to a fast path: `isChoiceRef` runs on every grant the walk follows. */
+const CompiledChoiceRef = z.compile(ChoiceRef);
+
 /** Whether a granted `item` is a reference to a choice, rather than the id of a fixed entry. */
 export function isChoiceRef(item: ContentId | ChoiceRef): item is ChoiceRef {
-  return ChoiceRef.safeParse(item).success;
+  return CompiledChoiceRef.validate(item);
 }
 
 /** Gives the character another content entry (a feature, action, spell or item), with its own rules. */

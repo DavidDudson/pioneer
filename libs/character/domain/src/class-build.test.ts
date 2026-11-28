@@ -28,8 +28,8 @@ interface Expected {
   readonly keyAttribute: string;
   /** Perception, then Fortitude, Reflex and Will. */
   readonly ranks: readonly [string, string, string, string];
-  readonly features: readonly string[];
-  readonly subclasses: string[] | undefined;
+  readonly features: ReadonlyArray<string>;
+  readonly subclasses: Array<string> | undefined;
 }
 
 const TRAINED = 'trained';
@@ -215,7 +215,7 @@ describe('class features by level', () => {
   homebrew.register(pack.build());
   const homebrewContent = { ...slotContent(homebrew), namespaces: CORE_NAMESPACES };
 
-  function featuresAt(level: number): string[] {
+  function featuresAt(level: number): Array<string> {
     const { document } = new CharacterBuilder()
       .withAncestry(AncestryId.parse(pack.idOf(ContentKind.Ancestry, 'human')))
       .picking('class', pack.idOf(ContentKind.Class, 'guardian'))

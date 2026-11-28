@@ -11,7 +11,7 @@ import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
 import { afflicted, entry, grantOf, inputsOf, picked } from './testing/builders';
 
-const condition = (slug: string, rules: readonly object[] = []): GrantEntry => ({
+const condition = (slug: string, rules: ReadonlyArray<object> = []): GrantEntry => ({
   ...entry(slug, rules),
   kind: ContentKind.Condition,
 });
@@ -24,19 +24,19 @@ const clumsy: GrantEntry = { ...condition('clumsy'), valued: true };
 /** A grant of `slug` while `predicate` holds. */
 const grantWhen = (slug: string, predicate: JsonValue): RuleJson => ({ ...grantOf(slug), predicate });
 
-function resolve(entries: readonly GrantEntry[], roots: readonly GrantRoot[]): GrantResolution {
+function resolve(entries: ReadonlyArray<GrantEntry>, roots: ReadonlyArray<GrantRoot>): GrantResolution {
   return resolveGrants(inputsOf({ entries, roots }));
 }
 
-const namesOf = (items: readonly GrantedItem[]): string[] => items.map((item) => String(item.entry.name));
+const namesOf = (items: ReadonlyArray<GrantedItem>): Array<string> => items.map((item) => String(item.entry.name));
 
 /** The condition options `result` sets. */
-function conditionsOf(result: GrantResolution): string[] {
+function conditionsOf(result: GrantResolution): Array<string> {
   return result.rollOptions.map(String).filter((option) => option.startsWith('self:condition:'));
 }
 
 /** The condition options the character has once `entries` resolve from `roots`. */
-const conditionOptions = (entries: readonly GrantEntry[], roots: readonly GrantRoot[]): string[] =>
+const conditionOptions = (entries: ReadonlyArray<GrantEntry>, roots: ReadonlyArray<GrantRoot>): Array<string> =>
   conditionsOf(resolve(entries, roots));
 
 describe('a valued condition', () => {
@@ -73,7 +73,7 @@ describe('a valued condition', () => {
       entry('composed'),
     ];
 
-    const at = (...values: number[]): string[] => {
+    const at = (...values: Array<number>): Array<string> => {
       const roots = [picked('steady'), ...values.map((value) => afflicted('frightened', value))];
 
       // Which entries are granted, in name order: the walk's order follows ids.
@@ -91,7 +91,7 @@ describe('a valued condition', () => {
       id: ContentId.parse(contentId(PackId.parse('homebrew'), entrySlug(ContentKind.Condition, frightened.slug))),
     };
 
-    const roots: GrantRoot[] = [
+    const roots: Array<GrantRoot> = [
       afflicted('frightened', 3),
       { entry: homebrew.id, hop: { kind: 'condition', condition: homebrew.id, value: ConditionValue.parse(1) } },
     ];
@@ -142,7 +142,7 @@ describe('a valued condition', () => {
       clumsy,
     ];
 
-    const valueOf = (roots: readonly GrantRoot[]): number | undefined =>
+    const valueOf = (roots: ReadonlyArray<GrantRoot>): number | undefined =>
       resolve(content, roots).items.find((item) => item.entry.slug === 'clumsy')?.value;
 
     expect(valueOf([afflicted('encumbered'), afflicted('curse')])).toBe(3);
@@ -173,7 +173,7 @@ describe('a valued condition', () => {
 const VALUE_MAX = 4;
 const ROOTS_MAX = 6;
 
-type Values = readonly (number | undefined)[];
+type Values = ReadonlyArray<number | undefined>;
 
 /** Each root's value (none for an unvalued one), and the same roots in another order. */
 const valuedRoots: Arbitrary<[Values, Values]> = array(
@@ -189,27 +189,27 @@ interface Arrival {
 
 const drawnValue: Arbitrary<number | undefined> = oneof(constant(undefined), integer({ min: 1, max: VALUE_MAX }));
 
-const arrivals: Arbitrary<Arrival[]> = array(record({ granted: boolean(), value: drawnValue }), {
+const arrivals: Arbitrary<Array<Arrival>> = array(record({ granted: boolean(), value: drawnValue }), {
   minLength: 1,
   maxLength: ROOTS_MAX,
 });
 
 /** The condition that grants clumsy for each granted arrival, `granter-<index>`. */
-function grantersOf(drawn: readonly Arrival[]): GrantEntry[] {
+function grantersOf(drawn: ReadonlyArray<Arrival>): Array<GrantEntry> {
   return drawn.flatMap(({ granted, value }, index) =>
     granted ? [condition(`granter-${index}`, [{ ...grantOf('clumsy'), value }])] : [],
   );
 }
 
 /** A root for each arrival: its granter, or clumsy put on with its value. */
-function arrivalRoots(drawn: readonly Arrival[]): GrantRoot[] {
+function arrivalRoots(drawn: ReadonlyArray<Arrival>): Array<GrantRoot> {
   return drawn.map(({ granted, value }, index) =>
     granted ? afflicted(`granter-${index}`) : afflicted('clumsy', value),
   );
 }
 
 /** The value each arrival brings: a grant's, else 1; a root's own, if it has one. */
-function broughtBy({ granted, value }: Arrival): number[] {
+function broughtBy({ granted, value }: Arrival): Array<number> {
   if (granted) {
     return [value ?? 1];
   }
@@ -220,10 +220,10 @@ function broughtBy({ granted, value }: Arrival): number[] {
 /** What clumsy holds once `drawn` arrive: its highest value, and the options it sets. */
 interface ClumsyState {
   readonly value: ConditionValue | undefined;
-  readonly options: readonly string[];
+  readonly options: ReadonlyArray<string>;
 }
 
-function expectedClumsy(drawn: readonly Arrival[]): ClumsyState {
+function expectedClumsy(drawn: ReadonlyArray<Arrival>): ClumsyState {
   const given = drawn.flatMap((arrival) => broughtBy(arrival));
 
   if (given.length === 0) {
@@ -239,7 +239,7 @@ function expectedClumsy(drawn: readonly Arrival[]): ClumsyState {
 }
 
 /** What clumsy holds once `drawn` resolve. */
-function resolvedClumsy(drawn: readonly Arrival[]): ClumsyState {
+function resolvedClumsy(drawn: ReadonlyArray<Arrival>): ClumsyState {
   const result = resolve([clumsy, ...grantersOf(drawn)], arrivalRoots(drawn));
 
   return clumsyOf(result);
@@ -253,10 +253,10 @@ function clumsyOf(result: GrantResolution): ClumsyState {
 }
 
 /** _frightened_ once for each of `values`. */
-const rootsOf = (values: Values): GrantRoot[] => values.map((value) => afflicted('frightened', value));
+const rootsOf = (values: Values): Array<GrantRoot> => values.map((value) => afflicted('frightened', value));
 
 /** The options frightened sets from roots with `values`: its slug, and its highest value if any has one. */
-function expectedOf(values: Values): string[] {
+function expectedOf(values: Values): Array<string> {
   const given = values.filter((value) => value !== undefined);
   const valued = given.length === 0 ? [] : [`self:condition:frightened:${Math.max(...given)}`];
 

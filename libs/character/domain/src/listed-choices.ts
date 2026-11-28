@@ -14,10 +14,10 @@ export interface ListedChoice {
  * options are a query of content (a feat slot, a subclass) has a picker of its own, or none yet (#466), so it is left
  * out.
  */
-export function listedChoices(resolution: GrantResolution, lookup: ContentLookup): readonly ListedChoice[] {
+export function listedChoices(resolution: GrantResolution, lookup: ContentLookup): ReadonlyArray<ListedChoice> {
   return (
     [...resolution.answered, ...resolution.open]
-      .flatMap((slot): ListedChoice[] => {
+      .flatMap((slot): Array<ListedChoice> => {
         const entry = lookup.entry(slot.origin.entry);
         const element = entry?.rules[slot.rule];
         const listed = element?.key === RuleElementKey.ChoiceSet && Array.isArray(element.choices);

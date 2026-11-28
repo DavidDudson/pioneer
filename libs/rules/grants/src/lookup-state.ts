@@ -8,7 +8,7 @@ export interface LookupState {
   readonly unsupported: ReadonlySet<ContentPackId>;
   readonly legacyContent: boolean;
   /** The remaster entries in force that replace each legacy entry, worked out when the first entry is converted. */
-  readonly replacements: () => ReadonlyMap<ContentId, readonly Replacement[]>;
+  readonly replacements: () => ReadonlyMap<ContentId, ReadonlyArray<Replacement>>;
 }
 
 /** Whether the entry is held back: its pack is unsupported, or it is legacy content and the character has none on. */

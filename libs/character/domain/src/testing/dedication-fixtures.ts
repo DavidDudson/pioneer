@@ -33,10 +33,10 @@ export const GRANTING_CLASS = ContentId.parse(builder.idOf(ContentKind.Class, 'g
 const BASIC_GRANTED_AT = 3;
 const ADVANCED_GRANTED_AT = 5;
 const SLOT_COUNT = 6;
-const SLOT_LEVELS: readonly number[] = Array.from({ length: SLOT_COUNT }, (_unused, index) => index + 1);
+const SLOT_LEVELS: ReadonlyArray<number> = Array.from({ length: SLOT_COUNT }, (_unused, index) => index + 1);
 
 /** An archetype feat slot at `level`, as the importer writes one (`kind-fields.ts`). */
-function archetypeSlot(level: number): JsonObject[] {
+function archetypeSlot(level: number): Array<JsonObject> {
   const flag = `archetype-feat-${level}`;
   const predicate = level === 1 ? {} : { predicate: [{ gte: ['self:level', level] }] };
 

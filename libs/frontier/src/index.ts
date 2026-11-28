@@ -11,10 +11,6 @@ export { GiftBadge } from './lib/actions/gift-badge/gift-badge.component';
 
 export { Link, type LinkTarget } from './lib/actions/link/link.component';
 
-export { SectionIndex } from './lib/actions/section-index/section-index.component';
-
-export { SectionLink } from './lib/actions/section-link/section-link.component';
-
 export { Step } from './lib/actions/stepper/step.component';
 
 export { StepBody } from './lib/actions/stepper/step-body.directive';
@@ -57,11 +53,14 @@ export { LoadMoreItem } from './lib/async/load-more/load-more-item.directive';
 export type { LoadMoreQuery, PageFetch } from './lib/async/load-more/load-more-query';
 
 // Plain controls (inline editing)
-export { DateInput } from './lib/controls/date-input/date-input.component';
 
 export { FilterBar } from './lib/controls/filter-bar/filter-bar.component';
 
-export { FilterKind, FilterOperator } from './lib/controls/filter-bar/filter-bar.types';
+export { FilterKind, FilterOperator, defaultOperator } from './lib/controls/filter-bar/filter-bar.types';
+
+export { filterCodec } from './lib/controls/filter-bar/filter-codec';
+
+export type { FilterCodec } from './lib/controls/filter-bar/filter-codec';
 
 export type { FilterCondition, FilterField, FilterOption } from './lib/controls/filter-bar/filter-bar.types';
 
@@ -99,8 +98,6 @@ export { Meter, MeterVariant } from './lib/feedback/meter/meter.component';
 
 export { Skeleton, SkeletonKind, SkeletonWidth } from './lib/feedback/skeleton/skeleton.component';
 
-export { Spinner } from './lib/feedback/spinner/spinner.component';
-
 export { ScreenOverlay } from './lib/feedback/screen-overlay/screen-overlay.component';
 
 export { Toast, ToastEmphasis } from './lib/feedback/toast/toast.component';
@@ -117,8 +114,6 @@ export { RovingOrientation } from './lib/focus/roving-keys';
 // Forms (create flows; prefer inline editing)
 export { AsyncForm } from './lib/forms/async-form/async-form.component';
 
-export { DateField } from './lib/forms/date-field/date-field.component';
-
 export { FieldError } from './lib/forms/field/error/error.component';
 
 export { Field } from './lib/forms/field/field.component';
@@ -127,13 +122,9 @@ export { FieldHint } from './lib/forms/field/hint/hint.component';
 
 export { Label } from './lib/forms/field/label/label.component';
 
-export { Form } from './lib/forms/form/form.component';
-
 export { NumberField } from './lib/forms/number-field/number-field.component';
 
 export { SegmentedField } from './lib/forms/segmented-field/segmented-field.component';
-
-export { SelectField } from './lib/forms/select-field/select-field.component';
 
 export { TextAreaField } from './lib/forms/text-area-field/text-area-field.component';
 
@@ -164,15 +155,21 @@ export { HoverCard } from './lib/layout/hover-card/hover-card.component';
 
 export { HoverCardContent } from './lib/layout/hover-card/hover-card-content.directive';
 
-export { Divider, DividerOrientation, DividerTone } from './lib/layout/divider/divider.component';
+export { Divider, DividerTone } from './lib/layout/divider/divider.component';
+
+export { Card } from './lib/layout/card/card.component';
+
+export { CardContent } from './lib/layout/card/card-content.component';
+
+export { CardFooter } from './lib/layout/card/card-footer.component';
+
+export { CardHeader } from './lib/layout/card/card-header.component';
 
 export { Clamp, ClampLines } from './lib/layout/clamp/clamp.component';
 
 export { Grid, GridAlign, GridColumns, GridMinItem, GridQuery } from './lib/layout/grid/grid.component';
 
 export { Page } from './lib/layout/page/page.component';
-
-export { PageAside } from './lib/layout/page-aside/page-aside.component';
 
 export { Rail } from './lib/layout/rail/rail.component';
 
@@ -189,6 +186,12 @@ export { DrawerWidth } from './lib/layout/drawer/drawer-width';
 export { DRAWER_OPEN, DRAWER_PARAM } from './lib/layout/drawer/drawer-query';
 
 export { PageHeader } from './lib/layout/page-header/page-header.component';
+
+export { TableToolbar } from './lib/layout/table-toolbar/table-toolbar.component';
+
+export { ToolbarFilters } from './lib/layout/table-toolbar/toolbar-filters.directive';
+
+export { ToolbarView } from './lib/layout/table-toolbar/toolbar-view.directive';
 
 export { CRUMB, type Crumb } from './lib/layout/page-header/route-crumbs';
 
@@ -214,6 +217,12 @@ export { DescriptionItem } from './lib/list/description-item/description-item.co
 export { DescriptionList } from './lib/list/description-list/description-list.component';
 
 export { List } from './lib/list/list/list.component';
+
+export { ItemActions } from './lib/list/item/item-actions.component';
+
+export { ItemContent } from './lib/list/item/item-content.component';
+
+export { ItemMedia } from './lib/list/item/item-media.component';
 
 export { ListItem } from './lib/list/list-item/list-item.component';
 
@@ -253,6 +262,8 @@ export { Container, DamageTone, Size, Space, Tone } from './lib/tokens';
 export { default as frontierMessages } from './i18n/en.json';
 
 export { Distance } from './lib/locale/distance/distance.component';
+
+export { injectTranslate } from './lib/locale/inject-translate';
 
 export { DISTANCE_UNIT, LocaleFormat } from './lib/locale/locale-format';
 

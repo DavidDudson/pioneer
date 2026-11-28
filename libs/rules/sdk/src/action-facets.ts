@@ -10,7 +10,7 @@ import {
   featSkills,
   SkillValue,
 } from './action-facet-values';
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import { ContentKind } from './content-kind';
 import { FacetId, FacetLabel, facetLabels, FacetType } from './facet';
 import type { FacetDefinition, FacetLeaf } from './facet';
@@ -79,7 +79,7 @@ const ACTION_COST_FACET: FacetDefinition = {
   type: FacetType.Set,
   label: ActionFacetMessage.ActionCost,
   values: ACTION_COST_LABELS,
-  derive: (entry): readonly FacetLeaf[] => {
+  derive: (entry): ReadonlyArray<FacetLeaf> => {
     if (entry.kind === ContentKind.Feat) {
       return [actionCostValue(entry.data.action)];
     }
@@ -94,7 +94,7 @@ const SKILL_FACET: FacetDefinition = {
   type: FacetType.Set,
   label: ActionFacetMessage.Skill,
   values: SKILL_LABELS,
-  derive: (entry): readonly FacetLeaf[] => {
+  derive: (entry): ReadonlyArray<FacetLeaf> => {
     if (entry.kind === ContentKind.Feat) {
       return featSkills(entry);
     }
@@ -104,33 +104,33 @@ const SKILL_FACET: FacetDefinition = {
 };
 
 /** The feat facets (content-model.md, "Filters"), beyond the common ones; prerequisites met is `prerequisitesMetFacet`. */
-export const FEAT_FACETS: readonly FacetDefinition[] = [
+export const FEAT_FACETS: ReadonlyArray<FacetDefinition> = [
   {
     id: FacetId.parse('feat-category'),
     type: FacetType.Set,
     label: ActionFacetMessage.FeatCategory,
     values: FEAT_CATEGORY_LABELS,
-    derive: (entry): readonly FacetLeaf[] => (entry.kind === ContentKind.Feat ? [entry.data.category] : []),
+    derive: (entry): ReadonlyArray<FacetLeaf> => (entry.kind === ContentKind.Feat ? [entry.data.category] : []),
   },
   ACTION_COST_FACET,
   {
     id: FacetId.parse('archetype'),
     type: FacetType.Set,
     label: ActionFacetMessage.Archetype,
-    derive: (entry): readonly FacetLeaf[] => (entry.kind === ContentKind.Feat ? featArchetype(entry) : []),
+    derive: (entry): ReadonlyArray<FacetLeaf> => (entry.kind === ContentKind.Feat ? featArchetype(entry) : []),
   },
   SKILL_FACET,
 ];
 
 /** The action facets beyond the common ones; an action's traits are the common `traits` facet. */
-export const ACTION_FACETS: readonly FacetDefinition[] = [
+export const ACTION_FACETS: ReadonlyArray<FacetDefinition> = [
   ACTION_COST_FACET,
   {
     id: FacetId.parse('mode'),
     type: FacetType.Set,
     label: ActionFacetMessage.Mode,
     values: MODE_LABELS,
-    derive: (entry): readonly FacetLeaf[] => (entry.kind === ContentKind.Action ? [actionMode(entry)] : []),
+    derive: (entry): ReadonlyArray<FacetLeaf> => (entry.kind === ContentKind.Action ? [actionMode(entry)] : []),
   },
   SKILL_FACET,
 ];
@@ -141,7 +141,7 @@ export const PrerequisiteValue = { Met: 'met', Unknown: 'unknown', Unmet: 'unmet
 export type PrerequisiteValue = ValueOf<typeof PrerequisiteValue>;
 
 /** How a character's prerequisites read for a feat; the sdk can't see the character, so the caller supplies it. */
-export type PrerequisiteStatusOf = (entry: ContentEntry) => PrerequisiteValue;
+export type PrerequisiteStatusOf = (entry: ContentEntryModel) => PrerequisiteValue;
 
 export const PREREQUISITES_MET_FACET = FacetId.parse('prerequisites-met');
 
@@ -161,6 +161,6 @@ export function prerequisitesMetFacet(statusOf: PrerequisiteStatusOf): FacetDefi
     type: FacetType.Set,
     label: ActionFacetMessage.Prerequisites,
     values: PREREQUISITE_LABELS,
-    derive: (entry): readonly FacetLeaf[] => (entry.kind === ContentKind.Feat ? [statusOf(entry)] : []),
+    derive: (entry): ReadonlyArray<FacetLeaf> => (entry.kind === ContentKind.Feat ? [statusOf(entry)] : []),
   };
 }

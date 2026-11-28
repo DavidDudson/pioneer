@@ -30,7 +30,7 @@ function isPlayers({ origin, keyItem }: Originated): boolean {
  * lines and key items' lines are kept as given and not held to them; `inventoryViolations` reports what an imported
  * line breaks, and a key item breaks nothing.
  */
-export function playerLimits(context: z.core.ParsePayload<readonly Originated[]>): void {
+export function playerLimits(context: z.core.ParsePayload<ReadonlyArray<Originated>>): void {
   const player = context.value.filter((each) => isPlayers(each));
 
   if (handsInUse(player) > HANDS_MAX) {

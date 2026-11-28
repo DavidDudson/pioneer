@@ -10,7 +10,7 @@
             frInlineEditor
             [ariaLabel]="row.label"
             [rows]="row.rows.shown()"
-            [columns]="runeColumns()"
+            [columns]="runeColumns"
             [rowValue]="runeValue"
             [rowLabel]="runeLabel"
             [value]="row.edit.draft()"
@@ -45,7 +45,7 @@
           <fr-picker-field
             [label]="'character.sheet.runes.propertyOf' | transloco: { name: name() }"
             [rows]="propertyPicker.shown()"
-            [columns]="runeColumns()"
+            [columns]="runeColumns"
             [rowValue]="runeValue"
             [rowLabel]="runeLabel"
             [formField]="form.rune"

@@ -14,7 +14,7 @@ import { FEAT_CONTENT_KINDS } from '../sheet-feats';
 import { describeSaveError } from '../sheet-field';
 
 /** What the uses are read from: the same content the counts of the sheet read. */
-const USE_CONTENT_KINDS: readonly ContentKind[] = [...new Set([...FEAT_CONTENT_KINDS, ...INVENTORY_KINDS])];
+const USE_CONTENT_KINDS: ReadonlyArray<ContentKind> = [...new Set([...FEAT_CONTENT_KINDS, ...INVENTORY_KINDS])];
 
 /**
  * The uses of feats, actions and items with a frequency that only the player or a rest gives back (a frequency of a
@@ -35,7 +35,7 @@ export class SheetUseResets {
   protected readonly registry = injectContentRegistry(USE_CONTENT_KINDS);
   protected readonly playQuery = this.#play.play;
 
-  protected readonly views = computed((): readonly UseView[] => {
+  protected readonly views = computed((): ReadonlyArray<UseView> => {
     const registry = this.registry.data();
     const character = this.#characters.selected();
     const read = this.#play.play.data();

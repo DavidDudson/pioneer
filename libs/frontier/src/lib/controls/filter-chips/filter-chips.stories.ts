@@ -6,14 +6,14 @@ import { FilterChips } from './filter-chips.component';
 
 type FilterChipsStory = StoryObj<FilterChips<string>>;
 
-const RARITIES: readonly SelectOption<string>[] = [
+const RARITIES: ReadonlyArray<SelectOption<string>> = [
   { value: 'common', label: 'Common' },
   { value: 'uncommon', label: 'Uncommon' },
   { value: 'rare', label: 'Rare' },
   { value: 'unique', label: 'Unique' },
 ];
 
-const TRAITS: readonly SelectOption<string>[] = [
+const TRAITS: ReadonlyArray<SelectOption<string>> = [
   'Acid',
   'Air',
   'Attack',

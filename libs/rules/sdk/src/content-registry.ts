@@ -6,7 +6,6 @@ import type { AncestryDefinition } from './ancestry';
 import type { ContentPackId, PackId } from './content-id';
 import type { ContentPack, ContentPackLoader } from './content-pack';
 import { CreatureId } from './creature';
-import type { CreatureDefinition } from './creature';
 import { RulesMessage } from './messages';
 import { PackEntry } from './pack-entry';
 import type { ProficiencyBonusTable } from './proficiency';
@@ -15,8 +14,10 @@ import type { NamespaceKind } from './roll-option-namespace';
 import type { Selector } from './selector';
 import { StatisticId } from './statistic';
 import type { StatisticDefinition } from './statistic';
+import type { CreatureDefinition, VariantRuleDefinition } from './typed-content';
 import { VariantRuleId } from './variant-rule';
-import type { VariantRuleDefinition } from './variant-rule';
+import { mergeVariantLimits } from './variant-rule-limits';
+import type { VariantRuleLimits } from './variant-rule-limits';
 
 export type AncestryEntry = PackEntry<AncestryId, AncestryDefinition>;
 
@@ -41,7 +42,7 @@ export class ContentRegistry {
   readonly #ancestries = new Map<AncestryId, AncestryEntry>();
   readonly #creatures = new Map<CreatureId, CreatureEntry>();
   readonly #statistics = new Map<StatisticId, StatisticEntry>();
-  readonly #statisticsBySelector = new Map<Selector, readonly StatisticEntry[]>();
+  readonly #statisticsBySelector = new Map<Selector, ReadonlyArray<StatisticEntry>>();
   readonly #variantRules = new Map<VariantRuleId, VariantRuleEntry>();
   #proficiencyBonus: ProficiencyBonusTable | undefined;
   readonly #namespaces = new Map<RollOptionNamespace, NamespaceClassification>();
@@ -95,7 +96,7 @@ export class ContentRegistry {
    * entry. Checked before anything is registered, so a rejected pack leaves the registry as it was.
    */
   #checkNamespaces(pack: ContentPack): void {
-    const issues: z.core.$ZodIssue[] = [];
+    const issues: Array<z.core.$ZodIssue> = [];
 
     for (const [namespace, kind] of Object.entries(pack.rollOptionNamespaces)) {
       const existing = this.#namespaces.get(RollOptionNamespace.parse(namespace));
@@ -152,11 +153,11 @@ export class ContentRegistry {
     }
   }
 
-  public get packs(): readonly ContentPack[] {
+  public get packs(): ReadonlyArray<ContentPack> {
     return [...this.#packs.values()];
   }
 
-  public ancestries(): readonly AncestryEntry[] {
+  public ancestries(): ReadonlyArray<AncestryEntry> {
     return [...this.#ancestries.values()];
   }
 
@@ -164,7 +165,7 @@ export class ContentRegistry {
     return this.#ancestries.get(id);
   }
 
-  public creatures(): readonly CreatureEntry[] {
+  public creatures(): ReadonlyArray<CreatureEntry> {
     return [...this.#creatures.values()];
   }
 
@@ -172,7 +173,7 @@ export class ContentRegistry {
     return this.#creatures.get(id);
   }
 
-  public statistics(): readonly StatisticEntry[] {
+  public statistics(): ReadonlyArray<StatisticEntry> {
     return [...this.#statistics.values()];
   }
 
@@ -184,11 +185,11 @@ export class ContentRegistry {
    * Every statistic with `selector`, in the order their packs were registered. A pack uses each selector once,
    * but two packs may share one; which of them applies is the engine's choice.
    */
-  public statisticsFor(selector: Selector): readonly StatisticEntry[] {
+  public statisticsFor(selector: Selector): ReadonlyArray<StatisticEntry> {
     return this.#statisticsBySelector.get(selector) ?? [];
   }
 
-  public variantRules(): readonly VariantRuleEntry[] {
+  public variantRules(): ReadonlyArray<VariantRuleEntry> {
     return [...this.#variantRules.values()];
   }
 
@@ -222,5 +223,19 @@ export class ContentRegistry {
  * force for a character or campaign) and the packs they extend, each after the packs it extends.
  */
 export interface ContentSource {
-  readonly registry: (packs?: readonly ContentPackId[]) => Promise<ContentRegistry>;
+  readonly registry: (packs?: ReadonlyArray<ContentPackId>) => Promise<ContentRegistry>;
+}
+
+/** The limits changed by the variant rules `enabled` that `registry` defines; one it does not define changes nothing. */
+export function variantLimitsInForce(
+  registry: ContentRegistry,
+  enabled: ReadonlyArray<VariantRuleId>,
+): VariantRuleLimits {
+  return mergeVariantLimits(
+    enabled.flatMap((id) => {
+      const limits = registry.variantRule(id)?.definition.limits;
+
+      return limits === undefined ? [] : [limits];
+    }),
+  );
 }

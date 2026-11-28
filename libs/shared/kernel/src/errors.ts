@@ -135,9 +135,9 @@ export class ValidationError extends DomainError {
   public readonly status = HttpStatus.UnprocessableContent;
   public readonly type = ProblemType.Validation;
   public readonly descriptor = message(ProblemMessage.Validation);
-  public readonly issues: readonly FieldIssue[];
+  public readonly issues: ReadonlyArray<FieldIssue>;
 
-  public constructor(issues: readonly FieldIssue[]) {
+  public constructor(issues: ReadonlyArray<FieldIssue>) {
     super(
       `The request is invalid: ${issues.map((issue) => `${issue.path.join('.')} ${issue.message.key}`).join(', ')}`,
     );

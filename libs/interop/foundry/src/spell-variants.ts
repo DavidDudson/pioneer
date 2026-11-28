@@ -175,7 +175,7 @@ function variantOf({ id, overlay }: OverlayEntry, spell: VariantSpell, log: GapL
 }
 
 /** A spell's variants in Foundry's order; undefined when it has none, or none that map. */
-export function variantsOf(overlays: unknown, spell: VariantSpell, log: GapLog): readonly object[] | undefined {
+export function variantsOf(overlays: unknown, spell: VariantSpell, log: GapLog): ReadonlyArray<object> | undefined {
   if (overlays === undefined || overlays === null) {
     return undefined;
   }

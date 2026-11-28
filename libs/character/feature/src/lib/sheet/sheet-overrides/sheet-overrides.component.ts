@@ -38,7 +38,7 @@ export class SheetOverridesSection {
   readonly #format = inject(LocaleFormat);
 
   protected readonly Message = Message;
-  protected readonly rows = computed((): readonly OverrideRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<OverrideRow> => {
     const registry = this.#sheet.engine();
     const character = this.#sheet.character();
 

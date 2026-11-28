@@ -4,7 +4,7 @@ import type { UserId } from '@pioneer/shared/kernel';
 /** Port for the table limits characters have set. Adapters live in `character-infrastructure`; the in-memory one is for tests. */
 export abstract class CharacterRuleLimitRepository {
   /** The limits the character has set; a limit it has not set is absent. */
-  public abstract listForCharacter(characterId: CharacterId): Promise<readonly CharacterRuleLimit[]>;
+  public abstract listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<CharacterRuleLimit>>;
 
   /** Set the limit, replacing the number when the character has set it already. */
   public abstract set(actor: UserId, characterId: CharacterId, limit: CharacterRuleLimit): Promise<void>;

@@ -19,7 +19,7 @@ async function loadName(): Promise<string> {
 
 /**
  * A text control whose value is fetched. It loads when it appears; the refresh button at the end loads again, and
- * its icon is a spinner while a load is in flight. The value can still be edited by hand.
+ * the input's border turns while a load is in flight. The value can still be edited by hand.
  */
 const meta: Meta<RefreshableInput> = {
   title: 'Controls/Refreshable Input',
@@ -33,7 +33,7 @@ export const Default: RefreshableInputStory = {};
 
 export const Disabled: RefreshableInputStory = { args: { disabled: true } };
 
-/** A load that never finishes keeps the spinner up. */
+/** A load that never finishes keeps the border turning. */
 export const Loading: RefreshableInputStory = {
   args: { load: async (): Promise<string> => Promise.withResolvers<string>().promise },
 };

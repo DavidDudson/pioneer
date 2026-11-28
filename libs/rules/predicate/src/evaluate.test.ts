@@ -10,7 +10,7 @@ import { namespaceOf, namespaceTable, withKnown } from './namespaces';
 import { tracePredicate } from './trace';
 import { Truth } from './truth';
 
-function facts(...options: readonly string[]): PredicateFacts {
+function facts(...options: ReadonlyArray<string>): PredicateFacts {
   return new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,

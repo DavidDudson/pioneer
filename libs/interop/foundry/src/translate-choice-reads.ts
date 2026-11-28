@@ -46,7 +46,7 @@ export function picked(value: unknown, path: string): unknown {
 const EMBEDDED_READ = /\{item\|flags\.system\.rulesSelections\.(?<flag>[\w-]+)\.(?<path>[\w.]+)\}/gu;
 
 /** The paths of the reads of the pick of `flag` inside `text`. */
-function embeddedPaths(text: string, flag: string): readonly string[] {
+function embeddedPaths(text: string, flag: string): ReadonlyArray<string> {
   return [...text.matchAll(EMBEDDED_READ)]
     .values()
     .filter((found) => found.groups?.['flag'] === flag)

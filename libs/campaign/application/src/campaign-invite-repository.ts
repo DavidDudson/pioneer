@@ -14,7 +14,7 @@ export abstract class CampaignInviteRepository {
   public abstract findById(id: CampaignInviteId): Promise<CampaignInvite | undefined>;
 
   /** The campaign's invites that are neither revoked nor expired at `now`, newest first; id breaks ties. */
-  public abstract listOpen(campaignId: CampaignId, now: Temporal.Instant): Promise<readonly CampaignInvite[]>;
+  public abstract listOpen(campaignId: CampaignId, now: Temporal.Instant): Promise<ReadonlyArray<CampaignInvite>>;
 
   /** Store the invite's revocation; nothing else about an invite changes. */
   public abstract revoke(invite: CampaignInvite): Promise<CampaignInvite>;

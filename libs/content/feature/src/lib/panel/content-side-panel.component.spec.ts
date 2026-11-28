@@ -6,7 +6,7 @@ import { provideRouter, Router } from '@angular/router';
 import { contentBrowserMessages } from '@pioneer/content/ui';
 import { frontierMessages } from '@pioneer/frontier';
 import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
-import { rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { IDLE_SCHEDULER, provideI18n, ShellSearch } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { afterEach, beforeAll, beforeEach, describe, expect, it, onTestFinished, vi } from 'vitest';
@@ -96,7 +96,7 @@ async function press({ fixture, input }: Opened, key: string): Promise<void> {
   fixture.detectChanges();
 }
 
-const listed = ({ root }: Opened): string[] =>
+const listed = ({ root }: Opened): Array<string> =>
   [...root.querySelectorAll('[role="option"]')].map((option) => (option.firstChild?.textContent ?? '').trim());
 
 const backLink = ({ root }: Opened): HTMLElement | undefined =>

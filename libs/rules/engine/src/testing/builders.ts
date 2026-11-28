@@ -22,7 +22,7 @@ const OVERRIDE_HOP = {
 } as const;
 
 /** A check statistic with no domains unless given. */
-export function statistic(selector: string, base: string, domains: readonly string[] = []): StatisticDefinition {
+export function statistic(selector: string, base: string, domains: ReadonlyArray<string> = []): StatisticDefinition {
   return StatisticDefinition.parse({
     slug: `statistic:${selector.replaceAll(':', '-')}`,
     name: selector,
@@ -53,7 +53,7 @@ function inventoryHop(item: string): JsonObject {
 }
 
 /** The origin hops of a placement: the override hop, the inventory item it comes from, or none. */
-function hopsOf(override: boolean | undefined, item: string | undefined): readonly object[] {
+function hopsOf(override: boolean | undefined, item: string | undefined): ReadonlyArray<object> {
   if (override === true) {
     return [OVERRIDE_HOP];
   }
@@ -83,7 +83,7 @@ export function inPlay(
 }
 
 /** A `FlatModifier` as JSON: `value` of `type` on `selectors`. Spread it to add fields. */
-export function flatModifier(type: string, value: number | string, selectors: readonly string[]): RuleJson {
+export function flatModifier(type: string, value: number | string, selectors: ReadonlyArray<string>): RuleJson {
   return { key: 'FlatModifier', type, value, selectors };
 }
 

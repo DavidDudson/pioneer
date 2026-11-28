@@ -54,7 +54,7 @@ interface Addressed {
   readonly id: ContentId;
 }
 
-function addressed(pack: PackId, slugs: ReadonlyMap<SelectedEntry, string>): Addressed[] {
+function addressed(pack: PackId, slugs: ReadonlyMap<SelectedEntry, string>): Array<Addressed> {
   return [...slugs].flatMap(([entry, text]) => {
     const slug = EntrySlug.safeParse(text);
 
@@ -63,7 +63,7 @@ function addressed(pack: PackId, slugs: ReadonlyMap<SelectedEntry, string>): Add
 }
 
 /** Both UUIDs Foundry links a document by: its id and its name. */
-function uuidsOf({ pack, document }: PackDocument, id: ContentId): [string, ContentId][] {
+function uuidsOf({ pack, document }: PackDocument, id: ContentId): Array<[string, ContentId]> {
   const { _id: documentId, name } = document;
 
   return [
@@ -78,9 +78,9 @@ function kindOf({ entry, id }: Addressed): [ContentId, ContentKind] {
 
 /** What references may land on besides the import's own documents. */
 export interface ReferenceSources {
-  readonly known: readonly KnownEntry[];
+  readonly known: ReadonlyArray<KnownEntry>;
   /** The release's item documents, for links to entries an earlier import made of them. */
-  readonly release?: readonly PackDocument[];
+  readonly release?: ReadonlyArray<PackDocument>;
 }
 
 /**
@@ -88,7 +88,10 @@ export interface ReferenceSources {
  * deity's Player Core spells. A document matches by its compendium UUID alone, never by name or slug, so a Monster
  * Core ability never lands on a Player Core action of the same name.
  */
-function knownUuids(release: readonly PackDocument[], known: readonly KnownEntry[]): [string, ContentId][] {
+function knownUuids(
+  release: ReadonlyArray<PackDocument>,
+  known: ReadonlyArray<KnownEntry>,
+): Array<[string, ContentId]> {
   const byFoundry = new Map(
     known.flatMap(({ foundry, id }) => (foundry === undefined ? [] : [[foundry, id] as const])),
   );

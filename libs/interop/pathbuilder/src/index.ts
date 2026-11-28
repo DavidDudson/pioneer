@@ -1,11 +1,4 @@
-export {
-  type ContentLookup,
-  type ContentMatch,
-  entryLookup,
-  type LookupEntry,
-  matchKey,
-  registryLookup,
-} from './content-lookup';
+export { type ContentLookup, type ContentMatch, entryLookup, type LookupEntry, registryLookup } from './content-lookup';
 
 export {
   IMPORT_KIND_ORDER,

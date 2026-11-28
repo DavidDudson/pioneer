@@ -35,7 +35,7 @@ const ancestry = {
 };
 
 const contents: PackContents = packContentsFromFiles(packFile, [[ancestry]]);
-const packs: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => contents }];
+const packs: ReadonlyArray<PackContentsLoader> = [{ id: PACK, load: async (): Promise<PackContents> => contents }];
 
 interface Loaded {
   readonly loader: ContentLoader;

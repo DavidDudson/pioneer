@@ -71,7 +71,7 @@ describe.skipIf(adminUrl === undefined)('character companions over postgres', ()
   }
 
   /** Adds one animal companion per name, one after another: each write moves the character's version. */
-  async function addWolves(names: readonly string[]): Promise<void> {
+  async function addWolves(names: ReadonlyArray<string>): Promise<void> {
     for (const name of names) {
       const companion = wolf(CompanionName.parse(name));
       // oxlint-disable-next-line eslint/no-await-in-loop -- each write moves the version the next one reads

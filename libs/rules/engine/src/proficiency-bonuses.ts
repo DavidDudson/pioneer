@@ -30,7 +30,7 @@ interface TableInForce {
  * priority and then id, as set overrides pick their winner. One that depends on the situation does not apply,
  * since a sheet cannot show every statistic two ways.
  */
-function replacement(rules: readonly RuleInPlay[], facts: PredicateFacts): TableInForce | undefined {
+function replacement(rules: ReadonlyArray<RuleInPlay>, facts: PredicateFacts): TableInForce | undefined {
   const candidates = rules.flatMap((rule) =>
     rule.element.key === RuleElementKey.ProficiencyBonus && truthOf(rule.element.predicate, facts) === Truth.True
       ? [{ rule, table: rule.element.table, priority: rule.element.priority ?? DEFAULT_PRIORITY, id: ruleIdOf(rule) }]
@@ -48,13 +48,13 @@ function replacement(rules: readonly RuleInPlay[], facts: PredicateFacts): Table
 
 /** What picks and evaluates the table: the rule elements in play, the facts their predicates read, the level. */
 interface BonusInputs {
-  readonly rules: readonly RuleInPlay[];
+  readonly rules: ReadonlyArray<RuleInPlay>;
   readonly facts: PredicateFacts;
   readonly level: Level;
 }
 
 /** A rank's formula at `level`; undefined when it fails to evaluate, so `@prof` reads as unknown. */
-function bonusAt(formula: ProficiencyBonusFormula, level: Level): FormulaValue | undefined {
+export function bonusAt(formula: ProficiencyBonusFormula, level: Level): FormulaValue | undefined {
   const parsed = parseFormula(FormulaText.parse(formula));
 
   if (!parsed.ok) {

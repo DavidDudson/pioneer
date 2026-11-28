@@ -19,7 +19,7 @@ interface Entry {
   readonly slug: string;
   readonly preparation: PreparedSlot['preparation'];
   readonly tradition: PreparedSlot['tradition'];
-  readonly slots: readonly PreparedSlot[];
+  readonly slots: ReadonlyArray<PreparedSlot>;
 }
 
 /** The slots a pick can go in: an entry's own, not a pool's, not one an element fills. */
@@ -27,13 +27,13 @@ function pickable(slot: PreparedSlot): boolean {
   return slot.pool === undefined && !slot.granted && !slot.deitySpell && slot.stored === undefined;
 }
 
-function entriesOf(slots: readonly PreparedSlot[]): Entry[] {
+function entriesOf(slots: ReadonlyArray<PreparedSlot>): Array<Entry> {
   const bySlug = Map.groupBy(
     slots.filter((slot) => pickable(slot)),
     (slot) => slot.entry,
   );
 
-  return [...bySlug].flatMap(([slug, own]): Entry[] => {
+  return [...bySlug].flatMap(([slug, own]): Array<Entry> => {
     const [first] = own;
 
     return first === undefined
@@ -46,7 +46,7 @@ function entriesOf(slots: readonly PreparedSlot[]): Entry[] {
 type Placed = { readonly slot: PreparedSlot } | { readonly reason: SpellGapReason };
 
 /** Where one listed spell goes: the first open slot of its rank that offers it, else why none did. */
-function placeOne(slots: readonly PreparedSlot[], { rank, id }: Listed, used: ReadonlySet<SlotKey>): Placed {
+function placeOne(slots: ReadonlyArray<PreparedSlot>, { rank, id }: Listed, used: ReadonlySet<SlotKey>): Placed {
   const open = slots.filter((slot) => slot.rank === rank && !used.has(slot.key));
   const fitting = open.find((slot) => slot.options.some((option) => option.id === id));
 
@@ -61,7 +61,7 @@ function placeOne(slots: readonly PreparedSlot[], { rank, id }: Listed, used: Re
 function placeCaster(caster: ImportedCaster, entry: Entry | undefined, lookup: ContentLookup): SpellPlacement {
   const used = new Set<SlotKey>();
   const picks: Record<SlotKey, ChoiceValue> = {};
-  const gaps: SpellGap[] = [];
+  const gaps: Array<SpellGap> = [];
 
   for (const spell of listed(caster, lookup)) {
     const placed: Placed =
@@ -88,7 +88,7 @@ function placeCaster(caster: ImportedCaster, entry: Entry | undefined, lookup: C
 export function placeSpells(
   document: CharacterDocument,
   { slots, lookup }: SpellPlacementContent,
-  casters: readonly ImportedCaster[],
+  casters: ReadonlyArray<ImportedCaster>,
 ): SpellPlacement {
   const entries = entriesOf(preparedSlots(document, preparedReads(document, slots)));
   const prepared = casters.filter(({ innate }) => !innate);

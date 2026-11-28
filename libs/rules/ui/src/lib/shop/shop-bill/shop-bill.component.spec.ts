@@ -8,8 +8,8 @@ import type { CoinCount } from '../shop-offer';
 import { ShopBill } from './shop-bill.component';
 
 interface BillInputs {
-  readonly cost: readonly CoinCount[];
-  readonly coins: readonly CoinCount[];
+  readonly cost: ReadonlyArray<CoinCount>;
+  readonly coins: ReadonlyArray<CoinCount>;
   readonly affordable: boolean;
   readonly subject?: ShopBillFor;
 }
@@ -33,7 +33,7 @@ async function render({ cost, coins, affordable, subject }: BillInputs): Promise
 }
 
 /** Each row's value, after its term. */
-const lines = (host: HTMLElement): string[] =>
+const lines = (host: HTMLElement): Array<string> =>
   [...host.querySelectorAll('fr-description-item')].map((item) => {
     const value = item.querySelector('fr-text')?.textContent.trim() ?? '';
 

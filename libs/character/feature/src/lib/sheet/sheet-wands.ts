@@ -83,7 +83,7 @@ export function sheetWands(
   registry: ContentRegistry,
   character: Character,
   { play, pending }: WandsInPlay,
-): WandLine[] {
+): Array<WandLine> {
   const items = itemContent(registry);
   const grants = characterGrants(character.document, sheetSlotContent(registry));
 

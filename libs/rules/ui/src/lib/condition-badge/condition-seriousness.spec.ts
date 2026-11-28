@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { bySeriousness, CONDITIONS_BY_SERIOUSNESS, ConditionSlug } from './condition-seriousness';
 
 const knownSlug = constantFrom(...CONDITIONS_BY_SERIOUSNESS);
-const knownSlugs: readonly string[] = CONDITIONS_BY_SERIOUSNESS;
+const knownSlugs: ReadonlyArray<string> = CONDITIONS_BY_SERIOUSNESS;
 const anySlug = oneof(knownSlug, string({ minLength: 1, maxLength: 6 }));
 
 const isUnknown = (slug: string): boolean => !knownSlugs.includes(slug);

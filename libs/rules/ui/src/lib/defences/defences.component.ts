@@ -35,7 +35,7 @@ interface DefenceNames {
 
 /** The list a line is in, so a superseded line can name the one that counts instead, and the names to show. */
 interface ListContext {
-  readonly lines: readonly (ImmunityLine | AdjustmentLine)[];
+  readonly lines: ReadonlyArray<ImmunityLine | AdjustmentLine>;
   readonly names: DefenceNames;
 }
 
@@ -47,7 +47,7 @@ function materialName(material: DamageException, list: ListContext): string {
 const LOADING_LISTS = ['immunities', 'weaknesses', 'resistances'] as const;
 
 /** Every list, in the order the panel shows them. */
-const ALL_KINDS: readonly DefenceKind[] = [DefenceKind.Immunities, DefenceKind.Weaknesses, DefenceKind.Resistances];
+const ALL_KINDS: ReadonlyArray<DefenceKind> = [DefenceKind.Immunities, DefenceKind.Weaknesses, DefenceKind.Resistances];
 
 /**
  * A character's immunities, weaknesses and resistances (play-and-campaigns.md, "Defences panel"), each list under
@@ -83,7 +83,7 @@ export class DefencesView {
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
   /** Which lists to show, in the panel's order; all three by default. */
-  public readonly kinds = input<readonly DefenceKind[]>(ALL_KINDS);
+  public readonly kinds = input<ReadonlyArray<DefenceKind>>(ALL_KINDS);
 
   /** One loading placeholder per list. */
   protected readonly loadingLists = LOADING_LISTS;
@@ -94,7 +94,7 @@ export class DefencesView {
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
-  protected readonly lists = computed((): readonly ShownList[] | undefined => {
+  protected readonly lists = computed((): ReadonlyArray<ShownList> | undefined => {
     this.#messages();
     this.#format.locale();
     const defences = this.defences();
@@ -111,7 +111,7 @@ export class DefencesView {
       exceptions: this.exceptionNames(),
     };
 
-    const all: readonly (ShownList & { readonly kind: DefenceKind })[] = [
+    const all: ReadonlyArray<ShownList & { readonly kind: DefenceKind }> = [
       {
         kind: DefenceKind.Immunities,
         heading: this.#i18n.translate(DefencesMessage.Immunities),

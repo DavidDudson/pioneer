@@ -1,5 +1,6 @@
 import { CreatureRole, DamageTypeSchema, InlineKind } from '@pioneer/rules/sdk';
 import type { CreatureSense, CreatureSkill, DamageAdjustment, Immunity, Slug } from '@pioneer/rules/sdk';
+import { capitalise } from '@pioneer/shared/utils';
 
 import { ATTRIBUTE_MESSAGES } from '../attributes/attributes-messages';
 import { SIGNED } from '../breakdown/number-style';
@@ -23,7 +24,7 @@ const SAVE_INITIALS: Readonly<Record<(typeof SAVE_ORDER)[number], string>> = {
 function slugLabel(slug: Slug | Immunity): string {
   return slug
     .split('-')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .map((part) => capitalise(part))
     .join(' ');
 }
 
@@ -68,7 +69,7 @@ function senseText(sense: CreatureSense, words: StatBlockWords): string {
 }
 
 /** "Perception +7; darkvision 60 feet". */
-function perception({ data }: StatBlockCreature, words: StatBlockWords): readonly StatLine[] {
+function perception({ data }: StatBlockCreature, words: StatBlockWords): ReadonlyArray<StatLine> {
   const held = (data.senses ?? []).map((sense) => senseText(sense, words));
   const value = words.number(data.perception, SIGNED);
 
@@ -87,8 +88,8 @@ function skillText(skill: CreatureSkill, words: StatBlockWords): string {
   });
 }
 
-function details({ data }: StatBlockCreature, words: StatBlockWords): readonly StatLine[] {
-  const shown: StatLine[] = [];
+function details({ data }: StatBlockCreature, words: StatBlockWords): ReadonlyArray<StatLine> {
+  const shown: Array<StatLine> = [];
 
   if (data.languages !== undefined && data.languages.length > 0) {
     shown.push({
@@ -133,8 +134,8 @@ function adjustmentText({ type, value, exceptions }: DamageAdjustment, words: St
   });
 }
 
-function defences({ data }: StatBlockCreature, words: StatBlockWords): readonly StatLine[] {
-  const shown: StatLine[] = [
+function defences({ data }: StatBlockCreature, words: StatBlockWords): ReadonlyArray<StatLine> {
+  const shown: Array<StatLine> = [
     { label: words.translate(CreatureStatBlockMessage.ArmorClass), text: words.number(data.armorClass) },
     {
       label: words.translate(CreatureStatBlockMessage.Saves),

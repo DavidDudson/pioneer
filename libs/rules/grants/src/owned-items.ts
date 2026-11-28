@@ -9,5 +9,5 @@ export interface OwnedItem {
   readonly slug: Slug;
   readonly name: ContentText;
   readonly kind: ContentKind;
-  readonly rollOptions: readonly RollOptionTail[];
+  readonly rollOptions: ReadonlyArray<RollOptionTail>;
 }

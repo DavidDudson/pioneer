@@ -19,20 +19,17 @@ import {
   CLASS_TIMEOUT_MS,
   contentOf,
   generatorIn,
-  LEVELS,
   PLAYER_CORE_CLASSES,
   SEED_MAX,
 } from './generate-character-testing';
+import { sweep } from './generation-sweep';
 
 const PROPERTY_RUNS = 12;
 const CASTERS = ['Bard', 'Cleric', 'Druid', 'Sorcerer', 'Wizard'] as const;
 
 // SAFETY: widening the `CASTERS` tuple of string literals to `readonly string[]` is always sound; it only lets `includes` take any class name.
-const NON_CASTERS = PLAYER_CORE_CLASSES.filter((name) => !(CASTERS as readonly string[]).includes(name));
+const NON_CASTERS = PLAYER_CORE_CLASSES.filter((name) => !(CASTERS as ReadonlyArray<string>).includes(name));
 const CORE_PACKS = ['core-rules', 'player-core'];
-
-/** The levels each caster is generated at; the property test covers the rest. */
-const CASTER_LEVELS = [1, 5, 10, 15, 20].map((level) => CharacterLevel.parse(level));
 
 /** A cleric's deity gives it spells outside its tradition, and a deity is no part of Player Core. */
 const DEITY_CLASSES = new Set<string>(['Cleric']);
@@ -55,7 +52,7 @@ function isSpellSlot(slot: CharacterSlot): boolean {
 }
 
 /** The spell slots of a generated character that aren't filled. */
-function openSpellSlots(result: Generated, from: SlotContent): readonly string[] {
+function openSpellSlots(result: Generated, from: SlotContent): ReadonlyArray<string> {
   return characterSlots(result.character.document, from)
     .filter((slot) => isSpellSlot(slot) && slot.status !== SlotStatus.Filled)
     .map((slot) => `${slot.status} ${slot.key}`);
@@ -76,10 +73,10 @@ interface PickCheck {
 }
 
 /** The ways a pick breaks the slot it is in: its pack, kind, tradition, rank and rarity. */
-function pickProblems({ slot, spell, className, loaded, access }: PickCheck): readonly string[] {
+function pickProblems({ slot, spell, className, loaded, access }: PickCheck): ReadonlyArray<string> {
   const own = slot.pool === undefined && !slot.granted && !slot.deitySpell;
 
-  const checks: readonly (readonly [boolean, string])[] = [
+  const checks: ReadonlyArray<readonly [boolean, string]> = [
     [!loaded.has(spell.id), 'unloaded'],
     [spell.focus, 'focus spell'],
     [own && !DEITY_CLASSES.has(className) && !spell.traditions.includes(slot.tradition), 'tradition'],
@@ -95,7 +92,7 @@ function pickProblems({ slot, spell, className, loaded, access }: PickCheck): re
 }
 
 /** What is wrong with the spells a generated character holds, against the content it was generated from. */
-function spellProblems(result: Generated, from: SlotContent, className: string): readonly string[] {
+function spellProblems(result: Generated, from: SlotContent, className: string): ReadonlyArray<string> {
   const { document } = result.character;
   const reads = preparedReads(document, from);
   const loaded = new Set<string>(from.spells.spells.map(({ id }) => id));
@@ -116,9 +113,9 @@ function spellProblems(result: Generated, from: SlotContent, className: string):
 
 describe('generated spell picks', () => {
   test.each([...CASTERS])(
-    '%s, at levels 1, 5, 10, 15 and 20, holds a spell in every slot',
+    '%s holds a spell in every slot at each spot level',
     (className) => {
-      for (const level of CASTER_LEVELS) {
+      for (const level of sweep.spotLevels) {
         const result = generated(blankIn(content, className), level, level);
         expect({ level, problems: spellProblems(result, content, className) }).toEqual({ level, problems: [] });
       }
@@ -133,11 +130,11 @@ describe('generated spell picks', () => {
         property(
           integer({ min: 0, max: SEED_MAX }),
           constantFrom(...CASTERS),
-          constantFrom(...LEVELS),
+          constantFrom(...sweep.propertyLevels),
           (seed, className, level) =>
             spellProblems(generated(blankIn(content, className), seed, level), content, className).length === 0,
         ),
-        { numRuns: PROPERTY_RUNS },
+        sweep.parameters(PROPERTY_RUNS),
       );
     },
     CLASS_TIMEOUT_MS,

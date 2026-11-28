@@ -7,12 +7,12 @@ import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing'
 import { ProficiencyBadge } from './proficiency-badge.component';
 import type { RankSource } from './proficiency-badge.component';
 
-const SOURCES: readonly RankSource[] = [
+const SOURCES: ReadonlyArray<RankSource> = [
   { rank: Proficiency.Trained, source: 'Cleric', future: false },
   { rank: Proficiency.Expert, source: 'Level 15 skill increase', level: 15, future: true },
 ];
 
-async function render(sources: readonly RankSource[], note?: string): Promise<ComponentFixture<ProficiencyBadge>> {
+async function render(sources: ReadonlyArray<RankSource>, note?: string): Promise<ComponentFixture<ProficiencyBadge>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(ProficiencyBadge);
   fixture.componentRef.setInput('rank', Proficiency.Trained);
@@ -29,7 +29,7 @@ function hostOf(fixture: ComponentFixture<ProficiencyBadge>): HTMLElement {
 }
 
 /** The popover's lines, once the badge is focused. */
-async function opened(fixture: ComponentFixture<ProficiencyBadge>): Promise<readonly string[]> {
+async function opened(fixture: ComponentFixture<ProficiencyBadge>): Promise<ReadonlyArray<string>> {
   const button = hostOf(fixture).querySelector('button');
   button?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
   await new Promise((resolve) => {

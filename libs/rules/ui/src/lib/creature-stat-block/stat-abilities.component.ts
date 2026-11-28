@@ -16,7 +16,7 @@ import { StatLinesView } from './stat-lines.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatAbilitiesView {
-  public readonly abilities = input.required<readonly AbilityLine[]>();
+  public readonly abilities = input.required<ReadonlyArray<AbilityLine>>();
   public readonly headingLevel = input<HeadingLevel>(HeadingLevel.Three);
 
   protected readonly actionCosts = ACTION_COST_MESSAGES;

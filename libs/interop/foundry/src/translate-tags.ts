@@ -11,8 +11,8 @@ const TAGS_MAX = 16;
 export const FoundryTags = z.array(z.string().max(TAG_MAX)).max(TAGS_MAX);
 
 /** An item's `otherTags` as `{ tags }` (`cleric-doctrine`, `starlit-sentinel-weapon`); a tag that is no slug is reported and left off. */
-export function tagsOf(otherTags: readonly string[] | undefined, log: GapLog): object {
-  const tags = (otherTags ?? []).flatMap((tag): Slug[] => {
+export function tagsOf(otherTags: ReadonlyArray<string> | undefined, log: GapLog): object {
+  const tags = (otherTags ?? []).flatMap((tag): Array<Slug> => {
     const slug = Slug.safeParse(tag);
 
     if (!slug.success) {

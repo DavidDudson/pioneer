@@ -52,10 +52,10 @@ export class CampaignOfferItem {
     enabled: this.open(),
   }));
 
-  protected readonly columns = computed(() => recipientColumns((key) => this.#i18n.translate(key)));
+  protected readonly columns = computed(() => recipientColumns());
 
   /** The other live characters of the party whose name holds the search, in the order asked for. */
-  protected readonly rows = computed((): readonly PartyCharacter[] =>
+  protected readonly rows = computed((): ReadonlyArray<PartyCharacter> =>
     otherRecipients({
       party: this.party.data()?.characters ?? [],
       giver: this.character(),

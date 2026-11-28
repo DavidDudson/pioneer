@@ -31,7 +31,7 @@ const PACKS = [...TEST_PACKS, PICKS];
 const ELVEN = present(picks.otherEntries.find((entry) => entry.name === 'Elven')).id;
 
 /** Merisiel carrying `unplacedLanguages` the import found no slot for. */
-function carrying(unplacedLanguages: readonly string[]): JsonObject {
+function carrying(unplacedLanguages: ReadonlyArray<string>): JsonObject {
   return { ...MERISIEL, build: { ...MERISIEL.build, unplacedLanguages } };
 }
 

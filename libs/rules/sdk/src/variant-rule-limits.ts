@@ -1,9 +1,6 @@
 import { Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import type { ContentRegistry } from './content-registry';
-import type { VariantRuleId } from './variant-rule';
-
 /** A number a variant rule sets a table limit to: a whole number from 1. */
 export const VariantLimitValue = Pg.smallint().positive().brand<'VariantLimitValue'>();
 
@@ -34,7 +31,7 @@ const LIMIT_NAMES = VariantRuleLimits.keyof().options;
  * The limits of the variant rules in force laid together. Two variants that change the same limit conflict, and the
  * more permissive wins: every limit is a most, so the higher number (ADR-0064).
  */
-export function mergeVariantLimits(declared: readonly VariantRuleLimits[]): VariantRuleLimits {
+export function mergeVariantLimits(declared: ReadonlyArray<VariantRuleLimits>): VariantRuleLimits {
   const merged: { -readonly [Name in keyof VariantRuleLimits]: VariantLimitValue } = {};
 
   for (const limits of declared) {
@@ -49,15 +46,4 @@ export function mergeVariantLimits(declared: readonly VariantRuleLimits[]): Vari
   }
 
   return merged;
-}
-
-/** The limits changed by the variant rules `enabled` that `registry` defines; one it does not define changes nothing. */
-export function variantLimitsInForce(registry: ContentRegistry, enabled: readonly VariantRuleId[]): VariantRuleLimits {
-  return mergeVariantLimits(
-    enabled.flatMap((id) => {
-      const limits = registry.variantRule(id)?.definition.limits;
-
-      return limits === undefined ? [] : [limits];
-    }),
-  );
 }

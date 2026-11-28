@@ -30,7 +30,7 @@ interface Opened {
   readonly delivery: TestContentDelivery;
 }
 
-async function open(url: string, homebrew: readonly ContentPackId[] = []): Promise<Opened> {
+async function open(url: string, homebrew: ReadonlyArray<ContentPackId> = []): Promise<Opened> {
   const delivery = new TestContentDelivery([BROWSE_LOADER], [HOMEBREW_LOADER]);
   TestBed.configureTestingModule({
     providers: [
@@ -52,11 +52,11 @@ async function open(url: string, homebrew: readonly ContentPackId[] = []): Promi
 }
 
 /** The names in the table's first column, in order; empty while the entries load. */
-const listed = (root: HTMLElement): string[] =>
+const listed = (root: HTMLElement): Array<string> =>
   [...root.querySelectorAll('fr-table tbody tr')].map((row) => present(row.querySelector('td')).textContent.trim());
 
 /** The list once it has loaded and holds `count` entries. */
-async function loaded(root: HTMLElement, count: number): Promise<string[]> {
+async function loaded(root: HTMLElement, count: number): Promise<Array<string>> {
   await vi.waitFor(() => {
     expect(listed(root)).toHaveLength(count);
   });
@@ -73,7 +73,7 @@ const chip = (root: HTMLElement, label: string): HTMLElement =>
   );
 
 /** The table's column headers, left to right. */
-const headers = (root: HTMLElement): string[] =>
+const headers = (root: HTMLElement): Array<string> =>
   [...root.querySelectorAll('fr-table thead th')].map((header) => header.textContent.trim());
 
 describe('ContentBrowserPage', () => {

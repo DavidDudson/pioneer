@@ -6,6 +6,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
 import type { IconGlyph } from '../../icon/icon-glyph';
+import { OverlayAlign, overlayPositions } from '../../overlay-positions';
 import { comboboxOptionDescriptionClasses } from '../combobox/combobox.variants';
 import { Control } from '../control';
 import { controlVariants, forcedOptionClasses } from '../control.variants';
@@ -19,8 +20,10 @@ export interface SelectOption<TValue extends string> {
   readonly icon?: IconGlyph;
 }
 
+const POSITIONS = overlayPositions(OverlayAlign.Start);
+
 const listboxClasses = cva(
-  'z-overlay mt-2xs max-h-listbox overflow-auto border border-line-default bg-surface-overlay p-2xs',
+  'z-overlay max-h-listbox overflow-auto border border-line-default bg-surface-overlay p-2xs',
 )();
 
 const optionClasses = cva([
@@ -34,7 +37,7 @@ const caretClasses = cva('text-fg-subtle')();
 /**
  * Plain single-select on `@angular/aria` (combobox + listbox): keyboard
  * navigation, typeahead and ARIA come from the primitive, looks from tokens.
- * `committed` fires when the user picks. In a form use `fr-select-field`.
+ * `committed` fires when the user picks.
  */
 @Component({
   selector: 'fr-select',
@@ -46,12 +49,12 @@ const caretClasses = cva('text-fg-subtle')();
 export class Select<TValue extends string> extends Control {
   /** Selected value; `undefined` or `''` shows the placeholder. */
   public readonly value = model<TValue | undefined>(undefined);
-  public readonly options = input.required<readonly SelectOption<TValue>[]>();
+  public readonly options = input.required<ReadonlyArray<SelectOption<TValue>>>();
   /** Defaults to "Select…" in the viewer's locale. */
   public readonly placeholder = input<string | undefined>(undefined);
 
   protected readonly expanded = signal(false);
-  protected readonly selected = computed<TValue[]>(() => {
+  protected readonly selected = computed<Array<TValue>>(() => {
     const value = this.value();
 
     return value === undefined || value === '' ? [] : [value];
@@ -65,13 +68,14 @@ export class Select<TValue extends string> extends Control {
     () => this.options().find((option) => option.value === this.value())?.label ?? this.placeholder(),
   );
   protected readonly triggerClasses = controlVariants({ trigger: true });
+  protected readonly positions = POSITIONS;
   protected readonly listboxClasses = listboxClasses;
   protected readonly optionClasses = optionClasses;
   protected readonly caretClasses = caretClasses;
   protected readonly descriptionClasses = comboboxOptionDescriptionClasses;
   protected readonly labelClasses = computed(() => placeholderVariants({ empty: this.selected().length === 0 }));
 
-  protected choose(values: readonly TValue[]): void {
+  protected choose(values: ReadonlyArray<TValue>): void {
     const [value] = values;
     this.expanded.set(false);
 

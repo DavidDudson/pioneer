@@ -33,7 +33,7 @@ export type FoundryRunes = z.infer<typeof FoundryRunes>;
 export type GradeKey = 'potency' | 'striking' | 'resilient';
 
 /** The item's runes, with the fundamental grades it has and its property runes; undefined when it has none. */
-export function itemRunes(runes: FoundryRunes, keys: readonly GradeKey[], input: KindInput): object | undefined {
+export function itemRunes(runes: FoundryRunes, keys: ReadonlyArray<GradeKey>, input: KindInput): object | undefined {
   const grades = keys.flatMap((key) => {
     const grade = runes[key] ?? 0;
 

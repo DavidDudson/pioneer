@@ -21,7 +21,7 @@ function imported(id: string): FoundryImport {
   return { pack: PackId.parse(id), book: BookId.parse(id), release: 'pf2e-8.6.0' };
 }
 
-export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
+export const FOUNDRY_IMPORTS: ReadonlyArray<FoundryImport> = [
   imported('player-core'),
   imported('player-core-2'),
   imported('divine-mysteries'),

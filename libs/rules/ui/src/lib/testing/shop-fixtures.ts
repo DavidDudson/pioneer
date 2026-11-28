@@ -63,13 +63,13 @@ const TRADE_GOODS = offer({
  * A few offers: a common item, one sold in a batch, an uncommon one with a two-coin price, a rare one with none and
  * one with no level.
  */
-export const SHOP_OFFERS: readonly ShopOffer[] = [LONGSWORD, ARROWS, STAFF_OF_FIRE, LUCKY_STONE, TRADE_GOODS];
+export const SHOP_OFFERS: ReadonlyArray<ShopOffer> = [LONGSWORD, ARROWS, STAFF_OF_FIRE, LUCKY_STONE, TRADE_GOODS];
 
 /** More offers than the list shows at once. */
 const MANY = 60;
 const ID_DIGITS = 12;
 
-export const MANY_OFFERS: readonly ShopOffer[] = Array.from({ length: MANY }, (_unused, index) => ({
+export const MANY_OFFERS: ReadonlyArray<ShopOffer> = Array.from({ length: MANY }, (_unused, index) => ({
   ...LONGSWORD,
   id: ContentId.parse(`7b0c3a52-3f43-4f0e-9a3c-${String(index).padStart(ID_DIGITS, '0')}`),
   name: ContentText.parse(`Longsword ${index + 1}`),

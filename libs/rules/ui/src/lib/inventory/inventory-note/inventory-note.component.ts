@@ -6,7 +6,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 /** One note under a line's name, linking to where it says more when it can. */
 export interface LineNote {
   readonly message: MessageDescriptor;
-  readonly link?: readonly string[] | undefined;
+  readonly link?: ReadonlyArray<string> | undefined;
 }
 
 /** One note about an item: how it is carried, or that it is a key item, which names the campaign's inventory. */

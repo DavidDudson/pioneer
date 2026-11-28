@@ -63,7 +63,7 @@ function labelOf(fixture: ComponentFixture<StatisticRoll>): HTMLElement | null {
 
 /** The roll button of a check with the given lines and roll effects. */
 async function renderCues(
-  lines: readonly BreakdownLine[],
+  lines: ReadonlyArray<BreakdownLine>,
   rollEffects?: RollEffects,
 ): Promise<HTMLButtonElement | null> {
   const base = statistic('skill:acrobatics', { base: [term('5', 5)], lines });
@@ -156,11 +156,11 @@ describe(StatisticRoll, () => {
 
 interface Flat {
   readonly fixture: ComponentFixture<StatisticRoll>;
-  readonly flats: number[];
+  readonly flats: Array<number>;
 }
 
 async function renderFlat(kind: StatisticKind): Promise<Flat> {
-  const flats: number[] = [];
+  const flats: Array<number> = [];
   TestBed.configureTestingModule({
     providers: [
       provideRulesUiI18nTesting(),

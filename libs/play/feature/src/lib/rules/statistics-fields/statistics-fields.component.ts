@@ -50,7 +50,7 @@ export class StatisticsFields {
   });
 
   /** The roll option lines that are not roll options; empty when there are none. */
-  protected readonly badLines = computed((): readonly number[] => {
+  protected readonly badLines = computed((): ReadonlyArray<number> => {
     const result = this.check();
 
     return result.status === StatisticsStatus.Problems ? result.factLines : [];

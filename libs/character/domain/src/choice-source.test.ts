@@ -74,7 +74,7 @@ function isSkillIncrease(slot: CharacterSlot): boolean {
 }
 
 /** The source kinds of the slots of `document` that `which` picks. */
-function sourceKindsOf(document: CharacterDocument, which: (slot: CharacterSlot) => boolean): ChoiceSourceKind[] {
+function sourceKindsOf(document: CharacterDocument, which: (slot: CharacterSlot) => boolean): Array<ChoiceSourceKind> {
   return characterSlots(document, content)
     .filter((slot) => which(slot))
     .flatMap((slot) => choiceSourceOf(slot, document, content)?.kind ?? []);

@@ -10,7 +10,7 @@ export function textOf(element: Element | null | undefined): string {
 }
 
 /** The open tab's regions: each heading, and whether it labels its region. */
-export function regionsOf(root: HTMLElement): (string | boolean)[][] {
+export function regionsOf(root: HTMLElement): Array<Array<string | boolean>> {
   return [...root.querySelectorAll('router-outlet ~ * section')].map((region) => {
     const heading = present(region.querySelector('h2'));
 

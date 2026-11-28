@@ -5,15 +5,15 @@ import { CharacterCompanionRepository } from './character-companion-repository';
 import type { CompanionArchival, CompanionWriteContext } from './character-companion-repository';
 
 /** How many live companions of the kind the rows hold. */
-function liveOfKind(rows: readonly Companion[], kind: Companion['kind']): number {
+function liveOfKind(rows: ReadonlyArray<Companion>, kind: Companion['kind']): number {
   return rows.filter((each) => each.archived === undefined && each.kind === kind).length;
 }
 
 /** Repository adapter for tests and local experiments. It does not model the character's version. */
 export class InMemoryCharacterCompanionRepository extends CharacterCompanionRepository {
-  readonly #rows = new Map<CharacterId, readonly Companion[]>();
+  readonly #rows = new Map<CharacterId, ReadonlyArray<Companion>>();
 
-  public override async listForCharacter(characterId: CharacterId): Promise<readonly Companion[]> {
+  public override async listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<Companion>> {
     const rows = this.#rows.get(characterId) ?? [];
 
     return [

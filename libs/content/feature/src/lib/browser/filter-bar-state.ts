@@ -12,7 +12,7 @@ const KINDS: Readonly<Record<FacetType, FilterKind>> = {
 /** Translates a message key (a facet's or a value's label). */
 export type Label = (key: string) => string;
 
-function optionsOf({ facet, values }: FacetCounts, label: Label): readonly FilterOption[] {
+function optionsOf({ facet, values }: FacetCounts, label: Label): ReadonlyArray<FilterOption> {
   return values.map(({ value, count }) => {
     const key = facet.values?.get(value);
 
@@ -24,7 +24,7 @@ function optionsOf({ facet, values }: FacetCounts, label: Label): readonly Filte
  * What the filter bar offers for a list's facets: a field per facet, a set or flag one with its values and how many
  * entries each leaves. The same definitions the facet panel reads, so the two agree.
  */
-export function filterFields(counts: readonly FacetCounts[], label: Label): readonly FilterField[] {
+export function filterFields(counts: ReadonlyArray<FacetCounts>, label: Label): ReadonlyArray<FilterField> {
   return counts.map((each) => {
     const kind = KINDS[each.facet.type];
     const base = { id: each.facet.id, label: label(each.facet.label), kind };
@@ -35,10 +35,10 @@ export function filterFields(counts: readonly FacetCounts[], label: Label): read
 
 function valuesConditions(
   field: FacetId,
-  include: readonly FacetValue[],
-  exclude: readonly FacetValue[],
-): FilterCondition[] {
-  const included: FilterCondition[] =
+  include: ReadonlyArray<FacetValue>,
+  exclude: ReadonlyArray<FacetValue>,
+): Array<FilterCondition> {
+  const included: Array<FilterCondition> =
     include.length === 0
       ? []
       : [{ field, operator: include.length === 1 ? FilterOperator.Is : FilterOperator.IsAnyOf, values: include }];
@@ -46,7 +46,7 @@ function valuesConditions(
   return [...included, ...exclude.map((value) => ({ field, operator: FilterOperator.IsNot, values: [value] }))];
 }
 
-function rangeConditions(field: FacetId, min: number | undefined, max: number | undefined): FilterCondition[] {
+function rangeConditions(field: FacetId, min: number | undefined, max: number | undefined): Array<FilterCondition> {
   if (min === undefined && max === undefined) {
     return [];
   }
@@ -58,7 +58,7 @@ function rangeConditions(field: FacetId, min: number | undefined, max: number | 
   return [{ field, operator: FilterOperator.Between, values: [String(min ?? ''), String(max ?? '')] }];
 }
 
-function selectionConditions(field: FacetId, selection: FacetSelection): FilterCondition[] {
+function selectionConditions(field: FacetId, selection: FacetSelection): Array<FilterCondition> {
   return selection.kind === SelectionKind.Values
     ? valuesConditions(field, selection.include, selection.exclude)
     : rangeConditions(field, selection.min, selection.max);
@@ -68,7 +68,7 @@ function selectionConditions(field: FacetId, selection: FacetSelection): FilterC
  * The filter bar's chips for a filter state: a set or flag facet's picks are `is` (one) or `is any of` (several), each
  * exclusion an `is not`, and a range `is` one number or `between` two, either end open. An empty selection has no chip.
  */
-export function filterConditions(state: FilterState): readonly FilterCondition[] {
+export function filterConditions(state: FilterState): ReadonlyArray<FilterCondition> {
   return [...state].flatMap(([field, selection]) => selectionConditions(field, selection));
 }
 
@@ -78,11 +78,11 @@ function bound(text: string | undefined): RangeBound | undefined {
   return parsed.success ? parsed.data : undefined;
 }
 
-function union(left: readonly FacetValue[], right: readonly FacetValue[]): readonly FacetValue[] {
+function union(left: ReadonlyArray<FacetValue>, right: ReadonlyArray<FacetValue>): ReadonlyArray<FacetValue> {
   return [...left, ...right.filter((value) => !left.includes(value))];
 }
 
-function facetValueList(values: readonly string[]): readonly FacetValue[] {
+function facetValueList(values: ReadonlyArray<string>): ReadonlyArray<FacetValue> {
   return values.flatMap((value) => {
     const parsed = FacetValue.safeParse(value);
 
@@ -117,7 +117,10 @@ function addToRange(condition: FilterCondition): FacetSelection | undefined {
  * does); chips naming no facet, with no usable value, or an operator the facet's kind lacks are dropped, so a stale
  * or hand-made value never throws. The inverse of `filterConditions` for any state it can make.
  */
-export function filterState(conditions: readonly FilterCondition[], facets: readonly FacetDefinition[]): FilterState {
+export function filterState(
+  conditions: ReadonlyArray<FilterCondition>,
+  facets: ReadonlyArray<FacetDefinition>,
+): FilterState {
   const state = new Map<FacetId, FacetSelection>();
 
   for (const condition of conditions) {

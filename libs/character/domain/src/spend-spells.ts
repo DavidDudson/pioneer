@@ -14,7 +14,7 @@ const ONE_ACTION = SpendCount.parse(1);
 
 /** The part of a play state a spell spend reads and writes. */
 export interface SpellPlay {
-  readonly activeSpells: readonly ActiveSpell[];
+  readonly activeSpells: ReadonlyArray<ActiveSpell>;
 }
 
 /** Whether `cost` is exactly one action, which Sustain and the Dismiss action take. */
@@ -62,7 +62,7 @@ export function spellRefusal({ activeSpells }: SpellPlay, { cost, spell }: Spend
 
 /** The active spells after a spend, and the spell a dismissal removed. */
 export interface SpellChange {
-  readonly activeSpells: readonly ActiveSpell[];
+  readonly activeSpells: ReadonlyArray<ActiveSpell>;
   readonly dismissed?: ActiveSpell;
 }
 
@@ -113,7 +113,7 @@ export function spellUndoRefusal(
 }
 
 /** `play`'s active spells after the spend `entry` is taken back: the cast spell is gone, the sustain is off, the dismissed spell is back. */
-export function spellUndone({ activeSpells }: SpellPlay, { spell, dismissed }: SpendEntry): readonly ActiveSpell[] {
+export function spellUndone({ activeSpells }: SpellPlay, { spell, dismissed }: SpendEntry): ReadonlyArray<ActiveSpell> {
   if (spell === undefined) {
     return activeSpells;
   }

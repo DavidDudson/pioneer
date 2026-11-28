@@ -11,7 +11,7 @@ import { Label } from '../field/label/label.component';
 
 /**
  * Labelled single-select for forms, preferred for two or three options. Bind with `[formField]`; for
- * inline editing use the plain `fr-segmented`. Prefer `fr-select-field` for four or more.
+ * inline editing use the plain `fr-segmented`.
  */
 @Component({
   selector: 'fr-segmented-field',
@@ -22,5 +22,5 @@ import { Label } from '../field/label/label.component';
 })
 export class SegmentedField<TValue extends string> extends BoundField implements FormValueControl<TValue | undefined> {
   public readonly value = model<TValue | undefined>(undefined);
-  public readonly options = input.required<readonly SelectOption<TValue>[]>();
+  public readonly options = input.required<ReadonlyArray<SelectOption<TValue>>>();
 }

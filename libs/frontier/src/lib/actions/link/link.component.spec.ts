@@ -131,13 +131,13 @@ describe(Link, () => {
   it('looks like an inline link by default', async () => {
     const anchor = await render({ to: '/campaigns' }, '/characters');
     expect([...anchor.classList]).toStrictEqual(expect.arrayContaining(['text-accent-fg', 'decoration-line-strong']));
-    expect([...anchor.classList]).not.toContain('h-touch');
+    expect(anchor.className).not.toMatch(/h-control-/u);
   });
 
   it('draws a tab touch-sized and muted, without an underline, while another page is shown', async () => {
     const anchor = await render({ to: '/campaigns', appearance: LinkAppearance.Tab }, '/characters');
     expect([...anchor.classList]).toStrictEqual(
-      expect.arrayContaining(['h-touch', 'pointer-fine:h-control-sm', 'text-fg-muted', 'focus-visible:focus-ring']),
+      expect.arrayContaining(['min-h-control-sm', 'text-fg-muted', 'focus-visible:focus-ring']),
     );
     expect([...anchor.classList]).not.toContain('underline');
     expect([...anchor.classList]).not.toContain('text-accent-fg');
@@ -154,7 +154,9 @@ describe(Link, () => {
 
   it('draws a menu link as a full-width, touch-sized row without an underline', async () => {
     const anchor = await render({ to: '/campaigns', appearance: LinkAppearance.Menu }, '/characters');
-    expect([...anchor.classList]).toStrictEqual(expect.arrayContaining(['flex', 'w-full', 'h-touch', 'font-medium']));
+    expect([...anchor.classList]).toStrictEqual(
+      expect.arrayContaining(['flex', 'w-full', 'min-h-control-sm', 'font-medium']),
+    );
     expect([...anchor.classList]).not.toContain('underline');
     expect([...anchor.classList]).not.toContain('bg-accent-subtle');
   });
@@ -167,7 +169,12 @@ describe(Link, () => {
   it('draws a button link as a touch-sized primary call to action without an underline', async () => {
     const anchor = await render({ to: '/characters/new', appearance: LinkAppearance.Button }, '/characters');
     expect([...anchor.classList]).toStrictEqual(
-      expect.arrayContaining(['h-touch', 'bg-accent-solid', 'text-accent-on-solid', 'focus-visible:focus-ring']),
+      expect.arrayContaining([
+        'min-h-control-md',
+        'bg-accent-solid',
+        'text-accent-on-solid',
+        'focus-visible:focus-ring',
+      ]),
     );
     expect([...anchor.classList]).not.toContain('underline');
     expect(anchor.getAttribute('href')).toBe('/characters/new');

@@ -9,10 +9,10 @@ import {
   CLASS_TIMEOUT_MS,
   contentOf,
   generatorIn,
-  LEVELS,
   PLAYER_CORE_CLASSES,
   SEED_MAX,
 } from './generate-character-testing';
+import { sweep } from './generation-sweep';
 import { unfillableSlots } from './level-20-derive';
 
 const PROPERTY_RUNS = 12;
@@ -28,9 +28,6 @@ const GENERATED_UNFILLABLE: ReadonlyMap<string, number> = new Map([
   ['Rogue', 2],
 ]);
 
-/** The levels each class is generated at: the first, then every fifth, where classes gain most. */
-const CLASS_LEVELS = [1, 5, 10, 15, 20].map((level) => CharacterLevel.parse(level));
-
 const content = await contentOf();
 
 /** A character with nothing picked, or only `className` if given. */
@@ -44,7 +41,7 @@ const generated = generatorIn(content);
  * The slots left open that something could fill. A feat slot whose every feat with known-met prerequisites is taken
  * elsewhere stays open by design: a feat whose prerequisites the builder can't read is never picked.
  */
-function fillable(result: Generated): readonly string[] {
+function fillable(result: Generated): ReadonlyArray<string> {
   const { document } = result.character;
   const slots = characterSlots(document, content);
   const feats = featSlots(document, content);
@@ -61,7 +58,7 @@ function fillable(result: Generated): readonly string[] {
 }
 
 /** What is wrong with a generated character: slots read invalid, and more open than no build can fill yet. */
-function problems(result: Generated, className: string | undefined): readonly string[] {
+function problems(result: Generated, className: string | undefined): ReadonlyArray<string> {
   const slots = characterSlots(result.character.document, content);
   const invalid = slots.filter((slot) => slot.status === SlotStatus.Invalid).map((slot) => `invalid ${slot.key}`);
   const allowed = className === undefined ? 0 : unfillableSlots(className) + (GENERATED_UNFILLABLE.get(className) ?? 0);
@@ -84,9 +81,9 @@ describe('generateCharacter over Player Core', () => {
   );
 
   test.each([...PLAYER_CORE_CLASSES])(
-    '%s, at levels 1, 5, 10, 15 and 20 has no open or invalid slot',
+    '%s has no open or invalid slot at each spot level',
     (className) => {
-      for (const level of CLASS_LEVELS) {
+      for (const level of sweep.spotLevels) {
         const result = generated(blank(className), level, level);
         expect({ level, problems: problems(result, className) }).toEqual({ level, problems: [] });
       }
@@ -101,10 +98,10 @@ describe('generateCharacter over Player Core', () => {
         property(
           integer({ min: 0, max: SEED_MAX }),
           constantFrom(...PLAYER_CORE_CLASSES),
-          constantFrom(...LEVELS),
+          constantFrom(...sweep.propertyLevels),
           (seed, className, level) => problems(generated(blank(className), seed, level), className).length === 0,
         ),
-        { numRuns: PROPERTY_RUNS },
+        sweep.parameters(PROPERTY_RUNS),
       );
     },
     CLASS_TIMEOUT_MS,

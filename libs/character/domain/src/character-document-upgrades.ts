@@ -1,6 +1,8 @@
 import { Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { CoinsSchema } from './coins';
+
 /** The schema a stored `CharacterDocument` was written with. Starts at 1; each upgrade step adds one. */
 export const CharacterSchemaVersion = Pg.smallint().min(1).brand<'CharacterSchemaVersion'>();
 
@@ -34,12 +36,30 @@ function etchedRunesWithChoice(document: StoredCharacterDocument): StoredCharact
   return inventory.success ? { ...document, inventory: inventory.data } : document;
 }
 
+/** The coins of a stored inventory: a count for each coin it holds. */
+const StoredInventoryCoins = z.looseObject({ coins: CoinsSchema.default(CoinsSchema.parse({})) });
+
+/** 22 → 23: a ledger of coin changes (#512). Written as it was at version 23, so it names the reason as stored. Starts with an opening entry for the coins the character already held. */
+function openingLedger(document: StoredCharacterDocument): StoredCharacterDocument {
+  const inventory = StoredInventoryCoins.safeParse(document['inventory']);
+
+  if (!inventory.success) {
+    return document;
+  }
+
+  const { coins } = inventory.data;
+  const held = Object.values(coins).some((count) => count > 0);
+  const ledger = held ? [{ reason: 'opening', change: coins }] : [];
+
+  return { ...document, inventory: { ...inventory.data, ledger } };
+}
+
 /**
  * Every upgrade step, oldest first: `UPGRADES[0]` turns version 1 into 2, `UPGRADES[n]` turns n + 1 into n + 2.
  * Every change to the schema's shape adds a step, a new defaulted field included (its step returns the document
  * as it is), so code older than a document always refuses it by version (character-model.md, "Schema versions").
  */
-const UPGRADES: readonly UpgradeStep[] = [
+const UPGRADES: ReadonlyArray<UpgradeStep> = [
   /** 1 → 2: inventory items and coins (#471). A version 1 inventory is empty, which reads as no items and no coins. */
   (document) => document,
   /** 2 → 3: how each item is carried and whether it is invested (#472). A version 2 item reads as stowed, not invested. */
@@ -82,10 +102,14 @@ const UPGRADES: readonly UpgradeStep[] = [
   etchedRunesWithChoice,
   /** 21 → 22: the class features, deity and unplaced spells an import keeps (#1593). A version 21 build keeps none. */
   (document) => document,
+  /** 22 → 23: the coin ledger (#512). */
+  openingLedger,
+  /** 23 → 24: the retraining project (#515). A version 23 build is retraining nothing. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */
-export function currentVersion(upgrades: readonly UpgradeStep[]): CharacterSchemaVersion {
+export function currentVersion(upgrades: ReadonlyArray<UpgradeStep>): CharacterSchemaVersion {
   return CharacterSchemaVersion.parse(upgrades.length + 1);
 }
 
@@ -110,7 +134,7 @@ export class UnsupportedSchemaVersionError extends Error {
 /** Runs every step from the document's version up to the chain's current version. A current document is unchanged. */
 export function upgradeDocument(
   stored: StoredCharacterDocument,
-  upgrades: readonly UpgradeStep[] = UPGRADES,
+  upgrades: ReadonlyArray<UpgradeStep> = UPGRADES,
 ): StoredCharacterDocument {
   const current = currentVersion(upgrades);
 

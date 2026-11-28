@@ -3,20 +3,20 @@ import { describe, expect, test } from 'bun:test';
 import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import type { JsonObject } from './testing/json-value';
+import { ContentEntry } from './typed-content-entry';
 
-function issues(value: JsonValue): readonly FieldIssue[] {
+function issues(value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = ContentEntry.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
 /** Each issue as `<path> <message key>`, sorted. */
-function found(value: JsonValue): readonly string[] {
+function found(value: JsonValue): ReadonlyArray<string> {
   return issues(value)
     .map((issue) => `${issue.path.join('.')} ${issue.message.key}`)
     .toSorted();
@@ -24,7 +24,7 @@ function found(value: JsonValue): readonly string[] {
 
 const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
-const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
+const prose = (text: string): Array<unknown> => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /** The fields every entry carries, before its kind and data. */
 interface Envelope {
@@ -33,10 +33,10 @@ interface Envelope {
   readonly slug: string;
   readonly name: string;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<unknown>;
+  readonly description: ReadonlyArray<unknown>;
+  readonly rules: ReadonlyArray<unknown>;
 }
 
 /** An entry with its kind and data. */

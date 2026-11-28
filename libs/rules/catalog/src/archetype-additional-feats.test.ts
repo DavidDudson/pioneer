@@ -14,7 +14,7 @@ const registry = new ContentRegistry();
 
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
 
-const entries: readonly ContentEntry[] = registry.packs.flatMap((pack) => pack.otherEntries);
+const entries: ReadonlyArray<ContentEntry> = registry.packs.flatMap((pack) => pack.otherEntries);
 
 interface Listed {
   readonly archetype: string;
@@ -23,7 +23,7 @@ interface Listed {
   readonly level: number;
 }
 
-const LISTED: readonly Listed[] = [
+const LISTED: ReadonlyArray<Listed> = [
   { archetype: 'Rivethun Involutionist', pack: 'divine-mysteries', feat: 'Mature Animal Companion (Druid)', level: 6 },
   { archetype: 'Rivethun Involutionist', pack: 'divine-mysteries', feat: 'Incredible Companion (Ranger)', level: 8 },
   { archetype: 'Wylderheart', pack: 'shining-kingdoms', feat: 'Specialized Companion (Druid)', level: 16 },
@@ -57,7 +57,7 @@ interface Offered {
 }
 
 /** What `listed`'s archetype offers: each additional feat's name, level and kind, or none when it is not found. */
-function additionalFeatsOf({ archetype, pack }: Listed): readonly Offered[] {
+function additionalFeatsOf({ archetype, pack }: Listed): ReadonlyArray<Offered> {
   const found = entries.find(
     (entry) => entry.kind === ContentKind.Archetype && entry.name === archetype && String(entry.pack) === pack,
   );

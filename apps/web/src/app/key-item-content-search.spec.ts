@@ -15,12 +15,12 @@ import type { ContentFinder } from './key-item-content-search';
 /** A finder, and the queries it was asked. */
 interface Finding {
   readonly finder: ContentFinder;
-  readonly asked: ContentSearchQuery[];
+  readonly asked: Array<ContentSearchQuery>;
 }
 
 /** A finder whose server search finds `ids`, and which records the queries it was asked. */
-function finding(ids: readonly ContentId[]): Finding {
-  const asked: ContentSearchQuery[] = [];
+function finding(ids: ReadonlyArray<ContentId>): Finding {
+  const asked: Array<ContentSearchQuery> = [];
 
   const finder: ContentFinder = {
     search: async (query) => {

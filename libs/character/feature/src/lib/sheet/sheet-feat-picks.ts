@@ -20,7 +20,7 @@ export interface FeatPickSources {
   readonly registry: Signal<ContentRegistry | undefined>;
   readonly character: Signal<Character | undefined>;
   /** The slots as the server read them. */
-  readonly slots: Signal<readonly CharacterSlot[] | undefined>;
+  readonly slots: Signal<ReadonlyArray<CharacterSlot> | undefined>;
   readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
   readonly translate: (key: string, params?: MessageParams) => string;
@@ -34,7 +34,7 @@ export interface FeatPickSources {
 export interface FeatField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
-  readonly rows: Signal<readonly FeatPickerRow[]>;
+  readonly rows: Signal<ReadonlyArray<FeatPickerRow>>;
   readonly reason: Signal<MessageDescriptor | undefined>;
   /** The filter panel's state, when the pickers filter. */
   readonly filter: SlotFilter | undefined;
@@ -108,9 +108,9 @@ function featsOf(sources: FeatPickSources): Signal<SheetFeats | undefined> {
 function fieldsOf(
   sources: FeatPickSources,
   feats: Signal<SheetFeats | undefined>,
-  pick: (read: SheetFeats) => readonly SheetFeatSlot[],
-): Signal<readonly FeatField[]> {
-  const slots = (): readonly SheetFeatSlot[] => {
+  pick: (read: SheetFeats) => ReadonlyArray<SheetFeatSlot>,
+): Signal<ReadonlyArray<FeatField>> {
+  const slots = (): ReadonlyArray<SheetFeatSlot> => {
     const read = feats();
 
     return read === undefined ? [] : pick(read);
@@ -133,6 +133,6 @@ function fieldsOf(
  * One inline pick per feat slot, at any level (#492), offering the feats it will have at the slot's level. The
  * level tabs' alone. Empty while the feats load.
  */
-export function plannedFeatFieldsOf(sources: FeatPickSources): Signal<readonly FeatField[]> {
+export function plannedFeatFieldsOf(sources: FeatPickSources): Signal<ReadonlyArray<FeatField>> {
   return fieldsOf(sources, featsOf(sources), (read) => read.planned);
 }

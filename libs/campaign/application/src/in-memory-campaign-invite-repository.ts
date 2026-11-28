@@ -9,9 +9,7 @@ export class InMemoryCampaignInviteRepository extends CampaignInviteRepository {
   readonly #rows = new Map<CampaignInviteId, CampaignInvite>();
 
   public override async insert(invite: CampaignInvite): Promise<CampaignInvite> {
-    this.#rows.set(invite.id, invite);
-
-    return invite;
+    return this.#put(invite);
   }
 
   public override async findByTokenHash(tokenHash: InviteTokenHash): Promise<CampaignInvite | undefined> {
@@ -22,7 +20,10 @@ export class InMemoryCampaignInviteRepository extends CampaignInviteRepository {
     return this.#rows.get(id);
   }
 
-  public override async listOpen(campaignId: CampaignId, now: Temporal.Instant): Promise<readonly CampaignInvite[]> {
+  public override async listOpen(
+    campaignId: CampaignId,
+    now: Temporal.Instant,
+  ): Promise<ReadonlyArray<CampaignInvite>> {
     return [...this.#rows.values()]
       .filter((invite) => invite.campaignId === campaignId && invite.statusAt(now) === InviteStatus.Open)
       .toSorted(
@@ -31,9 +32,7 @@ export class InMemoryCampaignInviteRepository extends CampaignInviteRepository {
   }
 
   public override async revoke(invite: CampaignInvite): Promise<CampaignInvite> {
-    this.#rows.set(invite.id, invite);
-
-    return invite;
+    return this.#put(invite);
   }
 
   public override async revokeOpen(campaignId: CampaignId, now: Temporal.Instant): Promise<void> {
@@ -42,5 +41,11 @@ export class InMemoryCampaignInviteRepository extends CampaignInviteRepository {
     for (const invite of open) {
       this.#rows.set(invite.id, invite.revoke(now));
     }
+  }
+
+  #put(invite: CampaignInvite): CampaignInvite {
+    this.#rows.set(invite.id, invite);
+
+    return invite;
   }
 }

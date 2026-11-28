@@ -33,6 +33,17 @@ export const RuneFixture = {
   Unholy: 'unholy',
   /** A weapon rune that grants the clumsy condition (as quickstrike grants quickened) while the weapon is wielded. */
   Quickstrike: 'quickstrike',
+  /** An armour rune that adds 2 Hit Points to the first healing from a spell or effect (the slug is the real rune's). */
+  Moonweave: 'moonweave',
+  /** An armour rune that offers a new save against a hostile spell at the start of each turn (the slug is the real rune's). */
+  Spellwatch: 'spellwatch',
+  /** Armour runes that shorten donning (the slugs are the real ready runes'). */
+  Ready: 'ready',
+  ReadyGreater: 'ready-greater',
+  /** An armour rune with a daily activation (the slug is the real invisibility rune's). */
+  Invisibility: 'invisibility',
+  /** An armour rune with an hourly activation (the slug is the real winged rune's). */
+  Winged: 'winged',
   /** A weapon rune that lets the weapon take the shape of another (the slug is the real shifting rune's). */
   Shifting: 'shifting',
   /** A weapon rune for bludgeoning weapons only, which a weapon shifted into another damage type can't keep. */
@@ -94,6 +105,22 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.Quickstrike]: { ...weaponRune(), rules: [{ key: 'GrantItem', item: clumsyFixtureId() }] },
   [RuneFixture.Shifting]: weaponRune(),
   [RuneFixture.Crushing]: weaponRune('bludgeoning'),
+  [RuneFixture.Moonweave]: { ...armorRune(), rules: [{ key: 'HealingBonus', value: 2 }] },
+  [RuneFixture.Spellwatch]: { ...armorRune(), rules: [{ key: 'TurnStartSave', against: 'hostile-spell' }] },
+  [RuneFixture.Invisibility]: {
+    data: {
+      ...armorRune().data,
+      activations: [{ slug: 'go-invisible', name: 'Go Invisible', frequency: { max: 1, per: 'day' } }],
+    },
+  },
+  [RuneFixture.Winged]: {
+    data: {
+      ...armorRune().data,
+      activations: [{ slug: 'take-to-the-skies', name: 'Take to the Skies', frequency: { max: 1, per: 'hour' } }],
+    },
+  },
+  [RuneFixture.Ready]: armorRune(),
+  [RuneFixture.ReadyGreater]: armorRune(),
   [RuneFixture.EnergyResistant]: armorRune(),
   [RuneFixture.EnergyResistantGreater]: armorRune(),
   [RuneFixture.Shadow]: {

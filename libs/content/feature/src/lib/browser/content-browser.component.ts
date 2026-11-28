@@ -22,6 +22,7 @@ import type {
 } from '@pioneer/content/ui';
 import { LocaleFormat } from '@pioneer/frontier';
 import type { AsyncQuery, SelectOption } from '@pioneer/frontier';
+import { TableDensity } from '@pioneer/frontier/data';
 import type { TableViewSort } from '@pioneer/frontier/data';
 import { CONTENT_SCOPE } from '@pioneer/rules/data-access';
 import { ContentKind } from '@pioneer/rules/sdk';
@@ -90,16 +91,18 @@ export class ContentBrowser {
   /** The state after a change made in the browser. A host that holds the value sets it back. */
   public readonly stateChange = output<ContentBrowserState>();
   /** The table's sort and hidden columns, which only the page tier has. */
-  public readonly sorting = model<readonly TableViewSort[]>([]);
-  public readonly hidden = model<readonly string[] | undefined>(undefined);
+  public readonly sorting = model<ReadonlyArray<TableViewSort>>([]);
+  public readonly hidden = model<ReadonlyArray<string> | undefined>(undefined);
+  /** The table's row spacing, which only the page tier has. */
+  public readonly density = model<TableDensity>(TableDensity.Comfortable);
 
   /** The host's state, or what the browser last wrote if the host has not set it back yet. */
   readonly #written = linkedSignal<ContentBrowserState | undefined>(() => this.state());
   readonly #current = computed(() => this.#written() ?? EMPTY_BROWSER_STATE);
-  readonly #kinds: Signal<readonly BrowseKind[]> = computed(() => listedKinds(this.#current().kinds));
+  readonly #kinds: Signal<ReadonlyArray<BrowseKind>> = computed(() => listedKinds(this.#current().kinds));
   readonly #facets = computed(() => facetsOf(this.#kinds()));
 
-  protected readonly kindOptions: Signal<readonly SelectOption<BrowseKind>[]> = computed(() => {
+  protected readonly kindOptions: Signal<ReadonlyArray<SelectOption<BrowseKind>>> = computed(() => {
     this.#changed();
 
     return BROWSE_KINDS.map((kind) => ({ value: kind, label: this.#i18n.translate(KIND_MESSAGES[kind]) }));
@@ -114,7 +117,7 @@ export class ContentBrowser {
     this.#written() === undefined ? undefined : kindsToLoad(this.#current()),
   );
   readonly #scope = inject(CONTENT_SCOPE);
-  readonly #entries: Signal<readonly ContentEntry[] | undefined> = computed(() => {
+  readonly #entries: Signal<ReadonlyArray<ContentEntry> | undefined> = computed(() => {
     const registry = this.registry.data();
 
     return registry === undefined

@@ -23,7 +23,7 @@ interface Rendered {
 }
 
 /** Renders one paragraph of `content` for a reader with Reflex and Will, or with no roller at all. */
-async function render(content: readonly unknown[], withRoller = true): Promise<Rendered> {
+async function render(content: ReadonlyArray<unknown>, withRoller = true): Promise<Rendered> {
   const roller: InlineRoller = {
     hasStatistic: (selector: Selector): boolean => KNOWN.has(selector),
     check: vi.fn<InlineRoller['check']>(),
@@ -49,7 +49,7 @@ async function render(content: readonly unknown[], withRoller = true): Promise<R
   return { element: fixture.nativeElement as HTMLElement, roller };
 }
 
-function buttons(element: HTMLElement): readonly HTMLButtonElement[] {
+function buttons(element: HTMLElement): ReadonlyArray<HTMLButtonElement> {
   return [...element.querySelectorAll('button')];
 }
 

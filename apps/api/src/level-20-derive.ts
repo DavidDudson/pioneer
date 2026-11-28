@@ -26,12 +26,12 @@ export function deriveSheet(
   slots: SlotContent,
   document: CharacterDocument,
 ): ReadonlyMap<Selector, StatisticResult> {
-  const inputs = characterStatisticInputs(registry, document, slots);
+  const inputs = characterStatisticInputs(registry, document, { slots });
 
   return characterStatistics(document, { registry, slots, inputs, variants: [] });
 }
 
 /** The selectors in `statistics` that did not resolve. */
-export function failedSelectors(statistics: ReadonlyMap<Selector, StatisticResult>): readonly Selector[] {
+export function failedSelectors(statistics: ReadonlyMap<Selector, StatisticResult>): ReadonlyArray<Selector> {
   return [...statistics].flatMap(([selector, result]) => (result.ok ? [] : [selector]));
 }

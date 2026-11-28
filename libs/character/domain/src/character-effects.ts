@@ -23,7 +23,7 @@ export function characterEffects(
   document: CharacterDocument,
   sources: StatisticSources,
   { entry, mode }: EffectsRequest,
-): readonly EffectLine[] {
+): ReadonlyArray<EffectLine> {
   const content = characterStatisticContent(sources.registry, document);
 
   if (content === undefined) {

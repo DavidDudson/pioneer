@@ -57,9 +57,9 @@ const content: ContentSource = {
 
 /** No homebrew packs: the official variant rules are all there is. */
 class OfficialOnly extends EffectivePacks {
-  readonly #none: readonly ContentPackId[] = [];
+  readonly #none: ReadonlyArray<ContentPackId> = [];
 
-  public override async of(): Promise<readonly ContentPackId[]> {
+  public override async of(): Promise<ReadonlyArray<ContentPackId>> {
     return this.#none;
   }
 }
@@ -126,8 +126,8 @@ interface VariantRulesJson {
   readonly decidedBy: string;
   readonly campaign?: string;
   readonly manageable: boolean;
-  readonly enabled: readonly { readonly name: string; readonly packTitle: string }[];
-  readonly available: readonly { readonly name: string }[];
+  readonly enabled: ReadonlyArray<{ readonly name: string; readonly packTitle: string }>;
+  readonly available: ReadonlyArray<{ readonly name: string }>;
 }
 
 interface ProblemJson {

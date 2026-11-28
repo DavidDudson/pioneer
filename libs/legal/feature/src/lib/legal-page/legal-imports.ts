@@ -11,7 +11,7 @@ export interface LegalImport {
 }
 
 /** Every pack imported from Foundry, in catalog order. */
-export const LEGAL_IMPORTS: readonly LegalImport[] = FOUNDRY_IMPORTS.map((imported) => ({
+export const LEGAL_IMPORTS: ReadonlyArray<LegalImport> = FOUNDRY_IMPORTS.map((imported) => ({
   pack: imported.pack,
   titleKey: bookTitle(imported.book),
   release: imported.release,

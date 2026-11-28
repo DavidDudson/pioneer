@@ -32,7 +32,7 @@ export const RollResult = z.object({ expression: DiceExpression, terms: z.array(
 export type RollResult = z.infer<typeof RollResult>;
 
 /** Marks which faces a keep rule keeps. Ties keep the die rolled first. */
-function applyKeep(faces: readonly DieFace[], keep: Keep | undefined): DieResult[] {
+function applyKeep(faces: ReadonlyArray<DieFace>, keep: Keep | undefined): Array<DieResult> {
   if (keep === undefined) {
     return faces.map((face) => ({ face, kept: true }));
   }

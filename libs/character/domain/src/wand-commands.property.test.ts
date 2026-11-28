@@ -10,7 +10,7 @@ import { WandOutcome, wandOutcome, wandProblem } from './wand-commands';
 import type { WandCommand } from './wand-commands';
 
 const WAND = fireballWand();
-const COMMANDS: readonly WandCommand[] = [CAST_WAND, overchargeWand(15), overchargeWand(3), overchargeWand()];
+const COMMANDS: ReadonlyArray<WandCommand> = [CAST_WAND, overchargeWand(15), overchargeWand(3), overchargeWand()];
 const RUNS = array(constantFrom(...COMMANDS), { maxLength: 30 });
 const CASTS_MAX_A_DAY = 2;
 const COUNT_MAX = 1;
@@ -40,7 +40,7 @@ function step(play: PlayState, command: WandCommand): Step {
   return { play: afterWandCommand(play, [WAND], command), cast };
 }
 
-function run(commands: readonly WandCommand[]): Run {
+function run(commands: ReadonlyArray<WandCommand>): Run {
   let play = FRESH_PLAY;
   let casts = 0;
 

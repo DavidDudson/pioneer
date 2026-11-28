@@ -30,6 +30,8 @@ export const Block: SkeletonStory = { args: { kind: SkeletonKind.Block, width: S
 
 export const Square: SkeletonStory = { args: { kind: SkeletonKind.Square } };
 
+export const Item: SkeletonStory = { args: { kind: SkeletonKind.Item } };
+
 export const Widths: SkeletonStory = {
   render: () => ({
     props: { widths: Object.values(SkeletonWidth) },

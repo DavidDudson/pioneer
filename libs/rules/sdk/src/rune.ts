@@ -63,7 +63,7 @@ export type EtchingRestriction = z.infer<typeof EtchingRestriction>;
 const EtchedOnto = z.strictObject({ item: z.enum(RunedItem), restriction: EtchingRestriction.optional() });
 
 /** The items each fundamental rune goes on: weapon and armour potency are separate runes. */
-export const FUNDAMENTAL_RUNE_ITEMS: Readonly<Record<FundamentalRune, readonly RunedItem[]>> = {
+export const FUNDAMENTAL_RUNE_ITEMS: Readonly<Record<FundamentalRune, ReadonlyArray<RunedItem>>> = {
   [FundamentalRune.Potency]: [RunedItem.Weapon, RunedItem.Armor],
   [FundamentalRune.Striking]: [RunedItem.Weapon],
   [FundamentalRune.Resilient]: [RunedItem.Armor],

@@ -54,7 +54,7 @@ export function applyToggleCommand(toggles: Toggles, command: ToggleCommand): To
 /** The toggles as the grants engine reads them. */
 export function toggleStates(toggles: Toggles): ToggleStates {
   return new Map(
-    Object.entries(toggles).flatMap(([key, state]): [ToggleKey, ToggleState][] =>
+    Object.entries(toggles).flatMap(([key, state]): Array<[ToggleKey, ToggleState]> =>
       state === undefined ? [] : [[ToggleKey.parse(key), { on: state.on, suboption: state.suboption }]],
     ),
   );

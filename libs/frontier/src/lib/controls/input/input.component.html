@@ -1,0 +1,21 @@
+<input
+  #control
+  [type]="type()"
+  [class]="classes()"
+  [attr.spellcheck]="monospace() ? false : null"
+  [attr.autocapitalize]="monospace() ? 'off' : null"
+  [attr.autocorrect]="monospace() ? 'off' : null"
+  [attr.inputmode]="inputMode() ?? null"
+  [attr.enterkeyhint]="enterKeyHint() ?? null"
+  [attr.min]="min() ?? null"
+  [attr.max]="max() ?? null"
+  [attr.step]="step() ?? null"
+  [attr.id]="id() ?? null"
+  [value]="value()"
+  [attr.placeholder]="placeholder() ?? null"
+  [disabled]="disabled()"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+  (input)="typed.emit(control.value)"
+/>

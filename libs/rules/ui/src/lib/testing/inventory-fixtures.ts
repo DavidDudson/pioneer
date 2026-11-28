@@ -34,7 +34,7 @@ function line(id: string, name: string | undefined, overrides: Partial<Inventory
  * A fighter's gear: +1 resilient armour, an invested cloak and a backpack holding a pouch of chalk, a +1 greater striking flaming sword in one hand, loose
  * treasure and arrows, and a shield dropped.
  */
-export const FIGHTER_INVENTORY: readonly InventoryGroup[] = [
+export const FIGHTER_INVENTORY: ReadonlyArray<InventoryGroup> = [
   {
     placement: InventoryPlacement.Worn,
     lines: [
@@ -84,7 +84,7 @@ export const FIGHTER_INVENTORY: readonly InventoryGroup[] = [
 const FLAMING_RUNE = ContentId.parse('00000000-0000-4000-8000-000000000001');
 
 /** Runed gear: +2 resilient armour with a free slot, a +1 greater striking flaming sword with a free slot, and a reinforced shield with a free slot. */
-export const RUNED_INVENTORY: readonly InventoryGroup[] = [
+export const RUNED_INVENTORY: ReadonlyArray<InventoryGroup> = [
   {
     placement: InventoryPlacement.Worn,
     lines: [
@@ -132,7 +132,7 @@ export const RUNED_INVENTORY: readonly InventoryGroup[] = [
 ];
 
 /** Armour etched twice with Energy Resistant, for fire and for cold: the name tells the two apart. */
-export const CHOSEN_RUNES_INVENTORY: readonly InventoryGroup[] = [
+export const CHOSEN_RUNES_INVENTORY: ReadonlyArray<InventoryGroup> = [
   {
     placement: InventoryPlacement.Worn,
     lines: [

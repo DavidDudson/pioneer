@@ -9,7 +9,7 @@ const scanned = await Array.fromAsync(new Glob('{apps,libs,tools}/**/project.jso
 const files = scanned.filter((file) => !file.includes('node_modules'));
 
 const perFile = await Promise.all(
-  files.map(async (file): Promise<readonly string[]> => {
+  files.map(async (file): Promise<ReadonlyArray<string>> => {
     const json: unknown = await Bun.file(file).json();
     const project = PROJECT.safeParse(json);
 

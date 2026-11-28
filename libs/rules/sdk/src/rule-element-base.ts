@@ -1,68 +1,14 @@
-import type { ValueOf } from '@pioneer/shared/kernel';
 import { Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { Slug } from './content-id';
 import { ContentText } from './content-text';
 import { FormulaSource } from './formula-source';
 import { Predicate } from './predicate';
 import { Domain, Selector } from './selector';
 
-/** The `key` of every rule element, as Foundry pf2e names them (ADR-0008). */
-export const RuleElementKey = {
-  GrantItem: 'GrantItem',
-  ChoiceSet: 'ChoiceSet',
-  RollOption: 'RollOption',
-  ItemAlteration: 'ItemAlteration',
-  FlatModifier: 'FlatModifier',
-  AdjustModifier: 'AdjustModifier',
-  Change: 'Change',
-  DexterityCap: 'DexterityCap',
-  MultipleAttackPenalty: 'MultipleAttackPenalty',
-  Proficiency: 'Proficiency',
-  MartialProficiency: 'MartialProficiency',
-  ProficiencyBonus: 'ProficiencyBonus',
-  Immunity: 'Immunity',
-  Weakness: 'Weakness',
-  Resistance: 'Resistance',
-  SpellcastingEntry: 'SpellcastingEntry',
-  Sense: 'Sense',
-  SpellSlots: 'SpellSlots',
-  PoolSpells: 'PoolSpells',
-  DeitySpells: 'DeitySpells',
-  SignatureSpells: 'SignatureSpells',
-  FocusSpells: 'FocusSpells',
-  InnateSpells: 'InnateSpells',
-  RepertoireSpells: 'RepertoireSpells',
-  RepertoireCount: 'RepertoireCount',
-  RepertoireDeitySpells: 'RepertoireDeitySpells',
-  Language: 'Language',
-  ActorTraits: 'ActorTraits',
-  Strike: 'Strike',
-  AdjustStrike: 'AdjustStrike',
-  DamageDice: 'DamageDice',
-  DamageAlteration: 'DamageAlteration',
-  Note: 'Note',
-  FastHealing: 'FastHealing',
-  TempHP: 'TempHP',
-  CreatureSize: 'CreatureSize',
-  BattleForm: 'BattleForm',
-  AdjustDegreeOfSuccess: 'AdjustDegreeOfSuccess',
-  RollTwice: 'RollTwice',
-  SubstituteRoll: 'SubstituteRoll',
-  Aura: 'Aura',
-  LiftRestriction: 'LiftRestriction',
-  MovementCost: 'MovementCost',
-  GrantShield: 'GrantShield',
-  CriticalSpecialization: 'CriticalSpecialization',
-  CriticalHitCheck: 'CriticalHitCheck',
-  PersistentFlatCheck: 'PersistentFlatCheck',
-  CriticalWeakness: 'CriticalWeakness',
-  CriticalEffect: 'CriticalEffect',
-  CriticalRange: 'CriticalRange',
-} as const;
+export { RuleElementKey } from './rule-key';
 
-export type RuleElementKey = ValueOf<typeof RuleElementKey>;
+export { RuleSlug } from './rule-slug';
 
 /**
  * When an element runs relative to others of its phase; lower runs first. Optional: each element
@@ -92,14 +38,6 @@ export const ruleElementBase = {
   priority: RulePriority.optional(),
   display: RuleDisplay.optional(),
 };
-
-/**
- * A name another element refers back to: the flag a `ChoiceSet` stores its selection under, or
- * the slug a `FlatModifier` gives the modifier so an `AdjustModifier` can find it.
- */
-export const RuleSlug = Slug.brand<'RuleSlug'>();
-
-export type RuleSlug = z.infer<typeof RuleSlug>;
 
 /** A plain number in a rule element: added, multiplied by (`0.5`) or set. */
 export const RuleNumber = z.number().brand<'RuleNumber'>();

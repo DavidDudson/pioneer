@@ -28,7 +28,7 @@ export interface FilterSources {
 /** What a slot's filter panel shows and changes. */
 export interface SlotFilter {
   readonly state: Signal<FilterState>;
-  readonly counts: Signal<readonly FacetCounts[]>;
+  readonly counts: Signal<ReadonlyArray<FacetCounts>>;
   /** The slot's **Available to you** preset is in force: the player has no filters of their own yet. */
   readonly preset: Signal<boolean>;
   readonly everything: Signal<boolean>;
@@ -46,8 +46,8 @@ export interface SlotFilterInputs {
   readonly filters: FilterSources;
   readonly key: SlotKey;
   /** The content ids of the entries the slot offers. */
-  readonly offered: Signal<readonly string[]>;
-  readonly facets: Signal<readonly FacetDefinition[]>;
+  readonly offered: Signal<ReadonlyArray<string>>;
+  readonly facets: Signal<ReadonlyArray<FacetDefinition>>;
   /** The slot's **Available to you** preset; undefined while what it reads loads, when the URL's filters stand. */
   readonly available: Signal<FilterState | undefined>;
 }

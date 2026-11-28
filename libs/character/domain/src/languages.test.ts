@@ -41,19 +41,19 @@ function dwarf(): CharacterBuilder {
   return new CharacterBuilder().named('Dwarf').picking('ancestry', languageDwarfId);
 }
 
-function keysOf(builder: CharacterBuilder): readonly string[] {
+function keysOf(builder: CharacterBuilder): ReadonlyArray<string> {
   const { document } = builder.build();
 
   return languageSlots(document, languageReads(document, content)).map((slot) => slot.key);
 }
 
-function knownOf(builder: CharacterBuilder): readonly string[] {
+function knownOf(builder: CharacterBuilder): ReadonlyArray<string> {
   const { document } = builder.build();
 
   return knownLanguages(document, languageReads(document, content)).map(({ language: known }) => known.name);
 }
 
-function offersOf(builder: CharacterBuilder, key: string): readonly string[] {
+function offersOf(builder: CharacterBuilder, key: string): ReadonlyArray<string> {
   const { document } = builder.build();
   const slot = languageSlots(document, languageReads(document, content)).find((each) => each.key === key);
 

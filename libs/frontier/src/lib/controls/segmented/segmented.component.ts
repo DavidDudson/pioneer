@@ -35,7 +35,7 @@ const trackVariants = cva('grid auto-cols-fr grid-flow-col gap-3xs border border
 })
 export class Segmented<TValue extends string> extends Control {
   public readonly value = model<TValue | undefined>(undefined);
-  public readonly options = input.required<readonly SelectOption<TValue>[]>();
+  public readonly options = input.required<ReadonlyArray<SelectOption<TValue>>>();
   /** The size of every option's button; `sm` or `xs` for a control in a menu. */
   public readonly size = input<ButtonSize>(Size.Md);
 

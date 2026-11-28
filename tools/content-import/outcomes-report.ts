@@ -5,7 +5,7 @@ export interface OutcomesReport {
   readonly kept: number;
   readonly ambiguous: number;
   /** The entries (`<pack>/<slug>`) whose description differs from the import's, so were skipped. */
-  readonly handFixed: readonly string[];
+  readonly handFixed: ReadonlyArray<string>;
   /** The entries whose description took outcomes. */
   readonly changed: number;
 }

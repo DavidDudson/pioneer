@@ -98,15 +98,15 @@ interface PackJson {
   readonly packId: string;
   readonly title: string;
   readonly removable: boolean;
-  readonly requiredBy: readonly string[];
+  readonly requiredBy: ReadonlyArray<string>;
 }
 
 interface PacksJson {
   readonly decidedBy: string;
   readonly campaign?: string;
   readonly manageable: boolean;
-  readonly enabled: readonly PackJson[];
-  readonly candidates: readonly PackJson[];
+  readonly enabled: ReadonlyArray<PackJson>;
+  readonly candidates: ReadonlyArray<PackJson>;
 }
 
 interface ProblemJson {

@@ -15,8 +15,8 @@ export interface ActiveItem {
 /** How an item is in play: equipped (its physical benefits) or active (its magic). */
 export type StateOf = (item: InventoryItem, entry: ItemEntry | undefined) => ItemState | undefined;
 
-export function itemsIn(inventory: Inventory, content: ItemContent, stateOf: StateOf): readonly ActiveItem[] {
-  return inventory.items.flatMap((item): ActiveItem[] => {
+export function itemsIn(inventory: Inventory, content: ItemContent, stateOf: StateOf): ReadonlyArray<ActiveItem> {
+  return inventory.items.flatMap((item): Array<ActiveItem> => {
     const entry = content.get(item.item);
     const state = stateOf(item, entry);
 
@@ -25,7 +25,7 @@ export function itemsIn(inventory: Inventory, content: ItemContent, stateOf: Sta
 }
 
 /** The items whose magic works on the character, in inventory order (`activeState`). */
-export function activeItems(inventory: Inventory, content: ItemContent): readonly ActiveItem[] {
+export function activeItems(inventory: Inventory, content: ItemContent): ReadonlyArray<ActiveItem> {
   return itemsIn(inventory, content, activeState);
 }
 

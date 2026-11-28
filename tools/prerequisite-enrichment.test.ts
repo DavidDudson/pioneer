@@ -7,7 +7,7 @@ import type { EntryJson, JsonObject, JsonValue } from './entry-json.ts';
 import { enrichPrerequisiteFile } from './prerequisite-enrichment.ts';
 
 const PACK = 'player-core';
-const prose = (words: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const prose = (words: string): Array<JsonValue> => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A Player Core feat's JSON, as a pack file holds it. */
 function feat(name: string, data: JsonObject = {}): EntryJson {
@@ -30,7 +30,7 @@ function feat(name: string, data: JsonObject = {}): EntryJson {
 }
 
 /** The file after the pass, with matches read from its own entries. */
-function enrich(file: readonly object[]): readonly unknown[] | undefined {
+function enrich(file: ReadonlyArray<object>): ReadonlyArray<unknown> | undefined {
   const matches = prerequisiteMatches(ContentEntryFile.parse(file));
 
   return enrichPrerequisiteFile(file, new Map(matches.map((match) => [match.entry, match])));

@@ -6,12 +6,7 @@
   "tags": ["scope:character", "type:feature", "platform:web"],
   "targets": {
     "test": {
-      "executor": "@angular/build:unit-test",
       "options": {
-        "buildTarget": "web:build:development",
-        "tsConfig": "libs/character/feature/tsconfig.spec.json",
-        "runner": "vitest",
-        "setupFiles": ["libs/character/feature/src/test-setup.ts"],
         "reporters": ["verbose"]
       },
       "configurations": {
@@ -42,11 +37,6 @@
         "rest-a": {
           "include": [
             "libs/character/feature/src/lib/data/**/*.spec.ts",
-            "libs/character/feature/src/lib/import/**/*.spec.ts",
-            "libs/character/feature/src/lib/generate/**/*.spec.ts",
-            "libs/character/feature/src/lib/list/**/*.spec.ts",
-            "libs/character/feature/src/lib/new/**/*.spec.ts",
-            "libs/character/feature/src/lib/character.routes.spec.ts",
             "libs/character/feature/src/lib/sheet/sheet-[a-c]*/**/*.spec.ts",
             "libs/character/feature/src/lib/sheet/sheet-[a-c]*.spec.ts"
           ]
@@ -61,11 +51,6 @@
           "exclude": [
             "libs/character/feature/src/lib/sheet/character-sheet-page/**",
             "libs/character/feature/src/lib/data/**/*.spec.ts",
-            "libs/character/feature/src/lib/import/**/*.spec.ts",
-            "libs/character/feature/src/lib/generate/**/*.spec.ts",
-            "libs/character/feature/src/lib/list/**/*.spec.ts",
-            "libs/character/feature/src/lib/new/**/*.spec.ts",
-            "libs/character/feature/src/lib/character.routes.spec.ts",
             "libs/character/feature/src/lib/sheet/sheet-[a-c]*/**/*.spec.ts",
             "libs/character/feature/src/lib/sheet/sheet-[a-c]*.spec.ts",
             "libs/character/feature/src/lib/sheet/sheet-[d-o]*/**/*.spec.ts",

@@ -26,9 +26,9 @@ export interface PropertyRuneLine {
 export interface LineRunes {
   readonly potency: number | undefined;
   /** Striking, resilient or reinforcing, at their grades, in that order. */
-  readonly fundamental: readonly GradedRuneLine[];
+  readonly fundamental: ReadonlyArray<GradedRuneLine>;
   /** The property runes, in the order they were etched. */
-  readonly property: readonly PropertyRuneLine[];
+  readonly property: ReadonlyArray<PropertyRuneLine>;
 }
 
 /** Message keys for runes, spelled out so the key check sees them. */

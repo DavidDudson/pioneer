@@ -23,6 +23,8 @@ export const SHEET_SECTIONS = {
   strikes: { anchor: 'sheet-strikes', headingKey: 'character.sheet.strikesHeading' },
   /** What the character can do now and ever, in the tab's mode (#353). */
   actions: { anchor: 'sheet-actions', headingKey: 'character.sheet.actionsHeading' },
+  /** The animal companions the character's feats grant. */
+  companions: { anchor: 'sheet-companions', headingKey: 'character.sheet.companions.heading' },
   languages: { anchor: 'sheet-languages', headingKey: 'character.sheet.languagesHeading' },
   /** What the character is doing while exploring (#501). */
   explorationActivity: { anchor: 'sheet-exploration-activity', headingKey: 'character.sheet.exploration.heading' },
@@ -46,7 +48,11 @@ export const SHEET_SECTIONS = {
   inventory: { anchor: 'sheet-inventory', headingKey: 'character.sheet.inventory.heading' },
   /** Rest, daily preparations, Refocus and start of session (#347). */
   rest: { anchor: 'sheet-rest', headingKey: 'character.sheet.rest.heading' },
-  /** The shop, and later crafting and income (#517). */
+  /** Earn Income: work a task for pay. */
+  income: { anchor: 'sheet-income', headingKey: 'character.sheet.income.heading' },
+  /** Retraining: swap a feat, skill increase, spell or class choice over days. */
+  retraining: { anchor: 'sheet-retraining', headingKey: 'character.sheet.retraining.heading' },
+  /** The shop. */
   downtime: { anchor: 'sheet-downtime', headingKey: 'character.sheet.downtimeHeading' },
 } as const satisfies Readonly<Record<string, SheetSection>>;
 
@@ -61,7 +67,7 @@ function levelSection(level: number): SheetSection {
 }
 
 /** The Plan tab's level tabs in order: level 0, then 1 to 20. Each is a route below the tab's. */
-export const SHEET_LEVELS: readonly SheetSection[] = Array.from(
+export const SHEET_LEVELS: ReadonlyArray<SheetSection> = Array.from(
   { length: CHARACTER_LEVEL_MAX - BASE_LEVEL + 1 },
   (_unused, index) => levelSection(BASE_LEVEL + index),
 );
@@ -74,10 +80,10 @@ export function levelOfPath(path: string | undefined): number | undefined {
 }
 
 /**
- * Each tab's sections in page order, for its section index (play-and-campaigns.md, Sheet modes). Later stories add
+ * Each tab's sections in page order, for its section tabs (play-and-campaigns.md, Sheet modes). Later stories add
  * theirs: crafting, income and retraining to Downtime.
  */
-export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSection[]>> = {
+export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, ReadonlyArray<SheetSection>>> = {
   [SheetMode.Plan]: SHEET_LEVELS,
   [SheetMode.Encounter]: [
     SHEET_SECTIONS.defences,
@@ -91,10 +97,17 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
     SHEET_SECTIONS.explorationActivity,
     SHEET_SECTIONS.actions,
     SHEET_SECTIONS.deity,
+    SHEET_SECTIONS.companions,
     SHEET_SECTIONS.languages,
     SHEET_SECTIONS.inventory,
   ],
-  [SheetMode.Downtime]: [SHEET_SECTIONS.rest, SHEET_SECTIONS.actions, SHEET_SECTIONS.downtime],
+  [SheetMode.Downtime]: [
+    SHEET_SECTIONS.rest,
+    SHEET_SECTIONS.actions,
+    SHEET_SECTIONS.income,
+    SHEET_SECTIONS.retraining,
+    SHEET_SECTIONS.downtime,
+  ],
 };
 
 /** One tab of the sheet: its route, below the character's, and the message key naming it. */
@@ -104,7 +117,7 @@ export interface SheetTab {
 }
 
 /** The tabs in order. A tab's path is its mode. */
-export const SHEET_TABS: readonly SheetTab[] = [
+export const SHEET_TABS: ReadonlyArray<SheetTab> = [
   { mode: SheetMode.Plan, labelKey: 'character.sheet.tabs.plan' },
   { mode: SheetMode.Encounter, labelKey: 'character.sheet.tabs.encounter' },
   { mode: SheetMode.Exploration, labelKey: 'character.sheet.tabs.exploration' },
@@ -129,7 +142,7 @@ export function firstSectionPath(mode: SheetMode): string {
  * shown when the route names a side panel.
  */
 export function shownSection(
-  order: readonly SheetSection[],
+  order: ReadonlyArray<SheetSection>,
   path: Signal<string | undefined>,
 ): Signal<SheetSection | undefined> {
   return computed(() =>
@@ -145,7 +158,7 @@ export const SheetPanel = { Skills: 'skills', Conditions: 'conditions', Environm
 export type SheetPanel = (typeof SheetPanel)[keyof typeof SheetPanel];
 
 /** The side panels in order, each as the section whose heading and path it takes. */
-export const SHEET_PANELS: readonly (SheetSection & { readonly panel: SheetPanel })[] = [
+export const SHEET_PANELS: ReadonlyArray<SheetSection & { readonly panel: SheetPanel }> = [
   { ...SHEET_SECTIONS.skills, panel: SheetPanel.Skills },
   { ...SHEET_SECTIONS.conditions, panel: SheetPanel.Conditions },
   { ...SHEET_SECTIONS.environments, panel: SheetPanel.Environments },

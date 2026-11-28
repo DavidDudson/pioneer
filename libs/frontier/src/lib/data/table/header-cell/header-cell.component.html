@@ -1,10 +1,17 @@
+<ng-template #content>
+  @if (label() !== undefined) {
+    {{ label() }}
+  } @else {
+    <ng-container *flexRenderHeader="header(); let value">{{ value }}</ng-container>
+  }
+</ng-template>
 @if (header().column.getCanSort()) {
   <fr-button variant="inline" (pressed)="header().column.toggleSorting()">
-    <ng-container *flexRenderHeader="header(); let value">{{ value }}</ng-container>
+    <ng-container *ngTemplateOutlet="content" />
     @if (sortIcon(); as icon) {
       <fr-icon [icon]="icon" />
     }
   </fr-button>
 } @else {
-  <ng-container *flexRenderHeader="header(); let value">{{ value }}</ng-container>
+  <ng-container *ngTemplateOutlet="content" />
 }

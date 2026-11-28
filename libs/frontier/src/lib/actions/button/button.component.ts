@@ -2,6 +2,7 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, 
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva, cx } from 'class-variance-authority';
 
+import { AsyncStatus } from '../../async/async-action';
 import { Size } from '../../tokens';
 
 export const ButtonVariant = {
@@ -59,15 +60,15 @@ const forcedPressed = cva([
 ])();
 
 /**
- * Touch first: every size is at least `h-touch` (44px) unless the pointer is fine. Under forced colours every
- * variant gets a border, since a fill no longer marks the button's edge.
+ * Touch first: every size is at least 44px tall unless the pointer is fine.
+ * Under forced colours every variant gets a border, since a fill no longer marks the button's edge.
  */
 const buttonVariants = cva(
   [
     'inline-flex items-center gap-xs whitespace-nowrap',
     'transition-colors duration-fast ease-standard focus-visible:focus-ring',
     'disabled:cursor-not-allowed disabled:opacity-disabled aria-busy:cursor-progress',
-    'forced-colors:border',
+    'status-border forced-colors:border',
   ],
   {
     variants: {
@@ -89,9 +90,9 @@ const buttonVariants = cva(
         danger:
           'justify-center bg-danger-solid font-medium text-danger-on-solid hover:bg-danger-solid-hover active:bg-danger-solid-active',
         field:
-          'min-h-touch w-full min-w-none justify-between border border-line-default bg-surface-sunken px-sm text-start text-body text-fg-default hover:border-accent-line pointer-fine:min-h-control-md',
+          'min-h-control-md w-full min-w-none justify-between border border-line-default bg-surface-sunken px-sm text-start text-body text-fg-default hover:border-accent-line',
         inline:
-          '-mx-2xs min-h-touch min-w-none px-2xs text-start text-body text-fg-default hover:bg-surface-sunken pointer-fine:min-h-control-sm',
+          'min-h-control-sm min-w-none px-inset-control text-start text-body text-fg-default hover:bg-surface-sunken',
         toggle: [
           'justify-center font-medium border border-line-default bg-surface-base text-fg-default hover:bg-surface-sunken',
           'aria-pressed:border-accent-solid aria-pressed:bg-accent-solid aria-pressed:text-accent-on-solid',
@@ -106,10 +107,10 @@ const buttonVariants = cva(
         ].join(' '),
       } satisfies Record<ButtonVariant, string>,
       size: {
-        xs: 'h-touch text-caption pointer-fine:h-control-xs',
-        sm: 'h-touch text-label pointer-fine:h-control-sm',
-        md: 'h-touch text-body pointer-fine:h-control-md',
-        lg: 'h-control-lg text-lead',
+        xs: 'min-h-control-xs text-caption',
+        sm: 'min-h-control-sm text-label',
+        md: 'min-h-control-md text-body',
+        lg: 'min-h-control-lg text-lead',
         /** Content-sized; used by the inline variant. */
         fit: '',
       },
@@ -121,6 +122,11 @@ const buttonVariants = cva(
       { iconOnly: false, size: 'sm', class: 'px-sm' },
       { iconOnly: false, size: 'md', class: 'px-md' },
       { iconOnly: false, size: 'lg', class: 'px-lg' },
+      // An icon-only button is square: a fixed height gives `aspect-square` its width.
+      { iconOnly: true, size: 'xs', class: 'h-control-xs' },
+      { iconOnly: true, size: 'sm', class: 'h-control-sm' },
+      { iconOnly: true, size: 'md', class: 'h-control-md' },
+      { iconOnly: true, size: 'lg', class: 'h-control-lg' },
     ],
     defaultVariants: { iconOnly: false },
   },
@@ -163,6 +169,8 @@ export class Button {
   public readonly disabled = input(false, { transform: booleanAttribute });
   /** Work is in flight: announced as busy and presses are ignored, but focus stays. */
   public readonly busy = input(false, { transform: booleanAttribute });
+  /** The state of an action this button runs, shown on its border: a turning arc while pending, a green or red flash after. */
+  public readonly status = input<AsyncStatus>(AsyncStatus.Idle);
   /** Accessible name when the visible content is not enough (e.g. a value to edit). */
   public readonly ariaLabel = input<string | undefined>(undefined);
   public readonly describedBy = input<string | undefined>(undefined);
@@ -187,6 +195,7 @@ export class Button {
   public readonly rollShifted = input(false, { transform: booleanAttribute });
   public readonly pressed = output<MouseEvent>();
 
+  protected readonly dataStatus = computed(() => (this.status() === AsyncStatus.Idle ? undefined : this.status()));
   protected readonly classes = computed(() => {
     const variant = this.variant();
 

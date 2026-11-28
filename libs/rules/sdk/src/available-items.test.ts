@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
 import { availableItems } from './available-items';
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { filterEntries } from './facet-filter';
 import { facetsFor } from './kind-facets';
+import { ContentEntry } from './typed-content-entry';
 import { Level } from './units';
 
 const PACK = 'player-core';
@@ -14,7 +14,7 @@ interface SwordFields {
   readonly slug: string;
   readonly level: number;
   readonly rarity?: string;
-  readonly traits?: readonly string[];
+  readonly traits?: ReadonlyArray<string>;
 }
 
 /** A Player Core longsword with its level, rarity and traits changed. */
@@ -44,7 +44,7 @@ function sword({ slug, level, rarity = 'common', traits = [] }: SwordFields): Co
 
 const facets = facetsFor(['weapon']);
 
-const available = (entries: readonly ContentEntry[], level: number): readonly string[] =>
+const available = (entries: ReadonlyArray<ContentEntry>, level: number): ReadonlyArray<string> =>
   filterEntries(entries, facets, availableItems(Level.parse(level))).map((entry) => entry.name);
 
 describe('availableItems', () => {

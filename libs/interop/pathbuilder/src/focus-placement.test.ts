@@ -33,7 +33,7 @@ pack
 
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
-const knows = (spell: string, predicate: readonly (JsonObject | string)[]): JsonObject => ({
+const knows = (spell: string, predicate: ReadonlyArray<JsonObject | string>): JsonObject => ({
   key: 'FocusSpells',
   entry: 'champion-focus',
   spells: [spellId(spell)],
@@ -85,7 +85,11 @@ function character(className: string): CharacterDocument {
 }
 
 /** The export, listing these focus cantrips and spells for a tradition and attribute. */
-function exporting(tradition: string, cantrips: readonly string[], spells: readonly string[]): PathbuilderImport {
+function exporting(
+  tradition: string,
+  cantrips: ReadonlyArray<string>,
+  spells: ReadonlyArray<string>,
+): PathbuilderImport {
   return {
     ...mordred,
     reported: {

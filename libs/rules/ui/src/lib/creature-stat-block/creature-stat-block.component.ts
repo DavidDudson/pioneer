@@ -71,14 +71,14 @@ export class CreatureStatBlockView {
   });
 
   /** Perception, then the languages, skills and attributes the preview leaves out. */
-  protected readonly headLines = computed((): readonly StatLine[] => {
+  protected readonly headLines = computed((): ReadonlyArray<StatLine> => {
     const { senses, details } = this.view();
 
     return this.full() ? [...senses, ...details] : senses;
   });
 
   /** The Strikes, without the prose after their damage in the preview. */
-  protected readonly strikes = computed((): readonly StrikeLine[] => {
+  protected readonly strikes = computed((): ReadonlyArray<StrikeLine> => {
     const { strikes } = this.view();
 
     return this.full()

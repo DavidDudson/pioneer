@@ -37,7 +37,7 @@ function as(
 interface CasterOptions {
   readonly level?: number;
   readonly choices?: Readonly<Record<string, string>>;
-  readonly spellAccess?: readonly string[];
+  readonly spellAccess?: ReadonlyArray<string>;
 }
 
 /** Player Core's Detect Scrying, an uncommon arcane spell. */
@@ -48,7 +48,7 @@ function textOf(element: Element): string {
 }
 
 /** The entry headings' texts: tradition, preparation and where each came from, leaving the statistics and slots out. */
-function headings(root: HTMLElement): string[] {
+function headings(root: HTMLElement): Array<string> {
   return [
     ...section(root).querySelectorAll(
       'pio-spellcasting fr-heading, pio-spellcasting fr-text, pio-spellcasting fr-badge',
@@ -61,14 +61,14 @@ function headings(root: HTMLElement): string[] {
 }
 
 /** Each slot list's rows as their term and count. */
-function slotRows(root: HTMLElement): string[] {
+function slotRows(root: HTMLElement): Array<string> {
   return [...section(root).querySelectorAll('pio-spell-slots fr-description-item')].map((row) =>
     [...row.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(' '),
   );
 }
 
 /** The labels of the inline pickers within `root`. */
-function pickerLabels(root: HTMLElement): string[] {
+function pickerLabels(root: HTMLElement): Array<string> {
   return [...root.querySelectorAll('fr-inline-field')].map((field) => textOf(present(field.querySelector('fr-text'))));
 }
 
@@ -80,7 +80,7 @@ function playOf(turn: JsonObject): JsonObject {
   return { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn } };
 }
 
-function useButtons(root: HTMLElement): HTMLButtonElement[] {
+function useButtons(root: HTMLElement): Array<HTMLButtonElement> {
   return [...root.querySelectorAll<HTMLButtonElement>('pio-spell-row-list pio-use-buttons button')];
 }
 

@@ -24,18 +24,18 @@ export interface SpellPickerRow {
   readonly cantrip: boolean;
   /** The rank a slot casts it at when that is above its own (a cantrip's is half the level); undefined if none. */
   readonly heightenedTo: number | undefined;
-  readonly traditions: readonly MagicTradition[];
+  readonly traditions: ReadonlyArray<MagicTradition>;
   readonly rarity: Rarity;
-  readonly cast: readonly CastActions[];
-  readonly range: readonly RangeBand[];
+  readonly cast: ReadonlyArray<CastActions>;
+  readonly range: ReadonlyArray<RangeBand>;
   readonly area: AreaValue;
-  readonly targets: readonly TargetValue[];
+  readonly targets: ReadonlyArray<TargetValue>;
   /** What it is rolled against: an attack or a save, or none. */
-  readonly defense: readonly DefenseValue[];
-  readonly duration: readonly DurationValue[];
+  readonly defense: ReadonlyArray<DefenseValue>;
+  readonly duration: ReadonlyArray<DurationValue>;
   /** Its traits, each a chip that opens the trait's card. */
-  readonly traits: readonly Chip[];
-  readonly sources: readonly SourceRef[];
+  readonly traits: ReadonlyArray<Chip>;
+  readonly sources: ReadonlyArray<SourceRef>;
   /** Why the spell can't be picked, already translated; undefined when it can. */
   readonly disabledReason: string | undefined;
 }

@@ -57,14 +57,10 @@ export const appRoutes: Routes = [
     data: PREFETCH_WHEN_IDLE,
     // The sheet's side panel searches the rules content, which the character feature may not import.
     loadChildren: async () => {
-      const {
-        characterRoutes,
-        CHARACTER_LIST_EXTRAS,
-        INVENTORY_LINE_OFFER,
-        PARTY_INVENTORY,
-        PURSE_OFFER,
-        SHEET_SIDE_PANEL,
-      } = await import('@pioneer/character/feature');
+      const { characterRoutes } = await import('@pioneer/character/flows');
+
+      const { CHARACTER_LIST_EXTRAS, INVENTORY_LINE_OFFER, PARTY_INVENTORY, PURSE_OFFER, SHEET_SIDE_PANEL } =
+        await import('@pioneer/character/feature');
 
       return [
         {

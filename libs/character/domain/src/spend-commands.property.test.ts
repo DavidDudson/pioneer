@@ -41,7 +41,7 @@ const starts = record({
 );
 
 /** `play` after each of `attempts` is spent in order, those the turn refuses skipped. */
-function played(play: PlayState, attempts: readonly SpendCost[]): PlayState {
+function played(play: PlayState, attempts: ReadonlyArray<SpendCost>): PlayState {
   let current = play;
   let serial = 1;
 

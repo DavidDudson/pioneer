@@ -64,7 +64,7 @@ export function systemOf<System>(schema: z.ZodType<System>, { document, log }: K
 }
 
 /** The slots in Foundry's order (by key as a number), each the attributes it may go to; unknown ones reported. */
-export function attributeSlots(slots: FoundryAttributeSlots, field: string, log: GapLog): Attribute[][] {
+export function attributeSlots(slots: FoundryAttributeSlots, field: string, log: GapLog): Array<Array<Attribute>> {
   return Object.entries(slots)
     .toSorted(([left], [right]) => Number(left) - Number(right))
     .map(([key, { value }]) =>
@@ -137,7 +137,11 @@ export interface FeatSlot {
  * `GrantItem` of the pick, both from that level. Each flag names its level (`class-feat-2`), so picks keep their
  * slot however the levels change.
  */
-export function featSlots({ slot, trait, prompt, field }: FeatSlot, levels: readonly number[], input: KindInput): void {
+export function featSlots(
+  { slot, trait, prompt, field }: FeatSlot,
+  levels: ReadonlyArray<number>,
+  input: KindInput,
+): void {
   for (const level of levels) {
     const flag = `${slot}-${level}`;
     const filter = [`item:trait:${trait}`, { lte: ['item:level', 'self:level'] }];

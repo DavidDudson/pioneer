@@ -12,7 +12,7 @@ const BRACERS = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('equipmen
  * Four invested items: a cloak that adds to two statistics, bracers whose bonus a better item bonus beats, a ring
  * that turns on nothing the sheet shows, and one invested but taken off.
  */
-export const INVESTMENTS: readonly Investment[] = [
+export const INVESTMENTS: ReadonlyArray<Investment> = [
   {
     id: 'cloak',
     name: 'Cloak of Elvenkind',
@@ -45,7 +45,7 @@ export const INVESTMENTS: readonly Investment[] = [
 export const INVESTMENT_LIMIT = 10;
 
 /** For a story at the limit: as many worn rings of nothing much as the limit allows. */
-export const TEN_INVESTMENTS: readonly Investment[] = Array.from(
+export const TEN_INVESTMENTS: ReadonlyArray<Investment> = Array.from(
   { length: INVESTMENT_LIMIT },
   (_unused, index): Investment => ({ id: `ring-${index}`, name: `Ring ${index + 1}`, working: true, effects: [] }),
 );

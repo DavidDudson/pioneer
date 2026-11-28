@@ -16,14 +16,14 @@ import type { SlotContent } from './slot-offer';
 import { slotContextOf } from './slot-reads';
 
 /** A read of the slot `key`'s options as picks, for one kind of slot. */
-type Candidates = (document: CharacterDocument, content: SlotContent, key: SlotKey) => readonly ChoiceValue[];
+type Candidates = (document: CharacterDocument, content: SlotContent, key: SlotKey) => ReadonlyArray<ChoiceValue>;
 
 interface Identified {
   readonly id: ChoiceValue;
 }
 
 /** The ids of the things a slot offers, each as a pick. */
-function idsOf(options: readonly Identified[] | undefined): readonly ChoiceValue[] {
+function idsOf(options: ReadonlyArray<Identified> | undefined): ReadonlyArray<ChoiceValue> {
   return (options ?? []).map(({ id }) => ChoiceValue.parse(id));
 }
 
@@ -77,6 +77,6 @@ export function slotCandidates(
   document: CharacterDocument,
   content: SlotContent,
   slot: CharacterSlot,
-): readonly ChoiceValue[] {
+): ReadonlyArray<ChoiceValue> {
   return slot.status === SlotStatus.Open ? CANDIDATES[slot.subject.kind](document, content, slot.key) : [];
 }

@@ -26,9 +26,9 @@ const UNAFFORDABLE: Readonly<Record<ShopBillFor, string>> = {
 })
 export class ShopBill {
   /** The cost of the quantity picked; none for an item with no price. */
-  public readonly cost = input.required<readonly CoinCount[]>();
+  public readonly cost = input.required<ReadonlyArray<CoinCount>>();
   /** The character's coins; none when they have no coins. */
-  public readonly coins = input.required<readonly CoinCount[]>();
+  public readonly coins = input.required<ReadonlyArray<CoinCount>>();
   public readonly affordable = input.required<boolean>();
   /** Id of the reason shown when they can't afford it. */
   public readonly reasonId = input.required<string>();
@@ -58,7 +58,7 @@ export class ShopBill {
     return coins.length === 0 ? this.#i18n.translate(ShopMessage.NoCoins) : this.#text(coins);
   });
 
-  #text(counts: readonly CoinCount[]): string {
+  #text(counts: ReadonlyArray<CoinCount>): string {
     return coinsText(counts, (coin, count) =>
       this.#i18n.translate(ShopMessage.Coin, { coin, count: this.#format.number(count) }),
     );

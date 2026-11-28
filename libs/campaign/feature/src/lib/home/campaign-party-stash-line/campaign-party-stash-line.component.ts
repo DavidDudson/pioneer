@@ -28,7 +28,7 @@ export class CampaignPartyStashLine {
   /** The name of the container the line is inside; empty for a loose line. */
   public readonly inside = input<string>('');
   /** The viewer's own characters that may take it. */
-  public readonly characters = input.required<readonly StashCharacter[]>();
+  public readonly characters = input.required<ReadonlyArray<StashCharacter>>();
 
   readonly #store = inject(CampaignPartyStashStore);
   readonly #i18n = inject(TranslocoService);

@@ -77,7 +77,7 @@ export class ItemReservoir {
   });
 
   /** The spells that can be cast into the weapon. */
-  protected readonly options = computed((): readonly SelectOption<string>[] => {
+  protected readonly options = computed((): ReadonlyArray<SelectOption<string>> => {
     const item = this.#item();
     const spells = this.#spells();
 

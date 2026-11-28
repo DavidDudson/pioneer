@@ -22,7 +22,7 @@ const entry = (preparation: string, slug = 'sorcerer'): RuleJson => ({
 });
 
 const gifts = (
-  spells: readonly (readonly [string | number, string])[],
+  spells: ReadonlyArray<readonly [string | number, string]>,
   extra: JsonObject = {},
   on = 'sorcerer',
 ): RuleJson => ({
@@ -33,14 +33,14 @@ const gifts = (
 });
 
 /** The gifts of `entry`, each as its rank and the spell's id. */
-function ranked(caster: SpellcastingInPlay | undefined): readonly (readonly [string | number, string])[] {
+function ranked(caster: SpellcastingInPlay | undefined): ReadonlyArray<readonly [string | number, string]> {
   return (caster?.grantedSpells ?? []).map(({ rank, spell }) => [rank, String(spell)]);
 }
 
 function entriesOf(
-  placed: readonly (readonly [RuleJson, string])[],
-  options: readonly string[] = [],
-): SpellcastingInPlay[] {
+  placed: ReadonlyArray<readonly [RuleJson, string]>,
+  options: ReadonlyArray<string> = [],
+): Array<SpellcastingInPlay> {
   const rules = placed.map(([element, source], rule) => inPlay(element, source, { rule }));
 
   const facts = new PredicateFacts(
@@ -94,7 +94,7 @@ describe('spellcastingInPlay: repertoire spells', () => {
   });
 
   test('an element gives its spells only while it holds', () => {
-    const placed: (readonly [RuleJson, string])[] = [
+    const placed: Array<readonly [RuleJson, string]> = [
       [entry('spontaneous'), 'sorcerer-spellcasting'],
       [gifts([[2, FEAR]], { predicate: ['draconic-exemplar:diabolic'] }), 'bloodline-draconic'],
       [gifts([[2, HEAL]], { predicate: ['draconic-exemplar:imperial'] }), 'bloodline-draconic'],

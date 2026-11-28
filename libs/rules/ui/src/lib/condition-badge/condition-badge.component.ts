@@ -29,7 +29,7 @@ export class ConditionBadge {
   readonly #format = inject(LocaleFormat);
 
   /** Slugs of the conditions the character has, in any order. */
-  public readonly conditions = input.required<readonly string[]>();
+  public readonly conditions = input.required<ReadonlyArray<string>>();
 
   protected readonly solid = BadgeVariant.Solid;
 

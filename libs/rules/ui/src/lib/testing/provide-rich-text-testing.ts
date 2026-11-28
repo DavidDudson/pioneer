@@ -6,15 +6,15 @@ import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat'
 import { frontierMessages } from '@pioneer/frontier';
 import { engineMessages } from '@pioneer/rules/engine';
 import { formulaMessages } from '@pioneer/rules/formula';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { predicateMessages } from '@pioneer/rules/predicate';
-import { rulesMessages } from '@pioneer/rules/sdk';
 import { kernelMessages } from '@pioneer/shared/kernel';
 
 /**
  * The `en` messages rules UI renders with, engine output's errors and predicate summaries included, preloaded with
  * the ICU transpiler, for specs and stories.
  */
-export function provideRulesUiI18nTesting(): EnvironmentProviders[] {
+export function provideRulesUiI18nTesting(): Array<EnvironmentProviders> {
   return [
     importProvidersFrom(
       TranslocoTestingModule.forRoot({
@@ -38,6 +38,6 @@ export function provideRulesUiI18nTesting(): EnvironmentProviders[] {
 }
 
 /** Rules UI's `en` messages and a router for links, for rich text specs. */
-export function provideRichTextTesting(): EnvironmentProviders[] {
+export function provideRichTextTesting(): Array<EnvironmentProviders> {
   return [provideRouter([]), ...provideRulesUiI18nTesting()];
 }

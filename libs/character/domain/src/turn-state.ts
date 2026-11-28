@@ -1,6 +1,7 @@
 import { ConditionValue, ContentKind, DurationCount, DurationUnitSchema, Slug, slugName } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { clamp } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import { ActionRestriction } from './conditions';
@@ -107,32 +108,32 @@ export function economyConditions(registry: ContentRegistry): EconomyConditions 
 }
 
 /** What a condition of `id` adds up to among `conditions`: its highest value, 1 for one with no value, 0 for none. */
-function strongest(conditions: readonly ActiveCondition[], id: ContentId | undefined): ActionCount {
+function strongest(conditions: ReadonlyArray<ActiveCondition>, id: ContentId | undefined): ActionCount {
   const values = conditions
     .values()
     .filter(({ condition }) => condition === id)
     .map(({ value }) => value ?? 1)
     .toArray();
 
-  return ActionCount.parse(Math.min(Math.max(0, ...values), ACTIONS_MAX));
+  return ActionCount.parse(clamp(Math.max(...values), 0, ACTIONS_MAX));
 }
 
 /** The turn a Start turn leaves, the conditions it leaves, and what it did to them. */
 export interface Refill {
   readonly turn: TurnState;
-  readonly conditions: readonly ActiveCondition[];
-  readonly events: readonly TurnEvent[];
+  readonly conditions: ReadonlyArray<ActiveCondition>;
+  readonly events: ReadonlyArray<TurnEvent>;
 }
 
 /** Stunned `lost` lower, or end when nothing is left; a stunned condition with no value (a duration) only costs actions. */
 function stunnedAfter(
-  conditions: readonly ActiveCondition[],
+  conditions: ReadonlyArray<ActiveCondition>,
   stunned: ContentId | undefined,
   lost: ActionCount,
 ): Pick<Refill, 'conditions' | 'events'> {
-  const events: TurnEvent[] = [];
+  const events: Array<TurnEvent> = [];
 
-  const kept = conditions.flatMap((each): ActiveCondition[] => {
+  const kept = conditions.flatMap((each): Array<ActiveCondition> => {
     if (each.condition !== stunned || each.value === undefined || lost === NONE) {
       return [each];
     }
@@ -176,9 +177,9 @@ function restrictionOf(
  * (quickstrike), the first of which gives the extra action when no quickened condition does.
  */
 export function refilled(
-  conditions: readonly ActiveCondition[],
+  conditions: ReadonlyArray<ActiveCondition>,
   economy: EconomyConditions,
-  granted: readonly InventoryItemId[] = [],
+  granted: ReadonlyArray<InventoryItemId> = [],
 ): Refill {
   const quicker = conditions.find(({ condition }) => condition === economy.quickened);
   const slowed = strongest(conditions, economy.slowed);
@@ -218,7 +219,7 @@ export function turnEnded(turn: TurnState): TurnState {
 
 /** `turn` with `by` more attacks made (fewer when negative), kept between none and the most a turn counts. */
 export function attacksMoved(turn: TurnState, by: 1 | -1): TurnState {
-  return { ...turn, attacks: AttackCount.parse(Math.min(Math.max(turn.attacks + by, 0), ATTACKS_MAX)) };
+  return { ...turn, attacks: AttackCount.parse(clamp(turn.attacks + by, 0, ATTACKS_MAX)) };
 }
 
 /** The play edits that run the turn cycle. */

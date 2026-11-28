@@ -17,8 +17,8 @@ function sameName(left: LanguageName, right: LanguageName): boolean {
 }
 
 /** `names` that are valid, each language once and the first spelling kept, at most `CUSTOM_LANGUAGES_MAX`. */
-export function customLanguagesOf(names: readonly unknown[]): readonly LanguageName[] {
-  const kept: LanguageName[] = [];
+export function customLanguagesOf(names: ReadonlyArray<unknown>): ReadonlyArray<LanguageName> {
+  const kept: Array<LanguageName> = [];
 
   for (const raw of names) {
     const name = LanguageName.safeParse(raw);

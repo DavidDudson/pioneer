@@ -8,7 +8,7 @@ import { KeyAttributePicker } from './key-attribute-picker.component';
 
 type KeyAttributePickerStory = StoryObj<KeyAttributePicker>;
 
-const ATTRIBUTES: readonly KeyAttributePickerRow[] = [
+const ATTRIBUTES: ReadonlyArray<KeyAttributePickerRow> = [
   keyAttributeRow(Attribute.Strength, 'Strength', 3),
   keyAttributeRow(Attribute.Dexterity, 'Dexterity', 1),
   { ...keyAttributeRow(Attribute.Charisma, 'Charisma', -1), disabledReason: 'The class does not allow it' },

@@ -27,8 +27,8 @@ import {
 interface TermView {
   readonly notation: DiceExpressionText;
   /** Message keys for the term's damage category and type, in that order. */
-  readonly damageKeys: readonly string[];
-  readonly dice: readonly DieResult[];
+  readonly damageKeys: ReadonlyArray<string>;
+  readonly dice: ReadonlyArray<DieResult>;
   readonly value: RollTotal;
 }
 
@@ -36,7 +36,7 @@ interface TermView {
 export interface AttemptView {
   readonly kept: boolean;
   readonly total: RollTotal;
-  readonly terms: readonly TermView[];
+  readonly terms: ReadonlyArray<TermView>;
 }
 
 /** One step towards the degree of success: the degree's label key after it, and why. */
@@ -58,7 +58,7 @@ export interface DegreeView {
   readonly degreeKey: string;
   /** Unset unless an effect (a feat, a spell) changed the degree the roll and natural die reached. */
   readonly adjustment: DegreeAdjustmentView | undefined;
-  readonly steps: readonly DegreeStepView[];
+  readonly steps: ReadonlyArray<DegreeStepView>;
 }
 
 /** One instance of damage: its type's label key, what was dealt and taken, and why they differ. */
@@ -66,15 +66,15 @@ export interface DamageInstanceView {
   readonly typeKey: string;
   readonly dealt: DamageTotal;
   readonly taken: DamageTotal;
-  readonly lines: readonly MessageDescriptor[];
+  readonly lines: ReadonlyArray<MessageDescriptor>;
 }
 
 /** The kept roll applied to the target: taken now, and persistent damage taken each turn. */
 export interface DamageView {
   readonly taken: DamageTotal;
   readonly persistentTaken: DamageTotal;
-  readonly immediate: readonly DamageInstanceView[];
-  readonly persistent: readonly DamageInstanceView[];
+  readonly immediate: ReadonlyArray<DamageInstanceView>;
+  readonly persistent: ReadonlyArray<DamageInstanceView>;
 }
 
 /** How an outcome is worded: a message key (a basic save's fixed result) or the check's own text. */
@@ -93,7 +93,7 @@ export interface RollView {
   readonly total: RollTotal;
   /** Why one roll or two, and which was kept; unset for a plain roll. */
   readonly explanation: MessageDescriptor | undefined;
-  readonly attempts: readonly AttemptView[];
+  readonly attempts: ReadonlyArray<AttemptView>;
   /** Unset when the roll was not against a DC. */
   readonly degree: DegreeView | undefined;
   /** Unset unless the roll was a check in text whose rolled degree has a result to show. */
@@ -101,7 +101,7 @@ export interface RollView {
   /** Unset when the roll was not applied to a target. */
   readonly damage: DamageView | undefined;
   /** The toggles the roll was made with, worded, so the card can say why the total is what it is; none for a plain roll. */
-  readonly reasons: readonly string[];
+  readonly reasons: ReadonlyArray<string>;
 }
 
 function termView(result: TermResult, index: number): TermView {
@@ -172,7 +172,7 @@ export interface FinishedRoll {
   /** Unset when not applied to a target. */
   readonly damage: DamageApplication | undefined;
   /** The toggles the roll was made with, worded; none when left out. */
-  readonly reasons?: readonly string[];
+  readonly reasons?: ReadonlyArray<string>;
   /** The check in text that was rolled; its outcomes are shown for the degree. Unset for any other roll. */
   readonly check?: CheckNode | undefined;
 }

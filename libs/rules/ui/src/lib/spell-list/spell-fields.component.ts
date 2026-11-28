@@ -14,12 +14,12 @@ interface FieldRow {
 }
 
 /** The row for a field, none when the spell has none. */
-function present(key: string, term: string, text: string | undefined): FieldRow[] {
+function present(key: string, term: string, text: string | undefined): Array<FieldRow> {
   return text === undefined ? [] : [{ key, term, text }];
 }
 
 /** The fields the spell has, in the order a stat block lists them; damage is "Effect". */
-function rowsOf(fields: SpellFieldsLine): readonly FieldRow[] {
+function rowsOf(fields: SpellFieldsLine): ReadonlyArray<FieldRow> {
   return [
     ...present('range', SpellFieldLabel.Range, fields.range),
     ...present('area', SpellFieldLabel.Area, fields.area),
@@ -46,10 +46,10 @@ export class SpellFields {
   protected readonly Message = SpellListMessage;
   protected readonly costs = ACTION_COST_MESSAGES;
   /** The ways of casting the caster picks from; one for most spells. */
-  protected readonly costOptions = computed((): readonly SingleSpellCostLine[] => {
+  protected readonly costOptions = computed((): ReadonlyArray<SingleSpellCostLine> => {
     const { cost } = this.fields();
 
     return cost.kind === 'either' ? cost.options : [cost];
   });
-  protected readonly rows = computed((): readonly FieldRow[] => rowsOf(this.fields()));
+  protected readonly rows = computed((): ReadonlyArray<FieldRow> => rowsOf(this.fields()));
 }

@@ -8,7 +8,7 @@ import { SlotPicker } from './slot-picker.component';
 
 type SlotPickerStory = StoryObj<SlotPicker>;
 
-const OPTIONS: readonly SlotPickerRow[] = [
+const OPTIONS: ReadonlyArray<SlotPickerRow> = [
   slotRow({ id: 'fire', name: 'Fire' }),
   slotRow({ id: 'water', name: 'Water' }),
   slotRow({ id: 'void', name: 'Void', disabledReason: 'Not in the loaded packs' }),

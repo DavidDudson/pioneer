@@ -7,5 +7,5 @@ import type { ContentPackId } from '@pioneer/rules/sdk';
  * listed. `CharacterPackService` is the adapter.
  */
 export abstract class EffectivePacks {
-  public abstract of(character: Character): Promise<readonly ContentPackId[]>;
+  public abstract of(character: Character): Promise<ReadonlyArray<ContentPackId>>;
 }

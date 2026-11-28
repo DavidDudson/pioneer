@@ -10,9 +10,9 @@ import type { SheetFeatSlot } from './sheet-feats';
  */
 export function slotsOpenTo(
   feat: ContentId,
-  feats: readonly SheetFeatSlot[],
-  slots: readonly CharacterSlot[],
-): readonly SheetFeatSlot[] {
+  feats: ReadonlyArray<SheetFeatSlot>,
+  slots: ReadonlyArray<CharacterSlot>,
+): ReadonlyArray<SheetFeatSlot> {
   const open = new Set<SlotKey>(
     slots
       .values()

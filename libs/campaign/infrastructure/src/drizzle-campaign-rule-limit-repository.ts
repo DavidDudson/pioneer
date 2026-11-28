@@ -32,7 +32,7 @@ export class DrizzleCampaignRuleLimitRepository extends CampaignRuleLimitReposit
     this.#db = db;
   }
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignRuleLimit[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignRuleLimit>> {
     const rows = await this.#db.select().from(campaignRuleLimits).where(eq(campaignRuleLimits.campaignId, campaignId));
 
     return rows.map((row) => toCampaignRuleLimit(row));

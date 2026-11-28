@@ -27,7 +27,7 @@ const LESSER_WEAKNESS = DamageAmount.parse(5);
 const GREATER_WEAKNESS = DamageAmount.parse(10);
 
 /** The energies an energy-resistant rune is made for (GM Core). */
-const RUNE_ENERGIES: readonly RuneChoice[] = [
+const RUNE_ENERGIES: ReadonlyArray<RuneChoice> = [
   DamageType.Acid,
   DamageType.Cold,
   DamageType.Electricity,
@@ -35,10 +35,10 @@ const RUNE_ENERGIES: readonly RuneChoice[] = [
 ].map((energy) => RuneChoice.parse(energy));
 
 /** The energies an energy vulnerability rune is made for (Impossible Magic): the four, and sonic. */
-const VULNERABILITY_ENERGIES: readonly RuneChoice[] = [...RUNE_ENERGIES, RuneChoice.parse(DamageType.Sonic)];
+const VULNERABILITY_ENERGIES: ReadonlyArray<RuneChoice> = [...RUNE_ENERGIES, RuneChoice.parse(DamageType.Sonic)];
 
 /** The creature types a bane rune is made for (Impossible Magic): fungus and plant are one choice, for both traits. */
-const BANE_CREATURE_TYPES: readonly RuneChoice[] = [
+const BANE_CREATURE_TYPES: ReadonlyArray<RuneChoice> = [
   'aberration',
   'animal',
   'beast',
@@ -55,18 +55,18 @@ const BANE_CREATURE_TYPES: readonly RuneChoice[] = [
 ].map((type) => RuneChoice.parse(type));
 
 /** The creature traits a bane choice reaches: one, or both of fungus and plant. */
-function baneTraits(choice: RuneChoice): readonly Trait[] {
+function baneTraits(choice: RuneChoice): ReadonlyArray<Trait> {
   return choice === 'fungus-plant' ? [Trait.parse('fungus'), Trait.parse('plant')] : [Trait.parse(choice)];
 }
 
 /** The energies a conducting rune channels (Ancestry Guide): the four, and sonic, as for resonant weapons. */
-const CONDUCTING_ENERGIES: readonly RuneChoice[] = VULNERABILITY_ENERGIES;
+const CONDUCTING_ENERGIES: ReadonlyArray<RuneChoice> = VULNERABILITY_ENERGIES;
 
 /**
  * Conducting: the weapon gains the resonant trait, deals 1d8 of the chosen energy, and 1d8 persistent damage of it on
  * a critical hit. The extra damage a weapon that already had resonant gains (1 per die) is not applied.
  */
-function conductingElements(choice: RuneChoice): readonly object[] {
+function conductingElements(choice: RuneChoice): ReadonlyArray<object> {
   const extra = { key: RuleElementKey.DamageDice, selectors: [ETCHED_DAMAGE], dieSize: DieSize.D8, damageType: choice };
 
   return [
@@ -81,9 +81,9 @@ const CHOSEN_ELEMENTS_MAX = 4;
 
 /** A rune whose rules depend on what its crafter chose: what it can be made for, and the rule one choice gives. */
 interface ChosenRune {
-  readonly choices: readonly RuneChoice[];
+  readonly choices: ReadonlyArray<RuneChoice>;
   /** The elements for `choice`, which the rule schema then checks. */
-  readonly elements: (choice: RuneChoice) => readonly object[];
+  readonly elements: (choice: RuneChoice) => ReadonlyArray<object>;
   /** Whether an item can have only one such rune for each choice, as energy-resistant runes must resist different types. */
   readonly distinct: boolean;
 }
@@ -149,7 +149,7 @@ const CHOSEN_RUNES: ReadonlyMap<Slug, ChosenRune> = new Map([
  * one naming nothing it is made for, gives none. The choice is the etching's own, so these are made here rather than
  * written in the rune's `rules`, which are the same for every etching.
  */
-export function chosenRuneRules(inventory: Inventory, content: ItemContent, lookup: ContentLookup): RuleInPlay[] {
+export function chosenRuneRules(inventory: Inventory, content: ItemContent, lookup: ContentLookup): Array<RuleInPlay> {
   return activeItems(inventory, content).flatMap((active) =>
     workingEtchedRunes(active.item, active.entry, runeReader(lookup)).flatMap(({ rune, choice }, etching) => {
       const entry = lookup.entry(rune);
@@ -183,6 +183,6 @@ export function choiceIsDistinct(rune: RuneEntry): boolean {
 }
 
 /** The choices `rune` asks its crafter for when it is etched: the four energies, or the creature types a bane rune takes. */
-export function runeChoices(rune: RuneEntry): readonly RuneChoice[] {
+export function runeChoices(rune: RuneEntry): ReadonlyArray<RuneChoice> {
   return (CHOSEN_RUNES.get(slugName(rune.slug))?.choices ?? []).map((choice) => RuneChoice.parse(choice));
 }

@@ -330,6 +330,13 @@
       "when": 1795653034853,
       "tag": "0046_companion_live_limits",
       "breakpoints": true
+    },
+    {
+      "idx": 47,
+      "version": "7",
+      "when": 1795834488030,
+      "tag": "0047_user_table_views",
+      "breakpoints": true
     }
   ]
 }

@@ -38,7 +38,7 @@ function builtEntry(index: number): ContentEntry {
 const feat = builtEntry(0);
 const item = builtEntry(1);
 
-function embedded(entries: readonly ContentEntry[]): EmbeddedPack {
+function embedded(entries: ReadonlyArray<ContentEntry>): EmbeddedPack {
   return EmbeddedPack.parse({
     pack: {
       id: PACK,
@@ -50,13 +50,13 @@ function embedded(entries: readonly ContentEntry[]): EmbeddedPack {
   });
 }
 
-function held(ownedByImporter: boolean, ...entries: ContentEntry[]): ExistingPacks {
+function held(ownedByImporter: boolean, ...entries: Array<ContentEntry>): ExistingPacks {
   return new Map([
     [PACK, { ownedByImporter, entries: new Map(entries.map((entry) => [EntrySlug.parse(entry.slug), entry])) }],
   ]);
 }
 
-function outcomes(existing: ExistingPacks): (string | undefined)[] {
+function outcomes(existing: ExistingPacks): Array<string | undefined> {
   const [plan] = planHomebrewImport([embedded([feat, item])], existing);
 
   return plan?.report.entries.map((entry) => entry.outcome) ?? [];

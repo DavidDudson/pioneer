@@ -37,7 +37,7 @@ export class DrizzleCampaignKeyItemRepository extends CampaignKeyItemRepository 
     this.#db = db;
   }
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignKeyItem[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignKeyItem>> {
     const rows = await this.#db
       .select()
       .from(campaignKeyItems)

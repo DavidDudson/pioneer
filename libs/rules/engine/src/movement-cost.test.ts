@@ -23,7 +23,7 @@ function cost(extra: number, body: JsonObject = {}): RuleInPlay {
 }
 
 /** Whether `self:immunity:difficult-terrain` is among the facts once `rules` are in play. */
-function immuneAfter(...elements: readonly RuleJson[]): boolean {
+function immuneAfter(...elements: ReadonlyArray<RuleJson>): boolean {
   const rules = elements.map((element) => inPlay(element, 'avatar'));
   const facts = factsUnderForm({ rules, facts: FORM_FACTS });
 

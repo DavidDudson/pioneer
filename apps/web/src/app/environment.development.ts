@@ -15,7 +15,7 @@ export const environment: AppEnvironment = {
   messages: devSignInMessages,
   characterListExtras: [
     async () => {
-      const { SampleCharacterImport } = await import('@pioneer/character/feature/dev');
+      const { SampleCharacterImport } = await import('@pioneer/character/flows/dev');
 
       return SampleCharacterImport;
     },

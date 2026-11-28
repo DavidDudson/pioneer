@@ -7,7 +7,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { ContentBrowserTier } from '@pioneer/content/ui';
 import type { ContentBrowserState } from '@pioneer/content/ui';
 import { Page, PageBody, PageHeader } from '@pioneer/frontier';
-import { injectTableView, tableViewColumns } from '@pioneer/frontier/data';
+import { injectTableView, TableDensity, tableViewColumns } from '@pioneer/frontier/data';
 import type { TableViewSchema } from '@pioneer/frontier/data';
 import { filterParamName } from '@pioneer/rules/sdk';
 import type { QueryParams } from '@pioneer/rules/sdk';
@@ -19,6 +19,9 @@ import { listedKinds } from './browse-state';
 import { ContentBrowser } from './content-browser.component';
 import { facetTextCodec } from './facet-text';
 import { queryTextOf } from './query-text';
+
+/** The account's stored view of the browser's table, shared by every kind. */
+const BROWSER_TABLE = 'content-browser';
 
 const NO_PARAMS: QueryParams = {};
 
@@ -49,17 +52,19 @@ export class ContentBrowserPage {
 
   protected readonly Message = BrowseMessage;
   protected readonly tier = ContentBrowserTier.Page;
+  protected readonly Density = TableDensity;
 
   readonly #kinds = computed(() => kindsFromQuery(queryTextOf(this.#params(), KIND_PARAM)));
   readonly #codec = facetTextCodec(() => facetsOf(this.#kinds()));
   readonly #columns = injectBrowseColumns(() => this.#kinds());
   /**
    * The table's view in the URL: sort (`s`), filters (`f`), hidden columns (`c`) and words (`q`). The kinds stay the
-   * page's own param.
+   * page's own param. A signed-in user's columns are kept on their account: the URL wins, then what they stored.
    */
   protected readonly view = injectTableView({
     schema: (): TableViewSchema => ({ columns: tableViewColumns(this.#columns()) }),
     facets: this.#codec,
+    entity: BROWSER_TABLE,
   });
 
   /** What the link holds, as the browser's state. */

@@ -19,7 +19,7 @@ export const ClearedPick = z.strictObject({
 export type ClearedPick = z.output<typeof ClearedPick>;
 
 /** The character's root slots over its picks. They don't depend on the level, so they are read at its own. */
-function rootSlots(document: CharacterDocument, content: SlotContent): readonly RootSlot[] {
+function rootSlots(document: CharacterDocument, content: SlotContent): ReadonlyArray<RootSlot> {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
 
   return resolveSlotsAt(Level.parse(document.level), slotContextOf(document, content, picks)).rootSlots;
@@ -37,10 +37,14 @@ function answeredWithin(document: CharacterDocument, content: SlotContent): Read
  * the ancestry leaves a heritage of the old one, which the new one doesn't offer. A pick already unanswered before
  * (content not loaded, an errata) isn't the edit's doing, so it stays and its slot reads invalid.
  */
-export function unfitPicks(before: CharacterDocument, after: CharacterDocument, content: SlotContent): ClearedPick[] {
+export function unfitPicks(
+  before: CharacterDocument,
+  after: CharacterDocument,
+  content: SlotContent,
+): Array<ClearedPick> {
   const wasAnswered = answeredWithin(before, content);
 
-  return rootSlots(after, content).flatMap((slot): ClearedPick[] => {
+  return rootSlots(after, content).flatMap((slot): Array<ClearedPick> => {
     const kept = after.build.choices[slot.key];
     const earlier = wasAnswered.get(slot.key);
 

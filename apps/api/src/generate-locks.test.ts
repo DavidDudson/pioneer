@@ -21,24 +21,24 @@ const now = fixedClock('2026-01-01T00:00:00Z').now();
 const content = await contentOf();
 
 /** The character `start` becomes at `seed`, keeping `locks`. */
-function rolled(start: Character, seed: Seed, locks: readonly GenerateLock[]): Generated {
+function rolled(start: Character, seed: Seed, locks: ReadonlyArray<GenerateLock>): Generated {
   return generateCharacter({ start, seed, level: LEVEL, content, now, locks });
 }
 
 /** Every filled slot of `character` as a lock. */
-function picksOf(character: Character): readonly GenerateLock[] {
+function picksOf(character: Character): ReadonlyArray<GenerateLock> {
   return characterSlots(character.document, content).flatMap((slot) =>
     slot.status === SlotStatus.Filled ? [{ slot: slot.key, selection: slot.selection }] : [],
   );
 }
 
 /** The locks that `kept` does not hold. */
-function notKept(locks: readonly GenerateLock[], kept: readonly GenerateLock[]): readonly GenerateLock[] {
+function notKept(locks: ReadonlyArray<GenerateLock>, kept: ReadonlyArray<GenerateLock>): ReadonlyArray<GenerateLock> {
   return locks.filter((lock) => !kept.some((pick) => pick.slot === lock.slot && pick.selection === lock.selection));
 }
 
 /** The picks of `character` in the slots of the given kind. */
-function picksOfKind(character: Character, kind: SlotSubjectKind): readonly GenerateLock[] {
+function picksOfKind(character: Character, kind: SlotSubjectKind): ReadonlyArray<GenerateLock> {
   const wanted = new Set(
     characterSlots(character.document, content).flatMap((slot) =>
       slot.status === SlotStatus.Filled && slot.subject.kind === kind ? [slot.key] : [],

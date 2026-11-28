@@ -12,9 +12,9 @@ export type LanguagePicks = Readonly<Record<SlotKey, ChoiceValue>>;
 /** The picks for the character's language slots, and the matched languages the character still doesn't know. */
 export interface LanguagePlacement {
   readonly choices: LanguagePicks;
-  readonly unplaced: readonly PathbuilderName[];
+  readonly unplaced: ReadonlyArray<PathbuilderName>;
   /** The languages the export lists that no loaded content defines, each name once. */
-  readonly custom: readonly PathbuilderName[];
+  readonly custom: ReadonlyArray<PathbuilderName>;
 }
 
 /** A language the export lists that matched content. */
@@ -23,10 +23,10 @@ interface Wanted {
   readonly id: ContentId;
 }
 
-function matched(names: readonly ImportedName[], lookup: ContentLookup): Wanted[] {
+function matched(names: ReadonlyArray<ImportedName>, lookup: ContentLookup): Array<Wanted> {
   return names
     .filter(({ kind }) => kind === ImportKind.Language)
-    .flatMap(({ name }): Wanted[] => {
+    .flatMap(({ name }): Array<Wanted> => {
       const match = lookup.resolve(ImportKind.Language, name);
 
       return match === undefined ? [] : [{ name, id: ContentId.parse(match.id) }];
@@ -34,7 +34,7 @@ function matched(names: readonly ImportedName[], lookup: ContentLookup): Wanted[
 }
 
 /** The names of the languages in `names` that match no content, each once. */
-function unmatched(names: readonly ImportedName[], lookup: ContentLookup): PathbuilderName[] {
+function unmatched(names: ReadonlyArray<ImportedName>, lookup: ContentLookup): Array<PathbuilderName> {
   const unknown = names
     .values()
     .filter(({ kind, name }) => kind === ImportKind.Language && lookup.resolve(ImportKind.Language, name) === undefined)
@@ -83,7 +83,7 @@ function pick(document: CharacterDocument, slots: SlotContent, wantedIds: Readon
 export function placeLanguages(
   document: CharacterDocument,
   { slots, lookup }: LanguagePlacementContent,
-  names: readonly ImportedName[],
+  names: ReadonlyArray<ImportedName>,
 ): LanguagePlacement {
   const wanted = matched(names, lookup);
   const picks = pick(document, slots, new Set(wanted.map(({ id }) => id)));

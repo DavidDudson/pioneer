@@ -3,7 +3,7 @@ import * as z from 'zod';
 
 import { resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
-import { kebab, slugOf } from './foundry-flags';
+import { defaultFlag, kebab } from './foundry-flags';
 import type { Fields } from './translate-choice-reads';
 import { namespacedStatement, withNamespacedOptions } from './translate-modifiers';
 import { ownedQueryOf } from './translate-owned-picks';
@@ -88,7 +88,7 @@ const GRANTER_LEVEL = 'parent:granter:level';
 const GRANTER_LEVEL_OPTION = 'self:level';
 
 /** A predicate with each read of the item's level, or of its granter's, as Pioneer spells it; anything else is as it was. */
-function withItemLevel<Raw>(node: Raw): Raw | Fields | string | unknown[] {
+function withItemLevel<Raw>(node: Raw): Raw | Fields | string | Array<unknown> {
   if (node === ITEM_LEVEL) {
     return ITEM_LEVEL_OPTION;
   }
@@ -124,7 +124,7 @@ function choiceOf(choice: unknown, references: EntryReferences): unknown {
 }
 
 /** Foundry's `ranks` config: ranks one to ten, valued as their number. */
-const RANK_CHOICES: readonly unknown[] = Array.from({ length: 10 }, (_unused, index) => ({
+const RANK_CHOICES: ReadonlyArray<unknown> = Array.from({ length: 10 }, (_unused, index) => ({
   value: String(index + 1),
   label: `Rank ${index + 1}`,
 }));
@@ -223,7 +223,7 @@ export function withChoiceSet<Raw>(raw: Raw, item: string, references: EntryRefe
     }),
   );
 
-  const flag = 'flag' in raw && typeof raw.flag === 'string' ? kebab(raw.flag) : slugOf(item);
+  const flag = 'flag' in raw && typeof raw.flag === 'string' ? kebab(raw.flag) : defaultFlag(item);
 
   return { ...normalised, flag };
 }

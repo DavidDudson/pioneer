@@ -204,12 +204,12 @@ export function withAura<Raw>(raw: Raw, references: EntryReferences): Raw | Fiel
 }
 
 /** An aura's effects with each `uuid` as the entry it resolves to; undefined when any does not, or it is no list. */
-function resolvedEffects(listed: unknown, references: EntryReferences): readonly object[] | undefined {
+function resolvedEffects(listed: unknown, references: EntryReferences): ReadonlyArray<object> | undefined {
   if (!Array.isArray(listed)) {
     return undefined;
   }
 
-  const effects: object[] = [];
+  const effects: Array<object> = [];
 
   for (const each of listed) {
     const parsed = FoundryAuraEffect.safeParse(each);

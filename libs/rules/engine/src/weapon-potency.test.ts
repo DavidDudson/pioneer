@@ -37,7 +37,7 @@ interface InputsJson {
   readonly level: number;
   readonly attributes: Readonly<Record<string, number>>;
   readonly ranks: Readonly<Record<string, string>>;
-  readonly weapons: readonly JsonObject[];
+  readonly weapons: ReadonlyArray<JsonObject>;
 }
 
 /** A level 1 character with Strength 4, trained in martial weapons, wielding `weapon`. */
@@ -51,7 +51,7 @@ function inputsWith(weapon: JsonObject): InputsJson {
 }
 
 /** The longsword's Strike. */
-function strike(weapon: JsonObject, rules: readonly RuleInPlay[] = []): StatisticResult | undefined {
+function strike(weapon: JsonObject, rules: ReadonlyArray<RuleInPlay> = []): StatisticResult | undefined {
   const inputs = StatisticInputsJson.parse(inputsWith(weapon));
   const content = { definitions: [STRIKE], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
   const facts = new PredicateFacts([], CORE_NAMESPACES);
@@ -59,7 +59,7 @@ function strike(weapon: JsonObject, rules: readonly RuleInPlay[] = []): Statisti
   return deriveStatistics(content, inputs, { rules, facts }).get(Selector.parse('strike:longsword'));
 }
 
-function lines(result: StatisticResult | undefined): readonly BreakdownLine[] {
+function lines(result: StatisticResult | undefined): ReadonlyArray<BreakdownLine> {
   return result?.ok === true ? result.lines : [];
 }
 

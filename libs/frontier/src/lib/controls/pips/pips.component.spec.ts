@@ -14,7 +14,7 @@ function render(value: number, max = 3): ComponentFixture<Pips> {
   return fixture;
 }
 
-function buttons(fixture: ComponentFixture<Pips>): HTMLButtonElement[] {
+function buttons(fixture: ComponentFixture<Pips>): Array<HTMLButtonElement> {
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')];
 }

@@ -19,6 +19,10 @@
     "modal": {
       "close": "Close {title}"
     },
+    "tableToolbar": {
+      "filters": "Filters",
+      "columns": "Columns"
+    },
     "drawer": {
       "close": "Close {title}",
       "resize": "Resize {title}",
@@ -30,7 +34,26 @@
     },
     "table": {
       "columns": "Columns",
-      "resetColumns": "Reset columns"
+      "resetColumns": "Reset columns",
+      "sample": {
+        "name": "Name",
+        "ancestry": "Ancestry",
+        "class": "Class",
+        "level": "Level",
+        "rarity": "Rarity",
+        "added": "Added"
+      },
+      "density": {
+        "label": "Row density",
+        "compact": "Compact",
+        "comfortable": "Comfortable"
+      }
+    },
+    "property": {
+      "bool": {
+        "yes": "Yes",
+        "no": "No"
+      }
     },
     "breadcrumbs": {
       "label": "Breadcrumb"

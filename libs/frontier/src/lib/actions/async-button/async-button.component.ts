@@ -21,7 +21,7 @@ import { Button, ButtonType, ButtonVariant } from '../button/button.component';
 
 /**
  * A button that runs an async action and shows its state in place:
- * spinner while pending (presses ignored), a tick on success, then back to
+ * a turning border while pending (presses ignored), a green flash on success, a red one on failure, then back to
  * rest; a failure shows its message inline under the button.
  *
  * Standalone, pass `[action]`. As `type="submit"` inside `fr-async-form`, it

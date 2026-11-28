@@ -2,7 +2,7 @@ import type { QueryParams } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 /** One query param as the router hands it over: the text, or the texts of a param that repeats. */
-export type QueryText = string | readonly string[] | undefined;
+export type QueryText = string | ReadonlyArray<string> | undefined;
 
 const FirstText = z.union([z.string(), z.array(z.string()).transform(([first]) => first)]);
 

@@ -16,5 +16,5 @@ import { CampaignTransferRow } from '../campaign-transfer-row/campaign-transfer-
 })
 export class CampaignPartyOffers {
   public readonly open = input.required<boolean>();
-  public readonly offers = input.required<readonly PendingTransferView[]>();
+  public readonly offers = input.required<ReadonlyArray<PendingTransferView>>();
 }

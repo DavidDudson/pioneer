@@ -4,7 +4,7 @@ import { ContentRegistry, ContentText, ExternalId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { Uuid } from '@pioneer/shared/kernel';
 
-import { entryLookup, matchKey, registryLookup } from './content-lookup';
+import { entryLookup, registryLookup } from './content-lookup';
 import briarRose from './fixtures/briar-rose.json';
 import mordred from './fixtures/mordred.json';
 import { ImportKind, PathbuilderName } from './import-kind';
@@ -18,21 +18,6 @@ const potionId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7a02');
 function imported(kind: ImportKind, name: string): ImportedName {
   return { kind, name: PathbuilderName.parse(name) };
 }
-
-describe('matchKey', () => {
-  test.each([
-    ['Healing Potion (Moderate)', 'Healing Potion, Moderate'],
-    ["Nature's Reprisal", 'Nature’s Reprisal'],
-    ['Wisteria-And-Peony Reunion', 'wisteria and peony reunion'],
-    ['Élan', 'elan'],
-  ])('%s matches %s', (left, right) => {
-    expect(matchKey(left)).toBe(matchKey(right));
-  });
-
-  test('keeps different variants apart', () => {
-    expect(matchKey('Healing Potion (Moderate)')).not.toBe(matchKey('Healing Potion (Minor)'));
-  });
-});
 
 describe('buildImportReport', () => {
   const lookup = entryLookup({
@@ -57,7 +42,7 @@ describe('buildImportReport', () => {
     );
 
     const rows = report.groups.flatMap((group) => group.rows);
-    expect<string[][]>(rows.map((row) => [row.name, row.status])).toEqual([
+    expect<Array<Array<string>>>(rows.map((row) => [row.name, row.status])).toEqual([
       ['dwarf', MatchStatus.Matched],
       ['Goloma', MatchStatus.Unmatched],
       ['Shield Block', MatchStatus.KindNotLoaded],

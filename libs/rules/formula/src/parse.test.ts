@@ -34,7 +34,7 @@ function failure(text: string): ParseFailure {
 const canonical = (text: string): string => printFormula(parsed(text));
 
 /** References as `path@position`, easy to compare. */
-const found = (formula: FormulaNode): string[] =>
+const found = (formula: FormulaNode): Array<string> =>
   references(formula).map((reference) => `${reference.path}@${reference.position}`);
 
 /** `1` inside `depth` pairs of brackets: `depth` levels of nesting. */

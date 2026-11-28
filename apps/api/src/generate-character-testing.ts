@@ -2,7 +2,6 @@ import {
   ANCESTRY_SLOT,
   Character,
   CharacterId,
-  CharacterLevel,
   CharacterName,
   CharacterPatchField,
   CLASS_SLOT,
@@ -12,7 +11,7 @@ import {
   Seed,
   slotContent,
 } from '@pioneer/character/domain';
-import type { Generated, RunedContent, SlotContent } from '@pioneer/character/domain';
+import type { CharacterLevel, Generated, RunedContent, SlotContent } from '@pioneer/character/domain';
 import { contentCatalog } from '@pioneer/rules/catalog';
 import { AncestryId, ChoiceValue, ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
 import { derivedId, fixedClock, FixtureNamespace, UserId } from '@pioneer/shared/kernel';
@@ -37,12 +36,10 @@ export const PLAYER_CORE_CLASSES = [
   'Wizard',
 ] as const;
 
-export const LEVELS = Array.from({ length: 20 }, (_unused, index) => CharacterLevel.parse(index + 1));
-
 const now = fixedClock('2026-01-01T00:00:00Z').now();
 
 /** The registry of the catalog's packs, or only of those named by `packs`. */
-async function registryOf(packs?: readonly string[]): Promise<ContentRegistry> {
+async function registryOf(packs?: ReadonlyArray<string>): Promise<ContentRegistry> {
   const registry = new ContentRegistry();
   const wanted = contentCatalog.filter((loader) => packs === undefined || packs.includes(loader.id));
   await Promise.all(wanted.map(async (loader) => registry.load(loader)));
@@ -51,12 +48,12 @@ async function registryOf(packs?: readonly string[]): Promise<ContentRegistry> {
 }
 
 /** The content of the catalog's packs, or only of those named by `packs`. */
-export async function contentOf(packs?: readonly string[]): Promise<SlotContent> {
+export async function contentOf(packs?: ReadonlyArray<string>): Promise<SlotContent> {
   return slotContent(await registryOf(packs));
 }
 
 /** The items and runes of the catalog's packs, or only of those named by `packs`. */
-export async function itemsOf(packs?: readonly string[]): Promise<RunedContent> {
+export async function itemsOf(packs?: ReadonlyArray<string>): Promise<RunedContent> {
   const registry = await registryOf(packs);
 
   return { items: itemContent(registry), runes: runeContent(registry) };

@@ -7,7 +7,7 @@ const BASE = { rank: 2, traditions: ['primal'], time: { type: 'actions', cost: '
 const ANT = '0864651a-fc5b-52be-99a6-6f40369fa731';
 const BEAR = '848026fb-0722-5bea-b8de-834d61ed43c4';
 
-function issuesOf(extra: JsonObject): readonly object[] {
+function issuesOf(extra: JsonObject): ReadonlyArray<object> {
   const parsed = SpellData.safeParse({ ...BASE, ...extra });
 
   return parsed.success ? [] : parsed.error.issues.map(({ path }) => ({ path }));

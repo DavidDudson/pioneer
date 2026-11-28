@@ -7,7 +7,7 @@ import type { ComponentInputs } from '../../testing/component-inputs';
 import { EmptyState } from './empty-state.component';
 
 /** Renders an empty state with `action` projected (none by default) and returns its host element. */
-async function render(inputs: ComponentInputs<EmptyState>, action: readonly Node[] = []): Promise<HTMLElement> {
+async function render(inputs: ComponentInputs<EmptyState>, action: ReadonlyArray<Node> = []): Promise<HTMLElement> {
   const emptyState = createComponent(EmptyState, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[...action]],
@@ -30,7 +30,7 @@ async function render(inputs: ComponentInputs<EmptyState>, action: readonly Node
   return emptyState.location.nativeElement as HTMLElement;
 }
 
-function paragraphs(host: HTMLElement): string[] {
+function paragraphs(host: HTMLElement): Array<string> {
   return [...host.querySelectorAll('p')].map((paragraph) => paragraph.textContent.trim());
 }
 

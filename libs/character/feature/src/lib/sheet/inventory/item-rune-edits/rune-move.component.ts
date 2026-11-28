@@ -17,6 +17,7 @@ import { injectItemNames } from '../item-names';
 import { etchedRunes, runeKey, runeOfKey, transferTargets } from './rune-options';
 import {
   etchedRows,
+  RUNE_HEADERS,
   RUNE_ORDER,
   runeColumns,
   runeRowLabel,
@@ -73,7 +74,7 @@ export class RuneMove {
   readonly #item: Signal<InventoryItem | undefined> = computed(() =>
     this.#store.selected()?.document.inventory.items.find((each) => each.id === this.id()),
   );
-  readonly #etched: Signal<readonly RuneRef[]> = computed(() => {
+  readonly #etched: Signal<ReadonlyArray<RuneRef>> = computed(() => {
     const item = this.#item();
 
     return item === undefined ? [] : etchedRunes(item, this.content().items.get(item.item));
@@ -102,19 +103,7 @@ export class RuneMove {
     }),
     RUNE_ORDER,
   );
-  protected readonly runeColumns = computed(() => {
-    this.#messages();
-
-    return runeColumns({
-      name: this.#i18n.translate('character.sheet.runes.columns.name'),
-      kind: this.#i18n.translate('character.sheet.runes.columns.kind'),
-      level: this.#i18n.translate('character.sheet.runes.columns.level'),
-      effect: this.#i18n.translate('character.sheet.runes.columns.effect'),
-      price: this.#i18n.translate('character.sheet.runes.columns.price'),
-      slots: this.#i18n.translate('character.sheet.runes.columns.slots'),
-      slotsUsed: this.#i18n.translate('character.sheet.runes.columns.slotsUsed'),
-    });
-  });
+  protected readonly runeColumns = runeColumns(RUNE_HEADERS);
   protected readonly runeValue = runeValue;
   protected readonly runeLabel = runeRowLabel;
 
@@ -122,7 +111,7 @@ export class RuneMove {
 
   /** The items the rune can move onto, by the names their rows show, so two longswords read apart, with their open slots. */
   protected readonly targets = new PickerRows<RuneTargetRow>(
-    computed((): readonly RuneTargetRow[] => {
+    computed((): ReadonlyArray<RuneTargetRow> => {
       this.#messages();
       const character = this.#store.selected();
       const names = this.#names();
@@ -133,7 +122,7 @@ export class RuneMove {
 
       const { inventory } = character.document;
 
-      return transferTargets(inventory, this.content(), this.id()).flatMap((id): RuneTargetRow[] => {
+      return transferTargets(inventory, this.content(), this.id()).flatMap((id): Array<RuneTargetRow> => {
         const item = inventory.items.find((each) => each.id === id);
         const entry = item === undefined ? undefined : this.content().items.get(item.item);
         const runed = runedItemOf(entry);
@@ -152,16 +141,14 @@ export class RuneMove {
     }),
     TARGET_ORDER,
   );
-  protected readonly targetColumns = computed(() => {
-    this.#messages();
-
-    return targetColumns({
-      name: this.#i18n.translate('character.sheet.runes.targetColumns.name'),
-      kind: this.#i18n.translate('character.sheet.runes.targetColumns.kind'),
-      slots: this.#i18n.translate('character.sheet.runes.targetColumns.slots'),
-      slotsUsed: this.#i18n.translate('character.sheet.runes.targetColumns.slotsUsed'),
-    });
-  });
+  protected readonly targetColumns = computed(() =>
+    targetColumns({
+      name: 'character.sheet.runes.targetColumns.name',
+      kind: 'character.sheet.runes.targetColumns.kind',
+      slots: 'character.sheet.runes.targetColumns.slots',
+      slotsUsed: 'character.sheet.runes.targetColumns.slotsUsed',
+    }),
+  );
   protected readonly targetValue = targetValue;
   protected readonly targetLabel = targetRowLabel;
 

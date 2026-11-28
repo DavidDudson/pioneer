@@ -48,7 +48,7 @@ export type ConditionSlug = ValueOf<typeof ConditionSlug>;
  * of the fight, then those that hinder, then the minor and the positional ones. This order is the ranking, so it is
  * written out here and not read off the key order of `ConditionSlug`.
  */
-export const CONDITIONS_BY_SERIOUSNESS: readonly ConditionSlug[] = [
+export const CONDITIONS_BY_SERIOUSNESS: ReadonlyArray<ConditionSlug> = [
   ConditionSlug.Dying,
   ConditionSlug.Doomed,
   ConditionSlug.Wounded,
@@ -102,7 +102,7 @@ export function rankOf(slug: string): number {
  * The conditions ordered most serious first, so the worst is first. A total order: unknown slugs come after the known
  * ones, and equal ones (the same slug twice, or two unknown slugs) keep their input order. The input is not changed.
  */
-export function bySeriousness(slugs: readonly string[]): readonly string[] {
+export function bySeriousness(slugs: ReadonlyArray<string>): ReadonlyArray<string> {
   return slugs.toSorted((first, second) => rankOf(first) - rankOf(second));
 }
 

@@ -22,7 +22,7 @@ const HEAVY_OIL = itemFixtureId(ItemFixture.HeavyOil);
 const POISON = itemFixtureId(ItemFixture.InjuryPoison);
 
 /** A +1 longsword, with a coating rune when `coated`, holding `stored`. */
-function sword(coated: boolean, stored: readonly (typeof OIL)[] = []): InventoryItem {
+function sword(coated: boolean, stored: ReadonlyArray<typeof OIL> = []): InventoryItem {
   let inventory = addItem(EMPTY_INVENTORY, {
     id: SWORD,
     item: itemFixtureId(ItemFixture.Longsword),

@@ -45,7 +45,7 @@ export interface Modifier {
   readonly slug: RuleSlug | undefined;
   readonly label: ModifierLabel;
   readonly type: ModifierType;
-  readonly targets: readonly ModifierTarget[];
+  readonly targets: ReadonlyArray<ModifierTarget>;
   readonly predicate: Predicate | undefined;
   readonly origin: Origin;
 }
@@ -98,7 +98,7 @@ export interface BreakdownLine {
   /** Undefined only when the line failed. */
   readonly value: FormulaValue | undefined;
   /** The `AdjustModifier`s that changed the value, in the order they ran. */
-  readonly adjustedBy: readonly RuleId[];
+  readonly adjustedBy: ReadonlyArray<RuleId>;
   readonly status: LineStatus;
 }
 

@@ -95,7 +95,7 @@ function spellId(name: string): ContentId {
   return playerCoreId(ContentKind.Spell, name);
 }
 
-function slotsOf(document: CharacterDocument): PreparedSlot[] {
+function slotsOf(document: CharacterDocument): Array<PreparedSlot> {
   return preparedSlots(document, preparedReads(document, content));
 }
 
@@ -104,7 +104,7 @@ function slotOf(document: CharacterDocument, key: string): PreparedSlot | undefi
 }
 
 /** The names of the spells a slot offers. */
-function offered(document: CharacterDocument, key: string): string[] {
+function offered(document: CharacterDocument, key: string): Array<string> {
   return (slotOf(document, key)?.options ?? []).map((spell) => spell.name);
 }
 

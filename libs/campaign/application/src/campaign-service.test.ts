@@ -17,7 +17,7 @@ const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 
 /** A clock that reads each instant in turn, so creation order is visible. */
-function ticking(...instants: readonly string[]): Clock {
+function ticking(...instants: ReadonlyArray<string>): Clock {
   const queue = instants.map((instant) => fixedClock(instant).now());
 
   return {

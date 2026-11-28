@@ -24,7 +24,7 @@ export class LegacyBadge {
   /** The entry is legacy content. */
   public readonly legacy = input.required<boolean>();
   /** The remaster entries that replace it, if any. */
-  public readonly replacedBy = input<readonly BrowseReplacement[]>([]);
+  public readonly replacedBy = input<ReadonlyArray<BrowseReplacement>>([]);
 
   protected readonly Message = LegacyMessage;
   protected readonly Tone = BadgeTone;

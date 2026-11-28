@@ -32,7 +32,7 @@ import {
 })
 export class AncestryPicker {
   /** Every ancestry the slot offers, with the facts of each. */
-  public readonly rows = input.required<readonly AncestryPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<AncestryPickerRow>>();
   /** The picked ancestry's id; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

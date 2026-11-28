@@ -23,7 +23,7 @@ function idOf(index: number): string {
 }
 
 /** Light lines: `quantities` of one item, each its own line. */
-function lightLines(item: ItemFixture, quantities: readonly number[]): Inventory {
+function lightLines(item: ItemFixture, quantities: ReadonlyArray<number>): Inventory {
   return InventorySchema.parse({
     items: quantities.map((quantity, index) => ({ id: idOf(index), item: itemFixtureId(item), quantity })),
   });

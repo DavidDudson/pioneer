@@ -10,7 +10,7 @@ type DeityPickerStory = StoryObj<DeityPicker>;
 
 const LONG_LIST = 300;
 
-const DEITIES: readonly DeityPickerRow[] = [
+const DEITIES: ReadonlyArray<DeityPickerRow> = [
   deityRow({
     id: '',
     name: 'No deity',

@@ -6,7 +6,7 @@ import { CoinAmount, CoinsSchema } from './inventory';
 import type { Coins, ItemQuantity } from './inventory';
 
 /** The coins, largest first: change is given in these, as few coins as it takes. */
-const LARGEST_FIRST: readonly Coin[] = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper];
+const LARGEST_FIRST: ReadonlyArray<Coin> = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper];
 
 const FREE = CopperValue.parse(0);
 const ONE_COIN = CoinAmount.parse(1);

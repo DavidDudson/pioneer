@@ -43,7 +43,7 @@ function formOf(id: EffectInstanceId): ActiveEffect {
 }
 
 /** A cleric of `ancestry` (none sees nothing beyond the ordinary) holding a Hunter's Blade, with `effects` active. */
-function clericOf(ancestry: ContentId | undefined, effects: ActiveEffect[]): Character {
+function clericOf(ancestry: ContentId | undefined, effects: Array<ActiveEffect>): Character {
   const builder = new CharacterBuilder().picking('class', playerCoreClassId('cleric'));
   const cleric = (ancestry === undefined ? builder : builder.picking('ancestry', ancestry)).build();
 
@@ -63,7 +63,7 @@ function clericOf(ancestry: ContentId | undefined, effects: ActiveEffect[]): Cha
 }
 
 /** An elf cleric, with `effects` active. */
-function clericWith(...effects: ActiveEffect[]): Character {
+function clericWith(...effects: Array<ActiveEffect>): Character {
   return clericOf(ELF, effects);
 }
 

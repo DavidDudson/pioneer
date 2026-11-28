@@ -19,13 +19,18 @@
   --fr-space-2xl: var(--fr-scale-space-8);
   --fr-space-3xl: var(--fr-scale-space-9);
 
-  /* Sizes. Touch targets are 2.75rem (44px); controls shrink only under a fine pointer. */
+  /* Insets: how far a component pads its own content. A component pads inside itself and never sets margin. */
+  --fr-inset-control: var(--fr-space-2xs);
+  --fr-inset-panel: var(--fr-space-sm);
+  --fr-inset-page: var(--fr-space-md);
+
+  /* Sizes. Touch targets are 2.75rem (44px); control sizes start there and shrink under a fine pointer. */
   --fr-size-touch: 2.75rem;
   --fr-size-touch-pair: calc(var(--fr-size-touch) * 2);
   --fr-size-gem: 1.5rem;
-  --fr-size-control-xs: 1.5rem;
-  --fr-size-control-sm: 2rem;
-  --fr-size-control-md: 2.5rem;
+  --fr-size-control-xs: var(--fr-size-touch);
+  --fr-size-control-sm: var(--fr-size-touch);
+  --fr-size-control-md: var(--fr-size-touch);
   --fr-size-control-md-pair: calc(var(--fr-size-control-md) * 2);
   --fr-size-control-lg: 3rem;
   --fr-size-listbox: 16rem;
@@ -69,6 +74,16 @@
   --fr-duration-base: var(--fr-scale-duration-2);
   --fr-duration-slow: var(--fr-scale-duration-3);
   --fr-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Compact control sizes for a mouse or trackpad; touch keeps the 2.75rem targets above. */
+@media (pointer: fine) {
+  :root {
+    --fr-size-control-xs: 1.5rem;
+    --fr-size-control-sm: 2rem;
+    --fr-size-control-md: 2.5rem;
+    --fr-size-control-lg: 2.75rem;
+  }
 }
 
 /* Dark mode (default). Elevated surfaces sit between ramp steps, tinted by the neutral hue. */

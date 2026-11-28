@@ -57,31 +57,31 @@ export interface ShownStrike {
   readonly use: UsableLine | undefined;
   readonly attack: ShownAttack;
   /** Its traits as chips: each names the trait and carries its slug, which opens its card. */
-  readonly traits: readonly Chip[];
+  readonly traits: ReadonlyArray<Chip>;
   /** "Attack +9 / +4 / -1": the attack at each step of the multiple attack penalty; undefined when it has none. */
   readonly attacks: string | undefined;
   /** "Next attack: +4": the step of the multiple attack penalty the next attack takes; undefined when no turn is counting. */
   readonly next: string | undefined;
   /** "+2 circumstance when your shield is raised (Steel Shield)": the attack's lines that apply only in some situations. */
-  readonly attackConditions: readonly string[];
+  readonly attackConditions: ReadonlyArray<string>;
   /** The attack's lines whose situation can be claimed for its next roll, as toggles. */
-  readonly attackToggles: readonly ConditionToggle[];
+  readonly attackToggles: ReadonlyArray<ConditionToggle>;
   /** The same for the flat damage bonus. */
-  readonly damageConditions: readonly string[];
+  readonly damageConditions: ReadonlyArray<string>;
   /** The rule elements that would change the damage, as toggles to claim for its next roll. */
-  readonly damageToggles: readonly ConditionToggle[];
+  readonly damageToggles: ReadonlyArray<ConditionToggle>;
   /** "1d8+4 slashing"; the none message for a weapon that rolls no damage. */
   readonly damage: string;
   /** "Plus 1d6 fire precision": the dice rule elements add to the damage, each as a line. */
-  readonly extras: readonly string[];
+  readonly extras: ReadonlyArray<string>;
   /** The notes on the attack roll. */
-  readonly attackNotes: readonly ShownNote[];
+  readonly attackNotes: ReadonlyArray<ShownNote>;
   /** The notes on the damage roll. */
-  readonly damageNotes: readonly ShownNote[];
+  readonly damageNotes: ReadonlyArray<ShownNote>;
   /** The flat damage statistic's breakdown, when it derived. */
   readonly bonus: StatisticValue | undefined;
   /** "Range increment 20 ft", "1d6 persistent fire", "1 fire splash", "3 in stack": what a thrown Strike adds. */
-  readonly thrown: readonly string[];
+  readonly thrown: ReadonlyArray<string>;
   /** "Multiple attack penalty -5 / -10". */
   readonly penalty: string;
 }
@@ -125,7 +125,7 @@ export class StrikeRow {
 
   /** The attack when the engine derived it. */
   /** The lines under the damage: its extra lines, then those of the thrown attack. */
-  protected readonly lines = computed((): readonly string[] => [...this.row().extras, ...this.row().thrown]);
+  protected readonly lines = computed((): ReadonlyArray<string> => [...this.row().extras, ...this.row().thrown]);
 
   protected readonly derived = computed((): DerivedAttack | undefined => {
     const { attack } = this.row();
@@ -143,7 +143,7 @@ export class StrikeRow {
   }
 
   /** The lines about its attacks: the modifier at each step, then the step the next attack takes, when a turn counts them. */
-  protected readonly attackLines = computed((): readonly AttackLine[] => {
+  protected readonly attackLines = computed((): ReadonlyArray<AttackLine> => {
     const { attacks, next } = this.row();
 
     return [

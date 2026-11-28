@@ -27,7 +27,7 @@ function dragon(type: string, rank: number): FormView {
 /** A resistance's damage type and amount. */
 type ResistanceLine = readonly [string, number | undefined];
 
-function resistances(view: FormView): readonly ResistanceLine[] {
+function resistances(view: FormView): ReadonlyArray<ResistanceLine> {
   return view.defences.resistances
     .filter(({ status }) => status.kind === DefenceStatusKind.Applied)
     .map(({ type, value }) => [type, value]);
@@ -74,7 +74,7 @@ describe('Player Core: Dragon Form, level 10 druid', () => {
 });
 
 /** The dice the jaws add to their 2d12 piercing, for the dragon `type` at `rank`: every rule of the effect is in play. */
-function jawsExtra(type: string, rank: number): readonly (readonly [number, string, string])[] | undefined {
+function jawsExtra(type: string, rank: number): ReadonlyArray<readonly [number, string, string]> | undefined {
   const view = viewOf(effectRulesOf('effect:spell-effect-dragon-form', rank), chosen(`dragon-form:${type}`));
   const jaws = view.strikes.find(({ weapon }) => String(weapon.slug) === 'jaws');
 
@@ -98,23 +98,24 @@ describe('Player Core: Dragon Form, the jaws', () => {
 });
 
 /** `names` in code-unit order, never the host's locale. */
-function ordered(names: readonly string[]): readonly string[] {
+function ordered(names: ReadonlyArray<string>): ReadonlyArray<string> {
   return names.toSorted((left, right) => Number(left > right) - Number(left < right));
 }
 
 /** The dragons the test `check` of a predicate names: one roll option, or an `or` of them. */
-function dragonsOf(check: PredicateStatement | undefined): readonly string[] {
+function dragonsOf(check: PredicateStatement | undefined): ReadonlyArray<string> {
   if (check === undefined) {
     return [];
   }
 
-  const options: readonly PredicateStatement[] = isRollOptionStatement(check) || !('or' in check) ? [check] : check.or;
+  const options: ReadonlyArray<PredicateStatement> =
+    isRollOptionStatement(check) || !('or' in check) ? [check] : check.or;
 
   return options.flatMap((option) => (isRollOptionStatement(option) ? [option.slice('dragon-form:'.length)] : []));
 }
 
 /** The dragons the pick of Dragon Form offers, by their roll option. */
-function dragonsOfPick(): readonly string[] {
+function dragonsOfPick(): ReadonlyArray<string> {
   return effectRulesOf('effect:spell-effect-dragon-form', 6).flatMap(({ element }) =>
     element.key === RuleElementKey.ChoiceSet && Array.isArray(element.choices)
       ? element.choices.map(({ value }) => String(value))
@@ -125,8 +126,8 @@ function dragonsOfPick(): readonly string[] {
 const TRADITION_OPTION = 'dragon-form-tradition:';
 
 /** The dragons each tradition roll option of the effect is switched on by. */
-function traditionOf(): ReadonlyMap<string, readonly string[]> {
-  const found = new Map<string, readonly string[]>();
+function traditionOf(): ReadonlyMap<string, ReadonlyArray<string>> {
+  const found = new Map<string, ReadonlyArray<string>>();
 
   for (const { element } of effectRulesOf('effect:spell-effect-dragon-form', 6)) {
     if (element.key === RuleElementKey.RollOption && element.option.startsWith(TRADITION_OPTION)) {
@@ -160,7 +161,7 @@ describe('Player Core: Dragon Form, the dragon’s tradition', () => {
 const PLAYER_CORE_ENTRIES = contentPackFromContents(await playerCorePack()).otherEntries;
 
 /** The slugs of the entries the effect grants while it lasts. */
-function grantedSlugs(): readonly string[] {
+function grantedSlugs(): ReadonlyArray<string> {
   return effectRulesOf('effect:spell-effect-dragon-form', 6).flatMap(({ element }) => {
     const item = element.key === RuleElementKey.GrantItem ? ContentId.safeParse(element.item) : undefined;
     const granted = item?.success === true ? PLAYER_CORE_ENTRIES.find(({ id }) => id === item.data) : undefined;
@@ -176,7 +177,7 @@ describe('Player Core: Dragon Form, the breath', () => {
 });
 
 /** The effect's rules as an effect cast at the 6th rank by a spellcasting entry of `tradition` puts them in play. */
-function castBy(tradition: MagicTradition): readonly RuleInPlay[] {
+function castBy(tradition: MagicTradition): ReadonlyArray<RuleInPlay> {
   return effectRulesOf('effect:spell-effect-dragon-form', 6).map(({ element, origin, rule, itemLevel }) =>
     RuleInPlay.parse({
       element,

@@ -17,7 +17,7 @@ import { scriptedRandom } from './seeded-random';
 
 export const CRITICAL = { critical: true };
 
-export function roll(text: string, faces: readonly number[] = []): RollResult {
+export function roll(text: string, faces: ReadonlyArray<number> = []): RollResult {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
 
   if (!outcome.ok) {

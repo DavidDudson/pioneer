@@ -6,7 +6,7 @@ import { HashKeyedCache } from './hash-keyed-cache';
 import { PackSetCache } from './pack-set-cache';
 
 /** The registry of `packs`, registered in order. */
-function registryOf(packs: readonly PackContents[]): ContentRegistry {
+function registryOf(packs: ReadonlyArray<PackContents>): ContentRegistry {
   const registry = new ContentRegistry();
 
   for (const contents of packs) {
@@ -32,7 +32,7 @@ export class StoredContentSource implements ContentSource {
     this.#repository = repository;
   }
 
-  public async registry(packs: readonly ContentPackId[] = []): Promise<ContentRegistry> {
+  public async registry(packs: ReadonlyArray<ContentPackId> = []): Promise<ContentRegistry> {
     if (packs.length === 0) {
       const hashes = await this.#repository.officialHashes();
 
@@ -51,7 +51,7 @@ export class StoredContentSource implements ContentSource {
   }
 
   /** The homebrew packs in force that define any of the entries with these ids. */
-  public async packsOfEntries(entryIds: readonly ContentId[]): Promise<readonly ContentPackId[]> {
+  public async packsOfEntries(entryIds: ReadonlyArray<ContentId>): Promise<ReadonlyArray<ContentPackId>> {
     return this.#repository.homebrewPacksOfEntries(entryIds);
   }
 

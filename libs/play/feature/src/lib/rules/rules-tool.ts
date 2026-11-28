@@ -79,7 +79,7 @@ export type ToolCheck =
   | {
       readonly kind: typeof ToolKind.ContentEntry;
       readonly check: CheckOutcome;
-      readonly sources: readonly SourceRef[] | undefined;
+      readonly sources: ReadonlyArray<SourceRef> | undefined;
     }
   | { readonly kind: typeof ToolKind.Formula; readonly check: FormulaCheck }
   | { readonly kind: typeof ToolKind.Verdict; readonly check: VerdictCheck }

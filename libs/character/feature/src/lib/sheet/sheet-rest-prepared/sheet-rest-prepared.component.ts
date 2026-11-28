@@ -22,7 +22,7 @@ export interface StagedSpell {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetRestPrepared {
-  public readonly entries = input.required<readonly RestPreparedEntry[]>();
+  public readonly entries = input.required<ReadonlyArray<RestPreparedEntry>>();
   /** The spells staged so far, by slot. */
   public readonly staged = input.required<Readonly<Record<string, string>>>();
   public readonly disabled = input(false);

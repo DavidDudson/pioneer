@@ -19,14 +19,14 @@ const sense = (id: ContentId, extra: JsonObject = {}): RuleJson => ({ key: 'Sens
 type Row = readonly [ContentId, string, number | 'unlimited'];
 
 interface Situation {
-  readonly options?: readonly string[];
+  readonly options?: ReadonlyArray<string>;
   readonly vision?: AncestryVision;
 }
 
 function sensesOf(
-  placed: readonly (readonly [RuleJson, string])[],
+  placed: ReadonlyArray<readonly [RuleJson, string]>,
   { options = [], vision }: Situation = {},
-): SenseInPlay[] {
+): Array<SenseInPlay> {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));
 
   const facts = new PredicateFacts(
@@ -37,7 +37,7 @@ function sensesOf(
   return [...sensesInPlay({ rules, facts }, vision)];
 }
 
-function rowsOf(placed: readonly (readonly [RuleJson, string])[], situation: Situation = {}): Row[] {
+function rowsOf(placed: ReadonlyArray<readonly [RuleJson, string]>, situation: Situation = {}): Array<Row> {
   const senses = sensesOf(placed, situation);
 
   return senses.map(({ sense: id, acuity, range }): Row => [id, acuity, range ?? 'unlimited']);

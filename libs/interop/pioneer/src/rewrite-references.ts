@@ -1,7 +1,7 @@
 import * as z from 'zod';
 
 /** A value in a stored character document: what JSON holds, plus the absent fields an encoded document can leave. */
-export type Stored = string | number | boolean | null | undefined | readonly Stored[] | Fields;
+export type Stored = string | number | boolean | null | undefined | ReadonlyArray<Stored> | Fields;
 
 export interface Fields {
   readonly [field: string]: Stored;
@@ -26,13 +26,13 @@ export const FieldsSchema = z.record(z.string(), StoredSchema);
 export type RewriteReference = (value: Stored) => Stored;
 
 const REF_NODE = 'ref';
-const RICH_TEXT_FIELDS: readonly string[] = ['notes', 'appearance', 'personality'];
+const RICH_TEXT_FIELDS: ReadonlyArray<string> = ['notes', 'appearance', 'personality'];
 
 export function isFields(value: Stored): value is Fields {
   return value instanceof Object && !Array.isArray(value);
 }
 
-export function isList(value: Stored): value is readonly Stored[] {
+export function isList(value: Stored): value is ReadonlyArray<Stored> {
   return Array.isArray(value);
 }
 

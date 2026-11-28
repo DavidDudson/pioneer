@@ -44,7 +44,7 @@ const grantedPerElement = spellsPerElement.map((spells, element) =>
 
 /** One spontaneous entry and every spell-giving element a level 20 caster could have for it. */
 function inputs(): ModifierInputs {
-  const placed: RuleJson[] = [
+  const placed: Array<RuleJson> = [
     { key: 'SpellcastingEntry', slug: 'caster', tradition: 'arcane', attribute: 'int', preparation: 'spontaneous' },
     ...spellsPerElement.map((spells): RuleJson => ({ key: 'PoolSpells', entry: 'caster', pool: 'curriculum', spells })),
     ...spellsPerElement.map((spells): RuleJson => ({ key: 'FocusSpells', entry: 'caster', spells })),

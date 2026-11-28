@@ -3,8 +3,8 @@ const NOTE = /\([^)]*\)/gu;
 const MASKED = /\(#(?<index>\d+)\)/gu;
 
 /** `text` split at `separator` wherever it is not inside parentheses. */
-export function splitOutsideNotes(text: string, separator: RegExp): string[] {
-  const notes: string[] = [];
+export function splitOutsideNotes(text: string, separator: RegExp): Array<string> {
+  const notes: Array<string> = [];
 
   const masked = text.replaceAll(NOTE, (note) => {
     notes.push(note);

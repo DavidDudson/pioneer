@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { hasShiftingRune, InventoryItemId, PlayCommandField, shiftsFor } from '@pioneer/character/domain';
@@ -9,7 +8,6 @@ import { AsyncButton, AsyncForm, Stack, Text } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import { ContentId } from '@pioneer/rules/sdk';
 import { PickerRows } from '@pioneer/rules/ui';
-import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
@@ -48,8 +46,6 @@ export class ItemShift {
   readonly #store = inject(CharacterStore);
   readonly #play = inject(PlayStore);
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   readonly #item: Signal<InventoryItem | undefined> = computed(() =>
     this.#store.selected()?.document.inventory.items.find((each) => each.id === this.id()),
@@ -71,7 +67,7 @@ export class ItemShift {
 
   /** The weapons the item can take the shape of, by name. */
   protected readonly weapons = new PickerRows<WeaponRow>(
-    computed((): readonly WeaponRow[] => {
+    computed((): ReadonlyArray<WeaponRow> => {
       const item = this.#item();
 
       return item === undefined
@@ -80,11 +76,7 @@ export class ItemShift {
     }),
     WEAPON_ORDER,
   );
-  protected readonly weaponColumns = computed(() => {
-    this.#messages();
-
-    return weaponColumns(this.#i18n.translate('character.sheet.shape.columnName'));
-  });
+  protected readonly weaponColumns = computed(() => weaponColumns('character.sheet.shape.columnName'));
   protected readonly weaponValue = weaponValue;
   protected readonly weaponLabel = weaponLabel;
 

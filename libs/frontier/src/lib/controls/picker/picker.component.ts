@@ -17,7 +17,6 @@ import {
   viewChild,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { injectDebouncer } from '@tanstack/angular-pacer';
 import { functionalUpdate, injectTable } from '@tanstack/angular-table';
 import type { Row, SortingState, Updater } from '@tanstack/angular-table';
 import { cva } from 'class-variance-authority';
@@ -29,7 +28,7 @@ import { Icon } from '../../icon/icon.component';
 import { uniqueId } from '../../ids';
 import { Control } from '../control';
 import { controlVariants } from '../control.variants';
-import { SEARCH_DEBOUNCE } from '../search-input/search-input.component';
+import { injectSearchQuery } from '../search-query';
 import { PickerGrid } from './picker-grid.component';
 import { pickerPanelClasses, pickerSearchClasses } from './picker.variants';
 
@@ -78,14 +77,14 @@ const triggerLabelVariants = cva('', {
   imports: [AriaCombobox, ComboboxPopup, Icon, PickerGrid, TranslocoPipe],
   templateUrl: './picker.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'block', '(focusout)': 'focusOut($event)' },
+  host: { class: 'flex flex-col gap-2xs', '(focusout)': 'focusOut($event)' },
 })
 export class Picker<TValue extends string, TRow extends object> extends Control {
   /** The picked value; `undefined` until the user picks. */
   public readonly value = model<TValue | undefined>(undefined);
   /** The rows for the last `searched` and `sorted`, with every page loaded so far. */
-  public readonly rows = input.required<readonly TRow[]>();
-  public readonly columns = input.required<readonly TableColumn<TRow>[]>();
+  public readonly rows = input.required<ReadonlyArray<TRow>>();
+  public readonly columns = input.required<ReadonlyArray<TableColumn<TRow>>>();
   /** A row's value; also its identity. */
   public readonly rowValue = input.required<(row: TRow) => TValue>();
   /** What the trigger shows for the picked row. */
@@ -174,18 +173,14 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
 
   readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
   readonly #injector = inject(Injector);
-  /** The query `searched` last fired; undefined until it first fires. */
-  #lastSearched: string | undefined;
-  /** Cancelled on destroy, so a pending query never fires after the control is gone. */
-  readonly #debouncer = injectDebouncer(
-    (query: string) => {
-      // The panel closed since this keystroke.
-      if (query === this.query()) {
-        this.#search(query);
-      }
+  readonly #query = injectSearchQuery({
+    current: this.query,
+    emit: (query) => {
+      // New rows are on their way: the grid scrolls back to the top.
+      this.generation.update((count) => count + 1);
+      this.searched.emit(query);
     },
-    { wait: SEARCH_DEBOUNCE },
-  );
+  });
 
   public constructor() {
     super();
@@ -206,7 +201,7 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
 
   protected type(query: string): void {
     this.query.set(query);
-    this.#debouncer.maybeExecute(query);
+    this.#query.type(query);
   }
 
   protected pick(row: Row<TableFeatureSet, TRow>): void {
@@ -216,7 +211,7 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
   }
 
   protected cancel(): void {
-    this.#debouncer.cancel();
+    this.#query.cancel();
 
     if (this.expanded()) {
       this.#close(true);
@@ -235,7 +230,7 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
 
   #open(): void {
     this.expanded.set(true);
-    this.#search(this.query());
+    this.#query.now(this.query());
     afterNextRender(
       () => {
         this.search()?.nativeElement.focus();
@@ -245,7 +240,7 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
   }
 
   #close(refocus: boolean): void {
-    this.#debouncer.cancel();
+    this.#query.cancel();
     this.expanded.set(false);
     this.query.set('');
 
@@ -259,15 +254,5 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
     this.generation.update((count) => count + 1);
     const [first] = sorting;
     this.sorted.emit(first === undefined ? undefined : { column: first.id, descending: first.desc });
-  }
-
-  #search(query: string): void {
-    if (query === this.#lastSearched) {
-      return;
-    }
-
-    this.#lastSearched = query;
-    this.generation.update((count) => count + 1);
-    this.searched.emit(query);
   }
 }

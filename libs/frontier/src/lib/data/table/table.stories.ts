@@ -1,6 +1,7 @@
 import { argsToTemplate } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { Temporal } from '@pioneer/shared/kernel';
+import { expect, userEvent, within } from 'storybook/test';
 
 import { BadgeTone } from '../../text/badge/badge.component';
 import { ColumnChooser } from './column-chooser/column-chooser.component';
@@ -20,7 +21,17 @@ interface PartyMember {
 
 type TableStory = StoryObj<Table<PartyMember>>;
 
-const PARTY: readonly PartyMember[] = [
+/** The sample headers' message keys, spelled out in full so the key check sees them. */
+const SampleMessage = {
+  Name: 'frontier.table.sample.name',
+  Ancestry: 'frontier.table.sample.ancestry',
+  Class: 'frontier.table.sample.class',
+  Level: 'frontier.table.sample.level',
+  Rarity: 'frontier.table.sample.rarity',
+  Added: 'frontier.table.sample.added',
+} as const;
+
+const PARTY: ReadonlyArray<PartyMember> = [
   { id: 'valeros', name: 'Valeros', ancestry: 'Human', className: 'Fighter', level: 3 },
   { id: 'seoni', name: 'Seoni', ancestry: 'Human', className: 'Sorcerer', level: 3 },
   { id: 'kyra', name: 'Kyra', ancestry: 'Human', className: 'Cleric', level: 2 },
@@ -31,11 +42,11 @@ const PARTY: readonly PartyMember[] = [
 
 const column = tableColumns<PartyMember>();
 
-const COLUMNS: readonly TableColumn<PartyMember>[] = column.columns([
-  column.accessor('name', { header: 'Name' }),
-  column.accessor('ancestry', { header: 'Ancestry' }),
-  column.accessor('className', { header: 'Class' }),
-  column.accessor('level', { header: 'Level' }),
+const COLUMNS: ReadonlyArray<TableColumn<PartyMember>> = column.columns([
+  column.accessor('name', { header: SampleMessage.Name }),
+  column.accessor('ancestry', { header: SampleMessage.Ancestry }),
+  column.accessor('className', { header: SampleMessage.Class }),
+  column.accessor('level', { header: SampleMessage.Level }),
 ]);
 
 /** A semantic table on TanStack Table. Press a column header to sort by it. */
@@ -73,7 +84,7 @@ interface Trait {
   readonly added: Temporal.PlainDate;
 }
 
-const TRAITS: readonly Trait[] = [
+const TRAITS: ReadonlyArray<Trait> = [
   { id: 'fire', name: 'Fire', rarity: 'common', added: Temporal.PlainDate.from('2026-01-15') },
   { id: 'arcane', name: 'Arcane', rarity: 'uncommon', added: Temporal.PlainDate.from('2026-02-03') },
   { id: 'cursed', name: 'Cursed', rarity: 'rare', added: Temporal.PlainDate.from('2026-03-21') },
@@ -82,13 +93,13 @@ const TRAITS: readonly Trait[] = [
 const RARITY_TONE = { common: BadgeTone.Neutral, uncommon: BadgeTone.Warning, rare: BadgeTone.Info } as const;
 
 const MIXED_COLUMNS = tableSchema<Trait>()
-  .addText({ id: 'name', header: 'Name', value: (trait) => trait.name })
+  .addText({ id: 'name', header: SampleMessage.Name, value: (trait) => trait.name })
   .addTag({
     id: 'rarity',
-    header: 'Rarity',
+    header: SampleMessage.Rarity,
     value: (trait) => ({ label: trait.rarity, tone: RARITY_TONE[trait.rarity] }),
   })
-  .addDate({ id: 'added', header: 'Added', value: (trait) => trait.added })
+  .addDate({ id: 'added', header: SampleMessage.Added, value: (trait) => trait.added })
   .build();
 
 /**
@@ -99,11 +110,11 @@ export const BuiltFromSchema: StoryObj<Table<Trait>> = {
   args: { data: TRAITS, columns: MIXED_COLUMNS, caption: 'Traits', rowId: (trait: Trait): string => trait.id },
 };
 
-const HIDEABLE_COLUMNS: readonly TableColumn<PartyMember>[] = column.columns([
-  column.accessor('name', { header: 'Name' }),
-  column.accessor('ancestry', { header: 'Ancestry', meta: { hideable: true } }),
-  column.accessor('className', { header: 'Class', meta: { hideable: true } }),
-  column.accessor('level', { header: 'Level', meta: { defaultHidden: true } }),
+const HIDEABLE_COLUMNS: ReadonlyArray<TableColumn<PartyMember>> = column.columns([
+  column.accessor('name', { header: SampleMessage.Name }),
+  column.accessor('ancestry', { header: SampleMessage.Ancestry, meta: { hideable: true } }),
+  column.accessor('className', { header: SampleMessage.Class, meta: { hideable: true } }),
+  column.accessor('level', { header: SampleMessage.Level, meta: { defaultHidden: true } }),
 ]);
 
 /** Open *Columns* to show or hide columns. Name stays; Level starts hidden; Reset returns to that. */
@@ -121,5 +132,17 @@ export const SortedFromTheStart: TableStory = {
       { column: 'level', descending: true },
       { column: 'name', descending: false },
     ],
+  },
+};
+
+/** `showDensity` adds the *Row density* switch; compact tightens the rows, and the page keeps the choice. */
+export const Density: TableStory = {
+  args: { showDensity: true },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const compact = canvas.getByRole('button', { name: 'Compact' });
+    await userEvent.click(compact);
+    await expect(compact).toHaveAttribute('aria-pressed', 'true');
+    await expect(canvasElement.querySelector('td')).toHaveClass('py-3xs');
   },
 };

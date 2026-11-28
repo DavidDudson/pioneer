@@ -36,7 +36,7 @@ function summaryKeyOf(row: FacetRow): string {
 })
 export class FacetFilterView {
   /** Each facet's value counts over the list, as `facetCounts` gives them. */
-  public readonly counts = input.required<readonly FacetCounts[]>();
+  public readonly counts = input.required<ReadonlyArray<FacetCounts>>();
   public readonly state = model<FilterState>(new Map());
 
   readonly #i18n = inject(TranslocoService);
@@ -50,21 +50,23 @@ export class FacetFilterView {
   protected readonly Message = FacetFilterMessage;
   protected readonly summaryKey = summaryKeyOf;
 
-  protected readonly rows: Signal<readonly FacetRow[]> = computed(() => facetRows(this.counts(), this.state()));
+  protected readonly rows: Signal<ReadonlyArray<FacetRow>> = computed(() => facetRows(this.counts(), this.state()));
 
   /** Each chip row's options, labelled in the UI locale: "Uncommon (12)". */
-  protected readonly chipOptions: Signal<ReadonlyMap<FacetId, readonly SelectOption<FacetValue>[]>> = computed(() => {
-    this.#messages();
-    const chips = this.rows().filter((row): row is ChipsRow => row.kind === FacetRowKind.Chips);
+  protected readonly chipOptions: Signal<ReadonlyMap<FacetId, ReadonlyArray<SelectOption<FacetValue>>>> = computed(
+    () => {
+      this.#messages();
+      const chips = this.rows().filter((row): row is ChipsRow => row.kind === FacetRowKind.Chips);
 
-    return new Map(chips.map((row) => [row.facet.id, row.values.map((chip) => this.#chipOption(chip))]));
-  });
+      return new Map(chips.map((row) => [row.facet.id, row.values.map((chip) => this.#chipOption(chip))]));
+    },
+  );
 
   protected pickedCount(row: FacetRow): string {
     return this.#format.number(row.kind === FacetRowKind.Chips ? row.selected.size : 0);
   }
 
-  protected options(row: ChipsRow): readonly SelectOption<FacetValue>[] {
+  protected options(row: ChipsRow): ReadonlyArray<SelectOption<FacetValue>> {
     return this.chipOptions().get(row.facet.id) ?? [];
   }
 

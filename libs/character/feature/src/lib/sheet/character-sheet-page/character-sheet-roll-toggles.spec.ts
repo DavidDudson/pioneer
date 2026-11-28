@@ -38,7 +38,7 @@ const HUNTER = {
   },
 };
 
-function rolling(...faces: readonly number[]): void {
+function rolling(...faces: ReadonlyArray<number>): void {
   TestBed.configureTestingModule({
     providers: [{ provide: RANDOM_SOURCE, useValue: scriptedRandom(faces.map((face) => DieFace.parse(face))) }],
   });

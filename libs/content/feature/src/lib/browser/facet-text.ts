@@ -11,8 +11,8 @@ const FACET_SEPARATOR = '~';
 /** Between a facet's id and its values. Neither can hold it: ids and values are slugs or numbers. */
 const ID_SEPARATOR = ':';
 
-function segmentsOf(text: string): readonly (readonly [string, string])[] {
-  return text.split(FACET_SEPARATOR).flatMap((part): (readonly [string, string])[] => {
+function segmentsOf(text: string): ReadonlyArray<readonly [string, string]> {
+  return text.split(FACET_SEPARATOR).flatMap((part): Array<readonly [string, string]> => {
     const at = part.indexOf(ID_SEPARATOR);
 
     return at < 1 ? [] : [[part.slice(0, at), part.slice(at + ID_SEPARATOR.length)]];
@@ -21,7 +21,7 @@ function segmentsOf(text: string): readonly (readonly [string, string])[] {
 
 /** The facet filter params the `f` segment holds. Ids that aren't a facet's are dropped when the params are read. */
 function paramsOf(text: string): QueryParams {
-  const named = segmentsOf(text).flatMap(([id, values]): (readonly [string, string])[] => {
+  const named = segmentsOf(text).flatMap(([id, values]): Array<readonly [string, string]> => {
     const facet = FacetId.safeParse(id);
 
     return facet.success ? [[filterParamName(facet.data), values]] : [];
@@ -35,13 +35,13 @@ function paramsOf(text: string): QueryParams {
  * follows the kinds picked). The values are the facet URL codec's own text (`filterToQuery`, `filterFromQuery`), one
  * segment per facet, so there is no second encoding of a filter; only the param name `f.traits` becomes `traits:`.
  */
-export function facetTextCodec(facets: () => readonly FacetDefinition[]): FacetTextCodec {
+export function facetTextCodec(facets: () => ReadonlyArray<FacetDefinition>): FacetTextCodec {
   return {
-    encode: (conditions: readonly FilterCondition[]): string => {
+    encode: (conditions: ReadonlyArray<FilterCondition>): string => {
       const known = facets();
       const query = filterToQuery(filterState(conditions, known), known);
 
-      const segments = known.flatMap((facet): string[] => {
+      const segments = known.flatMap((facet): Array<string> => {
         const values = query[filterParamName(facet.id)];
 
         return values === undefined ? [] : [`${facet.id}${ID_SEPARATOR}${values}`];
@@ -49,6 +49,7 @@ export function facetTextCodec(facets: () => readonly FacetDefinition[]): FacetT
 
       return segments.join(FACET_SEPARATOR);
     },
-    decode: (text: string): readonly FilterCondition[] => filterConditions(filterFromQuery(paramsOf(text), facets())),
+    decode: (text: string): ReadonlyArray<FilterCondition> =>
+      filterConditions(filterFromQuery(paramsOf(text), facets())),
   };
 }

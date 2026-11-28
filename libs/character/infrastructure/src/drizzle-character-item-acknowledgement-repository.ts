@@ -39,7 +39,7 @@ export class DrizzleCharacterItemAcknowledgementRepository extends CharacterItem
     this.#db = db;
   }
 
-  public override async listForCharacter(characterId: CharacterId): Promise<readonly ItemAcknowledgement[]> {
+  public override async listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<ItemAcknowledgement>> {
     const rows = await this.#db
       .select()
       .from(characterItemAcknowledgements)

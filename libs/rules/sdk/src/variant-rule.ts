@@ -4,7 +4,7 @@ import * as z from 'zod';
 
 import { EntrySlug } from './content-id';
 import { ContentText } from './content-text';
-import { RuleElements } from './rule-element';
+import { RuleReferences } from './rule-reference';
 import { SourceRef } from './source-ref';
 import { VariantRuleLimits } from './variant-rule-limits';
 
@@ -17,6 +17,8 @@ export const VariantStructure = {
   ExtraSlots: 'extraSlots',
   /** A second class beside the first (Dual Class). */
   SecondClass: 'secondClass',
+  /** Free attribute boosts one level at a time instead of four at once (Gradual Attribute Boosts). */
+  GradualBoosts: 'gradualBoosts',
 } as const;
 
 export type VariantStructure = ValueOf<typeof VariantStructure>;
@@ -46,17 +48,18 @@ const SOURCES_MAX = 16;
 /**
  * A variant rule as a pack defines it (GM Core's Proficiency Without Level): what it changes is in `rules`, put in
  * play for every character it is enabled for, each element's origin naming the variant. `sources` are where it is
- * written, since every breakdown line it explains cites them.
+ * written, since every breakdown line it explains cites them. Here `rules` are references; `VariantRuleDefinition`
+ * (`typed-content.ts`) parses the elements.
  */
-export const VariantRuleDefinition = z.strictObject({
+export const VariantRuleDefinitionModel = z.strictObject({
   slug: EntrySlug,
   name: ContentText,
   sources: z.array(SourceRef).min(1).max(SOURCES_MAX),
-  rules: RuleElements,
+  rules: RuleReferences,
   /** The structural changes it needs beyond `rules`; absent when it needs none. */
   structure: StructureList.optional(),
   /** The table limits it changes while it is in force (ADR-0064); absent when it changes none. */
   limits: VariantRuleLimits.optional(),
 });
 
-export type VariantRuleDefinition = z.infer<typeof VariantRuleDefinition>;
+export type VariantRuleDefinitionModel = z.infer<typeof VariantRuleDefinitionModel>;

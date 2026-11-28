@@ -11,7 +11,7 @@ export interface SignInExtra {
  * Extra ways to sign in, shown on the sign-in page. Empty in production; development builds provide the dev
  * users' one-click sign-in (apps/web `environment.development.ts`).
  */
-export const SIGN_IN_EXTRAS = new InjectionToken<readonly Type<SignInExtra>[]>('SIGN_IN_EXTRAS', {
+export const SIGN_IN_EXTRAS = new InjectionToken<ReadonlyArray<Type<SignInExtra>>>('SIGN_IN_EXTRAS', {
   providedIn: 'root',
-  factory: (): readonly Type<SignInExtra>[] => [],
+  factory: (): ReadonlyArray<Type<SignInExtra>> => [],
 });

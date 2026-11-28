@@ -55,7 +55,7 @@ async function change(rendered: Rendered, value: string): Promise<void> {
 }
 
 function revertButton(rendered: Rendered): HTMLButtonElement | undefined {
-  return [...rendered.host.querySelectorAll('button')].find((button) => button.textContent.trim() === 'Revert');
+  return [...rendered.host.querySelectorAll('button')].find((button) => button.getAttribute('aria-label') === 'Revert');
 }
 
 describe(SaveStatus, () => {
@@ -69,14 +69,13 @@ describe(SaveStatus, () => {
     expect(rendered.host.querySelector('button')).toBeNull();
   });
 
-  it('shows a spinner labelled with the field while saving', async () => {
+  it('shows "Saving" labelled with the field while saving', async () => {
     const gate = Promise.withResolvers<undefined>();
     const rendered = await render(gate.promise);
     const saving = change(rendered, 'Seelah');
     await settle(rendered.fixture);
-    const spinner = rendered.host.querySelector('fr-spinner');
-    expect(spinner?.getAttribute('role')).toBe('status');
-    expect(spinner?.getAttribute('aria-label')).toBe('Saving Name');
+    const status = rendered.host.querySelector('[role="status"]');
+    expect(status?.textContent.trim()).toBe('Saving Name');
     expect(revertButton(rendered)).toBeUndefined();
     gate.resolve(undefined);
     await saving;
@@ -86,7 +85,6 @@ describe(SaveStatus, () => {
     const rendered = await render();
     await change(rendered, 'Seelah');
     await settle(rendered.fixture);
-    expect(rendered.host.querySelector('fr-spinner')).toBeNull();
     const status = rendered.host.querySelector('[role="status"]');
     expect(status?.textContent.trim()).toBe('Saved');
     expect(status?.querySelector('svg')).not.toBeNull();
@@ -122,7 +120,6 @@ describe(SaveStatus, () => {
     await change(rendered, 'Seelah');
     await settle(rendered.fixture);
     expect(rendered.host.querySelector('[role="status"]')).toBeNull();
-    expect(rendered.host.querySelector('fr-spinner')).toBeNull();
     expect(revertButton(rendered)).toBeUndefined();
   });
 });

@@ -27,7 +27,7 @@ const SPEEDS: Readonly<Record<Movement, Selector>> = {
 export class SheetSpeedBlock {
   protected readonly sheet = inject(SheetState);
   /** Undefined while the statistics load. */
-  protected readonly speeds = computed((): readonly SpeedRow[] | undefined => {
+  protected readonly speeds = computed((): ReadonlyArray<SpeedRow> | undefined => {
     const statistics = this.sheet.picks.statistics();
 
     return statistics === undefined

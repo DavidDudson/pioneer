@@ -63,6 +63,12 @@ describe(Section, () => {
     expect([heading.getAttribute('tabindex'), document.activeElement]).toStrictEqual(['-1', heading]);
   });
 
+  it('is built on a card', async () => {
+    const { region } = await render('sheet-identity', 'Identity');
+
+    expect(region.querySelector('fr-card fr-card-header h2')).not.toBeNull();
+  });
+
   it('projects its content after the heading', async () => {
     const { region } = await render('sheet-identity', 'Identity');
     expect(region.textContent.trim()).toBe('IdentityStrength +4');

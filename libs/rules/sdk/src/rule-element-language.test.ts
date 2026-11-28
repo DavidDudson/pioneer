@@ -8,14 +8,14 @@ import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import { RuleElement } from './rule-element';
 
-function issues(value: JsonValue): readonly FieldIssue[] {
+function issues(value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = RuleElement.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
 /** Angelkin's Empyrean, and Multilingual's two slots and its slot at master in Society. */
-const examples: object[] = [
+const examples: Array<object> = [
   { key: 'Language', grant: ['3f1c3a8e-6c0b-5d7e-9a51-1d2a6b0f9c11'] },
   { key: 'Language', slots: 2, access: 'uncommon' },
   { key: 'Language', slots: 1, access: 'uncommon', predicate: [{ gte: ['skill:society:rank', 3] }] },

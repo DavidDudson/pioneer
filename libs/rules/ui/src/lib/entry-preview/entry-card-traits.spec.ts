@@ -29,7 +29,7 @@ class Host {
   protected readonly entry = ContentId.parse(FIREBALL);
 }
 
-const cards = (): readonly HTMLElement[] => [...document.querySelectorAll<HTMLElement>('[role="tooltip"]')];
+const cards = (): ReadonlyArray<HTMLElement> => [...document.querySelectorAll<HTMLElement>('[role="tooltip"]')];
 
 /** The chip tab stop named `name`, inside `root`. */
 function chip(root: ParentNode | undefined, name: string): HTMLElement | undefined {

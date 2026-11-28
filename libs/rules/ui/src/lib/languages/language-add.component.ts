@@ -37,7 +37,7 @@ export type AddLanguage = (language: string) => Promise<void>;
 })
 export class LanguageAdd {
   /** What the next open slot offers, with the facts to choose by. */
-  public readonly rows = input<readonly LanguagePickerRow[]>([]);
+  public readonly rows = input<ReadonlyArray<LanguagePickerRow>>([]);
   /** The content is still loading, so the table shows its loading state. */
   public readonly loading = input(false);
   /** How many languages the character has left to add at its level. */

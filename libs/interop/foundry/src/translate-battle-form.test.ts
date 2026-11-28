@@ -10,7 +10,7 @@ import { FOUNDRY_NULL } from './testing/kind-fixtures';
 const DARKVISION = coreRulesId('sense:darkvision');
 
 /** A Player Core heritage with `rules`, shaped as `pf2e-8.6.0` has it. */
-function heritage(rules: readonly object[]): DocumentFixture {
+function heritage(rules: ReadonlyArray<object>): DocumentFixture {
   return {
     id: 'hErItAgE00000000',
     name: 'Cavern Elf',
@@ -49,7 +49,7 @@ const AERIAL_FORM = {
   },
 };
 
-function formRules(rules: readonly object[]): unknown[] {
+function formRules(rules: ReadonlyArray<object>): Array<unknown> {
   return rulesIn(translate([heritage(rules)]), 'cavern-elf');
 }
 

@@ -8,17 +8,17 @@ import { matchStaffSpells, spellIndex, staffMatches } from './staff-matcher';
 const PACK = 'gm-core';
 const idOf = (slug: string): ContentId => ContentId.parse(contentId(PackId.parse(PACK), EntrySlug.parse(slug)));
 
-const text = (words: string, marks?: readonly string[]): JsonObject => {
+const text = (words: string, marks?: ReadonlyArray<string>): JsonObject => {
   const node = { type: 'text', text: words };
 
   return marks === undefined ? node : { ...node, marks };
 };
 
-const item = (rank: string, spells: string): JsonObject[] => [
+const item = (rank: string, spells: string): Array<JsonObject> => [
   { type: 'paragraph', content: [text(rank, ['strong']), text(` ${spells}`)] },
 ];
 
-const list = (...items: readonly JsonObject[][]): JsonObject => ({ type: 'list', ordered: false, items });
+const list = (...items: ReadonlyArray<Array<JsonObject>>): JsonObject => ({ type: 'list', ordered: false, items });
 
 /** A Game Master Core entry of `kind`; the spells' data is what a spell needs. */
 function entry(slug: string, name: string, fields: JsonObject): ContentEntry {
@@ -73,8 +73,8 @@ const SPELLS = [
 
 function staff(
   slug: string,
-  description: readonly JsonObject[],
-  traits: readonly string[] = ['magical', 'staff'],
+  description: ReadonlyArray<JsonObject>,
+  traits: ReadonlyArray<string> = ['magical', 'staff'],
 ): ContentEntry {
   return entry(`weapon:${slug}`, slug, {
     kind: 'weapon',
@@ -89,10 +89,10 @@ function staff(
   });
 }
 
-const idsOf = (...names: readonly string[]): readonly ContentId[] => names.map((name) => idOf(spellSlug(name)));
+const idsOf = (...names: ReadonlyArray<string>): ReadonlyArray<ContentId> => names.map((name) => idOf(spellSlug(name)));
 const index = spellIndex(SPELLS);
 
-const read = (...items: readonly JsonObject[][]): StaffSpells | undefined =>
+const read = (...items: ReadonlyArray<Array<JsonObject>>): StaffSpells | undefined =>
   matchStaffSpells(staff('test', [list(...items)]), index);
 
 describe('matchStaffSpells', () => {

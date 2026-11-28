@@ -25,7 +25,7 @@ const INPUT_TERMS = ['@level', '@attr.str', '@attr.dex.capped', '@prof.ac', '@ra
 
 const selectorOf = (index: number): string => `stat-${index}`;
 
-function definition(index: number, terms: readonly string[]): StatisticDefinition {
+function definition(index: number, terms: ReadonlyArray<string>): StatisticDefinition {
   const selector = selectorOf(index);
 
   return StatisticDefinition.parse({
@@ -39,32 +39,32 @@ function definition(index: number, terms: readonly string[]): StatisticDefinitio
 }
 
 /** One statistic's terms: a constant, some input references, and references to the statistics in `reads`. */
-function termsReading(reads: readonly number[]): Arbitrary<string[]> {
+function termsReading(reads: ReadonlyArray<number>): Arbitrary<Array<string>> {
   const statistics = reads.map((index) => `@stat.${selectorOf(index)}`);
-  const terms = ([value, read]: [number, string[]]): string[] => [String(value), ...read, ...statistics];
+  const terms = ([value, read]: [number, Array<string>]): Array<string> => [String(value), ...read, ...statistics];
 
   return tuple(integer({ min: 0, max: CONSTANT_MAX }), subarray(INPUT_TERMS)).map((drawn) => terms(drawn));
 }
 
 /** 0 to `count - 1`. */
-const indexes = (count: number): number[] => Array.from({ length: count }, (_value, index) => index);
+const indexes = (count: number): Array<number> => Array.from({ length: count }, (_value, index) => index);
 
 /** Statistic `index`, reading some of the statistics before it. */
 const statisticAt = (index: number): Arbitrary<StatisticDefinition> =>
   subarray(indexes(index)).chain((reads) => termsReading(reads).map((terms) => definition(index, terms)));
 
 /** Statistics where each reads only statistics before it, so the graph has no cycle. */
-const acyclic: Arbitrary<StatisticDefinition[]> = integer({ min: 1, max: STATISTICS_MAX }).chain((count) =>
+const acyclic: Arbitrary<Array<StatisticDefinition>> = integer({ min: 1, max: STATISTICS_MAX }).chain((count) =>
   tuple(...indexes(count).map((index) => statisticAt(index))),
 );
 
 interface WithCycle {
-  readonly definitions: StatisticDefinition[];
-  readonly cycle: readonly string[];
+  readonly definitions: Array<StatisticDefinition>;
+  readonly cycle: ReadonlyArray<string>;
 }
 
 /** The definitions with each statistic in `onCycle` also reading the next one, and the last reading the first. */
-function closeCycle(definitions: readonly StatisticDefinition[], onCycle: readonly number[]): WithCycle {
+function closeCycle(definitions: ReadonlyArray<StatisticDefinition>, onCycle: ReadonlyArray<number>): WithCycle {
   const next = new Map(onCycle.map((index, at) => [index, onCycle[(at + 1) % onCycle.length] ?? index]));
 
   return {
@@ -88,13 +88,13 @@ const withCycle: Arbitrary<WithCycle> = acyclic.chain((definitions) =>
 );
 
 /** Any graph, with and without cycles. */
-const anyGraph: Arbitrary<StatisticDefinition[]> = oneof(
+const anyGraph: Arbitrary<Array<StatisticDefinition>> = oneof(
   acyclic,
   withCycle.map(({ definitions }) => definitions),
 );
 
 /** A graph and the same definitions in another order. */
-const reordered: Arbitrary<[StatisticDefinition[], StatisticDefinition[]]> = anyGraph.chain((definitions) =>
+const reordered: Arbitrary<[Array<StatisticDefinition>, Array<StatisticDefinition>]> = anyGraph.chain((definitions) =>
   tuple(
     constant(definitions),
     shuffledSubarray(definitions, { minLength: definitions.length, maxLength: definitions.length }),

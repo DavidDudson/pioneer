@@ -79,7 +79,7 @@ export class AdjustmentEditor {
   protected readonly options = inject(DamageTargetOptions);
   protected readonly labels = DAMAGE_ADJUSTMENT_TARGET_KEYS;
   public readonly kind = input.required<AdjustmentKind>();
-  public readonly adjustments = model.required<readonly DamageAdjustment[]>();
+  public readonly adjustments = model.required<ReadonlyArray<DamageAdjustment>>();
 
   protected readonly keys = computed((): KindKeys => KIND_KEYS[this.kind()]);
   protected readonly choice = signal<DamageAdjustmentTarget | undefined>(undefined);
@@ -105,7 +105,7 @@ export class AdjustmentEditor {
   protected readonly valueInvalid = computed((): boolean => this.#amount() === undefined);
   protected readonly canAdd = computed((): boolean => this.choice() !== undefined && !this.valueInvalid());
   /** Each entry with its value in the viewer's locale. */
-  protected readonly entries = computed((): readonly EntryDisplay[] =>
+  protected readonly entries = computed((): ReadonlyArray<EntryDisplay> =>
     this.adjustments().map((adjustment) => ({
       adjustment,
       value: this.#format.number(adjustment.value),

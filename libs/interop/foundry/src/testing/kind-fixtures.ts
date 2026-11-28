@@ -86,7 +86,7 @@ export function action(system: Fields, name = 'Test Action'): DocumentFixture {
 }
 
 /** The gaps as reason, field and raw value. */
-export function gapsOf({ kindDataGaps }: ImportTranslation): GapFields[] {
+export function gapsOf({ kindDataGaps }: ImportTranslation): Array<GapFields> {
   return kindDataGaps.map(({ reason, field, raw }) => ({ reason, field, raw }));
 }
 
@@ -94,7 +94,7 @@ export function entryOf(translation: ImportTranslation, slug: string): ImportedE
   return translation.entries.find(({ envelope }) => slugName(envelope.slug) === slug);
 }
 
-export function dataOf(documents: readonly DocumentFixture[], slug: string): unknown {
+export function dataOf(documents: ReadonlyArray<DocumentFixture>, slug: string): unknown {
   return entryOf(translate(documents), slug)?.kindData?.data;
 }
 

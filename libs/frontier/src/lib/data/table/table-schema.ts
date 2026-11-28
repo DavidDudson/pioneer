@@ -15,7 +15,7 @@ export type SortValue = number | string;
 
 /** A header and whether pressing it sorts the column. Sorting is on unless `sortable` is `false`. */
 export interface ColumnOptions {
-  /** Already translated: the schema never holds copy. */
+  /** A message key: the table translates it, so a language switch re-renders the header. */
   readonly header: string;
   readonly sortable?: boolean;
   /** Width in `fr-picker`, where rows are not a table; `fr-table` ignores it. Defaults to `md`. */
@@ -117,10 +117,10 @@ type AnyColumn<TRow extends RowData> = ColumnDef<TableFeatureSet, TRow, SortValu
  * `class SpellTableSchema extends TableSchema<Spell> { addCost(): this { return this.addComponent(…); } }`.
  */
 export class TableSchema<TRow extends RowData> {
-  readonly #columns: TableColumn<TRow>[] = [];
+  readonly #columns: Array<TableColumn<TRow>> = [];
 
   /** The finished columns, for `fr-table`'s `columns` input. Keep the result stable (a `computed` or a const). */
-  public build(): readonly TableColumn<TRow>[] {
+  public build(): ReadonlyArray<TableColumn<TRow>> {
     return [...this.#columns];
   }
 

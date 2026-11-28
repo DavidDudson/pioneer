@@ -1,7 +1,7 @@
 import type { Type } from '@angular/core';
 import type { TranslocoService } from '@jsverse/transloco';
 import { contentBrowserMessages } from '@pioneer/content/ui';
-import { rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadMessageScopes } from '@pioneer/shared/web';
 import type { MessageScope } from '@pioneer/shared/web';
@@ -12,7 +12,7 @@ import { ContentSidePanel } from './content-side-panel.component';
  * The messages the side panel reads beyond its host's own: its text (`content`), the entry browser's
  * (`contentBrowser`) and the rules text the entries show (`rules`).
  */
-const SIDE_PANEL_SCOPES: readonly MessageScope[] = [
+const SIDE_PANEL_SCOPES: ReadonlyArray<MessageScope> = [
   { scope: 'content', messages: { [Locale.English]: async () => import('../../i18n/en.json') } },
   { scope: 'contentBrowser', messages: { [Locale.English]: async () => contentBrowserMessages.contentBrowser } },
   { scope: 'rules', messages: { [Locale.English]: async () => rulesMessages.rules } },

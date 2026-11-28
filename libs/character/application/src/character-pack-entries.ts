@@ -7,7 +7,11 @@ export function byTitle(left: CatalogPack, right: CatalogPack): number {
 }
 
 /** A pack the character uses. Only its owner disables one, and not while an enabled pack extends it or a campaign decides. */
-export function enabledEntry(pack: CatalogPack, requiredBy: readonly PackTitle[], manageable: boolean): EnabledPack {
+export function enabledEntry(
+  pack: CatalogPack,
+  requiredBy: ReadonlyArray<PackTitle>,
+  manageable: boolean,
+): EnabledPack {
   return {
     packId: pack.id,
     title: pack.title,

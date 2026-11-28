@@ -24,5 +24,5 @@ export interface ShownDefence extends Standing {
 export interface ShownList {
   readonly heading: string;
   readonly empty: string;
-  readonly defences: readonly ShownDefence[];
+  readonly defences: ReadonlyArray<ShownDefence>;
 }

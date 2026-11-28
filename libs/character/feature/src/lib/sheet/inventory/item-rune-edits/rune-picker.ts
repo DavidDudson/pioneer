@@ -12,7 +12,7 @@ import type {
 import type { TableColumn } from '@pioneer/frontier/data';
 import { RuneType } from '@pioneer/rules/sdk';
 import type { FundamentalRune, Price, RichText, RunedItem } from '@pioneer/rules/sdk';
-import { ItemTableSchema } from '@pioneer/rules/ui';
+import { ItemTableSchema, PickerCellMessage } from '@pioneer/rules/ui';
 import type { Chip, RowOrder } from '@pioneer/rules/ui';
 
 import { gradeChoices } from './rune-options';
@@ -61,14 +61,25 @@ export const RUNE_ORDER: RowOrder<RuneRow> = {
   },
 };
 
+/** The header keys of every rune picker. */
+export const RUNE_HEADERS: RuneHeaders = {
+  name: 'character.sheet.runes.columns.name',
+  kind: 'character.sheet.runes.columns.kind',
+  level: PickerCellMessage.LevelColumn,
+  effect: 'character.sheet.runes.columns.effect',
+  price: 'character.sheet.runes.columns.price',
+  slots: 'character.sheet.runes.columns.slots',
+  slotsUsed: 'character.sheet.runes.columns.slotsUsed',
+};
+
 /** The columns of a rune picker: the name, its kind, level, effect, price, and the property slot it uses. */
-export function runeColumns(headers: RuneHeaders): readonly TableColumn<RuneRow>[] {
+export function runeColumns(headers: RuneHeaders): ReadonlyArray<TableColumn<RuneRow>> {
   return new ItemTableSchema<RuneRow>()
     .addText({ id: 'name', header: headers.name, value: (row) => row.label, width: 'md' })
     .addTraits({
       id: 'kind',
       header: headers.kind,
-      value: (row): readonly Chip[] => [{ label: row.kind }],
+      value: (row): ReadonlyArray<Chip> => [{ label: row.kind }],
       width: 'sm',
     })
     .addLevel({ id: 'level', header: headers.level, value: (row) => row.level, width: 'sm' })
@@ -152,7 +163,7 @@ export function gradeRows(
     readonly words: RuneWords;
   },
   i18n: TranslocoService,
-): readonly RuneRow[] {
+): ReadonlyArray<RuneRow> {
   const { rune, entry, none, words } = args;
   const runed = runedItemOf(entry);
   const noneRow = rowOf(undefined, { value: none.value, label: none.label, kind: words.fundamental, slots: 0 });
@@ -170,7 +181,7 @@ export function gradeRows(
 }
 
 /** The rows of the property runes in `entries`, named as the content names them. */
-export function propertyRows(entries: readonly RuneEntry[], words: RuneWords): readonly RuneRow[] {
+export function propertyRows(entries: ReadonlyArray<RuneEntry>, words: RuneWords): ReadonlyArray<RuneRow> {
   return entries.map((entry) =>
     rowOf(entry, { value: entry.id, label: entry.name, kind: words.property, slots: ONE_SLOT }),
   );
@@ -182,11 +193,11 @@ export function etchedRows(
   etched: {
     readonly item: InventoryItem | undefined;
     readonly entry: ItemEntry | undefined;
-    readonly runes: readonly RuneRef[];
+    readonly runes: ReadonlyArray<RuneRef>;
     readonly key: (rune: RuneRef) => string;
   },
   where: { readonly i18n: TranslocoService; readonly words: RuneWords },
-): readonly RuneRow[] {
+): ReadonlyArray<RuneRow> {
   const { item, entry, runes, key } = etched;
   const { i18n, words } = where;
   const runed = runedItemOf(entry);
@@ -237,13 +248,13 @@ export const TARGET_ORDER: RowOrder<RuneTargetRow> = {
 };
 
 /** The columns of the rune move target picker: the item, its kind, and its property slots used out of its room. */
-export function targetColumns(headers: TargetHeaders): readonly TableColumn<RuneTargetRow>[] {
+export function targetColumns(headers: TargetHeaders): ReadonlyArray<TableColumn<RuneTargetRow>> {
   return new ItemTableSchema<RuneTargetRow>()
     .addText({ id: 'name', header: headers.name, value: (row) => row.label, width: 'md' })
     .addTraits({
       id: 'kind',
       header: headers.kind,
-      value: (row): readonly Chip[] => [{ label: row.kind }],
+      value: (row): ReadonlyArray<Chip> => [{ label: row.kind }],
       width: 'sm',
     })
     .addCount({

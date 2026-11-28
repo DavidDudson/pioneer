@@ -7,5 +7,5 @@ import type { UserId } from '@pioneer/shared/kernel';
  */
 export abstract class MemberDirectory {
   /** The display name of each user that has an account; unknown ids are left out. */
-  public abstract displayNames(userIds: readonly UserId[]): Promise<ReadonlyMap<UserId, MemberName>>;
+  public abstract displayNames(userIds: ReadonlyArray<UserId>): Promise<ReadonlyMap<UserId, MemberName>>;
 }

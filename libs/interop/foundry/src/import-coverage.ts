@@ -31,7 +31,7 @@ function isEntryItem(item: BacklogItem): item is BacklogEntryItem {
   return item.type === BacklogItemType.Entry;
 }
 
-function hasRuleGap(gaps: readonly BacklogGap[]): boolean {
+function hasRuleGap(gaps: ReadonlyArray<BacklogGap>): boolean {
   return gaps.some(({ type }) => RULE_GAPS.has(type));
 }
 
@@ -39,17 +39,17 @@ function cites(entry: ContentEntry, located: 'page' | 'aon'): boolean {
   return entry.sources.some((source) => source.kind === SourceKind.Book && source[located] !== undefined);
 }
 
-function count<Item>(items: readonly Item[], test: (item: Item) => boolean): number {
+function count<Item>(items: ReadonlyArray<Item>, test: (item: Item) => boolean): number {
   return items.filter((item) => test(item)).length;
 }
 
 function kindCoverage(
   kind: ContentKind,
-  entries: readonly ContentEntry[],
-  items: readonly BacklogEntryItem[],
+  entries: ReadonlyArray<ContentEntry>,
+  items: ReadonlyArray<BacklogEntryItem>,
 ): KindCoverage {
   const gaps = new Map(items.map((item) => [contentKey(item.pack, item.slug), item.gaps]));
-  const gapsOf = (entry: ContentEntry): readonly BacklogGap[] => gaps.get(contentKey(entry.pack, entry.slug)) ?? [];
+  const gapsOf = (entry: ContentEntry): ReadonlyArray<BacklogGap> => gaps.get(contentKey(entry.pack, entry.slug)) ?? [];
 
   return {
     kind,
@@ -64,9 +64,9 @@ function kindCoverage(
 
 /** Coverage per kind, sorted by kind, over `entries` and the `backlog` items about them or left out of them. */
 export function importCoverage(
-  entries: readonly ContentEntry[],
-  backlog: readonly BacklogItem[],
-): readonly KindCoverage[] {
+  entries: ReadonlyArray<ContentEntry>,
+  backlog: ReadonlyArray<BacklogItem>,
+): ReadonlyArray<KindCoverage> {
   const items = backlog.filter((item) => isEntryItem(item));
   const kinds = new Set<ContentKind>([...entries.map(({ kind }) => kind), ...items.map(({ slug }) => slugKind(slug))]);
 
@@ -87,7 +87,7 @@ export interface CreatureCoverage {
 }
 
 /** Creatures per role and level, roles then levels ascending, over the creature entries among `entries`. */
-export function creatureCoverage(entries: readonly ContentEntry[]): readonly CreatureCoverage[] {
+export function creatureCoverage(entries: ReadonlyArray<ContentEntry>): ReadonlyArray<CreatureCoverage> {
   const counts = new Map<string, CreatureCoverage>();
 
   for (const entry of entries) {

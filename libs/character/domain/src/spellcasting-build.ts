@@ -9,6 +9,6 @@ import { grantedRules } from './granted-rules';
  * (a class's spellcasting feature, a witch's patron, a multiclass dedication), in slug order. Each derives a spell
  * attack and a spell DC (ADR-0030, ADR-0040).
  */
-export function characterSpellcasting(resolution: GrantResolution): readonly SpellcastingInPlay[] {
+export function characterSpellcasting(resolution: GrantResolution): ReadonlyArray<SpellcastingInPlay> {
   return spellcastingInPlay({ rules: grantedRules(resolution), facts: resolution.facts });
 }

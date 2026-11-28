@@ -40,8 +40,8 @@ function as(name: PlayerCoreClass): CharacterBuilder {
 
 function repeatedBy(
   builder: CharacterBuilder,
-  values: readonly ChoiceValue[],
-): ReadonlyMap<ChoiceValue, ChoiceValue[]> {
+  values: ReadonlyArray<ChoiceValue>,
+): ReadonlyMap<ChoiceValue, Array<ChoiceValue>> {
   const { document } = builder.build();
   const repeats = repeatedTrainings(document, content, { slot: BACKGROUND, values });
 

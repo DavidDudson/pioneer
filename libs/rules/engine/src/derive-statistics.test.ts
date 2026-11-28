@@ -31,7 +31,7 @@ const fighter: StatisticInputs = StatisticInputsJson.parse({
   dexterityCap: 1,
 });
 
-function derive(...definitions: readonly StatisticDefinition[]): ReadonlyMap<Selector, StatisticResult> {
+function derive(...definitions: ReadonlyArray<StatisticDefinition>): ReadonlyMap<Selector, StatisticResult> {
   return deriveStatistics({ definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, fighter);
 }
 

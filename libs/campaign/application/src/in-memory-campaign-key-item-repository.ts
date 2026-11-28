@@ -12,15 +12,15 @@ function held(keyItem: CampaignKeyItem, holder: CharacterId | undefined): Campai
 
 /** Repository adapter for tests and local experiments. */
 export class InMemoryCampaignKeyItemRepository extends CampaignKeyItemRepository {
-  readonly #live = new Map<CampaignId, CampaignKeyItem[]>();
-  readonly #archived = new Map<CampaignId, CampaignKeyItem[]>();
+  readonly #live = new Map<CampaignId, Array<CampaignKeyItem>>();
+  readonly #archived = new Map<CampaignId, Array<CampaignKeyItem>>();
 
   /** The archived key items, with the holder they had, for tests to see the history stays. */
-  public archivedOf(campaignId: CampaignId): readonly CampaignKeyItem[] {
+  public archivedOf(campaignId: CampaignId): ReadonlyArray<CampaignKeyItem> {
     return this.#archived.get(campaignId) ?? [];
   }
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignKeyItem[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignKeyItem>> {
     return (this.#live.get(campaignId) ?? []).toSorted(
       (left, right) => Temporal.Instant.compare(left.createdAt, right.createdAt) || left.id.localeCompare(right.id),
     );

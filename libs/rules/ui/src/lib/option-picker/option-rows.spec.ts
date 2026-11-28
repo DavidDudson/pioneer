@@ -4,13 +4,14 @@ import { describe, expect, it } from 'vitest';
 import { optionColumns, optionLabel, optionOrder, optionValue } from './option-rows';
 import { shownRows } from './picker-rows';
 
-const options: readonly SelectOption<string>[] = [
+const options: ReadonlyArray<SelectOption<string>> = [
   { value: 'staff', label: 'Staff of Fire' },
   { value: 'wand', label: 'Wand of Frost' },
   { value: 'rod', label: 'Rod of Wonder' },
 ];
 
-const labels = (shown: readonly SelectOption<string>[]): readonly string[] => shown.map((row) => optionLabel(row));
+const labels = (shown: ReadonlyArray<SelectOption<string>>): ReadonlyArray<string> =>
+  shown.map((row) => optionLabel(row));
 
 describe(optionOrder, () => {
   it('searches the labels, whatever the case', () => {

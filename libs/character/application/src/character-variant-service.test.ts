@@ -34,7 +34,7 @@ const campaignName = AttachedCampaignName.parse('Tuesday Table');
 
 const BOOK = { kind: 'book', book: 'gm-core', page: 1 } as const;
 
-function variantPack(id: string, title: string, variants: readonly [slug: string, name: string][]): ContentPack {
+function variantPack(id: string, title: string, variants: ReadonlyArray<[slug: string, name: string]>): ContentPack {
   return ContentPack.define({
     manifest: { id, title, publisher: 'Pioneer', license: ContentLicense.Homebrew },
     ancestries: [],
@@ -77,14 +77,14 @@ function variantContent(): ContentSource {
 
 /** The homebrew packs a character uses, which a test changes. */
 class SwitchablePacks extends EffectivePacks {
-  public packs: readonly ContentPackId[] = [brew];
+  public packs: ReadonlyArray<ContentPackId> = [brew];
 
-  public override async of(): Promise<readonly ContentPackId[]> {
+  public override async of(): Promise<ReadonlyArray<ContentPackId>> {
     return this.packs;
   }
 }
 
-function names(rules: CharacterVariantRules['enabled']): readonly string[] {
+function names(rules: CharacterVariantRules['enabled']): ReadonlyArray<string> {
   return rules.map(({ name }) => String(name));
 }
 
@@ -116,14 +116,14 @@ describe('CharacterVariantService', () => {
     });
   });
 
-  async function enabledNames(): Promise<readonly string[]> {
+  async function enabledNames(): Promise<ReadonlyArray<string>> {
     const rules = await service.variantRules(amiri, kyra.id);
 
     return names(rules.enabled);
   }
 
   /** The ids of the variant rules the content resolves for Kyra, in id order. */
-  async function resolvedIds(content: CharacterContent): Promise<readonly VariantRuleId[]> {
+  async function resolvedIds(content: CharacterContent): Promise<ReadonlyArray<VariantRuleId>> {
     const entries = await content.variantRules(kyra);
 
     return entries.map(({ id }) => id).toSorted();

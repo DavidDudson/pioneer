@@ -46,14 +46,14 @@ export interface SlotPick {
  * What `slot` offers at the level `resolution` was read at; undefined when the character hasn't the slot there. The
  * slot's own pick is left out of the picks, so it is never answered: a `ChoiceSet` slot is among the open ones.
  */
-function offerAt(resolution: GrantResolution, slot: SlotKey): readonly OfferedOption[] | undefined {
+function offerAt(resolution: GrantResolution, slot: SlotKey): ReadonlyArray<OfferedOption> | undefined {
   const slots = [...resolution.rootSlots, ...resolution.open];
 
   return slots.find((each) => each.key === slot)?.options;
 }
 
 /** Every character level, highest first: most slots are open at 20th, so a valid pick is usually found at once. */
-function levelsDown(): Level[] {
+function levelsDown(): Array<Level> {
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + 1;
 
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MAX - index));
@@ -155,6 +155,51 @@ function featRefusal(document: CharacterDocument, content: SlotContent, pick: Sl
   return problem === undefined ? undefined : FEAT_REFUSALS[problem];
 }
 
+/** What a slot offers at each level over the other picks, by content, document and slot: read once, however many candidates ask. */
+type OfferedByLevelValue = ReadonlyArray<OfferedOption> | undefined;
+
+type OfferedByLevel = Map<Level, OfferedByLevelValue>;
+
+type OfferedBySlot = Map<SlotKey, OfferedByLevel>;
+
+const OFFERED = new WeakMap<SlotContent, WeakMap<CharacterDocument, OfferedBySlot>>();
+
+function offeredLevels(
+  document: CharacterDocument,
+  content: SlotContent,
+  slot: SlotKey,
+): Map<Level, ReadonlyArray<OfferedOption> | undefined> {
+  const byDocument = OFFERED.get(content) ?? new WeakMap<CharacterDocument, OfferedBySlot>();
+  OFFERED.set(content, byDocument);
+  const bySlot = byDocument.get(document) ?? new Map<SlotKey, OfferedByLevel>();
+  byDocument.set(document, bySlot);
+  const levels = bySlot.get(slot) ?? new Map<Level, ReadonlyArray<OfferedOption> | undefined>();
+  bySlot.set(slot, levels);
+
+  return levels;
+}
+
+/** What `slot` offers at each level over the character's other picks, each level read once for the same content and document. */
+function offeredAt(
+  document: CharacterDocument,
+  content: SlotContent,
+  slot: SlotKey,
+): (level: Level) => OfferedByLevelValue {
+  const levels = offeredLevels(document, content, slot);
+  const others = Object.entries(document.build.choices).filter(([key]) => key !== slot);
+  const picks = new Map(others.map(([key, value]) => [SlotKey.parse(key), value]));
+
+  return (level) => {
+    const known = levels.has(level)
+      ? levels.get(level)
+      : offerAt(resolveSlotsAt(level, slotContextOf(document, content, picks)), slot);
+
+    levels.set(level, known);
+
+    return known;
+  };
+}
+
 /**
  * Why `selection` can't go in `slot`, a root or `ChoiceSet` slot: it must be open at some level up to 20, and offer
  * `selection` there. The slot's own pick is left out, so it is checked as if empty; the other picks stay, so a slot an
@@ -165,12 +210,11 @@ function grantRefusal(
   content: SlotContent,
   { slot, selection }: SlotPick,
 ): SlotRefusal | undefined {
-  const others = Object.entries(document.build.choices).filter(([key]) => key !== slot);
-  const context = slotContextOf(document, content, new Map(others.map(([key, value]) => [SlotKey.parse(key), value])));
+  const offered = offeredAt(document, content, slot);
   let open = false;
 
   for (const level of levelsDown()) {
-    const options = offerAt(resolveSlotsAt(level, context), slot);
+    const options = offered(level);
 
     if (options?.some((option) => option.value === selection) === true) {
       return featRefusal(document, content, { slot, selection });
@@ -242,7 +286,7 @@ export function rootSlotOptions(
   document: CharacterDocument,
   content: SlotContent,
   slot: SlotKey,
-): readonly OfferedOption[] {
+): ReadonlyArray<OfferedOption> {
   const picks = picksOf(document);
   const { rootSlots } = resolveSlotsAt(Level.parse(document.level), slotContextOf(document, content, picks));
 

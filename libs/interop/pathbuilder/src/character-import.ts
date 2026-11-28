@@ -67,7 +67,7 @@ export const CharacterImportReport = z.object({
 export type CharacterImportReport = z.infer<typeof CharacterImportReport>;
 
 /** Why `row` was not carried over, or undefined when it was: matched, and not among the names its slot refused. */
-function unmatchedReason(row: ReportRow, notOffered: readonly ImportedName[]): UnmatchedReason | undefined {
+function unmatchedReason(row: ReportRow, notOffered: ReadonlyArray<ImportedName>): UnmatchedReason | undefined {
   if (row.status !== MatchStatus.Matched && row.kind === ImportKind.Language) {
     return UnmatchedReason.Custom;
   }
@@ -84,10 +84,10 @@ function unmatchedReason(row: ReportRow, notOffered: readonly ImportedName[]): U
 function unmatchedGroups(
   value: PathbuilderImport,
   lookup: ContentLookup,
-  notOffered: readonly ImportedName[],
-): UnmatchedGroup[] {
-  return buildImportReport(value.names, lookup).groups.flatMap((group): UnmatchedGroup[] => {
-    const names = group.rows.flatMap((row): UnmatchedName[] => {
+  notOffered: ReadonlyArray<ImportedName>,
+): Array<UnmatchedGroup> {
+  return buildImportReport(value.names, lookup).groups.flatMap((group): Array<UnmatchedGroup> => {
+    const names = group.rows.flatMap((row): Array<UnmatchedName> => {
       const reason = unmatchedReason(row, notOffered);
 
       return reason === undefined ? [] : [{ name: row.name, occurrences: row.occurrences, reason }];
@@ -102,11 +102,11 @@ function unmatchedGroups(
  * boosts no slot took, and where the derived modifiers part from Pathbuilder's.
  */
 export interface ImportOutcome {
-  readonly notOffered: readonly ImportedName[];
-  readonly unplacedBoosts: readonly UnplacedBoost[];
-  readonly skillGaps: readonly SkillGap[];
-  readonly spellGaps: readonly SpellGap[];
-  readonly modifierDifferences: readonly ModifierDifference[];
+  readonly notOffered: ReadonlyArray<ImportedName>;
+  readonly unplacedBoosts: ReadonlyArray<UnplacedBoost>;
+  readonly skillGaps: ReadonlyArray<SkillGap>;
+  readonly spellGaps: ReadonlyArray<SpellGap>;
+  readonly modifierDifferences: ReadonlyArray<ModifierDifference>;
   readonly discrepancies: DiscrepancyReport;
   readonly ruleBreaking: RuleBreakingCount;
   readonly ruleBreakingFeats: RuleBreakingCount;

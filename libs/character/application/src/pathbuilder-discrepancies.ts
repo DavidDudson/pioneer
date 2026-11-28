@@ -28,13 +28,13 @@ import { Proficiency, Selector as SelectorSchema, SPELL_RANK_MAX, SpellPreparati
 import type { ContentRegistry, Selector, VariantRuleEntry } from '@pioneer/rules/sdk';
 
 /** The totals the report compares. */
-const TOTALS: readonly Selector[] = [ARMOR_CLASS, MAX_HIT_POINTS, LAND_SPEED, ...DERIVED_TOTAL_STATISTICS];
+const TOTALS: ReadonlyArray<Selector> = [ARMOR_CLASS, MAX_HIT_POINTS, LAND_SPEED, ...DERIVED_TOTAL_STATISTICS];
 
 /** What the statistics are derived from beside the character: the registry, its slot content and the variants in force. */
 export interface DerivationContent {
   readonly registry: ContentRegistry;
   readonly slots: SlotContent;
-  readonly variants: readonly VariantRuleEntry[];
+  readonly variants: ReadonlyArray<VariantRuleEntry>;
 }
 
 function derived(statistics: ReadonlyMap<Selector, StatisticResult>, selector: Selector): number | undefined {
@@ -59,7 +59,7 @@ function rankDerivable(statistics: ReadonlyMap<Selector, StatisticResult>, selec
 }
 
 /** An entry's own slots per day, cantrips first and then each rank to the tenth: the order Pathbuilder's `perDay` is in. */
-function slotCounts({ slots }: SpellcastingInPlay): number[] {
+function slotCounts({ slots }: SpellcastingInPlay): Array<number> {
   return [
     slots.cantrips ?? 0,
     ...Array.from(
@@ -70,8 +70,8 @@ function slotCounts({ slots }: SpellcastingInPlay): number[] {
 }
 
 /** The slots per day of each entry that picks its spells, which a Pathbuilder caster that prepares or is spontaneous compares with. */
-function spellSlots(entries: readonly SpellcastingInPlay[]): PioneerSpellSlots[] {
-  return entries.flatMap((entry): PioneerSpellSlots[] =>
+function spellSlots(entries: ReadonlyArray<SpellcastingInPlay>): Array<PioneerSpellSlots> {
+  return entries.flatMap((entry): Array<PioneerSpellSlots> =>
     entry.preparation === SpellPreparation.Prepared || entry.preparation === SpellPreparation.Spontaneous
       ? [{ slug: entry.slug, preparation: entry.preparation, tradition: entry.tradition, counts: slotCounts(entry) }]
       : [],
@@ -81,7 +81,7 @@ function spellSlots(entries: readonly SpellcastingInPlay[]): PioneerSpellSlots[]
 /** What the engine derives for `character`, for the statistics it could derive: a failed or missing one is left out. */
 function pioneerValues(character: Character, { registry, slots, variants }: DerivationContent): PioneerValues {
   const { document } = character;
-  const inputs = characterStatisticInputs(registry, document, slots);
+  const inputs = characterStatisticInputs(registry, document, { slots, variants });
 
   const statistics = characterStatistics(document, {
     registry,
@@ -96,21 +96,21 @@ function pioneerValues(character: Character, { registry, slots, variants }: Deri
   return {
     spellSlots: spellSlots(characterSpellcasting(characterGrants(document, slots))),
     focusPoints: focus.entries.length === 0 ? undefined : focus.pool,
-    spellDcs: (inputs.spellcasting ?? []).flatMap(({ slug, tradition, attribute }): PioneerSpellDc[] => {
+    spellDcs: (inputs.spellcasting ?? []).flatMap(({ slug, tradition, attribute }): Array<PioneerSpellDc> => {
       const selector = SelectorSchema.parse(`spell-dc:${slug}`);
       const total = derived(statistics, selector);
 
       return total === undefined ? [] : [{ selector, tradition, attribute, total }];
     }),
     totals: new Map(
-      TOTALS.flatMap((selector): [Selector, number][] => {
+      TOTALS.flatMap((selector): Array<[Selector, number]> => {
         const total = derived(statistics, selector);
 
         return total === undefined ? [] : [[selector, total]];
       }),
     ),
     ranks: new Map(
-      [...Object.values(RANKED_STATISTICS), SPELLCASTING].flatMap((selector): [Selector, Proficiency][] =>
+      [...Object.values(RANKED_STATISTICS), SPELLCASTING].flatMap((selector): Array<[Selector, Proficiency]> =>
         rankDerivable(statistics, selector) ? [[selector, ranks.get(selector) ?? Proficiency.Untrained]] : [],
       ),
     ),

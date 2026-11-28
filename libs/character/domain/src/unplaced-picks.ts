@@ -46,7 +46,7 @@ export interface UnplacedPickBreak {
  * read: a heritage is flagged while the heritage slot is empty, a language while no slot pick is it. Nothing flagged
  * is stored beyond the build's list.
  */
-export function unplacedPickBreaks({ build }: Pick<CharacterDocument, 'build'>): readonly UnplacedPickBreak[] {
+export function unplacedPickBreaks({ build }: Pick<CharacterDocument, 'build'>): ReadonlyArray<UnplacedPickBreak> {
   const picked = new Set<string>(Object.values(build.choices));
 
   const heritage =

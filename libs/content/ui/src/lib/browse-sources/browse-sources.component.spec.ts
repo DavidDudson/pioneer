@@ -7,14 +7,14 @@ import type { BrowseSource } from '../browse-source';
 import { provideContentUiI18nTesting } from '../testing/provide-content-ui-testing';
 import { BrowseSources } from './browse-sources.component';
 
-const sources = (...books: readonly string[]): readonly BrowseSource[] =>
+const sources = (...books: ReadonlyArray<string>): ReadonlyArray<BrowseSource> =>
   books.map((book) => ({
     source: SourceRef.parse({ kind: 'book', book }),
     book: undefined,
     license: ContentLicense.Orc,
   }));
 
-async function render(items: readonly BrowseSource[]): Promise<HTMLElement> {
+async function render(items: ReadonlyArray<BrowseSource>): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRouter([]), ...provideContentUiI18nTesting()] });
   const fixture = TestBed.createComponent(BrowseSources);
   fixture.componentRef.setInput('sources', items);

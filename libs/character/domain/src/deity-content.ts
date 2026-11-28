@@ -19,13 +19,13 @@ export interface DeityRead {
 
 /** A deity as a picker row reads it: what the sheet shows, and where it is printed. */
 export interface DeityOption extends DeityRead {
-  readonly sources: readonly SourceRef[];
+  readonly sources: ReadonlyArray<SourceRef>;
 }
 
 /** What the sheet reads of deities: each loaded deity, and the name a base weapon goes by. */
 export interface DeityContent {
   /** Every loaded deity, by name, for a picker. */
-  readonly options: readonly DeityOption[];
+  readonly options: ReadonlyArray<DeityOption>;
   readonly deity: (id: ContentId) => DeityRead | undefined;
   /** The name of the first loaded weapon of that base (`dagger`); undefined when none is loaded. */
   readonly weaponName: (weapon: BaseWeapon) => ContentText | undefined;
@@ -46,7 +46,7 @@ function readDeities(registry: ContentRegistry): DeityContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 
   const deities = new Map(
-    entries.flatMap((entry): [ContentId, DeityOption][] =>
+    entries.flatMap((entry): Array<[ContentId, DeityOption]> =>
       entry.kind === ContentKind.Deity
         ? [
             [

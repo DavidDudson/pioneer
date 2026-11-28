@@ -17,9 +17,9 @@ export interface FeatPickerRow {
   readonly action: ActionKind;
   readonly rarity: Rarity;
   /** Its traits, each a chip that opens the trait's card. */
-  readonly traits: readonly Chip[];
-  readonly prerequisites: readonly PrerequisiteLine[];
-  readonly sources: readonly SourceRef[];
+  readonly traits: ReadonlyArray<Chip>;
+  readonly prerequisites: ReadonlyArray<PrerequisiteLine>;
+  readonly sources: ReadonlyArray<SourceRef>;
   /** Why the feat can't be picked, already translated; undefined when it can. */
   readonly disabledReason: string | undefined;
   /** Something to know before picking a feat that can be, already translated (it would train a skill again). */

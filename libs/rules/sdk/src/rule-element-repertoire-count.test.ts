@@ -6,7 +6,7 @@ import type { FieldIssue } from '@pioneer/shared/kernel';
 import type { JsonValue } from './json-bounds';
 import { RuleElement } from './rule-element';
 
-function issues(value: JsonValue): readonly FieldIssue[] {
+function issues(value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = RuleElement.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);

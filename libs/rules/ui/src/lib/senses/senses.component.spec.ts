@@ -8,8 +8,8 @@ import { DARKVISION, DWARF_SENSES, FORM_SENSES, SENSE_NAMES } from '../testing/s
 import { SensesView } from './senses.component';
 
 interface Inputs {
-  readonly senses: readonly SenseInPlay[] | undefined;
-  readonly own?: readonly SenseInPlay[];
+  readonly senses: ReadonlyArray<SenseInPlay> | undefined;
+  readonly own?: ReadonlyArray<SenseInPlay>;
   readonly names?: ReadonlyMap<ContentId, string>;
 }
 
@@ -34,7 +34,7 @@ async function render({ senses, own, names = SENSE_NAMES }: Inputs): Promise<HTM
   return fixture.nativeElement as HTMLElement;
 }
 
-function rowsOf(host: Element): readonly string[] {
+function rowsOf(host: Element): ReadonlyArray<string> {
   return [...host.querySelectorAll('[role="listitem"]')].map((item) =>
     [...item.querySelectorAll('fr-text, fr-badge')]
       .values()

@@ -13,9 +13,9 @@ export interface ContentChoice {
  */
 export interface KeyItemContentSearch {
   /** The items a key item can be, whose names match `words`, best first. */
-  readonly items: (words: string) => Promise<readonly ContentChoice[]>;
+  readonly items: (words: string) => Promise<ReadonlyArray<ContentChoice>>;
   /** The runes a key item can carry, whose names match `words`, best first. */
-  readonly runes: (words: string) => Promise<readonly ContentChoice[]>;
+  readonly runes: (words: string) => Promise<ReadonlyArray<ContentChoice>>;
 }
 
 /** Finds nothing, until the app provides a search. */

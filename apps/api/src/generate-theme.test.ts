@@ -23,11 +23,11 @@ function themed(theme: GenerationTheme, seed: number): Character {
 }
 
 /** The modifier of `attribute` of each character. */
-function modifiers(characters: readonly Character[], attribute: Attribute): readonly number[] {
+function modifiers(characters: ReadonlyArray<Character>, attribute: Attribute): ReadonlyArray<number> {
   return characters.map((each) => attributeModifiers(each.document, content.boosts).get(attribute));
 }
 
-function average(values: readonly number[]): number {
+function average(values: ReadonlyArray<number>): number {
   return values.reduce((sum, value) => sum + value, 0) / values.length;
 }
 

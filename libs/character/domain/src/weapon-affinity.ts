@@ -37,7 +37,7 @@ function trains(entry: GrantEntry, { category }: WeaponTheme): boolean {
 }
 
 /** The themed weapon, and the weapons on sale that fit it, whose traits a `MartialProficiency` may be gated on. */
-export type WeaponFit = WeaponTheme & { readonly fitting?: readonly ItemEntry[] | undefined };
+export type WeaponFit = WeaponTheme & { readonly fitting?: ReadonlyArray<ItemEntry> | undefined };
 
 /** What an `item:` roll option names: a weapon's category, group, base or trait. */
 type ItemFact = WeaponTheme['category'] | NonNullable<WeaponTheme['group']> | NonNullable<WeaponTheme['base']> | Trait;
@@ -47,7 +47,7 @@ function optionOf(namespace: 'category' | 'group' | 'base' | 'trait', value: Ite
 }
 
 /** The roll options of the themed weapon alone, for when no weapon on sale fits it. */
-function themeOptions({ category, group, base }: WeaponTheme): readonly RollOption[] {
+function themeOptions({ category, group, base }: WeaponTheme): ReadonlyArray<RollOption> {
   const options = [optionOf('category', category)];
 
   if (group !== undefined) {
@@ -62,7 +62,7 @@ function themeOptions({ category, group, base }: WeaponTheme): readonly RollOpti
 }
 
 /** The roll options of one weapon on sale: its category, group, base and traits. */
-function itemOptions(entry: ItemEntry): readonly RollOption[] {
+function itemOptions(entry: ItemEntry): ReadonlyArray<RollOption> {
   const traits = entry.traits.map((trait) => optionOf('trait', trait));
 
   if (entry.kind !== ContentKind.Weapon) {
@@ -80,9 +80,9 @@ function itemOptions(entry: ItemEntry): readonly RollOption[] {
 }
 
 /** The facts of each weapon the theme may be armed with, read once per set of weapons as content never changes. */
-const FACTS = new WeakMap<readonly ItemEntry[], readonly PredicateFacts[]>();
+const FACTS = new WeakMap<ReadonlyArray<ItemEntry>, ReadonlyArray<PredicateFacts>>();
 
-function factsOf({ fitting = [], ...theme }: WeaponFit, namespaces: NamespaceTable): readonly PredicateFacts[] {
+function factsOf({ fitting = [], ...theme }: WeaponFit, namespaces: NamespaceTable): ReadonlyArray<PredicateFacts> {
   const read =
     FACTS.get(fitting) ??
     (fitting.length === 0 ? [themeOptions(theme)] : fitting.map((each) => itemOptions(each))).map(

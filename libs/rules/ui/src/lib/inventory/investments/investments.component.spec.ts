@@ -7,7 +7,7 @@ import { provideRulesUiI18nTesting } from '../../testing/provide-rich-text-testi
 import type { Investment } from './investment';
 import { InvestmentsView } from './investments.component';
 
-async function render(investments: readonly Investment[] | undefined): Promise<HTMLElement> {
+async function render(investments: ReadonlyArray<Investment> | undefined): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture: ComponentFixture<InvestmentsView> = TestBed.createComponent(InvestmentsView);
   fixture.componentRef.setInput('investments', investments);
@@ -19,7 +19,7 @@ async function render(investments: readonly Investment[] | undefined): Promise<H
 }
 
 /** Each investment's texts: its name, then what it turns on. */
-function shown(host: HTMLElement): string[][] {
+function shown(host: HTMLElement): Array<Array<string>> {
   return [...host.querySelectorAll('fr-list-item')]
     .values()
     .filter((item) => item.parentElement?.closest('fr-list-item') === null)

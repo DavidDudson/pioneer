@@ -20,7 +20,7 @@ export interface FormPreviewRow {
 
 /** What the picked form changes against the character's own numbers; empty rows when it changes none of those shown. */
 export interface FormPreview {
-  readonly rows: readonly FormPreviewRow[];
+  readonly rows: ReadonlyArray<FormPreviewRow>;
 }
 
 /** Message keys the picker renders with, spelled out so the key check sees them. */
@@ -58,7 +58,7 @@ export class FormPicker {
   public readonly spell = input.required<string>();
   /** Whether it is an action used rather than a spell cast, which words the title and the button. */
   public readonly action = input(false);
-  public readonly options = input.required<readonly FormPickerOption[]>();
+  public readonly options = input.required<ReadonlyArray<FormPickerOption>>();
   /** The form picked, by its value; undefined until one is. */
   public readonly picked = model<string | undefined>(undefined);
   /** What the picked form changes; undefined until one is picked. */
@@ -71,7 +71,7 @@ export class FormPicker {
 
   protected readonly Message = FormPickerMessage;
 
-  protected readonly selectOptions = computed((): readonly SelectOption<string>[] =>
+  protected readonly selectOptions = computed((): ReadonlyArray<SelectOption<string>> =>
     this.options().map(({ value, label }) => ({ value, label })),
   );
 }

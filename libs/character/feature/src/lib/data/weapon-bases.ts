@@ -20,10 +20,10 @@ export interface WeaponBase {
  * The weapon bases `content` holds (longsword, shortbow), each once and named by the first weapon that has it, by name.
  * A specific magic weapon is left out: it is a base with its runes already on.
  */
-export function weaponBases(content: ItemContent): readonly WeaponBase[] {
+export function weaponBases(content: ItemContent): ReadonlyArray<WeaponBase> {
   const bases = new Map<BaseWeapon, WeaponBase>();
 
-  const named = [...content.values()].flatMap((entry): WeaponBase[] => {
+  const named = [...content.values()].flatMap((entry): Array<WeaponBase> => {
     const isBare = entry.kind === ContentKind.Weapon && entry.data.runes === undefined;
     const { baseItem: base, category, group } = isBare ? entry.data : {};
 
@@ -48,7 +48,7 @@ export class WeaponBaseOptions {
   readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, [ContentKind.Weapon]));
 
   /** Every weapon base, by name; none while the content loads. */
-  public readonly bases = computed((): readonly WeaponBase[] => {
+  public readonly bases = computed((): ReadonlyArray<WeaponBase> => {
     const registry = this.#registry.data();
 
     return registry === undefined ? [] : weaponBases(itemContent(registry));

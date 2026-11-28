@@ -37,7 +37,7 @@ interface ShownShield {
   readonly canBlock: boolean;
 }
 
-const SHIELD_KINDS: readonly ContentKind[] = ACTION_CONTENT_KINDS;
+const SHIELD_KINDS: ReadonlyArray<ContentKind> = ACTION_CONTENT_KINDS;
 
 /**
  * The shields the open character holds (#505), each with the Hit Points it has left, its Hardness and whether it is
@@ -68,7 +68,7 @@ export class SheetShields {
   /** What the shards of the shield that was just broken deal, until the next block; empty when none broke. */
   protected readonly shardsDue = signal('');
 
-  protected readonly shields = computed((): readonly ShownShield[] => {
+  protected readonly shields = computed((): ReadonlyArray<ShownShield> => {
     const registry = this.registry.data();
     const character = this.#characters.selected();
     const read = this.#play.play.data();

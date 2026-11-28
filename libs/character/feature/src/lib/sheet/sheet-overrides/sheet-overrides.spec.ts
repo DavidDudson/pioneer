@@ -60,7 +60,7 @@ function fakeDialog(): void {
   });
 }
 
-async function openWith(overrides: readonly JsonObject[]): Promise<HTMLElement> {
+async function openWith(overrides: ReadonlyArray<JsonObject>): Promise<HTMLElement> {
   fakeDialog();
   const { root } = await openSheet({ ...FIGHTER, overrides }, { authors: NAMES });
   await openConfiguration(root);

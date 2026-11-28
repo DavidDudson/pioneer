@@ -69,7 +69,7 @@ function sword(reserved: boolean, held = false): InventoryItem {
 }
 
 /** The registry's spells, with `id` taking `cast` to cast. */
-function castingAs(id: typeof FIREBALL, cast: readonly CastActions[]): SpellContent {
+function castingAs(id: typeof FIREBALL, cast: ReadonlyArray<CastActions>): SpellContent {
   const option = spells.anySpell(id);
 
   return {

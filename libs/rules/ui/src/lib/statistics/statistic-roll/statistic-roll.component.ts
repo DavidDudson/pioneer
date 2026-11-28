@@ -85,7 +85,7 @@ export class StatisticRoll {
     return this.cues().conditional ? this.#i18n.translate(RollEffectMessage.Conditional, { label: name }) : name;
   });
   /** Each fortune, misfortune and degree adjustment that reaches the check, worded for the popover. */
-  protected readonly effects = computed<readonly string[]>(() => {
+  protected readonly effects = computed<ReadonlyArray<string>>(() => {
     if (this.flat()) {
       return [];
     }

@@ -3,7 +3,8 @@
  * backlogs (`content/import/<pack>.json`): entries, entries with every rule element translated, entries with nothing
  * left in the backlog, entries with a page number and with an AoN link, and entries the import left out. Sources
  * ("Books and source references"): per registered book, how many entries cite it and which still lack a page.
- * Triggers (play-and-campaigns.md, "Triggered abilities"): which actions have a trigger but no `triggerEvent`.
+ * Triggers (play-and-campaigns.md, "Triggered abilities"): which actions have a trigger but no `triggerEvent`,
+ * grouped by wording, most common first.
  * Prerequisites (content-model.md, "Prerequisites"): which feats have prerequisites but no `prerequisitePredicate`.
  * Reports only; never fails. CI runs it on pull requests touching `content/`.
  */
@@ -23,6 +24,7 @@ import {
 } from '@pioneer/rules/catalog';
 import type { BookCoverage, PrerequisiteCoverage, StaffCoverage, TriggerCoverage } from '@pioneer/rules/catalog';
 import { ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentId, ContentText } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 
 import { formatCoverage, formatCreatureCoverage } from './content-import/coverage-table.ts';
@@ -33,7 +35,7 @@ const IMPORTS = path.join(ROOT, 'content', 'import');
 /** How many entries a list names before it only counts the rest. */
 const LISTED = 20;
 
-function formatList(entries: readonly string[]): string[] {
+function formatList(entries: ReadonlyArray<string>): Array<string> {
   const rest = entries.length - LISTED;
 
   return [...entries.slice(0, LISTED).map((entry) => `  ${entry}`), ...(rest > 0 ? [`  … ${rest} more`] : [])];
@@ -51,10 +53,11 @@ function formatPrerequisites({ withPrerequisites, withoutPredicate }: Prerequisi
   return [heading, ...formatList(withoutPredicate)].join('\n');
 }
 
-function formatTriggers({ triggered, withoutEvent }: TriggerCoverage): string {
+function formatTriggers({ triggered, withoutEvent, unmatchedPhrasings }: TriggerCoverage): string {
   const heading = `triggers: ${triggered} actions with a trigger, ${withoutEvent.length} without a trigger event`;
+  const phrasings = unmatchedPhrasings.map(({ phrasing, count }) => `${count}\u00D7 ${phrasing}`);
 
-  return [heading, ...formatList(withoutEvent)].join('\n');
+  return [heading, ...formatList(phrasings)].join('\n');
 }
 
 function formatStaves({ staves, withoutSpells }: StaffCoverage): string {
@@ -63,7 +66,7 @@ function formatStaves({ staves, withoutSpells }: StaffCoverage): string {
   return [heading, ...formatList(withoutSpells)].join('\n');
 }
 
-async function backlogs(): Promise<readonly BacklogItem[]> {
+async function backlogs(): Promise<ReadonlyArray<BacklogItem>> {
   const files = await Array.fromAsync(new Glob('*.json').scan({ cwd: IMPORTS, absolute: true }));
   const imports = await Promise.all(files.map(async (file) => ImportFile.parse(await Bun.file(file).json())));
 
@@ -97,7 +100,9 @@ const coverage = sourceCoverage(
 
 console.log(coverage.map((book) => formatBook(book)).join('\n'));
 
-console.log(formatTriggers(triggerCoverage(entries)));
+const entryNames = new Map<ContentId, ContentText>(entries.map((entry) => [entry.id, entry.name]));
+
+console.log(formatTriggers(triggerCoverage(entries, entryNames)));
 
 console.log(formatPrerequisites(prerequisiteCoverage(entries)));
 

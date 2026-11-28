@@ -11,10 +11,10 @@ import type { ClassPickerRow, KeyAttributePickerRow, SubclassPickerRow } from '.
 const SIGNED = new Intl.NumberFormat(undefined, { signDisplay: 'exceptZero' });
 
 /** The name column every class picker starts with. */
-function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>, say: Say): OriginTableSchema<TRow> {
+function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>): OriginTableSchema<TRow> {
   return schema.addText({
     id: ClassPickerColumn.Name,
-    header: say(ClassPickerMessage.Name),
+    header: ClassPickerMessage.Name,
     value: (row) => row.name,
     width: 'md',
   });
@@ -22,23 +22,23 @@ function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>, say: S
 
 /** What a class is: its name, key attribute, hit points and skills. */
 function bodyColumns(say: Say): OriginTableSchema<ClassPickerRow> {
-  return withName(new OriginTableSchema<ClassPickerRow>(), say)
+  return withName(new OriginTableSchema<ClassPickerRow>())
     .addBoosts({
       id: 'keyAttribute',
-      header: say(ClassPickerMessage.KeyAttribute),
+      header: ClassPickerMessage.KeyAttribute,
       sortable: false,
       value: (row) => [row.keyAttribute],
       width: 'md',
     })
     .addFacts({
       id: ClassPickerColumn.HitPoints,
-      header: say(ClassPickerMessage.HitPoints),
+      header: ClassPickerMessage.HitPoints,
       value: (row) => chips([say(ClassPickerMessage.HitPointsValue, { value: row.hitPoints })]),
       width: 'sm',
     })
     .addFacts({
       id: 'skills',
-      header: say(ClassPickerMessage.Skills),
+      header: ClassPickerMessage.Skills,
       sortable: false,
       value: (row) => chips([...row.skills, say(ClassPickerMessage.AdditionalSkills, { count: row.additionalSkills })]),
       width: 'md',
@@ -46,32 +46,32 @@ function bodyColumns(say: Say): OriginTableSchema<ClassPickerRow> {
 }
 
 /** The columns of a class picker: what it is, then its tradition and starting ranks, then where it comes from. */
-export function classPickerColumns(say: Say): readonly TableColumn<ClassPickerRow>[] {
+export function classPickerColumns(say: Say): ReadonlyArray<TableColumn<ClassPickerRow>> {
   return bodyColumns(say)
     .addFacts({
       id: 'tradition',
-      header: say(ClassPickerMessage.Tradition),
+      header: ClassPickerMessage.Tradition,
       sortable: false,
       value: (row) => chips(row.traditions),
       width: 'sm',
     })
     .addFacts({
       id: 'proficiencies',
-      header: say(ClassPickerMessage.Proficiencies),
+      header: ClassPickerMessage.Proficiencies,
       sortable: false,
       value: (row) => chips(row.proficiencies),
       width: 'lg',
     })
     .addFacts({
       id: 'notes',
-      header: say(ClassPickerMessage.Notes),
+      header: ClassPickerMessage.Notes,
       sortable: false,
       value: (row) => chips(row.note === undefined ? [] : [row.note]),
       width: 'md',
     })
     .addSource({
       id: 'source',
-      header: say(ClassPickerMessage.Source),
+      header: ClassPickerMessage.Source,
       sortable: false,
       value: (row) => row.sources,
       width: 'md',
@@ -80,25 +80,25 @@ export function classPickerColumns(say: Say): readonly TableColumn<ClassPickerRo
 }
 
 /** The columns of a subclass picker: what it grants. */
-export function subclassPickerColumns(say: Say): readonly TableColumn<SubclassPickerRow>[] {
-  return withName(new OriginTableSchema<SubclassPickerRow>(), say)
+export function subclassPickerColumns(): ReadonlyArray<TableColumn<SubclassPickerRow>> {
+  return withName(new OriginTableSchema<SubclassPickerRow>())
     .addSummary({
       id: 'summary',
-      header: say(ClassPickerMessage.Summary),
+      header: ClassPickerMessage.Summary,
       sortable: false,
       value: (row) => row.summary,
       width: 'lg',
     })
     .addFacts({
       id: 'notes',
-      header: say(ClassPickerMessage.Notes),
+      header: ClassPickerMessage.Notes,
       sortable: false,
       value: (row) => chips(row.note === undefined ? [] : [row.note]),
       width: 'md',
     })
     .addSource({
       id: 'source',
-      header: say(ClassPickerMessage.Source),
+      header: ClassPickerMessage.Source,
       sortable: false,
       value: (row) => row.sources,
       width: 'md',
@@ -107,17 +107,17 @@ export function subclassPickerColumns(say: Say): readonly TableColumn<SubclassPi
 }
 
 /** The columns of a key attribute picker: the attribute, then the character's modifier and score in it. */
-export function keyAttributePickerColumns(say: Say): readonly TableColumn<KeyAttributePickerRow>[] {
-  return withName(new OriginTableSchema<KeyAttributePickerRow>(), say)
+export function keyAttributePickerColumns(): ReadonlyArray<TableColumn<KeyAttributePickerRow>> {
+  return withName(new OriginTableSchema<KeyAttributePickerRow>())
     .addFacts({
       id: ClassPickerColumn.Modifier,
-      header: say(ClassPickerMessage.Modifier),
+      header: ClassPickerMessage.Modifier,
       value: (row) => chips([SIGNED.format(row.modifier)]),
       width: 'sm',
     })
     .addFacts({
       id: 'score',
-      header: say(ClassPickerMessage.Score),
+      header: ClassPickerMessage.Score,
       sortable: false,
       value: (row) => chips([String(row.score)]),
       width: 'sm',

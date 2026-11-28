@@ -1,4 +1,5 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
+import { capitalise } from '@pioneer/shared/utils';
 
 import { focusEntry, SORCERER } from './focus-plan';
 import type { Grant, Planned } from './focus-plan';
@@ -11,7 +12,7 @@ import type { Fields } from './translate-choice-reads';
 export interface Bloodline {
   readonly slug: string;
   readonly name: string;
-  readonly traditions: readonly string[];
+  readonly traditions: ReadonlyArray<string>;
   readonly initial: string;
   readonly advanced: string;
   readonly greater: string;
@@ -20,17 +21,20 @@ export interface Bloodline {
 const DRACONIC = 'bloodline-draconic';
 const DRACONIC_TRADITIONS = ['arcane', 'divine', 'occult', 'primal'];
 
-function titled(word: string): string {
-  return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
-}
-
 function of(slug: string, tradition: string, spells: readonly [string, string, string]): Bloodline {
   const [initial, advanced, greater] = spells;
 
-  return { slug, name: titled(slug.replace('bloodline-', '')), traditions: [tradition], initial, advanced, greater };
+  return {
+    slug,
+    name: capitalise(slug.replace('bloodline-', '')),
+    traditions: [tradition],
+    initial,
+    advanced,
+    greater,
+  };
 }
 
-export const BLOODLINES: readonly Bloodline[] = [
+export const BLOODLINES: ReadonlyArray<Bloodline> = [
   of('bloodline-aberrant', 'occult', ['tentacular-limbs', 'aberrant-whispers', 'unusual-anatomy']),
   of('bloodline-angelic', 'divine', ['angelic-halo', 'angelic-wings', 'celestial-brand']),
   of('bloodline-demonic', 'divine', ['gluttons-jaws', 'swamp-of-sloth', 'chthonian-wrath']),
@@ -50,11 +54,11 @@ const SORCERER_DEDICATION = 'feat:sorcerer-dedication';
 const CROSSBLOODED = { not: 'parent:granter:slug:crossblooded-evolution' };
 
 /** The sorcerer's focus entry in `tradition`, holding while `predicate` does. */
-function entryOf(tradition: string, predicate: readonly unknown[]): Fields {
+function entryOf(tradition: string, predicate: ReadonlyArray<unknown>): Fields {
   return { ...focusEntry({ slug: SORCERER, tradition, attribute: 'cha' }), predicate };
 }
 
-function grant(spell: string, predicate: readonly unknown[]): Grant {
+function grant(spell: string, predicate: ReadonlyArray<unknown>): Grant {
   return { entry: SORCERER, spells: [spell], predicate };
 }
 
@@ -83,15 +87,17 @@ interface Offered {
 }
 
 /** A draconic bloodline is offered once for each exemplar, as the exemplar sets the tradition. */
-const OFFERED: readonly Offered[] = BLOODLINES.flatMap(({ slug, name, traditions, initial }): readonly Offered[] => {
-  const value = slug.replace('bloodline-', '');
+const OFFERED: ReadonlyArray<Offered> = BLOODLINES.flatMap(
+  ({ slug, name, traditions, initial }): ReadonlyArray<Offered> => {
+    const value = slug.replace('bloodline-', '');
 
-  return traditions.map((tradition): Offered =>
-    traditions.length === 1
-      ? { value, label: name, tradition, initial }
-      : { value: `${value}-${tradition}`, label: `${name} (${titled(tradition)})`, tradition, initial },
-  );
-});
+    return traditions.map((tradition): Offered =>
+      traditions.length === 1
+        ? { value, label: name, tradition, initial }
+        : { value: `${value}-${tradition}`, label: `${name} (${capitalise(tradition)})`, tradition, initial },
+    );
+  },
+);
 
 /**
  * Sorcerer Dedication: the bloodline the archetype picks, a draconic one with its exemplar, which grants no ability of

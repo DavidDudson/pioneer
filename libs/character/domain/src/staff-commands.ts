@@ -1,5 +1,6 @@
 import { ContentId, SpellPreparation, SpellRank, STAFF_CANTRIP } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { clamp } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import type { CharacterLevel } from './character-fields';
@@ -184,7 +185,7 @@ function chargesSpentAfter(
 ): ResourceCount {
   const next = casting ? known.spent + cost : known.spent - cost;
 
-  return ResourceCount.parse(Math.min(Math.max(next, 0), known.max));
+  return ResourceCount.parse(clamp(next, 0, known.max));
 }
 
 /** The resources after `command` spent, or refunded, `cost` charges and the slot it names; the command must pass `staffCastProblem`. */
@@ -224,7 +225,11 @@ function withSlot(command: StaffCommand, slot: SlotCountKey): StaffCommand {
  * each slot of the spell's rank or higher that is left, each with 1 charge. Empty when the spell can't be cast or paid
  * for. The options are commands, so the sheet previews exactly what the server would accept.
  */
-export function staffCastOptions(source: StaffSource, spell: ContentId, slots: StaffSlots): readonly StaffCommand[] {
+export function staffCastOptions(
+  source: StaffSource,
+  spell: ContentId,
+  slots: StaffSlots,
+): ReadonlyArray<StaffCommand> {
   const held = source.spells.find(({ id }) => id === spell);
 
   if (held === undefined) {

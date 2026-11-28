@@ -107,18 +107,18 @@ export class SheetCustomEffectForm {
   readonly #format = inject(LocaleFormat);
 
   protected readonly Message = Message;
-  protected readonly types: readonly SelectOption<OverrideModifierType>[] = OverrideModifierType.options.map(
+  protected readonly types: ReadonlyArray<SelectOption<OverrideModifierType>> = OverrideModifierType.options.map(
     (type): SelectOption<OverrideModifierType> => ({
       value: type,
       label: this.#i18n.translate(MODIFIER_TYPE_MESSAGES[type]),
     }),
   );
-  protected readonly modes: readonly SelectOption<OverrideMode>[] = [
+  protected readonly modes: ReadonlyArray<SelectOption<OverrideMode>> = [
     { value: OverrideMode.Adjust, label: this.#i18n.translate(Message.ModeAdjust) },
     { value: OverrideMode.Set, label: this.#i18n.translate(Message.ModeSet) },
   ];
   /** The statistics a line can aim at, named as the sheet names them. */
-  protected readonly statistics = computed((): readonly SelectOption<string>[] => {
+  protected readonly statistics = computed((): ReadonlyArray<SelectOption<string>> => {
     const registry = this.#sheet.engine();
     const character = this.#sheet.character();
 
@@ -136,7 +136,7 @@ export class SheetCustomEffectForm {
 
   protected readonly model = signal<EffectModel>(EMPTY);
   /** The lines added so far. */
-  protected readonly lines = signal<readonly CustomEffectLine[]>([]);
+  protected readonly lines = signal<ReadonlyArray<CustomEffectLine>>([]);
   /** Each added line in words, beside the button that takes it back out. */
   protected readonly shownLines = computed(() =>
     this.lines().map((line) => ({

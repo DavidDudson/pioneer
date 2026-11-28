@@ -16,7 +16,7 @@ function valid(result: FiltersCheck): ValidFilters {
 }
 
 /** A facet's counts as `value:count`, in the order the result lists them. */
-function counts(result: FiltersCheck, id: string): string[] {
+function counts(result: FiltersCheck, id: string): Array<string> {
   const facet = valid(result).counts.find((each) => each.facet.id === id);
 
   return (facet?.values ?? []).map(({ value, count }) => `${value}:${count}`);
@@ -26,7 +26,7 @@ describe(checkFilters, () => {
   it('keeps the example entries the example query asks for', () => {
     const result = valid(checkFilters(EXAMPLE_FILTER_ENTRIES, EXAMPLE_FILTER_QUERY));
 
-    expect(result.total).toBe(31);
+    expect(result.total).toBe(32);
     expect(result.kept.map((entry) => entry.name)).toContain('Longsword');
     expect(result.kept.map((entry) => entry.name)).not.toContain('Fireball');
     expect(result.query).toBe(EXAMPLE_FILTER_QUERY);

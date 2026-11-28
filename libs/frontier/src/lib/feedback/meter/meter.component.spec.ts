@@ -36,7 +36,7 @@ function number(host: HTMLElement): HTMLElement | null | undefined {
 }
 
 /** The segment blocks, when drawn as segments. */
-function segments(host: HTMLElement): HTMLElement[] {
+function segments(host: HTMLElement): Array<HTMLElement> {
   return [...host.querySelectorAll<HTMLElement>(':scope > span[aria-hidden] > span')];
 }
 

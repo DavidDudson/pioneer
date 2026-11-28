@@ -12,7 +12,6 @@ import {
 import type { Character, CharacterDocument, SlotContent, UnplacedPicks } from '@pioneer/character/domain';
 import {
   ImportKind,
-  matchKey,
   PathbuilderProblem,
   placeBoosts,
   placeFeats,
@@ -39,6 +38,7 @@ import { AncestryId, ChoiceValue, ContentId, VariantStructure } from '@pioneer/r
 import type { ContentRegistry, SlotKey, VariantRuleEntry } from '@pioneer/rules/sdk';
 import { fieldIssues, message, ValidationError } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
+import { foldName } from '@pioneer/shared/utils';
 
 import { keptPicks } from './pathbuilder-unplaced';
 
@@ -96,22 +96,20 @@ export function noDedicationLockVariant(
 /** The label Pathbuilder gives the feat slots of Free Archetype: "Free Archetype 2", "Free Archetype 4"…. */
 const FREE_ARCHETYPE_LABEL = 'free archetype';
 
+const FREE_ARCHETYPE_SLUG = 'variant-rule:free-archetype';
+
 /**
  * The Free Archetype variant rule an export with feats in "Free Archetype N" slots needs, from the loaded packs;
- * undefined for an export without any, or content that doesn't define the variant. `extraSlots` is Free Archetype's
- * alone among the packs, so the structure picks it out.
+ * undefined for an export without any, or content that doesn't define the variant. Ancestry Paragon also adds slots
+ * (`extraSlots`), so the slug picks Free Archetype out.
  */
 export function freeArchetypeVariant(
   value: PathbuilderImport,
   registry: ContentRegistry,
 ): VariantRuleEntry | undefined {
-  const free = value.feats.some(({ slot }) => slot !== undefined && matchKey(slot).startsWith(FREE_ARCHETYPE_LABEL));
+  const free = value.feats.some(({ slot }) => slot !== undefined && foldName(slot).startsWith(FREE_ARCHETYPE_LABEL));
 
-  return free
-    ? registry
-        .variantRules()
-        .find((entry) => entry.definition.structure?.includes(VariantStructure.ExtraSlots) === true)
-    : undefined;
+  return free ? registry.variantRules().find((entry) => entry.definition.slug === FREE_ARCHETYPE_SLUG) : undefined;
 }
 
 /**
@@ -121,7 +119,7 @@ export function freeArchetypeVariant(
 function rootChoices(value: PathbuilderImport, { lookup, slots }: ImportContent): BoostChoices {
   const [first, second] = value.identity.classes;
 
-  const picks: [SlotKey, ImportKind, PathbuilderName | undefined][] = [
+  const picks: Array<[SlotKey, ImportKind, PathbuilderName | undefined]> = [
     [BACKGROUND_SLOT, ImportKind.Background, value.identity.background],
     [CLASS_SLOT, ImportKind.Class, first],
     [SECOND_CLASS_SLOT, ImportKind.Class, hasSecondClass(slots.rootSlots) ? second : undefined],
@@ -180,7 +178,10 @@ function heritageChoice(
  * The second class an export names that matched loaded content but has no slot to go in, because the character does
  * not use Dual Class: named as not offered.
  */
-function secondClassNotOffered(value: PathbuilderImport, { lookup, slots }: ImportContent): readonly ImportedName[] {
+function secondClassNotOffered(
+  value: PathbuilderImport,
+  { lookup, slots }: ImportContent,
+): ReadonlyArray<ImportedName> {
   const [, name] = value.identity.classes;
   const matched = name !== undefined && lookup.resolve(ImportKind.Class, name) !== undefined;
 
@@ -192,10 +193,10 @@ export interface ImportedCharacter {
   /** Whether the second class is picked, so the character needs the Dual Class variant rule. */
   readonly dualClass: boolean;
   readonly character: Character;
-  readonly unplaced: readonly UnplacedBoost[];
-  readonly skillGaps: readonly SkillGap[];
-  readonly spellGaps: readonly SpellGap[];
-  readonly notOffered: readonly ImportedName[];
+  readonly unplaced: ReadonlyArray<UnplacedBoost>;
+  readonly skillGaps: ReadonlyArray<SkillGap>;
+  readonly spellGaps: ReadonlyArray<SpellGap>;
+  readonly notOffered: ReadonlyArray<ImportedName>;
 }
 
 /** What the feat, skill and language slots took from an export, on top of the choices already made. */
@@ -206,8 +207,8 @@ interface SlotFills {
    * The Lores no content defines that the skill slots took come with it, for the names the export gave them.
    */
   readonly unplaced: UnplacedPicks;
-  readonly skillGaps: readonly SkillGap[];
-  readonly spellGaps: readonly SpellGap[];
+  readonly skillGaps: ReadonlyArray<SkillGap>;
+  readonly spellGaps: ReadonlyArray<SpellGap>;
 }
 
 /** The character `create` makes, and the choices already made in it. */
@@ -217,7 +218,7 @@ interface Build {
 }
 
 /** The names of the `kind` an export lists. */
-function namesOf({ names }: PathbuilderImport, kind: ImportKind): PathbuilderName[] {
+function namesOf({ names }: PathbuilderImport, kind: ImportKind): Array<PathbuilderName> {
   return names.filter((each) => each.kind === kind).map(({ name }) => name);
 }
 
@@ -284,7 +285,7 @@ export function importedCharacter(value: PathbuilderImport, content: ImportConte
 }
 
 /** The problem first, as the issue the UI shows, then the schema issues that explain it. */
-function readIssues({ problem, issues }: PathbuilderReadFailure): FieldIssue[] {
+function readIssues({ problem, issues }: PathbuilderReadFailure): Array<FieldIssue> {
   return [{ path: [], message: message(PROBLEM_MESSAGES[problem]) }, ...fieldIssues(issues)];
 }
 

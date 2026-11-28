@@ -20,14 +20,14 @@ export interface SlotPickerFacts {
   readonly level: number | undefined;
   readonly rarity: Rarity;
   /** Its traits, each a chip that opens the trait's card. */
-  readonly traits: readonly Chip[];
+  readonly traits: ReadonlyArray<Chip>;
   readonly summary: RichText;
   /** From a pre-remaster book, so the table says so beside its traits. */
   readonly legacy?: true;
   /** From a pack the character no longer has in force, so the table says so beside its traits. */
   readonly unsupported?: true;
   /** The names of the entries that replace it, so the table says so beside its traits. */
-  readonly replacedBy?: readonly string[];
+  readonly replacedBy?: ReadonlyArray<string>;
 }
 
 /** One option of a slot that lists its options: its name, and the source of its content entry when it has one. */
@@ -35,7 +35,7 @@ export interface SlotPickerRow {
   /** The option's value, which is what is picked. */
   readonly id: string;
   readonly name: string;
-  readonly sources: readonly SourceRef[];
+  readonly sources: ReadonlyArray<SourceRef>;
   /** What its content entry says of itself; undefined for an option no entry stands behind. */
   readonly facts: SlotPickerFacts | undefined;
   readonly disabledReason: string | undefined;
@@ -79,6 +79,6 @@ export interface LanguagePickerRow {
   readonly script: string | undefined;
   /** The character knows it already. */
   readonly known: boolean;
-  readonly sources: readonly SourceRef[];
+  readonly sources: ReadonlyArray<SourceRef>;
   readonly disabledReason: string | undefined;
 }

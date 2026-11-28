@@ -27,7 +27,7 @@ function languageSubject({ level, feature }: LanguageSlot): SlotSubject {
  * Each language slot up to 20th level, read in order (#470): a pick is invalid when the character knows the language
  * already, or it is rarer than the slot offers; one naming no loaded language reads as any other pick does.
  */
-export function languageStatuses(document: CharacterDocument, content: SlotContent): CharacterSlot[] {
+export function languageStatuses(document: CharacterDocument, content: SlotContent): Array<CharacterSlot> {
   const level = Level.parse(document.level);
 
   return languageSlots(document, languageReads(document, content)).map((slot) => {

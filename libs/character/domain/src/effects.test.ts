@@ -211,7 +211,7 @@ function counterOf(counter: JsonObject): EffectBadgeTerms | undefined {
 }
 
 describe('effect problems', () => {
-  const held: readonly ActiveEffect[] = [ActiveEffectSchema.parse({ id: FIRST, effect: STANCE, badge: 1 })];
+  const held: ReadonlyArray<ActiveEffect> = [ActiveEffectSchema.parse({ id: FIRST, effect: STANCE, badge: 1 })];
 
   test('an effect the content lacks is unknown', () => {
     expect(effectProblem([], apply(FIRST, MISSING), CONTENT)).toBe(EffectProblem.Unknown);

@@ -8,7 +8,7 @@ import { Stack, StackAlign, StackJustify } from './stack.component';
 interface Rendered {
   readonly host: HTMLElement;
   readonly flex: Element;
-  readonly items: readonly Element[];
+  readonly items: ReadonlyArray<Element>;
 }
 
 /** Renders `fr-stack` with two spans projected and returns its host, inner element and the spans. */

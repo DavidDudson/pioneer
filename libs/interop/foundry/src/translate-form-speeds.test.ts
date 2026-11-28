@@ -6,7 +6,7 @@ import type { DocumentFixture } from './testing/import-fixtures';
 import { FOUNDRY_NULL } from './testing/kind-fixtures';
 
 /** A Player Core heritage with `rules`, shaped as `pf2e-8.6.0` has it. */
-function heritage(rules: readonly object[]): DocumentFixture {
+function heritage(rules: ReadonlyArray<object>): DocumentFixture {
   return {
     id: 'hErItAgE00000000',
     name: 'Cavern Elf',
@@ -16,7 +16,7 @@ function heritage(rules: readonly object[]): DocumentFixture {
 }
 
 interface Form {
-  readonly brackets: readonly unknown[];
+  readonly brackets: ReadonlyArray<unknown>;
 }
 
 const DRAGON_FORM = {
@@ -32,9 +32,9 @@ const FLY_BONUS = {
   value: 'match(when(gte(@item.level, 8), 20))',
 };
 
-function formRules(rules: readonly object[]): Form[] {
+function formRules(rules: ReadonlyArray<object>): Array<Form> {
   // SAFETY: rulesIn() returns the translated rules of the heritage, each of which is a form rule in this test.
-  return rulesIn(translate([heritage(rules)]), 'cavern-elf') as Form[];
+  return rulesIn(translate([heritage(rules)]), 'cavern-elf') as Array<Form>;
 }
 
 describe('translateRules: a speed FlatModifier from an item level', () => {

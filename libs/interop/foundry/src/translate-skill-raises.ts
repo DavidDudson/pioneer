@@ -134,7 +134,7 @@ function skillOfPath(value: unknown): string | undefined {
 }
 
 /** The flag of a `ChoiceSet` whose every choice is a skill's rank path, with the skill each names. */
-function skillPathPicks(raws: readonly unknown[]): ReadonlySet<string> {
+function skillPathPicks(raws: ReadonlyArray<unknown>): ReadonlySet<string> {
   const found = new Set<string>();
 
   for (const raw of raws) {
@@ -144,7 +144,7 @@ function skillPathPicks(raws: readonly unknown[]): ReadonlySet<string> {
       typeof raw['flag'] === 'string' &&
       Array.isArray(raw['choices'])
     ) {
-      const choices: readonly unknown[] = raw['choices'];
+      const choices: ReadonlyArray<unknown> = raw['choices'];
       const skills = choices.map((choice) => (isFields(choice) ? skillOfPath(choice['value']) : undefined));
 
       if (skills.length > 0 && skills.every((skill) => skill !== undefined)) {
@@ -166,7 +166,7 @@ function withSkillValue(choice: unknown): unknown {
  * the skills by slug, and the `ActiveEffectLike` that upgrades the pick as a whole path made the upgrade of that
  * skill's rank. Any other rule is as it was.
  */
-export function withSkillPathChoices(raws: readonly unknown[]): readonly unknown[] {
+export function withSkillPathChoices(raws: ReadonlyArray<unknown>): ReadonlyArray<unknown> {
   const picks = skillPathPicks(raws);
 
   if (picks.size === 0) {
@@ -179,7 +179,7 @@ export function withSkillPathChoices(raws: readonly unknown[]): readonly unknown
     }
 
     if (raw['key'] === 'ChoiceSet' && typeof raw['flag'] === 'string' && picks.has(raw['flag'])) {
-      const choices: readonly unknown[] = Array.isArray(raw['choices']) ? raw['choices'] : [];
+      const choices: ReadonlyArray<unknown> = Array.isArray(raw['choices']) ? raw['choices'] : [];
 
       return {
         ...raw,

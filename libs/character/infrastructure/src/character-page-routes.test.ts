@@ -15,7 +15,7 @@ const amiri = UserId.parse(newId());
 
 /** The part of a page of the list these tests read. */
 interface PageBody {
-  readonly items: readonly { readonly name: string }[];
+  readonly items: ReadonlyArray<{ readonly name: string }>;
   readonly total: number;
   readonly page: number;
   readonly pageSize: number;

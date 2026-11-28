@@ -17,7 +17,7 @@ export interface FeatRead {
   readonly prerequisites: RichText | undefined;
   readonly predicate: Predicate | undefined;
   /** Each clause of the prerequisites with its own predicate, for a feat with several; undefined for any other. */
-  readonly clauses: readonly PrerequisiteClause[] | undefined;
+  readonly clauses: ReadonlyArray<PrerequisiteClause> | undefined;
 }
 
 /** An archetype as the dedication lock reads it (#467): the feat that opens it, and how many others lift the lock. */
@@ -49,7 +49,7 @@ function readFeats(registry: ContentRegistry): FeatContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 
   const feats = new Map(
-    entries.flatMap((entry): [ContentId, FeatRead][] =>
+    entries.flatMap((entry): Array<[ContentId, FeatRead]> =>
       entry.kind === ContentKind.Feat
         ? [
             [
@@ -68,7 +68,7 @@ function readFeats(registry: ContentRegistry): FeatContent {
   );
 
   const archetypes = new Map(
-    entries.flatMap((entry): [ContentId, ArchetypeRead][] =>
+    entries.flatMap((entry): Array<[ContentId, ArchetypeRead]> =>
       entry.kind === ContentKind.Archetype
         ? [
             [

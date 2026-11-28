@@ -47,14 +47,14 @@ export interface ActionCandidate {
   readonly action: ActionData;
   readonly origin: ActionOrigin;
   /** The traits of the entry the action is: `manipulate`, `auditory`. None when absent. */
-  readonly traits?: readonly Trait[];
+  readonly traits?: ReadonlyArray<Trait>;
   /** Whether using it casts a spell: the Cast a Spell action, or a spell. */
   readonly casts?: boolean;
 }
 
 /** What the engine reads to decide which actions are usable. */
 export interface AvailableActionsInput {
-  readonly candidates: readonly ActionCandidate[];
+  readonly candidates: ReadonlyArray<ActionCandidate>;
   /** The roll options that hold now: conditions, a raised shield, what is held. */
   readonly facts: PredicateFacts;
   /** The rank in each skill, by selector (`skill:athletics`); a skill missing is untrained. */
@@ -72,10 +72,10 @@ export interface AvailableAction {
   readonly action: ContentId;
   readonly origin: ActionOrigin;
   readonly cost: ActionCost | undefined;
-  readonly modes: readonly ActionMode[];
+  readonly modes: ReadonlyArray<ActionMode>;
   readonly status: ActionStatus;
   /** Why it is not plainly available; never empty for a conditional or unavailable action. */
-  readonly reasons: readonly MessageDescriptor[];
+  readonly reasons: ReadonlyArray<MessageDescriptor>;
   /** The period its frequency refreshes over, when it has no uses left; absent when it can be used again now. */
   readonly recharge?: FrequencyPeriod | undefined;
   /** The best of its skills to roll, with its breakdown; absent for an action that rolls nothing. */
@@ -83,9 +83,9 @@ export interface AvailableAction {
 }
 
 /** An action that lists no mode is used in encounters. */
-const DEFAULT_MODES: readonly ActionMode[] = [ActionMode.Encounter];
+const DEFAULT_MODES: ReadonlyArray<ActionMode> = [ActionMode.Encounter];
 
-const RANK_ORDER: readonly Proficiency[] = [
+const RANK_ORDER: ReadonlyArray<Proficiency> = [
   Proficiency.Untrained,
   Proficiency.Trained,
   Proficiency.Expert,
@@ -118,9 +118,9 @@ function skillsMeetMinimum({ skills, minimumProficiency }: ActionData, ranks: Av
 }
 
 /** The reasons an action cannot be used at all. */
-function blockers(candidate: ActionCandidate, input: AvailableActionsInput): readonly MessageDescriptor[] {
+function blockers(candidate: ActionCandidate, input: AvailableActionsInput): ReadonlyArray<MessageDescriptor> {
   const { id, action } = candidate;
-  const reasons: MessageDescriptor[] = [];
+  const reasons: Array<MessageDescriptor> = [];
 
   if (action.requirements !== undefined && evaluatePredicate(action.requirements, input.facts) === Truth.False) {
     reasons.push(message(EngineMessage.ActionRequirementsNotMet));
@@ -148,7 +148,7 @@ function blockers(candidate: ActionCandidate, input: AvailableActionsInput): rea
  * The reasons an action that can be used might not be: a predicate whose answer depends on the situation, or
  * requirements that are only wording, since no predicate says what to test.
  */
-function doubts({ action }: ActionCandidate, facts: PredicateFacts): readonly MessageDescriptor[] {
+function doubts({ action }: ActionCandidate, facts: PredicateFacts): ReadonlyArray<MessageDescriptor> {
   if (action.requirements !== undefined) {
     return evaluatePredicate(action.requirements, facts) === Truth.Unknown
       ? [message(EngineMessage.ActionRequirementsUnknown)]
@@ -160,7 +160,7 @@ function doubts({ action }: ActionCandidate, facts: PredicateFacts): readonly Me
 
 /** The skill of an action with the highest total, which is the one to roll; undefined when none has a value. */
 function bestRoll({ skills }: ActionData, statistics: AvailableActionsInput['statistics']): StatisticValue | undefined {
-  const values = (skills ?? []).flatMap((skill): StatisticValue[] => {
+  const values = (skills ?? []).flatMap((skill): Array<StatisticValue> => {
     const result = statistics.get(skill);
 
     return result?.ok === true ? [result] : [];
@@ -201,7 +201,7 @@ function availableAction(candidate: ActionCandidate, input: AvailableActionsInpu
  * predicate's answer is unknown or they are only wording; available otherwise. An action offered twice appears once,
  * the first offer winning. Order follows the candidates.
  */
-export function availableActions(input: AvailableActionsInput): readonly AvailableAction[] {
+export function availableActions(input: AvailableActionsInput): ReadonlyArray<AvailableAction> {
   const seen = new Set<ContentId>();
 
   return input.candidates

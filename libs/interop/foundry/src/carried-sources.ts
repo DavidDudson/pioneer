@@ -35,9 +35,9 @@ function located(source: SourceRef, previous: ReadonlyMap<BookId, BookSource>): 
 
 /** `entries`, each with the page and AoN link of the `existing` entry it replaces, where it lacks them. */
 export function carrySources(
-  entries: readonly ContentEntry[],
-  existing: readonly ContentEntry[],
-): readonly ContentEntry[] {
+  entries: ReadonlyArray<ContentEntry>,
+  existing: ReadonlyArray<ContentEntry>,
+): ReadonlyArray<ContentEntry> {
   const replaced = new Map(existing.map((entry) => [contentKey(entry.pack, entry.slug), entry]));
 
   return entries.map((entry) => {

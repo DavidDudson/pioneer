@@ -10,6 +10,7 @@
  * outcomes are left alone.
  */
 import { InlineKind } from '@pioneer/rules/sdk';
+import { isRecord } from '@pioneer/shared/utils';
 
 import { spansOf } from './json-spans.ts';
 import type { Span, SpanNode } from './json-spans.ts';
@@ -17,10 +18,6 @@ import { addReports, NO_REPORT } from './outcomes-report.ts';
 import type { OutcomesReport } from './outcomes-report.ts';
 
 type JsonRecord = Readonly<Record<string, unknown>>;
-
-function isRecord(node: unknown): node is JsonRecord {
-  return typeof node === 'object' && node !== null && !Array.isArray(node);
-}
 
 function isCheck(node: unknown): node is JsonRecord {
   return isRecord(node) && node['type'] === InlineKind.Check;
@@ -31,7 +28,7 @@ function same(left: unknown, right: unknown): boolean {
 }
 
 /** The members of `node` to look into: all of them, but a check's own `outcomes`, which are text. */
-function membersOf(node: JsonRecord): readonly (readonly [string, unknown])[] {
+function membersOf(node: JsonRecord): ReadonlyArray<readonly [string, unknown]> {
   return Object.entries(node).filter(([key]) => !(key === 'outcomes' && node['type'] === InlineKind.Check));
 }
 
@@ -49,7 +46,7 @@ export function withoutOutcomes(node: unknown): unknown {
 }
 
 /** The checks in `node`, in document order, those inside another check's outcomes left out. */
-function checksIn(node: unknown): readonly JsonRecord[] {
+function checksIn(node: unknown): ReadonlyArray<JsonRecord> {
   if (Array.isArray(node)) {
     return node.flatMap((each: unknown) => checksIn(each));
   }
@@ -85,8 +82,8 @@ export interface DescriptionMerge {
 
 /** The checks of a description and of the import's, which are paired by position. */
 interface Pairs {
-  readonly committed: readonly JsonRecord[];
-  readonly fresh: readonly JsonRecord[];
+  readonly committed: ReadonlyArray<JsonRecord>;
+  readonly fresh: ReadonlyArray<JsonRecord>;
 }
 
 /** The outcomes to lay, by the position of the check that takes them, and how many checks were left for being ambiguous. */
@@ -103,7 +100,7 @@ function takes({ committed, fresh }: Pairs, at: number): boolean {
 }
 
 /** The plan for a group of identical checks, at `members`: they take the import's outcomes unless it gives them different ones. */
-function planGroup(pairs: Pairs, members: readonly number[]): Plan {
+function planGroup(pairs: Pairs, members: ReadonlyArray<number>): Plan {
   const first = pairs.fresh[members[0] ?? 0]?.['outcomes'];
   const clashing = members.some((at) => !same(pairs.fresh[at]?.['outcomes'], first));
   const taking = members.filter((at) => takes(pairs, at));
@@ -196,7 +193,7 @@ export function mergeDescription(committed: unknown, fresh: unknown): Descriptio
 export type FreshDescriptions = ReadonlyMap<string, unknown>;
 
 /** The spans of the checks of `data` in `span`, in the order `checksIn` lists them. */
-function locate(data: unknown, span: SpanNode | undefined): readonly Span[] {
+function locate(data: unknown, span: SpanNode | undefined): ReadonlyArray<Span> {
   if (span === undefined) {
     return [];
   }
@@ -235,7 +232,7 @@ interface Insertion {
 
 /** What one committed entry takes: the edits to its text, and the tally. */
 interface EntryMerge {
-  readonly insertions: readonly Insertion[];
+  readonly insertions: ReadonlyArray<Insertion>;
   readonly report: OutcomesReport;
 }
 
@@ -251,7 +248,7 @@ function mergeEntry(text: string, { entry, node, incoming }: Entry): EntryMerge 
   const planned = planDescription(entry['description'], incoming);
   const spans = locate(entry['description'], node.kind === 'object' ? node.members.get('description') : undefined);
 
-  const insertions = [...planned.added].flatMap(([at, outcomes]): Insertion[] => {
+  const insertions = [...planned.added].flatMap(([at, outcomes]): Array<Insertion> => {
     const span = spans[at];
 
     return span === undefined ? [] : [{ at: insertionPoint(text, span), outcomes }];
@@ -269,7 +266,7 @@ function mergeEntry(text: string, { entry, node, incoming }: Entry): EntryMerge 
 }
 
 /** `text` with each of `insertions` made, last first so the places of the others hold. */
-function inserted(text: string, insertions: readonly Insertion[]): string {
+function inserted(text: string, insertions: ReadonlyArray<Insertion>): string {
   let edited = text;
 
   for (const { at, outcomes } of insertions.toSorted((left, right) => right.at - left.at)) {
@@ -297,7 +294,7 @@ export function addOutcomesToText(text: string, fresh: FreshDescriptions): TextM
     return { text, report: NO_REPORT };
   }
 
-  const merges = entries.flatMap((entry: unknown, index): EntryMerge[] => {
+  const merges = entries.flatMap((entry: unknown, index): Array<EntryMerge> => {
     const node = tree.items[index];
     const incoming = isRecord(entry) && typeof entry['id'] === 'string' ? fresh.get(entry['id']) : undefined;
     const described = isRecord(entry) && entry['description'] !== undefined;

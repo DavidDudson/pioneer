@@ -26,7 +26,7 @@ function host(fixture: ComponentFixture<DeityView>): HTMLElement {
 }
 
 /** Each term with its values, as read. */
-function terms(fixture: ComponentFixture<DeityView>): string[][] {
+function terms(fixture: ComponentFixture<DeityView>): Array<Array<string>> {
   return [...host(fixture).querySelectorAll('fr-description-item')].map((item) =>
     [...item.querySelectorAll('fr-text')].map((text) => text.textContent.trim()),
   );

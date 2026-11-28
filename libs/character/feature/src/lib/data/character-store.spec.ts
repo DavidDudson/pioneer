@@ -50,13 +50,13 @@ function wire(version: number, level: number): WireCharacter {
 /** What the server answers with when a spec reads or edits a character's sheet. */
 interface SheetReply {
   readonly character: WireCharacter;
-  readonly slots: readonly JsonObject[];
-  readonly languages: { readonly known: readonly string[]; readonly open: number };
+  readonly slots: ReadonlyArray<JsonObject>;
+  readonly languages: { readonly known: ReadonlyArray<string>; readonly open: number };
 }
 
 /** A PATCH's answer: the sheet, and the picks the edit cleared. */
 interface PatchReply extends SheetReply {
-  readonly cleared: readonly JsonObject[];
+  readonly cleared: ReadonlyArray<JsonObject>;
 }
 
 function sheet(version: number, level: number): SheetReply {
@@ -76,7 +76,7 @@ function sheet(version: number, level: number): SheetReply {
 }
 
 /** A PATCH's answer: the sheet, and the picks the edit cleared. */
-function patched(version: number, level: number, cleared: readonly JsonObject[] = []): PatchReply {
+function patched(version: number, level: number, cleared: ReadonlyArray<JsonObject> = []): PatchReply {
   return { ...sheet(version, level), cleared };
 }
 

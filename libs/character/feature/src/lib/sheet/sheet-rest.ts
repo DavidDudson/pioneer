@@ -50,7 +50,7 @@ function staffLine(
     { readonly kind: typeof RestChangeKind.StaffCharges | typeof RestChangeKind.SlotExpended }
   >,
   views: CountedViews,
-  staves: readonly StaffOption[],
+  staves: ReadonlyArray<StaffOption>,
 ): RestLine {
   if (change.kind === RestChangeKind.StaffCharges) {
     const name = staves.find(({ id }) => id === change.item)?.name;
@@ -74,7 +74,7 @@ function usesLine(use: UseCountKey, amount: ResourceCount, views: CountedViews):
 /** What names the things a change mentions. */
 interface RestNames {
   readonly views: CountedViews;
-  readonly staves: readonly StaffOption[];
+  readonly staves: ReadonlyArray<StaffOption>;
   readonly registry: ContentRegistry;
 }
 
@@ -138,7 +138,7 @@ export interface RestSource {
 export function restLines(
   { registry, character, play, maxima }: RestSource,
   command: RestCommand,
-): readonly RestLine[] {
+): ReadonlyArray<RestLine> {
   const { hitPoints, resources } = maxima;
   const healing = restHealing(statisticInputsOf(registry, character));
   const counted = sheetCounted(registry, character);

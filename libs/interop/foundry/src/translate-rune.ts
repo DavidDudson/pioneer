@@ -24,7 +24,7 @@ interface Fundamental {
   readonly item: RunedItem;
 }
 
-function grades(slugs: readonly string[], rune: FundamentalRune, item: RunedItem): [string, Fundamental][] {
+function grades(slugs: ReadonlyArray<string>, rune: FundamentalRune, item: RunedItem): Array<[string, Fundamental]> {
   return slugs.map((slug, index) => [slug, { rune, grade: index + 1, item }]);
 }
 
@@ -160,7 +160,7 @@ export function runeSlug(key: string): string {
 }
 
 /** The energies an energy-resistant rune is made for (GM Core); Foundry's legacy keys name one (`fireResistant`). */
-const RUNE_ENERGIES: readonly DamageType[] = [
+const RUNE_ENERGIES: ReadonlyArray<DamageType> = [
   DamageType.Acid,
   DamageType.Cold,
   DamageType.Electricity,
@@ -187,17 +187,17 @@ function legacyEnergy(key: string): LegacyEnergy | undefined {
 
 /** The property runes of an item: the `rune` entries Foundry's keys name, and the energy of those made for one. */
 export interface PropertyRuneKeys {
-  readonly property: ContentId[];
+  readonly property: Array<ContentId>;
   readonly energy: Record<ContentId, DamageType>;
 }
 
 /** The `rune` entries Foundry's property rune keys name; one that names no entry is reported against `field`. */
 export function propertyRunes(
-  keys: readonly string[],
+  keys: ReadonlyArray<string>,
   field: string,
   { references, log }: KindInput,
 ): PropertyRuneKeys {
-  const property: ContentId[] = [];
+  const property: Array<ContentId> = [];
   const energy: Record<ContentId, DamageType> = {};
 
   for (const key of keys) {

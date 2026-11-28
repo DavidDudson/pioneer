@@ -10,7 +10,7 @@ import { poolSpellRules } from './translate-pool-spells';
 
 const { ChoiceSet, PoolSpells } = RuleElementKey;
 
-function keyed(key: string, name: string, fixture: DocumentFixture): unknown[] {
+function keyed(key: string, name: string, fixture: DocumentFixture): Array<unknown> {
   return rulesIn(translate([fixture]), name).filter(
     (rule) => typeof rule === 'object' && rule !== null && 'key' in rule && rule.key === key,
   );
@@ -75,7 +75,7 @@ describe('translateKindData: pool spells', () => {
     const impossibleMagic = PackId.parse('impossible-magic');
     const [curriculum] = poolSpellRules('class-feature:school-of-keen-inquiry', impossibleMagic);
     // SAFETY: the first pool spell rule of the curriculum holds a list of spell references.
-    const { spells } = curriculum as { readonly spells: readonly string[] };
+    const { spells } = curriculum as { readonly spells: ReadonlyArray<string> };
 
     expect(spells).toContain(contentId(PackId.parse('player-core'), EntrySlug.parse('spell:detect-magic')));
     expect(spells).not.toContain(contentId(impossibleMagic, EntrySlug.parse('spell:detect-magic')));

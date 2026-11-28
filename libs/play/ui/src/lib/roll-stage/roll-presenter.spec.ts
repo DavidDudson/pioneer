@@ -26,17 +26,17 @@ const DICE = [{ notation: '6d6@3,4,3,4,3,4', tone: DamageTone.Fire }] as const;
 
 interface Stage {
   readonly presenter: RollPresenter;
-  readonly thrown: string[];
-  readonly naturals: (string | undefined)[];
-  readonly disposed: number[];
+  readonly thrown: Array<string>;
+  readonly naturals: Array<string | undefined>;
+  readonly disposed: Array<number>;
   readonly finish: () => void;
 }
 
 /** A presenter whose dice wait until `finish()`, recording what was thrown and how many rollers were disposed. */
 function stage(options: { readonly load?: Promise<never> } = {}): Stage {
-  const thrown: string[] = [];
-  const naturals: (string | undefined)[] = [];
-  const disposed: number[] = [];
+  const thrown: Array<string> = [];
+  const naturals: Array<string | undefined> = [];
+  const disposed: Array<number> = [];
   let release = NOTHING;
 
   const factory: DiceRollerFactory = async () => {

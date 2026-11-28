@@ -19,7 +19,7 @@ describe('Strike critical effects from rule elements', () => {
   test('a CriticalEffect reaching the damage roll is on the Strike, with its effect and origin', () => {
     const strike = strikeOf([[frost, 'frost']]);
 
-    const effects: readonly unknown[] | undefined = strike?.criticalEffects;
+    const effects: ReadonlyArray<unknown> | undefined = strike?.criticalEffects;
 
     expect(effects).toEqual([
       { effect: frost.effect, trigger: undefined, reaction: undefined, origin: inPlay(frost, 'frost').origin },
@@ -40,7 +40,7 @@ describe('Strike critical effects from rule elements', () => {
       },
     };
 
-    const effects: readonly unknown[] | undefined = strikeOf([[pacifying, 'pacifying']])?.criticalEffects;
+    const effects: ReadonlyArray<unknown> | undefined = strikeOf([[pacifying, 'pacifying']])?.criticalEffects;
 
     expect(effects).toEqual([
       { effect: pacifying.effect, trigger: 'hit', reaction: true, origin: inPlay(pacifying, 'pacifying').origin },

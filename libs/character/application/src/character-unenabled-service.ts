@@ -19,7 +19,7 @@ import type { HeldContentPacks } from './held-content-packs';
 
 /** The packs and variant rules the owner chose for a character, which `CharacterPackService` and `CharacterVariantService` hold. */
 export interface OwnChoices<Id> {
-  readonly own: (character: Character) => Promise<readonly Id[]>;
+  readonly own: (character: Character) => Promise<ReadonlyArray<Id>>;
 }
 
 /** The ports `CharacterUnenabledService` works through. */
@@ -57,10 +57,10 @@ function itemsFrom(
   registry: ContentRegistry,
   character: Character,
   unenabled: ReadonlySet<ContentPackId>,
-): UnenabledItem[] {
+): Array<UnenabledItem> {
   const seen = new Set<string>();
 
-  return character.document.inventory.items.flatMap((carried): UnenabledItem[] => {
+  return character.document.inventory.items.flatMap((carried): Array<UnenabledItem> => {
     if (seen.has(carried.item)) {
       return [];
     }
@@ -105,7 +105,7 @@ export class CharacterUnenabledService {
    * The packs the character uses: its own and the ones it holds content from. That is what its sheet shows once it
    * leaves the campaign, and what the campaign's registry keeps for it as unsupported.
    */
-  async #used(character: Character): Promise<readonly ContentPackId[]> {
+  async #used(character: Character): Promise<ReadonlyArray<ContentPackId>> {
     const [own, held] = await Promise.all([this.#packs.own(character), this.#held?.of(character) ?? []]);
 
     return [...new Set([...own, ...held])];
@@ -135,7 +135,7 @@ export class CharacterUnenabledService {
       campaign: campaign.name,
       variantRules: variantIds
         .filter((variantId) => !enabledVariants.has(variantId))
-        .flatMap((variantId): VariantRuleOption[] => {
+        .flatMap((variantId): Array<VariantRuleOption> => {
           const entry = registry.variantRule(variantId);
 
           return entry === undefined
@@ -144,7 +144,7 @@ export class CharacterUnenabledService {
         })
         .toSorted(byName),
       packs: [...unenabled]
-        .flatMap((packId): UnenabledPack[] => {
+        .flatMap((packId): Array<UnenabledPack> => {
           const pack = packOf(registry, packId);
 
           return pack === undefined ? [] : [pack];

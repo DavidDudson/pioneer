@@ -39,7 +39,7 @@ export interface PromotableLine {
   readonly itemName: string;
   readonly name: string;
   readonly runes: ItemRunes | undefined;
-  readonly property: readonly PromotableRune[];
+  readonly property: ReadonlyArray<PromotableRune>;
   /** The key item the line is already linked to, if any. */
   readonly keyItem: KeyItemId | undefined;
 }

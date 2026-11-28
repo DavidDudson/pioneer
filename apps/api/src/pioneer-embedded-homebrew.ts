@@ -44,7 +44,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
     this.#packs = new DrizzleHomebrewPackRepository(db);
   }
 
-  public override async holding(actor: UserId, ids: readonly ContentId[]): Promise<readonly EmbeddedPack[]> {
+  public override async holding(actor: UserId, ids: ReadonlyArray<ContentId>): Promise<ReadonlyArray<EmbeddedPack>> {
     if (ids.length === 0) {
       return [];
     }
@@ -55,7 +55,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
       .innerJoin(contentPacks, eq(contentPacks.id, contentEntries.packId))
       .where(and(inArray(contentEntries.id, [...ids]), isNull(contentPacks.archivedAt)));
 
-    const byPack = new Map<PackRow['id'], { pack: PackRow; entries: ContentEntry[] }>();
+    const byPack = new Map<PackRow['id'], { pack: PackRow; entries: Array<ContentEntry> }>();
 
     for (const { pack, entry } of rows) {
       const held = byPack.get(pack.id) ?? { pack, entries: [] };
@@ -81,7 +81,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
       .toSorted((left, right) => left.pack.id.localeCompare(right.pack.id));
   }
 
-  public override async existing(actor: UserId, packs: readonly PackId[]): Promise<ExistingPacks> {
+  public override async existing(actor: UserId, packs: ReadonlyArray<PackId>): Promise<ExistingPacks> {
     if (packs.length === 0) {
       return new Map();
     }
@@ -108,7 +108,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
     return new Map(existing);
   }
 
-  public override async apply(actor: UserId, plans: readonly HomebrewPackPlan[]): Promise<void> {
+  public override async apply(actor: UserId, plans: ReadonlyArray<HomebrewPackPlan>): Promise<void> {
     await Promise.all(plans.map(async (plan) => this.#write(actor, plan)));
   }
 

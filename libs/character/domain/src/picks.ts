@@ -32,7 +32,7 @@ function refused<Item>(): PickOutcome<Item> {
 }
 
 /** One of `items`, each equally likely; an empty list is refused. */
-export function pickOne<Item>(source: PickSource, items: readonly Item[]): PickOutcome<Item> {
+export function pickOne<Item>(source: PickSource, items: ReadonlyArray<Item>): PickOutcome<Item> {
   if (items.length === NONE) {
     return refused();
   }
@@ -44,7 +44,7 @@ export function pickOne<Item>(source: PickSource, items: readonly Item[]): PickO
 }
 
 /** One of `entries`, each as likely as its weight against the total; no entries, or only zero weights, is refused. */
-export function pickWeighted<Item>(source: PickSource, entries: readonly Weighted<Item>[]): PickOutcome<Item> {
+export function pickWeighted<Item>(source: PickSource, entries: ReadonlyArray<Weighted<Item>>): PickOutcome<Item> {
   const total = entries.reduce((sum, { weight }) => sum + weight, NONE);
 
   if (total === NONE) {
@@ -66,7 +66,7 @@ export function pickWeighted<Item>(source: PickSource, entries: readonly Weighte
 }
 
 /** `items` in a random order, each order equally likely (Fisher-Yates); an empty list shuffles to an empty list. */
-export function shuffle<Item>(source: PickSource, items: readonly Item[]): readonly Item[] {
+export function shuffle<Item>(source: PickSource, items: ReadonlyArray<Item>): ReadonlyArray<Item> {
   const result = [...items];
 
   for (let end = result.length - ONE; end > NONE; end -= ONE) {
@@ -91,7 +91,7 @@ const DRAW_RESOLUTION = PickBound.parse(1_048_576);
  * source and is ordered by that number's exponential race against its weight (Efraimidis and Spirakis). Equal weights
  * give each order equal odds, and an entry of any positive weight can come first. An entry of weight zero comes last.
  */
-export function weightedShuffle<Item>(source: PickSource, entries: readonly Weighted<Item>[]): readonly Item[] {
+export function weightedShuffle<Item>(source: PickSource, entries: ReadonlyArray<Weighted<Item>>): ReadonlyArray<Item> {
   const raced = entries.map(({ item, weight }) => {
     const draw = (source.below(DRAW_RESOLUTION) + ONE) / (DRAW_RESOLUTION + ONE);
 

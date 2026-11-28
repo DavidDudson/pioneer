@@ -4,9 +4,10 @@ import { AncestryData } from './ancestry';
 import { ArchetypeData } from './archetype';
 import { BackgroundData } from './background';
 import { ClassData } from './character-class';
+import { CompanionSpeciesData } from './companion-species';
 import { ConditionData } from './condition';
 import { ContentKind } from './content-kind';
-import { CreatureData } from './creature';
+import { CreatureDataModel } from './creature';
 import { DamageTypeData } from './damage';
 import { DeityData } from './deity';
 import { EffectData } from './effect';
@@ -22,12 +23,13 @@ import { TraitData } from './trait';
 import { VariantRuleData } from './variant-rule';
 
 /**
- * The `data` schema for each kind that has one. A kind joins here with its schema module and an arm of `Entry`
+ * The `data` schema for each kind that has one, with a creature's `rules` as references (`KIND_DATA` in
+ * `typed-content.ts` parses them). A kind joins here with its schema module and an arm of `Entry`
  * (`content-entry.ts`, or `equipment-entries.ts` for the equipment kinds); the rest of `ContentKind` is rejected
  * until it does. The magic kinds come in from `magic-kind-data.ts`, the equipment kinds from
  * `equipment-kind-data.ts`.
  */
-export const KIND_DATA = {
+export const KIND_DATA_MODEL = {
   [ContentKind.Action]: ActionData,
   [ContentKind.Ancestry]: AncestryData,
   [ContentKind.AncestryFeature]: AncestryFeatureData,
@@ -35,8 +37,9 @@ export const KIND_DATA = {
   [ContentKind.Background]: BackgroundData,
   [ContentKind.Class]: ClassData,
   [ContentKind.ClassFeature]: ClassFeatureData,
+  [ContentKind.CompanionSpecies]: CompanionSpeciesData,
   [ContentKind.Condition]: ConditionData,
-  [ContentKind.Creature]: CreatureData,
+  [ContentKind.Creature]: CreatureDataModel,
   [ContentKind.DamageType]: DamageTypeData,
   [ContentKind.Deity]: DeityData,
   [ContentKind.Effect]: EffectData,
@@ -52,9 +55,9 @@ export const KIND_DATA = {
   ...EQUIPMENT_KIND_DATA,
 } as const;
 
-export type RegisteredKind = keyof typeof KIND_DATA;
+export type RegisteredKind = keyof typeof KIND_DATA_MODEL;
 
 /** Every kind with a `data` schema, in `ContentKind` order. */
-export const REGISTERED_KINDS: readonly RegisteredKind[] = Object.values(ContentKind).filter(
-  (kind): kind is RegisteredKind => Object.hasOwn(KIND_DATA, kind),
+export const REGISTERED_KINDS: ReadonlyArray<RegisteredKind> = Object.values(ContentKind).filter(
+  (kind): kind is RegisteredKind => Object.hasOwn(KIND_DATA_MODEL, kind),
 );

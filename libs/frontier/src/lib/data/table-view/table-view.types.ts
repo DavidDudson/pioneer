@@ -11,7 +11,7 @@ export interface TableViewColumn {
 
 /** What a table's view is encoded against: its columns, and the page size that is left out of the URL. */
 export interface TableViewSchema {
-  readonly columns: readonly TableViewColumn[];
+  readonly columns: ReadonlyArray<TableViewColumn>;
   readonly defaultPageSize?: number;
 }
 
@@ -26,9 +26,9 @@ export interface TableViewSort {
  * encodes to nothing.
  */
 export interface TableView {
-  readonly sort?: readonly TableViewSort[] | undefined;
+  readonly sort?: ReadonlyArray<TableViewSort> | undefined;
   /** The ids of the hidden columns, as `fr-table`'s `columnVisibility`. */
-  readonly hidden?: readonly string[] | undefined;
+  readonly hidden?: ReadonlyArray<string> | undefined;
   readonly pageSize?: number | undefined;
   readonly search?: string | undefined;
   /** The facet filter state, already written by the page's facet codec: the `f` segment is opaque here. */

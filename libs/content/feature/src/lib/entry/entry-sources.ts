@@ -10,7 +10,7 @@ import type { ContentEntry, PackId } from '@pioneer/rules/sdk';
 export function browseSources(
   entry: ContentEntry,
   licenses: ReadonlyMap<PackId, ContentLicense>,
-): readonly BrowseSource[] {
+): ReadonlyArray<BrowseSource> {
   const pack = licenses.get(entry.pack) ?? ContentLicense.Homebrew;
   const license = effectiveLicense(entry, { license: pack });
 
@@ -22,7 +22,7 @@ export function browseSources(
 }
 
 /** Where the entry's books are sold: one link per book the Paizo Store lists, in the order the sources cite them. */
-export function storeLinks(entry: ContentEntry): readonly StoreLink[] {
+export function storeLinks(entry: ContentEntry): ReadonlyArray<StoreLink> {
   const links = new Map<string, StoreLink>();
 
   for (const source of entry.sources) {

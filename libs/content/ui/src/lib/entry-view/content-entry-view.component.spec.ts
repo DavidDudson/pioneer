@@ -13,7 +13,7 @@ const PLAYER_CORE_STORE: StoreLink = {
   url: 'https://store.paizo.com/pathfinder-player-core/',
 };
 
-async function render(stores: readonly StoreLink[]): Promise<ComponentFixture<ContentEntryView>> {
+async function render(stores: ReadonlyArray<StoreLink>): Promise<ComponentFixture<ContentEntryView>> {
   TestBed.configureTestingModule({ providers: [provideRouter([]), ...provideContentUiI18nTesting()] });
   const fixture = TestBed.createComponent(ContentEntryView);
   fixture.componentRef.setInput('card', SHIELD_BLOCK_CARD);
@@ -23,7 +23,7 @@ async function render(stores: readonly StoreLink[]): Promise<ComponentFixture<Co
   return fixture;
 }
 
-const links = (fixture: ComponentFixture<ContentEntryView>): readonly HTMLAnchorElement[] => [
+const links = (fixture: ComponentFixture<ContentEntryView>): ReadonlyArray<HTMLAnchorElement> => [
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   ...(fixture.nativeElement as HTMLElement).querySelectorAll('a'),
 ];

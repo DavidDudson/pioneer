@@ -28,7 +28,7 @@ export interface RankSlots {
 export interface SpellSlots {
   /** Absent when there are none. */
   readonly cantrips?: SlotCount;
-  readonly ranks: readonly RankSlots[];
+  readonly ranks: ReadonlyArray<RankSlots>;
 }
 
 /** Slots kept apart from an entry's own, because only some spells go in them: a divine font, a curriculum. */
@@ -37,14 +37,14 @@ export interface SlotPool extends SpellSlots {
   /** The entry whose `SpellSlots` element first added to the pool, and how it got on the character. */
   readonly origin: Origin;
   /** The spells its slots take, from the `PoolSpells` elements in play for it, each once in the order they name them. */
-  readonly spells: readonly ContentId[];
+  readonly spells: ReadonlyArray<ContentId>;
 }
 
 /** An entry's slots: its own, from its class's table or the feats that grant them, and its other pools. */
 interface EntrySlots {
   readonly slots: SpellSlots;
   /** In pool order. */
-  readonly pools: readonly SlotPool[];
+  readonly pools: ReadonlyArray<SlotPool>;
 }
 
 /** Whether a `SignatureSpells` element in play names the entry (ADR-0047). */
@@ -55,27 +55,27 @@ interface EntrySignatures {
 /** The focus spells the `FocusSpells` elements in play give a focus entry, each once in the order they name them; none
  * for any other entry (ADR-0050). */
 interface EntryFocusSpells {
-  readonly focusSpells: readonly ContentId[];
+  readonly focusSpells: ReadonlyArray<ContentId>;
 }
 
 /** The spells the `RepertoireSpells` elements in play give a spontaneous entry, each once; none for another (ADR-0062). */
 /** The spells the `InnateSpells` elements in play give an innate entry, each rank and spell once; none for another (ADR-0067). */
 interface EntryInnateSpells {
-  readonly innateSpells: readonly GrantedSpell[];
+  readonly innateSpells: ReadonlyArray<GrantedSpell>;
 }
 
 interface EntryGrantedSpells {
-  readonly grantedSpells: readonly GrantedSpell[];
+  readonly grantedSpells: ReadonlyArray<GrantedSpell>;
 }
 
 /** The repertoire spells the `RepertoireCount` elements in play add to a spontaneous entry, by rank; none for another (ADR-0063). */
 interface EntryRepertoireCounts {
-  readonly repertoireCounts: readonly RankSlots[];
+  readonly repertoireCounts: ReadonlyArray<RankSlots>;
 }
 
 /** The deity spells the `RepertoireDeitySpells` elements in play let a spontaneous entry add; none for another (ADR-0063). */
 interface EntryDeityRepertoire {
-  readonly deityRepertoire: readonly DeityRepertoire[];
+  readonly deityRepertoire: ReadonlyArray<DeityRepertoire>;
 }
 
 /** An entry as its `SpellcastingEntry` element gives it, before its slots are counted. */
@@ -104,7 +104,7 @@ export interface SpellcastingInPlay
 }
 
 /** `items` in the code-unit order of their slugs, so a result never depends on the host's locale. */
-function bySlug<Item>(items: readonly Item[], slugOf: (item: Item) => Slug): readonly Item[] {
+function bySlug<Item>(items: ReadonlyArray<Item>, slugOf: (item: Item) => Slug): ReadonlyArray<Item> {
   return items.toSorted((left, right) => {
     const [leftSlug, rightSlug] = [slugOf(left), slugOf(right)];
 
@@ -131,7 +131,7 @@ function slotsOf(tally: Tally): SpellSlots {
   const cantrips = tally.get(SlotRank.Cantrip);
 
   const ranks = [...tally]
-    .flatMap(([rank, count]): RankSlots[] => (rank === SlotRank.Cantrip ? [] : [{ rank, count }]))
+    .flatMap(([rank, count]): Array<RankSlots> => (rank === SlotRank.Cantrip ? [] : [{ rank, count }]))
     .toSorted((left, right) => left.rank - right.rank);
 
   return cantrips === undefined ? { ranks } : { cantrips, ranks };
@@ -160,7 +160,7 @@ interface PoolTally {
 }
 
 /** The entry's own slots of a fixed rank and its cantrips, counted before `highest` is known. */
-function fixedOwnSlots(placed: readonly PlacedSlots[]): Tally {
+function fixedOwnSlots(placed: ReadonlyArray<PlacedSlots>): Tally {
   const own: Tally = new Map();
 
   for (const { element } of placed) {
@@ -173,7 +173,7 @@ function fixedOwnSlots(placed: readonly PlacedSlots[]): Tally {
 }
 
 /** The spells each of an entry's pools takes, by pool. */
-type PoolSpells = ReadonlyMap<RuleSlug, readonly ContentId[]>;
+type PoolSpells = ReadonlyMap<RuleSlug, ReadonlyArray<ContentId>>;
 
 const NO_POOL_SPELLS: PoolSpells = new Map();
 
@@ -182,7 +182,7 @@ const NO_POOL_SPELLS: PoolSpells = new Map();
  * gives it. Counts add up per pool and rank; `highest` is the highest rank below 10th its own fixed slots reach, so it
  * is read once those are counted, and adds nothing to an entry with none.
  */
-function entrySlots(placed: readonly PlacedSlots[], poolSpells: PoolSpells): EntrySlots {
+function entrySlots(placed: ReadonlyArray<PlacedSlots>, poolSpells: PoolSpells): EntrySlots {
   const own = fixedOwnSlots(placed);
   const highest = highestRank(own);
   const pools = new Map<RuleSlug, PoolTally>();
@@ -247,7 +247,7 @@ function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): vo
  * A focus entry has the spells the `FocusSpells` elements in play name it (ADR-0050); any other entry has none. A spontaneous entry's repertoire spells are those of its `RepertoireSpells` elements (ADR-0062).
  * An innate entry has the spells the `InnateSpells` elements in play name it (ADR-0067).
  */
-export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly SpellcastingInPlay[] {
+export function spellcastingInPlay({ rules, facts }: ModifierInputs): ReadonlyArray<SpellcastingInPlay> {
   const gathered: Gathered = {
     entries: new Map(),
     slots: new Map(),

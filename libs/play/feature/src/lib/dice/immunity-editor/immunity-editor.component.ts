@@ -19,7 +19,7 @@ import { shownTargets, targetLabel, targetValue } from '../damage-target-table';
 export class ImmunityEditor {
   protected readonly options = inject(DamageTargetOptions);
   protected readonly labels = DAMAGE_TYPE_KEYS;
-  public readonly immunities = model.required<readonly DamageType[]>();
+  public readonly immunities = model.required<ReadonlyArray<DamageType>>();
   protected readonly choice = signal<DamageType | undefined>(undefined);
   protected readonly query = signal('');
   protected readonly sorting = signal<PickerSort | undefined>(undefined);

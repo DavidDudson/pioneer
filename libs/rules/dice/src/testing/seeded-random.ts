@@ -26,7 +26,7 @@ export function seededRandom(seed: RandomSeed): RandomSource {
 }
 
 /** Rolls the given faces in order, then repeats them. For tests that need exact dice. */
-export function scriptedRandom(faces: readonly DieFace[]): RandomSource {
+export function scriptedRandom(faces: ReadonlyArray<DieFace>): RandomSource {
   let next = 0;
 
   return {

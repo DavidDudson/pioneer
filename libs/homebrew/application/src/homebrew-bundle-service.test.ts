@@ -18,7 +18,7 @@ const owner = UserId.parse(newId());
 const member = UserId.parse(newId());
 const stranger = UserId.parse(newId());
 
-function request(...packs: readonly HomebrewPack[]): HomebrewManifestRequest {
+function request(...packs: ReadonlyArray<HomebrewPack>): HomebrewManifestRequest {
   return { packs: packs.map((pack) => pack.id) };
 }
 
@@ -44,7 +44,7 @@ describe('HomebrewBundleService', () => {
   });
 
   /** The slugs the manifest lists for `user` asking for `packs`. */
-  async function listed(user: UserId, ...packs: readonly HomebrewPack[]): Promise<readonly string[]> {
+  async function listed(user: UserId, ...packs: ReadonlyArray<HomebrewPack>): Promise<ReadonlyArray<string>> {
     const manifest = await service.manifest(user, request(...packs));
 
     return manifest.packs.map((pack) => String(pack.id));

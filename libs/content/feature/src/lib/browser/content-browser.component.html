@@ -9,9 +9,11 @@
   [columns]="columns()"
   [sorting]="sorting()"
   [hidden]="hidden()"
+  [density]="density()"
   (stateChange)="write($event)"
   (facetChange)="facet($event)"
   (sortingChange)="sorting.set($event)"
   (hiddenChange)="hidden.set($event)"
+  (densityChange)="density.set($event)"
   (more)="more()"
 />

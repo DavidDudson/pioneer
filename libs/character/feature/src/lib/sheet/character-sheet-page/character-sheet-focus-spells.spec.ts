@@ -56,7 +56,7 @@ function nameOf(row: Element): HTMLElement {
 }
 
 /** Each spell's name and rank (or cantrip) as its two rows show them. */
-function spellsIn(focus: HTMLElement): string[] {
+function spellsIn(focus: HTMLElement): Array<string> {
   return [...focus.querySelectorAll('pio-spell-row')].map((row) =>
     [textOf(nameOf(row)), textOf(rankOf(row))].join(' '),
   );
@@ -64,7 +64,7 @@ function spellsIn(focus: HTMLElement): string[] {
 
 /** What a spell row's summary shows: its labelled fields as "Term: value", and all its text. */
 interface SpellSummary {
-  readonly fields: string[];
+  readonly fields: Array<string>;
   readonly text: string;
 }
 
@@ -83,7 +83,7 @@ async function summaryOf(focus: HTMLElement, name: string): Promise<SpellSummary
 }
 
 /** The play state of a character in its own turn with all three actions. */
-function ownTurn(spendLog: readonly JsonObject[] = []): JsonObject {
+function ownTurn(spendLog: ReadonlyArray<JsonObject> = []): JsonObject {
   const turn = { phase: 'turn', actions: 3, quickened: 0, reactionUsed: false };
 
   return { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn, spendLog } };

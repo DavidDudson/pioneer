@@ -12,10 +12,10 @@ export interface InnateEntryLine {
   /** Unique among the entries: the entry's slug. */
   readonly key: string;
   readonly tradition: MagicTradition;
-  readonly spells: readonly InnateSpellLine[];
+  readonly spells: ReadonlyArray<InnateSpellLine>;
 }
 
 /** A character's innate spells (ADR-0067), by innate entry. */
 export interface InnateLine {
-  readonly entries: readonly InnateEntryLine[];
+  readonly entries: ReadonlyArray<InnateEntryLine>;
 }

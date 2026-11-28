@@ -14,7 +14,7 @@ function skill(name: string, selector: string, rank: Proficiency): NamedStatisti
 }
 
 /** Three skills and a Lore, as the sheet lists them. */
-export const SKILL_STATISTICS: readonly NamedStatistic[] = [
+export const SKILL_STATISTICS: ReadonlyArray<NamedStatistic> = [
   skill('Acrobatics', 'skill:acrobatics', Proficiency.Trained),
   skill('Athletics', 'skill:athletics', Proficiency.Expert),
   skill('Stealth', 'skill:stealth', Proficiency.Untrained),

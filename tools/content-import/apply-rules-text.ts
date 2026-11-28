@@ -6,6 +6,7 @@
 import { isDeepStrictEqual } from 'node:util';
 
 import type { ContentId } from '@pioneer/rules/sdk';
+import { isRecord } from '@pioneer/shared/utils';
 
 import { withMergedRules } from './apply-rules.ts';
 import type { RulesMerge } from './apply-rules.ts';
@@ -19,10 +20,6 @@ interface Edit {
   readonly at: number;
   readonly remove: number;
   readonly insert: string;
-}
-
-function isRecord(node: unknown): node is Readonly<Record<string, unknown>> {
-  return typeof node === 'object' && node !== null && !Array.isArray(node);
 }
 
 /** The position just after the last non-space character before `end`. */
@@ -39,15 +36,15 @@ function beforeSpace(text: string, end: number): number {
 /** The rules an entry holds as parsed, and the ones it gains. */
 interface Gain {
   readonly held: unknown;
-  readonly gained: readonly unknown[];
+  readonly gained: ReadonlyArray<unknown>;
 }
 
-function listed(rules: readonly unknown[]): string {
+function listed(rules: ReadonlyArray<unknown>): string {
   return rules.map((rule) => JSON.stringify(rule)).join(', ');
 }
 
 /** The edit that adds `gained` to the entry at `node`: after its last rule, into an empty list, or as a new `rules` key. */
-function editFor(text: string, node: SpanNode, { held, gained }: Gain): readonly Edit[] {
+function editFor(text: string, node: SpanNode, { held, gained }: Gain): ReadonlyArray<Edit> {
   if (node.kind !== 'object' || gained.length === 0) {
     return [];
   }
@@ -69,7 +66,7 @@ function editFor(text: string, node: SpanNode, { held, gained }: Gain): readonly
   return [{ at: last.end, remove: 0, insert: `, ${listed(gained)}` }];
 }
 
-function applied(text: string, edits: readonly Edit[]): string {
+function applied(text: string, edits: ReadonlyArray<Edit>): string {
   let edited = text;
 
   for (const { at, remove, insert } of edits.toSorted((left, right) => right.at - left.at)) {
@@ -91,7 +88,7 @@ export function mergeRulesIntoText(text: string, merge: RulesMerge): string {
     return text;
   }
 
-  const edits = entries.flatMap((entry: unknown, index): readonly Edit[] => {
+  const edits = entries.flatMap((entry: unknown, index): ReadonlyArray<Edit> => {
     const node = tree.items[index];
     // SAFETY: `merge` is keyed by content ids, and the id is a string here, checked by the `typeof` above; the branded id adds no runtime check.
     const merged = isRecord(entry) && typeof entry['id'] === 'string' ? merge.get(entry['id'] as ContentId) : undefined;
@@ -100,7 +97,7 @@ export function mergeRulesIntoText(text: string, merge: RulesMerge): string {
       return [];
     }
 
-    const own: readonly unknown[] = Array.isArray(entry['rules']) ? entry['rules'] : [];
+    const own: ReadonlyArray<unknown> = Array.isArray(entry['rules']) ? entry['rules'] : [];
 
     return editFor(text, node, { held: entry['rules'], gained: merged.slice(own.length) });
   });

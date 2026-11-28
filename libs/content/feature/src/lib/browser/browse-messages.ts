@@ -22,16 +22,13 @@ export function injectMessagesChanged(): Signal<unknown> {
 }
 
 /** The list's table columns in the UI language; the kind is hidden at first when the list holds one kind. */
-export function injectBrowseColumns(kinds: () => readonly BrowseKind[]): Signal<readonly TableColumn<BrowseRow>[]> {
-  const i18n = inject(TranslocoService);
-  const changed = injectMessagesChanged();
-
+export function injectBrowseColumns(
+  kinds: () => ReadonlyArray<BrowseKind>,
+): Signal<ReadonlyArray<TableColumn<BrowseRow>>> {
   return computed(() => {
-    changed();
     const listed = kinds();
 
     return browseColumns(
-      (key) => i18n.translate(key),
       listed.length === 1,
       listed.some((kind) => kind === ContentKind.Creature),
     );

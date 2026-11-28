@@ -20,7 +20,7 @@ export interface ActionGranter {
 /** An action and every distinct entry whose rules grant it. */
 export interface GrantedAction {
   readonly slug: EntrySlug;
-  readonly grantedBy: readonly ActionGranter[];
+  readonly grantedBy: ReadonlyArray<ActionGranter>;
 }
 
 /** What the rule decided for one pack's actions. */
@@ -28,9 +28,9 @@ export interface GrantedActionProposals {
   /** Action slug to the mapping of the one feat, heritage or background page that grants it. */
   readonly proposals: ReadonlyMap<EntrySlug, EnrichmentMapping>;
   /** Actions something grants but not to one citable page: several granters, a granter of another kind or no AoN URL. */
-  readonly excepted: readonly EntrySlug[];
+  readonly excepted: ReadonlyArray<EntrySlug>;
   /** Actions nothing grants (familiar abilities picked from a list, stat block abilities); there is no page to cite. */
-  readonly unlinked: readonly EntrySlug[];
+  readonly unlinked: ReadonlyArray<EntrySlug>;
 }
 
 /**
@@ -40,12 +40,12 @@ export interface GrantedActionProposals {
  * class feature or effect, and a granter without a URL are exceptions and are never guessed.
  */
 export function proposeGrantedActions(
-  actions: readonly GrantedAction[],
+  actions: ReadonlyArray<GrantedAction>,
   mapped: ReadonlySet<EntrySlug>,
 ): GrantedActionProposals {
   const proposals = new Map<EntrySlug, EnrichmentMapping>();
-  const excepted: EntrySlug[] = [];
-  const unlinked: EntrySlug[] = [];
+  const excepted: Array<EntrySlug> = [];
+  const unlinked: Array<EntrySlug> = [];
 
   for (const { slug, grantedBy } of actions.filter(({ slug: candidate }) => !mapped.has(candidate))) {
     const [only] = grantedBy;

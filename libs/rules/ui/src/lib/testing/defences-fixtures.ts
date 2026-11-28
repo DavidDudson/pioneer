@@ -78,7 +78,7 @@ export function immunity(entry: ContentId, type: string, status: DefenceStatus =
 interface AdjustmentOptions {
   /** Left out for a failed line. */
   readonly value?: number;
-  readonly exceptions?: readonly string[];
+  readonly exceptions?: ReadonlyArray<string>;
   readonly status?: DefenceStatus;
 }
 

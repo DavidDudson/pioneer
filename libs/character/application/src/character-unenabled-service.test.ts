@@ -71,15 +71,15 @@ class HeldIn extends PackLookup {
     this.#pack = pack;
   }
 
-  public override async packsOf(entryIds: readonly ContentId[]): Promise<readonly ContentPackId[]> {
+  public override async packsOf(entryIds: ReadonlyArray<ContentId>): Promise<ReadonlyArray<ContentPackId>> {
     return entryIds.length === 0 ? [] : [this.#pack];
   }
 }
 
 class Own<Id> implements OwnChoices<Id> {
-  public ids: readonly Id[] = [];
+  public ids: ReadonlyArray<Id> = [];
 
-  public readonly own = async (): Promise<readonly Id[]> => this.ids;
+  public readonly own = async (): Promise<ReadonlyArray<Id>> => this.ids;
 }
 
 describe('CharacterUnenabledService', () => {

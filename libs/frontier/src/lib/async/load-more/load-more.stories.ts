@@ -24,7 +24,7 @@ class SpellQuery implements LoadMoreQuery {
   public readonly isFetchingNextPage = signal(false);
   readonly #loaded = signal(1);
   public readonly hasNextPage: Signal<boolean> = computed(() => this.#loaded() < this.#pages);
-  public readonly spells: Signal<readonly string[]> = computed(() =>
+  public readonly spells: Signal<ReadonlyArray<string>> = computed(() =>
     Array.from({ length: this.#loaded() * PAGE_SIZE }, (_slot, index) => `Spell ${index + 1}`),
   );
 

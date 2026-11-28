@@ -8,7 +8,7 @@ import type { TableView, TableViewParams, TableViewQuery, TableViewSchema } from
 export const TYPICAL_VIEW_LENGTH = 200;
 
 /** Params for the parts of `view` that are not the default; a part left out reads back as the default. */
-function entries(view: TableView, schema: TableViewSchema): readonly (readonly [string, string])[] {
+function entries(view: TableView, schema: TableViewSchema): ReadonlyArray<readonly [string, string]> {
   const { columns } = schema;
   const pageSize = view.pageSize === schema.defaultPageSize ? undefined : view.pageSize;
 

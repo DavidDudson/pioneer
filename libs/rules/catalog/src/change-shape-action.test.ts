@@ -26,7 +26,10 @@ async function offerOfWerecreatureForm(): Promise<Offer> {
   const effects = ContentEntryFile.parse(effectFile.default);
   const action = actions.find((entry) => entry.kind === ContentKind.Action && entry.slug === 'action:change-shape');
   const were = effects.find((entry) => entry.slug === WEREFORM);
-  const listed: readonly SpellEffectEntry[] = action?.kind === ContentKind.Action ? (action.data.effects ?? []) : [];
+
+  const listed: ReadonlyArray<SpellEffectEntry> =
+    action?.kind === ContentKind.Action ? (action.data.effects ?? []) : [];
+
   const entry = listed.find((each) => spellEffectId(each) === were?.id);
 
   const conditional = Conditional.safeParse(entry);
@@ -35,7 +38,7 @@ async function offerOfWerecreatureForm(): Promise<Offer> {
 }
 
 /** Whether `predicate` holds for a character with exactly the roll options `options`. */
-function holds(predicate: Predicate, options: readonly string[]): Truth {
+function holds(predicate: Predicate, options: ReadonlyArray<string>): Truth {
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     coreNamespaces(),

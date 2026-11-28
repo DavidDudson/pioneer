@@ -33,7 +33,7 @@ function candidate(data: JsonObject, origin: ActionOrigin = BASIC): ActionCandid
   return { id: nextId(), action: ActionData.parse(data), origin };
 }
 
-function factsOf(...options: readonly RollOption[]): PredicateFacts {
+function factsOf(...options: ReadonlyArray<RollOption>): PredicateFacts {
   return new PredicateFacts(options, CORE_NAMESPACES);
 }
 
@@ -57,7 +57,7 @@ function weigh(action: ActionCandidate, situation: Situation = {}): AvailableAct
   return first;
 }
 
-function reasonKeys({ reasons }: AvailableAction): readonly string[] {
+function reasonKeys({ reasons }: AvailableAction): ReadonlyArray<string> {
   return reasons.map(({ key }) => key);
 }
 

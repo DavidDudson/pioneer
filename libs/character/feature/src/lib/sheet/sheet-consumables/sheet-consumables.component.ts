@@ -23,7 +23,7 @@ interface ShownConsumable {
   readonly problem: string | undefined;
 }
 
-const CONSUMABLE_KINDS: readonly ContentKind[] = ACTION_CONTENT_KINDS;
+const CONSUMABLE_KINDS: ReadonlyArray<ContentKind> = ACTION_CONTENT_KINDS;
 
 /**
  * The consumables the open character holds (#504): each with the cost of its activation, how many are left, and a Use
@@ -49,7 +49,7 @@ export class SheetConsumables {
   /** The roll of the last consumable used, from here or the Actions tab; unset until one that rolls is used. */
   protected readonly rolled = this.#consumableUse.rolled;
 
-  protected readonly consumables = computed((): readonly ShownConsumable[] => {
+  protected readonly consumables = computed((): ReadonlyArray<ShownConsumable> => {
     const registry = this.registry.data();
     const engine = this.#sheet.engine();
     const character = this.#characters.selected();

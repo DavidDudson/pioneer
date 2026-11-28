@@ -17,7 +17,7 @@ const WEAPON_DATA = {
 interface ItemFields {
   readonly name: string;
   readonly kind: string;
-  readonly traits: readonly string[];
+  readonly traits: ReadonlyArray<string>;
   readonly data: object;
 }
 

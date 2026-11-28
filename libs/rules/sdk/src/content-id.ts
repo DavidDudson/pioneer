@@ -102,9 +102,22 @@ export type PackId = z.infer<typeof PackId>;
  * The stored id of any content entry, whatever its kind. Kind-specific ids (`AncestryId`) brand
  * `Uuid` themselves; use this where any entry will do (an origin, a grant).
  */
-export const ContentId = Uuid.brand<'ContentId'>();
+export const ContentId = z.compile(Uuid.brand<'ContentId'>());
 
 export type ContentId = z.infer<typeof ContentId>;
+
+/** A choice's stored value: a content entry (`ContentId`), a plain option (`forest`) or a custom Lore (`lore:sailing`). */
+export const ChoiceValue = z.union([ContentId, Slug, LoreChoice]);
+
+export type ChoiceValue = z.infer<typeof ChoiceValue>;
+
+/**
+ * `value` as a content id, or undefined when it is not one. A pick is often a plain option (`arcana`) and not an id,
+ * and `validate` rejects without building the issue list a failed `safeParse` does.
+ */
+export function contentIdOf(value: ChoiceValue): ContentId | undefined {
+  return ContentId.validate(value) ? ContentId.parse(value) : undefined;
+}
 
 /** Human-readable key for a content entry, e.g. `player-core/ancestry:human`. Never stored. */
 export const ContentKey = z.string().brand<'ContentKey'>();

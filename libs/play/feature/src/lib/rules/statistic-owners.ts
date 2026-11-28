@@ -11,7 +11,7 @@ const INSTANCE_SEPARATOR = ':';
 function resultsOf(
   { selector, per }: StatisticDefinition,
   results: ReadonlyMap<Selector, StatisticResult>,
-): readonly StatisticResult[] {
+): ReadonlyArray<StatisticResult> {
   if (per === undefined) {
     const result = results.get(selector);
 
@@ -38,9 +38,9 @@ export interface OwnedResult {
  * selector win.
  */
 export function ownedResults(
-  definitions: readonly StatisticDefinition[],
+  definitions: ReadonlyArray<StatisticDefinition>,
   results: ReadonlyMap<Selector, StatisticResult>,
-): readonly OwnedResult[] {
+): ReadonlyArray<OwnedResult> {
   const owners = new Map<Selector, StatisticDefinition>();
 
   for (const definition of definitions) {

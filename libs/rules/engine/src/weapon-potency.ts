@@ -39,6 +39,6 @@ function potencyLine(weapon: WeaponInputs, potency: RuneGrade): ModifierSource {
  * A synthetic `item` modifier on each weapon's Strike for its potency, so it stacks with other item bonuses to attack
  * rolls the way PF2e says (only the highest applies) instead of adding to the base. Weapons without potency add none.
  */
-export function weaponPotencies(weapons: readonly WeaponInputs[]): readonly ModifierSource[] {
+export function weaponPotencies(weapons: ReadonlyArray<WeaponInputs>): ReadonlyArray<ModifierSource> {
   return weapons.flatMap(({ potency, ...weapon }) => (potency === undefined ? [] : [potencyLine(weapon, potency)]));
 }

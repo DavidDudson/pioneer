@@ -18,9 +18,9 @@ const lift = (restriction: string, extra: JsonObject = {}): RuleJson => ({
 });
 
 function liftedBy(
-  placed: readonly (readonly [RuleJson, string])[],
-  options: readonly string[] = [],
-): readonly LiftedRestriction[] {
+  placed: ReadonlyArray<readonly [RuleJson, string]>,
+  options: ReadonlyArray<string> = [],
+): ReadonlyArray<LiftedRestriction> {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));
 
   const facts = new PredicateFacts(

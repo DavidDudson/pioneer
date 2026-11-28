@@ -9,7 +9,7 @@ import { DamageTotal } from './units';
 /** Damage after one rule, and the line saying what the rule did (none when it did nothing). */
 export interface Applied {
   readonly amount: DamageTotal;
-  readonly lines: readonly MessageDescriptor[];
+  readonly lines: ReadonlyArray<MessageDescriptor>;
 }
 
 /** Where an instance came from: an area effect, a spell, and whether it has splash. */
@@ -21,7 +21,7 @@ export interface Source {
   /** The damage is from an environment (heat, cold, a hazard of the terrain). */
   readonly environmental: boolean;
   /** The materials and property runes the damage counts as (`silver`, `ghost-touch`), which an exception names. */
-  readonly counts: readonly DamageException[];
+  readonly counts: ReadonlyArray<DamageException>;
 }
 
 const TARGETS: ReadonlySet<string> = new Set(Object.values(DamageAdjustmentTarget));
@@ -57,7 +57,7 @@ function inContext(context: DamageContext, source: Source): boolean {
 }
 
 /** Whether any of `types` is in `group`; `all` covers every instance. */
-function inGroup(group: DamageGroup, types: readonly DamageType[]): boolean {
+function inGroup(group: DamageGroup, types: ReadonlyArray<DamageType>): boolean {
   if (group === DamageGroup.All) {
     return true;
   }
@@ -69,7 +69,7 @@ function inGroup(group: DamageGroup, types: readonly DamageType[]): boolean {
  * Whether a weakness or resistance naming `target` applies to an instance made of `types` (none: untyped) from
  * `source`. A weakness to splash damage applies to an instance that has any splash, once, as it does for a type.
  */
-function covers(target: DamageAdjustmentSubject, types: readonly DamageType[], source: Source): boolean {
+function covers(target: DamageAdjustmentSubject, types: ReadonlyArray<DamageType>, source: Source): boolean {
   if (!isTarget(target)) {
     return source.counts.includes(target);
   }
@@ -138,8 +138,8 @@ function excepted({ exceptions = [] }: DamageAdjustment, { counts }: Source): bo
 
 /** The highest of `adjustments` that applies: only one weakness or resistance counts per instance. */
 function highest(
-  adjustments: readonly DamageAdjustment[],
-  types: readonly DamageType[],
+  adjustments: ReadonlyArray<DamageAdjustment>,
+  types: ReadonlyArray<DamageType>,
   source: Source,
 ): DamageAdjustment | undefined {
   return adjustments
@@ -162,7 +162,7 @@ export function weaken(amount: DamageTotal, { types, source }: Reach, target: Da
 }
 
 interface Reach {
-  readonly types: readonly DamageType[];
+  readonly types: ReadonlyArray<DamageType>;
   readonly source: Source;
 }
 

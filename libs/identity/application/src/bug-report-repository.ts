@@ -14,7 +14,7 @@ export abstract class BugReportRepository {
   public abstract countSince(reporter: UserId, since: Temporal.Instant): Promise<number>;
 
   /** The newest `limit` reports, newest first, with their reporters' current names. */
-  public abstract list(limit: number): Promise<BugReportListItem[]>;
+  public abstract list(limit: number): Promise<Array<BugReportListItem>>;
 
   /** One report with its snapshot and its reporter's current name. */
   public abstract findDetail(id: BugReport['id']): Promise<BugReportDetail | undefined>;

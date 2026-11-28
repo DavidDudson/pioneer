@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { SEARCH_DEBOUNCE } from '../search-input/search-input.component';
+import { SEARCH_DEBOUNCE } from '../search-query';
 import {
   FEATS,
   highlighted,
@@ -274,7 +274,7 @@ describe(Combobox, () => {
 
     it('emits every keystroke as typed, before the debounce', () => {
       const rendered = render();
-      const typed: string[] = [];
+      const typed: Array<string> = [];
       rendered.fixture.componentInstance.typed.subscribe((text) => {
         typed.push(text);
       });

@@ -10,7 +10,7 @@ import type {
 /** Whether followers may or must be sanctified, and to what. */
 export interface DeitySanctificationLine {
   readonly modal: SanctificationModal;
-  readonly what: readonly Sanctification[];
+  readonly what: ReadonlyArray<Sanctification>;
 }
 
 /**
@@ -20,13 +20,13 @@ export interface DeitySanctificationLine {
  */
 export interface DeityLine {
   readonly name: string;
-  readonly fonts: readonly DivineFont[];
+  readonly fonts: ReadonlyArray<DivineFont>;
   /** Absent when the deity sanctifies no one. */
   readonly sanctification?: DeitySanctificationLine;
-  readonly domains: readonly DeityDomain[];
-  readonly alternateDomains: readonly DeityDomain[];
-  readonly favoredWeapons: readonly string[];
-  readonly attributes: readonly Attribute[];
-  readonly skills: readonly string[];
+  readonly domains: ReadonlyArray<DeityDomain>;
+  readonly alternateDomains: ReadonlyArray<DeityDomain>;
+  readonly favoredWeapons: ReadonlyArray<string>;
+  readonly attributes: ReadonlyArray<Attribute>;
+  readonly skills: ReadonlyArray<string>;
   readonly description: RichText;
 }

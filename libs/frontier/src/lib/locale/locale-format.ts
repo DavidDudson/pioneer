@@ -39,7 +39,7 @@ export class LocaleFormat {
   }
 
   /** "Elf, Human and Orc", joined the locale's way. */
-  public list(items: readonly string[], type: Intl.ListFormatType = 'conjunction'): string {
+  public list(items: ReadonlyArray<string>, type: Intl.ListFormatType = 'conjunction'): string {
     return new Intl.ListFormat(this.locale(), { type, style: 'long' }).format(items);
   }
 
@@ -47,7 +47,7 @@ export class LocaleFormat {
    * The parts of `list`, in order: each item as `element` and the words and punctuation between them as `literal`, so
    * a caller that renders the items itself (as chips) keeps the locale's separators.
    */
-  public listParts(items: readonly string[], type: Intl.ListFormatType = 'conjunction'): readonly ListPart[] {
+  public listParts(items: ReadonlyArray<string>, type: Intl.ListFormatType = 'conjunction'): ReadonlyArray<ListPart> {
     return new Intl.ListFormat(this.locale(), { type, style: 'long' }).formatToParts(items);
   }
 

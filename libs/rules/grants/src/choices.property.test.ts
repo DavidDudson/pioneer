@@ -14,12 +14,12 @@ const ENTRIES_MAX = 8;
 const FLAG = 'pick';
 
 const slugOf = (index: number): string => `entry-${index}`;
-const indexes = (count: number): number[] => Array.from({ length: count }, (_value, index) => index);
+const indexes = (count: number): Array<number> => Array.from({ length: count }, (_value, index) => index);
 
 /** Entry `index`: fixed grants of some later entries, and maybe a choice of later entries at rule 0. */
 interface EntryPlan {
-  readonly grants: readonly number[];
-  readonly offers: readonly number[] | undefined;
+  readonly grants: ReadonlyArray<number>;
+  readonly offers: ReadonlyArray<number> | undefined;
 }
 
 function planAt(index: number, count: number): Arbitrary<EntryPlan> {
@@ -49,9 +49,9 @@ function entryOf(index: number, { grants, offers }: EntryPlan): GrantEntry {
 
 /** Acyclic content with choices, some roots, and a pick (its first offer) for every slot that has one. */
 interface Drawn {
-  readonly content: readonly GrantEntry[];
-  readonly roots: readonly number[];
-  readonly picks: readonly (readonly [SlotKey, string])[];
+  readonly content: ReadonlyArray<GrantEntry>;
+  readonly roots: ReadonlyArray<number>;
+  readonly picks: ReadonlyArray<readonly [SlotKey, string]>;
 }
 
 const drawn: Arbitrary<Drawn> = integer({ min: 1, max: ENTRIES_MAX }).chain((count) =>
@@ -59,7 +59,7 @@ const drawn: Arbitrary<Drawn> = integer({ min: 1, max: ENTRIES_MAX }).chain((cou
     ([plans, roots]) => ({
       content: plans.map((plan, index) => entryOf(index, plan)),
       roots,
-      picks: plans.flatMap((plan, index): [SlotKey, string][] => {
+      picks: plans.flatMap((plan, index): Array<[SlotKey, string]> => {
         const first = plan.offers?.[0];
 
         return first === undefined ? [] : [[slotOf(slugOf(index), 0), idOf(slugOf(first))]];
@@ -69,9 +69,9 @@ const drawn: Arbitrary<Drawn> = integer({ min: 1, max: ENTRIES_MAX }).chain((cou
 );
 
 function resolve(
-  content: readonly GrantEntry[],
-  roots: readonly number[],
-  picks: readonly (readonly [SlotKey, string])[],
+  content: ReadonlyArray<GrantEntry>,
+  roots: ReadonlyArray<number>,
+  picks: ReadonlyArray<readonly [SlotKey, string]>,
 ): GrantResolution {
   return resolveGrants(
     inputsOf({ entries: content, roots: roots.map((index) => picked(slugOf(index))), picks: picksOf(picks) }),

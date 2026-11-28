@@ -19,7 +19,7 @@ const FIELD_MAX = 64;
 export const FoundryRank = z.number().int().min(0).max(RANK_MAX);
 
 /** The rank Foundry's number names; untrained is every statistic's floor, so it raises nothing. */
-export const RANKS: readonly (Proficiency | undefined)[] = [
+export const RANKS: ReadonlyArray<Proficiency | undefined> = [
   undefined,
   Proficiency.Trained,
   Proficiency.Expert,

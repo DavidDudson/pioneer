@@ -19,9 +19,9 @@ import type { SourcedSpell, SpellPicks } from './sheet-spell-filter';
 interface Spell {
   readonly name: string;
   readonly source?: string;
-  readonly targets?: readonly TargetValue[];
-  readonly traits?: readonly string[];
-  readonly damage?: readonly DamageType[];
+  readonly targets?: ReadonlyArray<TargetValue>;
+  readonly traits?: ReadonlyArray<string>;
+  readonly damage?: ReadonlyArray<DamageType>;
   readonly cost?: SpellDetailLine['cost'];
 }
 
@@ -33,7 +33,7 @@ function spell({ name, source, targets, traits, damage, cost }: Spell): SourcedS
   return { line, source };
 }
 
-const SPELLS: readonly SourcedSpell[] = [
+const SPELLS: ReadonlyArray<SourcedSpell> = [
   spell({ name: 'Daze', source: 'Cleric', targets: [TargetValue.Single], traits: ['Mental'], damage: ['mental'] }),
   spell({
     name: 'Fireball',
@@ -46,10 +46,10 @@ const SPELLS: readonly SourcedSpell[] = [
   spell({ name: 'Wand of Fear', source: 'Wand of Fear', targets: [TargetValue.Single], traits: ['Fear', 'Mental'] }),
 ];
 
-const picks = (...entries: readonly (readonly [SpellFilterGroupId, readonly string[]])[]): SpellPicks =>
+const picks = (...entries: ReadonlyArray<readonly [SpellFilterGroupId, ReadonlyArray<string>]>): SpellPicks =>
   new Map(entries.map(([group, values]) => [group, new Set(values)]));
 
-const names = (spells: readonly SourcedSpell[]): string[] => spells.map(({ line }) => line.detail.name);
+const names = (spells: ReadonlyArray<SourcedSpell>): Array<string> => spells.map(({ line }) => line.detail.name);
 
 describe(filterSpells, () => {
   it('keeps every spell when nothing is picked', () => {

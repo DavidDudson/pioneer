@@ -51,8 +51,8 @@ interface BookResult {
 interface AonQuery {
   readonly from: number;
   readonly size: number;
-  readonly sort: readonly string[];
-  readonly _source: readonly string[];
+  readonly sort: ReadonlyArray<string>;
+  readonly _source: ReadonlyArray<string>;
   readonly query: object;
 }
 
@@ -88,7 +88,7 @@ async function save(id: string, found: Collected): Promise<void> {
 }
 
 /** The legacy entries of a book that AoN marks as replaced, with their replacements; no file when there are none. */
-async function saveSupersedes(id: string, replacedBy: ReadonlyMap<AonUrl, readonly AonUrl[]>): Promise<void> {
+async function saveSupersedes(id: string, replacedBy: ReadonlyMap<AonUrl, ReadonlyArray<AonUrl>>): Promise<void> {
   if (replacedBy.size === 0) {
     return;
   }
@@ -100,8 +100,8 @@ async function saveSupersedes(id: string, replacedBy: ReadonlyMap<AonUrl, readon
 /** A book's pages and the hits without one, or the reason the run must stop. */
 interface Collected {
   readonly pages: ReadonlyMap<AonUrl, PageNumber>;
-  readonly entries: readonly AonListedEntry[];
-  readonly replacedBy: ReadonlyMap<AonUrl, readonly AonUrl[]>;
+  readonly entries: ReadonlyArray<AonListedEntry>;
+  readonly replacedBy: ReadonlyMap<AonUrl, ReadonlyArray<AonUrl>>;
   readonly skipped: number;
   readonly stop?: string;
 }
@@ -133,8 +133,8 @@ function merge<Value>(into: Map<AonUrl, Value>, from: ReadonlyMap<AonUrl, Value>
 /** What a book's windows have added up to so far. */
 interface Tally {
   readonly pages: Map<AonUrl, PageNumber>;
-  readonly entries: AonListedEntry[];
-  readonly replacedBy: Map<AonUrl, readonly AonUrl[]>;
+  readonly entries: Array<AonListedEntry>;
+  readonly replacedBy: Map<AonUrl, ReadonlyArray<AonUrl>>;
   skipped: number;
 }
 

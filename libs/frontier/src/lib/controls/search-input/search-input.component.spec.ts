@@ -3,13 +3,14 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
-import { SEARCH_DEBOUNCE, SearchInput } from './search-input.component';
+import { SEARCH_DEBOUNCE } from '../search-query';
+import { SearchInput } from './search-input.component';
 
 interface Rendered {
   readonly fixture: ComponentFixture<SearchInput>;
   readonly input: HTMLInputElement;
   /** Every query `searched` fired, in order. */
-  readonly searches: string[];
+  readonly searches: Array<string>;
   readonly commits: () => number;
   readonly cancels: () => number;
 }
@@ -19,7 +20,7 @@ function render(value = ''): Rendered {
   const fixture = TestBed.createComponent(SearchInput);
   fixture.componentRef.setInput('ariaLabel', 'Search feats');
   fixture.componentRef.setInput('value', value);
-  const searches: string[] = [];
+  const searches: Array<string> = [];
   let commits = 0;
   let cancels = 0;
   fixture.componentInstance.searched.subscribe((query) => {

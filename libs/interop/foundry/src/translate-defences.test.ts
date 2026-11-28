@@ -19,7 +19,7 @@ describe('Resistance, Weakness and Immunity from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([{ key: RuleElementKey.Resistance, type: ['poison'], value: 2 }]);
+    expect(rules as ReadonlyArray<unknown>).toEqual([{ key: RuleElementKey.Resistance, type: ['poison'], value: 2 }]);
   });
 
   test('all-damage is the all group, in a list or alone', () => {
@@ -28,7 +28,9 @@ describe('Resistance, Weakness and Immunity from Foundry', () => {
 
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(alone.rules as readonly unknown[]).toEqual([{ key: RuleElementKey.Resistance, type: ['all'], value: 20 }]);
+    expect(alone.rules as ReadonlyArray<unknown>).toEqual([
+      { key: RuleElementKey.Resistance, type: ['all'], value: 20 },
+    ]);
     expect(listed.rules).toEqual(alone.rules);
   });
 
@@ -43,7 +45,7 @@ describe('Resistance, Weakness and Immunity from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         key: RuleElementKey.Weakness,
         predicate: ['option:bounce-away'],
@@ -59,7 +61,7 @@ describe('Resistance, Weakness and Immunity from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([{ key: RuleElementKey.Resistance, type: ['holy'], value: 10 }]);
+    expect(rules as ReadonlyArray<unknown>).toEqual([{ key: RuleElementKey.Resistance, type: ['holy'], value: 10 }]);
   });
 
   test('exceptions stand', () => {
@@ -73,7 +75,7 @@ describe('Resistance, Weakness and Immunity from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       { key: RuleElementKey.Resistance, exceptions: ['adamantine'], type: ['physical'], value: 5 },
     ]);
   });
@@ -84,7 +86,7 @@ describe('Resistance, Weakness and Immunity from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([{ key: RuleElementKey.Immunity, type: ['paralyzed'] }]);
+    expect(rules as ReadonlyArray<unknown>).toEqual([{ key: RuleElementKey.Immunity, type: ['paralyzed'] }]);
   });
 
   test.each([

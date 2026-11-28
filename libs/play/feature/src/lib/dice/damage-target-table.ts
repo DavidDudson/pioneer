@@ -24,7 +24,7 @@ export interface DamageTargetRow {
   readonly label: string;
   readonly category: TargetCategory;
   /** The names of the types a group covers; empty for a type. */
-  readonly includes: readonly string[];
+  readonly includes: ReadonlyArray<string>;
 }
 
 /** What a column header says, in the active language. */
@@ -53,7 +53,7 @@ export function categoryOf(type: DamageType): TargetCategory {
 export const categoryOfGroup = (group: DamageGroup): TargetCategory => GROUP_CATEGORY[group];
 
 /** The types a group covers; `all` covers every type, which the row says by listing none. */
-export function typesOf(group: DamageGroup): readonly DamageType[] {
+export function typesOf(group: DamageGroup): ReadonlyArray<DamageType> {
   return group === DamageGroup.All ? [] : DAMAGE_GROUP_TYPES[group];
 }
 
@@ -71,10 +71,10 @@ function orderBy(left: DamageTargetRow, right: DamageTargetRow, column: string):
 
 /** The rows whose name holds `query`, in the order asked for; the list is short, so the caller holds all of it. */
 export function shownTargets(
-  rows: readonly DamageTargetRow[],
+  rows: ReadonlyArray<DamageTargetRow>,
   query: string,
   sort: PickerSort | undefined,
-): readonly DamageTargetRow[] {
+): ReadonlyArray<DamageTargetRow> {
   const needle = query.trim().toLocaleLowerCase();
   const matching = rows.filter((row) => row.label.toLocaleLowerCase().includes(needle));
 
@@ -89,13 +89,13 @@ export function shownTargets(
   );
 }
 
-const chips = (labels: readonly string[]): readonly Chip[] => labels.map((label): Chip => ({ label }));
+const chips = (labels: ReadonlyArray<string>): ReadonlyArray<Chip> => labels.map((label): Chip => ({ label }));
 
 /** The columns of a damage target picker: the name, its category, and for a group the types it covers. */
 export function damageTargetColumns(
   headers: DamageTargetHeaders,
   categoryName: (category: TargetCategory) => string,
-): readonly TableColumn<DamageTargetRow>[] {
+): ReadonlyArray<TableColumn<DamageTargetRow>> {
   return new RulesTableSchema<DamageTargetRow>()
     .addText({ id: 'name', header: headers.name, value: (row) => row.label, width: 'md' })
     .addTraits({

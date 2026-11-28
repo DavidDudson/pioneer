@@ -15,7 +15,7 @@ export function sheetPlannedSlots(
   registry: ContentRegistry,
   character: Character,
   translate: (key: string) => string,
-): readonly PickSlot[] {
+): ReadonlyArray<PickSlot> {
   return [
     ...sheetPlannedSkillSlots(registry, character).map(({ key, label, options, rows }): PickSlot => ({
       key,

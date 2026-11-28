@@ -1,16 +1,16 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { facetValues } from './facet';
 import { SPELL_FACETS } from './spell-facets';
 import type { JsonObject } from './testing/json-value';
+import { ContentEntry } from './typed-content-entry';
 
 const PACK = 'player-core';
 const prose = [{ type: 'paragraph', content: [{ type: 'text', text: 'A spell.' }] }];
 
 /** A Player Core spell with `data` merged over a two-action, arcane, rank 1 cantrip-free base. */
-function spell(slug: string, data: JsonObject, traits: readonly string[] = []): ContentEntry {
+function spell(slug: string, data: JsonObject, traits: ReadonlyArray<string> = []): ContentEntry {
   return ContentEntry.parse({
     id: contentId(PackId.parse(PACK), EntrySlug.parse(`spell:${slug}`)),
     pack: PACK,
@@ -27,7 +27,7 @@ function spell(slug: string, data: JsonObject, traits: readonly string[] = []): 
 }
 
 /** Every spell facet's values for `entry`, keyed by facet id. */
-function valuesOf(entry: ContentEntry): Record<string, readonly string[]> {
+function valuesOf(entry: ContentEntry): Record<string, ReadonlyArray<string>> {
   return Object.fromEntries(SPELL_FACETS.map((facet) => [facet.id, facetValues(entry, facet)]));
 }
 

@@ -16,10 +16,10 @@ interface DescribedEntryJson {
   readonly id: string;
   readonly kind: string;
   readonly name: string;
-  readonly description: readonly unknown[];
+  readonly description: ReadonlyArray<unknown>;
 }
 
-function entry(id: string, kind: string, description: readonly unknown[]): DescribedEntryJson {
+function entry(id: string, kind: string, description: ReadonlyArray<unknown>): DescribedEntryJson {
   return { id, kind, name: 'X', description };
 }
 

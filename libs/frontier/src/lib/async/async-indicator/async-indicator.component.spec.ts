@@ -40,17 +40,31 @@ describe(AsyncIndicator, () => {
     expect(host.children).toHaveLength(0);
   });
 
-  it('shows a spinner in a status element named working while pending', async () => {
+  it('announces "Working" for screen readers only while pending', async () => {
     const { host } = await render(AsyncStatus.Pending);
-    const spinner = host.querySelector('fr-spinner');
-    expect(spinner?.getAttribute('role')).toBe('status');
-    expect(spinner?.getAttribute('aria-label')).toBe('Working');
-    expect(host.querySelector('fr-icon:not(fr-spinner fr-icon)')).toBeNull();
+    const status = announced(host);
+    expect(status?.textContent.trim()).toBe('Working');
+    expect(status?.classList).toContain('sr-only');
+    expect(host.querySelector('fr-icon')).toBeNull();
   });
 
-  it('names the spinner with the pending label', async () => {
-    const { host } = await render(AsyncStatus.Pending, { pendingLabel: 'Saving' });
-    expect(host.querySelector('fr-spinner')?.getAttribute('aria-label')).toBe('Saving');
+  it('shows the pending label with showLabel', async () => {
+    const { host } = await render(AsyncStatus.Pending, { pendingLabel: 'Saving', showLabel: true });
+    const status = announced(host);
+    expect(status?.textContent.trim()).toBe('Saving');
+    expect(status?.classList).not.toContain('sr-only');
+  });
+
+  it('keeps the pending label for screen readers only with announceOnly', async () => {
+    const { host } = await render(AsyncStatus.Pending, { announceOnly: true, showLabel: true });
+    expect(announced(host)?.classList).toContain('sr-only');
+  });
+
+  it('shows no tick and no visible label with announceOnly', async () => {
+    const { host } = await render(AsyncStatus.Success, { announceOnly: true, showLabel: true });
+    const status = announced(host);
+    expect(status?.querySelector('fr-icon')).toBeNull();
+    expect(status?.querySelector('.sr-only')?.textContent).toBe('Done');
   });
 
   it('shows a tick in a status element on success, the label for screen readers only', async () => {
@@ -60,7 +74,6 @@ describe(AsyncIndicator, () => {
     expect(status?.textContent.trim()).toBe('Done');
     expect(status?.querySelector('.sr-only')?.textContent).toBe('Done');
     expect(status?.classList).toContain('text-success-fg');
-    expect(host.querySelector('fr-spinner')).toBeNull();
   });
 
   it('puts the success label in the status element, shown beside the tick with showLabel', async () => {
@@ -80,9 +93,9 @@ describe(AsyncIndicator, () => {
     };
 
     await step(AsyncStatus.Pending);
-    expect(host.querySelector('fr-spinner')).not.toBeNull();
+    expect(announced(host)?.textContent.trim()).toBe('Working');
     await step(AsyncStatus.Success);
-    expect(host.querySelector('fr-spinner')).toBeNull();
+    expect(host.querySelector('fr-icon')).not.toBeNull();
     expect(announced(host)).not.toBeNull();
     await step(AsyncStatus.Idle);
     expect(host.children).toHaveLength(0);

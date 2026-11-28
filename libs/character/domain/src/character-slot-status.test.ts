@@ -75,7 +75,7 @@ function aDwarf(level = 1): CharacterBuilder {
   return new CharacterBuilder().withAncestry(AncestryId.parse(boostFixtureId('ancestry:dwarf'))).atLevel(level);
 }
 
-function slotsOf(builder: CharacterBuilder): readonly CharacterSlot[] {
+function slotsOf(builder: CharacterBuilder): ReadonlyArray<CharacterSlot> {
   return characterSlots(builder.build().document, content);
 }
 
@@ -172,14 +172,14 @@ describe('characterSlots', () => {
       { status: SlotStatus.Hidden, key: 'feat:class:2', selection: 'athletics' },
     ].map((each) => CharacterSlot.parse(each));
 
-    const kept: readonly CharacterSlot[] = slots.filter((each) => each.status === SlotStatus.Hidden);
+    const kept: ReadonlyArray<CharacterSlot> = slots.filter((each) => each.status === SlotStatus.Hidden);
     expect(kept).toStrictEqual(hidden);
     expect(slot(anElf(5).picking(earlySlot, 'cavern'), earlySlot)?.status).toBe(SlotStatus.Filled);
   });
 
   test('lists every slot and every stored pick once', () => {
     const builder = anElf(3).picking(skillSlot, 'athletics').picking(earlySlot, 'cavern').picking('gone', 'x');
-    const keys: string[] = slotsOf(builder).map((each) => each.key);
+    const keys: Array<string> = slotsOf(builder).map((each) => each.key);
     const stored = Object.keys(builder.build().document.build.choices);
     expect(new Set(keys).size).toBe(keys.length);
     expect(stored.filter((key) => !keys.includes(key))).toStrictEqual([]);
@@ -240,7 +240,7 @@ describe('characterSlots for voluntary flaws', () => {
     );
     expect(flaws[1]).toMatchObject({ status: SlotStatus.Invalid, reason: { key: 'rules.choices.invalid.notOffered' } });
     expect(flaws[2]).toMatchObject({ status: SlotStatus.Invalid, reason: { key: 'rules.choices.invalid.flawTaken' } });
-    const keys: string[] = slotsOf(builder).map((each) => each.key);
+    const keys: Array<string> = slotsOf(builder).map((each) => each.key);
     expect(keys.indexOf('flaw:1:ancestry:0')).toBeGreaterThan(keys.indexOf('boost:20:free:3'));
   });
 });

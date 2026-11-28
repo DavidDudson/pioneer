@@ -12,13 +12,13 @@ const GREATER_DC = 14;
 
 interface Rendered {
   readonly host: HTMLElement;
-  readonly rolls: CriticalHitRoll[];
+  readonly rolls: Array<CriticalHitRoll>;
 }
 
-async function render(checks: readonly CriticalHitCheckLine[]): Promise<Rendered> {
+async function render(checks: ReadonlyArray<CriticalHitCheckLine>): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(CriticalHitChecks);
-  const rolls: CriticalHitRoll[] = [];
+  const rolls: Array<CriticalHitRoll> = [];
   fixture.componentInstance.rolled.subscribe((roll) => {
     rolls.push(roll);
   });
@@ -29,7 +29,7 @@ async function render(checks: readonly CriticalHitCheckLine[]): Promise<Rendered
   return { host: fixture.nativeElement as HTMLElement, rolls };
 }
 
-function buttons(host: HTMLElement): readonly HTMLButtonElement[] {
+function buttons(host: HTMLElement): ReadonlyArray<HTMLButtonElement> {
   return [...host.querySelectorAll('button')];
 }
 

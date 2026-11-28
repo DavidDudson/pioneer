@@ -37,22 +37,22 @@ const CANTRIP_IDS: ReadonlySet<string> = new Set(CANTRIPS.map((name) => idOf(nam
 /** A focus entry and the spells its `FocusSpells` elements name, one element per list. */
 interface FocusEntryCase {
   readonly slug: string;
-  readonly grants: readonly (readonly string[])[];
+  readonly grants: ReadonlyArray<ReadonlyArray<string>>;
 }
 
-const grant: Arbitrary<string[]> = subarray(
+const grant: Arbitrary<Array<string>> = subarray(
   [...SPELLS, ...CANTRIPS].map((name) => idOf(name)),
   { minLength: 1 },
 );
 
-const focusEntries: Arbitrary<FocusEntryCase[]> = subarray(['bard-focus', 'cleric-focus', 'witch-focus']).chain(
+const focusEntries: Arbitrary<Array<FocusEntryCase>> = subarray(['bard-focus', 'cleric-focus', 'witch-focus']).chain(
   (slugs) =>
     tuple(...slugs.map(() => array(grant, { minLength: 1, maxLength: 3 }))).map((grants) =>
       slugs.map((slug, index): FocusEntryCase => ({ slug, grants: grants[index] ?? [] })),
     ),
 );
 
-function entriesOf(cases: readonly FocusEntryCase[]): readonly SpellcastingInPlay[] {
+function entriesOf(cases: ReadonlyArray<FocusEntryCase>): ReadonlyArray<SpellcastingInPlay> {
   const elements = cases.flatMap(({ slug, grants }) => [
     { key: 'SpellcastingEntry', slug, tradition: 'occult', attribute: 'cha', preparation: 'focus' },
     ...grants.map((spells) => ({ key: 'FocusSpells', entry: slug, spells })),

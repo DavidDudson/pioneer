@@ -14,13 +14,13 @@ interface UnenabledLine {
 /** A group of lines under one heading. */
 interface UnenabledGroup {
   readonly heading: string;
-  readonly lines: readonly UnenabledLine[];
+  readonly lines: ReadonlyArray<UnenabledLine>;
 }
 
 /** The warning: which campaign has not enabled it, and what, grouped by kind. */
 interface UnenabledView {
   readonly campaign: string;
-  readonly groups: readonly UnenabledGroup[];
+  readonly groups: ReadonlyArray<UnenabledGroup>;
 }
 
 const HEADINGS = {
@@ -30,8 +30,8 @@ const HEADINGS = {
 } as const;
 
 /** The groups that have lines, in the order the warning lists them. */
-function groupsOf(content: UnenabledContent): readonly UnenabledGroup[] {
-  const groups: readonly UnenabledGroup[] = [
+function groupsOf(content: UnenabledContent): ReadonlyArray<UnenabledGroup> {
+  const groups: ReadonlyArray<UnenabledGroup> = [
     {
       heading: HEADINGS.variantRules,
       lines: content.variantRules.map(({ variantId, name, packTitle }) => ({

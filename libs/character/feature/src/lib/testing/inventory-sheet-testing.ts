@@ -13,12 +13,12 @@ import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { expect, onTestFinished, vi } from 'vitest';
 
-import { characterRoutes } from '../character.routes';
 import type { JsonObject } from './json-fixture';
 import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
 import { ruleLimitSettingsOf } from './rule-limit-settings-testing';
 import { answerItemApprovalsRead, answerSheetBundle } from './sheet-page-harness';
 import { NO_CHARACTER_PACKS, NO_VARIANT_RULES, playOf } from './sheet-reads-testing';
+import { SHEET_TEST_ROUTES } from './sheet-routes-testing';
 
 export const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 const BACKPACK = '11111111-1111-4111-8111-111111111111';
@@ -44,6 +44,10 @@ export const VALEROS = {
       { id: CLOAK, item: itemFixtureId(ItemFixture.Cloak), quantity: 1, carry: { state: 'worn' }, invested: true },
     ],
     coins: { pp: 0, gp: 15, sp: 0, cp: 0 },
+    ledger: [
+      { reason: 'opening', change: { pp: 0, gp: 20, sp: 0, cp: 0 } },
+      { reason: 'purchase', change: { pp: 0, gp: -5, sp: 0, cp: 0 }, at: '2026-10-07T09:30:00.000Z' },
+    ],
   },
   createdAt: '2026-10-07T10:00:00.000Z',
   updatedAt: '2026-10-07T10:00:00.000Z',
@@ -73,10 +77,15 @@ interface SheetReads {
   readonly approvals?: JsonObject | undefined;
   /** Whether the tab reads the rule limits; the Downtime tab does not. */
   readonly limits?: boolean;
+  /** The variant rules the character has enabled; none when omitted. */
+  readonly variantRules?: JsonObject;
 }
 
 /** Answers the sheet's read of Valeros with the bundle, nothing changed, and of the approvals unless `limits` is off (a tab without the table rules never asks). */
-async function answerServerState(character: JsonObject, { approvals, limits = true }: SheetReads): Promise<void> {
+async function answerServerState(
+  character: JsonObject,
+  { approvals, limits = true, variantRules = NO_VARIANT_RULES }: SheetReads,
+): Promise<void> {
   await answerSheetBundle({
     sheet: { character, slots: [], languages: { known: [], open: 0 } },
     ruleLimits: CORE_RULE_LIMITS,
@@ -85,7 +94,7 @@ async function answerServerState(character: JsonObject, { approvals, limits = tr
     ruleLimitSettings: ruleLimitSettingsOf(),
     unenabled: { variantRules: [], packs: [], items: [] },
     packs: NO_CHARACTER_PACKS,
-    variantRules: NO_VARIANT_RULES,
+    variantRules,
   });
 
   if (limits) {
@@ -98,7 +107,7 @@ async function openSheet(url: string, character: JsonObject, reads: SheetReads =
   await prebuildServerStateTesting(SHEET_PACKS);
   TestBed.configureTestingModule({
     providers: [
-      provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
+      provideRouter([{ path: 'characters', children: SHEET_TEST_ROUTES }], withComponentInputBinding()),
       ...provideServerStateTesting(SHEET_PACKS),
       provideI18n({ en: async () => frontierMessages }),
     ],
@@ -126,7 +135,16 @@ export async function openInventory(
   rows: number = VALEROS.inventory.items.length,
   approvals?: JsonObject,
 ): Promise<HTMLElement> {
-  const sheet = await openSheet(`/characters/${id}/exploration/inventory`, character, { approvals });
+  return openInventoryReading(character, rows, { approvals });
+}
+
+/** Opens Valeros's inventory with `variantRules` enabled for him. */
+export async function openInventoryUnder(variantRules: JsonObject): Promise<HTMLElement> {
+  return openInventoryReading(VALEROS, VALEROS.inventory.items.length, { variantRules });
+}
+
+async function openInventoryReading(character: JsonObject, rows: number, reads: SheetReads): Promise<HTMLElement> {
+  const sheet = await openSheet(`/characters/${id}/exploration/inventory`, character, reads);
   const section = present(sheet.querySelector<HTMLElement>('pio-inventory-section'));
   await vi.waitFor(async () => {
     await settle();
@@ -184,7 +202,7 @@ async function openPicker(target: HTMLElement): Promise<Picker<string, object>> 
 }
 
 /** Opens the inline picker in `target` and names the rows it offers, in order. */
-export async function rowLabels(target: HTMLElement): Promise<readonly string[]> {
+export async function rowLabels(target: HTMLElement): Promise<ReadonlyArray<string>> {
   const picker = await openPicker(target);
 
   return vi.waitFor(() => {
@@ -223,4 +241,18 @@ export async function openShop(query = ''): Promise<HTMLElement> {
   });
 
   return shop;
+}
+
+/** Opens Valeros's Earn Income section on the Downtime tab. */
+export async function openIncome(): Promise<HTMLElement> {
+  const sheet = await openSheet(`/characters/${id}/downtime/income`, VALEROS, { limits: false });
+
+  return present(sheet.querySelector<HTMLElement>('pio-sheet-earn-income'));
+}
+
+/** Opens Valeros's Retraining section on the Downtime tab. */
+export async function openRetraining(): Promise<HTMLElement> {
+  const sheet = await openSheet(`/characters/${id}/downtime/retraining`, VALEROS, { limits: false });
+
+  return present(sheet.querySelector<HTMLElement>('pio-sheet-retraining'));
 }

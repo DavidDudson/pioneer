@@ -47,7 +47,7 @@ const CAST_SPENT = { [`wand:${WAND}`]: 1 };
 const BOTH_SPENT = { [`wand:${WAND}`]: 1, [`wand:${WAND}:overcharge`]: 1 };
 
 /** The d20 faces the next flat checks roll. */
-function rolling(...faces: readonly number[]): void {
+function rolling(...faces: ReadonlyArray<number>): void {
   TestBed.configureTestingModule({
     providers: [{ provide: RANDOM_SOURCE, useValue: scriptedRandom(faces.map((face) => DieFace.parse(face))) }],
   });

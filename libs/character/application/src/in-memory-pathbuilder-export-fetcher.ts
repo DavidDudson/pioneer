@@ -7,7 +7,7 @@ const UNREACHABLE: FetchedExport = { ok: false, problem: ExportFetchProblem.Unav
 
 /** A fetcher that serves one answer for every URL (Pathbuilder unreachable unless given one) and keeps the URLs it was asked for, for tests. */
 export class InMemoryPathbuilderExportFetcher extends PathbuilderExportFetcher {
-  public readonly asked: PathbuilderExportUrl[] = [];
+  public readonly asked: Array<PathbuilderExportUrl> = [];
   readonly #answer: FetchedExport;
 
   public constructor(answer: FetchedExport = UNREACHABLE) {

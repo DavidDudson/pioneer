@@ -55,12 +55,12 @@ export class HomebrewPackService {
   }
 
   /** Every pack the actor owns, newest first. */
-  public async list(actor: UserId): Promise<readonly HomebrewPack[]> {
+  public async list(actor: UserId): Promise<ReadonlyArray<HomebrewPack>> {
     return this.#packs.listOwnedBy(actor);
   }
 
   /** The actor's archived packs (ADR-0062); nobody else's are listed. */
-  public async listArchived(actor: UserId): Promise<readonly HomebrewPack[]> {
+  public async listArchived(actor: UserId): Promise<ReadonlyArray<HomebrewPack>> {
     return this.#packs.listArchivedOwnedBy(actor);
   }
 

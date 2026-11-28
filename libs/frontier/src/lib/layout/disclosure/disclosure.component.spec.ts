@@ -57,7 +57,7 @@ describe(Disclosure, () => {
 
   it('opens and closes on a press of the summary, and tells the parent', async () => {
     const fixture = render(false);
-    const changes: boolean[] = [];
+    const changes: Array<boolean> = [];
     fixture.componentInstance.open.subscribe((open) => {
       changes.push(open);
     });

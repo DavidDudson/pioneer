@@ -25,9 +25,9 @@ function withStaff(entry: ContentEntry, staff: StaffSpells): ContentEntry {
  * entries are re-encoded; the rest are the file's own JSON.
  */
 export function enrichStaffFile(
-  file: readonly unknown[],
+  file: ReadonlyArray<unknown>,
   matches: ReadonlyMap<ContentKey, StaffSpells>,
-): readonly unknown[] | undefined {
+): ReadonlyArray<unknown> | undefined {
   const entries = ContentEntryFile.parse(file);
 
   const enriched = file.map((json, index) => {

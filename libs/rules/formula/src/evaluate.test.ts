@@ -123,7 +123,7 @@ describe('evaluate', () => {
   test('ternary evaluates only the branch it takes', () => {
     expect(value('ternary(1, 4, 1 / 0)')).toBe(4);
     expect(value('ternary(0, @unknown, 4)')).toBe(4);
-    const calls: string[] = [];
+    const calls: Array<string> = [];
 
     const tracked: ResolveReference = (path) => {
       calls.push(path);

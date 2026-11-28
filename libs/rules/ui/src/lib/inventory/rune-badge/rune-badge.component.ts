@@ -10,10 +10,10 @@ import type { RuneBadgeData } from './rune-badge-data';
 import { FUNDAMENTAL_GLYPHS } from './rune-glyphs';
 
 /** Each grade's tier colour: base blue, greater purple, major red, mythic gold. */
-const GRADE_TONES: readonly GemTone[] = [GemTone.Blue, GemTone.Purple, GemTone.Red, GemTone.Gold];
+const GRADE_TONES: ReadonlyArray<GemTone> = [GemTone.Blue, GemTone.Purple, GemTone.Red, GemTone.Gold];
 
 /** A reinforcing rune's six grades, minor to supreme: greater (4th) is purple, major (5th) red, supreme gold. */
-const REINFORCING_TONES: readonly GemTone[] = [
+const REINFORCING_TONES: ReadonlyArray<GemTone> = [
   GemTone.Blue,
   GemTone.Blue,
   GemTone.Blue,

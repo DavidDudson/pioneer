@@ -15,7 +15,7 @@ const classes = registry.packs
   .flatMap((entry) => (entry.kind === ContentKind.Class ? [entry] : []));
 
 /** The roles a class entry names; none when it sets none. */
-const rolesOf = (entry: (typeof classes)[number]): readonly ClassRole[] => entry.data.roles ?? [];
+const rolesOf = (entry: (typeof classes)[number]): ReadonlyArray<ClassRole> => entry.data.roles ?? [];
 
 describe('class roles', () => {
   test('lists the classes that have no role', () => {

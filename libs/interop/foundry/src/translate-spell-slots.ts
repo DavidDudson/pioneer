@@ -53,7 +53,7 @@ const RANKS = Array.from({ length: NINTH }, (_unused, index) => index + 1);
  * A Player Core class caster's spells per day, which every caster in the book shares: five cantrips; two slots of each
  * new rank from the level it opens at, three from the next level; one 10th-rank slot from 19th level.
  */
-function classTable(entry: string, opening = NEW_RANK_SLOTS): readonly object[] {
+function classTable(entry: string, opening = NEW_RANK_SLOTS): ReadonlyArray<object> {
   return [
     slots({ entry, rank: CANTRIP, value: CLASS_CANTRIPS }, 1),
     ...RANKS.flatMap((rank) => [
@@ -71,12 +71,12 @@ const DIVINE_ACCESS_SPELLS = 3;
  * A 10th-rank feature's two repertoire spells (ADR-0063): Magnum Opus, Bloodline Paragon and Oracular Clarity. The class
  * table gives the single 10th-rank slot they cast from, and the slot never sizes the repertoire.
  */
-function tenthRankPicks(entry: string): readonly object[] {
+function tenthRankPicks(entry: string): ReadonlyArray<object> {
   return [{ key: RuleElementKey.RepertoireCount, entry, rank: TENTH, value: TENTH_RANK_PICKS }];
 }
 
 /** The second 10th-rank slot a feat adds (Perfect Encore, Bloodline Perfection, Oracular Providence): a slot, no spell. */
-function secondTenthRankSlot(entry: string): readonly object[] {
+function secondTenthRankSlot(entry: string): ReadonlyArray<object> {
   return [slots({ entry, rank: TENTH, value: 1 }, 1)];
 }
 
@@ -86,7 +86,7 @@ const FONT_FIRST_RAISE = 5;
 const FONT_SECOND_RAISE = 15;
 
 /** Four slots at the cleric's highest rank for heal or harm, five from 5th level, six from 15th. */
-const DIVINE_FONT_SLOTS: readonly object[] = [
+const DIVINE_FONT_SLOTS: ReadonlyArray<object> = [
   slots({ entry: 'cleric', rank: HIGHEST, value: FONT_SLOTS, pool: DIVINE_FONT }, 1),
   slots({ entry: 'cleric', rank: HIGHEST, value: 1, pool: DIVINE_FONT }, FONT_FIRST_RAISE),
   slots({ entry: 'cleric', rank: HIGHEST, value: 1, pool: DIVINE_FONT }, FONT_SECOND_RAISE),
@@ -98,7 +98,7 @@ const CURRICULUM = 'curriculum';
  * A wizard school's curriculum: one extra cantrip, and one extra slot of each rank the wizard can cast. A curriculum
  * lists spells up to 9th rank, so it adds no 10th-rank slot.
  */
-const CURRICULUM_SLOTS: readonly object[] = [
+const CURRICULUM_SLOTS: ReadonlyArray<object> = [
   slots({ entry: 'wizard', rank: CANTRIP, value: 1, pool: CURRICULUM }, 1),
   ...RANKS.map((rank) => slots({ entry: 'wizard', rank, value: 1, pool: CURRICULUM }, rankOpens(rank))),
 ];
@@ -106,7 +106,7 @@ const CURRICULUM_SLOTS: readonly object[] = [
 const DEDICATION_CANTRIPS = 2;
 
 /** A multiclass dedication's two cantrips. */
-function dedication(entry: string): readonly object[] {
+function dedication(entry: string): ReadonlyArray<object> {
   return [slots({ entry, rank: CANTRIP, value: DEDICATION_CANTRIPS }, 1)];
 }
 
@@ -122,14 +122,14 @@ const BASIC_LAG = 3;
 const LATER_LAG = 5;
 
 /** One slot of each rank from `lowest` to `highest`, each from the level the spellcasting benefits name. */
-function archetypeSlots(entry: string, lowest: number, highest: number): readonly object[] {
+function archetypeSlots(entry: string, lowest: number, highest: number): ReadonlyArray<object> {
   return RANKS.filter((rank) => rank >= lowest && rank <= highest).map((rank) =>
     slots({ entry, rank, value: 1 }, rankOpens(rank) + (rank <= BASIC_TOP ? BASIC_LAG : LATER_LAG)),
   );
 }
 
 /** Each multiclass caster's dedication and Basic, Expert and Master Spellcasting feats, by entry slug. */
-function archetype(entry: string): readonly (readonly [string, readonly object[]])[] {
+function archetype(entry: string): ReadonlyArray<readonly [string, ReadonlyArray<object>]> {
   return [
     [`feat:${entry}-dedication`, dedication(entry)],
     [`feat:basic-${entry}-spellcasting`, archetypeSlots(entry, 1, BASIC_TOP)],
@@ -153,7 +153,7 @@ const CURRICULUM_SCHOOLS = [
  * patron gives the entry, since every patron's witch casts from the same table. The witch dedication has no entry yet
  * (its tradition is unknown), so its feats add no slots.
  */
-export const SPELL_SLOTS: ReadonlyMap<string, readonly object[]> = new Map([
+export const SPELL_SLOTS: ReadonlyMap<string, ReadonlyArray<object>> = new Map([
   ['class-feature:bard-spellcasting', classTable('bard')],
   ['class-feature:cleric-spellcasting', classTable('cleric')],
   ['class-feature:druid-spellcasting', classTable('druid')],
@@ -180,6 +180,6 @@ export const SPELL_SLOTS: ReadonlyMap<string, readonly object[]> = new Map([
   ['feat:bloodline-perfection', secondTenthRankSlot('sorcerer')],
   ['feat:oracular-providence', secondTenthRankSlot('oracle')],
   ['class-feature:divine-font', DIVINE_FONT_SLOTS],
-  ...CURRICULUM_SCHOOLS.map((school): [string, readonly object[]] => [`class-feature:${school}`, CURRICULUM_SLOTS]),
+  ...CURRICULUM_SCHOOLS.map((school): [string, ReadonlyArray<object>] => [`class-feature:${school}`, CURRICULUM_SLOTS]),
   ...['bard', 'cleric', 'druid', 'wizard'].flatMap((entry) => archetype(entry)),
 ]);

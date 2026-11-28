@@ -161,7 +161,7 @@ interface Saved {
   readonly version: Version;
 }
 
-const prerequisites = (text: string): JsonObject[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
+const prerequisites = (text: string): Array<JsonObject> => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 describe('CharacterService selectSlot on feat slots', () => {
   const builder = new ContentPackBuilder().withId('player-core');

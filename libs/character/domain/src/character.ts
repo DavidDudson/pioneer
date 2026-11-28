@@ -5,15 +5,18 @@ import type { Temporal, UserId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CharacterDocumentSchema } from './character-document';
-import type { Build, CharacterDocument } from './character-document';
+import type { CharacterDocument } from './character-document';
 import { CURRENT_SCHEMA_VERSION } from './character-document-upgrades';
 import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
 import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField, isDocumentPatch, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch } from './character-patch';
 import { ANCESTRY_SLOT, CLASS_SLOT } from './character-slots';
+import { LedgerReason } from './coin-ledger';
+import { reasonFor, withCoinLedger, withCoins, withOpeningEntry } from './coin-ledger-edits';
 import { withLoreEdit } from './custom-lore';
 import { withDocumentEdit } from './document-edits';
+import { withEarnedIncome } from './earn-income';
 import { equipmentChange } from './equipment-change';
 import { inventoryRefusal, moveItem, removeItem, renameItem, setItemQuantity } from './inventory';
 import type { Inventory, InventoryEdit } from './inventory';
@@ -21,8 +24,7 @@ import { withAddedItem, withAddedKit } from './item-purchase';
 import type { EditInputs } from './item-purchase';
 import { storableLimits } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
-import { signatureKeyOf } from './signature-spells';
-import { withoutPlacedPick } from './unplaced-picks';
+import { withoutSelection, withSelection } from './slot-selection';
 import type { UnplacedPicks } from './unplaced-picks';
 
 /**
@@ -135,7 +137,7 @@ export class Character {
           choices: { ...input.choices, [ANCESTRY_SLOT]: ChoiceValue.parse(input.ancestry) },
           ...input.unplaced,
         },
-        inventory: input.inventory,
+        inventory: input.inventory === undefined ? undefined : withOpeningEntry(input.inventory),
       }),
       version: FIRST_VERSION,
       createdAt: input.now,
@@ -158,7 +160,11 @@ export class Character {
       throw new TypeError(`Edit ${patch.field} leaves the document invalid: ${z.prettifyError(checked.error)}`);
     }
 
-    return new Character({ ...this.toProps(), document, updatedAt: now });
+    return new Character({
+      ...this.toProps(),
+      document: withCoinLedger({ before: this.document, after: document, reason: reasonFor(patch), now }),
+      updatedAt: now,
+    });
   }
 
   #changes(patch: CharacterPatch, inputs: EditInputs, now: Temporal.Instant): Partial<CharacterProps> {
@@ -180,11 +186,24 @@ export class Character {
       }
 
       case CharacterPatchField.SelectSlot: {
-        return { document: withLoreEdit(this.#choose(patch.slot, patch.selection, inputs), patch) };
+        return {
+          document: withLoreEdit(
+            withSelection(this.document, {
+              slot: patch.slot,
+              value: patch.selection,
+              countsAsSwap: inputs.countsAsSwap === true,
+            }),
+            patch,
+          ),
+        };
       }
 
       case CharacterPatchField.ClearSlot: {
-        return { document: withLoreEdit(this.#clear(patch.slot, inputs)) };
+        return {
+          document: withLoreEdit(
+            withoutSelection(this.document, { slot: patch.slot, countsAsSwap: inputs.countsAsSwap === true }),
+          ),
+        };
       }
 
       case CharacterPatchField.CarryItem:
@@ -234,12 +253,11 @@ export class Character {
       }
 
       case CharacterPatchField.SetCoins: {
-        return {
-          document: {
-            ...this.document,
-            inventory: { ...this.document.inventory, coins: patch.coins },
-          },
-        };
+        return { document: withCoins(this.document, patch.coins) };
+      }
+
+      case CharacterPatchField.EarnIncome: {
+        return { document: withEarnedIncome(this.document, patch) };
       }
 
       default: {
@@ -269,51 +287,27 @@ export class Character {
     };
   }
 
-  #choose(slot: SlotKey, value: ChoiceValue, inputs: EditInputs): CharacterDocument {
-    const { build } = this.document;
-    const choices: Record<SlotKey, ChoiceValue> = { ...build.choices, [slot]: value };
-    const old = build.choices[slot];
-
-    if (inputs.countsAsSwap !== true || old === undefined) {
-      return { ...this.document, build: { ...withoutPlacedPick(build, slot, value), choices } };
-    }
-
-    const signature = signatureKeyOf(slot);
-
-    if (signature !== undefined && choices[signature] === old) {
-      choices[signature] = value;
-    }
-
-    const swapped = { ...withoutPlacedPick(build, slot, value), choices, repertoireSwaps: this.#swapped(slot) };
-
-    return { ...this.document, build: swapped };
-  }
-
-  /** The swaps with `slot` recorded at the character's level. */
-  #swapped(slot: SlotKey): Build['repertoireSwaps'] {
-    const { level, build } = this.document;
-
-    return [...build.repertoireSwaps.filter((each) => each.level !== level), { level, slot }];
-  }
-
-  /** The document without a selection for `slot`; every other pick, shown or hidden, stays. */
-  #clear(slot: SlotKey, inputs: EditInputs = {}): CharacterDocument {
-    const { build } = this.document;
-    const { [slot]: _cleared, ...choices } = build.choices;
-    const repertoireSwaps = inputs.countsAsSwap === true ? this.#swapped(slot) : build.repertoireSwaps;
-
-    return { ...this.document, build: { ...build, choices, repertoireSwaps } };
-  }
-
   public withVersion(version: Version): Character {
     return new Character({ ...this.toProps(), version });
   }
 
-  /** This character with `inventory` in place of its own, as a play edit that breaks or destroys an item leaves it. */
-  public withInventory(inventory: Inventory, now: Temporal.Instant): Character {
+  /**
+   * This character with `inventory` in place of its own, as a play edit that breaks or destroys an item leaves it. Any
+   * coins it moves are entered as a transfer between purses unless `reason` says otherwise.
+   */
+  public withInventory(
+    inventory: Inventory,
+    now: Temporal.Instant,
+    reason: LedgerReason = LedgerReason.Transfer,
+  ): Character {
     return new Character({
       ...this.toProps(),
-      document: { ...this.document, inventory },
+      document: withCoinLedger({
+        before: this.document,
+        after: { ...this.document, inventory },
+        reason,
+        now,
+      }),
       updatedAt: now,
     });
   }

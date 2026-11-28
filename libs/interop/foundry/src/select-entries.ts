@@ -58,8 +58,8 @@ export interface SkippedEntry {
 }
 
 export interface Selection {
-  readonly selected: readonly SelectedEntry[];
-  readonly skipped: readonly SkippedEntry[];
+  readonly selected: ReadonlyArray<SelectedEntry>;
+  readonly skipped: ReadonlyArray<SkippedEntry>;
 }
 
 /** The books a run targets, and which of the pre-remaster ones the registry flags for import. */
@@ -155,7 +155,7 @@ function select(entry: PackDocument, scope: Scope): SelectedEntry | SkippedEntry
 export function selectEntries(
   release: FoundryRelease,
   targets: ReadonlySet<BookId>,
-  books: readonly Book[],
+  books: ReadonlyArray<Book>,
 ): Selection {
   return selectIn(release, { targets, legacy: legacyBooks(books), replaced: NO_REPLACED });
 }
@@ -163,7 +163,7 @@ export function selectEntries(
 /** What `selectReplacedLegacy` reads besides the release. */
 export interface ReplacedScope {
   readonly targets: ReadonlySet<BookId>;
-  readonly books: readonly Book[];
+  readonly books: ReadonlyArray<Book>;
   readonly replaced: ReplacedLegacy;
 }
 
@@ -176,9 +176,9 @@ export function selectReplacedLegacy(release: FoundryRelease, { targets, books, 
 }
 
 function selectIn(release: FoundryRelease, scope: Scope): Selection {
-  const selected: SelectedEntry[] = [];
+  const selected: Array<SelectedEntry> = [];
 
-  const skipped: SkippedEntry[] = release.unreadable.map(({ pack, path, error }) => ({
+  const skipped: Array<SkippedEntry> = release.unreadable.map(({ pack, path, error }) => ({
     pack,
     path,
     reason: SkipReason.Unreadable,
@@ -213,8 +213,8 @@ export interface SelectedCreature extends ActorDocument {
 }
 
 export interface CreatureSelection {
-  readonly selected: readonly SelectedCreature[];
-  readonly skipped: readonly SkippedEntry[];
+  readonly selected: ReadonlyArray<SelectedCreature>;
+  readonly skipped: ReadonlyArray<SkippedEntry>;
 }
 
 function selectCreature(entry: ActorDocument, scope: Scope): SelectedCreature | SkippedEntry {
@@ -245,11 +245,11 @@ function selectCreature(entry: ActorDocument, scope: Scope): SelectedCreature | 
 export function selectCreatures(
   release: FoundryRelease,
   targets: ReadonlySet<BookId>,
-  books: readonly Book[],
+  books: ReadonlyArray<Book>,
 ): CreatureSelection {
   const scope: Scope = { targets, legacy: legacyBooks(books), replaced: NO_REPLACED };
-  const selected: SelectedCreature[] = [];
-  const skipped: SkippedEntry[] = [];
+  const selected: Array<SelectedCreature> = [];
+  const skipped: Array<SkippedEntry> = [];
 
   for (const entry of release.actors) {
     const selection = selectCreature(entry, scope);

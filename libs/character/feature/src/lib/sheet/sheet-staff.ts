@@ -34,7 +34,7 @@ export function sheetStaffLimits(registry: ContentRegistry, character: Character
 }
 
 /** The staves daily preparations can prepare, named as the inventory names them. */
-export function staffOptions(registry: ContentRegistry, character: Character, limits: StaffLimits): StaffOption[] {
+export function staffOptions(registry: ContentRegistry, character: Character, limits: StaffLimits): Array<StaffOption> {
   const entries = itemContent(registry);
 
   return character.document.inventory.items
@@ -43,7 +43,7 @@ export function staffOptions(registry: ContentRegistry, character: Character, li
 }
 
 /** The slots a prepared caster can expend, one per rank of each prepared entry. */
-export function staffSlotOptions(registry: ContentRegistry, character: Character): StaffSlotOption[] {
+export function staffSlotOptions(registry: ContentRegistry, character: Character): Array<StaffSlotOption> {
   const content = sheetSlotContent(registry);
   const grants = characterGrants(character.document, content);
 

@@ -33,7 +33,7 @@ import {
   propertyRuneOptions,
   runeKey,
 } from './rune-options';
-import { gradeRows, propertyRows, RUNE_ORDER, runeColumns, runeRowLabel, runeValue } from './rune-picker';
+import { gradeRows, propertyRows, RUNE_HEADERS, RUNE_ORDER, runeColumns, runeRowLabel, runeValue } from './rune-picker';
 import type { RuneRow, RuneWords } from './rune-picker';
 import { describeRuneError, gradeLabel, runeLabel } from './rune-text';
 
@@ -140,19 +140,7 @@ export class ItemRuneEdits {
   });
 
   /** The columns of every rune picker. */
-  protected readonly runeColumns = computed(() => {
-    this.#messages();
-
-    return runeColumns({
-      name: this.#i18n.translate('character.sheet.runes.columns.name'),
-      kind: this.#i18n.translate('character.sheet.runes.columns.kind'),
-      level: this.#i18n.translate('character.sheet.runes.columns.level'),
-      effect: this.#i18n.translate('character.sheet.runes.columns.effect'),
-      price: this.#i18n.translate('character.sheet.runes.columns.price'),
-      slots: this.#i18n.translate('character.sheet.runes.columns.slots'),
-      slotsUsed: this.#i18n.translate('character.sheet.runes.columns.slotsUsed'),
-    });
-  });
+  protected readonly runeColumns = runeColumns(RUNE_HEADERS);
   protected readonly runeValue = runeValue;
   protected readonly runeLabel = runeRowLabel;
 
@@ -170,7 +158,7 @@ export class ItemRuneEdits {
     [FundamentalRune.Reinforcing]: this.#gradeField(FundamentalRune.Reinforcing),
   };
 
-  protected readonly gradeRows: Signal<readonly GradeRow[]> = computed(() => {
+  protected readonly gradeRows: Signal<ReadonlyArray<GradeRow>> = computed(() => {
     this.#messages();
     const entry = this.#entry();
 
@@ -182,11 +170,11 @@ export class ItemRuneEdits {
     }));
   });
 
-  protected readonly properties: Signal<readonly PropertyRow[]> = computed(() => {
+  protected readonly properties: Signal<ReadonlyArray<PropertyRow>> = computed(() => {
     const item = this.#item();
     const etched = item === undefined ? [] : etchedRunes(item, this.#entry());
 
-    return etched.flatMap((rune): PropertyRow[] =>
+    return etched.flatMap((rune): Array<PropertyRow> =>
       rune.type === RuneType.Property
         ? [{ rune, name: runeLabel(this.#i18n, this.content(), { rune, grade: undefined }), key: runeKey(rune) }]
         : [],
@@ -235,7 +223,7 @@ export class ItemRuneEdits {
   protected readonly choice = signal<string | undefined>(undefined);
 
   /** What the chosen rune can be made for, as a select offers it; none for a rune that takes no choice. */
-  protected readonly choiceOptions: Signal<readonly SelectOption<string>[]> = computed(() => {
+  protected readonly choiceOptions: Signal<ReadonlyArray<SelectOption<string>>> = computed(() => {
     this.#messages();
     const rune = ContentId.safeParse(this.model().rune);
     const entry = rune.success ? this.content().runes.get(rune.data) : undefined;
@@ -296,7 +284,7 @@ export class ItemRuneEdits {
 
   /** The rows of `rune`'s picker: none, or a specific item's grade as it comes, then each grade that can be etched. */
   #gradePicker(rune: FundamentalRune): PickerRows<RuneRow> {
-    const all = computed((): readonly RuneRow[] => {
+    const all = computed((): ReadonlyArray<RuneRow> => {
       this.#messages();
       const entry = this.#entry();
       const printed = printedGrade(rune, entry);

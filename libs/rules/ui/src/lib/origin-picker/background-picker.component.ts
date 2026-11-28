@@ -1,9 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, model, output, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { TranslocoService } from '@jsverse/transloco';
+import { ChangeDetectionStrategy, Component, computed, input, model, output, signal } from '@angular/core';
 import { Picker } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
-import { filter, merge } from 'rxjs';
 
 import type { BackgroundPickerRow } from './origin-picker-row';
 import {
@@ -31,7 +28,7 @@ import {
 })
 export class BackgroundPicker {
   /** Every background the slot offers, with the facts of each. */
-  public readonly rows = input.required<readonly BackgroundPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<BackgroundPickerRow>>();
   /** The picked background's id; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);
@@ -47,16 +44,7 @@ export class BackgroundPicker {
   protected readonly query = signal('');
   protected readonly sorting = signal<PickerSort | undefined>(undefined);
 
-  readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  /** Changes when the language changes or the messages load, so the headers and labels are read again. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
-
-  protected readonly columns = computed(() => {
-    this.#messages();
-
-    return backgroundPickerColumns((key, params) => this.#i18n.translate(key, params));
-  });
+  protected readonly columns = computed(() => backgroundPickerColumns());
 
   /** The rows whose name holds what was typed, in the order asked for. */
   protected readonly shown = computed(() => shownBackgroundRows(this.rows(), this.query(), this.sorting()));

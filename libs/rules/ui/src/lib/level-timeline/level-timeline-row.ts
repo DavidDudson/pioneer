@@ -26,19 +26,19 @@ interface TimelinePickBase {
 /** A planned skill slot picked from a table of the skills it will offer. */
 export interface TimelineSkill extends TimelinePickBase {
   readonly kind: typeof TimelinePickKind.Skill;
-  readonly rows: Signal<readonly SkillPickerRow[]>;
+  readonly rows: Signal<ReadonlyArray<SkillPickerRow>>;
 }
 
 /** A planned boost slot picked from a table of the attributes it will offer. */
 export interface TimelineBoost extends TimelinePickBase {
   readonly kind: typeof TimelinePickKind.Boost;
-  readonly rows: Signal<readonly AttributePickerRow[]>;
+  readonly rows: Signal<ReadonlyArray<AttributePickerRow>>;
 }
 
 /** A planned slot picked from a table of the feats it will offer. */
 export interface TimelineFeat extends TimelinePickBase {
   readonly kind: typeof TimelinePickKind.Feat;
-  readonly rows: Signal<readonly FeatPickerRow[]>;
+  readonly rows: Signal<ReadonlyArray<FeatPickerRow>>;
   /** Why the slot's pick counts for nothing, if it does. */
   readonly reason: Signal<MessageDescriptor | undefined>;
 }
@@ -61,9 +61,9 @@ export interface LevelTimelineRow {
   readonly level: Level;
   /** The character's level, marked in text. */
   readonly current: boolean;
-  readonly lines: readonly ChoiceLine[];
+  readonly lines: ReadonlyArray<ChoiceLine>;
   /** A picker for each planned slot of the level that can be picked ahead of time. */
-  readonly picks: readonly TimelinePick[];
+  readonly picks: ReadonlyArray<TimelinePick>;
   /** What the level improves with nothing to pick; none where a list doesn't say. */
-  readonly automatic?: readonly AutomaticLine[] | undefined;
+  readonly automatic?: ReadonlyArray<AutomaticLine> | undefined;
 }

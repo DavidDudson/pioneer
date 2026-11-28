@@ -13,7 +13,7 @@ export const optionValue = <TValue extends string>(row: SelectOption<TValue>): T
 export const optionLabel = (row: SelectOption<string>): string => row.label;
 
 /** The one column of an option picker: the option's label under `header`. */
-export function optionColumns<TValue extends string>(header: string): readonly TableColumn<SelectOption<TValue>>[] {
+export function optionColumns<TValue extends string>(header: string): ReadonlyArray<TableColumn<SelectOption<TValue>>> {
   return new RulesTableSchema<SelectOption<TValue>>()
     .addText({ id: 'name', header, value: optionLabel, width: 'md' })
     .build();

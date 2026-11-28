@@ -16,7 +16,7 @@ const SANITY = RollOptionNamespace.parse('sanity');
 const SELF = RollOptionNamespace.parse('self');
 
 /** The issues `register` throws for `pack`, or none if it registers. */
-function registerIssues(registry: ContentRegistry, pack: ContentPackBuilder): readonly FieldIssue[] {
+function registerIssues(registry: ContentRegistry, pack: ContentPackBuilder): ReadonlyArray<FieldIssue> {
   try {
     registry.register(pack.build());
 

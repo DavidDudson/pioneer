@@ -12,7 +12,7 @@ export interface RollAs {
   /** The domain the roll belongs to besides the statistic's own. */
   readonly domain: Domain;
   /** The roll options the roll supplies, which predicates in the situational namespaces read. */
-  readonly options: readonly RollOption[];
+  readonly options: ReadonlyArray<RollOption>;
 }
 
 /** The last word of a selector: `stealth` for `skill:stealth`, `perception` for itself. */

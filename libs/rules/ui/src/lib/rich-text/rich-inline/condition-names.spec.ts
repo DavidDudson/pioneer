@@ -13,7 +13,7 @@ function words(text: string): InlineContent {
   return [{ type: 'text', text: RichTextString.parse(text) }];
 }
 
-function kindsOf(text: string, linkable: () => boolean): readonly string[] {
+function kindsOf(text: string, linkable: () => boolean): ReadonlyArray<string> {
   const linked = linkConditionNames(words(text), linkable);
 
   return linked.map(({ type }) => type);

@@ -36,7 +36,7 @@ function offered(registry: ContentRegistry, character: Character | undefined, sl
 export function ancestryRows(
   registry: ContentRegistry,
   character: Character | undefined,
-): readonly AncestryPickerRow[] {
+): ReadonlyArray<AncestryPickerRow> {
   const names = sheetEntryNames(registry);
   const slot = offered(registry, character, ANCESTRY_SLOT);
 
@@ -79,7 +79,7 @@ export function heritageRows(
   registry: ContentRegistry,
   character: Character,
   { translate }: OriginRowReads,
-): readonly HeritagePickerRow[] {
+): ReadonlyArray<HeritagePickerRow> {
   const content = originContent(registry);
   const slot = offered(registry, character, HERITAGE_SLOT);
   const ancestryNames = new Map<ContentId, string>(content.ancestries.map((ancestry) => [ancestry.id, ancestry.name]));
@@ -123,7 +123,7 @@ export function backgroundRows(
   registry: ContentRegistry,
   character: Character,
   { translate }: OriginRowReads,
-): readonly BackgroundPickerRow[] {
+): ReadonlyArray<BackgroundPickerRow> {
   const slot = offered(registry, character, BACKGROUND_SLOT);
   const skills = new Map(skillContent(registry).skills.map((skill) => [skill.selector, skill.name]));
   const options = originContent(registry).backgrounds.filter((background) => slot?.has(background.id) ?? true);
@@ -137,7 +137,7 @@ export function backgroundRows(
   return options.map((background): BackgroundPickerRow => {
     const again = trainedAgain.get(background.id);
 
-    const trained = (lore: boolean): string[] =>
+    const trained = (lore: boolean): Array<string> =>
       background.trained
         .filter((selector) => selector.startsWith(LORE_PREFIX) === lore)
         .map((selector) => skills.get(selector) ?? selector);

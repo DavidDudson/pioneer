@@ -10,7 +10,7 @@ import { sheetSlotContent } from './sheet-slot-content';
 import { slotFilter } from './sheet-slot-filter';
 import type { FilterSources, SlotFilter } from './sheet-slot-filter';
 
-const FEAT_FACETS: readonly FacetDefinition[] = facetsFor([ContentKind.Feat]);
+const FEAT_FACETS: ReadonlyArray<FacetDefinition> = facetsFor([ContentKind.Feat]);
 
 interface SlotReads {
   readonly registry: ContentRegistry;
@@ -23,11 +23,11 @@ export interface FeatSlotFilterInputs {
   readonly character: Signal<Character | undefined>;
   readonly filters: FilterSources;
   readonly key: SlotKey;
-  readonly options: Signal<readonly SheetFeatOption[]>;
+  readonly options: Signal<ReadonlyArray<SheetFeatOption>>;
 }
 
 /** The facets the slot's feats are filtered by: the feat kind's, and prerequisites met as this character reads them. */
-function facetsOf(read: SlotReads | undefined, key: SlotKey): readonly FacetDefinition[] {
+function facetsOf(read: SlotReads | undefined, key: SlotKey): ReadonlyArray<FacetDefinition> {
   if (read === undefined) {
     return FEAT_FACETS;
   }

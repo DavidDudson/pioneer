@@ -158,7 +158,7 @@ export function classFeatures(
   resolution: GrantResolution,
   lookup: ContentLookup,
   slot: SlotKey = CLASS_SLOT,
-): readonly ClassFeature[] {
+): ReadonlyArray<ClassFeature> {
   const classId = classOf(resolution, slot);
   const characterClass = classId === undefined ? undefined : lookup.entry(classId);
 
@@ -166,7 +166,7 @@ export function classFeatures(
     return [];
   }
 
-  const features = resolution.items.flatMap((item): ClassFeature[] => {
+  const features = resolution.items.flatMap((item): Array<ClassFeature> => {
     const rule = item.entry.kind === ContentKind.ClassFeature ? classRule(item, classId) : undefined;
 
     if (rule === undefined) {
@@ -202,7 +202,7 @@ function subclassChoice(
     return undefined;
   }
 
-  const slots: readonly ChoiceSlot[] = [...resolution.answered, ...resolution.open];
+  const slots: ReadonlyArray<ChoiceSlot> = [...resolution.answered, ...resolution.open];
 
   return slots.find((each) => queriesTag(lookup.entry(each.origin.entry)?.rules[each.rule], subclass));
 }

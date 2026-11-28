@@ -32,7 +32,7 @@ for (const spell of [...DEVOTION, 'protectors-sacrifice']) {
 
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
-const grant = (spell: string, predicate?: readonly JsonValue[]): JsonObject => {
+const grant = (spell: string, predicate?: ReadonlyArray<JsonValue>): JsonObject => {
   const element = { key: 'FocusSpells', entry: 'champion-focus', spells: [spellId(spell)] };
 
   return predicate === undefined ? element : { ...element, predicate };
@@ -88,7 +88,7 @@ function focusOf(feats: string, picks: Readonly<Record<string, string>> = {}): C
   return characterFocus(entries, spellContent(registry), document.level);
 }
 
-function spellsOf(focus: CharacterFocus): string[] {
+function spellsOf(focus: CharacterFocus): Array<string> {
   return focus.entries.flatMap(({ spells }) => spells.map(({ id }) => String(id)));
 }
 

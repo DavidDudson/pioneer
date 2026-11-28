@@ -1,30 +1,40 @@
-<fr-stack gap="md">
+<fr-stack gap="none">
   @if (regions().search) {
-    <pio-browser-search [kindOptions]="kindOptions()" [(state)]="state" />
+    <pio-browser-toolbar
+      [kindOptions]="kindOptions()"
+      [fields]="fields()"
+      [facetState]="facetState()"
+      [facets]="regions().facets"
+      [list]="listShown()"
+      [(state)]="state"
+      (facetChange)="facetChange.emit($event)"
+    />
   }
   @if (showEntry()) {
-    @if (regions().list) {
-      <fr-stack direction="horizontal">
-        <fr-button (pressed)="back()">{{ Message.Back | transloco }}</fr-button>
-      </fr-stack>
-    }
-    <fr-async-region [errorMessage]="Message.EntryError | transloco">
-      <ng-template frAsyncPending>
-        <fr-stack gap="xs">
-          @for (row of loadingRows; track row) {
-            <fr-skeleton width="lg" />
-          }
+    <fr-stack gap="md">
+      @if (regions().list) {
+        <fr-stack direction="horizontal">
+          <fr-button (pressed)="back()">{{ Message.Back | transloco }}</fr-button>
         </fr-stack>
-      </ng-template>
-      <ng-template let-shown [frAsyncData]="entry()">
-        <pio-content-entry-view
-          [card]="shown.card"
-          [stores]="shown.stores"
-          [full]="full()"
-          [headingLevel]="headingLevel()"
-        />
-      </ng-template>
-    </fr-async-region>
+      }
+      <fr-async-region [errorMessage]="Message.EntryError | transloco">
+        <ng-template frAsyncPending>
+          <fr-stack gap="xs">
+            @for (row of loadingRows; track row) {
+              <fr-skeleton width="lg" />
+            }
+          </fr-stack>
+        </ng-template>
+        <ng-template let-shown [frAsyncData]="entry()">
+          <pio-content-entry-view
+            [card]="shown.card"
+            [stores]="shown.stores"
+            [full]="full()"
+            [headingLevel]="headingLevel()"
+          />
+        </ng-template>
+      </fr-async-region>
+    </fr-stack>
   } @else if (regions().list) {
     <fr-async-region [errorMessage]="listError() | transloco">
       <ng-template frAsyncPending>
@@ -35,25 +45,16 @@
         </fr-stack>
       </ng-template>
       <ng-template let-shown [frAsyncData]="list()">
-        <fr-stack gap="md">
-          <pio-browser-filters
-            [fields]="fields()"
-            [counts]="shown.counts"
-            [facetState]="facetState()"
-            [facets]="regions().facets"
-            [(state)]="state"
-            (facetChange)="facetChange.emit($event)"
-          />
-          <pio-browser-rows
-            [list]="shown"
-            [columns]="columns()"
-            [table]="regions().table"
-            [(sorting)]="sorting"
-            [(hidden)]="hidden"
-            (more)="more.emit()"
-            (picked)="pick($event)"
-          />
-        </fr-stack>
+        <pio-browser-rows
+          [list]="shown"
+          [columns]="columns()"
+          [table]="regions().table"
+          [(sorting)]="sorting"
+          [(hidden)]="hidden"
+          [(density)]="density"
+          (more)="more.emit()"
+          (picked)="pick($event)"
+        />
       </ng-template>
     </fr-async-region>
   }

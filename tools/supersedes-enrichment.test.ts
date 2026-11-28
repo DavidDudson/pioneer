@@ -37,12 +37,12 @@ function spell(slug: string, aon: string, extra: JsonObject = {}): EntryJson {
   };
 }
 
-const entriesOf = (...entries: object[]): readonly ContentEntry[] => ContentEntryFile.parse(entries);
-const pairs = (replacedBy: Record<string, string[]>): AonSupersedesFile => AonSupersedesFile.parse({ replacedBy });
-const fileText = (...entries: object[]): string => `${JSON.stringify(entries, undefined, 2)}\n`;
+const entriesOf = (...entries: Array<object>): ReadonlyArray<ContentEntry> => ContentEntryFile.parse(entries);
+const pairs = (replacedBy: Record<string, Array<string>>): AonSupersedesFile => AonSupersedesFile.parse({ replacedBy });
+const fileText = (...entries: Array<object>): string => `${JSON.stringify(entries, undefined, 2)}\n`;
 
 /** The entries of a patched file; the pass must have changed it. */
-function patchedEntries({ text }: SupersedesEnrichedFile): readonly ContentEntry[] {
+function patchedEntries({ text }: SupersedesEnrichedFile): ReadonlyArray<ContentEntry> {
   if (text === undefined) {
     throw new Error('The pass changed nothing');
   }

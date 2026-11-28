@@ -30,7 +30,7 @@ interface Case {
   readonly expected: MessageDescriptor;
 }
 
-const cases: readonly Case[] = [
+const cases: ReadonlyArray<Case> = [
   {
     name: 'too short',
     schema: atLeastThree,
@@ -90,13 +90,13 @@ const cases: readonly Case[] = [
   },
 ];
 
-function issuesOf(schema: z.ZodType, value: z.core.util.JSONType): readonly z.core.$ZodIssue[] {
+function issuesOf(schema: z.ZodType, value: z.core.util.JSONType): ReadonlyArray<z.core.$ZodIssue> {
   const result = schema.safeParse(value);
 
   return result.success ? [] : result.error.issues;
 }
 
-function described(schema: z.ZodType, value: z.core.util.JSONType): readonly MessageDescriptor[] {
+function described(schema: z.ZodType, value: z.core.util.JSONType): ReadonlyArray<MessageDescriptor> {
   return issuesOf(schema, value).map((issue) => issueMessage(issue));
 }
 

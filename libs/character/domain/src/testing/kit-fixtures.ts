@@ -32,7 +32,7 @@ export type KitFixture = (typeof KitFixture)[keyof typeof KitFixture];
 const EXPLORER_ARROWS = 10;
 
 /** A kit's items as its `data` lists them: the fixture item and how many, with what a container holds. */
-function kitLine(name: ItemFixture, quantity: number, contents: readonly JsonObject[] = []): JsonObject {
+function kitLine(name: ItemFixture, quantity: number, contents: ReadonlyArray<JsonObject> = []): JsonObject {
   const line = { item: itemFixtureId(name), quantity };
 
   return contents.length === 0 ? line : { ...line, contents };

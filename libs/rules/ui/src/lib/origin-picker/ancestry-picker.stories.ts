@@ -11,7 +11,7 @@ type AncestryPickerStory = StoryObj<AncestryPicker>;
 
 const LONG_LIST = 300;
 
-const ANCESTRIES: readonly AncestryPickerRow[] = [
+const ANCESTRIES: ReadonlyArray<AncestryPickerRow> = [
   ancestryRow({
     id: 'dwarf',
     name: 'Dwarf',

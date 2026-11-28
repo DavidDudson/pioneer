@@ -1,7 +1,7 @@
 import type { EnvironmentProviders, Provider } from '@angular/core';
 import type { Routes } from '@angular/router';
 import { CRUMB } from '@pioneer/frontier';
-import { rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 
@@ -14,7 +14,7 @@ import { CampaignStore } from './data/campaign-store';
 import { CampaignTransferStore } from './data/campaign-transfer-store';
 
 /** What every campaign page needs: its server state and its messages. */
-function campaignProviders(): (Provider | EnvironmentProviders)[] {
+function campaignProviders(): Array<Provider | EnvironmentProviders> {
   return [
     CampaignStore,
     CampaignItemReviewStore,

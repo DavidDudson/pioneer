@@ -41,3 +41,7 @@ export const Prose: BoxStory = { args: { width: BoxWidth.Prose } };
 export const Page: BoxStory = { args: { width: BoxWidth.Page, padding: Space.Lg } };
 
 export const Gutter: BoxStory = { args: { width: BoxWidth.Page, gutter: true } };
+
+export const ShownFromMd: BoxStory = { args: { shownFrom: 'md' } };
+
+export const HiddenFromMd: BoxStory = { args: { hiddenFrom: 'md' } };

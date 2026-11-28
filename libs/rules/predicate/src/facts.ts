@@ -1,5 +1,5 @@
-import { NamespaceKind, RollOption } from '@pioneer/rules/sdk';
-import type { RollOptionNamespace, RollOptionTail } from '@pioneer/rules/sdk';
+import { NamespaceKind } from '@pioneer/rules/sdk';
+import type { RollOption, RollOptionNamespace, RollOptionTail } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { kindOf } from './namespaces';
@@ -11,14 +11,14 @@ export const OptionValue = z.number().brand<'OptionValue'>();
 export type OptionValue = z.infer<typeof OptionValue>;
 
 const SEPARATOR = ':';
-const NO_VALUES: readonly OptionValue[] = [];
+const NO_VALUES: ReadonlyArray<OptionValue> = [];
 
 /**
  * Each option's number, if its last word is a finite one, grouped by the text before it: `self:level` → `[5]`.
  * `1e309` reads as Infinity, which no level or rank reaches, so it gives no value.
  */
-function indexValues(options: Iterable<string>): ReadonlyMap<string, readonly OptionValue[]> {
-  const values = new Map<string, OptionValue[]>();
+function indexValues(options: Iterable<string>): ReadonlyMap<string, ReadonlyArray<OptionValue>> {
+  const values = new Map<string, Array<OptionValue>>();
 
   for (const option of options) {
     const split = option.lastIndexOf(SEPARATOR);
@@ -41,15 +41,15 @@ interface Layer {
   /** The namespace and its separator, `item:`. */
   readonly prefix: string;
   /** Written without the namespace. */
-  readonly options: readonly string[];
+  readonly options: ReadonlyArray<string>;
 }
 
 /** A skill's rank as a roll option: `skill:arcana:rank:0`, `perception:rank:2`. */
 const RANK_OPTION = /:rank:\d+$/u;
 
 /** The numbers after `rest:` among `options`, which are written without the namespace `rest` was taken off. */
-function layerValues(options: readonly string[], rest: string): OptionValue[] {
-  const values: OptionValue[] = [];
+function layerValues(options: ReadonlyArray<string>, rest: string): Array<OptionValue> {
+  const values: Array<OptionValue> = [];
 
   for (const option of options) {
     const split = option.lastIndexOf(SEPARATOR);
@@ -69,7 +69,9 @@ function layerValues(options: readonly string[], rest: string): OptionValue[] {
  */
 export class PredicateFacts {
   readonly #options: ReadonlySet<string>;
-  readonly #values: ReadonlyMap<string, readonly OptionValue[]>;
+  /** The same options, already branded, so a copy of these facts need not parse each one again. */
+  readonly #branded: ReadonlySet<RollOption>;
+  readonly #values: ReadonlyMap<string, ReadonlyArray<OptionValue>>;
   readonly #namespaces: NamespaceTable;
   /** `isKnown` answers so far: one query asks the same of every candidate it tests. */
   readonly #known = new Map<string, boolean>();
@@ -78,8 +80,12 @@ export class PredicateFacts {
   /** Set by `withRanksUnread`: a missing `<skill>:rank:<n>` is unknown, not false. */
   #ranksUnread = false;
 
+  /** These facts read with ranks unread, made on first ask: the facts never change, and every `ChoiceSet` offer asks. */
+  #unread: PredicateFacts | undefined;
+
   public constructor(options: Iterable<RollOption>, namespaces: NamespaceTable) {
-    this.#options = new Set<string>(options);
+    this.#branded = new Set<RollOption>(options);
+    this.#options = this.#branded;
     this.#values = indexValues(this.#options);
     this.#namespaces = namespaces;
   }
@@ -91,7 +97,7 @@ export class PredicateFacts {
    */
   public withNamespace(
     namespace: RollOptionNamespace,
-    options: readonly (RollOption | RollOptionTail)[],
+    options: ReadonlyArray<RollOption | RollOptionTail>,
   ): PredicateFacts {
     const layered = new PredicateFacts([], this.#namespaces);
     layered.#layer = { base: this, prefix: `${namespace}${SEPARATOR}`, options };
@@ -100,11 +106,11 @@ export class PredicateFacts {
   }
 
   /** These facts with `options` present as well, as a battle form's traits are while it lasts. */
-  public plus(options: readonly RollOption[]): PredicateFacts {
+  public plus(options: ReadonlyArray<RollOption>): PredicateFacts {
     const layer = this.#layer;
 
     if (layer === undefined) {
-      const own = [...this.#options].map((option) => RollOption.parse(option));
+      const own = [...this.#branded];
 
       return this.#sameReading(new PredicateFacts([...own, ...options], this.#namespaces));
     }
@@ -120,10 +126,9 @@ export class PredicateFacts {
     const layer = this.#layer;
 
     if (layer === undefined) {
-      const kept = this.#options
+      const kept = this.#branded
         .values()
         .filter((each) => each !== option)
-        .map((each) => RollOption.parse(each))
         .toArray();
 
       return this.#sameReading(new PredicateFacts(kept, this.#namespaces));
@@ -149,7 +154,7 @@ export class PredicateFacts {
   }
 
   /** Every number written after `prefix:` in a present option: `[5]` for `self:level` given `self:level:5`. */
-  public values(prefix: RollOption): readonly OptionValue[] {
+  public values(prefix: RollOption): ReadonlyArray<OptionValue> {
     const layer = this.#layer;
 
     if (layer === undefined) {
@@ -162,7 +167,7 @@ export class PredicateFacts {
   }
 
   /** The words after `prefix:` in the present options, each once: `fighter` for `class:fighter` given `class`. */
-  public tails(prefix: string): readonly string[] {
+  public tails(prefix: string): ReadonlyArray<string> {
     const layer = this.#layer;
 
     if (layer !== undefined) {
@@ -183,10 +188,13 @@ export class PredicateFacts {
    * worked out, so a missing `skill:arcana:rank:0` says nothing, and reads unknown rather than false.
    */
   public withRanksUnread(): PredicateFacts {
-    const read = new PredicateFacts(
-      [...this.#options].map((each) => RollOption.parse(each)),
-      this.#namespaces,
-    );
+    this.#unread ??= this.#readUnread();
+
+    return this.#unread;
+  }
+
+  #readUnread(): PredicateFacts {
+    const read = new PredicateFacts([...this.#branded], this.#namespaces);
 
     read.#ranksUnread = true;
     const layer = this.#layer;

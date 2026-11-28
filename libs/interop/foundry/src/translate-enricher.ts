@@ -64,7 +64,7 @@ function widthOf(params: ReadonlyMap<string, string>, kind: AreaKind, context: E
 }
 
 /** `@Template[cone|distance:30]`, `@Template[type:line|distance:60|width:10]` as a `Template` node. */
-function templateRun(params: string, label: string | undefined, context: EnricherContext): RunNode[] {
+function templateRun(params: string, label: string | undefined, context: EnricherContext): Array<RunNode> {
   const parsed = enricherParams(params, TYPE);
   const type = parsed.get(TYPE) ?? '';
   const kind = AreaKindSchema.safeParse(type);
@@ -101,7 +101,7 @@ function durationOf(formula: string, flavour: string): DurationNode | undefined 
  * `[[/r 2d6[fire]]]` is damage and `[[/r 1 #minute]]` a duration. Any other roll (`[[/r 1d4 #rounds]]`, a
  * counteract modifier) reads as its label, else its formula: there is no node for a roll yet.
  */
-function rollRun(args: string, label: string | undefined, context: EnricherContext): RunNode[] {
+function rollRun(args: string, label: string | undefined, context: EnricherContext): Array<RunNode> {
   const hash = args.indexOf(FLAVOUR);
   const formula = (hash === -1 ? args : args.slice(0, hash)).trim();
   const flavour = hash === -1 ? '' : args.slice(hash + 1).trim();
@@ -124,7 +124,7 @@ function rollRun(args: string, label: string | undefined, context: EnricherConte
   return textRun(label ?? formula, context);
 }
 
-function namedRun({ name, params, label }: NamedEnricher, context: EnricherContext): RunNode[] {
+function namedRun({ name, params, label }: NamedEnricher, context: EnricherContext): Array<RunNode> {
   switch (name) {
     case 'UUID': {
       return uuidRun(params, label, context);
@@ -152,7 +152,7 @@ function namedRun({ name, params, label }: NamedEnricher, context: EnricherConte
   }
 }
 
-function commandRun({ command, args, label }: CommandEnricher, context: EnricherContext): RunNode[] {
+function commandRun({ command, args, label }: CommandEnricher, context: EnricherContext): Array<RunNode> {
   if (command === ACT) {
     return actRun(args, label, context);
   }
@@ -166,12 +166,12 @@ function commandRun({ command, args, label }: CommandEnricher, context: Enricher
   return textRun(label ?? args, context);
 }
 
-function enricherRun(enricher: Enricher, context: EnricherContext): RunNode[] {
+function enricherRun(enricher: Enricher, context: EnricherContext): Array<RunNode> {
   return enricher.form === EnricherForm.Named ? namedRun(enricher, context) : commandRun(enricher, context);
 }
 
 /** Description text as a run, each enricher in it translated. */
-export function enrichedRun(text: string, context: EnricherContext): RunNode[] {
+export function enrichedRun(text: string, context: EnricherContext): Array<RunNode> {
   return enricherParts(text).flatMap((part) =>
     typeof part === 'string' ? textRun(part, context) : enricherRun(part, context),
   );

@@ -39,7 +39,7 @@ describe.skipIf(adminUrl === undefined)('CampaignPackEnablementDirectory (postgr
     readonly id: string;
     readonly name: string;
     readonly gm: UserId;
-    readonly players: readonly UserId[];
+    readonly players: ReadonlyArray<UserId>;
   }
 
   async function insertCampaign({ id, name, gm, players }: CampaignSeed): Promise<void> {

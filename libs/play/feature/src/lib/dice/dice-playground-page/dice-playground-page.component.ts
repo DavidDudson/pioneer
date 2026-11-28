@@ -136,7 +136,7 @@ export class DicePlaygroundPage {
   protected readonly area = signal(false);
   protected readonly spell = signal(false);
   protected readonly target = signal<DamageTarget>(NO_DEFENCES);
-  protected readonly rolls = signal<readonly RollView[]>([]);
+  protected readonly rolls = signal<ReadonlyArray<RollView>>([]);
 
   protected roll(): void {
     const outcome = this.#outcome();

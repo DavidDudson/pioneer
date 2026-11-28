@@ -45,7 +45,7 @@ export const DiscrepancyReport = z.object({
 export type DiscrepancyReport = z.infer<typeof DiscrepancyReport>;
 
 /** The statistics whose rank Pathbuilder gives, by the key it uses in `proficiencies`. */
-const SKILLS: readonly string[] = [
+const SKILLS: ReadonlyArray<string> = [
   'acrobatics',
   'arcana',
   'athletics',
@@ -65,13 +65,13 @@ const SKILLS: readonly string[] = [
 ];
 
 /** Armor and weapon categories, under one name in Pathbuilder and the engine. */
-const DEFENSES: readonly string[] = ['unarmored', 'light', 'medium', 'heavy'];
-const ATTACKS: readonly string[] = ['unarmed', 'simple', 'martial', 'advanced'];
+const DEFENSES: ReadonlyArray<string> = ['unarmored', 'light', 'medium', 'heavy'];
+const ATTACKS: ReadonlyArray<string> = ['unarmed', 'simple', 'martial', 'advanced'];
 
 /** Pathbuilder's key in `proficiencies` and the selector it ranks. */
 type RankedKey = readonly [string, string];
 
-const RANKED_KEYS: readonly RankedKey[] = [
+const RANKED_KEYS: ReadonlyArray<RankedKey> = [
   ['perception', 'perception'],
   ['fortitude', 'save:fortitude'],
   ['reflex', 'save:reflex'],
@@ -114,17 +114,17 @@ export interface PioneerSpellDc {
 
 /** The spell slots the engine gives one prepared or spontaneous entry per day: cantrips first, then each rank, 1 to 10. */
 export interface PioneerSpellSlots extends CasterHome {
-  readonly counts: readonly number[];
+  readonly counts: ReadonlyArray<number>;
 }
 
 /** What the engine derived for the imported character: totals by statistic, ranks of the statistics ranked, the spell DCs and the spell slots. */
 export interface PioneerValues {
   /** The Focus Points the engine's focus spells give the pool (ADR-0050); undefined when the character has no focus entry. */
   readonly focusPoints: number | undefined;
-  readonly spellSlots: readonly PioneerSpellSlots[];
+  readonly spellSlots: ReadonlyArray<PioneerSpellSlots>;
   readonly totals: ReadonlyMap<Selector, number>;
   readonly ranks: ReadonlyMap<Selector, Proficiency>;
-  readonly spellDcs: readonly PioneerSpellDc[];
+  readonly spellDcs: ReadonlyArray<PioneerSpellDc>;
 }
 
 export const SPELL_SLOTS_PREFIX = 'spell-slots:';
@@ -146,7 +146,7 @@ interface RankPair {
   readonly pioneer: Proficiency;
 }
 
-const RANKS: readonly Proficiency[] = Object.values(Proficiency);
+const RANKS: ReadonlyArray<Proficiency> = Object.values(Proficiency);
 
 /** The totals Pathbuilder computed: AC, maximum Hit Points from its parts and the Constitution modifier, and Speed. */
 function reportedTotals(value: PathbuilderImport): Map<Selector, number> {
@@ -193,7 +193,7 @@ function focusDc(
  * The spell DC Pathbuilder computed for each focus tradition and attribute, beside the engine's for the first of its
  * entries with that tradition and attribute. One with no such entry (a focus-only caster the engine gives none) is left out.
  */
-function spellDcPairs(value: PathbuilderImport, { spellDcs }: PioneerValues): Pair[] {
+function spellDcPairs(value: PathbuilderImport, { spellDcs }: PioneerValues): Array<Pair> {
   return Object.entries(value.reported.focus).flatMap(([tradition, byAttribute]) =>
     Object.entries(byAttribute).flatMap(([attribute, entry]) => {
       const pioneer = spellDcs.find((dc) => dc.tradition === tradition && dc.attribute === attribute);
@@ -220,7 +220,7 @@ function slotsSelector(slug: string, index: number): Selector {
  * The spells a day Pathbuilder gives each caster, rank by rank, beside the engine's slots for the entry that casts the
  * same way. A caster with no such entry has nothing to compare, and a rank neither side has slots of is not a row.
  */
-function spellSlotPairs(value: PathbuilderImport, { spellSlots }: PioneerValues): Pair[] {
+function spellSlotPairs(value: PathbuilderImport, { spellSlots }: PioneerValues): Array<Pair> {
   return [...pairCasters(value.casters, spellSlots)].flatMap(([caster, entry]) => {
     const length = Math.max(caster.perDay.length, entry.counts.length);
 
@@ -237,9 +237,9 @@ function totalOf(values: PioneerValues, selector: Selector): number | undefined 
   return selector === FOCUS_POINTS ? values.focusPoints : values.totals.get(selector);
 }
 
-function totalDifferences(value: PathbuilderImport, values: PioneerValues): [number, TotalDiscrepancy[]] {
-  const compared: Pair[] = [
-    ...[...reportedTotals(value), ...derivedTotals(value)].flatMap(([selector, pathbuilder]): Pair[] => {
+function totalDifferences(value: PathbuilderImport, values: PioneerValues): [number, Array<TotalDiscrepancy>] {
+  const compared: Array<Pair> = [
+    ...[...reportedTotals(value), ...derivedTotals(value)].flatMap(([selector, pathbuilder]): Array<Pair> => {
       const pioneer = totalOf(values, selector);
 
       return pioneer === undefined ? [] : [{ selector, pathbuilder, pioneer }];
@@ -267,11 +267,11 @@ function totalDifferences(value: PathbuilderImport, values: PioneerValues): [num
  * The highest rank Pathbuilder gives in a tradition the engine has a spellcasting entry for, beside the one
  * `spellcasting` rank the engine reads for them all. Nothing without an entry or a rank on either side.
  */
-function castingRankPairs(value: PathbuilderImport, { ranks, spellDcs }: PioneerValues): RankPair[] {
+function castingRankPairs(value: PathbuilderImport, { ranks, spellDcs }: PioneerValues): Array<RankPair> {
   const pioneer = ranks.get(SPELLCASTING);
   const traditions = [...new Set(spellDcs.map(({ tradition }) => tradition))];
 
-  const given = traditions.flatMap((tradition): Proficiency[] => {
+  const given = traditions.flatMap((tradition): Array<Proficiency> => {
     const number = value.reported.proficiencies[CASTING_KEYS.get(tradition) ?? ''];
     const rank = number === undefined ? undefined : RANK_BY_NUMBER.get(number);
 
@@ -283,9 +283,9 @@ function castingRankPairs(value: PathbuilderImport, { ranks, spellDcs }: Pioneer
   return pathbuilder === undefined || pioneer === undefined ? [] : [{ selector: SPELLCASTING, pathbuilder, pioneer }];
 }
 
-function rankDifferences(value: PathbuilderImport, values: PioneerValues): [number, RankDiscrepancy[]] {
-  const compared: RankPair[] = [
-    ...Object.entries(RANKED_STATISTICS).flatMap(([key, selector]): RankPair[] => {
+function rankDifferences(value: PathbuilderImport, values: PioneerValues): [number, Array<RankDiscrepancy>] {
+  const compared: Array<RankPair> = [
+    ...Object.entries(RANKED_STATISTICS).flatMap(([key, selector]): Array<RankPair> => {
       const number = value.reported.proficiencies[key];
       const pathbuilder = number === undefined ? undefined : RANK_BY_NUMBER.get(number);
       const pioneer = values.ranks.get(selector);

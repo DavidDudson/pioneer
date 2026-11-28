@@ -26,14 +26,14 @@ function toCharacterVariantRule(row: CharacterVariantRuleRow): CharacterVariantR
 
 export class DrizzleCharacterVariantRepository extends CharacterVariantRepository {
   readonly #db: BunSQLDatabase;
-  readonly #listed = new RequestMemo<CharacterId, readonly CharacterVariantRule[]>();
+  readonly #listed = new RequestMemo<CharacterId, ReadonlyArray<CharacterVariantRule>>();
 
   public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }
 
-  public override async listForCharacter(characterId: CharacterId): Promise<readonly CharacterVariantRule[]> {
+  public override async listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<CharacterVariantRule>> {
     return this.#listed.of(characterId, async () => {
       const rows = await this.#db
         .select()

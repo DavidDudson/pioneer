@@ -23,7 +23,7 @@ registry.register(languageFixtures());
 
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
-const LANGUAGES: readonly LanguageFixture[] = [
+const LANGUAGES: ReadonlyArray<LanguageFixture> = [
   'common',
   'dwarven',
   'elven',
@@ -34,7 +34,7 @@ const LANGUAGES: readonly LanguageFixture[] = [
   'aklo',
 ];
 
-const BACKGROUNDS: readonly LanguageBackground[] = ['envoy', 'linguist', 'dwarf-friend', 'scholar'];
+const BACKGROUNDS: ReadonlyArray<LanguageBackground> = ['envoy', 'linguist', 'dwarf-friend', 'scholar'];
 
 /** A language, or nothing, for one slot. */
 const languagePick = option(constantFrom(...LANGUAGES), { nil: undefined });
@@ -47,7 +47,7 @@ const level = integer({ min: 1, max: LEVEL_MAX });
 /** A dwarf at `atLevel` with `background`, `picks` filling its language slots in order. */
 function dwarfWith(
   background: LanguageBackground | undefined,
-  picks: readonly (LanguageFixture | undefined)[],
+  picks: ReadonlyArray<LanguageFixture | undefined>,
   atLevel: number,
 ): CharacterDocument {
   let builder = new CharacterBuilder().picking('ancestry', languageDwarfId).atLevel(atLevel);

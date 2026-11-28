@@ -8,7 +8,7 @@ const NONE = HitPoints.parse(0);
 
 /** The part of a play state ending or applying an effect reads and writes: the effects, and the temporary Hit Points. */
 export interface EffectPlay {
-  readonly effects: readonly ActiveEffect[];
+  readonly effects: ReadonlyArray<ActiveEffect>;
   readonly hp: { readonly damage: HitPoints; readonly temp: HitPoints };
 }
 
@@ -17,7 +17,7 @@ export interface EffectPlay {
  * stack, so what is left is the form's own only while it is no more than what the form raised them to; more than that
  * came from another source and stays.
  */
-export function endEffects<Play extends EffectPlay>(play: Play, ended: readonly EffectInstanceId[]): Play {
+export function endEffects<Play extends EffectPlay>(play: Play, ended: ReadonlyArray<EffectInstanceId>): Play {
   const going = play.effects.filter(({ id }) => ended.includes(id));
   const given = HitPoints.parse(Math.max(NONE, ...going.map(({ tempHp }) => tempHp ?? NONE)));
   const temp = play.hp.temp <= given ? NONE : play.hp.temp;
@@ -26,7 +26,7 @@ export function endEffects<Play extends EffectPlay>(play: Play, ended: readonly 
 }
 
 /** The ids of the polymorph effects among `effects`, the ones a newer polymorph effect replaces. */
-function polymorphs(effects: readonly ActiveEffect[], content: EffectContent): readonly EffectInstanceId[] {
+function polymorphs(effects: ReadonlyArray<ActiveEffect>, content: EffectContent): ReadonlyArray<EffectInstanceId> {
   return effects
     .values()
     .filter(({ effect }) => content.get(effect)?.polymorph === true)

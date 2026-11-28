@@ -15,7 +15,7 @@ const CANTRIP = Trait.parse('cantrip');
 const EFFECT_PREFIX = 'Spell Effect: ';
 
 /** The registry kinds a form cast reads: the spells and actions that put a form on the user, and the effects they cast. */
-export const FORM_CAST_CONTENT_KINDS: readonly ContentKind[] = [
+export const FORM_CAST_CONTENT_KINDS: ReadonlyArray<ContentKind> = [
   ContentKind.Spell,
   ContentKind.Action,
   ContentKind.Effect,
@@ -40,7 +40,7 @@ export interface FormCast {
   readonly action: boolean;
   /** The rank a spell is cast at: the slot's, else the spell's own; an action has none. */
   readonly rank: SpellRank | undefined;
-  readonly choices: readonly FormCastChoice[];
+  readonly choices: ReadonlyArray<FormCastChoice>;
   /** The form the caster is in when the spell changes it, rather than putting one on. */
   readonly shift: EffectInstanceId | undefined;
 }
@@ -51,7 +51,7 @@ function nameOf({ name }: EffectOption): string {
 }
 
 /** The forms of one effect: one per choice it offers, else the effect itself. */
-function choicesOf(option: EffectOption): readonly FormCastChoice[] {
+function choicesOf(option: EffectOption): ReadonlyArray<FormCastChoice> {
   const name = nameOf(option);
 
   if (option.forms.length === 0) {
@@ -77,7 +77,7 @@ export interface FormCaster {
 interface RankInputs {
   readonly slot: string | undefined;
   readonly focus: boolean | undefined;
-  readonly spell: { readonly traits: readonly Trait[]; readonly data: { readonly rank: SpellRank } };
+  readonly spell: { readonly traits: ReadonlyArray<Trait>; readonly data: { readonly rank: SpellRank } };
   readonly caster: FormCaster | undefined;
 }
 

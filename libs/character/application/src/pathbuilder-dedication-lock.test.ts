@@ -36,7 +36,7 @@ function feat(name: string, level: number): ImportedFeat {
   };
 }
 
-function wanted(...feats: readonly ImportedFeat[]): string | undefined {
+function wanted(...feats: ReadonlyArray<ImportedFeat>): string | undefined {
   return noDedicationLockVariant({ ...mordred, feats }, registry, lookup)?.definition.slug;
 }
 

@@ -15,7 +15,7 @@ import type { ModifierInputs } from './rule-in-play';
 
 /** What an action reads as once the elements in play have changed it. */
 export interface AlteredAction {
-  readonly traits: readonly Trait[];
+  readonly traits: ReadonlyArray<Trait>;
   /** The entry's description, replaced by an alteration that gives one, with the damage it deals as altered. */
   readonly description: RichText;
 }
@@ -24,7 +24,7 @@ type JsonValue = z.core.util.JSONType;
 
 type JsonObject = Readonly<Record<string, JsonValue>>;
 
-const DICE = /^(?<count>\d+)(?<rest>d\d+.*)$/u;
+const DICE = /^(?<count>\d+)(?<rest>d\d.*)$/u;
 
 /** Whether `value` is a JSON object rather than a list or a plain value. */
 function isJsonObject(value: JsonValue): value is JsonObject {
@@ -56,7 +56,7 @@ function mapDamage(node: JsonValue, change: (instance: JsonObject) => JsonObject
 
 /** The number of dice of the first damage a description deals; undefined when it deals none in dice. */
 function diceOf(description: RichText): FormulaValue | undefined {
-  const found: FormulaValue[] = [];
+  const found: Array<FormulaValue> = [];
   mapDamage(z.json().parse(description), (instance) => {
     const formula = DamageFormula.safeParse(instance['formula']);
     const count = formula.success ? DICE.exec(formula.data)?.groups?.['count'] : undefined;
@@ -91,7 +91,7 @@ function withDamage(
   return RichText.parse(mapped);
 }
 
-function rollOptionsOf(entry: ContentEntry): readonly RollOptionTail[] {
+function rollOptionsOf(entry: ContentEntry): ReadonlyArray<RollOptionTail> {
   return [
     RollOptionTail.parse(`type:${entry.kind}`),
     RollOptionTail.parse(`slug:${slugName(entry.slug)}`),

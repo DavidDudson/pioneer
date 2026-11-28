@@ -35,7 +35,7 @@ function resourcesText(root: HTMLElement): string {
 }
 
 /** The pips of the group named `group`, in order. */
-function pipsOf(root: HTMLElement, group: string): HTMLButtonElement[] {
+function pipsOf(root: HTMLElement, group: string): Array<HTMLButtonElement> {
   const toolbar = present(
     [...root.querySelectorAll('pio-sheet-resources [role="toolbar"]')].find(
       (each) => each.getAttribute('aria-label') === group,
@@ -46,7 +46,7 @@ function pipsOf(root: HTMLElement, group: string): HTMLButtonElement[] {
 }
 
 /** Which pips are filled, as 1 and 0. */
-function filled(pips: readonly HTMLButtonElement[]): string {
+function filled(pips: ReadonlyArray<HTMLButtonElement>): string {
   return pips.map((pip) => (pip.getAttribute('aria-pressed') === 'true' ? '1' : '0')).join('');
 }
 

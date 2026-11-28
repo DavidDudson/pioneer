@@ -9,7 +9,7 @@ const rowVariants = cva('flex gap-2xs overflow-x-auto border-b border-line-subtl
 
 // Touch-sized like a section tab, whose look it shares; the label never wraps, the row scrolls instead.
 const tabVariants = cva(
-  'inline-flex h-touch items-center px-sm text-label font-medium whitespace-nowrap underline-offset-link focus-visible:focus-ring pointer-fine:h-control-sm',
+  'inline-flex min-h-control-sm items-center px-sm text-label font-medium whitespace-nowrap underline-offset-link focus-visible:focus-ring',
   {
     variants: {
       selected: {
@@ -39,7 +39,7 @@ const tabVariants = cva(
 export class TabList<TValue extends string> {
   /** Names the tab list, already translated. */
   public readonly label = input.required<string>();
-  public readonly options = input.required<readonly SelectOption<TValue>[]>();
+  public readonly options = input.required<ReadonlyArray<SelectOption<TValue>>>();
   /** The chosen tab. */
   public readonly value = model<TValue | undefined>(undefined);
 

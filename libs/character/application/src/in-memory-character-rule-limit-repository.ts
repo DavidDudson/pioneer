@@ -7,7 +7,7 @@ import { CharacterRuleLimitRepository } from './character-rule-limit-repository'
 export class InMemoryCharacterRuleLimitRepository extends CharacterRuleLimitRepository {
   readonly #rows = new Map<CharacterId, Map<RuleLimitField, CharacterRuleLimit>>();
 
-  public override async listForCharacter(characterId: CharacterId): Promise<readonly CharacterRuleLimit[]> {
+  public override async listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<CharacterRuleLimit>> {
     return [...(this.#rows.get(characterId)?.values() ?? [])];
   }
 

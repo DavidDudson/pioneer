@@ -149,6 +149,6 @@ describe('battle form: skills', () => {
     const acrobatics = valued([formRule({ skills: [{ skill: ATHLETICS, modifier: 14 }] })], 'skill:acrobatics');
 
     expect(acrobatics.form).toBeUndefined();
-    expect(Number(acrobatics.total)).toBe(2 - 2);
+    expect(Number(acrobatics.total)).toBe(0);
   });
 });

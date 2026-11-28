@@ -18,7 +18,7 @@ const RARITY: FilterField = {
   ],
 };
 
-const FIELDS: readonly FilterField[] = [
+const FIELDS: ReadonlyArray<FilterField> = [
   RARITY,
   { id: 'level', label: 'Level', kind: FilterKind.Range },
   {
@@ -36,10 +36,10 @@ interface Rendered {
   readonly fixture: ComponentFixture<FilterBar>;
   readonly host: HTMLElement;
   /** The value, as the last change left it. */
-  readonly value: () => readonly FilterCondition[];
+  readonly value: () => ReadonlyArray<FilterCondition>;
 }
 
-async function render(value: readonly FilterCondition[] = []): Promise<Rendered> {
+async function render(value: ReadonlyArray<FilterCondition> = []): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(FilterBar);
   fixture.componentRef.setInput('fields', FIELDS);
@@ -81,7 +81,7 @@ async function type(rendered: Rendered, label: string, text: string): Promise<vo
   await rendered.fixture.whenStable();
 }
 
-function chips(host: HTMLElement): string[] {
+function chips(host: HTMLElement): Array<string> {
   return [...host.querySelectorAll('button')]
     .values()
     .map((candidate) => candidate.getAttribute('aria-label') ?? '')

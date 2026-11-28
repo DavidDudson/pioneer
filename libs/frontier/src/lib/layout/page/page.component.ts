@@ -5,8 +5,8 @@ import { ShellWidth } from '../shell-width/shell-width';
 import { Stack } from '../stack/stack.component';
 
 /**
- * A routed page, composed from parts: an `fr-page-header`, then an `fr-page-body` with an optional `fr-page-aside`
- * beside it and an optional `fr-drawer` docked after both. The page renders at once; regions load their own data behind skeletons.
+ * A routed page, composed from parts: an `fr-page-header`, then an `fr-page-body` with an optional `fr-drawer`
+ * docked after it. The page renders at once; regions load their own data behind skeletons.
  * It sits in `fr-shell`'s `<main>`, so it renders no landmark of its own.
  * Built only from layout primitives; it has no responsive CSS of its own.
  * Its width is the shell's too (`ShellWidth`), so the header and footer line up with the content.
@@ -15,7 +15,6 @@ import { Stack } from '../stack/stack.component';
  * <fr-page>
  *   <fr-page-header [title]="'characters.title' | transloco" />
  *   <fr-page-body>…</fr-page-body>
- *   <fr-page-aside [label]="'characters.asideLabel' | transloco">…</fr-page-aside>
  * </fr-page>
  * ```
  */

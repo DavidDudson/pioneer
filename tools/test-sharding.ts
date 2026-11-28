@@ -41,15 +41,15 @@ interface TargetCommand {
 }
 
 /** Every `<file>#<target>[:<configuration>]` in a `project.json` whose command shards by test name. */
-export function nameShards(file: string, project: Project): readonly string[] {
-  return Object.entries(project.targets ?? {}).flatMap(([name, target]): readonly string[] => {
+export function nameShards(file: string, project: Project): ReadonlyArray<string> {
+  return Object.entries(project.targets ?? {}).flatMap(([name, target]): ReadonlyArray<string> => {
     const id = `${file}#${name}`;
 
     const configurations = Object.entries(target.configurations ?? {}).map(
       ([configuration, { command }]): TargetCommand => ({ id: `${id}:${configuration}`, command }),
     );
 
-    const commands: readonly TargetCommand[] = [
+    const commands: ReadonlyArray<TargetCommand> = [
       { id, command: target.command },
       { id, command: target.options?.command },
       ...configurations,
@@ -62,7 +62,10 @@ export function nameShards(file: string, project: Project): readonly string[] {
 }
 
 /** The problems with `found` shards against the allowlist: new shards, and allowlist entries with no shard. */
-export function shardProblems(found: readonly string[], allowed: ReadonlySet<string> = NAME_PATTERN_SHARDS): string[] {
+export function shardProblems(
+  found: ReadonlyArray<string>,
+  allowed: ReadonlySet<string> = NAME_PATTERN_SHARDS,
+): Array<string> {
   const foundSet = new Set(found);
 
   return [

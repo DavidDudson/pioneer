@@ -22,11 +22,11 @@ export interface VocabularyContext {
   /** The pack vocabulary entries go into: `core-rules`, beside the hand-authored rules core entries. */
   readonly pack: PackId;
   /** The run's target books, in the order given. */
-  readonly books: readonly BookId[];
+  readonly books: ReadonlyArray<BookId>;
   readonly config: FoundryConfig;
   readonly lang: FoundryLang;
   /** The other official packs' entries. */
-  readonly known: readonly KnownEntry[];
+  readonly known: ReadonlyArray<KnownEntry>;
 }
 
 export const VocabularyGapReason = {
@@ -58,7 +58,7 @@ export interface Item {
   readonly slug: string;
   readonly label: ItemLabel;
   /** The lang keys that may hold the entry's description, best first; the first with text is used. */
-  readonly descriptionKeys?: readonly string[];
+  readonly descriptionKeys?: ReadonlyArray<string>;
   readonly rarity: Rarity;
   readonly book: BookId;
   readonly kindData: ImportedKindData;
@@ -101,8 +101,8 @@ const DAMAGE_TYPES: ReadonlySet<string> = new Set(Object.values(DamageType));
 
 /** Each value with the book of the first selected document using it, in selection order. */
 export function firstUses(
-  selected: readonly SelectedEntry[],
-  valuesOf: (entry: SelectedEntry) => readonly string[],
+  selected: ReadonlyArray<SelectedEntry>,
+  valuesOf: (entry: SelectedEntry) => ReadonlyArray<string>,
 ): ReadonlyMap<string, BookId> {
   const uses = new Map<string, BookId>();
 
@@ -118,7 +118,7 @@ export function firstUses(
 }
 
 /** The names another official pack already has an entry of `kind` for, so a re-run never imports one twice. */
-export function knownSlugs(known: readonly KnownEntry[], kind: ContentKind): ReadonlySet<string> {
+export function knownSlugs(known: ReadonlyArray<KnownEntry>, kind: ContentKind): ReadonlySet<string> {
   return new Set(
     known
       .values()
@@ -127,7 +127,7 @@ export function knownSlugs(known: readonly KnownEntry[], kind: ContentKind): Rea
   );
 }
 
-export function traitItems(selected: readonly SelectedEntry[], { config, known }: VocabularyContext): Item[] {
+export function traitItems(selected: ReadonlyArray<SelectedEntry>, { config, known }: VocabularyContext): Array<Item> {
   const skip = knownSlugs(known, ContentKind.Trait);
   const uses = firstUses(selected, ({ document }) => document.system.traits?.value ?? []);
   const lists = [...config.traitLists];
@@ -157,7 +157,7 @@ export function traitItems(selected: readonly SelectedEntry[], { config, known }
   });
 }
 
-export function languagesOf({ type, document }: SelectedEntry): readonly string[] {
+export function languagesOf({ type, document }: SelectedEntry): ReadonlyArray<string> {
   if (type === FoundryItemType.Npc) {
     return CreatureLanguages.safeParse(document.system).data?.details.languages.value ?? [];
   }
@@ -173,7 +173,7 @@ export function languagesOf({ type, document }: SelectedEntry): readonly string[
     : [];
 }
 
-export function sensesOf({ type, document }: SelectedEntry): readonly string[] {
+export function sensesOf({ type, document }: SelectedEntry): ReadonlyArray<string> {
   const vision = VisionField.safeParse(document.system);
 
   const fromVision =
@@ -273,7 +273,7 @@ const LORE_DOMAINS = ['check', 'skill-check', 'int-based', 'lore'];
 const RitualChecksField = z.looseObject({ ritual: FoundryRitual.nullish() });
 
 /** The Lores a background trains, or a ritual's checks name, by Foundry's name for each. */
-function loreNamesOf({ type, document }: SelectedEntry): readonly string[] {
+function loreNamesOf({ type, document }: SelectedEntry): ReadonlyArray<string> {
   if (type === FoundryItemType.Background) {
     const fields = TrainedSkillsField.safeParse(document.system);
 
@@ -285,12 +285,12 @@ function loreNamesOf({ type, document }: SelectedEntry): readonly string[] {
   return ritual ? [...loresNamed(ritual.primary.check), ...loresNamed(ritual.secondary.checks)] : [];
 }
 
-export function loresOf(entry: SelectedEntry): readonly LoreUse[] {
+export function loresOf(entry: SelectedEntry): ReadonlyArray<LoreUse> {
   return loreNamesOf(entry).map((name) => ({ slug: `${loreTopic(name)}-lore`, name }));
 }
 
 /** Each Lore's name by slug, as the first document naming it spells it. */
-export function loreNames(selected: readonly SelectedEntry[]): ReadonlyMap<string, string> {
+export function loreNames(selected: ReadonlyArray<SelectedEntry>): ReadonlyMap<string, string> {
   const names = new Map<string, string>();
 
   for (const { slug, name } of selected.flatMap((entry) => loresOf(entry))) {

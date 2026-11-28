@@ -2,8 +2,9 @@ import { RollTotal } from '@pioneer/rules/dice';
 import type { RandomSource } from '@pioneer/rules/dice';
 import { damageTargetOf, DefenceStatusKind, inventoryItemOf, statisticContent } from '@pioneer/rules/engine';
 import type { Defences, RecoveryInPlay } from '@pioneer/rules/engine';
-import { ConditionTrigger, NO_DEFENCES, Selector } from '@pioneer/rules/sdk';
+import { ConditionTrigger, NO_DEFENCES, Selector, TriggerEventType } from '@pioneer/rules/sdk';
 import type { ContentId, DamageTarget } from '@pioneer/rules/sdk';
+import type { Uuid } from '@pioneer/shared/kernel';
 
 import { characterDefences } from './character-defences';
 import type { CharacterDocument } from './character-document';
@@ -32,28 +33,34 @@ import {
   unconsciousCondition,
 } from './turn-state';
 import type { EconomyConditions, TurnCommand } from './turn-state';
+import { turnTriggers, withTriggered } from './turn-triggers';
+import type { TurnTriggers } from './turn-triggers';
 
 /** What the turn cycle reads besides the play state: the limits, and what the build and the content give. */
 export interface TurnCommandInputs {
   readonly limits: PlayLimits;
   /** The character's fast healing and regeneration (`vitalsInPlay`). */
-  readonly recovery: readonly RecoveryInPlay[];
+  readonly recovery: ReadonlyArray<RecoveryInPlay>;
   /** The character's immunities, weaknesses and resistances, which persistent damage goes through. */
   readonly defences: DamageTarget;
   /** The flat check DCs of the character's rules for persistent damage (quenching runes). */
-  readonly flatChecks: readonly PersistentFlatCheckDc[];
+  readonly flatChecks: ReadonlyArray<PersistentFlatCheckDc>;
   /** What the end of a turn does to each condition the content eases (Frightened is lowered). */
   readonly easing: RecoveryConditions;
   /** The conditions that change the actions a turn starts with. */
   readonly economy: EconomyConditions;
   /** The inventory items of the wielded runes that give quickened (quickstrike), which add the extra action to a turn. */
-  readonly grantedQuickened: readonly InventoryItemId[];
+  readonly grantedQuickened: ReadonlyArray<InventoryItemId>;
   /** The Unconscious condition of the content, which running out of air puts on the character. */
   readonly unconscious: ContentId | undefined;
   /** The character's Fortitude modifier, worked out only when a save against suffocation needs it. */
   readonly fortitude: () => RollTotal;
   /** What the environments of the content do to a character that stays in them. */
   readonly environments: EnvironmentContent;
+  /** The triggered abilities that apply by themselves as a turn starts or ends. */
+  readonly triggered: () => TurnTriggers;
+  /** A new unique id, for the spend and the effect a triggered ability logs. */
+  readonly newId: () => Uuid;
 }
 
 /** Start turn: the bookkeeping, then the actions and the reaction refilled from the conditions that are left, and the spend log cleared. */
@@ -61,10 +68,12 @@ function started(play: PlayState, inputs: TurnCommandInputs, random: RandomSourc
   const begun = startTurn(play, { limits: inputs.limits, recovery: inputs.recovery }, random);
   const { turn, conditions, events } = refilled(begun.play.conditions, inputs.economy, inputs.grantedQuickened);
 
-  return {
+  const outcome = {
     play: { ...begun.play, turn, conditions: [...conditions], spendLog: [] },
     events: [...begun.events, ...events],
   };
+
+  return withTriggered(outcome, TriggerEventType.TurnStart, inputs);
 }
 
 /** End turn: the bookkeeping, then no actions left and off-turn. */
@@ -82,7 +91,9 @@ function ended(play: PlayState, inputs: TurnCommandInputs, random: RandomSource)
     random,
   );
 
-  return { play: { ...done.play, turn: turnEnded(done.play.turn) }, events: done.events };
+  const triggered = withTriggered(done, TriggerEventType.TurnEnd, inputs);
+
+  return { play: { ...triggered.play, turn: turnEnded(triggered.play.turn) }, events: triggered.events };
 }
 
 /** A command that does not apply in the current phase. */
@@ -161,7 +172,7 @@ function quickenedByItems(
   { registry, slots }: StatisticSources,
   document: CharacterDocument,
   { quickened }: EconomyConditions,
-): readonly InventoryItemId[] {
+): ReadonlyArray<InventoryItemId> {
   const granted = equippedGrants(document, itemContent(registry), slots).items.flatMap(({ entry, origin }) => {
     const item = entry.id === quickened ? inventoryItemOf(origin) : undefined;
 
@@ -172,10 +183,16 @@ function quickenedByItems(
 }
 
 /** The persistent damage flat check DCs of the lines that apply. */
-function flatCheckDcsOf({ persistentFlatChecks }: Defences): readonly PersistentFlatCheckDc[] {
+function flatCheckDcsOf({ persistentFlatChecks }: Defences): ReadonlyArray<PersistentFlatCheckDc> {
   return persistentFlatChecks
     .filter(({ status }) => status.kind === DefenceStatusKind.Applied)
     .map(({ damageTypes, dc, assistedDc }) => ({ damageTypes, dc, assisted: assistedDc }));
+}
+
+/** What a character's turn inputs are built with: the limits, and a source of new ids. */
+export interface TurnCommandContext {
+  readonly limits: PlayLimits;
+  readonly newId: () => Uuid;
 }
 
 /**
@@ -185,7 +202,7 @@ function flatCheckDcsOf({ persistentFlatChecks }: Defences): readonly Persistent
 export function turnCommandInputs(
   sources: StatisticSources,
   document: CharacterDocument,
-  limits: PlayLimits,
+  { limits, newId }: TurnCommandContext,
 ): TurnCommandInputs {
   const { registry } = sources;
   const content = statisticContent(registry);
@@ -203,5 +220,7 @@ export function turnCommandInputs(
     unconscious: unconsciousCondition(registry),
     fortitude: () => fortitudeOf(sources, document),
     environments: environmentContent(registry),
+    triggered: () => turnTriggers(document, sources),
+    newId,
   };
 }

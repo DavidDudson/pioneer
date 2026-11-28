@@ -79,22 +79,22 @@ export interface SheetItemPlay {
 interface ItemAction {
   readonly id: ContentId;
   readonly name: string;
-  readonly traits: readonly Chip[];
+  readonly traits: ReadonlyArray<Chip>;
   readonly cost: ActionCost | undefined;
   readonly range: ActionCostRange | undefined;
   /** What it spends; absent for an activation with no frequency, which takes only its actions. */
   readonly resource?: ActionResource | undefined;
   readonly payment?: UsePayment | undefined;
   /** The ways to pay when there is more than one, each with its button label. */
-  readonly payOptions?: readonly UsePayOption[];
+  readonly payOptions?: ReadonlyArray<UsePayOption>;
   /** Why it cannot be used whatever the turn leaves. */
   /** The period it comes back over when its uses or charges are spent; absent otherwise. */
   readonly recharge?: FrequencyPeriod | undefined;
-  readonly reasons: readonly MessageDescriptor[];
+  readonly reasons: ReadonlyArray<MessageDescriptor>;
 }
 
 /** Items work in every mode: a potion is drunk in a fight and between adventures alike. */
-const ALL_MODES: readonly ActionMode[] = [ActionMode.Encounter, ActionMode.Exploration, ActionMode.Downtime];
+const ALL_MODES: ReadonlyArray<ActionMode> = [ActionMode.Encounter, ActionMode.Exploration, ActionMode.Downtime];
 
 /** The action list's line for `item`, unusable when it has a reason of its own or the turn cannot pay for it. */
 function lineOf(item: ItemAction, turn: TurnState | undefined): ActionLine {
@@ -130,7 +130,7 @@ function rangeOf(cost: ActionCost, upTo: number | undefined): ActionCostRange {
 }
 
 /** The consumables held, each with its stack as the resource it spends. */
-function consumableActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): ItemAction[] {
+function consumableActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): Array<ItemAction> {
   const entries = itemContent(registry);
 
   return consumableLines(registry, character, { turn: play.turn, inputs: play.inputs }).map((line): ItemAction => ({
@@ -147,8 +147,8 @@ function consumableActions(registry: ContentRegistry, character: Character, play
 }
 
 /** Why an item held in this way cannot be used whatever its content says: stowed, or not invested when it must be. */
-function heldReasons(held: InventoryItem, entry: ItemEntry): MessageDescriptor[] {
-  const own: MessageDescriptor[] = [];
+function heldReasons(held: InventoryItem, entry: ItemEntry): Array<MessageDescriptor> {
+  const own: Array<MessageDescriptor> = [];
 
   if (held.carry.state === CarryState.Stowed) {
     own.push(message(ItemReasonMessage.Stowed));
@@ -162,12 +162,12 @@ function heldReasons(held: InventoryItem, entry: ItemEntry): MessageDescriptor[]
 }
 
 /** The activations of the items the character carries, each with the uses it has left when it has a frequency. */
-function activationActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): ItemAction[] {
+function activationActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): Array<ItemAction> {
   const entries = itemContent(registry);
   const activations = itemActivationsOf(registry);
   const counted = sheetCounted(registry, character);
 
-  return character.document.inventory.items.flatMap((held): ItemAction[] => {
+  return character.document.inventory.items.flatMap((held): Array<ItemAction> => {
     const entry = entries.get(held.item);
 
     if (entry === undefined || held.carry.state === CarryState.Dropped) {
@@ -176,7 +176,7 @@ function activationActions(registry: ContentRegistry, character: Character, play
 
     const own = heldReasons(held, entry);
 
-    return activations(held).flatMap(({ slug, name, cost, upTo, frequency }): ItemAction[] => {
+    return activations(held).flatMap(({ slug, name, cost, upTo, frequency }): Array<ItemAction> => {
       const key = activationUseKey(held.id, slug);
       const maximum = counted.uses.get(key);
       const itemName: string = held.name ?? entry.name;
@@ -226,14 +226,14 @@ function staffOptionLabel(option: StaffCastOptionLine, spell: StaffSpellLine): M
 }
 
 /** The spells of the staves the character holds, each cast with the staff's charges. */
-function staffActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): ItemAction[] {
+function staffActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): Array<ItemAction> {
   const spells = spellContent(registry);
 
   return sheetStaves(registry, character, { resources: play.resources }).flatMap((staff) =>
     staff.spells.map((spell): ItemAction => {
       const found = spells.anySpell(spell.id);
       const range = found === undefined ? undefined : spellCost(found);
-      const reasons: MessageDescriptor[] = [];
+      const reasons: Array<MessageDescriptor> = [];
 
       if (staff.charges === undefined) {
         reasons.push(message(ItemReasonMessage.NotPrepared));
@@ -273,7 +273,7 @@ export function sheetItemActions(
   registry: ContentRegistry,
   character: Character,
   play: SheetItemPlay,
-): readonly ActionLine[] {
+): ReadonlyArray<ActionLine> {
   return [
     ...consumableActions(registry, character, play),
     ...activationActions(registry, character, play),

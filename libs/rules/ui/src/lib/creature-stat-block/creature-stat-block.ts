@@ -10,7 +10,7 @@ export interface StatBlockCreature {
   readonly name: ContentText;
   readonly level: Level;
   /** The slugs of the creature's traits. */
-  readonly traits: readonly Trait[];
+  readonly traits: ReadonlyArray<Trait>;
   readonly data: CreatureData;
 }
 
@@ -30,7 +30,7 @@ export interface StrikeTag {
 export interface StrikeQualifiers {
   readonly reach: string | undefined;
   readonly increment: string | undefined;
-  readonly traits: readonly Trait[];
+  readonly traits: ReadonlyArray<Trait>;
 }
 
 /** A Strike, worded. */
@@ -40,7 +40,7 @@ export interface StrikeLine {
    * The reach, range increment and traits in brackets, as the parts the locale's list puts them in; empty for a
    * Strike with none. A trait part is a chip, the rest plain text.
    */
-  readonly tags: readonly StrikeTag[];
+  readonly tags: ReadonlyArray<StrikeTag>;
   readonly damage: StatLine | undefined;
   readonly effects: RichText | undefined;
 }
@@ -55,9 +55,9 @@ export interface StatPassage {
 export interface AbilityLine {
   readonly name: ContentText;
   readonly cost: ActionCost | undefined;
-  readonly traits: readonly Trait[];
-  readonly lines: readonly StatLine[];
-  readonly passages: readonly StatPassage[];
+  readonly traits: ReadonlyArray<Trait>;
+  readonly lines: ReadonlyArray<StatLine>;
+  readonly passages: ReadonlyArray<StatPassage>;
   readonly description: RichText;
 }
 
@@ -70,14 +70,14 @@ interface SpellLine {
 /** The spells of one rank. */
 interface SpellRankLine {
   readonly rank: string;
-  readonly spells: readonly SpellLine[];
+  readonly spells: ReadonlyArray<SpellLine>;
 }
 
 /** A spellcasting entry, worded. */
 export interface SpellcastingLine {
   readonly heading: string;
   readonly numbers: string;
-  readonly ranks: readonly SpellRankLine[];
+  readonly ranks: ReadonlyArray<SpellRankLine>;
 }
 
 /** An item a creature carries: a link to it, and how many. */
@@ -91,16 +91,16 @@ export interface StatBlockView {
   readonly level: string;
   /** The creature's size, worded: it heads the traits but is no trait. */
   readonly size: string;
-  readonly traits: readonly Trait[];
+  readonly traits: ReadonlyArray<Trait>;
   /** Perception and its senses: the one line a preview keeps of the creature's senses. */
-  readonly senses: readonly StatLine[];
+  readonly senses: ReadonlyArray<StatLine>;
   /** Languages, skills and attributes. */
-  readonly details: readonly StatLine[];
+  readonly details: ReadonlyArray<StatLine>;
   /** Armor Class, saves, Hit Points, immunities, weaknesses, resistances and speeds. */
-  readonly defences: readonly StatLine[];
-  readonly strikes: readonly StrikeLine[];
-  readonly abilities: readonly AbilityLine[];
-  readonly spellcasting: readonly SpellcastingLine[];
-  readonly items: readonly ItemLine[];
-  readonly recallKnowledge: readonly StatPassage[];
+  readonly defences: ReadonlyArray<StatLine>;
+  readonly strikes: ReadonlyArray<StrikeLine>;
+  readonly abilities: ReadonlyArray<AbilityLine>;
+  readonly spellcasting: ReadonlyArray<SpellcastingLine>;
+  readonly items: ReadonlyArray<ItemLine>;
+  readonly recallKnowledge: ReadonlyArray<StatPassage>;
 }

@@ -53,7 +53,7 @@ const STATE_VIEWS = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrerequisiteList {
-  public readonly prerequisites = input.required<readonly PrerequisiteLine[]>();
+  public readonly prerequisites = input.required<ReadonlyArray<PrerequisiteLine>>();
 
   protected readonly Message = PickerCellMessage;
   protected readonly views = STATE_VIEWS;

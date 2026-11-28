@@ -57,7 +57,7 @@ export class SheetUnplacedPicks {
   protected readonly Tone = BadgeTone;
   protected readonly words = computed(() => WORDS[this.kind()]);
 
-  protected readonly rows: Signal<readonly UnplacedPickRow[]> = computed(() => {
+  protected readonly rows: Signal<ReadonlyArray<UnplacedPickRow>> = computed(() => {
     const character = this.#store.selected();
     const registry = (this.kind() === UnplacedPickKind.Spell ? this.#spells : this.#content).data();
 

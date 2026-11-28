@@ -26,7 +26,7 @@ export const spellRowLabel = (row: SpellPickerRow): string => row.name;
 export const spellRowDisabled = (row: SpellPickerRow): string | undefined => row.disabledReason;
 
 /** What casting costs: one cost, a variable one when the caster picks, or a time counted in minutes or more. */
-function castKind(cast: readonly CastActions[]): ActionKind {
+function castKind(cast: ReadonlyArray<CastActions>): ActionKind {
   const [only] = cast;
 
   if (cast.length !== 1 || only === undefined) {
@@ -37,7 +37,7 @@ function castKind(cast: readonly CastActions[]): ActionKind {
 }
 
 /** The traits as chips, a spell above common rarity first and toned by it. */
-function traitChips(row: SpellPickerRow, say: Say): readonly Chip[] {
+function traitChips(row: SpellPickerRow, say: Say): ReadonlyArray<Chip> {
   if (row.rarity === Rarity.Common) {
     return row.traits;
   }
@@ -46,7 +46,7 @@ function traitChips(row: SpellPickerRow, say: Say): readonly Chip[] {
 }
 
 /** The area when the spell has one, else who it targets. */
-function areaOrTargets(row: SpellPickerRow, say: Say): readonly Chip[] {
+function areaOrTargets(row: SpellPickerRow, say: Say): ReadonlyArray<Chip> {
   const labels =
     row.area === AreaValue.None
       ? row.targets.filter((target) => target !== TargetValue.None).map((target) => TARGET_MESSAGES[target])
@@ -56,7 +56,7 @@ function areaOrTargets(row: SpellPickerRow, say: Say): readonly Chip[] {
 }
 
 /** What it is rolled against; nothing when it is not. */
-function defenseChips(row: SpellPickerRow, say: Say): readonly Chip[] {
+function defenseChips(row: SpellPickerRow, say: Say): ReadonlyArray<Chip> {
   return row.defense
     .filter((defense) => defense !== DefenseValue.None)
     .map((defense): Chip => ({ label: say(DEFENSE_MESSAGES[defense]) }));
@@ -67,14 +67,14 @@ function castingColumns(schema: SpellTableSchema<SpellPickerRow>, say: Say): Spe
   return schema
     .addEntryName({
       id: SpellPickerColumn.Name,
-      header: say(SpellPickerMessage.Name),
+      header: SpellPickerMessage.Name,
       value: (row) => row.name,
       entry: (row) => ContentId.safeParse(row.id).data,
       width: 'md',
     })
     .addRank({
       id: SpellPickerColumn.Rank,
-      header: say(SpellPickerMessage.Rank),
+      header: SpellPickerMessage.Rank,
       value: (row) => row.rank,
       cantrip: (row) => row.cantrip,
       heightenedTo: (row) => row.heightenedTo,
@@ -82,14 +82,14 @@ function castingColumns(schema: SpellTableSchema<SpellPickerRow>, say: Say): Spe
     })
     .addTraditions({
       id: 'traditions',
-      header: say(SpellPickerMessage.Traditions),
+      header: SpellPickerMessage.Traditions,
       sortable: false,
       value: (row) => row.traditions.map((tradition): Chip => ({ label: say(TRADITION_MESSAGES[tradition]) })),
       width: 'sm',
     })
     .addActions({
       id: 'cast',
-      header: say(SpellPickerMessage.Cast),
+      header: SpellPickerMessage.Cast,
       sortable: false,
       value: (row) => castKind(row.cast),
       width: 'sm',
@@ -101,42 +101,42 @@ function effectColumns(schema: SpellTableSchema<SpellPickerRow>, say: Say): Spel
   return schema
     .addFacts({
       id: 'range',
-      header: say(SpellPickerMessage.Range),
+      header: SpellPickerMessage.Range,
       sortable: false,
       value: (row) => row.range.map((band): Chip => ({ label: say(RANGE_MESSAGES[band]) })),
       width: 'sm',
     })
     .addFacts({
       id: 'areaTargets',
-      header: say(SpellPickerMessage.AreaTargets),
+      header: SpellPickerMessage.AreaTargets,
       sortable: false,
       value: (row) => areaOrTargets(row, say),
       width: 'sm',
     })
     .addFacts({
       id: 'duration',
-      header: say(SpellPickerMessage.Duration),
+      header: SpellPickerMessage.Duration,
       sortable: false,
       value: (row) => row.duration.map((duration): Chip => ({ label: say(DURATION_MESSAGES[duration]) })),
       width: 'sm',
     })
     .addFacts({
       id: 'save',
-      header: say(SpellPickerMessage.Save),
+      header: SpellPickerMessage.Save,
       sortable: false,
       value: (row) => defenseChips(row, say),
       width: 'sm',
     })
     .addTraits({
       id: 'traits',
-      header: say(SpellPickerMessage.Traits),
+      header: SpellPickerMessage.Traits,
       sortable: false,
       value: (row) => traitChips(row, say),
       width: 'md',
     })
     .addSource({
       id: 'source',
-      header: say(SpellPickerMessage.Source),
+      header: SpellPickerMessage.Source,
       sortable: false,
       value: (row) => row.sources,
       width: 'md',
@@ -144,7 +144,7 @@ function effectColumns(schema: SpellTableSchema<SpellPickerRow>, say: Say): Spel
 }
 
 /** The columns of a spell picker, each fact to choose by a rich cell. */
-export function spellPickerColumns(say: Say): readonly TableColumn<SpellPickerRow>[] {
+export function spellPickerColumns(say: Say): ReadonlyArray<TableColumn<SpellPickerRow>> {
   return effectColumns(castingColumns(new SpellTableSchema<SpellPickerRow>(), say), say).build();
 }
 
@@ -162,10 +162,10 @@ function compare(left: SpellPickerRow, right: SpellPickerRow, sort: PickerSort):
 
 /** The rows whose name holds `query`, in the order asked for: by name or rank. */
 export function shownSpellRows(
-  rows: readonly SpellPickerRow[],
+  rows: ReadonlyArray<SpellPickerRow>,
   query: string,
   sort: PickerSort | undefined,
-): readonly SpellPickerRow[] {
+): ReadonlyArray<SpellPickerRow> {
   const needle = query.trim().toLocaleLowerCase();
   const matching = rows.filter((row) => row.name.toLocaleLowerCase().includes(needle));
 

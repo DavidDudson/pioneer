@@ -1,9 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, model, output, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { TranslocoService } from '@jsverse/transloco';
+import { ChangeDetectionStrategy, Component, computed, input, model, output, signal } from '@angular/core';
+import { injectTranslate } from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
-import { filter, merge } from 'rxjs';
 
 import type { SpellPickerRow } from './spell-picker-row';
 import {
@@ -33,7 +31,7 @@ import {
 })
 export class SpellPicker {
   /** Every spell the slot offers, with the facts of each. */
-  public readonly rows = input.required<readonly SpellPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<SpellPickerRow>>();
   /** The picked spell's id; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);
@@ -47,16 +45,9 @@ export class SpellPicker {
   protected readonly query = signal('');
   protected readonly sorting = signal<PickerSort | undefined>(undefined);
 
-  readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  /** Changes when the language changes or the messages load, so the headers and labels are read again. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #translate = injectTranslate();
 
-  protected readonly columns = computed(() => {
-    this.#messages();
-
-    return spellPickerColumns((key) => this.#i18n.translate(key));
-  });
+  protected readonly columns = computed(() => spellPickerColumns(this.#translate()));
 
   /** The rows whose name holds what was typed, in the order asked for. */
   protected readonly shown = computed(() => shownSpellRows(this.rows(), this.query(), this.sorting()));

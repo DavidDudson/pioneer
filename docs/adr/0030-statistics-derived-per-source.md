@@ -71,7 +71,8 @@ Option 3 for the definition, option 2 for the references.
   removed (#338) rather than kept for homebrew: a base reading it beside the synthetic line would count the bonus
   twice. Automatic Bonus Progression (GM Core) removes potency runes and grants a separate `potency`-typed
   bonus to attack rolls with every weapon and unarmed attack, so its variant pack adds a `FlatModifier` of that type
-  and weapons carry no `potency`: no formula change, and the `item` line is never reused for it. The slug lets an
+  and `ItemAlteration`s that set the rune grades of weapons and armour to 0 (an adjustment: the runes stay etched), so
+  weapons carry no `potency`: no formula change, and the `item` line is never reused for it. The slug lets an
   `AdjustModifier` find the line for anything that changes a rune's bonus. The line targets `strike:<slug>`, so the
   engine depends on the core rules pack's Strike family keeping the selector `strike`: a pack that renames or
   replaces that family gets no potency line. A field on `per: weapon` definitions naming which family takes the

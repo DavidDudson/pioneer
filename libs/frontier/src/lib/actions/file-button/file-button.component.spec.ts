@@ -9,7 +9,7 @@ import { FileButton } from './file-button.component';
 interface Rendered {
   readonly root: HTMLElement;
   readonly ref: ComponentRef<FileButton>;
-  readonly chosen: string[];
+  readonly chosen: Array<string>;
 }
 
 async function render(inputs: ComponentInputs<FileButton> = {}): Promise<Rendered> {
@@ -26,7 +26,7 @@ async function render(inputs: ComponentInputs<FileButton> = {}): Promise<Rendere
     ref.setInput(name, value);
   }
 
-  const chosen: string[] = [];
+  const chosen: Array<string> = [];
   ref.instance.chosen.subscribe((text) => {
     chosen.push(text);
   });

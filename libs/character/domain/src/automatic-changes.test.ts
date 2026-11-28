@@ -33,13 +33,13 @@ const LEVEL_COUNT = 20;
 const SECOND_RANK = 2;
 const HEIGHTENING_LEVELS = [3, 5, 7, 9, 11, 13, 15, 17, 19].map((level) => Level.parse(level));
 
-function fighterRows(): readonly AutomaticRow[] {
+function fighterRows(): ReadonlyArray<AutomaticRow> {
   const { document } = new CharacterBuilder().picking('class', FEAT_SLOT_FIGHTER).atLevel(1).build();
 
   return automaticTimeline(document, content);
 }
 
-function wizardRows(): readonly AutomaticRow[] {
+function wizardRows(): ReadonlyArray<AutomaticRow> {
   const { document } = new CharacterBuilder()
     .named('wizard')
     .picking('class', playerCoreClassId('wizard'))
@@ -50,12 +50,12 @@ function wizardRows(): readonly AutomaticRow[] {
   return automaticTimeline(document, content);
 }
 
-function ofKind(rows: readonly AutomaticRow[], kind: AutomaticKind): AutomaticChange[] {
+function ofKind(rows: ReadonlyArray<AutomaticRow>, kind: AutomaticKind): Array<AutomaticChange> {
   return rows.flatMap((row) => row.changes.filter((change) => change.kind === kind));
 }
 
 /** The ranks the slot gains are of. */
-function slotRanks(changes: readonly AutomaticChange[]): unknown[] {
+function slotRanks(changes: ReadonlyArray<AutomaticChange>): Array<unknown> {
   return changes.flatMap((change) => (change.kind === AutomaticKind.SpellSlots ? [change.rank] : []));
 }
 

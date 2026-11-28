@@ -11,7 +11,7 @@ import { TEST_PACKS } from '../testing/test-packs';
 const openSheet = openerAt(SheetMode.Exploration, 'languages');
 
 /** Merisiel carrying the `customLanguages` an import kept by name. */
-function carrying(customLanguages: readonly string[]): JsonObject {
+function carrying(customLanguages: ReadonlyArray<string>): JsonObject {
   return { ...MERISIEL, build: { ...MERISIEL.build, customLanguages } };
 }
 

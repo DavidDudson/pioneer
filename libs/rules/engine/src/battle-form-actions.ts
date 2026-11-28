@@ -15,12 +15,12 @@ type MessageKey = ValueOf<typeof EngineMessage>;
 /** What an action is, for the restrictions a battle form puts on it. */
 interface FormRestricted {
   /** The action's traits. */
-  readonly traits: readonly Trait[];
+  readonly traits: ReadonlyArray<Trait>;
   /** Whether it is casting a spell: the Cast a Spell action, or a spell. */
   readonly casts: boolean;
 }
 
-function reason(forbidden: boolean, key: MessageKey, params: MessageParams): readonly MessageDescriptor[] {
+function reason(forbidden: boolean, key: MessageKey, params: MessageParams): ReadonlyArray<MessageDescriptor> {
   return forbidden ? [message(key, params)] : [];
 }
 
@@ -32,7 +32,7 @@ function reason(forbidden: boolean, key: MessageKey, params: MessageParams): rea
 export function formBlockers(
   { traits, casts }: FormRestricted,
   form: FormInPlay | undefined,
-): readonly MessageDescriptor[] {
+): ReadonlyArray<MessageDescriptor> {
   if (form === undefined) {
     return [];
   }

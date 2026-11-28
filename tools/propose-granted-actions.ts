@@ -21,7 +21,7 @@ const JsonArray = z.array(z.unknown()).readonly();
 const WrittenMapping = z.record(z.string(), z.json());
 const GrantItemRule = z.object({ key: z.literal('GrantItem'), item: z.string() });
 
-async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
+async function readEntries(pack: string): Promise<ReadonlyArray<ContentEntry>> {
   const paths = await Array.fromAsync(new Glob('*.json').scan({ cwd: path.join(PACKS, pack), absolute: true }));
 
   const files = await Promise.all(
@@ -34,13 +34,13 @@ async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
 }
 
 /** Every `GrantItem` target inside a rule list, however deep (a choice set nests its grants). */
-function grantedIds(node: JsonValue): readonly string[] {
+function grantedIds(node: JsonValue): ReadonlyArray<string> {
   if (!(node instanceof Object)) {
     return [];
   }
 
   const grant = GrantItemRule.safeParse(node);
-  const children: readonly JsonValue[] = Object.values(node);
+  const children: ReadonlyArray<JsonValue> = Object.values(node);
 
   return [...(grant.success ? [grant.data.item] : []), ...children.flatMap((child) => grantedIds(child))];
 }
@@ -102,7 +102,7 @@ async function proposePack({ name, entries, written, mapping }: (typeof packs)[n
 
   if (proposals.size > 0) {
     // Merge into the file as written: parsing reorders each entry's keys, which would rewrite every line.
-    const rows: MergedEntry[] = [
+    const rows: Array<MergedEntry> = [
       ...Object.entries(written),
       ...[...proposals].map(([slug, { book, aon, page }]): MergedEntry => [slug, { book, aon, page }]),
     ];

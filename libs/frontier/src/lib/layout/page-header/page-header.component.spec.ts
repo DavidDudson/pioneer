@@ -7,7 +7,7 @@ import { element, part, renderProjected } from '../../testing/render-projected';
 import { HeaderCrumbs } from '../header-crumbs/header-crumbs';
 import { PageHeader } from './page-header.component';
 
-const slots = (): HTMLElement[] => [
+const slots = (): Array<HTMLElement> => [
   element('button', 'Add character', 'frPageActions'),
   element('div', 'Plan', 'frPageTabs'),
 ];

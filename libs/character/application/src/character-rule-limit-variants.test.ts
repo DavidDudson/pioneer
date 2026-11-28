@@ -40,15 +40,15 @@ function sourceOf(settings: CharacterRuleLimitSettings, limit: RuleLimitField): 
 
 /** The variant rules in force are given by the test. */
 class StubVariants extends EffectiveVariants {
-  public enabled: readonly VariantRuleId[] = [];
-  public override async of(): Promise<readonly VariantRuleId[]> {
+  public enabled: ReadonlyArray<VariantRuleId> = [];
+  public override async of(): Promise<ReadonlyArray<VariantRuleId>> {
     return this.enabled;
   }
 }
 
 class NoPacks extends EffectivePacks {
-  readonly #none: readonly ContentPackId[] = [];
-  public override async of(): Promise<readonly ContentPackId[]> {
+  readonly #none: ReadonlyArray<ContentPackId> = [];
+  public override async of(): Promise<ReadonlyArray<ContentPackId>> {
     return this.#none;
   }
 }

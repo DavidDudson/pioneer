@@ -41,7 +41,7 @@ const BOW = itemFixtureId(ItemFixture.Shortbow);
 const OTHERS = [GREAT, BOW, itemFixtureId(ItemFixture.Longsword)];
 
 /** A longsword etched with `runes`. */
-function etched(...runes: readonly RuneFixture[]): Inventory {
+function etched(...runes: ReadonlyArray<RuneFixture>): Inventory {
   const stocked = addItem(EMPTY_INVENTORY, {
     id: SWORD,
     item: itemFixtureId(ItemFixture.Longsword),
@@ -59,7 +59,7 @@ function etched(...runes: readonly RuneFixture[]): Inventory {
 }
 
 /** The content ids of the shapes the items of `inventory` can take. */
-function shiftsOf(inventory: Inventory): readonly ContentId[] {
+function shiftsOf(inventory: Inventory): ReadonlyArray<ContentId> {
   return inventory.items.flatMap((line) => shiftsFor(line, READS)).map(({ id }) => id);
 }
 

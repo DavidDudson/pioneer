@@ -1,5 +1,611 @@
 [
   {
+    "id": "b30267e7-46ef-5fcf-a2b9-852dea283b88",
+    "pack": "core-rules",
+    "kind": "variant-rule",
+    "slug": "variant-rule:ancestry-paragon",
+    "name": "Ancestry Paragon",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-paragon-1",
+        "choices": {
+          "kind": "feat",
+          "ownTrait": "ancestry",
+          "filter": [
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ancestry paragon feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 1]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-paragon-1"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 1]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-paragon-2",
+        "choices": {
+          "kind": "feat",
+          "ownTrait": "ancestry",
+          "filter": [
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ancestry paragon feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-paragon-2"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-paragon-4",
+        "choices": {
+          "kind": "feat",
+          "ownTrait": "ancestry",
+          "filter": [
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ancestry paragon feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-paragon-4"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-paragon-6",
+        "choices": {
+          "kind": "feat",
+          "ownTrait": "ancestry",
+          "filter": [
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ancestry paragon feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-paragon-6"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-paragon-8",
+        "choices": {
+          "kind": "feat",
+          "ownTrait": "ancestry",
+          "filter": [
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ancestry paragon feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-paragon-8"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-paragon-10",
+        "choices": {
+          "kind": "feat",
+          "ownTrait": "ancestry",
+          "filter": [
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ancestry paragon feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-paragon-10"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-paragon-12",
+        "choices": {
+          "kind": "feat",
+          "ownTrait": "ancestry",
+          "filter": [
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ancestry paragon feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-paragon-12"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-paragon-14",
+        "choices": {
+          "kind": "feat",
+          "ownTrait": "ancestry",
+          "filter": [
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ancestry paragon feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-paragon-14"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-paragon-16",
+        "choices": {
+          "kind": "feat",
+          "ownTrait": "ancestry",
+          "filter": [
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ancestry paragon feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-paragon-16"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-paragon-18",
+        "choices": {
+          "kind": "feat",
+          "ownTrait": "ancestry",
+          "filter": [
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ancestry paragon feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-paragon-18"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-paragon-20",
+        "choices": {
+          "kind": "feat",
+          "ownTrait": "ancestry",
+          "filter": [
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ancestry paragon feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-paragon-20"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "structure": ["extraSlots"]
+    }
+  },
+  {
+    "id": "177bfa5d-9553-593c-9264-f4fddf67ca0c",
+    "pack": "core-rules",
+    "kind": "variant-rule",
+    "slug": "variant-rule:automatic-bonus-progression",
+    "name": "Automatic Bonus Progression",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll"],
+        "type": "potency",
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 10]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll"],
+        "type": "potency",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 16]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll"],
+        "type": "potency",
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "potency",
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 11]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "potency",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 18]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "potency",
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "potency",
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 13]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "potency",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 19]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "potency",
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "potency",
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 14]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "potency",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 20]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "potency",
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "potency",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:armor"],
+        "property": "potency",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:armor"],
+        "property": "resilient",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "striking",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "striking",
+        "mode": "override",
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "striking",
+        "mode": "override",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "striking",
+        "mode": "override",
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      }
+    ],
+    "data": {}
+  },
+  {
     "id": "c46b73e0-50a1-523c-a265-c4037861c84e",
     "pack": "core-rules",
     "kind": "variant-rule",
@@ -339,6 +945,26 @@
     ],
     "data": {
       "structure": ["extraSlots"]
+    }
+  },
+  {
+    "id": "f9a5a07d-df42-57fc-bbd1-601eed4d325c",
+    "pack": "core-rules",
+    "kind": "variant-rule",
+    "slug": "variant-rule:gradual-attribute-boosts",
+    "name": "Gradual Attribute Boosts",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "structure": ["gradualBoosts"]
     }
   },
   {

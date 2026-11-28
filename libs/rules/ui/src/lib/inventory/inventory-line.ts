@@ -35,21 +35,21 @@ export interface InventoryLine {
    */
   readonly runes: LineRunes | undefined;
   /** The item's runes as badges under its name, and a hole for each rune slot it has room for; empty for anything but a weapon, armour or a shield. */
-  readonly runeBadges?: readonly RuneBadgeData[] | undefined;
+  readonly runeBadges?: ReadonlyArray<RuneBadgeData> | undefined;
   /** Why the item breaks the table's rules, one reason per rule it breaks; empty for an item that breaks none. */
-  readonly breaks: readonly MessageDescriptor[];
+  readonly breaks: ReadonlyArray<MessageDescriptor>;
   /** Why the item breaks the rules the campaign's GM approved; empty when none is approved. */
-  readonly approved: readonly MessageDescriptor[];
+  readonly approved: ReadonlyArray<MessageDescriptor>;
   /** Why the item breaks the rules its owner acknowledged on a character outside a campaign; empty or absent when none. */
-  readonly acknowledged?: readonly MessageDescriptor[];
+  readonly acknowledged?: ReadonlyArray<MessageDescriptor>;
   /** Whether the GM gave it as a campaign key item: it breaks no rule, and the player cannot remove or sell it. */
   readonly keyItem: boolean;
   /** Router commands to the campaign's Party Inventory, which a key item names itself with; undefined when none. */
-  readonly keyItemLink?: readonly string[] | undefined;
+  readonly keyItemLink?: ReadonlyArray<string> | undefined;
   /** What it holds against what it can, when it is a container; undefined for an item that holds nothing. */
   readonly load?: LineLoad | undefined;
   /** What it holds, when it is a container: listed beneath it. */
-  readonly contents: readonly InventoryLine[];
+  readonly contents: ReadonlyArray<InventoryLine>;
 }
 
 /** What a container does to the Bulk it holds: all of it counts, some of it doesn't, or none of it does. */
@@ -69,5 +69,5 @@ export interface LineLoad {
 /** The items carried one way: worn, held, stowed loose or dropped. */
 export interface InventoryGroup {
   readonly placement: InventoryPlacement;
-  readonly lines: readonly InventoryLine[];
+  readonly lines: ReadonlyArray<InventoryLine>;
 }

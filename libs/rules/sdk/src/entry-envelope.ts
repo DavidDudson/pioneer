@@ -5,7 +5,7 @@ import { ContentText } from './content-text';
 import { DisplayHints, ExternalIds, RaritySchema } from './entry-fields';
 import { ContentLicenseSchema } from './license';
 import { RichText } from './rich-text';
-import { RuleElements } from './rule-element';
+import { RuleReferences } from './rule-reference';
 import { SourceRef } from './source-ref';
 import { Trait } from './trait';
 import { ContentLevel } from './units';
@@ -27,7 +27,7 @@ export const envelope = {
   /** At least one (ADR-0005). */
   sources: z.array(SourceRef).min(1).max(SOURCES_MAX).readonly(),
   description: RichText,
-  rules: RuleElements.readonly(),
+  rules: RuleReferences,
   display: DisplayHints.optional(),
   externalIds: ExternalIds.optional(),
   /** The licence of this entry when it is not its pack's: an Open Game Content item in an ORC book (NOTICE.md). */

@@ -18,7 +18,7 @@ function book(productLine: ProductLine | undefined, remaster: boolean): Book {
   return Book.parse(productLine === undefined ? fields : { ...fields, productLine });
 }
 
-const BOOK_CASES: readonly (readonly [ProductLine, SourceType, SourceType])[] = [
+const BOOK_CASES: ReadonlyArray<readonly [ProductLine, SourceType, SourceType]> = [
   [ProductLine.Rulebooks, SourceType.RulebookRemaster, SourceType.RulebookLegacy],
   [ProductLine.LostOmens, SourceType.LostOmensRemaster, SourceType.LostOmensLegacy],
   [ProductLine.AdventurePaths, SourceType.CampaignRemaster, SourceType.CampaignLegacy],

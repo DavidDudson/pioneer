@@ -60,7 +60,7 @@ export class ItemCoating {
   });
 
   /** What the space holds, by name. */
-  protected readonly stored = computed((): readonly Stored[] =>
+  protected readonly stored = computed((): ReadonlyArray<Stored> =>
     (this.#item()?.state?.coating ?? []).map((item, index) => ({
       index,
       item,
@@ -72,7 +72,7 @@ export class ItemCoating {
   protected readonly bulk = computed(() => coatingBulk(this.#item()?.state?.coating ?? [], this.content().items));
 
   /** The poisons and oils the character carries that fit the space, by inventory line. */
-  protected readonly options = computed((): readonly SelectOption<string>[] => {
+  protected readonly options = computed((): ReadonlyArray<SelectOption<string>> => {
     const item = this.#item();
     const lines = this.#store.selected()?.document.inventory.items ?? [];
 

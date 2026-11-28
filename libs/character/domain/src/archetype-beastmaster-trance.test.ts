@@ -75,7 +75,7 @@ function focusOf(name: string): CharacterFocus {
   return characterFocus(entries, spellContent(registry), document.level);
 }
 
-function spellsOf(name: string): string[] {
+function spellsOf(name: string): Array<string> {
   return focusOf(name).entries.flatMap(({ spells }) => spells.map(({ id }) => String(id)));
 }
 

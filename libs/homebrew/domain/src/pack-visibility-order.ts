@@ -1,7 +1,7 @@
 import { PackVisibility } from '@pioneer/rules/sdk';
 
 /** From the fewest people who can read a pack to the most. */
-const NARROWEST_FIRST: readonly PackVisibility[] = [
+const NARROWEST_FIRST: ReadonlyArray<PackVisibility> = [
   PackVisibility.Private,
   PackVisibility.Campaign,
   PackVisibility.Public,

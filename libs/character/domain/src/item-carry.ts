@@ -44,13 +44,13 @@ export interface Carried {
 }
 
 /** The hands `items` hold things in. */
-export function handsInUse(items: readonly Carried[]): Hands {
+export function handsInUse(items: ReadonlyArray<Carried>): Hands {
   return Hands.parse(
     items.reduce((total, { carry }) => total + (carry.state === CarryState.Held ? carry.hands : 0), 0),
   );
 }
 
 /** How many of `items` are invested. */
-export function investedCount(items: readonly Carried[]): InvestedCount {
+export function investedCount(items: ReadonlyArray<Carried>): InvestedCount {
   return InvestedCount.parse(items.filter((each) => each.invested === true).length);
 }

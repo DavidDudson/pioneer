@@ -35,7 +35,7 @@ const listClasses = cva('flex flex-wrap items-center gap-xs')();
   host: { class: 'block' },
 })
 export class ColumnChooser {
-  public readonly columns = input.required<readonly ColumnToggle[]>();
+  public readonly columns = input.required<ReadonlyArray<ColumnToggle>>();
   /** Nothing to reset: the columns are as the schema left them. */
   public readonly atDefault = input(false, { transform: booleanAttribute });
   public readonly chosen = output<ColumnChoice>();

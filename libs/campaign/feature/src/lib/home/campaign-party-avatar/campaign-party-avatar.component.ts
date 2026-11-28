@@ -44,7 +44,7 @@ export class CampaignPartyAvatar {
   protected readonly slugs = computed(() => this.vitals().conditions.map(({ name }) => name));
 
   /** Its conditions with their values, for the popover. */
-  protected readonly lines = computed((): readonly ConditionLine[] =>
+  protected readonly lines = computed((): ReadonlyArray<ConditionLine> =>
     this.vitals().conditions.map(({ name, value }): ConditionLine => ({ slug: name, value })),
   );
 

@@ -33,7 +33,7 @@ function option(overrides: Partial<SheetFeatOption>): SheetFeatOption {
   };
 }
 
-function only(options: readonly SheetFeatOption[], trainedAgain: TrainedAgain = none): FeatPickerRow {
+function only(options: ReadonlyArray<SheetFeatOption>, trainedAgain: TrainedAgain = none): FeatPickerRow {
   const [row] = featRows(options, { translate, trainedAgain });
 
   if (row === undefined) {
@@ -139,7 +139,7 @@ describe(featRows, () => {
   });
 
   it('asks which feats would train a skill again for all the feats it lists, once', () => {
-    const asked: (readonly string[])[] = [];
+    const asked: Array<ReadonlyArray<string>> = [];
 
     const again: TrainedAgain = (values) => {
       asked.push(values);
@@ -153,7 +153,7 @@ describe(featRows, () => {
   });
 
   it('leaves out the feats the filters hide, and asks nothing about them', () => {
-    const asked: (readonly string[])[] = [];
+    const asked: Array<ReadonlyArray<string>> = [];
 
     const again: TrainedAgain = (values) => {
       asked.push(values);

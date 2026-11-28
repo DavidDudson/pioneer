@@ -1,6 +1,7 @@
 import { ContentKind, SenseAcuity } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { present } from '@pioneer/shared/kernel';
+import { capitalise } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import type { FoundryLang } from './foundry-release';
@@ -46,7 +47,7 @@ export type TraitList = ValueOf<typeof TraitList>;
  * Treasure validates against none.
  * A trait's `appliesTo` is the union over the lists it sits in.
  */
-export const TRAIT_LIST_KINDS: Readonly<Record<TraitList, readonly ContentKind[]>> = {
+export const TRAIT_LIST_KINDS: Readonly<Record<TraitList, ReadonlyArray<ContentKind>>> = {
   [TraitList.Action]: [ContentKind.Action],
   [TraitList.Armor]: [ContentKind.Armor],
   [TraitList.Class]: [ContentKind.Kit],
@@ -122,11 +123,11 @@ export interface FoundryConfig {
   readonly traitDescriptions: ReadonlyMap<string, string>;
   readonly languages: ReadonlyMap<string, FoundryLanguageRarity>;
   readonly senses: ReadonlyMap<string, FoundrySense>;
-  readonly damageTypes: readonly string[];
+  readonly damageTypes: ReadonlyArray<string>;
 }
 
 function languagesOf(
-  byRarity: Readonly<Record<FoundryLanguageRarity, readonly string[]>>,
+  byRarity: Readonly<Record<FoundryLanguageRarity, ReadonlyArray<string>>>,
 ): Map<string, FoundryLanguageRarity> {
   const languages = new Map<string, FoundryLanguageRarity>([[COMMON_LANGUAGE, FoundryLanguageRarity.Common]]);
 
@@ -181,6 +182,6 @@ export function langLabel(lang: FoundryLang, key: string): string | undefined {
 export function bactrian(slug: string): string {
   return slug
     .split('-')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .map((part) => capitalise(part))
     .join('');
 }

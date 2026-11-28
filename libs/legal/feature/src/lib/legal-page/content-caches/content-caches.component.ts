@@ -28,8 +28,8 @@ export class ContentCaches {
   readonly #apiBase = inject(API_BASE_URL);
 
   /** Packs as the manifest lists them, ready to render. */
-  protected readonly caches: AsyncQuery<readonly CachePack[]> = {
-    data: computed((): readonly CachePack[] | undefined => {
+  protected readonly caches: AsyncQuery<ReadonlyArray<CachePack>> = {
+    data: computed((): ReadonlyArray<CachePack> | undefined => {
       const manifest = this.#manifest.data();
 
       return manifest === undefined ? undefined : cachePacks(manifest, LEGAL_IMPORTS, this.#downloadUrl);

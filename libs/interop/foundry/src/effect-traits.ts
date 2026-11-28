@@ -9,7 +9,7 @@ import type { ImportedKindData } from './translate-kind-data';
 const POLYMORPH = Trait.parse('polymorph');
 
 /** The name prefixes of Foundry's effects, by the kinds of document each is the effect of. */
-const EFFECT_PREFIXES: readonly (readonly [string, ReadonlySet<string>])[] = [
+const EFFECT_PREFIXES: ReadonlyArray<readonly [string, ReadonlySet<string>]> = [
   ['Spell Effect: ', new Set(['spell'])],
   ['Effect: ', new Set(['feat', 'action'])],
 ];
@@ -36,9 +36,9 @@ interface TraitedEntry {
  * polymorph entries `committed` in the pack already (a legacy run imports the effect but not always its spell).
  */
 export function withPolymorphTraits<Entry extends TraitedEntry>(
-  entries: readonly Entry[],
-  committed: readonly PolymorphSource[] = [],
-): readonly Entry[] {
+  entries: ReadonlyArray<Entry>,
+  committed: ReadonlyArray<PolymorphSource> = [],
+): ReadonlyArray<Entry> {
   const polymorph = new Set<string>([
     ...committed.map(({ type, name }) => `${type}:${name}`),
     ...entries

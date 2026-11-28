@@ -44,7 +44,7 @@ const subtleClasses = {
   success: ['border-success-line', 'bg-success-subtle', 'text-success-fg'],
   warning: ['border-warning-line', 'bg-warning-subtle', 'text-warning-fg'],
   info: ['border-info-line', 'bg-info-subtle', 'text-info-fg'],
-} as const satisfies Record<BadgeTone, readonly string[]>;
+} as const satisfies Record<BadgeTone, ReadonlyArray<string>>;
 
 const solidClasses = {
   neutral: ['border-surface-inverse', 'bg-surface-inverse', 'text-fg-inverse'],
@@ -53,7 +53,7 @@ const solidClasses = {
   success: ['border-success-emphasis', 'bg-success-emphasis', 'text-success-on-emphasis'],
   warning: ['border-warning-emphasis', 'bg-warning-emphasis', 'text-warning-on-emphasis'],
   info: ['border-info-emphasis', 'bg-info-emphasis', 'text-info-on-emphasis'],
-} as const satisfies Record<BadgeTone, readonly string[]>;
+} as const satisfies Record<BadgeTone, ReadonlyArray<string>>;
 
 describe(Badge, () => {
   it('projects its label into a neutral subtle badge by default', async () => {

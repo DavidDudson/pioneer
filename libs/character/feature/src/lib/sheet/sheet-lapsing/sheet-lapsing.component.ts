@@ -24,7 +24,7 @@ export class SheetLapsing {
   readonly #registry = injectContentRegistry([ContentKind.Spell]);
 
   /** The spells End turn would end. */
-  public readonly spells = input.required<readonly ActiveSpell[]>();
+  public readonly spells = input.required<ReadonlyArray<ActiveSpell>>();
   /** Ends the turn; the button waits for it. */
   public readonly confirm = input.required<() => Promise<void>>();
   /** Leaves the turn as it is. */

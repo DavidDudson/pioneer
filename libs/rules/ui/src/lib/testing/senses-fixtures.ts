@@ -22,11 +22,11 @@ function origin(entry: ContentId): Origin {
 }
 
 /** A dwarf's own senses: precise darkvision from the ancestry. */
-export const DWARF_SENSES: readonly SenseInPlay[] = [
+export const DWARF_SENSES: ReadonlyArray<SenseInPlay> = [
   { sense: DARKVISION, acuity: SenseAcuity.Precise, origins: [origin(DWARF)] },
 ];
 
 /** The senses a form lists, which replace the character's: imprecise scent out to 30 feet. */
-export const FORM_SENSES: readonly SenseInPlay[] = [
+export const FORM_SENSES: ReadonlyArray<SenseInPlay> = [
   { sense: SCENT, acuity: SenseAcuity.Imprecise, range: SCENT_RANGE, origins: [origin(PLANT_FORM)], fromForm: true },
 ];

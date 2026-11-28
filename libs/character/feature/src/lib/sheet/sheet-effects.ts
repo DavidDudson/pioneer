@@ -10,12 +10,12 @@ import { ContentKind, EffectBadgeType, RollOption, RuleElementKey, SpellRank } f
 import type { ContentEntry, ContentId, ContentRegistry, DamageFormula } from '@pioneer/rules/sdk';
 
 /** The registry kind the effects picker and the sheet's effect list read. */
-export const EFFECT_CONTENT_KINDS: readonly ContentKind[] = [ContentKind.Effect];
+export const EFFECT_CONTENT_KINDS: ReadonlyArray<ContentKind> = [ContentKind.Effect];
 
 /** Whether two reads of the effects hold the same ones, so a play edit that leaves them alone derives nothing again. */
 export function sameEffects(
-  left: readonly ActiveEffect[] | undefined,
-  right: readonly ActiveEffect[] | undefined,
+  left: ReadonlyArray<ActiveEffect> | undefined,
+  right: ReadonlyArray<ActiveEffect> | undefined,
 ): boolean {
   return JSON.stringify(left) === JSON.stringify(right);
 }
@@ -31,7 +31,7 @@ export interface EffectOption {
   /** The lowest rank it can be cast at: its own level. */
   readonly rankFloor: SpellRank;
   /** The forms its choice offers, each the roll option that picks the rules for it; none when it offers none. */
-  readonly forms: readonly FormChoice[];
+  readonly forms: ReadonlyArray<FormChoice>;
 }
 
 /** One form an effect offers: the roll option its choice sets, its name, and the lowest rank it is offered at. */
@@ -61,13 +61,15 @@ export interface EffectView {
   readonly effect: ContentId;
   readonly name: string;
   readonly source: EffectSourceView;
+  /** Whether the GM put it there. Effects do not say whether it is a spell, so a new save may end any such effect. */
+  readonly fromGm: boolean;
   /** Rounds left, for an effect with a clock. */
   readonly remaining: number | undefined;
   /** The uses left, for a boon that counts uses down; spending one is the Use button. */
   readonly uses: number | undefined;
   readonly badge: EffectBadgeValue | undefined;
   /** The rounds left, and the form and rank of a polymorph effect: muted lines the list shows after its name. */
-  readonly details: readonly EffectDetail[];
+  readonly details: ReadonlyArray<EffectDetail>;
   /** The counter a badge steps through, for an effect whose badge is one. */
   readonly counter: CounterTerms | undefined;
   /** Whether the counter has a step up and a step down left: it holds at its bounds unless it loops. */
@@ -92,10 +94,10 @@ function effectEntries(registry: ContentRegistry): ReadonlyMap<ContentId, Effect
  * The forms the effect's first `ChoiceSet` offers, as the roll options picking them set; none for an effect without
  * one. Later sets choose something else about the form (Humanoid Form's vision), not the form.
  */
-function formChoicesOf(entry: EffectEntry): readonly FormChoice[] {
+function formChoicesOf(entry: EffectEntry): ReadonlyArray<FormChoice> {
   const lowest = formRanks(entry.rules);
 
-  const sets = entry.rules.flatMap((rule): FormChoice[][] => {
+  const sets = entry.rules.flatMap((rule): Array<Array<FormChoice>> => {
     if (rule.key !== RuleElementKey.ChoiceSet || rule.rollOption === undefined || !Array.isArray(rule.choices)) {
       return [];
     }
@@ -126,7 +128,7 @@ function formulaOf(terms: EffectTerms | undefined): DamageFormula | undefined {
 }
 
 /** Every effect the content has, by name, for the add picker. */
-export function effectOptions(registry: ContentRegistry): readonly EffectOption[] {
+export function effectOptions(registry: ContentRegistry): ReadonlyArray<EffectOption> {
   const terms = effectContent(registry);
 
   return [...effectEntries(registry).values()]
@@ -151,7 +153,7 @@ function canStep(counter: CounterTerms | undefined, badge: EffectBadgeValue | un
 }
 
 /** The line naming who gave an effect, for an ally's or the GM's; the character's own has none. */
-function sourceDetail(source: ActiveEffect['source']): readonly EffectDetail[] {
+function sourceDetail(source: ActiveEffect['source']): ReadonlyArray<EffectDetail> {
   if (source.kind === EffectSourceKind.Ally) {
     return [{ key: 'character.sheet.effects.fromAlly', params: { name: source.name } }];
   }
@@ -160,7 +162,7 @@ function sourceDetail(source: ActiveEffect['source']): readonly EffectDetail[] {
 }
 
 /** The rounds left, the form chosen and the rank cast at, as lines the list shows. */
-function detailsOf(entry: EffectEntry, each: ActiveEffect): readonly EffectDetail[] {
+function detailsOf(entry: EffectEntry, each: ActiveEffect): ReadonlyArray<EffectDetail> {
   const form = formChoicesOf(entry).find(({ option }) => option === each.form);
 
   return [
@@ -175,11 +177,11 @@ function detailsOf(entry: EffectEntry, each: ActiveEffect): readonly EffectDetai
 }
 
 /** Each effect active on the character with its source, rounds left and badge. An effect the content lacks is left out. */
-export function effectViews(registry: ContentRegistry, active: readonly ActiveEffect[]): readonly EffectView[] {
+export function effectViews(registry: ContentRegistry, active: ReadonlyArray<ActiveEffect>): ReadonlyArray<EffectView> {
   const entries = effectEntries(registry);
   const terms = effectContent(registry);
 
-  return active.flatMap((each): EffectView[] => {
+  return active.flatMap((each): Array<EffectView> => {
     const entry = entries.get(each.effect);
 
     if (entry === undefined) {
@@ -193,6 +195,7 @@ export function effectViews(registry: ContentRegistry, active: readonly ActiveEf
         id: each.id,
         effect: each.effect,
         name: entry.name,
+        fromGm: each.source.kind === EffectSourceKind.Gm,
         source: {
           kind: each.source.kind,
           name: each.source.kind === EffectSourceKind.Ally ? each.source.name : undefined,
@@ -217,7 +220,7 @@ export function steppedView(view: EffectView, up: boolean): EffectBadgeValue | u
 }
 
 /** The ids of the polymorph effects among `active`: the form the character is in, and any a newer one replaced. */
-function polymorphIds(registry: ContentRegistry, active: readonly ActiveEffect[]): ReadonlySet<EffectInstanceId> {
+function polymorphIds(registry: ContentRegistry, active: ReadonlyArray<ActiveEffect>): ReadonlySet<EffectInstanceId> {
   const terms = effectContent(registry);
 
   return new Set(
@@ -229,7 +232,7 @@ function polymorphIds(registry: ContentRegistry, active: readonly ActiveEffect[]
 }
 
 /** The form the character is in: its newest polymorph effect, the one that wins; undefined in no form. */
-export function activeFormOf(registry: ContentRegistry, active: readonly ActiveEffect[]): EffectView | undefined {
+export function activeFormOf(registry: ContentRegistry, active: ReadonlyArray<ActiveEffect>): EffectView | undefined {
   const forms = polymorphIds(registry, active);
   const newest = active.findLast(({ id }) => forms.has(id));
 
@@ -237,7 +240,10 @@ export function activeFormOf(registry: ContentRegistry, active: readonly ActiveE
 }
 
 /** `active` without its polymorph effects: the effects the character has outside any form. */
-export function withoutForms(registry: ContentRegistry, active: readonly ActiveEffect[]): readonly ActiveEffect[] {
+export function withoutForms(
+  registry: ContentRegistry,
+  active: ReadonlyArray<ActiveEffect>,
+): ReadonlyArray<ActiveEffect> {
   const forms = polymorphIds(registry, active);
 
   return active.filter(({ id }) => !forms.has(id));

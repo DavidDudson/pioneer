@@ -30,7 +30,7 @@ const LOADING_ROWS = 3;
 })
 export class InventoryView {
   /** The groups in order, worn first, or undefined while they load. */
-  public readonly groups = input<readonly InventoryGroup[] | undefined>();
+  public readonly groups = input<ReadonlyArray<InventoryGroup> | undefined>();
   public readonly actions = input<TemplateRef<InventoryLineContext> | undefined>(undefined);
 
   protected readonly Message = InventoryMessage;

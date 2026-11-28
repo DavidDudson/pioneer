@@ -3,6 +3,7 @@ import { message, Pg, Uuid } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { LedgerEntrySchema } from './coin-ledger';
 import { CoinsSchema } from './coins';
 import { byId, containersOf } from './inventory-containers';
 import { movedOut, withContainer, withName } from './inventory-line-edits';
@@ -117,6 +118,8 @@ export const InventorySchema = z.strictObject({
   items: Items.default([]),
   customItems: z.array(CustomItemSchema).max(INVENTORY_ITEMS_MAX).readonly().default([]),
   coins: CoinsSchema.default(CoinsSchema.parse({})),
+  /** Every change to `coins` with its reason, oldest first. */
+  ledger: z.array(LedgerEntrySchema).readonly().default([]),
 });
 
 export type Inventory = z.infer<typeof InventorySchema>;

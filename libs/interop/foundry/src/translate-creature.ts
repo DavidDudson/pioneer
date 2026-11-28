@@ -121,11 +121,15 @@ function reportText(log: GapLog, field: string, text: string): void {
 interface Adjusted {
   readonly type: string;
   readonly value: number;
-  readonly exceptions?: readonly string[];
+  readonly exceptions?: ReadonlyArray<string>;
 }
 
 /** Weaknesses or resistances: a damage type or group with a value; one outside the stat block's targets is reported. */
-function adjustments(list: readonly z.infer<typeof Adjustment>[], field: string, log: GapLog): readonly Adjusted[] {
+function adjustments(
+  list: ReadonlyArray<z.infer<typeof Adjustment>>,
+  field: string,
+  log: GapLog,
+): ReadonlyArray<Adjusted> {
   return list.flatMap(({ type, value, exceptions, doubleVs }) => {
     const target = DamageAdjustmentTargetSchema.safeParse(DAMAGE_TARGETS.get(type) ?? type);
 
@@ -143,7 +147,7 @@ function adjustments(list: readonly z.infer<typeof Adjustment>[], field: string,
   });
 }
 
-function immunities(list: readonly z.infer<typeof Defence>[], log: GapLog): readonly string[] {
+function immunities(list: ReadonlyArray<z.infer<typeof Defence>>, log: GapLog): ReadonlyArray<string> {
   return list.flatMap(({ type, exceptions }) => {
     if (exceptions.length > 0) {
       report(log, {
@@ -209,12 +213,12 @@ function senseOf({ type, acuity, range }: FoundrySenseValue): Fields {
 }
 
 /** A list's entry in the data when it has any: an empty list says nothing. */
-function listed(key: string, list: readonly unknown[]): object {
+function listed(key: string, list: ReadonlyArray<unknown>): object {
   return list.length > 0 ? { [key]: list } : {};
 }
 
 /** The optional parts the actor's `system` makes: skills, senses, languages and the other speeds. */
-function optionalParts(system: System, lores: readonly unknown[]): Fields {
+function optionalParts(system: System, lores: ReadonlyArray<unknown>): Fields {
   const { attributes, perception } = system;
   const skills = Object.entries(system.skills).map(([skill, { base }]) => ({ skill, modifier: base }));
   const senses = perception.senses.map((sense) => senseOf(sense));

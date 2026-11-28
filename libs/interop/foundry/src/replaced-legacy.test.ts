@@ -42,7 +42,7 @@ const replaced: ReplacedLegacy = new Map([
   [secrets, new Map([['dubious-knowledge', url(1)]])],
 ]);
 
-function select(documents: Record<string, object>, targets: BookId[]): Selection {
+function select(documents: Record<string, object>, targets: Array<BookId>): Selection {
   return selectReplacedLegacy(release(documents), { targets: new Set(targets), books: LEGACY, replaced });
 }
 

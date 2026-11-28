@@ -52,7 +52,7 @@ function wizardWith(fields: JsonObject = {}, name = 'Ezren'): Character {
   const wizard = new CharacterBuilder().named(name).atLevel(5).picking('class', playerCoreClassId('wizard')).build();
 
   return wizard.withInventory(
-    { items: [wandItem(fields)], customItems: [], coins: CoinsSchema.parse({}) },
+    { items: [wandItem(fields)], customItems: [], coins: CoinsSchema.parse({}), ledger: [] },
     clock.now(),
   );
 }
@@ -97,7 +97,7 @@ describe('PlayService wands', () => {
     return rejection(play.patch(ezren.ownerId, ezren.id, { expectedRevision: revision, command }));
   }
 
-  async function itemsNow(): Promise<readonly InventoryItem[]> {
+  async function itemsNow(): Promise<ReadonlyArray<InventoryItem>> {
     const { document } = await characters.get(ezren.ownerId, ezren.id);
 
     return document.inventory.items;

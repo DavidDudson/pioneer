@@ -57,8 +57,8 @@ export interface DamagePart {
   readonly formula: string;
   readonly damageType?: DamageType;
   readonly category?: string;
-  readonly kinds: readonly string[];
-  readonly materials?: readonly string[];
+  readonly kinds: ReadonlyArray<string>;
+  readonly materials?: ReadonlyArray<string>;
 }
 
 /** A part's damage type; none when it is untyped. */
@@ -114,7 +114,7 @@ export interface PartsField {
 }
 
 /** The spell's damage parts in Foundry's order, each under `field.<key>`. */
-export function damageParts(damage: FoundryDamage, at: PartsField, log: GapLog): DamagePart[] {
+export function damageParts(damage: FoundryDamage, at: PartsField, log: GapLog): Array<DamagePart> {
   return Object.entries(damage).flatMap((entry) => damagePart(entry, at, log) ?? []);
 }
 
@@ -176,7 +176,7 @@ export interface DamageChanges {
 }
 
 /** Fixed heightening's damage, each part Foundry overrides laid over the spell's own. */
-export function heightenedDamage({ overrides, base, field }: DamageChanges, log: GapLog): DamagePart[] {
+export function heightenedDamage({ overrides, base, field }: DamageChanges, log: GapLog): Array<DamagePart> {
   const merged = { ...base };
 
   for (const [key, override] of Object.entries(overrides)) {
@@ -216,6 +216,6 @@ export function heighteningOf({ heightening, kept, changesOf, log }: Heightening
 }
 
 /** The keys of the parts `damageParts` kept. */
-export function partKeys(parts: readonly DamagePart[]): ReadonlySet<string> {
+export function partKeys(parts: ReadonlyArray<DamagePart>): ReadonlySet<string> {
   return new Set(parts.map(({ key }) => key));
 }

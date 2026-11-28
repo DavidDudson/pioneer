@@ -19,7 +19,7 @@ type Database = BunSQLDatabase;
 
 /** A search to run: the caller's `ContentSearchQuery`, with `packs` cut down to the homebrew packs the caller may read. */
 export interface ContentSearchCriteria extends Omit<ContentSearchQuery, 'packs'> {
-  readonly packs: readonly ContentPackId[];
+  readonly packs: ReadonlyArray<ContentPackId>;
 }
 
 /** Full-text search over the content tables (content-model.md, "Search"); the seed writes the vectors it matches. */
@@ -82,12 +82,12 @@ export class ContentSearchRepository {
 }
 
 /** Every kind when none is named. */
-function kindFilter(kinds: readonly ContentKind[]): SQL | undefined {
+function kindFilter(kinds: ReadonlyArray<ContentKind>): SQL | undefined {
   return kinds.length === 0 ? undefined : inArray(contentEntries.kind, [...kinds]);
 }
 
 /** Official packs have no owner; a homebrew pack is searched only when named. */
-function packFilter(packs: readonly ContentPackId[]): SQL | undefined {
+function packFilter(packs: ReadonlyArray<ContentPackId>): SQL | undefined {
   return packs.length === 0
     ? isNull(contentPacks.ownerId)
     : or(isNull(contentPacks.ownerId), inArray(contentPacks.id, [...packs]));

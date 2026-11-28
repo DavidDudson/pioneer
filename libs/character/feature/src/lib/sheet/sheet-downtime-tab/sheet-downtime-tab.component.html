@@ -22,6 +22,26 @@
   </fr-section>
 
   <fr-section
+    [concealed]="shown()?.anchor !== sections.income.anchor"
+    [anchor]="sections.income.anchor"
+    [heading]="sections.income.headingKey | transloco"
+  >
+    <ng-template frSectionBody>
+      <pio-sheet-earn-income />
+    </ng-template>
+  </fr-section>
+
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.retraining.anchor"
+    [anchor]="sections.retraining.anchor"
+    [heading]="sections.retraining.headingKey | transloco"
+  >
+    <ng-template frSectionBody>
+      <pio-sheet-retraining />
+    </ng-template>
+  </fr-section>
+
+  <fr-section
     [concealed]="shown()?.anchor !== sections.downtime.anchor"
     [anchor]="sections.downtime.anchor"
     [heading]="sections.downtime.headingKey | transloco"

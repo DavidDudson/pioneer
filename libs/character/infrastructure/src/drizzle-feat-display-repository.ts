@@ -17,7 +17,7 @@ export class DrizzleFeatDisplayRepository extends FeatDisplayRepository {
     this.#db = db;
   }
 
-  public override async findShown({ userId, characterId }: FeatDisplayKey): Promise<readonly FeatDisplaySection[]> {
+  public override async findShown({ userId, characterId }: FeatDisplayKey): Promise<ReadonlyArray<FeatDisplaySection>> {
     const rows = await this.#db
       .select({ section: characterFeatDisplays.section })
       .from(characterFeatDisplays)

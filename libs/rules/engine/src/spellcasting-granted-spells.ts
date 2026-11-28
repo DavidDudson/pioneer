@@ -11,7 +11,10 @@ import type {
 import type { RankSlots } from './spellcasting-in-play';
 
 /** The spells of `spells` that `known` lacks, each rank and spell once, in order. */
-export function freshSpells(known: readonly GrantedSpell[], spells: readonly GrantedSpell[]): readonly GrantedSpell[] {
+export function freshSpells(
+  known: ReadonlyArray<GrantedSpell>,
+  spells: ReadonlyArray<GrantedSpell>,
+): ReadonlyArray<GrantedSpell> {
   const held = new Map<GrantedSpell['rank'], Set<GrantedSpell['spell']>>();
 
   for (const { rank, spell } of known) {
@@ -23,7 +26,7 @@ export function freshSpells(known: readonly GrantedSpell[], spells: readonly Gra
 
 /** Adds the spells of a `RepertoireSpells` element to those gathered for its entry, each rank and spell once. */
 export function addGrantedSpells(
-  gathered: Map<Slug, GrantedSpell[]>,
+  gathered: Map<Slug, Array<GrantedSpell>>,
   { entry, spells }: RepertoireSpellsElement,
 ): void {
   const known = gathered.get(entry) ?? [];
@@ -38,7 +41,7 @@ export interface DeityRepertoire {
 
 /** Adds a `RepertoireDeitySpells` element to those gathered for its entry. */
 export function addDeityRepertoire(
-  gathered: Map<Slug, DeityRepertoire[]>,
+  gathered: Map<Slug, Array<DeityRepertoire>>,
   { entry, choice, value }: RepertoireDeitySpellsElement,
 ): void {
   gathered.set(entry, [...(gathered.get(entry) ?? []), { choice, value }]);
@@ -46,7 +49,7 @@ export function addDeityRepertoire(
 
 /** Adds the count of a `RepertoireCount` element to those gathered for its entry, added up per rank, lowest first. */
 export function addRepertoireCount(
-  gathered: Map<Slug, RankSlots[]>,
+  gathered: Map<Slug, Array<RankSlots>>,
   { entry, rank, value }: RepertoireCountElement,
 ): void {
   const known = gathered.get(entry) ?? [];

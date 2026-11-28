@@ -13,7 +13,7 @@ import { FORM_FACTS, FORM_INPUTS, formRule } from './testing/battle-form-fixture
 
 const content = { definitions: [], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
 
-function defences(rules: readonly RuleInPlay[]): Defences {
+function defences(rules: ReadonlyArray<RuleInPlay>): Defences {
   return deriveDefences(content, FORM_INPUTS, { rules, facts: FORM_FACTS });
 }
 

@@ -4,7 +4,7 @@ import type { EnvironmentProviders, Provider } from '@angular/core';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
 /** HTTP backed by `HttpTestingController`, and a fresh TanStack Query cache that never retries. */
-export function provideServerStateTesting(): (Provider | EnvironmentProviders)[] {
+export function provideServerStateTesting(): Array<Provider | EnvironmentProviders> {
   return [
     provideHttpClient(),
     provideHttpClientTesting(),

@@ -26,7 +26,7 @@ const THROWN = Trait.parse('thrown');
 const MAGICAL = Trait.parse('magical');
 
 /** A number of an item that may be missing, by the property an alteration names it by. */
-type Candidates = readonly (readonly [NumericItemProperty, number | undefined])[];
+type Candidates = ReadonlyArray<readonly [NumericItemProperty, number | undefined]>;
 
 /** The numbers among `candidates` the item has. */
 function numbers(candidates: Candidates): ItemNumbers {
@@ -92,7 +92,7 @@ function damageTypeOf(entry: ItemEntry): DamageType | undefined {
   return entry.kind === ContentKind.Weapon ? entry.data.damage.damageType : undefined;
 }
 
-function materialsOf(entry: ItemEntry): readonly Slug[] {
+function materialsOf(entry: ItemEntry): ReadonlyArray<Slug> {
   const material = 'material' in entry.data ? entry.data.material : undefined;
 
   return material === undefined ? [] : [material.type];
@@ -102,7 +102,7 @@ function materialsOf(entry: ItemEntry): readonly Slug[] {
 function weaponRollOptions(
   entry: Extract<ItemEntry, { readonly kind: typeof ContentKind.Weapon }>,
   favored: boolean,
-): readonly RollOptionTail[] {
+): ReadonlyArray<RollOptionTail> {
   const { category, group, baseItem, range, tags = [] } = entry.data;
   const thrown = entry.traits.includes(THROWN);
 
@@ -120,7 +120,7 @@ function weaponRollOptions(
 }
 
 /** The roll options of an equipped item that a predicate over `item:` reads: `type:armor`, `trait:shield`, `slug:…`; a weapon's too. */
-function rollOptionsOf(entry: ItemEntry, favored: boolean): readonly RollOptionTail[] {
+function rollOptionsOf(entry: ItemEntry, favored: boolean): ReadonlyArray<RollOptionTail> {
   return [
     RollOptionTail.parse(`type:${entry.kind}`),
     RollOptionTail.parse(`slug:${slugName(entry.slug)}`),
@@ -138,12 +138,16 @@ function rollOptionsOf(entry: ItemEntry, favored: boolean): readonly RollOptionT
  */
 /** What else an item's roll options say: the picks of owned items that name it, and whether its deity favours it. */
 export interface AlteredContext {
-  readonly picked?: readonly RuleSlug[] | undefined;
+  readonly picked?: ReadonlyArray<RuleSlug> | undefined;
   readonly favored?: boolean;
   /** The inventory line the item is, which an `etched` adjustment of its Strike is read against. */
   readonly item?: InventoryItemId | undefined;
   /** The grade of potency the item's runes give, which an `etched` potency alteration raises; absent for none. */
   readonly potency?: ItemBonus | RuneGrade | undefined;
+  /** The grade of striking rune on a weapon; absent for none. */
+  readonly striking?: RuneGrade | undefined;
+  /** The grade of resilient rune on armour; absent for none. */
+  readonly resilient?: RuneGrade | undefined;
 }
 
 /** The length in feet an altered weapon has for `property` (its range increment, its reach); none when it has none. */
@@ -156,11 +160,11 @@ export function feetOf(item: AlteredItem, property: NumericItemProperty): Feet |
 export function alteredItem(
   rules: ModifierInputs,
   entry: ItemEntry,
-  { picked = [], favored = false, item, potency }: AlteredContext = {},
+  { picked = [], favored = false, item, potency, striking, resilient }: AlteredContext = {},
 ): AlteredItem {
   const altered = alterItem(rules, {
     rollOptions: [...rollOptionsOf(entry, favored), ...picked.map((flag) => RollOptionTail.parse(`picked:${flag}`))],
-    numbers: withPotency(numbersOf(entry), potency),
+    numbers: withRunes(numbersOf(entry), { potency, striking, resilient }),
     traits: entry.traits,
     damageType: damageTypeOf(entry),
     materials: materialsOf(entry),
@@ -171,14 +175,33 @@ export function alteredItem(
   return entry.kind === ContentKind.Weapon ? adjustStrike(rules, altered) : altered;
 }
 
-/** `held` with the item's potency among its numbers, when it has any. */
-function withPotency(held: ItemNumbers, potency: ItemBonus | RuneGrade | undefined): ItemNumbers {
-  return potency === undefined ? held : new Map(held).set(NumericItemProperty.Potency, FormulaValue.parse(potency));
+/** The grades the runes on an item give, by what each is a grade of. */
+interface RuneGrades {
+  readonly potency: ItemBonus | RuneGrade | undefined;
+  readonly striking: RuneGrade | undefined;
+  readonly resilient: RuneGrade | undefined;
+}
+
+/** `held` with the grades of the item's runes among its numbers, those it has. */
+function withRunes(held: ItemNumbers, { potency, striking, resilient }: RuneGrades): ItemNumbers {
+  return new Map([
+    ...held,
+    ...numbers([
+      [NumericItemProperty.Potency, potency],
+      [NumericItemProperty.Striking, striking],
+      [NumericItemProperty.Resilient, resilient],
+    ]),
+  ]);
+}
+
+/** The grade a rune property of an altered item has, held to the highest a rune gives; undefined when it has none. */
+export function gradeOf({ numbers: held }: AlteredItem, property: NumericItemProperty): RuneGrade | undefined {
+  const grade = held.get(property);
+
+  return grade === undefined || grade < 1 ? undefined : RuneGrade.parse(Math.min(grade, RUNE_GRADE_MAX));
 }
 
 /** The grade of potency an altered item has, held to the highest a rune gives; undefined when it has none. */
-export function potencyOf({ numbers: held }: AlteredItem): RuneGrade | undefined {
-  const potency = held.get(NumericItemProperty.Potency);
-
-  return potency === undefined || potency < 1 ? undefined : RuneGrade.parse(Math.min(potency, RUNE_GRADE_MAX));
+export function potencyOf(altered: AlteredItem): RuneGrade | undefined {
+  return gradeOf(altered, NumericItemProperty.Potency);
 }

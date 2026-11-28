@@ -25,7 +25,7 @@ const LOADING_ROWS = 3;
 })
 export class LevelTimeline {
   /** The levels in order, or undefined while they load. */
-  public readonly rows = input<readonly LevelTimelineRow[] | undefined>();
+  public readonly rows = input<ReadonlyArray<LevelTimelineRow> | undefined>();
 
   protected readonly loadingRows = Array.from({ length: LOADING_ROWS }, (_unused, index) => index);
 }

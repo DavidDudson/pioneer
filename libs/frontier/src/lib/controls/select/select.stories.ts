@@ -8,7 +8,7 @@ type Ancestry = 'dwarf' | 'elf' | 'gnome' | 'goblin' | 'halfling' | 'human';
 
 type SelectStory = StoryObj<Select<Ancestry>>;
 
-const ANCESTRIES: readonly SelectOption<Ancestry>[] = [
+const ANCESTRIES: ReadonlyArray<SelectOption<Ancestry>> = [
   { value: 'dwarf', label: 'Dwarf' },
   { value: 'elf', label: 'Elf' },
   { value: 'gnome', label: 'Gnome' },

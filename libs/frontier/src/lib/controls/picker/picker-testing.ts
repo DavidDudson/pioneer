@@ -22,7 +22,7 @@ export interface Feat {
   readonly locked?: string;
 }
 
-export const FEATS: readonly Feat[] = [
+export const FEATS: ReadonlyArray<Feat> = [
   { id: 'power-attack', name: 'Power Attack', level: 1 },
   { id: 'sudden-charge', name: 'Sudden Charge', level: 1, locked: 'Needs expert in Athletics' },
   { id: 'reactive-shield', name: 'Reactive Shield', level: 2 },
@@ -41,7 +41,7 @@ export function stubLayout(): void {
   );
 }
 
-export function longList(): readonly Feat[] {
+export function longList(): ReadonlyArray<Feat> {
   return Array.from({ length: LONG_LIST }, (_entry, index) => ({
     id: `feat-${index}`,
     name: `Feat ${index + 1}`,
@@ -53,24 +53,24 @@ export interface Rendered {
   readonly fixture: ComponentFixture<Picker<string, Feat>>;
   readonly host: HTMLElement;
   readonly trigger: HTMLButtonElement;
-  readonly searches: string[];
-  readonly sorts: (PickerSort | undefined)[];
+  readonly searches: Array<string>;
+  readonly sorts: Array<PickerSort | undefined>;
   readonly loads: () => number;
   readonly commits: () => number;
   readonly cancels: () => number;
 }
 
 interface Outputs {
-  readonly searches: string[];
-  readonly sorts: (PickerSort | undefined)[];
+  readonly searches: Array<string>;
+  readonly sorts: Array<PickerSort | undefined>;
   readonly loads: () => number;
   readonly commits: () => number;
   readonly cancels: () => number;
 }
 
 function recordOutputs(picker: Picker<string, Feat>): Outputs {
-  const searches: string[] = [];
-  const sorts: (PickerSort | undefined)[] = [];
+  const searches: Array<string> = [];
+  const sorts: Array<PickerSort | undefined> = [];
   let loads = 0;
   let commits = 0;
   let cancels = 0;
@@ -101,7 +101,7 @@ function recordOutputs(picker: Picker<string, Feat>): Outputs {
 
 function configure(
   fixture: ComponentFixture<Picker<string, Feat>>,
-  rows: readonly Feat[],
+  rows: ReadonlyArray<Feat>,
   value: string | undefined,
 ): void {
   fixture.componentRef.setInput('ariaLabel', 'Feat');
@@ -116,7 +116,7 @@ function configure(
   }
 }
 
-export function render(rows: readonly Feat[] = FEATS, value?: string, openOnInit = false): Rendered {
+export function render(rows: ReadonlyArray<Feat> = FEATS, value?: string, openOnInit = false): Rendered {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(Picker<string, Feat>);
   configure(fixture, rows, value);
@@ -180,7 +180,7 @@ export function grid(rendered: Rendered): HTMLElement | null {
   return rendered.host.querySelector('[role="grid"]');
 }
 
-export function headerCells(rendered: Rendered): HTMLElement[] {
+export function headerCells(rendered: Rendered): Array<HTMLElement> {
   return [...rendered.host.querySelectorAll<HTMLElement>('[role="columnheader"]')];
 }
 
@@ -190,7 +190,7 @@ export function sortButton(header: HTMLElement | undefined): HTMLButtonElement |
 }
 
 /** The body rows' first cells: one per row. */
-export function rowCells(rendered: Rendered): HTMLElement[] {
+export function rowCells(rendered: Rendered): Array<HTMLElement> {
   return [...rendered.host.querySelectorAll<HTMLElement>('fr-picker-row [role="gridcell"]')].filter(
     (cell) => cell.previousElementSibling === null,
   );
@@ -210,6 +210,6 @@ export function describedText(rendered: Rendered, cell: HTMLElement | undefined)
 }
 
 /** Each row's `aria-selected`, or `none` for a row that cannot be selected. */
-export function selectedStates(rendered: Rendered): string[] {
+export function selectedStates(rendered: Rendered): Array<string> {
   return rowCells(rendered).map((cell) => cell.getAttribute('aria-selected') ?? 'none');
 }

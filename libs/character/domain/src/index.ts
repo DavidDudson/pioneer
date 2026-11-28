@@ -163,6 +163,8 @@ export {
   flawSlots,
 } from './attribute-boosts';
 
+export { type BoostContentOptions } from './boost-content-options';
+
 export {
   ANCESTRY_SLOT,
   BACKGROUND_SLOT,
@@ -400,6 +402,10 @@ export { breakItem } from './inventory-broken';
 
 export { hasAnimatedRune, releasedAttack } from './animated-weapon';
 
+export { readyDonningCost } from './donning-armor';
+
+export type { ReadyDonningCost } from './donning-armor';
+
 export { authorizedDamage, hasAuthorizedRune, unauthorizedWielder } from './authorized-weapon';
 
 export type { AuthorizedDamage } from './authorized-weapon';
@@ -413,6 +419,8 @@ export { hasReservoirRune, RESERVOIR_RANK_MAX, ReservoirProblem, reservoirRefusa
 export { AuthorizedName, AuthorizedSchema, isEmptyState, ItemStateSchema } from './item-state';
 
 export type { Authorized, ItemState } from './item-state';
+
+export { type CoinChange, CoinChangeSchema, type LedgerEntry, LedgerReason } from './coin-ledger';
 
 export { giveCoins, giveLine, type InventoryTransfer, lineWithContents, TransferRefusal } from './inventory-transfer';
 
@@ -533,6 +541,7 @@ export { type HeldShield, heldShields, type ShieldGrant } from './held-shields';
 
 export {
   characterStatisticInputs,
+  type StatisticInputContent,
   characterStatistics,
   characterStrikeRules,
   characterVitals,
@@ -871,7 +880,13 @@ export {
 
 export { RepertoireSwap, repertoireSwap, repertoireSwapRefusal } from './repertoire-swaps';
 
-export { applyTurnCommand, turnCommandInputs, type TurnCommandInputs, type TurnRun } from './turn-commands';
+export {
+  applyTurnCommand,
+  turnCommandInputs,
+  type TurnCommandContext,
+  type TurnCommandInputs,
+  type TurnRun,
+} from './turn-commands';
 
 export {
   ActionCount,
@@ -1160,3 +1175,11 @@ export {
   ShiftsSchema,
   shiftedInventory,
 } from './weapon-shifts';
+
+export { CORE_EARN_INCOME, earnIncomeDc, incomeForDays } from './earn-income';
+
+export { EarnDays, EarnRank, TASK_LEVEL_MAX, TaskLevel } from './earn-income-fields';
+
+export { retrainDaysFor, RetrainDays } from './retraining-fields';
+
+export type { RetrainingPatch } from './retraining-patch';

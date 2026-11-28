@@ -32,15 +32,15 @@ export interface ToggleSlot {
   readonly option: RollOption;
   readonly on: boolean;
   /** The suboptions whose predicates hold, in rule order. */
-  readonly suboptions: readonly Slug[];
+  readonly suboptions: ReadonlyArray<Slug>;
   /** The suboption in force: the one picked if it is offered, else the first offered. */
   readonly suboption: Slug | undefined;
 }
 
 /** The roll options one entry's `RollOption` elements set, and its toggles. */
 export interface EntryOptions {
-  readonly options: readonly RollOption[];
-  readonly toggles: readonly ToggleSlot[];
+  readonly options: ReadonlyArray<RollOption>;
+  readonly toggles: ReadonlyArray<ToggleSlot>;
 }
 
 /** The domain every roll sees; options in any other domain only reach rolls in it, never grant predicates. */
@@ -73,8 +73,8 @@ class OptionReader {
   readonly #origin: Origin;
   readonly #facts: PredicateFacts;
   readonly #states: ToggleStates;
-  readonly #options: RollOption[] = [];
-  readonly #toggles: ToggleSlot[] = [];
+  readonly #options: Array<RollOption> = [];
+  readonly #toggles: Array<ToggleSlot> = [];
 
   public constructor(origin: Origin, facts: PredicateFacts, states: ToggleStates) {
     this.#origin = origin;

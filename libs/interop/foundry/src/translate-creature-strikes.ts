@@ -1,6 +1,7 @@
 import { BlockKind, DamageTypeSchema, InlineKind, RichTextString, Trait } from '@pioneer/rules/sdk';
 import type { RichText } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
+import { capitalise } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
 import { Count, itemSystem, Name, Slug, Slugs, Traits } from './creature-embedded';
@@ -44,7 +45,7 @@ interface Damage {
 }
 
 /** The feet after a trait prefix (`reach-30`), if the strike has such a trait. */
-function feetOf(prefix: string, traits: readonly string[]): number | undefined {
+function feetOf(prefix: string, traits: ReadonlyArray<string>): number | undefined {
   const trait = traits.find((each) => each.startsWith(prefix));
   const feet = trait === undefined ? Number.NaN : Number(trait.slice(prefix.length));
 
@@ -83,12 +84,16 @@ function damagePart(roll: z.infer<typeof DamageRoll>, field: string, input: Kind
 function pascal(slug: string): string {
   return slug
     .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => capitalise(word))
     .join('');
 }
 
 /** What a strike adds to a hit ("Improved Grab"), named from the lang table, an embedded ability, or its slug. */
-function effectsOf(slugs: readonly string[], items: readonly Embedded[], input: KindInput): RichText | undefined {
+function effectsOf(
+  slugs: ReadonlyArray<string>,
+  items: ReadonlyArray<Embedded>,
+  input: KindInput,
+): RichText | undefined {
   const names = slugs.map((slug) => {
     const label = input.lang === undefined ? undefined : langLabel(input.lang, `PF2E.AttackEffect${pascal(slug)}`);
 
@@ -102,7 +107,7 @@ function effectsOf(slugs: readonly string[], items: readonly Embedded[], input: 
     : undefined;
 }
 
-function strikeOf(item: Embedded, items: readonly Embedded[], input: KindInput): object | undefined {
+function strikeOf(item: Embedded, items: ReadonlyArray<Embedded>, input: KindInput): object | undefined {
   const system = itemSystem(FoundryStrike, item, input);
 
   if (system === undefined) {
@@ -130,6 +135,6 @@ function strikeOf(item: Embedded, items: readonly Embedded[], input: KindInput):
 }
 
 /** The creature's strikes, one per `melee` item. */
-export function strikesOf(items: readonly Embedded[], input: KindInput): readonly object[] {
+export function strikesOf(items: ReadonlyArray<Embedded>, input: KindInput): ReadonlyArray<object> {
   return items.filter((item) => item.type === 'melee').flatMap((item) => strikeOf(item, items, input) ?? []);
 }

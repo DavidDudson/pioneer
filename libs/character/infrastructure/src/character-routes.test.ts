@@ -122,7 +122,7 @@ describe('character routes', () => {
     expect(got.status).toBe(200);
     const { character, slots } = CharacterSheet.parse(await got.json());
     const name: string = character.name;
-    const read: string[][] = slots.slice(0, 4).map(({ key, status }) => [key, status]);
+    const read: Array<Array<string>> = slots.slice(0, 4).map(({ key, status }) => [key, status]);
     expect(name).toBe('Kyra');
     expect(read).toStrictEqual([
       ['ancestry', 'filled'],
@@ -216,7 +216,7 @@ describe('character routes without a signed-in user', () => {
   const api = app();
   const id = newId();
 
-  const cases: readonly (readonly [string, Request])[] = [
+  const cases: ReadonlyArray<readonly [string, Request]> = [
     ['list', request('GET', '/characters', { as: anonymous })],
     ['get', request('GET', `/characters/${id}`, { as: anonymous })],
     ['create', request('POST', '/characters', { as: anonymous, body: { name: 'Kyra', ancestry: humanAncestryId } })],
@@ -265,9 +265,13 @@ describe('character routes across users', () => {
     expect(gifted.status).toBe(404);
 
     const listed = await api.handle(request('GET', '/characters'));
+
     // SAFETY: Response.json() is typed any.
     // This route's body has the shape its contract gives, and the test reads only the fields named here.
-    const names = ((await listed.json()) as { items: { name: string }[] }).items.map((character) => character.name);
+    const names = ((await listed.json()) as { items: Array<{ name: string }> }).items.map(
+      (character) => character.name,
+    );
+
     expect(names).toStrictEqual(['Kyra']);
   });
 });
@@ -296,7 +300,7 @@ describe('Pathbuilder import route', () => {
     // This route's body has the shape its contract gives, and the test reads only the fields named here.
     const { character, report } = (await response.json()) as {
       character: { id: string; name: string; level: number; ownerId: string; version: number };
-      report: { unmatched: { kind: string }[] };
+      report: { unmatched: Array<{ kind: string }> };
     };
 
     expect(character).toMatchObject({ name: 'Mordred (Dual Class)', level: 12, ownerId: amiri, version: 1 });
@@ -321,7 +325,7 @@ describe('Pathbuilder import route', () => {
     const listed = await api.handle(request('GET', '/characters'));
     // SAFETY: Response.json() is typed any.
     // This route's body has the shape its contract gives, and the test reads only the fields named here.
-    expect(((await listed.json()) as { items: unknown[] }).items).toStrictEqual([]);
+    expect(((await listed.json()) as { items: Array<unknown> }).items).toStrictEqual([]);
   });
 
   test.each([

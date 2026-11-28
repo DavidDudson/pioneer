@@ -10,7 +10,7 @@ export interface LegacyBooks {
 }
 
 /** The legacy books of `books`, by how much of each is imported. */
-export function legacyBooks(books: readonly Book[]): LegacyBooks {
+export function legacyBooks(books: ReadonlyArray<Book>): LegacyBooks {
   const idsOf = (scope: LegacyImport): ReadonlySet<BookId> =>
     new Set(
       books

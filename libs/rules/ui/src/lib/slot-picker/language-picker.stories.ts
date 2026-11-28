@@ -8,7 +8,7 @@ import type { LanguagePickerRow } from './slot-picker-row';
 
 type LanguagePickerStory = StoryObj<LanguagePicker>;
 
-const LANGUAGES: readonly LanguagePickerRow[] = [
+const LANGUAGES: ReadonlyArray<LanguagePickerRow> = [
   languageRow({ id: 'common', name: 'Common', known: true }),
   languageRow({ id: 'draconic', name: 'Draconic', rarity: Rarity.Uncommon, script: 'Iokharic' }),
   languageRow({ id: 'aklo', name: 'Aklo', rarity: Rarity.Rare, disabledReason: 'Needs a teacher' }),

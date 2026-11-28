@@ -8,7 +8,7 @@ import { entry, grantOf, inputsOf, picked } from './testing/builders';
 const FAMILIAR_OPTION = 'self:companion:familiar';
 
 /** The character's `self:companion:` options with `companions` live. */
-function companionOptionsOf(companions: readonly CompanionKind[] | undefined): readonly string[] {
+function companionOptionsOf(companions: ReadonlyArray<CompanionKind> | undefined): ReadonlyArray<string> {
   const inputs = { ...inputsOf({ entries: [], roots: [] }), companions };
 
   return resolveGrants(inputs)
@@ -30,7 +30,7 @@ describe('the companion facts', () => {
     const feature = entry('familiar-feat', [{ ...grantOf('trained'), predicate: [FAMILIAR_OPTION] }]);
     const trained = entry('trained');
 
-    const items = (companions: readonly CompanionKind[] | undefined): readonly string[] =>
+    const items = (companions: ReadonlyArray<CompanionKind> | undefined): ReadonlyArray<string> =>
       resolveGrants({
         ...inputsOf({ entries: [feature, trained], roots: [picked('familiar-feat')] }),
         companions,

@@ -62,7 +62,7 @@ export class FormulaReferences {
    * Each reference path once, in the order first written. While the formula does not parse (mid-typing), the
    * last parsed list is kept, so the boxes stay put and keep what they hold.
    */
-  protected readonly references = linkedSignal<FormulaCheck, readonly ReferencePath[]>({
+  protected readonly references = linkedSignal<FormulaCheck, ReadonlyArray<ReferencePath>>({
     source: this.check,
     computation: (check, previous) => (check.status === CheckStatus.Valid ? check.references : (previous?.value ?? [])),
   });
@@ -73,7 +73,7 @@ export class FormulaReferences {
     minimum: this.#format.number(REFERENCE_VALUE_MIN),
     maximum: this.#format.number(REFERENCE_VALUE_MAX),
   }));
-  protected readonly rows = computed((): readonly ReferenceRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<ReferenceRow> => {
     const entries = this.entries();
 
     return this.references().map((path) => {

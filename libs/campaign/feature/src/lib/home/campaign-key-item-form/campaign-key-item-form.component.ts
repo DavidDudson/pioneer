@@ -46,15 +46,15 @@ export class CampaignKeyItemForm {
   readonly #store = inject(CampaignKeyItemStore);
   readonly #search = inject(KEY_ITEM_CONTENT_SEARCH);
   readonly #i18n = inject(TranslocoService);
-  readonly #found = signal<readonly ContentChoice[]>([]);
+  readonly #found = signal<ReadonlyArray<ContentChoice>>([]);
 
   protected readonly model = signal<KeyItemModel>(EMPTY_KEY_ITEM);
   protected readonly form = form(this.model, (path) => {
     validateStandardSchema(path, KeyItemForm);
   });
-  protected readonly property = signal<readonly KeyPropertyRune[]>([]);
+  protected readonly property = signal<ReadonlyArray<KeyPropertyRune>>([]);
   protected readonly loading = signal(false);
-  protected readonly baseOptions = computed((): readonly SelectOption<ReviewedRuneId>[] =>
+  protected readonly baseOptions = computed((): ReadonlyArray<SelectOption<ReviewedRuneId>> =>
     this.#found().map(({ id, name }) => ({ value: id, label: name })),
   );
   protected readonly gradeOptions = computed(() => this.#grades(RUNE_GRADES));
@@ -93,7 +93,7 @@ export class CampaignKeyItemForm {
   protected readonly describeError = (): string => this.#i18n.translate('campaign.keyItems.form.createFailed');
 
   /** "None", then each grade as the rules write it. */
-  #grades<TGrade extends string>(grades: readonly TGrade[]): readonly SelectOption<typeof NO_GRADE | TGrade>[] {
+  #grades<TGrade extends string>(grades: ReadonlyArray<TGrade>): ReadonlyArray<SelectOption<typeof NO_GRADE | TGrade>> {
     return [
       { value: NO_GRADE, label: this.#i18n.translate('campaign.keyItems.form.noGrade') },
       ...grades.map((grade) => ({

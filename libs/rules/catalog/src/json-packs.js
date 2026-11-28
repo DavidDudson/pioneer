@@ -12,6 +12,7 @@ export async function playerCorePack() {
     import('@pioneer/content/packs/player-core/background.json'),
     import('@pioneer/content/packs/player-core/class-feature.json'),
     import('@pioneer/content/packs/player-core/class.json'),
+    import('@pioneer/content/packs/player-core/companion-species.json'),
     import('@pioneer/content/packs/player-core/condition.json'),
     import('@pioneer/content/packs/player-core/consumable.json'),
     import('@pioneer/content/packs/player-core/creature.json'),

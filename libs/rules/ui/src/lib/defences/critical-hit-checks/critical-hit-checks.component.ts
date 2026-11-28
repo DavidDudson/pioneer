@@ -33,14 +33,14 @@ export function isActiveCheck({ status }: CriticalHitCheckLine): boolean {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CriticalHitChecks {
-  public readonly checks = input.required<readonly CriticalHitCheckLine[]>();
+  public readonly checks = input.required<ReadonlyArray<CriticalHitCheckLine>>();
   /** A check's roll was asked for. */
   public readonly rolled = output<CriticalHitRoll>();
 
   protected readonly Message = DefencesMessage;
   protected readonly outline = ButtonVariant.OutlineSubtle;
   protected readonly small = Size.Sm;
-  protected readonly active = computed((): readonly CriticalHitCheckLine[] =>
+  protected readonly active = computed((): ReadonlyArray<CriticalHitCheckLine> =>
     this.checks().filter((check) => isActiveCheck(check)),
   );
 }

@@ -19,12 +19,15 @@ export interface CharacterContentSource extends ContentSource {
    * The variant rules in force for `character`: enabled, and defined by a pack it uses. `registry` is the one already
    * loaded for it, read instead of loading again.
    */
-  readonly variantRules?: (character: Character, registry?: ContentRegistry) => Promise<readonly VariantRuleEntry[]>;
+  readonly variantRules?: (
+    character: Character,
+    registry?: ContentRegistry,
+  ) => Promise<ReadonlyArray<VariantRuleEntry>>;
   /**
    * The homebrew packs `character` holds content from that are not in force, a campaign having disabled them. Their
    * entries stay in its registry so what it holds still resolves, but nothing new may be picked from them.
    */
-  readonly unsupportedPacks?: (character: Character) => Promise<readonly ContentPackId[]>;
+  readonly unsupportedPacks?: (character: Character) => Promise<ReadonlyArray<ContentPackId>>;
   /** The limits `character`'s inventory is held to (ADR-0064); the core rules' for a source that does not know them. */
   readonly ruleLimits?: (character: Character) => Promise<RuleLimits>;
 }
@@ -39,7 +42,7 @@ export async function variantRulesOfCharacter(
   content: CharacterContentSource,
   character: Character,
   registry?: ContentRegistry,
-): Promise<readonly VariantRuleEntry[]> {
+): Promise<ReadonlyArray<VariantRuleEntry>> {
   return (await content.variantRules?.(character, registry)) ?? [];
 }
 
@@ -96,7 +99,7 @@ export class CharacterContent implements CharacterContentSource {
     };
   }
 
-  public async unsupportedPacks(character: Character): Promise<readonly ContentPackId[]> {
+  public async unsupportedPacks(character: Character): Promise<ReadonlyArray<ContentPackId>> {
     if (this.#held === undefined) {
       return [];
     }
@@ -111,7 +114,7 @@ export class CharacterContent implements CharacterContentSource {
    * The enabled variant rules the character's registry holds. One whose pack is no longer in force is dropped, even
    * though the registry keeps the pack for what the character holds, and comes back with its pack (ADR-0061).
    */
-  public async variantRules(character: Character, loaded?: ContentRegistry): Promise<readonly VariantRuleEntry[]> {
+  public async variantRules(character: Character, loaded?: ContentRegistry): Promise<ReadonlyArray<VariantRuleEntry>> {
     const [registry, ids, unsupported] = await Promise.all([
       loaded ?? this.forCharacter(character).registry(),
       this.#variants.of(character),
@@ -120,7 +123,7 @@ export class CharacterContent implements CharacterContentSource {
 
     const dropped = new Set(unsupported);
 
-    return ids.flatMap((id): VariantRuleEntry[] => {
+    return ids.flatMap((id): Array<VariantRuleEntry> => {
       const entry = registry.variantRule(id);
 
       return entry === undefined || dropped.has(contentPackId(entry.pack.id)) ? [] : [entry];

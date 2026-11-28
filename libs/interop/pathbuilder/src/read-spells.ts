@@ -9,7 +9,7 @@ type CasterPreparation = typeof SpellPreparation.Prepared | typeof SpellPreparat
 /** The spells a caster has at one rank; Pathbuilder's rank 0 is the cantrips. */
 export interface ImportedSpellRank {
   readonly rank: number | typeof SlotRank.Cantrip;
-  readonly spells: readonly PathbuilderName[];
+  readonly spells: ReadonlyArray<PathbuilderName>;
 }
 
 /** One `spellCasters` row: a class's casting, or an archetype's, a feat's or a heritage's. */
@@ -22,9 +22,9 @@ export interface ImportedCaster {
   readonly preparation: CasterPreparation;
   readonly innate: boolean;
   /** The ranks that list a spell, lowest first. */
-  readonly ranks: readonly ImportedSpellRank[];
+  readonly ranks: ReadonlyArray<ImportedSpellRank>;
   /** Pathbuilder's spell slots per rank, cantrips first; compared with the engine's, never imported. */
-  readonly perDay: readonly number[];
+  readonly perDay: ReadonlyArray<number>;
 }
 
 const PREPARATION_BY_WORD: ReadonlyMap<string, CasterPreparation> = new Map([
@@ -39,8 +39,8 @@ function named(raw: string): PathbuilderName | undefined {
 }
 
 /** The export's casters in order; a caster with no name or tradition is left out. */
-export function importedCasters(build: PathbuilderBuild): ImportedCaster[] {
-  return build.spellCasters.flatMap((caster): ImportedCaster[] => {
+export function importedCasters(build: PathbuilderBuild): Array<ImportedCaster> {
+  return build.spellCasters.flatMap((caster): Array<ImportedCaster> => {
     const name = named(caster.name);
     const tradition = named(caster.magicTradition);
 
@@ -50,7 +50,7 @@ export function importedCasters(build: PathbuilderBuild): ImportedCaster[] {
 
     const ranks = caster.spells
       .toSorted((left, right) => left.spellLevel - right.spellLevel)
-      .flatMap(({ spellLevel, list }): ImportedSpellRank[] => {
+      .flatMap(({ spellLevel, list }): Array<ImportedSpellRank> => {
         const spells = list.flatMap((spell) => named(spell) ?? []);
 
         return spells.length === 0 ? [] : [{ rank: spellLevel === 0 ? SlotRank.Cantrip : spellLevel, spells }];

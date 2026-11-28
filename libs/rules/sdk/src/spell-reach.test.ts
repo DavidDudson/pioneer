@@ -2,11 +2,11 @@ import { describe, expect, test } from 'bun:test';
 
 import { fieldIssues, ValidationMessage } from '@pioneer/shared/kernel';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import type { JsonObject } from './testing/json-value';
+import { ContentEntry } from './typed-content-entry';
 
 const PACK = 'player-core';
 const SLUG = 'spell:teleport';
@@ -19,10 +19,10 @@ interface SpellFixture {
   readonly slug: string;
   readonly name: string;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<unknown>;
+  readonly description: ReadonlyArray<unknown>;
+  readonly rules: ReadonlyArray<unknown>;
   readonly data: JsonObject;
 }
 
@@ -50,7 +50,7 @@ function casting(fields: JsonObject): SpellFixture {
 }
 
 /** Each issue as `<path> <message key>`, sorted. */
-function found(value: JsonValue): readonly string[] {
+function found(value: JsonValue): ReadonlyArray<string> {
   const result = ContentEntry.safeParse(value);
 
   return result.success

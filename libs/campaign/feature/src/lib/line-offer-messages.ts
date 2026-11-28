@@ -5,7 +5,7 @@ import { loadMessageScopes } from '@pioneer/shared/web';
 import type { MessageScope } from '@pioneer/shared/web';
 
 /** The campaign messages the offer controls read, which a sheet does not load with its own route. */
-const OFFER_SCOPES: readonly MessageScope[] = [
+const OFFER_SCOPES: ReadonlyArray<MessageScope> = [
   { scope: 'campaign', messages: { [Locale.English]: async () => import('../i18n/en.json') } },
 ];
 

@@ -12,7 +12,7 @@ import { sheetEntryEffects } from './sheet-entry-effects';
 import { sheetEntry, sheetEntryPreview } from './sheet-entry-previews';
 
 /** The value the character has `id` at: the highest of its instances, as the grants keep; none for an unvalued one. */
-function valueOf(active: readonly ActiveCondition[]): ConditionValue | undefined {
+function valueOf(active: ReadonlyArray<ActiveCondition>): ConditionValue | undefined {
   const values = active.flatMap(({ value }) => (value === undefined ? [] : [value]));
 
   return values.length === 0 ? undefined : ConditionValue.parse(Math.max(...values));

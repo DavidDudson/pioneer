@@ -15,7 +15,7 @@ export interface UnplacedFeatBreak {
  * The imported feats that break a rule because no slot holds them (ADR-0064): worked out on every read from the build's
  * list, so a feat a slot has since taken is never flagged, and nothing flagged is stored.
  */
-export function unplacedFeatBreaks({ build }: Pick<CharacterDocument, 'build'>): readonly UnplacedFeatBreak[] {
+export function unplacedFeatBreaks({ build }: Pick<CharacterDocument, 'build'>): ReadonlyArray<UnplacedFeatBreak> {
   const picked = new Set<string>(Object.values(build.choices));
 
   return build.unplacedFeats

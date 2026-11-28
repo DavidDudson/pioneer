@@ -6,7 +6,7 @@ function legacyBook(id: string, legacy: LegacyImport): Book {
 }
 
 /** The books the importer tests run with: one legacy book taken whole, one only for its listed entries. */
-export const LEGACY: readonly Book[] = [
+export const LEGACY: ReadonlyArray<Book> = [
   legacyBook('mwangi-expanse', LegacyImport.Whole),
   legacyBook('advanced-players-guide', LegacyImport.Listed),
 ];

@@ -18,7 +18,7 @@ const clock = fixedClock('2026-10-14T10:00:00Z');
 const brew = ContentPackId.parse(newId());
 
 /** A content source that remembers which packs each ask named. */
-function recordingContent(asked: (readonly ContentPackId[] | undefined)[]): ContentSource {
+function recordingContent(asked: Array<ReadonlyArray<ContentPackId> | undefined>): ContentSource {
   const official = fixedContent(hitPointsContent());
 
   return {
@@ -31,28 +31,28 @@ function recordingContent(asked: (readonly ContentPackId[] | undefined)[]): Cont
 }
 
 class FixedPacks extends EffectivePacks {
-  readonly #packs: readonly ContentPackId[];
+  readonly #packs: ReadonlyArray<ContentPackId>;
 
-  public constructor(packs: readonly ContentPackId[]) {
+  public constructor(packs: ReadonlyArray<ContentPackId>) {
     super();
     this.#packs = packs;
   }
 
-  public override async of(): Promise<readonly ContentPackId[]> {
+  public override async of(): Promise<ReadonlyArray<ContentPackId>> {
     return this.#packs;
   }
 }
 
 class NoVariants extends EffectiveVariants {
-  readonly #none: readonly VariantRuleId[] = [];
+  readonly #none: ReadonlyArray<VariantRuleId> = [];
 
-  public override async of(): Promise<readonly VariantRuleId[]> {
+  public override async of(): Promise<ReadonlyArray<VariantRuleId>> {
     return this.#none;
   }
 }
 
-async function sheetAsked(packs: EffectivePacks): Promise<(readonly ContentPackId[] | undefined)[]> {
-  const asked: (readonly ContentPackId[] | undefined)[] = [];
+async function sheetAsked(packs: EffectivePacks): Promise<Array<ReadonlyArray<ContentPackId> | undefined>> {
+  const asked: Array<ReadonlyArray<ContentPackId> | undefined> = [];
 
   const service = new CharacterService(
     new InMemoryCharacterRepository(),

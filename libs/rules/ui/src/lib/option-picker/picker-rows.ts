@@ -16,7 +16,7 @@ export interface RowView {
 }
 
 /** The rows whose text holds the query, in the order asked for, then by their text; a column with no key is left unsorted. */
-export function shownRows<TRow>(rows: readonly TRow[], view: RowView, order: RowOrder<TRow>): readonly TRow[] {
+export function shownRows<TRow>(rows: ReadonlyArray<TRow>, view: RowView, order: RowOrder<TRow>): ReadonlyArray<TRow> {
   const needle = view.query.trim().toLocaleLowerCase();
   const matching = rows.filter((row) => order.text(row).toLocaleLowerCase().includes(needle));
   const { sort } = view;
@@ -46,12 +46,12 @@ export function shownRows<TRow>(rows: readonly TRow[], view: RowView, order: Row
 
 /** A short list a picker shows: the query and sort the picker reports, and the rows they leave. Held by the page. */
 export class PickerRows<TRow> {
-  public readonly all: Signal<readonly TRow[]>;
+  public readonly all: Signal<ReadonlyArray<TRow>>;
   public readonly query: WritableSignal<string> = signal('');
   public readonly ordering: WritableSignal<PickerSort | undefined> = signal(undefined);
-  public readonly shown: Signal<readonly TRow[]>;
+  public readonly shown: Signal<ReadonlyArray<TRow>>;
 
-  public constructor(all: Signal<readonly TRow[]>, order: RowOrder<TRow>) {
+  public constructor(all: Signal<ReadonlyArray<TRow>>, order: RowOrder<TRow>) {
     this.all = all;
     this.shown = computed(() => shownRows(this.all(), { query: this.query(), sort: this.ordering() }, order));
   }

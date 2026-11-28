@@ -66,7 +66,7 @@ const COMMANDS = array(
 );
 
 /** `resources` after each command the staff allows. */
-function run(commands: readonly StaffCommand[]): ResourcesSpent {
+function run(commands: ReadonlyArray<StaffCommand>): ResourcesSpent {
   let resources = ResourcesSpentSchema.parse({
     staff: StaffChargesSchema.parse({ [STAFF_ID]: { max: MAX_CHARGES, spent: 0 } }),
   });

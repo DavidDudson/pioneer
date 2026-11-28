@@ -58,10 +58,10 @@ export const PLACE_ORDER: RowOrder<PlaceRow> = {
 function placeColumns(
   headers: PlaceHeaders,
   chips: {
-    readonly bulk: (row: PlaceRow) => readonly Chip[];
-    readonly items: (row: PlaceRow) => readonly Chip[];
+    readonly bulk: (row: PlaceRow) => ReadonlyArray<Chip>;
+    readonly items: (row: PlaceRow) => ReadonlyArray<Chip>;
   },
-): readonly TableColumn<PlaceRow>[] {
+): ReadonlyArray<TableColumn<PlaceRow>> {
   return new RulesTableSchema<PlaceRow>()
     .addText({ id: 'name', header: headers.name, value: (row) => row.label, width: 'md' })
     .addTraits({ id: 'bulk', header: headers.bulk, value: chips.bulk, width: 'md' })
@@ -79,7 +79,7 @@ export interface PlaceScope {
 }
 
 /** The loose place, then each container `moving` isn't in, with what it holds. */
-export function placeRows(inventory: Inventory, content: ItemContent, where: PlaceScope): readonly PlaceRow[] {
+export function placeRows(inventory: Inventory, content: ItemContent, where: PlaceScope): ReadonlyArray<PlaceRow> {
   const { moving, loose } = where;
   const looseLines = inventory.items.filter((each) => each.container === undefined).length;
 
@@ -105,7 +105,7 @@ export function placeRows(inventory: Inventory, content: ItemContent, where: Pla
 /** A place picker's rows, columns and the functions it reads them with. */
 export interface PlacePicker {
   readonly rows: PickerRows<PlaceRow>;
-  readonly columns: Signal<readonly TableColumn<PlaceRow>[]>;
+  readonly columns: Signal<ReadonlyArray<TableColumn<PlaceRow>>>;
   readonly value: (row: PlaceRow) => string;
   readonly label: (row: PlaceRow) => string;
 }
@@ -125,7 +125,7 @@ export function injectPlacePicker(
   const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   const messages = toSignal(merge(i18n.langChanges$, loaded));
 
-  const all = computed((): readonly PlaceRow[] => {
+  const all = computed((): ReadonlyArray<PlaceRow> => {
     messages();
     const inventory = store.selected()?.document.inventory;
     const loose = i18n.translate('character.sheet.inventory.loose');
@@ -140,9 +140,9 @@ export function injectPlacePicker(
 
     return placeColumns(
       {
-        name: i18n.translate('character.sheet.inventory.placeColumns.name'),
-        bulk: i18n.translate('character.sheet.inventory.placeColumns.bulk'),
-        items: i18n.translate('character.sheet.inventory.placeColumns.items'),
+        name: 'character.sheet.inventory.placeColumns.name',
+        bulk: 'character.sheet.inventory.placeColumns.bulk',
+        items: 'character.sheet.inventory.placeColumns.items',
       },
       {
         bulk: (row) => bulkChips(row, i18n, format),
@@ -154,7 +154,7 @@ export function injectPlacePicker(
   return { rows: new PickerRows(all, PLACE_ORDER), columns, value: placeValue, label: placeLabel };
 }
 
-function bulkChips(row: PlaceRow, i18n: TranslocoService, format: LocaleFormat): readonly Chip[] {
+function bulkChips(row: PlaceRow, i18n: TranslocoService, format: LocaleFormat): ReadonlyArray<Chip> {
   if (row.held === undefined) {
     return [];
   }

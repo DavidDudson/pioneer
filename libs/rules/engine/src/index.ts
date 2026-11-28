@@ -139,6 +139,8 @@ export {
   type AvailableActionsInput,
 } from './available-actions';
 
+export { appliesAutomatically, type TriggerableAbility, triggeredAbilities } from './triggered-abilities';
+
 export { type FormReplacement, FormSource } from './statistic-result';
 
 export {
@@ -172,7 +174,9 @@ export {
   type RollTwiceLine,
 } from './roll-effects';
 
-export { deriveCompanionStatistics } from './companion-statistics';
+export { companionProficiencyBonus, deriveCompanionStatistics } from './companion-statistics';
+
+export { companionTiersFromFeats } from './companion-tier-feats';
 
 export { CompanionSource } from './companion-statistic-types';
 

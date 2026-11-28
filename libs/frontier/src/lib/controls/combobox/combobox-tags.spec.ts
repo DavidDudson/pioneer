@@ -4,7 +4,7 @@ import { optionElements, press, render, stubLayout } from './combobox-testing';
 import { Combobox } from './combobox.component';
 
 /** The text of each badge in `option`. */
-function badgesOf(option: HTMLElement | undefined): readonly string[] {
+function badgesOf(option: HTMLElement | undefined): ReadonlyArray<string> {
   return [...(option?.querySelectorAll('fr-badge') ?? [])].map((badge) => badge.textContent.trim());
 }
 

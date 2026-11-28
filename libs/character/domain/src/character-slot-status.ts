@@ -1,6 +1,6 @@
 import { FIRST_TAKE } from '@pioneer/rules/grants';
 import type { AnsweredSlot, ChoiceSlot, ContentLookup, GrantResolution, RootSlot } from '@pioneer/rules/grants';
-import { ContentId, Level, SlotKey } from '@pioneer/rules/sdk';
+import { ContentId, contentIdOf, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentText, RollOption } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -16,8 +16,9 @@ import { FeatPickProblem } from './feat-content';
 import { featPickProblem, prerequisiteReads } from './feat-slots';
 import { languageStatuses } from './language-slot-status';
 import { preparedStatuses, signatureStatuses } from './prepared-slot-status';
+import type { GrantsAt } from './skill-grants';
 import { SkillPickProblem, skillSlots } from './skill-training';
-import { resolveSlotsAt, skillReads, slotContextOf } from './slot-offer';
+import { skillReads, slotContextOf } from './slot-offer';
 import type { SlotContent, SlotContext } from './slot-offer';
 import { invalidReason, invalidSlot, named, validSlot } from './slot-read';
 import type { SlotRead } from './slot-read';
@@ -50,7 +51,7 @@ function rootStatus(slot: RootSlot, read: SlotRead, lookup: ContentLookup): Char
 
 /** The name of a `ChoiceSet` pick: the entry it names, else the listed option. */
 function choiceName(slot: AnsweredSlot, lookup: ContentLookup): ContentText | undefined {
-  const isId = ContentId.safeParse(slot.pick).success;
+  const isId = contentIdOf(slot.pick) !== undefined;
 
   return isId ? entryName(slot.pick, lookup) : slot.options.find((option) => option.value === slot.pick)?.label;
 }
@@ -79,12 +80,16 @@ function choiceSubject(slot: ChoiceSlot, lookup: ContentLookup): SlotSubject {
 
 /** The slots one resolution has, as read at that level, roots and `ChoiceSet`s apart. */
 interface ResolvedSlots {
-  readonly roots: readonly CharacterSlot[];
-  readonly choices: readonly CharacterSlot[];
+  readonly roots: ReadonlyArray<CharacterSlot>;
+  readonly choices: ReadonlyArray<CharacterSlot>;
 }
 
 /** Whether a root slot is listed: always, unless it is optional, empty, and nothing on the character needs it. */
-function isListed(slot: RootSlot, picks: ReadonlyMap<SlotKey, ChoiceValue>, options: readonly RollOption[]): boolean {
+function isListed(
+  slot: RootSlot,
+  picks: ReadonlyMap<SlotKey, ChoiceValue>,
+  options: ReadonlyArray<RollOption>,
+): boolean {
   const neededBy = OPTIONAL_ROOT_SLOTS.get(slot.key);
 
   return neededBy === undefined || picks.has(slot.key) || neededBy.some((option) => options.includes(option));
@@ -144,7 +149,7 @@ function boostStatuses(
   document: CharacterDocument,
   { boosts }: SlotContent,
   picks: ReadonlyMap<SlotKey, ChoiceValue>,
-): CharacterSlot[] {
+): Array<CharacterSlot> {
   const level = Level.parse(document.level);
 
   return boostSets(document, boosts).flatMap((set) =>
@@ -167,10 +172,10 @@ function flawStatuses(
   document: CharacterDocument,
   { boosts }: SlotContent,
   picks: ReadonlyMap<SlotKey, ChoiceValue>,
-): CharacterSlot[] {
+): Array<CharacterSlot> {
   const slots = flawSlots(document, boosts);
 
-  return slots.flatMap((slot, index): CharacterSlot[] => {
+  return slots.flatMap((slot, index): Array<CharacterSlot> => {
     const stored = picks.get(slot.key);
 
     if (stored === undefined) {
@@ -199,7 +204,7 @@ const SKILL_PROBLEMS: Readonly<Record<SkillPickProblem, string>> = {
  * Each skill slot up to 20th level, read in order (#464): a pick is invalid when it trains a skill already trained, or
  * raises one past the rank its level allows; one naming no loaded skill reads as any other pick does.
  */
-function skillStatuses(document: CharacterDocument, content: SlotContent): CharacterSlot[] {
+function skillStatuses(document: CharacterDocument, content: SlotContent): Array<CharacterSlot> {
   const level = Level.parse(document.level);
 
   return skillSlots(document, skillReads(document, content)).map((slot) => {
@@ -243,7 +248,7 @@ function featCheck(document: CharacterDocument, content: SlotContent): PickCheck
 }
 
 /** The character's level and every level above it, lowest first. */
-function levelsUpFrom(level: Level): Level[] {
+function levelsUpFrom(level: Level): Array<Level> {
   return Array.from({ length: CHARACTER_LEVEL_MAX - level + 1 }, (_unused, index) => Level.parse(level + index));
 }
 
@@ -258,7 +263,7 @@ function plansIt(earlier: CharacterSlot, later: CharacterSlot): boolean {
 }
 
 /** Adds each slot not yet seen, so a slot keeps how it reads at the lowest level read, unless a higher level plans it. */
-function addUnseen(seen: Map<SlotKey, CharacterSlot>, slots: readonly CharacterSlot[]): void {
+function addUnseen(seen: Map<SlotKey, CharacterSlot>, slots: ReadonlyArray<CharacterSlot>): void {
   for (const slot of slots) {
     const earlier = seen.get(slot.key);
 
@@ -269,12 +274,16 @@ function addUnseen(seen: Map<SlotKey, CharacterSlot>, slots: readonly CharacterS
 }
 
 /** The root and `ChoiceSet` slots, each as read at the lowest level from the character's up that has it. */
-function grantStatuses(level: Level, context: SlotContext, check: PickCheck): ResolvedSlots {
+function grantStatuses(
+  level: Level,
+  context: SlotContext,
+  { check, grantsAt }: { readonly check: PickCheck; readonly grantsAt: GrantsAt },
+): ResolvedSlots {
   const roots = new Map<SlotKey, CharacterSlot>();
   const choices = new Map<SlotKey, CharacterSlot>();
 
   for (const at of levelsUpFrom(level)) {
-    const read = resolvedSlots(resolveSlotsAt(at, context), context, { planned: at > level ? at : undefined, check });
+    const read = resolvedSlots(grantsAt(at), context, { planned: at > level ? at : undefined, check });
     addUnseen(roots, read.roots);
     addUnseen(choices, read.choices);
   }
@@ -296,7 +305,7 @@ function hiddenSlot(key: SlotKey, selection: ChoiceValue, context: SlotContext):
 }
 
 /** The picks kept for no slot in `listed`, an entry or spell picked named. */
-function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): CharacterSlot[] {
+function hiddenPicks(context: SlotContext, listed: ReadonlyArray<CharacterSlot>): Array<CharacterSlot> {
   const keys = new Set(listed.map((slot) => slot.key));
 
   return context.picks
@@ -314,10 +323,12 @@ function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): Ch
  * above it reads at the lowest level it opens, as planned, or invalid at that level. A stored pick for a slot found at
  * neither is hidden. Nothing is dropped: every stored pick is in the list.
  */
-export function characterSlots(document: CharacterDocument, content: SlotContent): readonly CharacterSlot[] {
+export function characterSlots(document: CharacterDocument, content: SlotContent): ReadonlyArray<CharacterSlot> {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
   const context = slotContextOf(document, content, picks);
-  const { roots, choices } = grantStatuses(Level.parse(document.level), context, featCheck(document, content));
+  const { grantsAt } = skillReads(document, content);
+  const check = featCheck(document, content);
+  const { roots, choices } = grantStatuses(Level.parse(document.level), context, { check, grantsAt });
   const boosts = boostStatuses(document, content, picks);
   const flaws = flawStatuses(document, content, picks);
   const skills = skillStatuses(document, content);

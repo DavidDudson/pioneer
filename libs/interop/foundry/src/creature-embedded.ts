@@ -24,7 +24,7 @@ export type Embedded = z.infer<typeof Embedded>;
 const EmbeddedList = z.array(Embedded).max(ITEMS_MAX);
 
 /** The actor's items, parsed; reported when the list is not shaped as an actor's. */
-export function embeddedOf({ document, log }: KindInput): readonly Embedded[] {
+export function embeddedOf({ document, log }: KindInput): ReadonlyArray<Embedded> {
   const items = EmbeddedList.safeParse(document['items'] ?? []);
 
   if (!items.success) {
@@ -46,6 +46,6 @@ export function itemSystem<System>(schema: z.ZodType<System>, item: Embedded, in
 }
 
 /** The items of one Foundry type. */
-export function itemsOfType(items: readonly Embedded[], type: string): readonly Embedded[] {
+export function itemsOfType(items: ReadonlyArray<Embedded>, type: string): ReadonlyArray<Embedded> {
   return items.filter((item) => item.type === type);
 }

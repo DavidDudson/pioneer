@@ -87,7 +87,7 @@ function valued(
 }
 
 /** Lines in type order, then id order, so the result never depends on the order of the rules. */
-function inOrder<Line extends ImmunityLine | AdjustmentLine>(lines: readonly Line[]): readonly Line[] {
+function inOrder<Line extends ImmunityLine | AdjustmentLine>(lines: ReadonlyArray<Line>): ReadonlyArray<Line> {
   return lines.toSorted((left, right) => {
     const type = Number(left.type > right.type) - Number(left.type < right.type);
 
@@ -100,7 +100,7 @@ function inOrder<Line extends ImmunityLine | AdjustmentLine>(lines: readonly Lin
  * the lowest id, as the lines are in id order. Conditional and failed lines are kept as they are, since a
  * conditional one may beat it when it applies.
  */
-function highestPerType(lines: readonly AdjustmentLine[]): readonly AdjustmentLine[] {
+function highestPerType(lines: ReadonlyArray<AdjustmentLine>): ReadonlyArray<AdjustmentLine> {
   const winners = new Map<DamageAdjustmentSubject, AdjustmentLine>();
 
   for (const line of lines) {
@@ -124,7 +124,7 @@ function highestPerType(lines: readonly AdjustmentLine[]): readonly AdjustmentLi
 }
 
 /** The lines one `Immunity` element gives: one per type it names, a repeated type once. */
-function immunityLines(rule: RuleInPlay, element: ImmunityElement, context: RuleContext): readonly ImmunityLine[] {
+function immunityLines(rule: RuleInPlay, element: ImmunityElement, context: RuleContext): ReadonlyArray<ImmunityLine> {
   const status = gate(rule, context);
 
   if (status === undefined) {
@@ -142,7 +142,7 @@ function adjustmentLines(
   rule: RuleInPlay,
   element: WeaknessElement | ResistanceElement,
   context: RuleContext,
-): readonly AdjustmentLine[] {
+): ReadonlyArray<AdjustmentLine> {
   const result = valued(rule, element, context);
 
   if (result === undefined) {
@@ -181,7 +181,10 @@ function criticalHitCheckLine(
 }
 
 /** The flat checks of the `CriticalHitCheck` elements in play, in id order. */
-function criticalHitChecksOf(rules: readonly RuleInPlay[], context: RuleContext): readonly CriticalHitCheckLine[] {
+function criticalHitChecksOf(
+  rules: ReadonlyArray<RuleInPlay>,
+  context: RuleContext,
+): ReadonlyArray<CriticalHitCheckLine> {
   const lines = rules.flatMap((rule) => {
     const { element } = rule;
 
@@ -217,9 +220,9 @@ function persistentFlatCheckLine(
 
 /** The persistent damage flat checks of the `PersistentFlatCheck` elements in play, in id order. */
 function persistentFlatChecksOf(
-  rules: readonly RuleInPlay[],
+  rules: ReadonlyArray<RuleInPlay>,
   context: RuleContext,
-): readonly PersistentFlatCheckLine[] {
+): ReadonlyArray<PersistentFlatCheckLine> {
   const lines = rules.flatMap((rule) => {
     const { element } = rule;
 
@@ -263,9 +266,9 @@ export function deriveDefences(
 ): Defences {
   const context = defenceContext(proficiencyBonus, inputs, modifiers);
   const own = formDefences(battleFormInPlay(modifiers), context);
-  const immunities: ImmunityLine[] = [...own.immunities];
-  const weaknesses: AdjustmentLine[] = [...own.weaknesses];
-  const resistances: AdjustmentLine[] = [...own.resistances];
+  const immunities: Array<ImmunityLine> = [...own.immunities];
+  const weaknesses: Array<AdjustmentLine> = [...own.weaknesses];
+  const resistances: Array<AdjustmentLine> = [...own.resistances];
 
   for (const rule of modifiers.rules) {
     const { element } = rule;

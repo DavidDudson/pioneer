@@ -58,7 +58,7 @@ export const STATISTIC_DEFINITIONS = new InjectionToken<LoadStatisticDefinitions
 /** A variant rule's name and its rule elements in play, for a toggle that enables it. */
 export interface VariantInPlay {
   readonly name: string;
-  readonly rules: readonly RuleInPlay[];
+  readonly rules: ReadonlyArray<RuleInPlay>;
 }
 
 /**

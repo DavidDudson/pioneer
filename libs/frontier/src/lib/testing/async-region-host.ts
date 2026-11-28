@@ -24,7 +24,7 @@ function describeError(error: Error | null | undefined): string {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AsyncRegionHost {
-  public readonly query = input.required<AsyncQuery<readonly string[]>>();
+  public readonly query = input.required<AsyncQuery<ReadonlyArray<string>>>();
   public readonly errorMessage = input<string | undefined>(undefined);
   public readonly customError = input(false);
 

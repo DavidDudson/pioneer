@@ -93,12 +93,12 @@ describe('character rule-limit settings routes', () => {
     expect(set.status).toBe(200);
     // SAFETY: Response.json() is typed any.
     // This route's body has the shape its contract gives, and the test reads only the fields named here.
-    expect(((await set.json()) as { limits: { value: number }[] }).limits[0]?.value).toBe(12);
+    expect(((await set.json()) as { limits: Array<{ value: number }> }).limits[0]?.value).toBe(12);
 
     const reset = await api.handle(request(`${path}/investedMax`, ezren, { method: 'DELETE' }));
     // SAFETY: Response.json() is typed any.
     // This route's body has the shape its contract gives, and the test reads only the fields named here.
-    const settings = (await reset.json()) as { limits: { value: number; custom: boolean }[] };
+    const settings = (await reset.json()) as { limits: Array<{ value: number; custom: boolean }> };
     expect(settings.limits[0]).toMatchObject({ value: CORE_RULE_LIMITS.investedMax, custom: false });
   });
 

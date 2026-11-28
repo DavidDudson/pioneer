@@ -33,7 +33,7 @@ async function registry(): Promise<ContentRegistry> {
 }
 
 /** The rows that are deities: all but the one that picks none. */
-const deitiesOf = (rows: readonly DeityPickerRow[]): readonly DeityPickerRow[] => rows.slice(1);
+const deitiesOf = (rows: ReadonlyArray<DeityPickerRow>): ReadonlyArray<DeityPickerRow> => rows.slice(1);
 
 describe(sheetDeityRows, () => {
   beforeAll(async () => {

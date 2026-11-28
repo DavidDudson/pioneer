@@ -32,7 +32,7 @@ function hasStory(files: ReadonlySet<string>, component: string): boolean {
 /** A spec or story: what every component has beside it. */
 type Companion = 'spec' | 'story';
 
-const COMPANIONS: readonly Companion[] = ['spec', 'story'];
+const COMPANIONS: ReadonlyArray<Companion> = ['spec', 'story'];
 
 function hasOwn(files: ReadonlySet<string>, component: string, companion: Companion): boolean {
   return companion === 'spec' ? files.has(specOf(component)) : hasStory(files, component);
@@ -45,7 +45,7 @@ interface Missing {
   readonly coveredBy: string | undefined;
 }
 
-function gapsFor(files: ReadonlySet<string>, { component, companion, coveredBy }: Missing): string[] {
+function gapsFor(files: ReadonlySet<string>, { component, companion, coveredBy }: Missing): Array<string> {
   if (coveredBy === undefined) {
     return [`no ${companion}: ${component}`];
   }
@@ -53,7 +53,7 @@ function gapsFor(files: ReadonlySet<string>, { component, companion, coveredBy }
   return files.has(coveredBy) ? [] : [`${companion} for ${component} points at a missing file: ${coveredBy}`];
 }
 
-function staleFor(files: ReadonlySet<string>, component: string, exemption: Exemption): string[] {
+function staleFor(files: ReadonlySet<string>, component: string, exemption: Exemption): Array<string> {
   if (!files.has(component)) {
     return [`exemption for a component that no longer exists: ${component}`];
   }
@@ -71,7 +71,7 @@ function staleFor(files: ReadonlySet<string>, component: string, exemption: Exem
 export function findCoverageGaps(
   files: ReadonlySet<string>,
   exemptions: Readonly<Record<string, Exemption>>,
-): string[] {
+): Array<string> {
   const components = [...files].filter((file) => file.endsWith(COMPONENT));
 
   const gaps = components.flatMap((component) =>

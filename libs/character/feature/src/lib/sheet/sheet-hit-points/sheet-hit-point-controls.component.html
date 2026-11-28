@@ -15,6 +15,11 @@
       <fr-toggle-button [value]="critical()" (valueChange)="critical.set($event)">{{
         'character.sheet.hp.critical' | transloco
       }}</fr-toggle-button>
+      @if (healingBonus(); as bonus) {
+        <fr-toggle-button [value]="fromEffect()" (valueChange)="fromEffect.set($event)">{{
+          'character.sheet.hp.fromEffect' | transloco: { amount: bonus.amount, source: bonus.source }
+        }}</fr-toggle-button>
+      }
       <fr-async-button size="sm" [action]="damage" [disabled]="!ready()" [describeError]="describeError">
         {{ 'character.sheet.hp.damage' | transloco }}
       </fr-async-button>

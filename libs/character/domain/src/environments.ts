@@ -59,7 +59,7 @@ export function applyEnvironmentCommand(
 }
 
 /** The environments as roots of the effective set, each behind an environment hop, so their rules show in breakdowns. */
-export function environmentRoots(environments: ActiveEnvironments): readonly GrantRoot[] {
+export function environmentRoots(environments: ActiveEnvironments): ReadonlyArray<GrantRoot> {
   return environments.map((environment) => ({
     entry: environment,
     hop: { kind: OriginHopKind.Environment, environment },
@@ -106,9 +106,9 @@ export interface RestrictionInPlay {
   readonly id: Slug;
   readonly reason: ContentText;
   /** The action traits it forbids; none for a restriction that is text only. */
-  readonly blocks: readonly Trait[];
+  readonly blocks: ReadonlyArray<Trait>;
   /** What lifts the restriction; empty while it holds. */
-  readonly liftedBy: readonly Origin[];
+  readonly liftedBy: ReadonlyArray<Origin>;
 }
 
 /** Whether `lift` lifts the restriction `id` of `environment`: it names that restriction, in that environment or any. */
@@ -123,8 +123,8 @@ function lifts(lift: LiftedRestriction, environment: ContentId, id: Slug): boole
 export function restrictionsInPlay(
   environments: ActiveEnvironments,
   content: EnvironmentContent,
-  lifted: readonly LiftedRestriction[] = [],
-): readonly RestrictionInPlay[] {
+  lifted: ReadonlyArray<LiftedRestriction> = [],
+): ReadonlyArray<RestrictionInPlay> {
   return environments.flatMap((environment) =>
     (content.get(environment)?.restrictions ?? []).map(({ id, reason, blocks }) => ({
       environment,
@@ -138,13 +138,13 @@ export function restrictionsInPlay(
 
 /** The restriction in `restrictions` that forbids an action with one of `traits`, if one does. */
 export function restrictionBlocking(
-  restrictions: readonly RestrictionInPlay[],
-  traits: readonly Trait[],
+  restrictions: ReadonlyArray<RestrictionInPlay>,
+  traits: ReadonlyArray<Trait>,
 ): RestrictionInPlay | undefined {
   return restrictions.find(({ blocks }) => blocks.some((trait) => traits.includes(trait)));
 }
 
 /** The restrictions that hold: those of `restrictions` nothing lifts. */
-export function restrictionsHolding(restrictions: readonly RestrictionInPlay[]): readonly RestrictionInPlay[] {
+export function restrictionsHolding(restrictions: ReadonlyArray<RestrictionInPlay>): ReadonlyArray<RestrictionInPlay> {
   return restrictions.filter(({ liftedBy }) => liftedBy.length === 0);
 }

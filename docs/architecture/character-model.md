@@ -298,10 +298,19 @@ after its spells and a note saying where the signature spell is cast, or that th
 A spontaneous caster swaps one repertoire spell for another each time they level up (#594). The build keeps
 `repertoireSwaps`, the slot swapped at each level; replacing or emptying a repertoire slot that opened below the
 character's level and holds another spell is that level's swap, and a second slot the same level is refused
-(`character.validation.repertoireSwapUsed`) until retraining (#515) exists. Filling an empty slot, or changing one that
-opened at the character's level, costs nothing, and the swapped slot can change again. A signature pick that held the
-spell swapped out moves to the one that replaces it, at the rank it was learned; emptying a slot leaves the signature
-pick reading invalid until it is picked again. Lowering the level and swapping there records a swap at that level too.
+(`character.validation.repertoireSwapUsed`). Retraining lifts that limit (below). Filling an empty slot, or changing
+one that opened at the character's level, costs nothing, and the swapped slot can change again. A signature pick
+that held the spell swapped out moves to the one that replaces it, at the rank it was learned; emptying a slot
+leaves the signature pick reading invalid until it is picked again. Lowering the level and swapping there records a
+swap at that level too.
+
+Retraining swaps a held feat, skill increase, repertoire spell or class choice for another over days of downtime. The
+build keeps one project, `retraining`: the slot, what it becomes, the days needed (7 for a feat, skill increase or
+repertoire spell, 30 for a class choice) and the days worked. `StartRetraining` refuses a second project, a slot that
+holds nothing or cannot be retrained, the same pick, and a pick the slot does not offer. `WorkRetraining` adds days;
+on the last one the slot's pick and the project change in one write, so a project never finishes half way, and the
+target must still be offered then. `CancelRetraining` drops the project; the days worked are lost. A finished
+retraining is not a level-up swap, so it does not count against the repertoire swap a level.
 
 A `RepertoireSpells` element ([ADR-0062](../adr/0062-repertoire-spells-are-a-rule-element.md)) fills the first
 repertoire slot of a rank with a spell the entry must know: a sorcerer's bloodline gift, an oracle's granted
@@ -367,8 +376,9 @@ per attribute the ancestry doesn't flaw already, keyed `flaw:1:ancestry:<n>`, it
 by one, as an ancestry flaw does. Each lowers a different attribute, so `selectSlot` refuses the ancestry's own flaw
 (`selectionNotOffered`) and one another voluntary flaw lowers (`character.validation.flawTaken`). A flaw is optional,
 so an empty flaw slot is never open: `characterSlots` lists only the flaws taken (subject `flaw`), filled or invalid,
-and the sheet's Choices section shows them as "Voluntary flaw". They bring no extra boost; the variant that trades two
-flaws for a free boost belongs with the variant rules ([#51](https://github.com/DavidDudson/pioneer/issues/51)).
+and the sheet's Choices section shows them as "Voluntary flaw". They bring no extra boost. Decided with
+Gradual Attribute Boosts ([#707](https://github.com/DavidDudson/pioneer/issues/707)): no variant trades two flaws for a free boost, as neither
+Player Core nor GM Core has one, so flaws stay a free choice.
 
 ### Skills
 
@@ -499,6 +509,18 @@ beside the character's own, keyed by the variant and the rule index of their `Ch
 feat, level 2". They offer archetype feats under the dedication lock like any other feat slot. A pick is kept when the
 variant is off, reads as hidden, and is read again when it comes back.
 
+**Gradual Attribute Boosts** ([#707](https://github.com/DavidDudson/pioneer/issues/707)): a variant rule whose
+`structure` says `gradualBoosts`. While it is in force `BoostContent.gradual` is set, and the free boosts at 5th, 10th,
+15th and 20th level become one boost a level over that level and the three before it (2nd-5th, 7th-10th, 12th-15th,
+17th-20th), keyed `boost:<level>:free:0`; the four at 1st level are unchanged. A pick in a slot the schedule no longer
+has (`boost:5:free:2`) is kept, reads as hidden, and counts again when the variant is off.
+Each group is one set of boosts, so its four boosts raise different attributes, and a boost counts from the level
+it is taken at. A Pathbuilder import always uses the usual schedule.
+
+**Ancestry Paragon** ([#706](https://github.com/DavidDudson/pioneer/issues/706)): the same `extraSlots` mechanism, with
+an ancestry feat `ChoiceSet` (`ownTrait: ancestry`, feats up to the slot's level) at 1st level and each even level, so
+it opens the same labelled slots beside the character's own and keeps a pick when it is off.
+
 The engine also reports each archetype the character has: its feats taken, the feats still needed, and the
 earliest planned level at which another dedication becomes legal. The Plan tab shows this per archetype ("Medic:
 1 of 2 feats before your next dedication") and marks the level where the lock clears. A planned dedication above
@@ -514,6 +536,22 @@ timeline marks that level "Plan breaks here", and the slot shows the reason.
 content it is (`ContentId` of an armour, consumable, equipment, shield, treasure or weapon entry), a quantity, the
 item it is stowed in, if any, the player's name for it, if any, how it is carried and whether it is invested (schema
 version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, each 0 or more.
+
+`inventory.ledger` records every change to `inventory.coins`, oldest first (schema version 23, #512;
+[ADR-0082](../adr/0082-the-coin-ledger-is-stored-beside-the-coins-it-explains.md)). Coins stay stored
+by coin, any mix of platinum, gold, silver and copper. An entry is a reason (`opening`, `purchase`, `income`,
+`adjustment` or `transfer`), a signed change for each coin and the time it was made (an opening entry written by the
+upgrade has none).
+`Character.apply` and `withInventory` write the entry themselves by comparing the coins before and after an edit, so no
+path can change the purse without one: `coins` always equals the sum of the entries, coin by coin. A new character's
+coins and an older character's, on upgrade, become the `opening` entry. A purchase pays with exact coins where the
+purse allows and otherwise breaks the next larger coin and gives change ([Shop](#shop)); its entry holds the net change.
+Earn Income (#513) is the `earnIncome` patch: a task level (0 to 20), the rank in the skill (trained or better: the
+Income Earned table has no untrained column), the degree of success the skill check reached and the days worked. The
+domain pays the table's amount for each day (`earn-income.json`, Player Core Table 4-2) into the purse as one `income`
+entry, so a critical failure leaves no entry. The client rolls, as for every check, and sends the degree.
+Later stories add their own reasons (coin gifting, crafting and ritual costs). The Wealth section shows
+the purse's worth in gold and the entries, newest first.
 
 `inventory.customItems` lists the items an import found no content for (schema version 19, #310): an id, the name
 Pathbuilder gave, a quantity and `origin: import`. A custom item weighs nothing, takes no container, carry state, rune

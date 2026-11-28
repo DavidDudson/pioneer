@@ -5,13 +5,23 @@ import {
   Boundary,
   Character,
   EMPTY_INVENTORY,
+  etchRune,
   InventoryItemId,
+  investItem,
   ItemQuantity,
   ResourcesSpentSchema,
 } from '@pioneer/character/domain';
-import { CharacterBuilder, ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
+import {
+  CharacterBuilder,
+  fundamental,
+  ITEM_FIXTURE_FILES,
+  ItemFixture,
+  itemFixtureId,
+  RuneFixture,
+  runeFixtureId,
+} from '@pioneer/character/domain/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { Slug } from '@pioneer/rules/sdk';
+import { FundamentalRune, RuneType, Slug } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it } from 'vitest';
 
@@ -24,7 +34,9 @@ import { countedViews, resettableUses } from './sheet-counted';
 import { EQUIPMENT_CONTENT_KINDS } from './sheet-equipment';
 
 const BOOTS = InventoryItemId.parse('88888888-8888-4888-8888-888888888888');
+const ARMOR = InventoryItemId.parse('99999999-9999-4999-8999-999999999999');
 const SKIES = Slug.parse('take-to-the-skies');
+const GO_INVISIBLE = Slug.parse('go-invisible');
 
 function wearingBoots(quantity: number): Character {
   const built = new CharacterBuilder().build();
@@ -35,6 +47,29 @@ function wearingBoots(quantity: number): Character {
     quantity: ItemQuantity.parse(quantity),
     container: undefined,
   });
+
+  return new Character({
+    document: { ...built.document, inventory },
+    version: built.version,
+    createdAt: built.createdAt,
+    updatedAt: built.updatedAt,
+  });
+}
+
+/** A character in leather armour with a +1 potency rune and an invisibility rune etched onto it. */
+function wearingInvisibleArmor(): Character {
+  const built = new CharacterBuilder().build();
+
+  let inventory = addItem(EMPTY_INVENTORY, {
+    id: ARMOR,
+    item: itemFixtureId(ItemFixture.LeatherArmor),
+    quantity: ItemQuantity.parse(1),
+    container: undefined,
+  });
+
+  inventory = etchRune(inventory, ARMOR, fundamental(FundamentalRune.Potency, 1));
+  inventory = etchRune(inventory, ARMOR, { type: RuneType.Property, rune: runeFixtureId(RuneFixture.Invisibility) });
+  inventory = investItem(inventory, ARMOR, true);
 
   return new Character({
     document: { ...built.document, inventory },
@@ -65,6 +100,17 @@ describe(countedViews, () => {
     expect(fresh.uses).toMatchObject([
       { key, name: 'Winged-boots: Take to the Skies', current: 1, max: 1, boundary: Boundary.Rest },
     ]);
+    expect(spent.uses).toMatchObject([{ key, current: 0, max: 1 }]);
+  });
+
+  it('lists an armour rune activation with its uses left, named by the armour', async () => {
+    const registry = await registryWithItems();
+    const key = activationUseKey(ARMOR, GO_INVISIBLE);
+
+    const fresh = countedViews(registry, wearingInvisibleArmor(), ResourcesSpentSchema.parse({}));
+    const spent = countedViews(registry, wearingInvisibleArmor(), ResourcesSpentSchema.parse({ uses: { [key]: 1 } }));
+
+    expect(fresh.uses).toMatchObject([{ key, name: 'Leather-armor: Go Invisible', current: 1, max: 1 }]);
     expect(spent.uses).toMatchObject([{ key, current: 0, max: 1 }]);
   });
 

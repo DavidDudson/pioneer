@@ -18,7 +18,7 @@ const READS = {
   translate: (key: string, params?: MessageParams): string => `${key} ${JSON.stringify(params ?? {})}`,
 };
 
-async function registry(kinds: readonly ContentKind[] = CHARACTER_CONTENT_KINDS): Promise<ContentRegistry> {
+async function registry(kinds: ReadonlyArray<ContentKind> = CHARACTER_CONTENT_KINDS): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting() });
 
   return TestBed.inject(ContentLoader).registry(kinds);

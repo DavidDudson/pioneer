@@ -1,8 +1,7 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { CharacterContract } from '@pioneer/character/domain';
-import type { UnenabledContent } from '@pioneer/character/domain';
-import { ApiClient } from '@pioneer/shared/web';
-import { injectQuery } from '@tanstack/angular-query-experimental';
+import type { CharacterId, UnenabledContent } from '@pioneer/character/domain';
+import { ApiClient, injectScopedQuery } from '@pioneer/shared/web';
 
 import { characterKeys } from './character-query-keys';
 import { CharacterStore } from './character-store';
@@ -16,21 +15,11 @@ import { CharacterStore } from './character-store';
 export class CharacterUnenabledStore {
   readonly #api = inject(ApiClient);
   readonly #characters = inject(CharacterStore);
-  readonly #id = computed(() => this.#characters.selected()?.id);
 
-  public readonly content = injectQuery(() => {
-    const id = this.#id();
-
-    return {
-      queryKey: characterKeys.unenabled(id),
-      queryFn: async (): Promise<UnenabledContent> => {
-        if (id === undefined) {
-          throw new Error('No character selected');
-        }
-
-        return this.#api.call(CharacterContract.unenabledContent, { params: { id }, body: undefined });
-      },
-      enabled: id !== undefined,
-    };
-  });
+  public readonly content = injectScopedQuery<CharacterId, UnenabledContent>({
+    id: computed(() => this.#characters.selected()?.id),
+    key: characterKeys.unenabled,
+    fetch: async (id) => this.#api.call(CharacterContract.unenabledContent, { params: { id }, body: undefined }),
+    missingMessage: 'No character selected',
+  }).query;
 }

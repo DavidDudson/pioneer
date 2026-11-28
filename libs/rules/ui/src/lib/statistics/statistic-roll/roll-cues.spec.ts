@@ -43,7 +43,7 @@ function degree(status: RollEffectStatus = APPLIED): DegreeAdjustmentLine {
   };
 }
 
-function check(lines: readonly BreakdownLine[] = [], rollEffects?: Partial<RollEffects>): StatisticValue {
+function check(lines: ReadonlyArray<BreakdownLine> = [], rollEffects?: Partial<RollEffects>): StatisticValue {
   const base = statistic('skill:acrobatics', { base: [term('5', 5)], lines });
 
   return rollEffects === undefined

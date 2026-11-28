@@ -30,7 +30,7 @@ export interface FilterField {
   readonly label: string;
   readonly kind: FilterKind;
   /** The values of a `set` or `flag` field; a `range` field has none. */
-  readonly options?: readonly FilterOption[];
+  readonly options?: ReadonlyArray<FilterOption>;
 }
 
 /**
@@ -41,17 +41,28 @@ export interface FilterField {
 export interface FilterCondition {
   readonly field: string;
   readonly operator: FilterOperator;
-  readonly values: readonly string[];
+  readonly values: ReadonlyArray<string>;
 }
 
-const OPERATORS: Readonly<Record<FilterKind, readonly FilterOperator[]>> = {
+const OPERATORS: Readonly<Record<FilterKind, ReadonlyArray<FilterOperator>>> = {
   set: [FilterOperator.Is, FilterOperator.IsNot, FilterOperator.IsAnyOf],
   flag: [FilterOperator.Is, FilterOperator.IsNot],
   range: [FilterOperator.Is, FilterOperator.Between],
 };
 
+/** The operator a field of this kind starts with, and the one a link leaves unwritten. */
+const DEFAULT_OPERATORS: Readonly<Record<FilterKind, FilterOperator>> = {
+  set: FilterOperator.Is,
+  flag: FilterOperator.Is,
+  range: FilterOperator.Is,
+};
+
+export function defaultOperator(kind: FilterKind): FilterOperator {
+  return DEFAULT_OPERATORS[kind];
+}
+
 /** The operators a field of this kind offers, the default first. */
-export function operatorsFor(kind: FilterKind): readonly FilterOperator[] {
+export function operatorsFor(kind: FilterKind): ReadonlyArray<FilterOperator> {
   return OPERATORS[kind];
 }
 

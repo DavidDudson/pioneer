@@ -11,7 +11,7 @@ function text(value: string): Fields {
   return { type: 'text', text: value };
 }
 
-function paragraph(...content: object[]): Fields {
+function paragraph(...content: Array<object>): Fields {
   return { type: 'paragraph', content };
 }
 

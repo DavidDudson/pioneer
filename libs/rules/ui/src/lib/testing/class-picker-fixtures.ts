@@ -3,7 +3,7 @@ import { Attribute, HitPoints, RichText, SourceRef } from '@pioneer/rules/sdk';
 import type { ClassPickerRow, KeyAttributePickerRow, SubclassPickerRow } from '../class-picker/class-picker-row';
 
 /** Player Core, page 1: a source for a fixture class. */
-const PLAYER_CORE: readonly SourceRef[] = [SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 })];
+const PLAYER_CORE: ReadonlyArray<SourceRef> = [SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 })];
 
 const WIZARD_HIT_POINTS = HitPoints.parse(6);
 const WIZARD_EXTRA_SKILLS = 2;

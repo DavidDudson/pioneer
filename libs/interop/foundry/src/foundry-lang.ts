@@ -96,7 +96,7 @@ export function isUnresolved(localized: Localized): localized is UnresolvedKey {
 
 export interface ExpandedText {
   readonly text: string;
-  readonly unresolved: readonly UnresolvedKey[];
+  readonly unresolved: ReadonlyArray<UnresolvedKey>;
 }
 
 interface ExpandContext {
@@ -119,8 +119,8 @@ function expandedKey(key: string, label: string | undefined, context: ExpandCont
 }
 
 function expanded(html: string, context: ExpandContext): ExpandedText {
-  const texts: string[] = [];
-  const unresolved: UnresolvedKey[] = [];
+  const texts: Array<string> = [];
+  const unresolved: Array<UnresolvedKey> = [];
   let from = 0;
 
   for (const match of html.matchAll(LOCALIZE)) {
@@ -177,7 +177,7 @@ function put(table: Record<string, unknown>, key: string, value: unknown): void 
  * Foundry's lang files for one language merged in manifest order, a later file's string winning, as Foundry loads
  * them: `en.json`, then the actions, rule elements and Kingmaker tables.
  */
-export function mergeLang(tables: readonly FoundryLang[]): FoundryLang {
+export function mergeLang(tables: ReadonlyArray<FoundryLang>): FoundryLang {
   const merged: Record<string, unknown> = {};
 
   for (const table of tables) {

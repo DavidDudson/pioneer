@@ -23,17 +23,17 @@ const rootVariants = cva('block', {
   },
 });
 
-/** Touch first: the trigger is at least `min-h-touch` (44px) unless the pointer is fine. */
+/** Touch first: the trigger is at least 44px tall unless the pointer is fine. */
 const summaryVariants = cva(
   [
-    'flex min-h-touch cursor-pointer items-center justify-between gap-sm select-none pointer-fine:min-h-control-md',
+    'flex min-h-control-md cursor-pointer items-center justify-between gap-sm select-none',
     'text-body font-medium text-fg-default',
     'transition-colors duration-fast ease-standard hover:bg-surface-sunken focus-visible:focus-ring',
   ],
   {
     variants: {
       variant: {
-        plain: '-mx-2xs px-2xs',
+        plain: 'px-inset-control',
         bordered: 'px-md',
       } satisfies Record<DisclosureVariant, string>,
     },

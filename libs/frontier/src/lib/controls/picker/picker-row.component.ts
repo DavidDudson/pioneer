@@ -4,8 +4,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  ElementRef,
-  inject,
   input,
   output,
   viewChildren,
@@ -34,14 +32,11 @@ function cellClasses<TRow extends object>(cell: Cell<TableFeatureSet, TRow>): st
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'absolute top-none start-none flex w-max min-w-full border-b border-line-subtle cursor-pointer',
-    '[style.transform]': 'offset()',
   },
   hostDirectives: [{ directive: GridRow, inputs: ['rowIndex'] }],
 })
 export class PickerRow<TRow extends object> {
   public readonly row = input.required<Row<TableFeatureSet, TRow>>();
-  /** Where the virtualizer put the row: a `translateY`. */
-  public readonly offset = input.required<string>();
   /** The row is the picked one. */
   public readonly picked = input(false, { transform: booleanAttribute });
   /** Why the row can't be picked, already translated. */
@@ -54,9 +49,6 @@ export class PickerRow<TRow extends object> {
   protected readonly pickable = computed(() => this.reason() === undefined);
   protected readonly reasonId = uniqueId('fr-picker-reason');
   protected readonly describedBy = computed(() => (this.pickable() ? undefined : this.reasonId));
-
-  /** The row's element, for the virtualizer to measure. */
-  public readonly element = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
 
   private readonly cells = viewChildren(GridCell);
   /** A cell of the row is the keyboard's highlight. */

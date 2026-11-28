@@ -1,0 +1,79 @@
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
+import { SheetMode } from '@pioneer/character/domain';
+import { Badge, Button, Disclosure, Heading, Link, List, ListItem, Stack, Surface, Text } from '@pioneer/frontier';
+import type { BadgeTone } from '@pioneer/frontier';
+import type { CharacterImportReport, ImportKind } from '@pioneer/interop/pathbuilder';
+import type { ContentId, Selector } from '@pioneer/rules/sdk';
+import type { NamedStatistic } from '@pioneer/rules/ui';
+
+import { ImportBoostReport } from '../import-boost-report/import-boost-report.component';
+import { ImportDiscrepancyReport } from '../import-discrepancy-report/import-discrepancy-report.component';
+import { ImportFeatReport } from '../import-feat-report/import-feat-report.component';
+import { KIND_KEYS, REASON_KEYS, REASON_TONES } from '../import-labels';
+import { ImportSkillReport } from '../import-skill-report/import-skill-report.component';
+import { ImportSpellReport } from '../import-spell-report/import-spell-report.component';
+
+/** One name that was not carried over, as the list shows it. */
+interface NameView {
+  readonly name: string;
+  readonly occurrences: number;
+  readonly repeated: boolean;
+  readonly reasonKey: string;
+  readonly tone: BadgeTone;
+}
+
+interface GroupView {
+  readonly kind: ImportKind;
+  readonly kindKey: string;
+  readonly names: ReadonlyArray<NameView>;
+}
+
+/** What a Pathbuilder import left behind, shown on the new character until the viewer dismisses it. */
+@Component({
+  selector: 'pio-import-result',
+  imports: [
+    Badge,
+    Button,
+    Disclosure,
+    Heading,
+    ImportBoostReport,
+    ImportDiscrepancyReport,
+    ImportFeatReport,
+    ImportSkillReport,
+    Link,
+    ImportSpellReport,
+    List,
+    ListItem,
+    Stack,
+    Surface,
+    Text,
+    TranslocoPipe,
+  ],
+  templateUrl: './import-result.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ImportResult {
+  public readonly report = input.required<CharacterImportReport>();
+  /** What the engine derives for the imported character, by statistic, for the breakdown of each that differs. */
+  public readonly statistics = input<ReadonlyMap<Selector, NamedStatistic>>(new Map());
+  public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
+  public readonly dismissed = output();
+
+  /** The Exploration tab, beside this one, where the inventory and its flagged lines are. */
+  protected readonly inventory = ['..', SheetMode.Exploration];
+
+  protected readonly groups = computed((): ReadonlyArray<GroupView> =>
+    this.report().unmatched.map((group) => ({
+      kind: group.kind,
+      kindKey: KIND_KEYS[group.kind],
+      names: group.names.map((name) => ({
+        name: name.name,
+        occurrences: name.occurrences,
+        repeated: name.occurrences > 1,
+        reasonKey: REASON_KEYS[name.reason],
+        tone: REASON_TONES[name.reason],
+      })),
+    })),
+  );
+}

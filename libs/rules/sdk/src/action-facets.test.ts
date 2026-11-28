@@ -2,7 +2,6 @@ import { describe, expect, test } from 'bun:test';
 
 import { ACTION_FACETS, FEAT_FACETS, prerequisitesMetFacet } from './action-facets';
 import type { PrerequisiteValue } from './action-facets';
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId, slugName } from './content-id';
 import { COMMON_FACETS, facetValues, UNKNOWN } from './facet';
 import type { FacetDefinition } from './facet';
@@ -10,6 +9,7 @@ import { filterEntries } from './facet-filter';
 import { filterFromQuery } from './filter-query';
 import { facetsFor } from './kind-facets';
 import type { JsonObject } from './testing/json-value';
+import { ContentEntry } from './typed-content-entry';
 
 const PACK = 'player-core';
 const prose = [{ type: 'paragraph', content: [{ type: 'text', text: 'An entry.' }] }];
@@ -19,7 +19,7 @@ interface EntryFields {
   readonly kind: string;
   readonly slug: string;
   readonly data: JsonObject;
-  readonly traits?: readonly string[];
+  readonly traits?: ReadonlyArray<string>;
   readonly level?: number;
 }
 
@@ -44,20 +44,25 @@ function entry({ traits = [], ...fields }: EntryFields): ContentEntry {
   });
 }
 
-const feat = (slug: string, data: JsonObject, traits: readonly string[]): ContentEntry =>
+const feat = (slug: string, data: JsonObject, traits: ReadonlyArray<string>): ContentEntry =>
   entry({ kind: 'feat', slug, data, traits, level: 1 });
 
-const action = (slug: string, data: JsonObject, traits: readonly string[] = []): ContentEntry =>
+const action = (slug: string, data: JsonObject, traits: ReadonlyArray<string> = []): ContentEntry =>
   entry({ kind: 'action', slug, data, traits });
 
 /** Every facet's values for `entry`, keyed by facet id. */
-function valuesOf(facets: readonly FacetDefinition[], subject: ContentEntry): Record<string, readonly string[]> {
+function valuesOf(
+  facets: ReadonlyArray<FacetDefinition>,
+  subject: ContentEntry,
+): Record<string, ReadonlyArray<string>> {
   return Object.fromEntries(facets.map((facet) => [facet.id, facetValues(subject, facet)]));
 }
 
-const feats = (subject: ContentEntry): Record<string, readonly string[]> => valuesOf(FEAT_FACETS, subject);
-const actions = (subject: ContentEntry): Record<string, readonly string[]> => valuesOf(ACTION_FACETS, subject);
-const slugs = (entries: readonly ContentEntry[]): readonly string[] => entries.map((each) => slugName(each.slug));
+const feats = (subject: ContentEntry): Record<string, ReadonlyArray<string>> => valuesOf(FEAT_FACETS, subject);
+const actions = (subject: ContentEntry): Record<string, ReadonlyArray<string>> => valuesOf(ACTION_FACETS, subject);
+
+const slugs = (entries: ReadonlyArray<ContentEntry>): ReadonlyArray<string> =>
+  entries.map((each) => slugName(each.slug));
 
 const suddenCharge = feat('sudden-charge', { category: 'class', action: { cost: 'two' } }, ['fighter', 'flourish']);
 const assurance = feat('assurance', { category: 'skill', skills: ['skill:athletics'] }, ['general', 'skill']);

@@ -8,7 +8,7 @@ import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import { Charges, STAFF_CANTRIP, staffCharges, StaffRank, StaffSpells } from './staff';
 
-function issuesOf(value: JsonValue): readonly FieldIssue[] {
+function issuesOf(value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = StaffSpells.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);

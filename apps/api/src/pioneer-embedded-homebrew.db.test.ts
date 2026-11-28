@@ -30,7 +30,7 @@ const BREW = PackId.parse('moon-brew');
 const one = ItemQuantity.parse(1);
 
 /** A homebrew feat and a homebrew item, as the content tables hold them. */
-const brew: readonly ContentEntry[] = new ContentPackBuilder()
+const brew: ReadonlyArray<ContentEntry> = new ContentPackBuilder()
   .withId(BREW)
   .withFeat('lunar-grace')
   .withItem('weapon', 'moon-blade', {
@@ -46,7 +46,7 @@ const brew: readonly ContentEntry[] = new ContentPackBuilder()
 const FEAT_AND_ITEM = ['feat:lunar-grace', 'weapon:moon-blade'];
 
 /** The slugs of `entries`, sorted. */
-function slugsOf(entries: readonly ContentEntry[] = []): string[] {
+function slugsOf(entries: ReadonlyArray<ContentEntry> = []): Array<string> {
   return entries.map((entry) => String(entry.slug)).toSorted();
 }
 
@@ -89,7 +89,7 @@ interface World {
   readonly repository: DrizzleCharacterRepository;
 }
 
-async function openWorld(users: readonly UserId[]): Promise<World> {
+async function openWorld(users: ReadonlyArray<UserId>): Promise<World> {
   const database = await createTestDatabase(adminUrl ?? '');
   await Promise.all(
     users.map(async (user) =>
@@ -133,7 +133,7 @@ function uploadOf(file: PioneerCharacterFile): PioneerFileJson {
   return PioneerFileJson.parse(structuredClone(file));
 }
 
-async function entrySlugsOf({ database }: World, owner: UserId): Promise<readonly string[]> {
+async function entrySlugsOf({ database }: World, owner: UserId): Promise<ReadonlyArray<string>> {
   const rows = await database.db
     .select({ slug: contentEntries.slug })
     .from(contentEntries)

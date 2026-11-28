@@ -9,6 +9,7 @@ import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 import { CharacterPackStore } from './character-pack-store';
 import { CharacterVariantStore } from './character-variant-store';
 import { putVariantsInForce } from './registry-variants';
+import { SheetContentGate } from './sheet-content-gate';
 
 /**
  * The kinds every character page's registry holds: ancestries, heritages and backgrounds for the options and the
@@ -16,7 +17,7 @@ import { putVariantsInForce } from './registry-variants';
  * the character perceives, backgrounds and classes for their boosts, classes and class features for the builder, deities for their picker and the options they set,
  * statistics for the sheet and traits for the names of the character's own. One list, so the pages share one query and the registry loads once a session.
  */
-export const CHARACTER_CONTENT_KINDS: readonly ContentKind[] = [
+export const CHARACTER_CONTENT_KINDS: ReadonlyArray<ContentKind> = [
   ContentKind.Ancestry,
   ContentKind.AncestryFeature,
   ContentKind.Heritage,
@@ -39,10 +40,10 @@ export interface ContentRegistryQuery {
   readonly queryKey: readonly [
     'content',
     'registry',
-    readonly ContentKind[],
-    readonly ContentPackId[],
-    readonly ContentPackId[],
-    readonly VariantRuleId[],
+    ReadonlyArray<ContentKind>,
+    ReadonlyArray<ContentPackId>,
+    ReadonlyArray<ContentPackId>,
+    ReadonlyArray<VariantRuleId>,
   ];
   readonly queryFn: () => Promise<ContentRegistry>;
   readonly staleTime: number;
@@ -51,11 +52,11 @@ export interface ContentRegistryQuery {
 /** The packs and variant rules a character's registry is built over. */
 export interface CharacterContentSet {
   /** The homebrew packs the character uses. */
-  readonly homebrew: readonly ContentPackId[];
+  readonly homebrew: ReadonlyArray<ContentPackId>;
   /** The homebrew packs it holds content from that are not in force: loaded so what it holds resolves, and flagged. */
-  readonly unsupported: readonly ContentPackId[];
+  readonly unsupported: ReadonlyArray<ContentPackId>;
   /** The variant rules enabled for it. */
-  readonly variants: readonly VariantRuleId[];
+  readonly variants: ReadonlyArray<VariantRuleId>;
 }
 
 const NO_CONTENT: CharacterContentSet = { homebrew: [], unsupported: [], variants: [] };
@@ -67,7 +68,7 @@ const NO_CONTENT: CharacterContentSet = { homebrew: [], unsupported: [], variant
  */
 export function contentRegistryQuery(
   loader: ContentLoader,
-  kinds: readonly ContentKind[],
+  kinds: ReadonlyArray<ContentKind>,
   { homebrew, unsupported, variants }: CharacterContentSet = NO_CONTENT,
 ): ContentRegistryQuery {
   return {
@@ -91,37 +92,51 @@ export function contentRegistryQuery(
 }
 
 /** The homebrew packs a character uses: the ones in its pack list that are not official. */
-export function homebrewOf(packs: CharacterPacks | undefined): readonly ContentPackId[] {
+export function homebrewOf(packs: CharacterPacks | undefined): ReadonlyArray<ContentPackId> {
   return (packs?.enabled ?? []).filter((pack) => !pack.official).map((pack) => pack.packId);
 }
 
 /** The homebrew packs a character holds content from that are not in force. */
-function unsupportedOf(packs: CharacterPacks | undefined): readonly ContentPackId[] {
+function unsupportedOf(packs: CharacterPacks | undefined): ReadonlyArray<ContentPackId> {
   return (packs?.unsupported ?? []).map((pack) => pack.packId);
 }
 
 /** The variant rules enabled for a character: the ones in its list. */
-function variantsOf(rules: CharacterVariantRules | undefined): readonly VariantRuleId[] {
+function variantsOf(rules: CharacterVariantRules | undefined): ReadonlyArray<VariantRuleId> {
   return (rules?.enabled ?? []).map((rule) => rule.variantId);
 }
 
+/** Whether a registry is what the sheet's header waits on, or a section's, which the sheet's content gate holds back. */
+export const ContentPriority = {
+  /** The registry the engine reads: it loads at once. */
+  Engine: 'engine',
+  /** A section's registry: on the sheet it loads once the engine's has settled. */
+  Section: 'section',
+} as const;
+
+export type ContentPriority = (typeof ContentPriority)[keyof typeof ContentPriority];
+
 /**
  * The registry of `kinds` as a query, in an injection context: the loader and the query in one call. It loads only
- * while `enabled` says so, read reactively: the sheet loads the item kinds once a character has equipment. On the
+ * while `enabled` says so, read reactively: the sheet loads the item kinds once a character has equipment. A `Section`
+ * registry on the sheet also waits for the sheet's content gate to release. On the
  * sheet it holds the homebrew packs the character uses (its campaign's, else its own) and the variant rules enabled for
  * it, so its kinds include variant rules.
  */
 export function injectContentRegistry(
-  kinds: readonly ContentKind[],
+  kinds: ReadonlyArray<ContentKind>,
   enabled: () => boolean = (): boolean => true,
+  priority: ContentPriority = ContentPriority.Section,
 ): CreateQueryResult<ContentRegistry> {
   const loader = inject(ContentLoader);
+  const gate = inject(SheetContentGate, { optional: true });
+  const mayLoad = (): boolean => enabled() && (priority === ContentPriority.Engine || gate?.released() !== false);
   const packs = inject(CharacterPackStore, { optional: true });
   const variants = inject(CharacterVariantStore, { optional: true });
   const loaded = variants === null ? kinds : [...new Set([...kinds, ContentKind.VariantRule])];
   // The official content does not depend on the character: fetch it now, and the build joins it in flight.
   effect(() => {
-    if (enabled()) {
+    if (mayLoad()) {
       // oxlint-disable-next-line typescript/no-floating-promises -- warm catches every error, so it never rejects
       loader.warm(loaded);
     }
@@ -140,6 +155,6 @@ export function injectContentRegistry(
       variants: variantsOf(enabledVariants?.data()),
     };
 
-    return { ...contentRegistryQuery(loader, loaded, content), enabled: enabled() && !waiting };
+    return { ...contentRegistryQuery(loader, loaded, content), enabled: mayLoad() && !waiting };
   });
 }

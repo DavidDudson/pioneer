@@ -16,13 +16,13 @@ const LEVEL_MAX = 5;
 const UNSETTLED: ReadonlySet<string> = new Set([GrantsMessage.Oscillates, GrantsMessage.TooManyRounds]);
 
 const slugOf = (index: number): string => `entry-${index}`;
-const indexes = (count: number): number[] => Array.from({ length: count }, (_value, index) => index);
+const indexes = (count: number): Array<number> => Array.from({ length: count }, (_value, index) => index);
 
 /**
  * A predicate that only asks for facts, never for their absence: another entry on the character, or a level. Grants
  * gated this way only ever add to the set as facts arrive.
  */
-function positivePredicate(count: number): Arbitrary<unknown[] | undefined> {
+function positivePredicate(count: number): Arbitrary<Array<unknown> | undefined> {
   const statement = oneof(
     integer({ min: 0, max: count - 1 }).map((index) => `feature:${slugOf(index)}`),
     integer({ min: 1, max: LEVEL_MAX }).map((level) => ({ gte: ['self:level', level] })),
@@ -50,8 +50,8 @@ function entryAt(index: number, count: number): Arbitrary<GrantEntry> {
 }
 
 interface Drawn {
-  readonly content: readonly GrantEntry[];
-  readonly roots: readonly number[];
+  readonly content: ReadonlyArray<GrantEntry>;
+  readonly roots: ReadonlyArray<number>;
   readonly level: number;
 }
 

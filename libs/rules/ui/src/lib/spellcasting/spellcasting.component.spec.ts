@@ -8,7 +8,7 @@ import type { SpellcastingEntryLine } from './spellcasting-entry-line';
 import { SpellcastingView } from './spellcasting.component';
 
 async function render(
-  entries: readonly SpellcastingEntryLine[] | undefined,
+  entries: ReadonlyArray<SpellcastingEntryLine> | undefined,
 ): Promise<ComponentFixture<SpellcastingView>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(SpellcastingView);
@@ -23,7 +23,7 @@ function textOf(element: Element): string {
 }
 
 /** The entries' own list items, leaving out those of their statistics and slot lists. */
-function entryItems(host: HTMLElement): Element[] {
+function entryItems(host: HTMLElement): Array<Element> {
   return [...host.querySelectorAll('fr-list-item')].filter(
     (item) => item.closest('pio-statistics') === null && item.closest('fr-description-list') === null,
   );
@@ -35,7 +35,7 @@ function hostOf(fixture: ComponentFixture<SpellcastingView>): HTMLElement {
 }
 
 /** Each entry's heading texts: tradition, preparation, then where it came from, leaving its statistics and slots out. */
-function headings(host: HTMLElement): string[][] {
+function headings(host: HTMLElement): Array<Array<string>> {
   return entryItems(host).map((item) =>
     [...(item.querySelector(':scope fr-stack fr-stack')?.querySelectorAll('fr-heading, fr-text, fr-badge') ?? [])].map(
       (part) => textOf(part),
@@ -44,7 +44,7 @@ function headings(host: HTMLElement): string[][] {
 }
 
 /** A slot list's title, then each row as its term and count. */
-function slotList(list: Element): string[] {
+function slotList(list: Element): Array<string> {
   const rows = [...list.querySelectorAll('fr-description-item')].map((row) =>
     [...row.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(' '),
   );
@@ -53,7 +53,7 @@ function slotList(list: Element): string[] {
 }
 
 /** Each entry's slot lists. */
-function slotLists(host: HTMLElement): string[][][] {
+function slotLists(host: HTMLElement): Array<Array<Array<string>>> {
   return entryItems(host).map((item) =>
     [...item.querySelectorAll('fr-description-list')].map((list) => slotList(list)),
   );
@@ -68,7 +68,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
 }
 
 /** Each entry's statistics as their summaries read. */
-function statistics(host: HTMLElement): string[][] {
+function statistics(host: HTMLElement): Array<Array<string>> {
   return [...host.querySelectorAll('pio-statistics')].map((list) =>
     [...list.querySelectorAll('summary')].map((summary) => textOf(summary)),
   );

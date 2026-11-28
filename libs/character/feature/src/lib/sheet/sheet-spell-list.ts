@@ -15,29 +15,29 @@ interface OriginSpell {
 
 /** What the list reads of a focus or innate line: its entries, each with the spells it holds. */
 interface OriginLine {
-  readonly entries: readonly { readonly key: string; readonly spells: readonly OriginSpell[] }[];
+  readonly entries: ReadonlyArray<{ readonly key: string; readonly spells: ReadonlyArray<OriginSpell> }>;
 }
 
 /** What the list reads of a prepared or spontaneous entry's pickers. */
 interface PreparedOrigin {
   readonly preparation: PickedPreparation;
   readonly tradition: MagicTradition;
-  readonly ranks: readonly {
-    readonly fields: readonly {
+  readonly ranks: ReadonlyArray<{
+    readonly fields: ReadonlyArray<{
       readonly key: string;
       readonly detail: Signal<SpellDetailLine | undefined>;
       readonly use: Signal<UsableLine | undefined>;
-    }[];
-  }[];
+    }>;
+  }>;
 }
 
 /** Where the sheet's spell lines come from: each origin's own line, undefined where the character has none. */
 export interface SpellOrigins {
   readonly focus: OriginLine | undefined;
   readonly innate: OriginLine | undefined;
-  readonly prepared: readonly PreparedOrigin[];
+  readonly prepared: ReadonlyArray<PreparedOrigin>;
   /** The rows of the wands, staves and scrolls the character carries. */
-  readonly items?: readonly SpellRowLine[];
+  readonly items?: ReadonlyArray<SpellRowLine>;
   /** The name of a prepared or spontaneous entry, which the source filter lists its spells under. */
   readonly preparedSource?: (entry: PreparedOrigin) => string;
 }
@@ -56,7 +56,7 @@ function itemName({ item, detail }: SpellRowLine): string | undefined {
 }
 
 /** The spells every origin holds, one line each with what grants it, before they are sorted. */
-function linesOf({ focus, innate, prepared, items = [], preparedSource }: SpellOrigins): SourcedSpell[] {
+function linesOf({ focus, innate, prepared, items = [], preparedSource }: SpellOrigins): Array<SourcedSpell> {
   const fromFocus = (focus?.entries ?? []).flatMap((entry) =>
     entry.spells.flatMap(({ key, detail, use }) =>
       detail === undefined ? [] : [{ line: { key: `focus:${entry.key}:${key}`, detail, use }, source: detail.source }],
@@ -95,7 +95,7 @@ function linesOf({ focus, innate, prepared, items = [], preparedSource }: SpellO
  * Every spell the character can cast, whatever its origin (#1784): alphabetical by name, then by source, each spell once per
  * source and rank it is held at. A prepared slot with no spell yet is not in it; its picker is under the list.
  */
-export function sheetSpells(origins: SpellOrigins): readonly SourcedSpell[] {
+export function sheetSpells(origins: SpellOrigins): ReadonlyArray<SourcedSpell> {
   const seen = new Set<string>();
 
   return linesOf(origins)
@@ -114,6 +114,6 @@ export function sheetSpells(origins: SpellOrigins): readonly SourcedSpell[] {
 }
 
 /** The spell rows of `origins` that pass `filter` (#1785). */
-export function sheetSpellList(origins: SpellOrigins, filter: SpellPicks): readonly SpellRowLine[] {
+export function sheetSpellList(origins: SpellOrigins, filter: SpellPicks): ReadonlyArray<SpellRowLine> {
   return filterSpells(sheetSpells(origins), filter).map(({ line }) => line);
 }

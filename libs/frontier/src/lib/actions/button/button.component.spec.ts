@@ -6,11 +6,12 @@ import { describe, expect, it, onTestFinished } from 'vitest';
 import type { ComponentInputs } from '../../testing/component-inputs';
 import { Size } from '../../tokens';
 import { Button, ButtonType, ButtonVariant, RollLuck, RollTone } from './button.component';
+import type { ButtonSize } from './button.component';
 
 interface Rendered {
   readonly button: HTMLButtonElement;
   readonly ref: ComponentRef<Button>;
-  readonly presses: MouseEvent[];
+  readonly presses: Array<MouseEvent>;
 }
 
 /** Renders `fr-button` with "Save" projected and returns its native button and the presses it emits. */
@@ -28,7 +29,7 @@ async function render(inputs: ComponentInputs<Button>): Promise<Rendered> {
     ref.setInput(name, value);
   }
 
-  const presses: MouseEvent[] = [];
+  const presses: Array<MouseEvent> = [];
   ref.instance.pressed.subscribe((event) => {
     presses.push(event);
   });
@@ -46,9 +47,9 @@ async function render(inputs: ComponentInputs<Button>): Promise<Rendered> {
 }
 
 interface VariantClasses {
-  readonly has: readonly string[];
+  readonly has: ReadonlyArray<string>;
   /** Classes of look-alike variants, so one variant rendering as another fails. */
-  readonly lacks: readonly string[];
+  readonly lacks: ReadonlyArray<string>;
 }
 
 const VARIANT_CLASSES: Record<ButtonVariant, VariantClasses> = {
@@ -68,7 +69,7 @@ const VARIANT_CLASSES: Record<ButtonVariant, VariantClasses> = {
     has: ['border-line-default', 'bg-surface-sunken', 'text-fg-default'],
     lacks: ['text-roll-bonus-fg', 'bg-roll-fortune-bg', 'border-roll-degree-line'],
   },
-  inline: { has: ['text-start', 'min-h-touch'], lacks: [] },
+  inline: { has: ['text-start', 'min-h-control-sm'], lacks: [] },
   field: { has: ['border', 'border-line-default', 'bg-surface-sunken', 'w-full'], lacks: ['bg-surface-base'] },
   toggle: { has: ['border-line-default', 'aria-pressed:border-accent-solid'], lacks: [] },
   segment: { has: ['w-full', 'aria-pressed:bg-accent-solid'], lacks: ['border'] },
@@ -106,15 +107,27 @@ describe(Button, () => {
     expect([...button.classList]).toStrictEqual(expect.arrayContaining([text, padding]));
   });
 
-  it.each([Size.Sm, Size.Md])('keeps size %s at least 44px tall for touch', async (size) => {
+  it.each<[ButtonSize, string]>([
+    ['xs', 'min-h-control-xs'],
+    [Size.Sm, 'min-h-control-sm'],
+    [Size.Md, 'min-h-control-md'],
+    [Size.Lg, 'min-h-control-lg'],
+  ])('sizes %s from the control scale so a fine pointer shrinks it', async (size, minHeight) => {
     const { button } = await render({ size });
-    expect([...button.classList]).toContain('h-touch');
+    expect([...button.classList]).toContain(minHeight);
+    expect(button.className).not.toContain('pointer-fine:');
+    expect(button.className).not.toContain('-touch');
+  });
+
+  it('gives an icon-only button a fixed height so it stays square', async () => {
+    const { button } = await render({ size: Size.Md, iconOnly: true });
+    expect([...button.classList]).toStrictEqual(expect.arrayContaining(['aspect-square', 'h-control-md']));
   });
 
   it('sizes the inline variant by its content, whatever the size', async () => {
     const { button } = await render({ variant: ButtonVariant.Inline, size: Size.Lg });
-    expect([...button.classList]).toContain('min-h-touch');
-    expect([...button.classList]).not.toContain('h-control-lg');
+    expect([...button.classList]).toContain('min-h-control-sm');
+    expect([...button.classList]).not.toContain('min-h-control-lg');
     expect([...button.classList]).not.toContain('px-lg');
   });
 

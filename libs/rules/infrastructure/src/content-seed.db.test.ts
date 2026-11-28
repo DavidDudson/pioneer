@@ -74,7 +74,7 @@ describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {
     return row;
   }
 
-  async function storedEntries(contents: PackContents): Promise<(typeof contentEntries.$inferSelect)[]> {
+  async function storedEntries(contents: PackContents): Promise<Array<typeof contentEntries.$inferSelect>> {
     return database.db
       .select()
       .from(contentEntries)

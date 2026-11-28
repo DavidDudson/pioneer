@@ -19,7 +19,7 @@ import type { StatisticFailure, StatisticResult } from './statistic-result';
 
 /** The base phase's `Change`s by selector, and the roll options their predicates read. */
 export interface BaseChanges {
-  readonly changes: ReadonlyMap<Selector, readonly ChangeSource[]>;
+  readonly changes: ReadonlyMap<Selector, ReadonlyArray<ChangeSource>>;
   readonly facts: PredicateFacts;
 }
 
@@ -40,7 +40,7 @@ export interface StatisticBase {
 export class StatisticBases {
   readonly #graph: ReadonlyMap<Selector, StatisticNode>;
   readonly #values: CharacterValues;
-  readonly #changes: ReadonlyMap<Selector, readonly ChangeSource[]>;
+  readonly #changes: ReadonlyMap<Selector, ReadonlyArray<ChangeSource>>;
   readonly #context: RuleContext;
   readonly #results = new Map<Selector, StatisticResult>();
 
@@ -49,7 +49,7 @@ export class StatisticBases {
    * level of the item they are on, not other statistics, so they add no edges to the graph.
    */
   public constructor(
-    definitions: readonly StatisticDefinition[],
+    definitions: ReadonlyArray<StatisticDefinition>,
     values: CharacterValues,
     { changes, facts }: BaseChanges,
   ) {
@@ -67,7 +67,7 @@ export class StatisticBases {
   }
 
   /** Each statistic's definition and base result, in selector order. */
-  public get bases(): readonly StatisticBase[] {
+  public get bases(): ReadonlyArray<StatisticBase> {
     return [...this.#graph].flatMap(([selector, { definition }]) => {
       const result = this.#results.get(selector);
 
@@ -86,7 +86,7 @@ export class StatisticBases {
    * A component that reads itself is a cycle: each member fails at its first reference into the cycle, which for
    * the last statistic reached is the one that closes it. Otherwise it is one statistic, evaluated.
    */
-  #evaluateComponent(members: readonly Selector[]): void {
+  #evaluateComponent(members: ReadonlyArray<Selector>): void {
     const inCycle = new Set(members);
 
     for (const selector of members) {
@@ -102,7 +102,7 @@ export class StatisticBases {
   }
 
   /** Why a statistic this one reads leaves it without a value, checked in the order the references are written. */
-  #dependencyFailure(selector: Selector, edges: readonly StatisticEdge[]): StatisticFailure | undefined {
+  #dependencyFailure(selector: Selector, edges: ReadonlyArray<StatisticEdge>): StatisticFailure | undefined {
     for (const edge of edges) {
       if (!this.#graph.has(edge.selector)) {
         return unreadable(selector, edge, EngineMessage.MissingStatistic);

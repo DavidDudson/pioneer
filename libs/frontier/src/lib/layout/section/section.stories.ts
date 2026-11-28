@@ -8,7 +8,7 @@ import { Section } from './section.component';
 
 type SectionStory = StoryObj<Section>;
 
-/** A sheet section: a region landmark named by its level 2 heading, which a section index can focus. */
+/** A sheet section: a region landmark named by its level 2 heading, which an `fr-link` with `skipTo` can focus. */
 const meta: Meta<Section> = {
   title: 'Layout/Section',
   component: Section,

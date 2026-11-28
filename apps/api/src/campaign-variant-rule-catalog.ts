@@ -21,7 +21,7 @@ export class CampaignVariantRuleCatalog extends VariantRuleCatalog {
     this.#content = content;
   }
 
-  public override async of(campaignId: CampaignId): Promise<readonly VariantRuleOption[]> {
+  public override async of(campaignId: CampaignId): Promise<ReadonlyArray<VariantRuleOption>> {
     const rows = await this.#db
       .select({ packId: campaignPacks.packId })
       .from(campaignPacks)

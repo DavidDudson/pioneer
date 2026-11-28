@@ -13,7 +13,7 @@ export interface ItemRevocation {
  */
 export abstract class CampaignItemApprovalRepository {
   /** The campaign's live approvals, oldest first; id breaks ties. */
-  public abstract listForCampaign(campaignId: CampaignId): Promise<readonly CampaignItemApproval[]>;
+  public abstract listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignItemApproval>>;
 
   /** Approve the item, replacing the live approval for the same character, item, rule and rune when there is one. */
   public abstract approve(actor: UserId, campaignId: CampaignId, approval: CampaignItemApproval): Promise<void>;

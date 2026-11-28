@@ -37,7 +37,7 @@ export interface LanguageSlot {
   readonly key: SlotKey;
   readonly level: Level;
   readonly feature: LanguageFeature | undefined;
-  readonly options: readonly LanguageOption[];
+  readonly options: ReadonlyArray<LanguageOption>;
   readonly stored: ChoiceValue | undefined;
   /** Undefined while the slot is empty, or holds something it doesn't offer. */
   readonly pick: LanguageOption | undefined;
@@ -66,7 +66,7 @@ interface LanguageSlotPlace {
 }
 
 /** The rarer a language, the later in this order; a slot offers those up to its access. */
-const RARITIES: readonly Rarity[] = [Rarity.Common, Rarity.Uncommon, Rarity.Rare, Rarity.Unique];
+const RARITIES: ReadonlyArray<Rarity> = [Rarity.Common, Rarity.Uncommon, Rarity.Rare, Rarity.Unique];
 
 /** The ancestry's slots and the Intelligence modifier's offer common languages and the ancestry's list. */
 const BASE_ACCESS: LanguageAccess = Rarity.Common;
@@ -78,7 +78,7 @@ function ancestryLanguages(document: CharacterDocument, content: LanguageContent
   return picked.success ? content.ancestry(picked.data) : undefined;
 }
 
-function baseSlots(level: Level, count: LanguageCount): LanguageSlotPlace[] {
+function baseSlots(level: Level, count: LanguageCount): Array<LanguageSlotPlace> {
   return Array.from({ length: count }, (_unused, index) => ({
     key: SlotKey.parse(`language:${level}:${index}`),
     level,
@@ -95,7 +95,7 @@ function ancestrySlots(
   document: CharacterDocument,
   content: LanguageContent,
   boosts: BoostContent,
-): LanguageSlotPlace[] {
+): Array<LanguageSlotPlace> {
   const languages = ancestryLanguages(document, content);
 
   if (languages === undefined) {
@@ -118,11 +118,11 @@ function ancestrySlots(
 }
 
 /** Each `Language` element's slots, at the lowest level the character has its entry and its predicate holds. */
-function featureSlots(read: readonly LevelRead[]): LanguageSlotPlace[] {
+function featureSlots(read: ReadonlyArray<LevelRead>): Array<LanguageSlotPlace> {
   const seen = new Set<SlotKey>();
 
   return read.flatMap(({ level, elements, holds }) =>
-    elements.flatMap(({ feature, rule, element }): LanguageSlotPlace[] => {
+    elements.flatMap(({ feature, rule, element }): Array<LanguageSlotPlace> => {
       const key = SlotKey.parse(`language:${feature.entry}:${rule}`);
 
       if (element.slots === undefined || seen.has(key) || !holds(element.predicate)) {
@@ -142,7 +142,7 @@ function featureSlots(read: readonly LevelRead[]): LanguageSlotPlace[] {
 }
 
 /** The languages the ancestry and the `Language` elements grant at one level, each once, the ancestry's first. */
-function grantedAt(document: CharacterDocument, content: LanguageContent, read: LevelRead): KnownLanguage[] {
+function grantedAt(document: CharacterDocument, content: LanguageContent, read: LevelRead): Array<KnownLanguage> {
   const ancestry = ancestryLanguages(document, content);
   const known = new Map<ContentId, KnownLanguage>();
 
@@ -190,7 +190,10 @@ export function problemOf(language: LanguageOption, known: ReadonlySet<ContentId
  * reads as known already. A language picked at 1st level and granted at 5th by a feat taken since counts for nothing
  * until the slot is picked again.
  */
-function withoutGrantedPicks(slots: readonly LanguageSlot[], granted: readonly KnownLanguage[]): LanguageSlot[] {
+function withoutGrantedPicks(
+  slots: ReadonlyArray<LanguageSlot>,
+  granted: ReadonlyArray<KnownLanguage>,
+): Array<LanguageSlot> {
   const ids = new Set(granted.map(({ language }) => language.id));
 
   return slots.map((slot) => {
@@ -208,7 +211,7 @@ function withoutGrantedPicks(slots: readonly LanguageSlot[], granted: readonly K
  * `slots` with each one offering none of the languages other slots' picks hold, later ones included, and knowing them:
  * clearing an earlier slot never offers a language a later slot already picked.
  */
-function withoutOtherPicks(slots: readonly LanguageSlot[]): LanguageSlot[] {
+function withoutOtherPicks(slots: ReadonlyArray<LanguageSlot>): Array<LanguageSlot> {
   return slots.map((slot) => {
     const others = new Set(
       slots.flatMap((other) => (other.key !== slot.key && other.pick !== undefined ? [other.pick.id] : [])),
@@ -224,15 +227,15 @@ function withoutOtherPicks(slots: readonly LanguageSlot[]): LanguageSlot[] {
 
 /** Everything language slots and the known list are read from, worked out once per read. */
 interface LanguageRead {
-  readonly slots: readonly LanguageSlot[];
-  readonly granted: (level: Level) => readonly KnownLanguage[];
+  readonly slots: ReadonlyArray<LanguageSlot>;
+  readonly granted: (level: Level) => ReadonlyArray<KnownLanguage>;
 }
 
 function readLanguages(document: CharacterDocument, reads: LanguageReads): LanguageRead {
   const { languages: content } = reads;
   const byLevel = levelReads(document, reads);
   const granted = new Map(byLevel.map((read) => [read.level, grantedAt(document, content, read)]));
-  const grantedOf = (level: Level): readonly KnownLanguage[] => granted.get(level) ?? [];
+  const grantedOf = (level: Level): ReadonlyArray<KnownLanguage> => granted.get(level) ?? [];
   const ancestryOptions = new Set(ancestryLanguages(document, content)?.options);
 
   const places = [...ancestrySlots(document, content, reads.skills.boosts), ...featureSlots(byLevel)].toSorted(
@@ -273,7 +276,7 @@ function readLanguages(document: CharacterDocument, reads: LanguageReads): Langu
  * read over the languages known at its level and the picks before it, so a pick of a language known already, or one
  * rarer than the slot offers, counts for nothing until it is changed.
  */
-export function languageSlots(document: CharacterDocument, reads: LanguageReads): readonly LanguageSlot[] {
+export function languageSlots(document: CharacterDocument, reads: LanguageReads): ReadonlyArray<LanguageSlot> {
   return readLanguages(document, reads).slots;
 }
 
@@ -281,14 +284,14 @@ export function languageSlots(document: CharacterDocument, reads: LanguageReads)
  * The languages the character knows at its level: the ancestry's, those its features' `Language` elements grant, and
  * its picks in the slots it has there, in that order.
  */
-export function knownLanguages(document: CharacterDocument, reads: LanguageReads): readonly KnownLanguage[] {
+export function knownLanguages(document: CharacterDocument, reads: LanguageReads): ReadonlyArray<KnownLanguage> {
   return languagesOf(document, reads).known;
 }
 
 /** A character's language slots and the languages it knows, read once. */
 export interface CharacterLanguageRead {
-  readonly slots: readonly LanguageSlot[];
-  readonly known: readonly KnownLanguage[];
+  readonly slots: ReadonlyArray<LanguageSlot>;
+  readonly known: ReadonlyArray<KnownLanguage>;
 }
 
 /** `languageSlots` and `knownLanguages` together, from one read. */
@@ -296,7 +299,7 @@ export function languagesOf(document: CharacterDocument, reads: LanguageReads): 
   const level = Level.parse(document.level);
   const { slots, granted } = readLanguages(document, reads);
 
-  const picks = slots.flatMap((slot): KnownLanguage[] =>
+  const picks = slots.flatMap((slot): Array<KnownLanguage> =>
     slot.level <= level && slot.pick !== undefined
       ? [{ language: slot.pick, source: LanguageSource.Pick, from: undefined, slot: slot.key }]
       : [],
@@ -309,6 +312,6 @@ export function languagesOf(document: CharacterDocument, reads: LanguageReads): 
  * How many languages `slots` lets the character still add at `level`: its slots up to that level with no pick that
  * counts, empty or invalid.
  */
-export function openLanguageSlots(slots: readonly LanguageSlot[], level: Level): LanguageCount {
+export function openLanguageSlots(slots: ReadonlyArray<LanguageSlot>, level: Level): LanguageCount {
   return LanguageCount.parse(slots.filter((slot) => slot.level <= level && slot.pick === undefined).length);
 }

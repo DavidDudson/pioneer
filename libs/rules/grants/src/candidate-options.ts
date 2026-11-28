@@ -17,10 +17,10 @@ interface Access {
 }
 
 /** Each archetype's additional feats by feat, read once per lookup: a lookup's content never changes. */
-const ACCESS = new WeakMap<ContentLookup, ReadonlyMap<ContentId, readonly Access[]>>();
+const ACCESS = new WeakMap<ContentLookup, ReadonlyMap<ContentId, ReadonlyArray<Access>>>();
 
-function readAccess(lookup: ContentLookup): ReadonlyMap<ContentId, readonly Access[]> {
-  const access = new Map<ContentId, Access[]>();
+function readAccess(lookup: ContentLookup): ReadonlyMap<ContentId, ReadonlyArray<Access>> {
+  const access = new Map<ContentId, Array<Access>>();
 
   for (const { archetype } of lookup.ofKind(ContentKind.Archetype)) {
     const dedication = archetype === undefined ? undefined : lookup.entry(archetype.dedication);
@@ -36,7 +36,7 @@ function readAccess(lookup: ContentLookup): ReadonlyMap<ContentId, readonly Acce
   return access;
 }
 
-function accessTo(feat: ContentId, lookup: ContentLookup): readonly Access[] {
+function accessTo(feat: ContentId, lookup: ContentLookup): ReadonlyArray<Access> {
   const index = ACCESS.get(lookup) ?? readAccess(lookup);
   ACCESS.set(lookup, index);
 
@@ -47,7 +47,7 @@ function accessTo(feat: ContentId, lookup: ContentLookup): readonly Access[] {
  * The trait-based additions: skill feats are general, a Universal Ancestry feat has the character's ancestry trait, and
  * an archetype feat has the character's class trait, since a class feat slot takes archetype feats.
  */
-function traitAdditions(rollOptions: readonly RollOption[], { facts }: ChoiceContext): RollOption[] {
+function traitAdditions(rollOptions: ReadonlyArray<RollOption>, { facts }: ChoiceContext): Array<RollOption> {
   const general = rollOptions.includes(SKILL_TRAIT) && !rollOptions.includes(GENERAL_TRAIT) ? [GENERAL_TRAIT] : [];
 
   const ancestry = rollOptions.includes(UNIVERSAL_ANCESTRY_TRAIT)
@@ -75,7 +75,7 @@ function traitAdditions(rollOptions: readonly RollOption[], { facts }: ChoiceCon
  *
  * Any other candidate reads as its envelope says.
  */
-export function candidateOptions(candidate: GrantEntry, context: ChoiceContext): readonly RollOption[] {
+export function candidateOptions(candidate: GrantEntry, context: ChoiceContext): ReadonlyArray<RollOption> {
   const { rollOptions } = candidate;
 
   if (candidate.kind !== ContentKind.Feat) {

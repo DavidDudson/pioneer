@@ -15,7 +15,10 @@ const LEVEL_MAX = 20;
 const GREATER_SPECIALIZATION_LEVEL = 15;
 
 /** Levels with a fighter feat slot: 1st and every even level. */
-const CLASS_FEAT_LEVELS: readonly number[] = [1, ...Array.from({ length: LEVEL_MAX / 2 }, (_v, at) => (at + 1) * 2)];
+const CLASS_FEAT_LEVELS: ReadonlyArray<number> = [
+  1,
+  ...Array.from({ length: LEVEL_MAX / 2 }, (_v, at) => (at + 1) * 2),
+];
 
 /** The class features each level brings. */
 const FEATURES = {
@@ -32,7 +35,7 @@ const FEATURES = {
 };
 
 /** Each feature with the level it arrives at, in level order. */
-const FEATURE_LEVELS: readonly (readonly [string, number])[] = Object.entries(FEATURES).flatMap(([level, slugs]) =>
+const FEATURE_LEVELS: ReadonlyArray<readonly [string, number]> = Object.entries(FEATURES).flatMap(([level, slugs]) =>
   slugs.map((slug): readonly [string, number] => [slug, Number(level)]),
 );
 
@@ -43,7 +46,7 @@ const atLevel = (slug: string, level: number): RuleJson => ({
 });
 
 /** A class feat slot at `level`: a fighter feat of the character's level or lower, granted once picked. */
-function classFeatSlot(level: number): readonly object[] {
+function classFeatSlot(level: number): ReadonlyArray<object> {
   const flag = `class-feat-${level}`;
 
   return [
@@ -118,7 +121,7 @@ function fighterFeat(slug: string, level: string): GrantEntry {
 }
 
 /** Every entry the Fighter can reach, and a rogue feat its slots never offer. */
-export const FIGHTER_CONTENT: readonly GrantEntry[] = [
+export const FIGHTER_CONTENT: ReadonlyArray<GrantEntry> = [
   fighterClass,
   feat('shield-block', ['trait:general', 'level:1']),
   ...FEATURE_LEVELS.map(([slug]) => (slug === 'weapon-specialization' ? weaponSpecialization : entry(slug))),
@@ -153,7 +156,7 @@ const PICKED_FEATS = {
 };
 
 /** A pick for every class feat slot up to 20th, each a feat of the slot's level or lower, and Athletics. */
-export const LEVEL_20_PICKS: readonly (readonly [SlotKey, string])[] = [
+export const LEVEL_20_PICKS: ReadonlyArray<readonly [SlotKey, string]> = [
   [SKILL_SLOT, 'athletics'],
   ...Object.entries(PICKED_FEATS).map(([level, slug]): readonly [SlotKey, string] => [
     classFeatSlotAt(Number(level)),

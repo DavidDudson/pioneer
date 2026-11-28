@@ -8,6 +8,7 @@ export const characterKeys = {
   sheetMode: (id: CharacterId | undefined) => [...characterKeys.all, 'sheet-mode', id] as const,
   play: (id: CharacterId | undefined) => [...characterKeys.all, 'play', id] as const,
   featDisplay: (id: CharacterId | undefined) => [...characterKeys.all, 'feat-display', id] as const,
+  companions: (id: CharacterId | undefined) => [...characterKeys.all, 'companions', id] as const,
   packs: (id: CharacterId | undefined) => [...characterKeys.all, 'packs', id] as const,
   variantRules: (id: CharacterId | undefined) => [...characterKeys.all, 'variant-rules', id] as const,
   ruleLimits: (id: CharacterId | undefined) => [...characterKeys.all, 'rule-limits', id] as const,

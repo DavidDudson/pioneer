@@ -1,5 +1,5 @@
 import { ArmorItemCategory } from './armor';
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import { ContentKind } from './content-kind';
 import {
   EquipmentKind,
@@ -19,8 +19,8 @@ import { DAMAGE_TYPE_FACET } from './spell-facets';
 import { WeaponGroup } from './weapon';
 
 /** A facet that reads items only: entries of other kinds give it no value. */
-function ofItems(read: (entry: EquipmentEntry) => readonly FacetLeaf[]): FacetDerive {
-  return (entry: ContentEntry): readonly FacetLeaf[] => (isEquipment(entry) ? read(entry) : []);
+function ofItems(read: (entry: EquipmentEntry) => ReadonlyArray<FacetLeaf>): FacetDerive {
+  return (entry: ContentEntryModel): ReadonlyArray<FacetLeaf> => (isEquipment(entry) ? read(entry) : []);
 }
 
 const EquipmentFacetMessage = {
@@ -92,7 +92,7 @@ const ARMOR_CATEGORY_LABELS = facetLabels({
  * The equipment facets (content-model.md, "Filters"), beyond the common ones: one set for every equipment kind, so
  * a mixed list filters alike. Price compares in copper; bulk counts tenths, so light and negligible sit below 1.
  */
-export const EQUIPMENT_FACETS: readonly FacetDefinition[] = [
+export const EQUIPMENT_FACETS: ReadonlyArray<FacetDefinition> = [
   {
     id: FacetId.parse('item-kind'),
     type: FacetType.Set,

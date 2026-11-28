@@ -16,14 +16,14 @@ export const controlVariants = cva(
       /** A button that opens a popup (select trigger). */
       trigger: { true: 'flex items-center justify-between gap-xs text-start', false: '' },
       /** Several lines (text area): grows with `rows`, resizable in height only. */
-      multiline: { true: 'resize-y py-xs', false: 'h-touch pointer-fine:h-control-md' },
+      multiline: { true: 'resize-y py-xs', false: 'h-control-md' },
       /** Code-like text (JSON, formulas), where every character matters. */
       monospace: { true: 'font-mono', false: '' },
       /** Room for an icon at each end (search icon, clear button), each a touch target wide. */
       adorned: {
-        true: 'ps-touch pe-touch pointer-fine:ps-control-md pointer-fine:pe-control-md',
+        true: 'ps-control-md pe-control-md',
         /** Room for two icon buttons at the end (a refreshable input). */
-        pair: 'ps-sm pe-touch-pair pointer-fine:pe-control-md-pair',
+        pair: 'ps-sm pe-control-md-pair',
         false: 'px-sm',
       },
     },
@@ -35,17 +35,14 @@ export const controlVariants = cva(
  * A touch-target-wide slot at one end of an `adorned` control, holding its icon or icon button.
  * The start slot is decorative, so presses pass through to the input.
  */
-export const adornmentVariants = cva(
-  'absolute inset-y-none flex w-touch items-center justify-center pointer-fine:w-control-md',
-  {
-    variants: {
-      edge: { start: 'pointer-events-none start-none text-fg-subtle', end: 'end-none' },
-      /** Dims with the disabled control. */
-      disabled: { true: 'opacity-disabled', false: '' },
-    },
-    defaultVariants: { disabled: false },
+export const adornmentVariants = cva('absolute inset-y-none flex w-control-md items-center justify-center', {
+  variants: {
+    edge: { start: 'pointer-events-none start-none text-fg-subtle', end: 'end-none' },
+    /** Dims with the disabled control. */
+    disabled: { true: 'opacity-disabled', false: '' },
   },
-);
+  defaultVariants: { disabled: false },
+});
 
 /**
  * A listbox option's states under forced colours, where their tinted fills vanish. The highlighted option (the

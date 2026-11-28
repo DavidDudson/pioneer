@@ -15,7 +15,7 @@ export interface GrantedLine {
   /** When a battle form sets the size: the form's entry, and the message key of the character's own size. */
   readonly form?: { readonly entry: ContentId; readonly own: string };
   /** The message keys of the damage types that switch it off. */
-  readonly stoppedBy: readonly string[];
+  readonly stoppedBy: ReadonlyArray<string>;
 }
 
 const FAST_HEALING_KEY = 'character.sheet.hp.fastHealing';
@@ -25,7 +25,7 @@ const SIZE_KEY = 'character.sheet.hp.size';
 const FORM_SIZE_KEY = 'character.sheet.hp.sizeFromForm';
 
 /** The lines for the fast healing, temporary Hit Points and size the character's rule elements give. */
-export function grantedLines({ recovery, temporaryHitPoints, size }: VitalsInPlay): readonly GrantedLine[] {
+export function grantedLines({ recovery, temporaryHitPoints, size }: VitalsInPlay): ReadonlyArray<GrantedLine> {
   return [
     ...recovery.map(({ type, amount, deactivatedBy }): GrantedLine => ({
       key: type === FastHealingType.Regeneration ? REGENERATION_KEY : FAST_HEALING_KEY,

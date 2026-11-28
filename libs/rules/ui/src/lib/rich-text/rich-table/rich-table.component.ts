@@ -11,7 +11,7 @@ import { RichTextMessage } from '../rich-text-messages';
 /** One row of a rich text table: its cells in column order. */
 interface Row {
   readonly id: string;
-  readonly cells: readonly InlineContent[];
+  readonly cells: ReadonlyArray<InlineContent>;
 }
 
 function rowId(row: Row): string {
@@ -21,7 +21,7 @@ function rowId(row: Row): string {
 const column = tableColumns<Row>();
 const EMPTY: InlineContent = [];
 
-function columnsFor(table: TableNode): readonly TableColumn<Row>[] {
+function columnsFor(table: TableNode): ReadonlyArray<TableColumn<Row>> {
   const width = Math.max(table.header?.length ?? 0, ...table.rows.map((cells) => cells.length));
 
   return Array.from({ length: width }, (_slot, index) =>
@@ -47,8 +47,8 @@ export class RichTable {
   readonly #generic = toSignal(this.#i18n.selectTranslate<string>(RichTextMessage.Table), { initialValue: '' });
   protected readonly caption = computed((): string => this.table().caption ?? this.#generic());
   protected readonly hideCaption = computed((): boolean => this.table().caption === undefined);
-  protected readonly columns = computed((): readonly TableColumn<Row>[] => columnsFor(this.table()));
-  protected readonly rows = computed((): readonly Row[] =>
+  protected readonly columns = computed((): ReadonlyArray<TableColumn<Row>> => columnsFor(this.table()));
+  protected readonly rows = computed((): ReadonlyArray<Row> =>
     this.table().rows.map((cells, index) => ({ id: String(index), cells })),
   );
   protected readonly rowId = rowId;

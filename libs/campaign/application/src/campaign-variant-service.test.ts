@@ -27,7 +27,7 @@ const withoutLevel = option('Proficiency Without Level', 'Core Rules');
 const gritty = option('Gritty Healing', 'Table Rules');
 const absent = EnabledVariantRuleId.parse(newId());
 
-function names(rules: CampaignVariantRules['enabled']): readonly string[] {
+function names(rules: CampaignVariantRules['enabled']): ReadonlyArray<string> {
   return rules.map(({ name }) => String(name));
 }
 

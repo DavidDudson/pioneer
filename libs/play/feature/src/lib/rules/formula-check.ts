@@ -31,7 +31,7 @@ export type FormulaCheck =
       readonly status: typeof CheckStatus.Valid;
       readonly canonical: string;
       readonly tree: string;
-      readonly references: readonly ReferencePath[];
+      readonly references: ReadonlyArray<ReferencePath>;
       readonly evaluation: FormulaEvaluation;
     }
   | FormulaMistake;

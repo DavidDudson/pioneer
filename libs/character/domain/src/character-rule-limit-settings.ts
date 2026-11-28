@@ -38,7 +38,7 @@ export const LIMIT_CEILINGS: Readonly<Record<RuleLimitField, RuleLimitSettingVal
 };
 
 /** The order the limits are listed in. */
-export const RULE_LIMIT_FIELDS: readonly RuleLimitField[] = RuleLimitFieldSchema.options;
+export const RULE_LIMIT_FIELDS: ReadonlyArray<RuleLimitField> = RuleLimitFieldSchema.options;
 
 /**
  * Where the number in force for a limit comes from, lowest first: the core rules, a variant rule in force, then an

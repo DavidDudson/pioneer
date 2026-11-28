@@ -20,7 +20,7 @@ describe('ChoiceSet from Foundry: a pick of values other rules read', () => {
 
   const lang = { PF2E: { TraitAcid: 'Acid', TraitCold: 'Cold', TraitFire: 'Fire' } };
 
-  function resisted(rules: readonly object[]): RuleTranslation {
+  function resisted(rules: ReadonlyArray<object>): RuleTranslation {
     return translateRules(ENTRY, [DAMAGE, ...rules], { lang, values: { item: 'Conduct Energy' } });
   }
 
@@ -35,7 +35,7 @@ describe('ChoiceSet from Foundry: a pick of values other rules read', () => {
     expect((rules[0] as { rollOption: string }).rollOption).toBe('conduct-energy-damage-type');
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules.slice(1) as readonly unknown[]).toEqual([
+    expect(rules.slice(1) as ReadonlyArray<unknown>).toEqual([
       { key: 'Resistance', type: ['acid'], value: 5, predicate: ['conduct-energy-damage-type:acid'] },
       { key: 'Resistance', type: ['cold'], value: 5, predicate: ['conduct-energy-damage-type:cold'] },
       { key: 'Resistance', type: ['fire'], value: 5, predicate: ['conduct-energy-damage-type:fire'] },

@@ -17,7 +17,7 @@ async function render(inputs: ComponentInputs<ActionIcon>): Promise<HTMLElement>
   return fixture.nativeElement as HTMLElement;
 }
 
-function drawn(host: HTMLElement): readonly string[] {
+function drawn(host: HTMLElement): ReadonlyArray<string> {
   return [...host.querySelectorAll('svg')].map((svg) => svg.querySelector('path')?.getAttribute('fill') ?? '');
 }
 

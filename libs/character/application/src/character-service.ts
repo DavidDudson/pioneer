@@ -52,13 +52,13 @@ import { assertInventoryAllows } from './inventory-guard';
 import type { OverrideAuthorDirectory } from './override-author-directory';
 import { assertOverrideAllowed } from './override-guard';
 import { SlotContentCache } from './slot-content-cache';
-import { assertSlotEditAllowed } from './slot-edit-guard';
+import { assertSlotEditAllowed, isSlotEdit, needsSlotContent } from './slot-edit-guard';
 import { assertSpellNeedsAccess } from './spell-access-guard';
 
 /** A character as an edit saved it, and the picks the edit cleared (`unfitPicks`). */
 export interface PatchedCharacter {
   readonly character: Character;
-  readonly cleared: readonly ClearedPick[];
+  readonly cleared: ReadonlyArray<ClearedPick>;
 }
 
 /**
@@ -122,7 +122,7 @@ export class CharacterService {
   }
 
   /** The actor's own characters; nobody else's are listed. */
-  public async list(actor: UserId, query: CharacterListQuery): Promise<readonly Character[]> {
+  public async list(actor: UserId, query: CharacterListQuery): Promise<ReadonlyArray<Character>> {
     return this.#repository.listForOwner(actor, query);
   }
 
@@ -166,7 +166,7 @@ export class CharacterService {
   }
 
   /** The actor's archived characters (ADR-0062); nobody else's are listed. */
-  public async listArchived(actor: UserId, query: CharacterListQuery): Promise<readonly Character[]> {
+  public async listArchived(actor: UserId, query: CharacterListQuery): Promise<ReadonlyArray<Character>> {
     return this.#repository.listArchivedForOwner(actor, query);
   }
 
@@ -288,7 +288,7 @@ export class CharacterService {
       throw new VersionConflictError('Character', current.id);
     }
 
-    if (patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot) {
+    if (needsSlotContent(patch)) {
       const slots = await this.#slotContent(current, await this.#contentOf(current).registry());
       assertSlotEditAllowed(current, slots, patch);
     }
@@ -314,10 +314,8 @@ export class CharacterService {
   }
 
   /** The picks a slot edit left in slots within the edited one that no longer offer them; none for any other edit. */
-  async #unfitPicks(before: Character, after: Character, patch: CharacterPatch): Promise<readonly ClearedPick[]> {
-    const isSlotEdit = patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot;
-
-    if (!isSlotEdit) {
+  async #unfitPicks(before: Character, after: Character, patch: CharacterPatch): Promise<ReadonlyArray<ClearedPick>> {
+    if (!isSlotEdit(patch) && patch.field !== CharacterPatchField.WorkRetraining) {
       return [];
     }
 

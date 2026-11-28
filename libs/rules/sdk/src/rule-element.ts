@@ -16,7 +16,7 @@ import { CriticalWeaknessElement } from './rule-element-critical-weakness';
 import { DamageAlterationElement, DamageDiceElement } from './rule-element-damage';
 import { ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 import { GrantShieldElement } from './rule-element-grant-shield';
-import { FastHealingElement, TempHPElement } from './rule-element-healing';
+import { FastHealingElement, HealingBonusElement, TempHPElement, TurnStartSaveElement } from './rule-element-healing';
 import { ItemAlterationElement } from './rule-element-item-alteration';
 import { LanguageElement } from './rule-element-language';
 import { LiftRestrictionElement } from './rule-element-lift-restriction';
@@ -47,6 +47,7 @@ import {
 } from './rule-element-spellcasting';
 import { AdjustStrikeElement, StrikeElement } from './rule-element-strike';
 import { ChoiceSetElement, GrantItemElement, RollOptionElement } from './rule-element-structure';
+import { RULES_MAX } from './rule-reference';
 
 const KNOWN_KEYS: ReadonlySet<unknown> = new Set(Object.values(RuleElementKey));
 
@@ -88,6 +89,8 @@ const Element = z.discriminatedUnion('key', [
   NoteElement,
   FastHealingElement,
   TempHPElement,
+  HealingBonusElement,
+  TurnStartSaveElement,
   CreatureSizeElement,
   BattleFormElement,
   AdjustDegreeOfSuccessElement,
@@ -129,10 +132,7 @@ export const RuleElement: z.ZodType<RuleElement> = z
 
 export type RuleElement = z.output<typeof Element>;
 
-/** A class carries its whole progression as rule elements: Player Core's rogue has 102. */
-const RULES_MAX = 256;
-
 /** A content entry's `rules`: its elements in order (an origin's `RuleIndex` points into it). */
 export const RuleElements = z.array(RuleElement).max(RULES_MAX);
 
-export type RuleElements = readonly RuleElement[];
+export type RuleElements = ReadonlyArray<RuleElement>;

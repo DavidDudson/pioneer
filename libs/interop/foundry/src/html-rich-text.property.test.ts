@@ -34,17 +34,17 @@ const words: Arbitrary<Html> = string({ maxLength: TEXT_MAX, unit: constantFrom(
   text,
 }));
 
-function concatenated(parts: readonly Html[]): Html {
+function concatenated(parts: ReadonlyArray<Html>): Html {
   return { html: parts.map(({ html }) => html).join(''), text: parts.map(({ text }) => text).join('') };
 }
 
-function wrapped(tag: string, children: readonly Html[]): Html {
+function wrapped(tag: string, children: ReadonlyArray<Html>): Html {
   const { html, text } = concatenated(children);
 
   return { html: `<${tag}>${html}</${tag}>`, text };
 }
 
-function list(tag: string, items: readonly (readonly Html[])[]): Html {
+function list(tag: string, items: ReadonlyArray<ReadonlyArray<Html>>): Html {
   return wrapped(
     tag,
     items.map((item) => wrapped('li', item)),
@@ -85,13 +85,13 @@ function table(): Arbitrary<Html> {
   return tuple(caption, parts).map(([captions, each]) => wrapped('table', [...captions, ...each]));
 }
 
-function lists(items: Arbitrary<Html[]>): Arbitrary<Html> {
+function lists(items: Arbitrary<Array<Html>>): Arbitrary<Html> {
   const tags = constantFrom('ul', 'ol');
 
   return tuple(tags, array(items, { maxLength: CHILDREN_MAX })).map(([tag, each]) => list(tag, each));
 }
 
-const { blocks } = letrec<{ blocks: Html[]; block: Html }>((tie) => ({
+const { blocks } = letrec<{ blocks: Array<Html>; block: Html }>((tie) => ({
   blocks: array(tie('block'), { maxLength: CHILDREN_MAX, depthIdentifier: 'blocks' }),
   block: oneof(
     { depthSize: 'small', withCrossShrink: true },

@@ -1,7 +1,6 @@
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import type { ContentEntry } from './content-entry';
 import { ContentId, ContentPackId, PackId } from './content-id';
 import { ContentKindSchema } from './content-kind';
 import type { ContentPack } from './content-pack';
@@ -10,6 +9,7 @@ import { ContentText } from './content-text';
 import { jsonEntries } from './json-bounds';
 import type { JsonValue } from './json-bounds';
 import { RichText } from './rich-text';
+import type { ContentEntry } from './typed-content-entry';
 
 /** JSON text written so equal values give equal text, whatever order their keys were written in. */
 export const CanonicalJson = z.string().brand<'CanonicalJson'>();
@@ -222,7 +222,7 @@ export interface FetchedKind {
  * when it built them. A bundle is immutable and public, so it is not checked again here: that was most of the time
  * a sheet spent opening. An entry with no name is still an error, since the files no longer agree.
  */
-function entriesFromBundles(kind: FetchedKind): readonly ContentEntry[] {
+export function entriesFromBundles(kind: FetchedKind): ReadonlyArray<ContentEntry> {
   // SAFETY: the server checked this bundle when it built it, and a bundle is immutable and public.
   // So its names have this shape.
   // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- server-checked, immutable bundle (see above)
@@ -241,7 +241,7 @@ function entriesFromBundles(kind: FetchedKind): readonly ContentEntry[] {
 interface AssembledEntry {
   readonly id: ContentId;
   readonly name: ContentText;
-  readonly description: readonly unknown[];
+  readonly description: ReadonlyArray<unknown>;
 }
 
 /** An entry put back together from its kind's bundles. Descriptions come with their own bundles (`descriptionFromBundle`). */
@@ -259,10 +259,22 @@ function entryFromBundles(mechanicsEntry: { readonly id: ContentId }, entryNames
  * The `ContentPack` a pack's bundles describe, with just the kinds fetched: each entry is checked as a
  * `ContentEntry` once its name is added back, then filed as `contentPackFromFiles` does. An entry has no description.
  */
-export function contentPackFromBundles(packFile: JsonValue, kinds: readonly FetchedKind[]): ContentPack {
-  const entries = kinds.flatMap((kind) => entriesFromBundles(kind));
+export function contentPackFromBundles(packFile: JsonValue, kinds: ReadonlyArray<FetchedKind>): ContentPack {
+  return contentPackFromKindEntries(
+    packFile,
+    kinds.map((kind) => entriesFromBundles(kind)),
+  );
+}
 
-  return contentPackFromTrustedContents({ file: ContentPackFile.parse(packFile), entries });
+/**
+ * `contentPackFromBundles` over kinds already read (`entriesFromBundles`), one list of entries per kind. Packs built
+ * from the same lists share their entry objects.
+ */
+export function contentPackFromKindEntries(
+  packFile: JsonValue,
+  kinds: ReadonlyArray<ReadonlyArray<ContentEntry>>,
+): ContentPack {
+  return contentPackFromTrustedContents({ file: ContentPackFile.parse(packFile), entries: kinds.flat() });
 }
 
 /** `id`'s description in a fetched description shard, or undefined when the entry has none. */

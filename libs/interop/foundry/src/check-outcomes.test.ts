@@ -14,7 +14,7 @@ function outcomesOf(html: string): CheckOutcomes | undefined {
 }
 
 /** The degrees the first check in the text has outcomes for, sorted. */
-function degreesOf(html: string): string[] {
+function degreesOf(html: string): Array<string> {
   return Object.keys(outcomesOf(html) ?? {}).toSorted();
 }
 

@@ -1,7 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import type { ContentEntry } from './content-entry';
+import type { ContentEntryModel } from './content-entry';
 import { ContentKind } from './content-kind';
 import { BulkWeight, Coin, UsageType } from './physical-item';
 import type { Bulk, Price } from './physical-item';
@@ -21,11 +21,11 @@ export const EquipmentKind = {
 
 export type EquipmentKind = ValueOf<typeof EquipmentKind>;
 
-export type EquipmentEntry = Extract<ContentEntry, { readonly kind: EquipmentKind }>;
+export type EquipmentEntry = Extract<ContentEntryModel, { readonly kind: EquipmentKind }>;
 
 const EQUIPMENT_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(EquipmentKind));
 
-export function isEquipment(entry: ContentEntry): entry is EquipmentEntry {
+export function isEquipment(entry: ContentEntryModel): entry is EquipmentEntry {
   return EQUIPMENT_KINDS.has(entry.kind);
 }
 
@@ -97,7 +97,7 @@ export function itemBulk(entry: EquipmentEntry): BulkTenths | undefined {
 }
 
 /** Kinds whose use is fixed: armour is worn, a shield held, a rune etched; treasure and kits aren't used. */
-const FIXED_USAGE: Readonly<Partial<Record<EquipmentKind, readonly UsageValue[]>>> = {
+const FIXED_USAGE: Readonly<Partial<Record<EquipmentKind, ReadonlyArray<UsageValue>>>> = {
   [EquipmentKind.Armor]: [UsageValue.Worn],
   [EquipmentKind.Shield]: [UsageValue.Held],
   [EquipmentKind.Rune]: [UsageValue.Etched],
@@ -109,7 +109,7 @@ const FIXED_USAGE: Readonly<Partial<Record<EquipmentKind, readonly UsageValue[]>
  * How an item is used: fixed for some kinds (`FIXED_USAGE`); a weapon says, and equipment or a consumable may
  * (`undefined`, unknown, when it doesn't).
  */
-export function itemUsage(entry: EquipmentEntry): readonly (UsageValue | undefined)[] {
+export function itemUsage(entry: EquipmentEntry): ReadonlyArray<UsageValue | undefined> {
   const fixed = FIXED_USAGE[entry.kind];
 
   if (fixed !== undefined) {

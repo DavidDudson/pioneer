@@ -71,7 +71,7 @@ describe('the rules an imported inventory breaks', () => {
 describe('the same inventory against a campaign’s own limits', () => {
   const inventory = overInvested();
 
-  function flagged(investedMax: InvestedCount): readonly string[] {
+  function flagged(investedMax: InvestedCount): ReadonlyArray<string> {
     const limits = { ...CORE_RULE_LIMITS, investedMax };
     const lines = sheetInventory(inventory, runed, { limits, approvals: [] }).flatMap((group) => group.lines);
 
@@ -96,7 +96,7 @@ describe('the same inventory with the GM’s approval', () => {
   const inventory = overInvested();
   const approval = ItemApproval.parse({ item: idAt(INVESTED_MAX), rule: RuleBreak.Invested, value: INVESTED_MAX + 1 });
 
-  function linesOf(approvals: readonly ItemApproval[]): InventoryLine[] {
+  function linesOf(approvals: ReadonlyArray<ItemApproval>): Array<InventoryLine> {
     return sheetInventory(inventory, runed, { limits: CORE_RULE_LIMITS, approvals }).flatMap((group) => group.lines);
   }
 
@@ -132,7 +132,7 @@ describe('the same inventory with its owner’s acknowledgement', () => {
     acknowledgement: '00000000-0000-4000-8000-0000000000aa',
   });
 
-  function lineOf(approvals: readonly ItemApproval[]): InventoryLine | undefined {
+  function lineOf(approvals: ReadonlyArray<ItemApproval>): InventoryLine | undefined {
     return sheetInventory(inventory, runed, { limits: CORE_RULE_LIMITS, approvals })
       .flatMap((group) => group.lines)
       .find((each) => each.id === idAt(INVESTED_MAX));

@@ -11,6 +11,6 @@ import { OptionPicker } from '@pioneer/rules/ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RuneChoicePicker {
-  public readonly options = input.required<readonly SelectOption<string>[]>();
+  public readonly options = input.required<ReadonlyArray<SelectOption<string>>>();
   public readonly value = model<string | undefined>(undefined);
 }

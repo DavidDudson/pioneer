@@ -47,7 +47,7 @@ export interface DocumentFixture {
   /** The licence an entry carries beside its pack's (`OGL_ENTRIES`). */
   readonly license?: ContentLicense;
   /** The items an actor embeds. */
-  readonly items?: readonly object[];
+  readonly items?: ReadonlyArray<object>;
 }
 
 const FixtureSchema = z.looseObject({
@@ -170,7 +170,7 @@ export function coreRulesEntry(kind: ContentKind, name: string): KnownEntry {
 }
 
 /** `core-rules` as committed: Common and Dwarven, and darkvision. */
-export const known: readonly KnownEntry[] = [
+export const known: ReadonlyArray<KnownEntry> = [
   coreRulesEntry(ContentKind.Language, 'common'),
   coreRulesEntry(ContentKind.Language, 'dwarven'),
   coreRulesEntry(ContentKind.Sense, 'darkvision'),
@@ -179,7 +179,7 @@ export const known: readonly KnownEntry[] = [
 const context: ImportContext = { pack, vocabularyPack: coreRules, books: [playerCore], config, lang, known };
 
 export function translate(
-  documents: readonly DocumentFixture[],
+  documents: ReadonlyArray<DocumentFixture>,
   overrides: Partial<ImportContext> = {},
 ): ImportTranslation {
   return translateImport(

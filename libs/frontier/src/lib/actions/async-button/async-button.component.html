@@ -7,10 +7,16 @@
     [iconOnly]="iconOnly()"
     [ariaLabel]="ariaLabel()"
     [busy]="state().isPending()"
+    [status]="state().status()"
     [describedBy]="describedByIds()"
     (pressed)="press()"
   >
-    <fr-async-indicator [status]="state().status()" [pendingLabel]="pendingLabel()" [successLabel]="successLabel()" />
+    <fr-async-indicator
+      announceOnly
+      [status]="state().status()"
+      [pendingLabel]="pendingLabel()"
+      [successLabel]="successLabel()"
+    />
     <span [hidden]="asking()"><ng-content /></span>
     @if (asking()) {
       <span>{{ confirmLabel() }}</span>

@@ -10,10 +10,10 @@ import type {
   CharacterPlay,
   CharacterSort,
 } from '@pioneer/character/domain';
-import { FIRST_VERSION, newId, nextVersion, SortDirection, VersionConflictError } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, newId, nextVersion, SortDirection } from '@pioneer/shared/kernel';
 import type { Temporal, UserId, Version } from '@pioneer/shared/kernel';
-import { RequestMemo, stampAudit } from '@pioneer/shared/server';
-import { and, asc, count, desc, eq, inArray, isNotNull, isNull, sql } from 'drizzle-orm';
+import { archiveRows, RequestMemo, restoreRows, stampAudit, updateVersioned } from '@pioneer/shared/server';
+import { and, asc, count, desc, eq, inArray, isNotNull, isNull } from 'drizzle-orm';
 import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 import type { AnyPgColumn } from 'drizzle-orm/pg-core';
@@ -40,7 +40,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     this.#db = db;
   }
 
-  public override async listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]> {
+  public override async listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<ReadonlyArray<Character>> {
     return this.#listFor(and(eq(characters.ownerId, ownerId), isNull(characters.archivedAt)), query);
   }
 
@@ -71,11 +71,11 @@ export class DrizzleCharacterRepository extends CharacterRepository {
   public override async listArchivedForOwner(
     ownerId: UserId,
     query: CharacterListQuery,
-  ): Promise<readonly Character[]> {
+  ): Promise<ReadonlyArray<Character>> {
     return this.#listFor(and(eq(characters.ownerId, ownerId), isNotNull(characters.archivedAt)), query);
   }
 
-  async #listFor(where: SQL | undefined, query: CharacterListQuery): Promise<readonly Character[]> {
+  async #listFor(where: SQL | undefined, query: CharacterListQuery): Promise<ReadonlyArray<Character>> {
     const order = query.direction === SortDirection.Asc ? asc : desc;
 
     const rows = await this.#db
@@ -101,7 +101,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     return row?.ownerId;
   }
 
-  public override async findByIds(ids: readonly CharacterId[]): Promise<readonly Character[]> {
+  public override async findByIds(ids: ReadonlyArray<CharacterId>): Promise<ReadonlyArray<Character>> {
     if (ids.length === 0) {
       return [];
     }
@@ -131,18 +131,16 @@ export class DrizzleCharacterRepository extends CharacterRepository {
   }
 
   public override async archive(id: CharacterId, now: Temporal.Instant, audit: CharacterAudit): Promise<void> {
-    await this.#setArchived(and(eq(characters.id, id), isNull(characters.archivedAt)), now.toString(), audit);
+    await this.#db.transaction(async (tx) => {
+      await stampAudit(tx, audit);
+      await archiveRows(tx, characters, { where: eq(characters.id, id), now });
+    });
   }
 
   public override async restore(id: CharacterId, audit: CharacterAudit): Promise<void> {
-    await this.#setArchived(and(eq(characters.id, id), isNotNull(characters.archivedAt)), sql`null`, audit);
-  }
-
-  /** Stamps or clears `archivedAt` on the rows `where` matches, with the audit context. Version and `updatedAt` stay: nothing about the build changed. */
-  async #setArchived(where: SQL | undefined, archivedAt: SQL | string, audit: CharacterAudit): Promise<void> {
     await this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
-      await tx.update(characters).set({ archivedAt }).where(where);
+      await restoreRows(tx, characters, { where: eq(characters.id, id) });
     });
   }
 
@@ -181,11 +179,12 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     const saved = await this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
 
-      const [row] = await tx
-        .update(characters)
-        .set(next)
-        .where(and(eq(characters.id, character.id), eq(characters.version, expectedVersion)))
-        .returning();
+      const row = await updateVersioned(tx, characters, {
+        set: next,
+        where: and(eq(characters.id, character.id), eq(characters.version, expectedVersion)),
+        resource: 'Character',
+        id: character.id,
+      });
 
       const [play] = await tx
         .select({ state: characterPlay.state })
@@ -193,12 +192,8 @@ export class DrizzleCharacterRepository extends CharacterRepository {
         .where(eq(characterPlay.characterId, character.id))
         .limit(1);
 
-      return row === undefined ? undefined : { character: row, play: play?.state };
+      return { character: row, play: play?.state };
     });
-
-    if (saved === undefined) {
-      throw new VersionConflictError('Character', character.id);
-    }
 
     return toCharacter(saved);
   }
@@ -214,19 +209,16 @@ export class DrizzleCharacterRepository extends CharacterRepository {
   }
 
   public override async updatePlay({ id, play, expectedRevision, audit, now }: PlayWrite): Promise<CharacterPlay> {
-    const [row] = await this.#db.transaction(async (tx) => {
+    const row = await this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
 
-      return tx
-        .update(characterPlay)
-        .set({ state: play, playRevision: nextVersion(expectedRevision), updatedAt: now.toString() })
-        .where(and(eq(characterPlay.characterId, id), eq(characterPlay.playRevision, expectedRevision)))
-        .returning({ playRevision: characterPlay.playRevision, state: characterPlay.state });
+      return updateVersioned(tx, characterPlay, {
+        set: { state: play, playRevision: nextVersion(expectedRevision), updatedAt: now.toString() },
+        where: and(eq(characterPlay.characterId, id), eq(characterPlay.playRevision, expectedRevision)),
+        resource: 'CharacterPlay',
+        id,
+      });
     });
-
-    if (row === undefined) {
-      throw new VersionConflictError('CharacterPlay', id);
-    }
 
     return toPlay(row);
   }
@@ -241,25 +233,19 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     return this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
 
-      const [built] = await tx
-        .update(characters)
-        .set(next)
-        .where(and(eq(characters.id, id), eq(characters.version, expectedVersion)))
-        .returning({ id: characters.id });
+      await updateVersioned(tx, characters, {
+        set: next,
+        where: and(eq(characters.id, id), eq(characters.version, expectedVersion)),
+        resource: 'Character',
+        id,
+      });
 
-      if (built === undefined) {
-        throw new VersionConflictError('Character', id);
-      }
-
-      const [row] = await tx
-        .update(characterPlay)
-        .set({ state: play, playRevision: nextVersion(expectedRevision), updatedAt: now.toString() })
-        .where(and(eq(characterPlay.characterId, id), eq(characterPlay.playRevision, expectedRevision)))
-        .returning({ playRevision: characterPlay.playRevision, state: characterPlay.state });
-
-      if (row === undefined) {
-        throw new VersionConflictError('CharacterPlay', id);
-      }
+      const row = await updateVersioned(tx, characterPlay, {
+        set: { state: play, playRevision: nextVersion(expectedRevision), updatedAt: now.toString() },
+        where: and(eq(characterPlay.characterId, id), eq(characterPlay.playRevision, expectedRevision)),
+        resource: 'CharacterPlay',
+        id,
+      });
 
       return toPlay(row);
     });

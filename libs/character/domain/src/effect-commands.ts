@@ -97,7 +97,7 @@ function formReached(form: RollOption | undefined, rank: SpellRank | undefined, 
 }
 
 function problemOfApply(
-  effects: readonly ActiveEffect[],
+  effects: ReadonlyArray<ActiveEffect>,
   command: Extract<EffectCommand, { field: typeof EffectCommandField.ApplyEffect }>,
   content: EffectContent,
 ): EffectProblem | undefined {
@@ -126,7 +126,7 @@ function problemOfApply(
 
 /** Why `command` cannot be applied to `effects`, if it cannot. Applying a refused command changes nothing. */
 export function effectProblem(
-  effects: readonly ActiveEffect[],
+  effects: ReadonlyArray<ActiveEffect>,
   command: EffectCommand,
   content: EffectContent,
 ): EffectProblem | undefined {
@@ -215,10 +215,10 @@ function applied(command: ApplyEffectCommand, terms: EffectTerms): ActiveEffect 
  * instance the command names but the character lacks, or an effect the content lacks, is left alone.
  */
 export function applyEffectCommand(
-  effects: readonly ActiveEffect[],
+  effects: ReadonlyArray<ActiveEffect>,
   command: EffectCommand,
   content: EffectContent,
-): readonly ActiveEffect[] {
+): ReadonlyArray<ActiveEffect> {
   switch (command.field) {
     case EffectCommandField.ApplyEffect: {
       const terms = content.get(command.effect);
@@ -243,7 +243,7 @@ export function applyEffectCommand(
     }
 
     case EffectCommandField.SpendEffectUse: {
-      return effects.flatMap((each): ActiveEffect[] => {
+      return effects.flatMap((each): Array<ActiveEffect> => {
         if (each.id !== command.id || each.uses === undefined) {
           return [each];
         }

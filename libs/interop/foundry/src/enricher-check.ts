@@ -1,6 +1,7 @@
 import { Dc, InlineKind, RollOption, Selector } from '@pioneer/rules/sdk';
 import type { CheckDc, CheckNode } from '@pioneer/rules/sdk';
 import { present } from '@pioneer/shared/kernel';
+import { capitalise } from '@pioneer/shared/utils';
 
 import { inlineLabel, reportParams, textRun } from './enricher-context';
 import type { EnricherContext } from './enricher-context';
@@ -195,7 +196,7 @@ function dcOf(input: CheckInput, context: EnricherContext): CheckDc | undefined 
 }
 
 /** Foundry's extra roll options; Pioneer's need a namespace (`area-effect` has none), so those are reported. */
-function optionsOf(params: ReadonlyMap<string, string>, context: EnricherContext): RollOption[] {
+function optionsOf(params: ReadonlyMap<string, string>, context: EnricherContext): Array<RollOption> {
   const values = (params.get(OPTIONS) ?? '').split(LIST_SEPARATOR).map((value) => value.trim());
   const options = values.flatMap((value) => RollOption.safeParse(value).data ?? []);
 
@@ -223,12 +224,12 @@ function fallbackText(type: string, label: string | undefined): string {
     label ??
     type
       .split('-')
-      .map((word) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`)
+      .map((word) => capitalise(word))
       .join(' ')
   );
 }
 
-export function checkRun(params: string, label: string | undefined, context: EnricherContext): RunNode[] {
+export function checkRun(params: string, label: string | undefined, context: EnricherContext): Array<RunNode> {
   const parsed = enricherParams(params, TYPE);
   const type = parsed.get(TYPE) ?? '';
   const statistic = type.includes(LIST_SEPARATOR) ? undefined : statisticSelector(type);

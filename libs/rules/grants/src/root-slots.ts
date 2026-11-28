@@ -1,5 +1,5 @@
-import { ContentId, OriginHopKind } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentKind, OriginHop, SlotKey } from '@pioneer/rules/sdk';
+import { contentIdOf, OriginHopKind } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentId, ContentKind, OriginHop, SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import type { ChoicePicks } from './choices';
@@ -23,16 +23,16 @@ export interface RootSlotDefinition {
 
 /** A root slot on the character, with what it offers and the pick that answers it. */
 export interface RootSlot extends RootSlotDefinition {
-  readonly options: readonly OfferedOption[];
+  readonly options: ReadonlyArray<OfferedOption>;
   /** Undefined while the slot is open: no pick, or a pick the slot doesn't offer. */
   readonly pick: ContentId | undefined;
 }
 
 /** The root slots read against the picks: each slot, the roots their picks add, and the picks that aren't on offer. */
 export interface RootSlotsRead {
-  readonly slots: readonly RootSlot[];
-  readonly roots: readonly GrantRoot[];
-  readonly errors: readonly GrantError[];
+  readonly slots: ReadonlyArray<RootSlot>;
+  readonly roots: ReadonlyArray<GrantRoot>;
+  readonly errors: ReadonlyArray<GrantError>;
 }
 
 /** What a root slot offers: entries of its kind, and when it is `within` another, only those that fit that slot's pick. */
@@ -59,7 +59,7 @@ function byLabel(left: OfferedOption, right: OfferedOption): number {
 }
 
 /** Every entry the slot offers, sorted by name, then id; one of an unsupported pack only if it is the slot's pick. */
-function offered(scope: SlotScope): OfferedOption[] {
+function offered(scope: SlotScope): Array<OfferedOption> {
   const entries = scope.lookup
     .ofKind(scope.kind)
     .filter((entry) => offers(scope, entry) && (entry.facts?.unsupported !== true || entry.id === scope.held));
@@ -74,7 +74,7 @@ function slotOf(definition: RootSlotDefinition, scope: SlotScope, pick: ContentI
   return {
     ...definition,
     pick,
-    get options(): readonly OfferedOption[] {
+    get options(): ReadonlyArray<OfferedOption> {
       return offer.options;
     },
   };
@@ -82,8 +82,8 @@ function slotOf(definition: RootSlotDefinition, scope: SlotScope, pick: ContentI
 
 /** The entry `value` names, if the slot offers it. */
 function pickOf(value: ChoiceValue, scope: SlotScope): ContentId | undefined {
-  const id = ContentId.safeParse(value);
-  const entry = id.success ? scope.lookup.entry(id.data) : undefined;
+  const id = contentIdOf(value);
+  const entry = id === undefined ? undefined : scope.lookup.entry(id);
 
   return entry !== undefined && offers(scope, entry) ? entry.id : undefined;
 }
@@ -130,12 +130,12 @@ function readSlot(definition: RootSlotDefinition, value: ChoiceValue | undefined
  * offer is.
  */
 export function readRootSlots(
-  definitions: readonly RootSlotDefinition[],
+  definitions: ReadonlyArray<RootSlotDefinition>,
   picks: ChoicePicks,
   lookup: ContentLookup,
 ): RootSlotsRead {
   const answered = new Map<SlotKey, ContentId>();
-  const reads: SlotRead[] = [];
+  const reads: Array<SlotRead> = [];
 
   for (const definition of definitions) {
     const read = readSlot(definition, picks.get(definition.key), scopeOf(definition, lookup, answered));

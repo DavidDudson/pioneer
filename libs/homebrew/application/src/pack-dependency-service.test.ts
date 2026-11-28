@@ -21,7 +21,7 @@ const PLAYER_CORE = PackId.parse('player-core');
 const playerCore = contentPackId(PLAYER_CORE);
 
 /** Titles of a pack's dependencies or candidates, for short assertions. */
-function titles(packs: readonly { readonly title: ContentText }[]): readonly string[] {
+function titles(packs: ReadonlyArray<{ readonly title: ContentText }>): ReadonlyArray<string> {
   return packs.map((pack) => pack.title);
 }
 

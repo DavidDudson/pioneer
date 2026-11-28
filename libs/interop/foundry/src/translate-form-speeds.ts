@@ -25,14 +25,14 @@ interface Tier {
 }
 
 /** The tiers of a `match(when(...), ...)` formula over the item's level, or nothing when it is any other formula. */
-function tiersOf(value: unknown): readonly Tier[] | undefined {
+function tiersOf(value: unknown): ReadonlyArray<Tier> | undefined {
   const whens = typeof value === 'string' ? MATCH.exec(value)?.groups?.['whens'] : undefined;
 
   if (whens === undefined) {
     return undefined;
   }
 
-  const tiers = [...whens.matchAll(WHEN)].flatMap(({ groups }): Tier[] => {
+  const tiers = [...whens.matchAll(WHEN)].flatMap(({ groups }): Array<Tier> => {
     const { from, low, high, bonus } = groups ?? {};
 
     return bonus === undefined
@@ -50,7 +50,7 @@ function tiersOf(value: unknown): readonly Tier[] | undefined {
 }
 
 /** The speed bonus of each rank at which it changes, from the first tier that holds; ranks below hold none. */
-function changes(tiers: readonly Tier[]): ReadonlyMap<number, number> {
+function changes(tiers: ReadonlyArray<Tier>): ReadonlyMap<number, number> {
   const result = new Map<number, number>();
   let before = 0;
 
@@ -118,7 +118,7 @@ function withSpeeds(bracket: unknown, speeds: Fields): Fields {
 
 /** `form` with `speeds` in the bracket that starts at `start`, added to the bracket there is or a new one. */
 function withBracket(form: Fields, start: number, speeds: Fields): Fields {
-  const brackets: readonly unknown[] = Array.isArray(form['brackets']) ? form['brackets'] : [];
+  const brackets: ReadonlyArray<unknown> = Array.isArray(form['brackets']) ? form['brackets'] : [];
   const held = brackets.some((each) => startOf(each) === start);
 
   const changed = held
@@ -146,12 +146,12 @@ function withBonus(form: Fields, { movement, changes: byRank }: SpeedBonus): Fie
 }
 
 interface Folded {
-  readonly raws: readonly unknown[];
+  readonly raws: ReadonlyArray<unknown>;
   readonly folded: boolean;
 }
 
 /** `raws` with `bonus` in each `BattleForm` that has a speed for it, and whether any did. */
-function foldInto(raws: readonly unknown[], bonus: SpeedBonus): Folded {
+function foldInto(raws: ReadonlyArray<unknown>, bonus: SpeedBonus): Folded {
   let folded = false;
 
   const result = raws.map((raw) => {
@@ -168,7 +168,7 @@ function foldInto(raws: readonly unknown[], bonus: SpeedBonus): Folded {
  * `raws` with each speed `FlatModifier` by item level folded into the `BattleForm`s among them, and gone. One it cannot
  * fold, as there is no form or no form has a number for that speed, stays.
  */
-export function withFormSpeedBrackets(raws: readonly unknown[]): readonly unknown[] {
+export function withFormSpeedBrackets(raws: ReadonlyArray<unknown>): ReadonlyArray<unknown> {
   let result = raws;
 
   for (const raw of raws) {

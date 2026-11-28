@@ -1,12 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntry, contentId, ContentKey, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { ContentEntry, ContentId, contentId, ContentKey, ContentText, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { JsonObject, JsonValue } from '@pioneer/rules/sdk/testing';
 
 import { triggerCoverage } from './trigger-coverage';
 
 const PACK = 'player-core';
-const prose = (words: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const prose = (words: string): Array<JsonValue> => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A Player Core entry of `kind` with `data`. */
 function entry(name: string, kind: string, data: JsonObject): ContentEntry {
@@ -30,6 +30,21 @@ function entry(name: string, kind: string, data: JsonObject): ContentEntry {
 }
 
 const reaction = { cost: 'reaction', trigger: prose('An ally is about to use an action.') };
+const wording = (words: string): JsonObject => ({ cost: 'reaction', trigger: prose(words) });
+
+const linking = (id: string): JsonObject => ({
+  cost: 'reaction',
+  trigger: [
+    {
+      type: 'paragraph',
+      content: [
+        { type: 'text', text: 'You use ' },
+        { type: 'ref', id },
+      ],
+    },
+  ],
+});
+
 const turnStart = { triggerEvent: { event: 'turn-start' } };
 
 describe('trigger coverage', () => {
@@ -46,10 +61,35 @@ describe('trigger coverage', () => {
     expect(triggerCoverage(entries)).toStrictEqual({
       triggered: 4,
       withoutEvent: ['player-core/action:aid', 'player-core/feat:swift'].map((key) => ContentKey.parse(key)),
+      unmatchedPhrasings: [{ phrasing: 'an ally is about to use an action', count: 2 }],
     });
   });
 
   test('an empty pack has nothing to cover', () => {
-    expect(triggerCoverage([])).toStrictEqual({ triggered: 0, withoutEvent: [] });
+    expect(triggerCoverage([])).toStrictEqual({ triggered: 0, withoutEvent: [], unmatchedPhrasings: [] });
+  });
+
+  test('groups unmatched wordings, most common first, ties alphabetically', () => {
+    const entries = [
+      entry('a', 'action', wording('You are hit.')),
+      entry('b', 'action', wording('An ally falls.')),
+      entry('c', 'action', wording('you are  hit')),
+      entry('d', 'action', wording('A trap springs.')),
+      entry('e', 'action', { ...wording('Your turn begins.'), ...turnStart }),
+    ];
+
+    expect(triggerCoverage(entries).unmatchedPhrasings).toStrictEqual([
+      { phrasing: 'you are hit', count: 2 },
+      { phrasing: 'a trap springs', count: 1 },
+      { phrasing: 'an ally falls', count: 1 },
+    ]);
+  });
+
+  test('names a link in a wording by the entry it links to', () => {
+    const target = contentId(PackId.parse(PACK), EntrySlug.parse('action:aid'));
+    const names = new Map([[ContentId.parse(target), ContentText.parse('Aid')]]);
+    const linked = entry('a', 'action', linking(target));
+
+    expect(triggerCoverage([linked], names).unmatchedPhrasings).toStrictEqual([{ phrasing: 'you use aid', count: 1 }]);
   });
 });

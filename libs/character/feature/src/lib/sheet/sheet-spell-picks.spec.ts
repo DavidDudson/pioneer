@@ -37,9 +37,9 @@ function wizardAt(level: number): Character {
 }
 
 interface Picked {
-  readonly fields: readonly PreparedField[];
+  readonly fields: ReadonlyArray<PreparedField>;
   readonly params: WritableSignal<QueryParams>;
-  readonly writes: Record<string, string | undefined>[];
+  readonly writes: Array<Record<string, string | undefined>>;
 }
 
 /** A 5th-level wizard whose pickers filter, with the URL's params and what was written to them. */
@@ -48,7 +48,7 @@ function picked(params: QueryParams = {}, filtering = true, character: Character
   registry.register(playerCoreClasses());
   registry.register(spellFixtures());
   const url = signal<QueryParams>(params);
-  const writes: Record<string, string | undefined>[] = [];
+  const writes: Array<Record<string, string | undefined>> = [];
 
   const base: SpellPickSources = {
     registry: signal(registry),

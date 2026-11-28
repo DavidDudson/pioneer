@@ -61,7 +61,7 @@ export function bulkCarried(entry: ItemEntry | undefined, choice: CarryChoice): 
 }
 
 /** The ways `entry` can be carried as rows, each translated by `say`. */
-export function carryRows(entry: ItemEntry | undefined, say: (key: string) => string): readonly CarryRow[] {
+export function carryRows(entry: ItemEntry | undefined, say: (key: string) => string): ReadonlyArray<CarryRow> {
   return carryChoices(entry).map((choice) => ({
     value: choice,
     label: say(CARRY_LABELS[choice]),
@@ -78,7 +78,7 @@ export const CARRY_ORDER: RowOrder<CarryRow> = {
 };
 
 /** The columns of a carry picker: the way, the hands it takes as a meter, what it does, and the Bulk it adds. */
-function carryColumns(headers: CarryHeaders, handsLabel: string): readonly TableColumn<CarryRow>[] {
+function carryColumns(headers: CarryHeaders, handsLabel: string): ReadonlyArray<TableColumn<CarryRow>> {
   return new ItemTableSchema<CarryRow>()
     .addText({ id: 'name', header: headers.name, value: (row) => row.label, width: 'md' })
     .addCount({
@@ -93,7 +93,7 @@ function carryColumns(headers: CarryHeaders, handsLabel: string): readonly Table
       id: 'effect',
       header: headers.effect,
       sortable: false,
-      value: (row): readonly Chip[] => [{ label: row.effect }],
+      value: (row): ReadonlyArray<Chip> => [{ label: row.effect }],
       width: 'lg',
     })
     .addBulk({ id: 'bulk', header: headers.bulk, value: (row) => row.bulk, width: 'sm' })
@@ -106,7 +106,7 @@ const carryLabel = (row: CarryRow): string => row.label;
 /** A carry picker's rows, columns and the functions it reads them with. */
 export interface CarryPicker {
   readonly rows: PickerRows<CarryRow>;
-  readonly columns: Signal<readonly TableColumn<CarryRow>[]>;
+  readonly columns: Signal<ReadonlyArray<TableColumn<CarryRow>>>;
   readonly value: (row: CarryRow) => string;
   readonly label: (row: CarryRow) => string;
 }
@@ -120,25 +120,23 @@ export function injectCarryPicker(entry: Signal<ItemEntry | undefined>): CarryPi
   const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   const messages = toSignal(merge(i18n.langChanges$, loaded));
 
-  const all = computed((): readonly CarryRow[] => {
+  const all = computed((): ReadonlyArray<CarryRow> => {
     messages();
 
     return carryRows(entry(), (key) => i18n.translate(key));
   });
 
-  const columns = computed(() => {
-    messages();
-
-    return carryColumns(
+  const columns = computed(() =>
+    carryColumns(
       {
-        name: i18n.translate('character.sheet.inventory.carryColumns.name'),
-        hands: i18n.translate('character.sheet.inventory.carryColumns.hands'),
-        effect: i18n.translate('character.sheet.inventory.carryColumns.effect'),
-        bulk: i18n.translate('character.sheet.inventory.carryColumns.bulk'),
+        name: 'character.sheet.inventory.carryColumns.name',
+        hands: 'character.sheet.inventory.carryColumns.hands',
+        effect: 'character.sheet.inventory.carryColumns.effect',
+        bulk: 'character.sheet.inventory.carryColumns.bulk',
       },
-      i18n.translate('character.sheet.inventory.carryColumns.handsUsed'),
-    );
-  });
+      'character.sheet.inventory.carryColumns.handsUsed',
+    ),
+  );
 
   return { rows: new PickerRows(all, CARRY_ORDER), columns, value: carryValue, label: carryLabel };
 }

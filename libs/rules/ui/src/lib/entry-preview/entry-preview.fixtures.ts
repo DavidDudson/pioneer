@@ -106,7 +106,7 @@ const RESISTANCE = DamageAmount.parse(5);
 /** A resistance to physical damage with exceptions, with the names its caller found for them. */
 export function resistancePreviewEffect(
   entryId: typeof FIREBALL,
-  options: { readonly exceptions: readonly string[]; readonly names?: readonly string[] },
+  options: { readonly exceptions: ReadonlyArray<string>; readonly names?: ReadonlyArray<string> },
 ): PreviewEffect {
   const entry = ContentId.parse(entryId);
   const { modifier } = line(entry, { type: ModifierType.Status, value: 0 });

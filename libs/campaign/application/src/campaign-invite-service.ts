@@ -55,7 +55,7 @@ export class CampaignInviteService {
   }
 
   /** The campaign's invites that still work, newest first. */
-  public async list(actor: UserId, campaignId: CampaignId): Promise<readonly InviteSummary[]> {
+  public async list(actor: UserId, campaignId: CampaignId): Promise<ReadonlyArray<InviteSummary>> {
     await this.#managedCampaign(actor, campaignId);
     const invites = await this.#invites.listOpen(campaignId, this.#clock.now());
 

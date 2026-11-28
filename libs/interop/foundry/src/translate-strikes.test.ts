@@ -13,7 +13,7 @@ const NO_RANGE: unknown = JSON.parse('null');
 const LANG = { PF2E: { Weapon: { Base: { claw: 'Claw' } } } };
 
 /** The rules as plain JSON, to compare with the plain spelling a pack file has. */
-function plain(rules: readonly object[]): unknown {
+function plain(rules: ReadonlyArray<object>): unknown {
   return structuredClone(rules);
 }
 

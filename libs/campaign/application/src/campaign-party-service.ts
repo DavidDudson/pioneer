@@ -165,7 +165,7 @@ export class CampaignPartyService {
     const vitals = await this.#characters.vitalsOf(live);
 
     // A character goes with its member and its owner's account, so a gap is a change since the campaign loaded.
-    const characters = attachments.flatMap((attachment): PartyCharacter[] => {
+    const characters = attachments.flatMap((attachment): Array<PartyCharacter> => {
       const owner = campaign.memberById(attachment.memberId);
       const character = summaries.get(attachment.characterId);
       const ownerName = owner === undefined ? undefined : names.get(owner.userId);

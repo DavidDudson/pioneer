@@ -19,7 +19,7 @@ const FIGHTER = {
 };
 
 /** The d20 faces the next rolls land on. */
-function rolling(...faces: readonly number[]): void {
+function rolling(...faces: ReadonlyArray<number>): void {
   TestBed.configureTestingModule({
     providers: [{ provide: RANDOM_SOURCE, useValue: scriptedRandom(faces.map((face) => DieFace.parse(face))) }],
   });
@@ -39,7 +39,7 @@ function modifierOf(root: HTMLElement, name: string): number {
     .map((item) => textOf(item))
     .find((text) => text.startsWith(name));
 
-  const match = /(?<sign>[+-−])(?<value>\d+)/u.exec(row ?? '');
+  const match = /(?<sign>[+\-−])(?<value>\d+)/u.exec(row ?? '');
 
   if (match === null) {
     throw new Error(`Expected a modifier beside ${name}`);

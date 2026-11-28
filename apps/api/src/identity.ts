@@ -3,6 +3,7 @@ import {
   BugReportTriageService,
   IdentityService,
   PreferencesService,
+  TableViewService,
 } from '@pioneer/identity/application';
 import type { CharacterSnapshotSource, OAuthProviderPort } from '@pioneer/identity/application';
 import { AuthPath, OAuthProvider } from '@pioneer/identity/domain';
@@ -13,6 +14,7 @@ import {
   DrizzleBugReportRepository,
   DrizzlePreferencesRepository,
   DrizzleSessionRepository,
+  DrizzleTableViewRepository,
   DrizzleUserRepository,
   GitHubProvider,
   GoogleProvider,
@@ -20,6 +22,7 @@ import {
   preferenceRoutes,
   SessionAuthenticator,
   sessionSweep,
+  tableViewRoutes,
 } from '@pioneer/identity/infrastructure';
 import type { CookiePolicy, OAuthCredentials } from '@pioneer/identity/infrastructure';
 import { Milliseconds } from '@pioneer/shared/kernel';
@@ -58,7 +61,7 @@ function credentials(
 }
 
 /** The sign-in providers whose credentials are configured, in the order the sign-in page lists them. */
-function providers(env: Env): OAuthProviderPort[] {
+function providers(env: Env): Array<OAuthProviderPort> {
   const github = credentials(env, OAuthProvider.GitHub, {
     clientId: env.GITHUB_CLIENT_ID,
     clientSecret: env.GITHUB_CLIENT_SECRET,
@@ -104,6 +107,7 @@ export function identity(db: Database, env: Env, { clock, snapshots }: IdentityP
   const users = new DrizzleUserRepository(db);
   const service = new IdentityService(users, new DrizzleSessionRepository(db), clock);
   const preferences = new PreferencesService(new DrizzlePreferencesRepository(db), clock);
+  const tableViews = new TableViewService(new DrizzleTableViewRepository(db), clock);
   const bugReportRepository = new DrizzleBugReportRepository(db);
   const bugReports = new BugReportService(bugReportRepository, snapshots, clock);
   const triage = new BugReportTriageService(bugReportRepository, users);
@@ -115,6 +119,7 @@ export function identity(db: Database, env: Env, { clock, snapshots }: IdentityP
   return {
     routes: identityRoutes(service, providers(env), policy)
       .use(preferenceRoutes(preferences, authenticator))
+      .use(tableViewRoutes(tableViews, authenticator))
       .use(bugReportRoutes(bugReports, triage, authenticator))
       .use(sessionSweep(service, SESSION_SWEEP_INTERVAL)),
     authenticator,

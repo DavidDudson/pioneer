@@ -51,7 +51,7 @@ describe('translateCreature: spellcasting', () => {
 
   test('the abilities beside it: a passive trait with a rule, a two-action activity', () => {
     // SAFETY: the translated creature's kind data holds this list, whose elements have the fields named here.
-    const abilities = dataOf(ARBITER)?.['abilities'] as { name: string; cost?: string; rules: unknown[] }[];
+    const abilities = dataOf(ARBITER)?.['abilities'] as Array<{ name: string; cost?: string; rules: Array<unknown> }>;
 
     expect(abilities.map(({ name, cost }) => [name, cost])).toStrictEqual([
       ['Locate Aeon', undefined],
@@ -65,7 +65,7 @@ describe('translateCreature: spellcasting', () => {
 describe('translateCreature: strikes', () => {
   test('a level 21 dragon’s jaws, claw and tail: bonus, damage with its flat bonus, reach and attack effects', () => {
     // SAFETY: the translated creature's kind data holds this list, whose elements have the fields named here.
-    const strikes = dataOf(TOR_LINNORM_ITEMS)?.['strikes'] as { name: string }[];
+    const strikes = dataOf(TOR_LINNORM_ITEMS)?.['strikes'] as Array<{ name: string }>;
 
     expect(strikes).toMatchObject([
       {

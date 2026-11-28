@@ -50,11 +50,11 @@ export type CountingCommand =
 export type CountingPlay = RestPlay & {
   readonly toggles: Toggles;
   readonly shapes?: Shifts;
-  readonly effects: readonly ActiveEffect[];
+  readonly effects: ReadonlyArray<ActiveEffect>;
   readonly environments: ActiveEnvironments;
   readonly exposure: Exposure;
   readonly breath?: BreathState | undefined;
-  readonly activeSpells: readonly ActiveSpell[];
+  readonly activeSpells: ReadonlyArray<ActiveSpell>;
   readonly spendLog: SpendLog;
   readonly turn: TurnState;
   readonly exploration?: ExplorationActivity;
@@ -94,7 +94,7 @@ export function isCountingCommand<Command extends { readonly field: unknown }>(
 }
 
 /** What bounds a pool edit, from the limits of a counting edit. */
-function resourceLimits(limits: CountingLimits): ResourceLimits {
+export function resourceLimits(limits: CountingLimits): ResourceLimits {
   return { points: limits.resources, counted: limits.counted, staffCost: limits.staff.castCost ?? NO_CHARGES };
 }
 

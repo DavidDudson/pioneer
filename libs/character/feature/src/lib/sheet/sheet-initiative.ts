@@ -25,8 +25,8 @@ export interface InitiativeSheet {
 export function initiativeChoices(
   { registry, character }: InitiativeSheet,
   perception: string,
-  skills: readonly NamedStatistic[],
-): readonly InitiativeChoice[] {
+  skills: ReadonlyArray<NamedStatistic>,
+): ReadonlyArray<InitiativeChoice> {
   const candidates = [
     { selector: PERCEPTION, name: perception },
     ...skills.flatMap(({ name, result }) =>
@@ -34,7 +34,7 @@ export function initiativeChoices(
     ),
   ];
 
-  return candidates.flatMap(({ selector, name }): InitiativeChoice[] => {
+  return candidates.flatMap(({ selector, name }): Array<InitiativeChoice> => {
     const setup = sheetRollSetup(registry, character, { selector, chosen: new Set(), as: initiativeRoll(selector) });
 
     return setup === undefined ? [] : [{ selector, name, total: Number(setup.statistic.total) }];
@@ -45,7 +45,7 @@ export function initiativeChoices(
 export function defaultInitiative(
   registry: ContentRegistry,
   activity: ExplorationActivity,
-  choices: readonly InitiativeChoice[],
+  choices: ReadonlyArray<InitiativeChoice>,
 ): InitiativeChoice | undefined {
   const suggested = suggestedInitiative(registry, activity);
 

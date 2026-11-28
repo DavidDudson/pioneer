@@ -32,15 +32,15 @@ export class DamageTargetOptions {
 
     return damageTargetColumns(
       {
-        name: this.#i18n.translate('play.dice.targetColumns.name'),
-        category: this.#i18n.translate('play.dice.targetColumns.category'),
-        includes: this.#i18n.translate('play.dice.targetColumns.includes'),
+        name: 'play.dice.targetColumns.name',
+        category: 'play.dice.targetColumns.category',
+        includes: 'play.dice.targetColumns.includes',
       },
       (category) => this.#i18n.translate(CATEGORY_KEYS[category]),
     );
   });
 
-  public readonly types = computed((): readonly DamageTargetRow[] => {
+  public readonly types = computed((): ReadonlyArray<DamageTargetRow> => {
     this.#messages();
 
     return Object.values(DamageType).map((value) => ({
@@ -51,7 +51,7 @@ export class DamageTargetOptions {
     }));
   });
 
-  public readonly targets = computed((): readonly DamageTargetRow[] => {
+  public readonly targets = computed((): ReadonlyArray<DamageTargetRow> => {
     this.#messages();
 
     // Groups first: `physical` and `all` are the common stat-block entries.

@@ -46,7 +46,7 @@ interface Step {
 }
 
 /** The trail `fr-page-header` hands the shell's header at `url`. */
-async function trailAt(url: string): Promise<Step[]> {
+async function trailAt(url: string): Promise<Array<Step>> {
   await TestBed.inject(Router).navigateByUrl(url);
   await renderProjected(PageHeader, { title: 'Fireball' }, []);
 

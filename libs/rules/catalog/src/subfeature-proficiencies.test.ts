@@ -37,7 +37,7 @@ function fighterRanksAt(level: number): ReadonlyMap<Selector, Proficiency> {
     namespaces: registry.rollOptionNamespaces(),
   });
 
-  const rules: RuleInPlay[] = grants.items.flatMap(({ entry, origin }) =>
+  const rules: Array<RuleInPlay> = grants.items.flatMap(({ entry, origin }) =>
     entry.rules.map((element, rule) => ({ element, origin, rule: RuleIndex.parse(rule) })),
   );
 
@@ -47,7 +47,7 @@ function fighterRanksAt(level: number): ReadonlyMap<Selector, Proficiency> {
 const ARMOUR = ['defense:unarmored', 'defense:light', 'defense:medium', 'defense:heavy'];
 
 /** The ranks the issue checks, by selector. */
-function ranksOf(ranks: ReadonlyMap<Selector, Proficiency>, selectors: readonly string[]): Record<string, string> {
+function ranksOf(ranks: ReadonlyMap<Selector, Proficiency>, selectors: ReadonlyArray<string>): Record<string, string> {
   return Object.fromEntries(
     selectors.map((selector) => [selector, ranks.get(Selector.parse(selector)) ?? 'untrained']),
   );

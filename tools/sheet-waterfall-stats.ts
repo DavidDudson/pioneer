@@ -13,7 +13,7 @@ export interface WaterfallRow {
 
 /** One page load: what it fetched and when the sheet's two paint marks were set. */
 export interface SheetLoad {
-  readonly rows: readonly WaterfallRow[];
+  readonly rows: ReadonlyArray<WaterfallRow>;
   readonly headerMs: number;
   readonly readyMs: number;
 }
@@ -25,7 +25,7 @@ export interface LoadSummary {
   readonly bytes: number;
   readonly headerMs: number;
   readonly readyMs: number;
-  readonly waterfall: readonly WaterfallRow[];
+  readonly waterfall: ReadonlyArray<WaterfallRow>;
 }
 
 function rounded(value: number): number {
@@ -33,7 +33,7 @@ function rounded(value: number): number {
 }
 
 /** The middle of `values`; the mean of the two middle ones when there are an even number. */
-export function median(values: readonly number[]): number {
+export function median(values: ReadonlyArray<number>): number {
   if (values.length === 0) {
     return 0;
   }
@@ -51,7 +51,7 @@ function totalBytes(load: SheetLoad): number {
 }
 
 /** Summarises `loads`; the waterfall shown is that of the load whose time to ready is nearest the median. */
-export function summarise(loads: readonly SheetLoad[]): LoadSummary {
+export function summarise(loads: ReadonlyArray<SheetLoad>): LoadSummary {
   const readyMs = median(loads.map((load) => load.readyMs));
 
   const [nearest] = loads.toSorted(
@@ -71,7 +71,7 @@ export function summarise(loads: readonly SheetLoad[]): LoadSummary {
 const BUNDLE_PATH = '/api/content/bundles/';
 
 /** Joins the content bundle files, a hundred or more a load, into one row: when the first started, the last ended. */
-export function groupBundles(rows: readonly WaterfallRow[]): readonly WaterfallRow[] {
+export function groupBundles(rows: ReadonlyArray<WaterfallRow>): ReadonlyArray<WaterfallRow> {
   const bundles = rows.filter((row) => row.name.startsWith(BUNDLE_PATH));
 
   if (bundles.length === 0) {
@@ -91,7 +91,7 @@ export function groupBundles(rows: readonly WaterfallRow[]): readonly WaterfallR
 }
 
 /** The waterfall as a Markdown table, in start order, each request with the time it started and ended. */
-export function waterfallTable(rows: readonly WaterfallRow[]): string {
+export function waterfallTable(rows: ReadonlyArray<WaterfallRow>): string {
   const lines = groupBundles(rows).map(
     (row) => `| ${row.name} | ${rounded(row.startMs)} | ${rounded(row.endMs)} | ${row.bytes} |`,
   );

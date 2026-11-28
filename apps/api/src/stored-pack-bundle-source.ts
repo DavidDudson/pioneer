@@ -14,7 +14,7 @@ export class StoredPackBundleSource extends PackBundleSource {
     this.#bundles = bundles;
   }
 
-  public override async of(packs: readonly ContentPackId[]): Promise<ContentBundles> {
+  public override async of(packs: ReadonlyArray<ContentPackId>): Promise<ContentBundles> {
     return this.#bundles.of(packs);
   }
 }

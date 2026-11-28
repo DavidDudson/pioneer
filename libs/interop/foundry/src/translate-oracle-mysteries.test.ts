@@ -21,7 +21,7 @@ const ORACLE_ENTRY = {
 
 const spell = (slug: string): string => idOf(`spell:${slug}`);
 
-function keyed(key: string, name: string, fixture: DocumentFixture): Record<string, unknown>[] {
+function keyed(key: string, name: string, fixture: DocumentFixture): Array<Record<string, unknown>> {
   return rulesIn(translate([fixture]), name).filter(
     (rule): rule is Record<string, unknown> =>
       typeof rule === 'object' && rule !== null && 'key' in rule && rule.key === key,

@@ -39,7 +39,7 @@ interface ShownLine {
   readonly quantity: string;
   readonly bulk: ShownBulk | undefined;
   /** How it is carried, when that says more than its group: the hands it is held in, and whether it is invested. */
-  readonly notes: readonly LineNote[];
+  readonly notes: ReadonlyArray<LineNote>;
 }
 
 /**

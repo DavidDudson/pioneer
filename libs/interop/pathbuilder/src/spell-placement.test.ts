@@ -53,7 +53,7 @@ const content = { slots, lookup };
 const KEY_ATTRIBUTE = 'boost:1:class:0';
 
 /** Each gap as `Wizard 1 Heal not-offered`. */
-function gapLines(gaps: readonly SpellGap[]): string[] {
+function gapLines(gaps: ReadonlyArray<SpellGap>): Array<string> {
   return gaps.map((gap) => `${gap.caster} ${gap.rank} ${gap.name} ${gap.reason}`);
 }
 
@@ -66,7 +66,7 @@ function character(name: PlayerCoreClass): CharacterDocument {
     .build().document;
 }
 
-function ranked(at: ImportedSpellRank['rank'], ...spells: readonly string[]): ImportedSpellRank {
+function ranked(at: ImportedSpellRank['rank'], ...spells: ReadonlyArray<string>): ImportedSpellRank {
   return { rank: at, spells: spells.map((spell) => PathbuilderName.parse(spell)) };
 }
 
@@ -75,7 +75,7 @@ function caster(
   name: string,
   tradition: string,
   preparation: ImportedCaster['preparation'],
-  ...ranks: readonly ImportedSpellRank[]
+  ...ranks: ReadonlyArray<ImportedSpellRank>
 ): ImportedCaster {
   return {
     name: PathbuilderName.parse(name),

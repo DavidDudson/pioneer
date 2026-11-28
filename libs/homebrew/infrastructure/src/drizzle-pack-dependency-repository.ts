@@ -25,13 +25,11 @@ export class DrizzlePackDependencyRepository extends PackDependencyRepository {
     this.#db = db;
   }
 
-  public override async edges(): Promise<readonly PackDependencyEdge[]> {
-    const rows = await this.#db
+  public override async edges(): Promise<ReadonlyArray<PackDependencyEdge>> {
+    return this.#db
       .select({ pack: contentPackDeps.packId, dependsOn: contentPackDeps.dependsOn })
       .from(contentPackDeps)
       .orderBy(asc(contentPackDeps.packId), asc(contentPackDeps.dependsOn));
-
-    return rows;
   }
 
   public override async add(actor: UserId, edge: PackDependencyEdge, whileLocked: () => Promise<void>): Promise<void> {
@@ -64,7 +62,7 @@ export class DrizzlePackDependencyRepository extends PackDependencyRepository {
     });
   }
 
-  public override async dependentsOf(pack: ContentPackId): Promise<readonly ContentPackId[]> {
+  public override async dependentsOf(pack: ContentPackId): Promise<ReadonlyArray<ContentPackId>> {
     const rows = await this.#db
       .select({ pack: contentPackDeps.packId })
       .from(contentPackDeps)

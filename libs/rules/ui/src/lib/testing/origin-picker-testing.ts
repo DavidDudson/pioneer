@@ -79,12 +79,12 @@ export function textOf(element: Element): string {
   return element.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
-export function headers(host: HTMLElement): string[] {
+export function headers(host: HTMLElement): Array<string> {
   return [...host.querySelectorAll('[role="columnheader"]')].map((cell) => textOf(cell));
 }
 
 /** The first cell of each rendered row: a name, and why it can't be picked when it can't. */
-export function nameCells(host: HTMLElement): HTMLElement[] {
+export function nameCells(host: HTMLElement): Array<HTMLElement> {
   return [...host.querySelectorAll<HTMLElement>('fr-picker-row')].flatMap((row) => {
     const cell = row.querySelector<HTMLElement>('[role="gridcell"]');
 
@@ -112,7 +112,7 @@ export function rowText(host: HTMLElement, index: number): string {
   return textOf(row);
 }
 
-export function rowLabels(host: HTMLElement): string[] {
+export function rowLabels(host: HTMLElement): Array<string> {
   return nameCells(host).map((cell) => cell.textContent.trim());
 }
 

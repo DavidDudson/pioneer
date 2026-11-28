@@ -36,10 +36,10 @@ interface EntryFixture {
   readonly slug: string;
   readonly name: string;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<unknown>;
+  readonly description: ReadonlyArray<unknown>;
+  readonly rules: ReadonlyArray<unknown>;
   readonly data: object;
 }
 
@@ -69,7 +69,7 @@ function ancestryEntry(slug: string, name: string, pack: string = PACK): EntryFi
 }
 
 /** A pack of ancestries, as its JSON files would hold it. */
-function ancestryPack(ancestries: readonly (readonly [string, string])[], pack: string = PACK): PackContents {
+function ancestryPack(ancestries: ReadonlyArray<readonly [string, string]>, pack: string = PACK): PackContents {
   const packFile = { id: pack, title: 'Test Pack', publisher: 'Pioneer', license: 'homebrew' };
 
   return packContentsFromFiles(packFile, [ancestries.map(([slug, name]) => ancestryEntry(slug, name, pack))]);
@@ -174,10 +174,10 @@ describe.skipIf(adminUrl === undefined)('StoredContentSource (postgres)', () => 
       .set({ data: sql`${contentPacks.data} || '{"unknownField": true}'::jsonb` })
       .where(stored);
 
-    const failed = await source.registry().then(
-      () => 'served',
-      () => 'refused',
-    );
+    const failed = await source
+      .registry()
+      .then(() => 'served')
+      .catch(() => 'refused');
 
     await database.db.update(contentPacks).set({ data: pack.file }).where(stored);
 

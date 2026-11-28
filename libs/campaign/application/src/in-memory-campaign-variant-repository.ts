@@ -6,9 +6,9 @@ import { CampaignVariantRepository } from './campaign-variant-repository';
 
 /** Repository adapter for tests and local experiments. */
 export class InMemoryCampaignVariantRepository extends CampaignVariantRepository {
-  readonly #rows = new Map<CampaignId, CampaignVariantRule[]>();
+  readonly #rows = new Map<CampaignId, Array<CampaignVariantRule>>();
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignVariantRule[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignVariantRule>> {
     return (this.#rows.get(campaignId) ?? []).toSorted(
       (left, right) => Temporal.Instant.compare(left.enabledAt, right.enabledAt) || left.id.localeCompare(right.id),
     );

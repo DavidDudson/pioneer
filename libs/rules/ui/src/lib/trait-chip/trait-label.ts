@@ -1,4 +1,5 @@
 import type { Trait } from '@pioneer/rules/sdk';
+import { capitalise } from '@pioneer/shared/utils';
 
 const WORD_SEPARATOR = /-/gu;
 
@@ -6,5 +7,5 @@ const WORD_SEPARATOR = /-/gu;
 export function humaniseTrait(trait: Trait): string {
   const words = trait.replaceAll(WORD_SEPARATOR, ' ');
 
-  return `${words.charAt(0).toUpperCase()}${words.slice(1)}`;
+  return capitalise(words);
 }

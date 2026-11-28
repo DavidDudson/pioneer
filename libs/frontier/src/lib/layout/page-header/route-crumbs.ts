@@ -3,11 +3,12 @@ import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
 import type { ActivatedRouteSnapshot } from '@angular/router';
-import { TranslocoService } from '@jsverse/transloco';
-import { filter, merge, scan } from 'rxjs';
+import { filter, scan } from 'rxjs';
 import * as z from 'zod';
 
 import type { BreadcrumbItem } from '../../actions/breadcrumbs/breadcrumbs.component';
+import { injectTranslate } from '../../locale/inject-translate';
+import type { Translate } from '../../locale/inject-translate';
 
 /** The key of a route's own `data` that names its step in the breadcrumb trail. */
 export const CRUMB = 'crumb';
@@ -39,8 +40,8 @@ function crumbOf(route: ActivatedRouteSnapshot): Crumb | undefined {
 }
 
 /** The active route and its ancestors, root first, that have a crumb. */
-function activeSteps(router: Router): ActivatedRouteSnapshot[] {
-  const steps: ActivatedRouteSnapshot[] = [];
+function activeSteps(router: Router): Array<ActivatedRouteSnapshot> {
+  const steps: Array<ActivatedRouteSnapshot> = [];
 
   for (
     let route: ActivatedRouteSnapshot | null = router.routerState.snapshot.root;
@@ -67,17 +68,14 @@ function urlOf(route: ActivatedRouteSnapshot): string {
  * under the routes' providers, as `fr-page-header` does. The last step is the page itself, so it has no link. A trail
  * of one step is empty: a top-level page has nowhere to go back to.
  */
-export function injectRouteCrumbs(): Signal<readonly BreadcrumbItem[]> {
+export function injectRouteCrumbs(): Signal<ReadonlyArray<BreadcrumbItem>> {
   const router = inject(Router);
   const injector = inject(Injector);
-  const i18n = inject(TranslocoService);
+  const translate = injectTranslate();
   const navigated = router.events.pipe(filter((event) => event instanceof NavigationEnd));
-  const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
 
-  // The router state and the messages are not signals: read them again when navigation settles or messages change.
-  const changes = toSignal(merge(navigated, i18n.langChanges$, loaded).pipe(scan((count) => count + 1, 0)), {
-    initialValue: 0,
-  });
+  // The router state is not a signal: read it again when navigation settles. Messages come from `translate`.
+  const navigations = toSignal(navigated.pipe(scan((count) => count + 1, 0)), { initialValue: 0 });
 
   // One name signal per URL, so its query is not repeated on every navigation.
   const names = new Map<string, Signal<string | undefined>>();
@@ -97,7 +95,7 @@ export function injectRouteCrumbs(): Signal<readonly BreadcrumbItem[]> {
     return created;
   };
 
-  const labelOf = (route: ActivatedRouteSnapshot, crumb: Crumb): string | undefined => {
+  const labelOf = (route: ActivatedRouteSnapshot, crumb: Crumb, translated: Translate): string | undefined => {
     const name = CRUMB_NAME.safeParse(crumb);
 
     if (name.success) {
@@ -106,11 +104,12 @@ export function injectRouteCrumbs(): Signal<readonly BreadcrumbItem[]> {
 
     const key = CRUMB_KEY.safeParse(crumb);
 
-    return key.success ? i18n.translate(key.data) : undefined;
+    return key.success ? translated(key.data) : undefined;
   };
 
   return computed(() => {
-    changes();
+    navigations();
+    const messages = translate();
     const steps = activeSteps(router);
 
     if (steps.length < 2) {
@@ -119,7 +118,7 @@ export function injectRouteCrumbs(): Signal<readonly BreadcrumbItem[]> {
 
     return steps.map((route, index): BreadcrumbItem => {
       const crumb = crumbOf(route);
-      const label = crumb === undefined ? undefined : labelOf(route, crumb);
+      const label = crumb === undefined ? undefined : labelOf(route, crumb, messages);
 
       return index === steps.length - 1 ? { label } : { label, to: urlOf(route) };
     });

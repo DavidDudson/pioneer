@@ -5,7 +5,13 @@
   [successLabel]="'frontier.saveStatus.saved' | transloco"
 />
 @if (edit().canRevert()) {
-  <fr-button variant="ghost" size="sm" (pressed)="edit().revert()">{{
-    'frontier.saveStatus.revert' | transloco
-  }}</fr-button>
+  <fr-button
+    variant="ghost"
+    size="sm"
+    iconOnly
+    [ariaLabel]="'frontier.saveStatus.revert' | transloco"
+    (pressed)="edit().revert()"
+  >
+    <fr-icon [icon]="RevertIcon" />
+  </fr-button>
 }

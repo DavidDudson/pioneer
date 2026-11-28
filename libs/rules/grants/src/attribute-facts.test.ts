@@ -21,7 +21,7 @@ function modifiers(wire: Record<Attribute, number>): AttributeModifiers {
 const STRONG = modifiers({ str: 3, dex: 1, con: 0, int: -1, wis: 2, cha: 0 });
 
 /** The character's `attribute:` options with `attributes` on it. */
-function attributeOptionsOf(attributes: AttributeModifiers | undefined): readonly string[] {
+function attributeOptionsOf(attributes: AttributeModifiers | undefined): ReadonlyArray<string> {
   const inputs = { ...inputsOf({ entries: [], roots: [] }), attributes };
 
   return resolveGrants(inputs)
@@ -52,7 +52,7 @@ describe('the attribute facts', () => {
     const feature = entry('brute-force', [{ ...grantOf('trained'), predicate: [{ gte: ['attribute:str:mod', 3] }] }]);
     const trained = entry('trained');
 
-    const items = (attributes: AttributeModifiers | undefined): readonly string[] =>
+    const items = (attributes: AttributeModifiers | undefined): ReadonlyArray<string> =>
       resolveGrants({
         ...inputsOf({ entries: [feature, trained], roots: [picked('brute-force')] }),
         attributes,

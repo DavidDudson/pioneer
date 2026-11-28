@@ -12,7 +12,7 @@ import { ChoicesMessage } from './choices-messages';
 import { ChoicesView } from './choices.component';
 import type { ChoiceLockChange, ChoiceReplace } from './choices.component';
 
-async function render(lines: readonly ChoiceLine[] | undefined): Promise<HTMLElement> {
+async function render(lines: ReadonlyArray<ChoiceLine> | undefined): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture: ComponentFixture<ChoicesView> = TestBed.createComponent(ChoicesView);
   fixture.componentRef.setInput('lines', lines);
@@ -24,14 +24,14 @@ async function render(lines: readonly ChoiceLine[] | undefined): Promise<HTMLEle
 
 interface LockableRender {
   readonly host: HTMLElement;
-  readonly changes: ChoiceLockChange[];
+  readonly changes: Array<ChoiceLockChange>;
 }
 
 /** The component with lockable choices, `locked` of them kept, and the toggles pressed so far. */
 async function renderLockable(locked: ReadonlySet<SlotKey>): Promise<LockableRender> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture: ComponentFixture<ChoicesView> = TestBed.createComponent(ChoicesView);
-  const changes: ChoiceLockChange[] = [];
+  const changes: Array<ChoiceLockChange> = [];
   fixture.componentInstance.lockChange.subscribe((change) => {
     changes.push(change);
   });
@@ -45,7 +45,7 @@ async function renderLockable(locked: ReadonlySet<SlotKey>): Promise<LockableRen
 }
 
 /** Each listed choice as its texts: label, pick, badge, then the reason when there is one. */
-function rows(host: HTMLElement): string[][] {
+function rows(host: HTMLElement): Array<Array<string>> {
   return [...host.querySelectorAll('fr-list-item')].map((item) =>
     [...item.querySelectorAll('fr-text, fr-badge')].map((part) => part.textContent.trim()),
   );
@@ -156,14 +156,14 @@ describe(ChoicesView, () => {
 
 interface ReplacedRender {
   readonly host: HTMLElement;
-  readonly replaced: ChoiceReplace[];
+  readonly replaced: Array<ChoiceReplace>;
 }
 
 /** The component with one legacy pick a newer entry replaces, and the replacements pressed so far. */
 async function renderReplaced(): Promise<ReplacedRender> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture: ComponentFixture<ChoicesView> = TestBed.createComponent(ChoicesView);
-  const replaced: ChoiceReplace[] = [];
+  const replaced: Array<ChoiceReplace> = [];
   fixture.componentInstance.replace.subscribe((change) => {
     replaced.push(change);
   });

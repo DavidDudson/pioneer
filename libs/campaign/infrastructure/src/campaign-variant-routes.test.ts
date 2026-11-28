@@ -102,8 +102,8 @@ function request(method: string, path: string, { as, body }: RequestOptions): Re
 
 interface VariantRulesJson {
   readonly manageable: boolean;
-  readonly enabled: readonly { readonly name: string; readonly packTitle: string }[];
-  readonly available: readonly { readonly name: string }[];
+  readonly enabled: ReadonlyArray<{ readonly name: string; readonly packTitle: string }>;
+  readonly available: ReadonlyArray<{ readonly name: string }>;
 }
 
 async function json<TBody>(response: Response): Promise<TBody> {

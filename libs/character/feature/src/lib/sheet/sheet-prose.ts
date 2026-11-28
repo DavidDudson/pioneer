@@ -3,13 +3,13 @@ import type { BlockNode, InlineNode, RichText } from '@pioneer/rules/sdk';
 
 const PARAGRAPH_BREAK = /\n{2,}/u;
 const LINE_BREAK = '\n';
-const BREAK: readonly InlineNode[] = [{ type: InlineKind.LineBreak }];
+const BREAK: ReadonlyArray<InlineNode> = [{ type: InlineKind.LineBreak }];
 
 /** A paragraph's lines as inline nodes, a line break between each and nothing for an empty line. */
-function paragraphContent(paragraph: string): readonly InlineNode[] {
+function paragraphContent(paragraph: string): ReadonlyArray<InlineNode> {
   const lines = paragraph
     .split(LINE_BREAK)
-    .map((line): readonly InlineNode[] =>
+    .map((line): ReadonlyArray<InlineNode> =>
       line === '' ? [] : [{ type: InlineKind.Text, text: RichTextString.parse(line) }],
     );
 

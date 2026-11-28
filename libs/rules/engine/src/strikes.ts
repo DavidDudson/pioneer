@@ -39,17 +39,17 @@ export interface StrikeDamage {
   readonly damageType: DamageType;
   /** A bomb's persistent damage ("1d6 fire"), which neither the flat bonus nor a striking rune changes. */
   /** Dice that `DamageDice` elements add on top of the weapon's, each with its type and category. */
-  readonly extra: readonly ExtraDice[];
+  readonly extra: ReadonlyArray<ExtraDice>;
   readonly persistent: PersistentDamage | undefined;
   /** A bomb's splash damage, of the damage's type, dealt to creatures near its target; no bonus adds to it. */
   readonly splash: DamageAmount | undefined;
   /** Flat splash damage that `DamageDice` elements give (a shockwave rune's), each of its own type. */
-  readonly ruleSplash: readonly RuleSplash[];
+  readonly ruleSplash: ReadonlyArray<RuleSplash>;
   /**
    * The materials and property runes the damage counts as (the Strike's, after item alterations and adjustments), which
    * a weakness or resistance with exceptions reads (`applyDamage`'s `counts`).
    */
-  readonly counts: readonly DamageException[];
+  readonly counts: ReadonlyArray<DamageException>;
   /** The `strike-damage:<slug>` statistic: Strength and whatever else adds to damage. Undefined if not derived. */
   readonly bonus: StatisticResult | undefined;
 }
@@ -68,15 +68,15 @@ export interface Strike {
   /** Undefined for a weapon that does no damage (a glue bomb). */
   readonly damage: StrikeDamage | undefined;
   /** The `Note` elements that reach the attack or damage roll. */
-  readonly notes: readonly StrikeNote[];
+  readonly notes: ReadonlyArray<StrikeNote>;
   /** The weaknesses a critical hit with this Strike gives its target (`CriticalWeakness` elements). */
-  readonly weaknesses: readonly CriticalWeakness[];
+  readonly weaknesses: ReadonlyArray<CriticalWeakness>;
   /** What a critical hit with this Strike does besides its damage (`CriticalEffect` elements). */
-  readonly criticalEffects: readonly CriticalEffect[];
+  readonly criticalEffects: ReadonlyArray<CriticalEffect>;
   /** The natural roll from which a successful attack is a critical hit, when a rule lowers it (`CriticalRange` elements). */
   readonly criticalRange: CriticalRange | undefined;
   /** The rule elements that would change this Strike if a roll claimed their situation (`StrikeRules.conditional`). */
-  readonly conditional: readonly RuleId[];
+  readonly conditional: ReadonlyArray<RuleId>;
   readonly map: MultipleAttackPenalty;
 }
 
@@ -136,7 +136,7 @@ function damageTargets(weapon: WeaponInputs): ReadonlySet<ModifierTarget> {
   );
 }
 
-const RANKS: readonly Proficiency[] = Object.values(Proficiency);
+const RANKS: ReadonlyArray<Proficiency> = Object.values(Proficiency);
 
 /**
  * The roll option of the character's proficiency with the weapon (`proficiency:rank:2`, which a predicate reads as
@@ -209,10 +209,10 @@ function damageOf(
  * `DamageDice`, `DamageAlteration` and `Note` elements in play give (`strikeRules`). A battle form in force replaces the weapons' Strikes with its own (`strikesUnderForm`).
  */
 export function deriveStrikes(
-  derivedWeapons: readonly WeaponInputs[],
+  derivedWeapons: ReadonlyArray<WeaponInputs>,
   derivedResults: ReadonlyMap<Selector, StatisticResult>,
   rules?: StrikeRulesInput,
-): readonly Strike[] {
+): ReadonlyArray<Strike> {
   const { weapons, results } =
     rules === undefined
       ? { weapons: derivedWeapons, results: derivedResults }

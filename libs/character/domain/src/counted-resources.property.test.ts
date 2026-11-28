@@ -40,7 +40,7 @@ function commandOf(field: (typeof FIELDS)[number], use: (typeof USES)[number]): 
 }
 
 /** Runs `fields` as commands against slots and uses of at most `max`, checking the counts after each. */
-function runWithin(max: number, fields: readonly (typeof FIELDS)[number][]): void {
+function runWithin(max: number, fields: ReadonlyArray<(typeof FIELDS)[number]>): void {
   const maximum = { max: ResourceCount.parse(max), boundary: Boundary.Day };
 
   const counted: CountedMaxima = {

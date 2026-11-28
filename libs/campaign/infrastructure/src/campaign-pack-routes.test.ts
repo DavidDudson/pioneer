@@ -106,13 +106,13 @@ interface PackJson {
   readonly title: string;
   readonly official: boolean;
   readonly removable: boolean;
-  readonly requiredBy: readonly string[];
+  readonly requiredBy: ReadonlyArray<string>;
 }
 
 interface PacksJson {
   readonly manageable: boolean;
-  readonly enabled: readonly PackJson[];
-  readonly candidates: readonly (PackJson & { readonly private: boolean })[];
+  readonly enabled: ReadonlyArray<PackJson>;
+  readonly candidates: ReadonlyArray<PackJson & { readonly private: boolean }>;
 }
 
 async function json<TBody>(response: Response): Promise<TBody> {

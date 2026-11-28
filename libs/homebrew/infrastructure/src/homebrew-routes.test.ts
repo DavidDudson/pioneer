@@ -35,7 +35,7 @@ describe('homebrew routes', () => {
     expect(((await got.json()) as PackJson).id).toBe(pack.id);
     const listed = await api.handle(request('GET', '/homebrew/packs'));
     // SAFETY: this route answers with an array of `PackJson` JSON, the shape the route's response schema describes.
-    expect(((await listed.json()) as PackJson[]).map(({ id }) => id)).toStrictEqual([pack.id]);
+    expect(((await listed.json()) as Array<PackJson>).map(({ id }) => id)).toStrictEqual([pack.id]);
   });
 
   test('a slug in use is 409', async () => {
@@ -188,10 +188,10 @@ async function statusOf(api: AnyElysia, sent: Request): Promise<number> {
   return response.status;
 }
 
-async function idsFrom(api: AnyElysia, path: string): Promise<readonly string[]> {
+async function idsFrom(api: AnyElysia, path: string): Promise<ReadonlyArray<string>> {
   const response = await api.handle(request('GET', path));
   // SAFETY: this route answers with an array of `PackJson` JSON, the shape the route's response schema describes.
-  const packs = (await response.json()) as PackJson[];
+  const packs = (await response.json()) as Array<PackJson>;
 
   return packs.map(({ id }) => id);
 }

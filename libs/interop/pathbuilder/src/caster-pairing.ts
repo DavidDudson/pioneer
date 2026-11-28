@@ -1,6 +1,6 @@
 import type { SpellPreparation } from '@pioneer/rules/sdk';
+import { foldName } from '@pioneer/shared/utils';
 
-import { matchKey } from './content-lookup';
 import type { ImportedCaster } from './read-spells';
 
 /** Where a spellcasting entry of the character is: its slug, how it casts and its tradition. */
@@ -11,13 +11,13 @@ export interface CasterHome {
 }
 
 function sameCasting(caster: ImportedCaster, entry: CasterHome): boolean {
-  return caster.preparation === entry.preparation && matchKey(caster.tradition) === matchKey(entry.tradition);
+  return caster.preparation === entry.preparation && foldName(caster.tradition) === foldName(entry.tradition);
 }
 
 /** Whether the caster's name is the entry's (the Oracle's `oracle`), either way round. */
 function sameName(caster: ImportedCaster, entry: CasterHome): boolean {
-  const casterKey = matchKey(caster.name);
-  const entryKey = matchKey(entry.slug);
+  const casterKey = foldName(caster.name);
+  const entryKey = foldName(entry.slug);
 
   return casterKey.includes(entryKey) || entryKey.includes(casterKey);
 }
@@ -28,8 +28,8 @@ function sameName(caster: ImportedCaster, entry: CasterHome): boolean {
  * archetype the character lacks) is left out.
  */
 export function pairCasters<Entry extends CasterHome>(
-  casters: readonly ImportedCaster[],
-  entries: readonly Entry[],
+  casters: ReadonlyArray<ImportedCaster>,
+  entries: ReadonlyArray<Entry>,
 ): Map<ImportedCaster, Entry> {
   const paired = new Map<ImportedCaster, Entry>();
   const taken = new Set<Entry>();

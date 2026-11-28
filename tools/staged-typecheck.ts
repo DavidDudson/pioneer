@@ -36,22 +36,22 @@ export function projectRootOf(file: string, hasProject: HasProject): string | un
 }
 
 /** The roots of the projects that own `files`, each once, in order. */
-export function projectRootsOf(files: readonly string[], hasProject: HasProject): readonly string[] {
+export function projectRootsOf(files: ReadonlyArray<string>, hasProject: HasProject): ReadonlyArray<string> {
   const roots = files.flatMap((file) => projectRootOf(file, hasProject) ?? []);
 
   return [...new Set(roots)].toSorted();
 }
 
-export function nameOf(root: string): string {
+function nameOf(root: string): string {
   // SAFETY: `root` is a directory with a `project.json`, and Nx requires every project's to have a string `name`.
   const project = JSON.parse(readFileSync(path.join(root, PROJECT_FILE), 'utf8')) as { readonly name: string };
 
   return project.name;
 }
 
-async function main(files: readonly string[]): Promise<number> {
+async function main(files: ReadonlyArray<string>): Promise<number> {
   const roots = projectRootsOf(files, (directory) => existsSync(path.join(directory, PROJECT_FILE)));
-  const commands: (readonly string[])[] = [];
+  const commands: Array<ReadonlyArray<string>> = [];
 
   if (roots.length > 0) {
     commands.push(['bunx', 'nx', 'run-many', '-t', 'typecheck', '-p', roots.map((root) => nameOf(root)).join(',')]);

@@ -47,9 +47,9 @@ const CHARACTER = {
 };
 
 function derive(
-  definitions: readonly StatisticDefinition[],
+  definitions: ReadonlyArray<StatisticDefinition>,
   json: JsonObject,
-  rules: readonly RuleInPlay[] = [],
+  rules: ReadonlyArray<RuleInPlay> = [],
 ): ReadonlyMap<Selector, StatisticResult> {
   const inputs = StatisticInputsJson.parse({ ...CHARACTER, ...json });
 
@@ -63,7 +63,7 @@ function totals(results: ReadonlyMap<Selector, StatisticResult>): Record<string,
   return Object.fromEntries([...results].map(([selector, result]) => [selector, result.ok ? result.total : undefined]));
 }
 
-function inputIssues(json: JsonObject): readonly FieldIssue[] {
+function inputIssues(json: JsonObject): ReadonlyArray<FieldIssue> {
   const result = StatisticInputsJson.safeParse({ ...CHARACTER, ...json });
 
   return result.success ? [] : fieldIssues(result.error.issues);

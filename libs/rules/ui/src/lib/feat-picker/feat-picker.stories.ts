@@ -13,7 +13,7 @@ type FeatPickerStory = StoryObj<FeatPicker>;
 
 const LONG_LIST = 300;
 
-const FEATS: readonly FeatPickerRow[] = [
+const FEATS: ReadonlyArray<FeatPickerRow> = [
   featRow({
     id: 'power-attack',
     name: 'Power Attack',

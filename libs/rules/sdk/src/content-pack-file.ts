@@ -1,6 +1,5 @@
 import * as z from 'zod';
 
-import { ContentEntry } from './content-entry';
 import type { EntrySlug, PackId } from './content-id';
 import { ContentKind } from './content-kind';
 import { ContentPack, ContentPackManifest } from './content-pack';
@@ -8,7 +7,8 @@ import type { ContentPackSchema, PackAncestry, PackCreature, PackStatistic } fro
 import type { JsonValue } from './json-bounds';
 import { ProficiencyBonusTable } from './proficiency';
 import { RollOptionNamespaces } from './roll-option-namespace';
-import type { VariantRuleDefinition } from './variant-rule';
+import type { VariantRuleDefinition } from './typed-content';
+import { ContentEntry } from './typed-content-entry';
 
 /**
  * A pack's `pack.json` under `content/packs/<pack>/`: its manifest, plus the pack-wide data no entry holds. The core
@@ -26,11 +26,11 @@ export type ContentPackFile = z.infer<typeof ContentPackFile>;
 export const ContentEntryFile = z.array(ContentEntry).readonly();
 
 interface PackDefinitions {
-  readonly ancestries: PackAncestry[];
-  readonly creatures: PackCreature[];
-  readonly statistics: PackStatistic[];
-  readonly variantRules: VariantRuleDefinition[];
-  readonly otherEntries: ContentEntry[];
+  readonly ancestries: Array<PackAncestry>;
+  readonly creatures: Array<PackCreature>;
+  readonly statistics: Array<PackStatistic>;
+  readonly variantRules: Array<VariantRuleDefinition>;
+  readonly otherEntries: Array<ContentEntry>;
 }
 
 type PackParts = z.output<typeof ContentPackSchema>;
@@ -72,7 +72,7 @@ function checkPlacement(pack: PackId, entry: ContentEntry, taken: Set<EntrySlug>
 /** A pack's JSON files once checked: its `pack.json`, and the entries of its `<kind>.json` files in file order. */
 export interface PackContents {
   readonly file: ContentPackFile;
-  readonly entries: readonly ContentEntry[];
+  readonly entries: ReadonlyArray<ContentEntry>;
 }
 
 /** How the API reads a pack's files without bundling them up front: a lazy dynamic import, like `ContentPackLoader`. */
@@ -85,7 +85,7 @@ export interface PackContentsLoader {
  * Checks a pack's JSON files: `pack.json` and the entries of every `<kind>.json`. An entry filed under another pack,
  * or a slug used twice across the pack's kinds, is an error naming it.
  */
-export function packContentsFromFiles(packFile: JsonValue, entryFiles: readonly JsonValue[]): PackContents {
+export function packContentsFromFiles(packFile: JsonValue, entryFiles: ReadonlyArray<JsonValue>): PackContents {
   const file = ContentPackFile.parse(packFile);
   const entries = entryFiles.flatMap((entryFile) => ContentEntryFile.parse(entryFile));
   const taken = new Set<EntrySlug>();
@@ -132,6 +132,6 @@ function packParts({ file, entries }: PackContents): PackParts {
 }
 
 /** The `ContentPack` a pack's JSON files describe: `packContentsFromFiles`, then `contentPackFromContents`. */
-export function contentPackFromFiles(packFile: JsonValue, entryFiles: readonly JsonValue[]): ContentPack {
+export function contentPackFromFiles(packFile: JsonValue, entryFiles: ReadonlyArray<JsonValue>): ContentPack {
   return contentPackFromContents(packContentsFromFiles(packFile, entryFiles));
 }

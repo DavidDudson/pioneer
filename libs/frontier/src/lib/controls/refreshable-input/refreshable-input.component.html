@@ -4,6 +4,7 @@
   [disabled]="disabled()"
   [invalid]="ariaInvalid() || failed()"
   [placeholder]="placeholder()"
+  [status]="status()"
   [(value)]="value"
 />
 <span [class]="actionsClasses">
@@ -16,10 +17,6 @@
     [ariaLabel]="'frontier.refreshableInput.refresh' | transloco"
     (pressed)="refresh()"
   >
-    @if (loading()) {
-      <fr-spinner />
-    } @else {
-      <fr-icon [icon]="RefreshIcon" />
-    }
+    <fr-icon [icon]="RefreshIcon" />
   </fr-button>
 </span>

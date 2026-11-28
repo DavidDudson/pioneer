@@ -65,21 +65,21 @@ export interface StrikeRules {
   readonly dice: DiceCount;
   /** The weapon's damage type after elements override it. */
   readonly damageType: DamageType;
-  readonly extra: readonly ExtraDice[];
+  readonly extra: ReadonlyArray<ExtraDice>;
   /** The flat splash damage the elements give, with the dice the Strike ends up rolling counted. */
-  readonly splash: readonly RuleSplash[];
+  readonly splash: ReadonlyArray<RuleSplash>;
   /** The weaknesses a critical hit gives its target. */
-  readonly weaknesses: readonly CriticalWeakness[];
+  readonly weaknesses: ReadonlyArray<CriticalWeakness>;
   /** What a critical hit does besides its damage: conditions on the target, damage to others or to its armor. */
-  readonly criticalEffects: readonly CriticalEffect[];
+  readonly criticalEffects: ReadonlyArray<CriticalEffect>;
   /** The natural roll from which a successful attack is a critical hit, when a rule lowers it (a keen weapon's 19). */
   readonly criticalRange: CriticalRange | undefined;
-  readonly notes: readonly StrikeNote[];
+  readonly notes: ReadonlyArray<StrikeNote>;
   /**
    * The elements that would change the Strike if their situation held (the target is undead) and that no roll has
    * claimed; the player can claim them for a roll (`ModifierInputs.situation`).
    */
-  readonly conditional: readonly RuleId[];
+  readonly conditional: ReadonlyArray<RuleId>;
 }
 
 /** What a Strike's rule elements are read against, besides the rules and their facts. */
@@ -151,7 +151,7 @@ function extraOf(
   { rule, element }: { readonly rule: RuleInPlay; readonly element: DamageDiceElement },
   damageType: DamageType,
   read: Reader,
-): ExtraDice[] {
+): Array<ExtraDice> {
   if (element.dieSize === undefined) {
     return [];
   }
@@ -178,7 +178,7 @@ function splashOf(
   { rule, element }: { readonly rule: RuleInPlay; readonly element: DamageDiceElement },
   damageType: DamageType,
   read: Reader,
-): PendingSplash[] {
+): Array<PendingSplash> {
   const count = element.diceNumber === undefined ? DiceCount.parse(1) : diceOf(read, rule, element.diceNumber);
 
   return count === undefined
@@ -195,14 +195,49 @@ function splashOf(
 
 /** A Strike's rules as far as read: its dice and type so far, the extra dice and the notes found. */
 interface Reading extends DiceAndType {
-  readonly extra: readonly ExtraDice[];
-  readonly splash: readonly PendingSplash[];
-  readonly weaknesses: readonly CriticalWeakness[];
-  readonly criticalEffects: readonly CriticalEffect[];
+  readonly extra: ReadonlyArray<ExtraDice>;
+  readonly splash: ReadonlyArray<PendingSplash>;
+  readonly weaknesses: ReadonlyArray<CriticalWeakness>;
+  readonly criticalEffects: ReadonlyArray<CriticalEffect>;
   /** The natural roll from which a successful attack is a critical hit, when a rule lowers it (a keen weapon's 19). */
   readonly criticalRange: CriticalRange | undefined;
-  readonly notes: readonly StrikeNote[];
-  readonly conditional: readonly RuleId[];
+  readonly notes: ReadonlyArray<StrikeNote>;
+  readonly conditional: ReadonlyArray<RuleId>;
+}
+
+/** `reading`'s dice plus `more`, when the element rolls with the Strike's die and does not change its size. */
+function addedDice(reading: Reading, more: DiceCount | undefined, changes: boolean): DiceCount {
+  return changes && more !== undefined ? DiceCount.parse(reading.dice + more) : reading.dice;
+}
+
+/** The damage type of `reading`, or the one `element` overrides it with when the element changes the dice. */
+function changedType(reading: Reading, element: DamageDiceElement, changes: boolean): DamageType {
+  return changes ? (element.override?.damageType ?? reading.damageType) : reading.damageType;
+}
+
+/** `reading` after a damage dice `element` of `rule` that reaches the Strike's damage. */
+function withDamageDice(
+  reading: Reading,
+  { rule, element }: { readonly rule: RuleInPlay; readonly element: DamageDiceElement },
+  using: { readonly targets: StrikeTargets; readonly read: Reader },
+): Reading {
+  const rolls = using.targets.die !== undefined;
+  const more = element.diceNumber === undefined ? undefined : diceOf(using.read, rule, element.diceNumber);
+
+  if (isFlatSplash(element)) {
+    return rolls
+      ? { ...reading, splash: [...reading.splash, ...splashOf({ rule, element }, reading.damageType, using.read)] }
+      : reading;
+  }
+
+  const changes = rolls && element.dieSize === undefined;
+
+  return {
+    ...reading,
+    dice: addedDice(reading, more, changes),
+    damageType: changedType(reading, element, changes),
+    extra: [...reading.extra, ...extraOf({ rule, element }, reading.damageType, using.read)],
+  };
 }
 
 /** `reading` after `rule`, which applies when its predicate holds and its selectors reach the Strike's rolls. */
@@ -219,22 +254,7 @@ function applied(
     element.key === RuleElementKey.DamageDice &&
     reaches(element.selectors, targets.damage, ownsStrike(rule, targets))
   ) {
-    const more = element.diceNumber === undefined ? undefined : diceOf(using.read, rule, element.diceNumber);
-
-    if (isFlatSplash(element)) {
-      return rolls
-        ? { ...reading, splash: [...reading.splash, ...splashOf({ rule, element }, reading.damageType, using.read)] }
-        : reading;
-    }
-
-    const changes = rolls && element.dieSize === undefined;
-
-    return {
-      ...reading,
-      dice: changes && more !== undefined ? DiceCount.parse(reading.dice + more) : reading.dice,
-      damageType: changes ? (element.override?.damageType ?? reading.damageType) : reading.damageType,
-      extra: [...reading.extra, ...extraOf({ rule, element }, reading.damageType, using.read)],
-    };
+    return withDamageDice(reading, { rule, element }, using);
   }
 
   if (

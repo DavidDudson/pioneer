@@ -67,15 +67,29 @@ function classInputsOf(
   return inputs === undefined ? {} : { class: inputs };
 }
 
+/** `equipped` with the rules of the `variants` in force ahead of its own, as `rulesInPlay` puts them. */
+function withVariants(equipped: EquippedRules, variants: ReadonlyArray<VariantRuleEntry>): EquippedRules {
+  return variants.length === 0
+    ? equipped
+    : { ...equipped, rules: [...variantRulesInPlay(variants), ...equipped.rules] };
+}
+
+/** The content `characterStatisticInputs` reads a character against: its slots, and the variant rules in force. */
+export interface StatisticInputContent {
+  readonly slots: SlotContent;
+  readonly variants?: ReadonlyArray<VariantRuleEntry>;
+}
+
 /**
  * What the engine reads of a character so far: level, its boosts, ranks, ancestry and class, the spellcasting entries
  * its spell attacks and DCs are derived for, its worn armour and held weapons (a shifted weapon as its new shape) when
- * the registry holds the item kinds, and the Strikes its features give (a fist).
+ * the registry holds the item kinds, and the Strikes its features give (a fist). The rune grades of its items are read
+ * after the alterations of the `variants` in force (Automatic Bonus Progression).
  */
 export function characterStatisticInputs(
   registry: ContentRegistry,
   document: CharacterDocument,
-  slots: SlotContent,
+  { slots, variants = [] }: StatisticInputContent,
 ): StatisticInputs {
   const grants = characterGrants(document, slots);
   const favored = favoredWeapons(grants);
@@ -83,7 +97,7 @@ export function characterStatisticInputs(
 
   const equipped = equippedInputs(shiftedDocument(document, items, slots).inventory, items, {
     favored,
-    rules: () => equippedRules(document, items, slots),
+    rules: () => withVariants(equippedRules(document, items, slots), variants),
   });
 
   const held = new Set(equipped.weapons.map(({ slug }) => slug));
@@ -109,7 +123,7 @@ export interface StatisticSources {
   readonly registry: ContentRegistry;
   readonly slots: SlotContent;
   readonly inputs: StatisticInputs;
-  readonly variants: readonly VariantRuleEntry[];
+  readonly variants: ReadonlyArray<VariantRuleEntry>;
   /** What the statistics are derived as, when not as plain checks: initiative (#506). */
   readonly as?: RollAs | undefined;
 }
@@ -171,9 +185,9 @@ export interface RollSetup {
   /** The statistic with the situation chosen counted, and the `RollOption` toggles as the character has them. */
   readonly statistic: StatisticValue;
   /** The conditional lines the roll may claim the situation of, as the sheet shows them, whatever is chosen. */
-  readonly conditional: readonly BreakdownLine[];
+  readonly conditional: ReadonlyArray<BreakdownLine>;
   /** The character's `RollOption` toggles that move a line of the statistic, with their state. */
-  readonly toggles: readonly ToggleSlot[];
+  readonly toggles: ReadonlyArray<ToggleSlot>;
 }
 
 /** The statistic a roll is for, and the rules whose situation it has claimed. */
@@ -233,7 +247,7 @@ export function rollSetups(
   const rules = rulesInPlay(document, sources);
   const rederivation = { content: contentRolledAs(content, sources.as), inputs: sources.inputs, rules };
 
-  const setups = [...claims].flatMap(([selector, chosen]): [Selector, RollSetup][] => {
+  const setups = [...claims].flatMap(([selector, chosen]): Array<[Selector, RollSetup]> => {
     const setup = setupFor(derived.get(selector), chosen, rederivation);
 
     return setup === undefined ? [] : [[selector, setup]];

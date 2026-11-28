@@ -224,7 +224,7 @@ function pointerTarget(fixture: ComponentFixture<Host>): HTMLElement {
   return element;
 }
 
-const cards = (): readonly HTMLElement[] => [...document.querySelectorAll<HTMLElement>('[role="tooltip"]')];
+const cards = (): ReadonlyArray<HTMLElement> => [...document.querySelectorAll<HTMLElement>('[role="tooltip"]')];
 
 async function openBoth(): Promise<ComponentFixture<NestedHost>> {
   TestBed.configureTestingModule({});

@@ -30,8 +30,8 @@ import { coreNamespaces } from './fighter';
 export interface FormView {
   /** The total of a statistic. */
   readonly total: (selector: string) => number;
-  readonly strikes: readonly Strike[];
-  readonly senses: readonly SenseInPlay[];
+  readonly strikes: ReadonlyArray<Strike>;
+  readonly senses: ReadonlyArray<SenseInPlay>;
   readonly defences: Defences;
   /** The size the druid has in the form; undefined when no form changes it. */
   readonly size: Size | undefined;
@@ -78,7 +78,7 @@ export function druidWith(strength: number): StatisticInputs {
 const druid: StatisticInputs = druidWith(2);
 
 /** The `BattleForm` rules of the Player Core effect `slug`, in play at spell rank `rank`. */
-export function formRulesOf(slug: string, rank: number): readonly RuleInPlay[] {
+export function formRulesOf(slug: string, rank: number): ReadonlyArray<RuleInPlay> {
   const entry = PLAYER_CORE_EFFECTS.find((each) => each.slug === slug);
 
   if (entry === undefined) {
@@ -100,7 +100,7 @@ export function formRulesOf(slug: string, rank: number): readonly RuleInPlay[] {
 }
 
 /** The roll options a spell's choice sets: `plant-form:arboreal`. */
-export function chosen(...options: readonly string[]): PredicateFacts {
+export function chosen(...options: ReadonlyArray<string>): PredicateFacts {
   return new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     coreNamespaces(),
@@ -109,7 +109,7 @@ export function chosen(...options: readonly string[]): PredicateFacts {
 
 /** The druid with `rules` in play. */
 export function viewOf(
-  rules: readonly RuleInPlay[],
+  rules: ReadonlyArray<RuleInPlay>,
   facts: PredicateFacts,
   character: StatisticInputs = druid,
 ): FormView {
@@ -139,7 +139,7 @@ export function viewOf(
 }
 
 /** Every rule of the Player Core effect `slug`, in play at spell rank `rank`: a form that is no battle form has no `BattleForm`. */
-export function effectRulesOf(slug: string, rank: number, pack = PLAYER_CORE_EFFECTS): readonly RuleInPlay[] {
+export function effectRulesOf(slug: string, rank: number, pack = PLAYER_CORE_EFFECTS): ReadonlyArray<RuleInPlay> {
   const entry = pack.find((each) => each.slug === slug);
 
   if (entry === undefined) {

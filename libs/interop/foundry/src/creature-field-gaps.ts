@@ -1,3 +1,5 @@
+import { isRecord } from '@pioneer/shared/utils';
+
 import type { SelectedCreature } from './select-entries';
 
 /**
@@ -41,19 +43,15 @@ const MODELLED_ITEMS: ReadonlySet<string> = new Set([
   'weapon',
 ]);
 
-function isRecord(value: unknown): value is Readonly<Record<string, unknown>> {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
-
 /** The `group.field` paths one actor's `system` has, less the groups taken whole. */
-function fieldsOf(system: Readonly<Record<string, unknown>>): readonly string[] {
+function fieldsOf(system: Readonly<Record<string, unknown>>): ReadonlyArray<string> {
   return Object.entries(system).flatMap(([group, value]) =>
     MODELLED_FIELDS.has(group) || !isRecord(value) ? [group] : Object.keys(value).map((field) => `${group}.${field}`),
   );
 }
 
 /** What one creature has that the stat block has no home for: `system.` fields and `item:` types. */
-function gapsOf({ actor }: SelectedCreature): readonly string[] {
+function gapsOf({ actor }: SelectedCreature): ReadonlyArray<string> {
   const fields = fieldsOf(actor.system).filter(
     (field) => !MODELLED_FIELDS.has(field) && !MODELLED_FIELDS.has(field.split('.')[0] ?? ''),
   );
@@ -64,7 +62,7 @@ function gapsOf({ actor }: SelectedCreature): readonly string[] {
 }
 
 /** The fields (and item types) with no home in the stat block, each with how many of the creatures have it. */
-export function creatureFieldGaps(creatures: readonly SelectedCreature[]): ReadonlyMap<string, number> {
+export function creatureFieldGaps(creatures: ReadonlyArray<SelectedCreature>): ReadonlyMap<string, number> {
   const counts = new Map<string, number>();
 
   for (const creature of creatures) {

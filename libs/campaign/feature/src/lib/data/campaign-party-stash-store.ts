@@ -1,13 +1,12 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { CampaignContract } from '@pioneer/campaign/domain';
 import type { CampaignId, CharacterId, PartyStash, ReviewedItemId } from '@pioneer/campaign/domain';
-import { ApiClient } from '@pioneer/shared/web';
-import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
+import { ApiClient, injectScopedQuery } from '@pioneer/shared/web';
 
 import { CampaignStore } from './campaign-store';
 
 /** TanStack Query key for a campaign's party stash. */
-export function partyStashKey(id: CampaignId | undefined): readonly unknown[] {
+export function partyStashKey(id: CampaignId | undefined): ReadonlyArray<unknown> {
   return ['campaigns', 'party-stash', id];
 }
 
@@ -18,41 +17,21 @@ export function partyStashKey(id: CampaignId | undefined): readonly unknown[] {
 @Injectable()
 export class CampaignPartyStashStore {
   readonly #api = inject(ApiClient);
-  readonly #client = inject(QueryClient);
   readonly #campaigns = inject(CampaignStore);
-  readonly #id = computed(() => this.#campaigns.selected.data()?.id);
+  readonly #stash = injectScopedQuery<CampaignId, PartyStash>({
+    id: computed(() => this.#campaigns.selected.data()?.id),
+    key: partyStashKey,
+    fetch: async (id) => this.#api.call(CampaignContract.partyStash, { params: { id }, body: undefined }),
+    missingMessage: 'No campaign selected',
+  });
 
   /** The open campaign's stash, with the viewer's own characters that may take from it. */
-  public readonly stash = injectQuery(() => {
-    const id = this.#id();
-
-    return {
-      queryKey: partyStashKey(id),
-      queryFn: async (): Promise<PartyStash> => {
-        if (id === undefined) {
-          throw new Error('No campaign selected');
-        }
-
-        return this.#api.call(CampaignContract.partyStash, { params: { id }, body: undefined });
-      },
-      enabled: id !== undefined,
-    };
-  });
+  public readonly stash = this.#stash.query;
 
   /** Takes the stash line, and what it holds, into the viewer's character. */
   public async take(to: CharacterId, item: ReviewedItemId): Promise<void> {
-    const id = this.#openId();
+    const id = this.#stash.openId();
     await this.#api.call(CampaignContract.takeFromPartyStash, { params: { id }, body: { to, item } });
-    await this.#client.invalidateQueries({ queryKey: partyStashKey(id) });
-  }
-
-  #openId(): CampaignId {
-    const id = this.#id();
-
-    if (id === undefined) {
-      throw new Error('No campaign selected');
-    }
-
-    return id;
+    await this.#stash.invalidate(id);
   }
 }

@@ -43,7 +43,7 @@ const UNTIL_KEYS: Readonly<Record<SpellDurationEnd, string>> = {
   [SpellDurationEnd.DailyPreparations]: 'dailyPreparations',
 };
 
-function joined(translate: Translate, parts: readonly string[]): string {
+function joined(translate: Translate, parts: ReadonlyArray<string>): string {
   return parts.join(` ${translate(SpellListMessage.Or)} `);
 }
 
@@ -125,7 +125,7 @@ function targetText(target: Target, translate: Translate): string {
   return [count, ...qualifiers, kind, ...traits, ...within].join(SEPARATOR);
 }
 
-function targetList(targets: readonly Target[], translate: Translate): string {
+function targetList(targets: ReadonlyArray<Target>, translate: Translate): string {
   return joined(
     translate,
     targets.map((target) => targetText(target, translate)),
@@ -238,7 +238,7 @@ export function defenceText(defense: SpellData['defense'], translate: Translate)
 }
 
 /** One line per damage or healing part: "6d6 fire", "2d8 healing". */
-export function effectLines(damage: SpellCast['damage'], translate: Translate): readonly SpellEffectLine[] {
+export function effectLines(damage: SpellCast['damage'], translate: Translate): ReadonlyArray<SpellEffectLine> {
   return damage.map((part) => {
     const heals = part.kinds.includes(DamageKind.Healing);
     const harms = part.kinds.includes(DamageKind.Damage);

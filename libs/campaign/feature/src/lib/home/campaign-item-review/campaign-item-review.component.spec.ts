@@ -59,12 +59,12 @@ function present<TValue>(value: TValue | null | undefined): TValue {
 }
 
 /** Every button whose text starts with `label`, in document order. */
-function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
+function buttons(root: HTMLElement, label: string): Array<HTMLButtonElement> {
   return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.trim().startsWith(label));
 }
 
 /** Every button whose text contains `text`; a button asking to confirm holds its label as well as its own text. */
-function buttonsWith(root: HTMLElement, text: string): HTMLButtonElement[] {
+function buttonsWith(root: HTMLElement, text: string): Array<HTMLButtonElement> {
   return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.includes(text));
 }
 

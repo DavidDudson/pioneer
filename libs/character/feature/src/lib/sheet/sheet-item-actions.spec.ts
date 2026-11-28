@@ -9,6 +9,7 @@ import {
   etchRune,
   Hands,
   InventoryItemId,
+  investItem,
   ItemQuantity,
   ResourcesSpentSchema,
 } from '@pioneer/character/domain';
@@ -43,8 +44,10 @@ import { holdsStaff, sheetItemActions } from './sheet-item-actions';
 const POTION = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');
 const SWORD = InventoryItemId.parse('44444444-4444-4444-8444-444444444444');
 const BOOTS = InventoryItemId.parse('22222222-2222-4222-8222-222222222222');
+const ARMOR = InventoryItemId.parse('55555555-5555-4555-8555-555555555555');
 const STAFF = InventoryItemId.parse('33333333-3333-4333-8333-333333333333');
 const SKIES = Slug.parse('take-to-the-skies');
+const GO_INVISIBLE = Slug.parse('go-invisible');
 const HANDS_ONE = Hands.parse(1);
 
 interface Carried {
@@ -53,14 +56,16 @@ interface Carried {
   readonly quantity?: number;
   readonly carry?: CarryState;
   /** Property runes etched onto it, over a +1 potency rune. */
-  readonly runes?: readonly RuneFixture[];
+  readonly runes?: ReadonlyArray<RuneFixture>;
+  /** Whether it is invested, as armour with runes must be to be used. */
+  readonly invested?: boolean;
 }
 
-function carrying(...items: readonly Carried[]): Character {
+function carrying(...items: ReadonlyArray<Carried>): Character {
   const built = new CharacterBuilder().build();
   let inventory: Inventory = EMPTY_INVENTORY;
 
-  for (const { id, fixture, quantity = 1, carry = CarryState.Worn, runes = [] } of items) {
+  for (const { id, fixture, quantity = 1, carry = CarryState.Worn, runes = [], invested = false } of items) {
     const added = addItem(inventory, {
       id,
       item: itemFixtureId(fixture),
@@ -76,6 +81,10 @@ function carrying(...items: readonly Carried[]): Character {
 
     for (const rune of runes) {
       inventory = etchRune(inventory, id, { type: RuneType.Property, rune: runeFixtureId(rune) });
+    }
+
+    if (invested) {
+      inventory = investItem(inventory, id, true);
     }
   }
 
@@ -93,7 +102,7 @@ async function registryWithItems(): Promise<ContentRegistry> {
   return TestBed.inject(ContentLoader).registry(ACTION_STAFF_CONTENT_KINDS);
 }
 
-function listed(registry: ContentRegistry, character: Character, spent: JsonObject = {}): readonly ActionLine[] {
+function listed(registry: ContentRegistry, character: Character, spent: JsonObject = {}): ReadonlyArray<ActionLine> {
   return sheetItemActions(registry, character, {
     resources: ResourcesSpentSchema.parse(spent),
     turn: undefined,
@@ -159,6 +168,53 @@ describe(sheetItemActions, () => {
       expect(
         listed(registry, carrying({ id: SWORD, fixture: ItemFixture.Longsword, carry: CarryState.Held })),
       ).toStrictEqual([]);
+    });
+  });
+
+  describe('an armour rune with an activation', () => {
+    const worn = { id: ARMOR, fixture: ItemFixture.LeatherArmor, invested: true };
+
+    it('is a row on its armour with the uses it has left, spent under the armour and the activation', async () => {
+      const registry = await registryWithItems();
+      const armor = { ...worn, runes: [RuneFixture.Invisibility] };
+      const key = activationUseKey(ARMOR, GO_INVISIBLE);
+
+      expect(listed(registry, carrying(armor))).toMatchObject([
+        {
+          name: 'Leather-armor: Go Invisible',
+          status: ActionStatus.Available,
+          resource: { kind: ActionResourceKind.Uses, current: 1, max: 1 },
+          payment: { use: key },
+        },
+      ]);
+      expect(listed(registry, carrying(armor), { uses: { [key]: 1 } })).toMatchObject([
+        { status: ActionStatus.Unavailable, resource: { current: 0, max: 1 }, recharge: FrequencyPeriod.Day },
+      ]);
+    });
+
+    it('says how many rounds are left while the countdown of an hourly use runs', async () => {
+      const registry = await registryWithItems();
+      const armor = { ...worn, runes: [RuneFixture.Winged] };
+      const key = activationUseKey(ARMOR, SKIES);
+      const spent = { uses: { [key]: 1 }, countdowns: { [key]: 42 } };
+
+      expect(listed(registry, carrying(armor), spent)).toMatchObject([
+        {
+          name: 'Leather-armor: Take to the Skies',
+          status: ActionStatus.Unavailable,
+          recharge: FrequencyPeriod.Hour,
+          reasons: [{ key: 'character.sheet.itemActions.usedThisHour', params: { rounds: 42 } }],
+        },
+      ]);
+    });
+
+    it('is unusable, with the reason, until the armour is invested', async () => {
+      const registry = await registryWithItems();
+      const armor = { ...worn, invested: false, runes: [RuneFixture.Invisibility] };
+
+      expect(listed(registry, carrying(armor))).toMatchObject([
+        { status: ActionStatus.Unavailable, reasons: [{ key: 'character.sheet.itemActions.notInvested' }] },
+      ]);
     });
   });
 

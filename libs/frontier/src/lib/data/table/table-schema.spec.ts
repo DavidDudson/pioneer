@@ -16,7 +16,7 @@ interface Hero {
   readonly joined: Temporal.PlainDate;
 }
 
-const HEROES: readonly Hero[] = [
+const HEROES: ReadonlyArray<Hero> = [
   { id: 'a', name: 'Valeros', rarity: 'unique', joined: Temporal.PlainDate.from('2026-03-01') },
   { id: 'b', name: 'Kyra', rarity: 'common', joined: Temporal.PlainDate.from('2026-01-15') },
   { id: 'c', name: 'Merisiel', rarity: 'rare', joined: Temporal.PlainDate.from('2026-02-10') },
@@ -61,7 +61,7 @@ function host(fixture: ComponentFixture<Table<Hero>>): HTMLElement {
   return fixture.nativeElement as HTMLElement;
 }
 
-function column(fixture: ComponentFixture<Table<Hero>>, index: number): string[] {
+function column(fixture: ComponentFixture<Table<Hero>>, index: number): Array<string> {
   return [...host(fixture).querySelectorAll('tbody tr')].map(
     (row) => row.querySelectorAll('td')[index]?.textContent.trim() ?? '',
   );

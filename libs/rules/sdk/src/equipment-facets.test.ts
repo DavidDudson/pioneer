@@ -1,6 +1,5 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId, slugName } from './content-id';
 import { EQUIPMENT_FACETS } from './equipment-facets';
 import { facetValues, UNKNOWN } from './facet';
@@ -9,6 +8,7 @@ import { facetCounts, filterEntries } from './facet-filter';
 import { filterFromQuery } from './filter-query';
 import type { RegisteredKind } from './kind-data';
 import { facetsFor } from './kind-facets';
+import { ContentEntry } from './typed-content-entry';
 
 const PACK = 'player-core';
 const prose = [{ type: 'paragraph', content: [{ type: 'text', text: 'An item.' }] }];
@@ -18,7 +18,7 @@ interface ItemFields {
   readonly kind: string;
   readonly slug: string;
   readonly data: object;
-  readonly traits?: readonly string[];
+  readonly traits?: ReadonlyArray<string>;
 }
 
 /** A Player Core item at level 0; a kit has no level. */
@@ -161,30 +161,32 @@ const ITEMS = [
 ];
 
 /** Every equipment facet's values for `subject`, keyed by facet id. */
-function valuesOf(subject: ContentEntry): Record<string, readonly string[]> {
+function valuesOf(subject: ContentEntry): Record<string, ReadonlyArray<string>> {
   return Object.fromEntries(EQUIPMENT_FACETS.map((facet: FacetDefinition) => [facet.id, facetValues(subject, facet)]));
 }
 
 /** The values `subject` gives the equipment facet `id`. */
-function valueOf(subject: ContentEntry, id: string): readonly string[] {
+function valueOf(subject: ContentEntry, id: string): ReadonlyArray<string> {
   const facet = EQUIPMENT_FACETS.find((each) => each.id === id);
 
   return facet === undefined ? [] : facetValues(subject, facet);
 }
 
 /** The ids of the facets a list of one kind gets. */
-const facetIds = (kind: RegisteredKind): readonly string[] => facetsFor([kind]).map((facet) => facet.id);
+const facetIds = (kind: RegisteredKind): ReadonlyArray<string> => facetsFor([kind]).map((facet) => facet.id);
 
-const slugs = (entries: readonly ContentEntry[]): readonly string[] => entries.map((each) => slugName(each.slug));
+const slugs = (entries: ReadonlyArray<ContentEntry>): ReadonlyArray<string> =>
+  entries.map((each) => slugName(each.slug));
 
-function filter(entries: readonly ContentEntry[], query: Record<string, string>): readonly string[] {
+function filter(entries: ReadonlyArray<ContentEntry>, query: Record<string, string>): ReadonlyArray<string> {
   const facets = facetsFor([...new Set(entries.map((each) => each.kind))]);
 
   return slugs(filterEntries(entries, facets, filterFromQuery(query, facets)));
 }
 
 /** The items of `ITEMS` a filter left out. */
-const dropped = (kept: readonly string[]): readonly string[] => slugs(ITEMS).filter((slug) => !kept.includes(slug));
+const dropped = (kept: ReadonlyArray<string>): ReadonlyArray<string> =>
+  slugs(ITEMS).filter((slug) => !kept.includes(slug));
 
 describe('equipment facet values', () => {
   test('a weapon gives every facet, its persistent damage among its damage types', () => {

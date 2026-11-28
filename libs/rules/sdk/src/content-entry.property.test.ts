@@ -5,13 +5,13 @@ import { assert, property, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 import * as z from 'zod';
 
-import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { ContentKind } from './content-kind';
 import { REGISTERED_KINDS } from './kind-data';
 import type { RegisteredKind } from './kind-data';
 import { RulesMessage } from './messages';
 import { contentEntryJson, EntryIdentityJson, slugText } from './testing';
+import { ContentEntry } from './typed-content-entry';
 
 /** A valid entry of `kind` and a slug to rename it to. */
 function renames(kind: RegisteredKind): Arbitrary<readonly [object, string]> {

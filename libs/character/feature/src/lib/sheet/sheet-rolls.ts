@@ -253,7 +253,7 @@ export class SheetRolls implements StatisticRoller {
   }
 
   /** The toggles `setup` is rolled with, worded: the situations claimed, then the `RollOption` toggles that are on. */
-  #reasons({ conditional, toggles, chosen }: CheckSetup): readonly string[] {
+  #reasons({ conditional, toggles, chosen }: CheckSetup): ReadonlyArray<string> {
     const words = this.#words();
     const claimed = conditional.filter(({ modifier }) => chosen.has(modifier.id));
     const kept = toggles.filter(({ on }) => on);

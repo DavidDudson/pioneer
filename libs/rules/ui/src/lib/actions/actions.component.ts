@@ -35,7 +35,7 @@ import { ActionsNow } from './actions-now.component';
 })
 export class ActionsView {
   /** Undefined while loading: the list then shows placeholder rows. */
-  public readonly lines = input.required<readonly ActionLine[] | undefined>();
+  public readonly lines = input.required<ReadonlyArray<ActionLine> | undefined>();
   /** The sheet mode the Now view follows. */
   public readonly mode = input<ActionMode>(ActionMode.Encounter);
   /** What names the entries and items a conditional line comes from. */
@@ -53,7 +53,7 @@ export class ActionsView {
   readonly #categories = computed(() => categoriesOf(this.lines() ?? []));
 
   /** The subtabs, one for each kind the character has actions in, in the UI locale. */
-  protected readonly categoryOptions = computed((): readonly SelectOption<ActionCategory>[] => {
+  protected readonly categoryOptions = computed((): ReadonlyArray<SelectOption<ActionCategory>> => {
     this.#words.changed();
 
     return this.#categories().map((value) => ({ value, label: this.#words.say(ACTION_CATEGORY_MESSAGES[value]) }));
@@ -68,7 +68,7 @@ export class ActionsView {
   });
 
   /** The lines of the open subtab; all of them while loading or when the character has one kind only. */
-  protected readonly shown = computed((): readonly ActionLine[] | undefined => {
+  protected readonly shown = computed((): ReadonlyArray<ActionLine> | undefined => {
     const lines = this.lines();
     const open = this.open();
 
@@ -78,7 +78,7 @@ export class ActionsView {
   });
 
   /** The view switch's options, in the UI locale. */
-  protected readonly viewOptions = computed((): readonly SelectOption<ActionsViewKind>[] => {
+  protected readonly viewOptions = computed((): ReadonlyArray<SelectOption<ActionsViewKind>> => {
     this.#words.changed();
 
     return [

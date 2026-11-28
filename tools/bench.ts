@@ -37,8 +37,8 @@ async function runFile(file: string): Promise<FileRun> {
   return { output, passed: exitCode === 0 };
 }
 
-const outputs: string[] = [];
-const failed: string[] = [];
+const outputs: Array<string> = [];
+const failed: Array<string> = [];
 
 for (const file of files) {
   console.log(`\n== ${file}`);

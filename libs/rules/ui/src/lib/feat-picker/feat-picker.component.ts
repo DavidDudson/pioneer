@@ -3,13 +3,14 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { BadgeTone } from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';
-import type { PickerSort } from '@pioneer/frontier/data';
+import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
 import { ContentId, Rarity } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { RARITY_TONES } from '../picker-cells/chip-list/chip-list.component';
 import { FeatTableSchema } from '../picker-cells/feat-table-schema';
+import { PickerCellMessage } from '../picker-cells/picker-cell-messages';
 import { FEAT_CATEGORY_MESSAGES, FEAT_RARITY_MESSAGES, FeatPickerMessage } from './feat-picker-messages';
 import { FeatPickerColumn } from './feat-picker-row';
 import type { FeatPickerRow } from './feat-picker-row';
@@ -19,7 +20,7 @@ const rowLabel = (row: FeatPickerRow): string => row.name;
 const rowDisabled = (row: FeatPickerRow): string | undefined => row.disabledReason;
 
 /** The traits as chips, a feat above common rarity first and toned by it. */
-function chipsOf(row: FeatPickerRow, say: (key: string) => string): readonly Chip[] {
+function chipsOf(row: FeatPickerRow, say: (key: string) => string): ReadonlyArray<Chip> {
   if (row.rarity === Rarity.Common) {
     return row.traits;
   }
@@ -34,6 +35,72 @@ function compare(left: FeatPickerRow, right: FeatPickerRow, sort: PickerSort): n
       : left.name.localeCompare(right.name, undefined, { sensitivity: 'base' });
 
   return sort.descending ? -order : order;
+}
+
+/** What a feat is: name, level, category, action cost and traits. `say` reads the cells in the active language. */
+function whatColumns(say: (key: string) => string): FeatTableSchema<FeatPickerRow> {
+  return new FeatTableSchema<FeatPickerRow>()
+    .addEntryName({
+      id: FeatPickerColumn.Name,
+      header: FeatPickerMessage.Name,
+      value: (row) => row.name,
+      entry: (row) => ContentId.safeParse(row.id).data,
+      width: 'md',
+    })
+    .addLevel({
+      id: FeatPickerColumn.Level,
+      header: PickerCellMessage.LevelColumn,
+      value: (row) => row.level,
+      width: 'sm',
+    })
+    .addTag({
+      id: 'category',
+      header: FeatPickerMessage.Category,
+      sortable: false,
+      value: (row) => ({ label: say(FEAT_CATEGORY_MESSAGES[row.category]), tone: BadgeTone.Neutral }),
+      width: 'sm',
+    })
+    .addActions({
+      id: 'actions',
+      header: FeatPickerMessage.Actions,
+      sortable: false,
+      value: (row) => row.action,
+      width: 'sm',
+    })
+    .addTraits({
+      id: 'traits',
+      header: FeatPickerMessage.Traits,
+      sortable: false,
+      value: (row) => chipsOf(row, say),
+      width: 'md',
+    });
+}
+
+/** What a feat asks of the character and where it comes from: prerequisites, source and notes. */
+function featColumns(say: (key: string) => string): ReadonlyArray<TableColumn<FeatPickerRow>> {
+  return whatColumns(say)
+    .addPrerequisites({
+      id: 'prerequisites',
+      header: FeatPickerMessage.Prerequisites,
+      sortable: false,
+      value: (row) => row.prerequisites,
+      width: 'lg',
+    })
+    .addSource({
+      id: 'source',
+      header: FeatPickerMessage.Source,
+      sortable: false,
+      value: (row) => row.sources,
+      width: 'md',
+    })
+    .addText({
+      id: 'notes',
+      header: FeatPickerMessage.Notes,
+      sortable: false,
+      value: (row) => row.note ?? '',
+      width: 'md',
+    })
+    .build();
 }
 
 /**
@@ -55,7 +122,7 @@ function compare(left: FeatPickerRow, right: FeatPickerRow, sort: PickerSort): n
 })
 export class FeatPicker {
   /** Every feat the slot offers, with the facts of each. */
-  public readonly rows = input.required<readonly FeatPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<FeatPickerRow>>();
   /** The picked feat's id; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);
@@ -76,57 +143,12 @@ export class FeatPicker {
 
   protected readonly columns = computed(() => {
     this.#messages();
-    const say = (key: string): string => this.#i18n.translate(key);
 
-    const headers = {
-      name: say(FeatPickerMessage.Name),
-      level: say(FeatPickerMessage.Level),
-      category: say(FeatPickerMessage.Category),
-      actions: say(FeatPickerMessage.Actions),
-      traits: say(FeatPickerMessage.Traits),
-      prerequisites: say(FeatPickerMessage.Prerequisites),
-      source: say(FeatPickerMessage.Source),
-      notes: say(FeatPickerMessage.Notes),
-    };
-
-    return new FeatTableSchema<FeatPickerRow>()
-      .addEntryName({
-        id: FeatPickerColumn.Name,
-        header: headers.name,
-        value: (row) => row.name,
-        entry: (row) => ContentId.safeParse(row.id).data,
-        width: 'md',
-      })
-      .addLevel({ id: FeatPickerColumn.Level, header: headers.level, value: (row) => row.level, width: 'sm' })
-      .addTag({
-        id: 'category',
-        header: headers.category,
-        sortable: false,
-        value: (row) => ({ label: say(FEAT_CATEGORY_MESSAGES[row.category]), tone: BadgeTone.Neutral }),
-        width: 'sm',
-      })
-      .addActions({ id: 'actions', header: headers.actions, sortable: false, value: (row) => row.action, width: 'sm' })
-      .addTraits({
-        id: 'traits',
-        header: headers.traits,
-        sortable: false,
-        value: (row) => chipsOf(row, say),
-        width: 'md',
-      })
-      .addPrerequisites({
-        id: 'prerequisites',
-        header: headers.prerequisites,
-        sortable: false,
-        value: (row) => row.prerequisites,
-        width: 'lg',
-      })
-      .addSource({ id: 'source', header: headers.source, sortable: false, value: (row) => row.sources, width: 'md' })
-      .addText({ id: 'notes', header: headers.notes, sortable: false, value: (row) => row.note ?? '', width: 'md' })
-      .build();
+    return featColumns((key) => this.#i18n.translate(key));
   });
 
   /** The rows whose name holds what was typed, in the order asked for. */
-  protected readonly shown = computed((): readonly FeatPickerRow[] => {
+  protected readonly shown = computed((): ReadonlyArray<FeatPickerRow> => {
     const needle = this.query().trim().toLocaleLowerCase();
     const sort = this.sorting();
     const matching = this.rows().filter((row) => row.name.toLocaleLowerCase().includes(needle));

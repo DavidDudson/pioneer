@@ -31,7 +31,7 @@ const PICKED_ROLLS: ReadonlyMap<string, string> = new Map([
 ]);
 
 /** The domains a weapon's picks add to its instance of `family`: `picked:<flag>-damage` for each flag that picked it. */
-function pickedDomains(family: StatisticDefinition, source: SourceInputs): readonly Domain[] {
+function pickedDomains(family: StatisticDefinition, source: SourceInputs): ReadonlyArray<Domain> {
   const roll = PICKED_ROLLS.get(family.selector);
 
   if (roll === undefined || source.per !== StatisticPer.Weapon) {
@@ -46,7 +46,7 @@ function same(selector: Selector): Selector {
 }
 
 /** The character's weapons or spellcasting entries, as the sources a family derived per them is derived for. */
-function sourcesOf(per: StatisticPer, inputs: StatisticInputs): readonly SourceInputs[] {
+function sourcesOf(per: StatisticPer, inputs: StatisticInputs): ReadonlyArray<SourceInputs> {
   return per === StatisticPer.Weapon
     ? (inputs.weapons ?? []).map((weapon) => ({ per, weapon }))
     : (inputs.spellcasting ?? []).map((entry) => ({ per, entry }));
@@ -86,9 +86,9 @@ function instanceOf(
  * selector always is one; the check here only guards definitions built without their schema.
  */
 export function statisticInstances(
-  definitions: readonly StatisticDefinition[],
+  definitions: ReadonlyArray<StatisticDefinition>,
   inputs: StatisticInputs,
-): readonly StatisticInstance[] {
+): ReadonlyArray<StatisticInstance> {
   const lastGiven = new Map(definitions.map(({ selector }, index) => [selector, index]));
   const latest = definitions.filter(({ selector }, index) => lastGiven.get(selector) === index);
 
@@ -104,7 +104,7 @@ export function statisticInstances(
     ]),
   );
 
-  return latest.flatMap((family): StatisticInstance[] => {
+  return latest.flatMap((family): Array<StatisticInstance> => {
     if (family.per === undefined) {
       return [{ definition: family, source: undefined, reads: same }];
     }

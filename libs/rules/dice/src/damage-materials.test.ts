@@ -10,7 +10,7 @@ import { amount, expectedInstance, roll, target } from './testing/damage-fixture
 const MATERIALS = ['silver', 'cold-iron', 'adamantine'].map((material) => DamageException.parse(material));
 
 /** A resistance of 5 to physical damage, except from the damage that counts as `exceptions`. */
-function resistantExcept(...exceptions: readonly string[]): DamageAdjustment {
+function resistantExcept(...exceptions: ReadonlyArray<string>): DamageAdjustment {
   return DamageAdjustment.parse({ type: DamageGroup.Physical, value: 5, exceptions });
 }
 

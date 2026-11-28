@@ -10,8 +10,8 @@
 const ContrastMinimum = { Text: 4.5, NonText: 3 } as const;
 
 interface ContrastPair {
-  readonly foreground: readonly string[];
-  readonly background: readonly string[];
+  readonly foreground: ReadonlyArray<string>;
+  readonly background: ReadonlyArray<string>;
   readonly minimum: number;
 }
 
@@ -37,7 +37,7 @@ const DAMAGE_TONES = [
   'bleed',
 ];
 
-export const CONTRAST_PAIRS: readonly ContrastPair[] = [
+export const CONTRAST_PAIRS: ReadonlyArray<ContrastPair> = [
   { foreground: ['fg-default', 'fg-muted', 'fg-subtle'], background: SURFACES, minimum: ContrastMinimum.Text },
   { foreground: ['fg-inverse'], background: ['surface-inverse'], minimum: ContrastMinimum.Text },
   // A combobox option's description, on the selected option's fill.

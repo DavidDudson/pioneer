@@ -1,18 +1,18 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AsyncButton, Message, Spinner, Stack, Text } from '@pioneer/frontier';
+import { AsyncButton, Message, Stack, Text } from '@pioneer/frontier';
 
 import { CharacterStore } from '../../data/character-store';
 import { SaveState } from '../../data/edit-tracker';
 
 /**
- * How the open character's edits stand, for the sheet header: "All changes saved", a spinner while any edit is
+ * How the open character's edits stand, for the sheet header: "All changes saved", "Saving" while any edit is
  * saving, or why the last one failed with Retry beside it. After a conflict there is nothing to retry: the fields
  * already show the other version.
  */
 @Component({
   selector: 'pio-sheet-save-status',
-  imports: [AsyncButton, Message, Spinner, Stack, Text, TranslocoPipe],
+  imports: [AsyncButton, Message, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-save-status.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

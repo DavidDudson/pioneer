@@ -33,15 +33,15 @@ interface ToastLine {
   readonly total: string;
   readonly tone: DamageTone | undefined;
   /** What the dice came to before a basic save scaled them, then the type's name; each only when there is one. */
-  readonly notes: readonly ToastNote[];
+  readonly notes: ReadonlyArray<ToastNote>;
 }
 
 /** What the toast shows of a roll: each type's total as the viewer's locale writes it, and the roll for its label. */
 interface ToastView {
-  readonly lines: readonly ToastLine[];
+  readonly lines: ReadonlyArray<ToastLine>;
   readonly roll: RollPresentation;
   /** Message keys in bold under the totals: the natural die the roll earned, then the degree it reached. */
-  readonly headlines: readonly string[];
+  readonly headlines: ReadonlyArray<string>;
   readonly emphasis: ToastEmphasis;
 }
 

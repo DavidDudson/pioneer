@@ -7,7 +7,7 @@ import { HashKeyedCache } from './hash-keyed-cache';
 
 const CORE = PackId.parse('core-rules');
 
-function hashes(hash: string): readonly StoredPackHash[] {
+function hashes(hash: string): ReadonlyArray<StoredPackHash> {
   return [{ pack: CORE, hash }];
 }
 
@@ -68,10 +68,10 @@ describe('HashKeyedCache', () => {
   test('a failed build is dropped, so the next ask tries again', async () => {
     const cache = new HashKeyedCache<number>();
 
-    const failed = await cache.current(hashes('a'), failing).then(
-      () => 'served',
-      () => 'refused',
-    );
+    const failed = await cache
+      .current(hashes('a'), failing)
+      .then(() => 'served')
+      .catch(() => 'refused');
 
     const recovered = await cache.current(hashes('a'), async () => 7);
 

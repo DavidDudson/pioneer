@@ -21,7 +21,7 @@ export type SpellAccessProblem = ValueOf<typeof SpellAccessProblem>;
  */
 export function spellAccessProblem(
   spells: SpellContent,
-  granted: readonly ContentId[],
+  granted: ReadonlyArray<ContentId>,
   spell: ContentId,
 ): SpellAccessProblem | undefined {
   const named = spells.spell(spell);

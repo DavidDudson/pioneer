@@ -10,5 +10,5 @@ import { Stack, Text } from '@pioneer/frontier';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RollReasons {
-  public readonly reasons = input.required<readonly string[]>();
+  public readonly reasons = input.required<ReadonlyArray<string>>();
 }

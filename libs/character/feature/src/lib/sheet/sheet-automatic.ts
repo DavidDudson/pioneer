@@ -5,6 +5,7 @@ import type { Level } from '@pioneer/rules/sdk';
 import type { AutomaticLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
+import { capitalise } from '@pioneer/shared/utils';
 
 import { sourceMessageOf } from './sheet-choice-source';
 
@@ -13,7 +14,7 @@ function statisticName(selector: string): string {
   const last = selector.split(':').at(-1) ?? selector;
   const words = last.replaceAll('-', ' ');
 
-  return `${words.charAt(0).toUpperCase()}${words.slice(1)}`;
+  return capitalise(words);
 }
 
 /** What a rise reads as, by the rank it reaches; a rise never reaches untrained. */
@@ -77,7 +78,7 @@ function lineOf(change: AutomaticChange): AutomaticText {
 export function sheetAutomatic(
   character: Character,
   content: SlotContent,
-): ReadonlyMap<Level, readonly AutomaticLine[]> {
+): ReadonlyMap<Level, ReadonlyArray<AutomaticLine>> {
   return new Map(
     automaticTimeline(character.document, content).map(({ level, changes }) => [
       level,

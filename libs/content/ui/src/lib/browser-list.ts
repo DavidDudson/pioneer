@@ -7,9 +7,9 @@ import type { StoreLink } from './browse-source';
 /** The list a tier shows: the rows to draw, how many entries the filters leave, and what each filter value would leave. */
 export interface ContentBrowserList {
   /** The rows shown so far; `total` can be more. */
-  readonly rows: readonly BrowseRow[];
+  readonly rows: ReadonlyArray<BrowseRow>;
   readonly total: number;
-  readonly counts: readonly FacetCounts[];
+  readonly counts: ReadonlyArray<FacetCounts>;
   /** Whether the list is what a search found, which changes what an empty list says. */
   readonly searching: boolean;
 }
@@ -18,5 +18,5 @@ export interface ContentBrowserList {
 export interface ContentBrowserEntry {
   readonly card: EntryPreview | undefined;
   /** Where the entry's books are sold. */
-  readonly stores: readonly StoreLink[];
+  readonly stores: ReadonlyArray<StoreLink>;
 }

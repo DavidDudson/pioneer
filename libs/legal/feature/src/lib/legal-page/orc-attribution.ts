@@ -2,14 +2,14 @@
 export interface AttributionGroup {
   readonly headingKey: string;
   /** Credit lines as their licensors publish them: proper names, never translated. */
-  readonly works: readonly string[];
+  readonly works: ReadonlyArray<string>;
 }
 
 /**
  * Builds a group by a function rather than as an object literal: the Angular compiler gave up (TS2859) reducing a union
  * of this many literals.
  */
-function group(headingKey: string, works: readonly string[]): AttributionGroup {
+function group(headingKey: string, works: ReadonlyArray<string>): AttributionGroup {
   return { headingKey, works };
 }
 
@@ -18,7 +18,7 @@ function group(headingKey: string, works: readonly string[]): AttributionGroup {
  * `static/licenses/ORCLicense.md`, plus Monster Core, which that file omits. Entries Foundry lists with
  * "Authors: TBD" credit Paizo Inc. alone. Generated from book data once books.json lands (#17).
  */
-export const ORC_ATTRIBUTION: readonly AttributionGroup[] = [
+export const ORC_ATTRIBUTION: ReadonlyArray<AttributionGroup> = [
   group('legal.orc.attribution.rulebooks', [
     'Pathfinder Beginner Box (Remastered) © 2023, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Lyz Liddell, Mark Seifter',
     'Pathfinder Player Core © 2023, Paizo Inc.; Designers: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter. Authors: Alexander Augunas, Kate Baker, Logan Bonner, Jason Bulmahn, Carlos Cabrera, Calder CaDavid, James Case, Eleanor Ferron, Steven Hammond, Joan Hong, Vanessa Hoskins, James Jacobs, Jenny Jarzabski, Erik Keith, Dustin Knight, Lyz Liddell, Luis Loza, Patchen Mortimer, Dennis Muldoon, Stephen Radney-MacFarland, Mikhail Rekun, David N. Ross, Michael Sayre, Mark Seifter, Kendra Leigh, Speedling, Mark Thompson, Clark Valentine, Andrew White, Landon Winkler, and Linda Zayas-Palmer',

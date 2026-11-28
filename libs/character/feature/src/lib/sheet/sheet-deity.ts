@@ -15,7 +15,7 @@ export interface DeityLineSources {
 }
 
 /** A deity's divine skills by name; one the registry has no statistic for reads as its selector. */
-function deitySkills(registry: ContentRegistry, data: DeityData): readonly string[] {
+function deitySkills(registry: ContentRegistry, data: DeityData): ReadonlyArray<string> {
   return data.skills.map((skill) => {
     const entry = registry.statisticsFor(Selector.parse(skill)).at(-1);
 
@@ -59,7 +59,7 @@ export function sheetDeityRows(
   registry: ContentRegistry,
   character: Character,
   { translate, unlistedWeapon }: DeityRowReads,
-): readonly DeityPickerRow[] {
+): ReadonlyArray<DeityPickerRow> {
   const content = sheetSlotContent(registry);
   const offered = new Set(rootSlotOptions(character.document, content, DEITY_SLOT).map((option) => option.value));
   const cleric = needsDeity(characterGrants(character.document, content).rollOptions);
