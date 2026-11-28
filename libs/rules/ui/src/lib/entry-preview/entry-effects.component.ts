@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Link, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import { injectTranslate, Link, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { EffectChange, EffectStatusKind } from '@pioneer/rules/engine';
 import type { DamageAdjustmentEffect, EffectStatus, ImmunityEffect } from '@pioneer/rules/engine';
 import { DamageContextSchema, DamageGroupSchema, DamageTypeSchema } from '@pioneer/rules/sdk';
 import type { DamageAdjustmentSubject } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import { modifierValue } from '../breakdown/line-words';
 import { ACUITY_MESSAGES } from '../creature-stat-block/creature-stat-block-messages';
@@ -48,8 +46,7 @@ export class EntryEffectsView {
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   readonly #previews = inject(ENTRY_PREVIEWS);
 

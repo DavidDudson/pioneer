@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { EmptyState, List, ListItem, LocaleFormat, Skeleton, Text } from '@pioneer/frontier';
+import { EmptyState, injectTranslate, List, ListItem, LocaleFormat, Skeleton, Text } from '@pioneer/frontier';
 import { NoteRoll } from '@pioneer/rules/engine';
 import type { CriticalWeakness, StatisticResult, Strike, StrikeDamage, WeaponInputs } from '@pioneer/rules/engine';
 import { OriginHopKind, StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId, Slug } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import { numberStyle, SIGNED } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
@@ -73,8 +71,7 @@ export class StrikesView {
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   /** Ticks when the locale changes or a message scope finishes loading. */
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly shown = computed((): ReadonlyArray<ShownStrike> | undefined => {
     this.#messages();

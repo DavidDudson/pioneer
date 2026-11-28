@@ -1,13 +1,20 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import type { IconGlyph } from '@pioneer/frontier';
-import { HoverCard, HoverCardContent, Icon, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
+import {
+  HoverCard,
+  HoverCardContent,
+  Icon,
+  injectTranslate,
+  LocaleFormat,
+  Skeleton,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import type { SenseInPlay } from '@pioneer/rules/engine';
 import { SenseAcuity } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { Eye, EyeOff, ScanEye } from 'lucide';
-import { filter, merge } from 'rxjs';
 
 import { NO_ORIGIN_NAMES } from '../../origin-chain/origin-names';
 import type { OriginNames } from '../../origin-chain/origin-names';
@@ -60,8 +67,7 @@ export class SenseIcons {
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   /** Ticks when the locale changes or a message scope finishes loading. */
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly rows = computed((): ReadonlyArray<SenseRow> | undefined => {
     this.#messages();

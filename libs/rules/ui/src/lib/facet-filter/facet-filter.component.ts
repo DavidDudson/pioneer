@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, model } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Disclosure, FilterChips, Grid, LocaleFormat, NumberInput, Stack, Text } from '@pioneer/frontier';
+import { Disclosure, FilterChips, Grid, injectTranslate, LocaleFormat, NumberInput, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import type { FacetCounts, FacetDefinition, FacetId, FacetValue, FilterState } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import { FacetFilterMessage } from './facet-filter-messages';
 import { FacetRowKind, facetRows, RangeSide, withBound, withValues } from './facet-filter-rows';
@@ -41,9 +39,8 @@ export class FacetFilterView {
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Re-read when the messages load or the language changes, so a chip is never a raw key. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly Kind = FacetRowKind;
   protected readonly Side = RangeSide;

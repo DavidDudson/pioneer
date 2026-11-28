@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { Badge, Heading, HeadingLevel, LocaleFormat, Stack, Text } from '@pioneer/frontier';
-import { filter, merge } from 'rxjs';
+import { Badge, Heading, HeadingLevel, injectTranslate, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 
 import { TraitChip } from '../trait-chip/trait-chip.component';
 import { StatBlockLayout } from './creature-stat-block';
@@ -51,8 +49,7 @@ export class CreatureStatBlockView {
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   /** Whether the layout shows the whole stat block rather than the numbers a glance needs. */
   protected readonly full = computed((): boolean => this.layout() !== StatBlockLayout.Preview);

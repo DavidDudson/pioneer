@@ -1,10 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Stack, Text } from '@pioneer/frontier';
+import { injectTranslate, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { SPELL_RANK_MAX, SpellRank } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import { OptionPicker } from '../option-picker/option-picker.component';
 import { spellCastLine } from '../spell-list/spell-detail-line-of';
@@ -37,8 +35,7 @@ export class EntryRanksView {
   protected readonly Message = EntryPreviewMessage;
 
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   /** The rank picked; the spell's own until the reader picks another. */
   readonly #picked = signal<SpellRank | undefined>(undefined);

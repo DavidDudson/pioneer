@@ -1,13 +1,12 @@
 import { computed, inject } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { CLASS_SLOT, SECOND_CLASS_SLOT } from '@pioneer/character/domain';
+import { injectTranslate } from '@pioneer/frontier';
 import { AttributeModifiers } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import type { ClassPickerRow, KeyAttributePickerRow, SubclassPickerRow } from '@pioneer/rules/ui';
 import type { MessageParams } from '@pioneer/shared/kernel';
-import { filter, merge } from 'rxjs';
 
 import { classRows, keyAttributeRows, subclassRows } from '../data/class-rows';
 import type { ClassPicks } from './sheet-build-picks';
@@ -30,9 +29,8 @@ export function injectClassRows(sheet: SheetState, second: () => boolean = () =>
   const slot = (): SlotKey => (second() ? SECOND_CLASS_SLOT : CLASS_SLOT);
   const picks = (): ClassPicks => (second() ? sheet.picks.second : sheet.picks);
   const i18n = inject(TranslocoService);
-  const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Changes when the language changes or the messages load, so the rows' words are read again. */
-  const messages = toSignal(merge(i18n.langChanges$, loaded));
+  const messages = injectTranslate();
   const reads = { translate: (key: string, params?: MessageParams): string => i18n.translate(key, params) };
 
   return {

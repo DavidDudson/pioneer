@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Segmented, Stack } from '@pioneer/frontier';
+import { injectTranslate, Segmented, Stack } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { Proficiency } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
@@ -56,8 +54,7 @@ export class SkillsView {
 
   readonly #i18n = inject(TranslocoService);
   /** Ticks when the locale changes or a message scope finishes loading. */
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly options = computed((): ReadonlyArray<SelectOption<SkillsTab>> => {
     this.#messages();

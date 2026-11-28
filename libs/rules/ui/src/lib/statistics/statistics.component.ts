@@ -1,11 +1,19 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Badge, EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
+import {
+  Badge,
+  EmptyState,
+  injectTranslate,
+  List,
+  ListItem,
+  LocaleFormat,
+  Skeleton,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import { FormSource, RuleId } from '@pioneer/rules/engine';
 import type { BreakdownLine, StatisticResult, StatisticValue } from '@pioneer/rules/engine';
 import type { ContentId, EntrySlug, Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import { labelName } from '../breakdown/line-words';
 import { numberStyle } from '../breakdown/number-style';
@@ -138,8 +146,7 @@ export class StatisticsView {
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   /** Ticks when the locale changes or a message scope (`rules`, `predicate`, `engine`) finishes loading. */
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected claim(selector: Selector, { id, on }: ConditionChange): void {
     this.#roller?.claim?.(selector, RuleId.parse(id), on);

@@ -1,11 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { LocaleFormat } from '@pioneer/frontier';
+import { injectTranslate, LocaleFormat } from '@pioneer/frontier';
 import { ActionOriginKind } from '@pioneer/rules/engine';
 import { ACTION_COUNT } from '@pioneer/rules/sdk';
-import { filter, merge } from 'rxjs';
 
 import type { LabelNames } from '../breakdown/line-words';
 import { conditionalLines } from '../statistics/conditional-lines';
@@ -32,10 +30,9 @@ const NO_NAMES: LabelNames = { entries: new Map() };
 export class ActionWords {
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
 
   /** Ticks when the locale changes or a message scope finishes loading. */
-  public readonly changed: Signal<unknown> = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  public readonly changed: Signal<unknown> = injectTranslate();
 
   /** Compares two names in the UI locale. */
   public readonly compare = (left: string, right: string): number => this.#format.compare(left, right);

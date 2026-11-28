@@ -1,10 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Badge, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
+import { Badge, injectTranslate, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
 import { formatSummary } from '@pioneer/rules/predicate';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
-import { filter, merge } from 'rxjs';
 
 import { TRUTH_KEYS, TRUTH_TONES, VERDICT_KEYS, VerdictStatus } from '../predicate-verdict';
 import type { VerdictCheck } from '../predicate-verdict';
@@ -31,8 +29,7 @@ export class PredicateVerdictResult {
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   /** Ticks when the locale changes or a message scope (`predicate`) finishes loading. */
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
   /** The summary in the UI locale, while the verdict is unknown. */
   protected readonly summary = computed((): string | undefined => {
     this.#messages();

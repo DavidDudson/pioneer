@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   AsyncData,
@@ -9,6 +8,7 @@ import {
   DescriptionItem,
   DescriptionList,
   Heading,
+  injectTranslate,
   Page,
   PageBody,
   PageHeader,
@@ -24,7 +24,6 @@ import { PackVisibility } from '@pioneer/rules/sdk';
 import { injectOptionRows } from '@pioneer/rules/ui';
 import { HttpStatus } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
-import { filter, merge } from 'rxjs';
 
 import { HomebrewStore } from '../../data/homebrew-store';
 import { PackDependenciesPanel } from '../pack-dependencies/pack-dependencies.component';
@@ -71,9 +70,8 @@ export class PackHomePage {
 
   protected readonly store = inject(HomebrewStore);
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Ticks when the locale changes or the `homebrew` message scope finishes loading. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly title = computed(() => this.store.selected.data()?.title);
   protected readonly visibilityMessages = VISIBILITY_MESSAGES;

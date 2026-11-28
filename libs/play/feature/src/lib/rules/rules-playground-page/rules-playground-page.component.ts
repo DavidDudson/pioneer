@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, inject, resource, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   Field,
   FieldError,
   FieldHint,
   Heading,
+  injectTranslate,
   Label,
   Page,
   PageBody,
@@ -21,7 +21,6 @@ import type { PickerSort } from '@pioneer/frontier/data';
 import { ContentKind, REGISTERED_KINDS } from '@pioneer/rules/sdk';
 import type { RegisteredKind } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { filter, merge } from 'rxjs';
 
 import { RulesSchema } from '../rules-check';
 import {
@@ -100,9 +99,8 @@ export class RulesPlaygroundPage {
   readonly #i18n = inject(TranslocoService);
   readonly #loadDefinitions = inject(STATISTIC_DEFINITIONS);
   readonly #loadCoreRules = inject(CORE_RULES);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Ticks when the locale changes or a message scope (`play`) finishes loading. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
   /** Every schema and tool; the list is short, so the page searches and sorts it. */
   readonly #schemas = computed((): ReadonlyArray<RulesPickerRow<RulesTool>> => {
     this.#messages();

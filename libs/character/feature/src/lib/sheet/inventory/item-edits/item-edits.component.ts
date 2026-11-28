@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   CharacterPatchField,
@@ -11,9 +10,17 @@ import {
   STOWED,
 } from '@pioneer/character/domain';
 import type { Character, InventoryItem, ItemContent, ItemEntry } from '@pioneer/character/domain';
-import { Grid, InlineField, LocaleFormat, NumberInput, Stack, TextInput, ToggleButton } from '@pioneer/frontier';
+import {
+  Grid,
+  injectTranslate,
+  InlineField,
+  LocaleFormat,
+  NumberInput,
+  Stack,
+  TextInput,
+  ToggleButton,
+} from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';
-import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
@@ -73,8 +80,7 @@ export class ItemEdits {
   readonly #store = inject(CharacterStore);
   readonly #format = inject(LocaleFormat);
   readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
   /** "Invested" and "Not invested", re-read when the language changes or the messages load. */
   readonly #investLabels = computed((): InvestLabels => {
     this.#messages();

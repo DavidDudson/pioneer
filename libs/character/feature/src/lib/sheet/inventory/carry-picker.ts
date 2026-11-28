@@ -1,15 +1,14 @@
 import { computed, inject } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { HANDS_MAX, ONE_HAND } from '@pioneer/character/domain';
 import type { ItemEntry } from '@pioneer/character/domain';
+import { injectTranslate } from '@pioneer/frontier';
 import type { TableColumn } from '@pioneer/frontier/data';
 import { BulkWeight, ContentKind } from '@pioneer/rules/sdk';
 import type { Bulk } from '@pioneer/rules/sdk';
 import { ItemTableSchema, PickerRows } from '@pioneer/rules/ui';
 import type { Chip, RowOrder } from '@pioneer/rules/ui';
-import { filter, merge } from 'rxjs';
 
 import { CARRY_LABELS, CarryChoice, carryChoices } from './carry-options';
 
@@ -117,8 +116,7 @@ export interface CarryPicker {
  */
 export function injectCarryPicker(entry: Signal<ItemEntry | undefined>): CarryPicker {
   const i18n = inject(TranslocoService);
-  const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  const messages = toSignal(merge(i18n.langChanges$, loaded));
+  const messages = injectTranslate();
 
   const all = computed((): ReadonlyArray<CarryRow> => {
     messages();

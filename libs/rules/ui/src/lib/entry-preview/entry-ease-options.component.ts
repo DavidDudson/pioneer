@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Badge, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
-import { filter, merge } from 'rxjs';
+import { Badge, injectTranslate, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 
 import { ContentPreview } from './content-preview.component';
 import { EaseEffect } from './entry-preview';
@@ -36,8 +34,7 @@ export class EntryEaseOptionsView {
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   /** The options to list; none while the preview has none. */
   protected readonly listed = computed((): ReadonlyArray<PreviewEaseOption> => this.options() ?? []);

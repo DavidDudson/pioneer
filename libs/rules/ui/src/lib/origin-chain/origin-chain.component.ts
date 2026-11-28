@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { DateDisplay, LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import { DateDisplay, injectTranslate, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { OriginHopKind } from '@pioneer/rules/sdk';
 import type { ContentId, EventRef, Origin, OriginHop, PackId } from '@pioneer/rules/sdk';
 import type { Temporal, UserId, ValueOf } from '@pioneer/shared/kernel';
-import { filter, merge } from 'rxjs';
 
 import { SourceLineView } from '../source-line/source-line.component';
 import { OriginChainMessage } from './origin-chain-messages';
@@ -102,8 +100,7 @@ export class OriginChainView {
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   /** Ticks when the locale changes or the `rules` scope finishes loading. */
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  readonly #messages = injectTranslate();
 
   protected readonly segments = computed((): ReadonlyArray<Segment> => {
     this.#messages();
