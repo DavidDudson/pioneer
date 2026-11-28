@@ -2,12 +2,12 @@
 
 - Status: Proposed
 - Date: 2026-11-28
-- Amends: [0009](0009-i18n-and-lazy-loading.md) (UI and content locale defaults),
-  [0013](0013-account-only-display-preferences.md) (unchosen content locale)
+- Amends: [0009](0009-i18n-and-lazy-loading.md) (settles the first languages and the translation workflow it
+  left unmade), [0013](0013-account-only-display-preferences.md) (an unchosen content locale follows the UI locale)
 
 ## Context
 
-ADR-0009 built the runtime for other languages and left four questions open: which languages ship first, how
+ADR-0009 built the runtime for other languages and left four decisions unmade: which languages ship first, how
 translators contribute, when a locale is complete enough to ship, and how regional tags behave. Only `en` exists
 today: 20 `en.json` catalogs, one per message scope, and `LocaleSchema` accepts nothing else.
 
@@ -29,9 +29,11 @@ confirmed. There is no evidence of demand for a right-to-left language.
 ## Decision
 
 - **First languages: `de` and `fr`.** German has the best-verified module and an official publisher. French has an
-  active community module. Two languages with different plural rules and a longer-than-English text profile prove
-  the pipeline without doubling the catalog volume. The module state above is the reason to pick them; it is not a
-  promise about content: content text arrives through ADR-0009's translation import, not through this decision.
+  active community module. German proves the pipeline and text longer than English; French adds the plural
+  categories English and German lack (`many`, with 0 counting as `one`). Two locales prove this without doubling
+  the catalog volume. Languages with `few` (Polish) or a single category (Japanese, Chinese) are untested by this
+  pair. The module state above is the reason to pick them; it is not a promise about content: content text arrives
+  through ADR-0009's translation import, not through this decision.
 - **No right-to-left locale yet.** `textDirection` and the logical-CSS rule stay, so adding one later needs no
   layout work. Revisit when there is real demand.
 - **Workflow: pull requests against catalog files.** Each message scope keeps one catalog per locale beside its
@@ -44,23 +46,27 @@ confirmed. There is no evidence of demand for a right-to-left language.
 - **A locale ships when its core scopes are complete.** The shell, `identity` (settings) and `character` (sheet and
   builder) scopes must be 100% translated; every other scope may be partial and falls back to `en` per key, as
   ADR-0009 already specifies. A locale below the bar is not added to `Locale`. Coverage is the existing
-  `translatedShare` of the language picker.
+  `translatedShare` of the language picker, which the locales story must feed the merged fallback chain (so an overrides-only
+  regional catalog is judged with its parent); a per-locale check of the core scopes enforces the bar.
 - **Regional tags are not separate locales by default.** Only primary tags ship. A regional tag becomes its own
   locale only when its text differs, and its catalog then holds the overrides only. Lookup falls back one key at a
   time: `pt-BR`, then `pt`, then `en`.
 - **UI locale and content locale default together.** ADR-0013's two stored fields stay. An unchosen
-  `contentLocale` follows `uiLocale`; a content locale chosen separately keeps its value. Content text still
+  `contentLocale` follows `uiLocale`; once chosen it keeps its value, and, as ADR-0013 already says, a choice is
+  changed and never removed. The settings page shows the effective value for an unchosen field. Content text still
   falls back per field to `en` (ADR-0009), so a German UI reads English rules text until a content translation is
   imported.
 
 ## Rejected options
 
-- **Hosted Weblate.** Friendlier for non-developers, but it adds an external service, an account and its
-  configuration before anyone has translated a message. It syncs through git, so it can be added over the same
-  catalog files later. Revisit when contributors ask for it or review load grows.
-- **Crowdin.** Proprietary and locks the workflow to one vendor.
-- **`es` and `pt-BR` now.** Doubles the catalogs to keep in step. The Spanish module's own review is pending, and
-  the Portuguese content licence is unstated. They are good second-wave candidates and exercise the `pt-BR`
+- **Hosted Weblate.** Open source and free for libre projects, and friendlier for non-developers, but it adds an
+  external service, an account and its configuration before anyone has translated a message. It syncs through git,
+  so it can be added over the same catalog files later. Revisit when contributors ask for it or review load grows.
+  ICU MessageFormat support was not verified for either platform; the per-locale check validates ICU in the repo
+  whichever workflow is used.
+- **Crowdin.** Proprietary, with a free plan for open source projects, and locks the workflow to one vendor.
+- **`es` and `pt-BR` now.** Doubles the catalogs to keep in step before the pipeline is proven, and the Portuguese
+  content licence is unstated. They are good second-wave candidates and exercise the `pt-BR`
   fallback chain.
 - **A single pilot locale.** Fastest, but proves one plural set and one fallback path.
 - **Regions as separate full locales.** Duplicates a whole catalog for a few differing words.
@@ -74,4 +80,6 @@ confirmed. There is no evidence of demand for a right-to-left language.
 - No platform account is needed to contribute; the cost is that a translator needs a GitHub account and the
   JSON format. The translator guide covers both.
 - The `Locale` enum, `LocaleMessages` loaders and the settings picker change in the locales story; this ADR
-  changes none of them.
+  changes none of them. Neither the locale registry (`machine-draft` or `reviewed`) nor the per-locale checks exist
+  yet: the checks story ([#2208](https://github.com/DavidDudson/pioneer/issues/2208)) adds the registry, the
+  checks and the core-scope bar, and the locales story shows the status in the picker.
