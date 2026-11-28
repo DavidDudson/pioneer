@@ -43,6 +43,21 @@ describe('parseTokenRules and cascade', () => {
     expect(() => parseTokenRules([css])).toThrow('tokens may only be set in top-level');
   });
 
+  test('skips a nested rule that sets only non-colour size tokens', () => {
+    const sized = parseTokenRules(['@media (pointer: fine) { :root { --fr-size-control-md: 2.5rem; } }']);
+    expect(sized).toStrictEqual([]);
+  });
+
+  test('skips a keyframe step that only turns the status angle', () => {
+    expect(parseTokenRules(['@keyframes turn { to { --fr-status-angle: 360deg; } }'])).toStrictEqual([]);
+  });
+
+  test('still rejects a nested rule that mixes in a colour token', () => {
+    expect(() =>
+      parseTokenRules(['@media (pointer: fine) { :root { --fr-size-control-md: 2.5rem; --fr-a: 1; } }']),
+    ).toThrow('tokens may only be set in top-level');
+  });
+
   test('a later, less specific rule does not beat an earlier, more specific one', () => {
     const ordered = parseTokenRules([`:root[data-mode='light'] { --x: specific; }`, `:root { --x: plain; }`]);
     expect(cascade(ordered, { 'data-mode': 'light' }).get('--x')).toBe('specific');
