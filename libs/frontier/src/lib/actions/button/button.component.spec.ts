@@ -83,6 +83,11 @@ describe(Button, () => {
     expect([...button.classList]).toStrictEqual(expect.arrayContaining(['bg-surface-base', 'border-line-default']));
   });
 
+  it.each(Object.values(ButtonVariant))('sets the %s variant in the UI role', async (variant) => {
+    const { button } = await render({ variant });
+    expect([...button.classList]).toContain('font-ui');
+  });
+
   it('renders a submit button when asked', async () => {
     const { button } = await render({ type: ButtonType.Submit });
     expect(button.getAttribute('type')).toBe('submit');

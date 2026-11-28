@@ -53,6 +53,16 @@ describe(Heading, () => {
     expect(rendered.textContent.trim()).toBe('Identity');
   });
 
+  it.each([
+    [HeadingLevel.One, 'font-display'],
+    [HeadingLevel.Two, 'font-display'],
+    [HeadingLevel.Three, 'font-display'],
+    [HeadingLevel.Four, 'font-ui'],
+  ])('sets level %i in the %s role', async (level, role) => {
+    const rendered = await render({ level });
+    expect([...rendered.classList]).toContain(role);
+  });
+
   it('changes the look with a variant but keeps the heading level', async () => {
     const rendered = await render({ level: HeadingLevel.Two, variant: TextVariant.Subheading });
     expect(rendered.tagName).toBe('H2');

@@ -24,7 +24,7 @@ function ariaSort<TData extends RowData>(header: TableHeader<TData>): string | u
 }
 
 const scrollerClasses = cva('block w-full overflow-x-auto')();
-const tableClasses = cva('w-full border-collapse text-body tabular-nums')();
+const tableClasses = cva('w-full border-collapse font-ui text-body tabular-nums')();
 
 const captionVariants = cva('pb-xs text-start text-label font-medium text-fg-muted', {
   variants: { hidden: { true: 'sr-only', false: '' } },

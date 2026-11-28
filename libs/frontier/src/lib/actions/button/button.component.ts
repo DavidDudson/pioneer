@@ -65,7 +65,7 @@ const forcedPressed = cva([
  */
 const buttonVariants = cva(
   [
-    'inline-flex items-center gap-xs whitespace-nowrap',
+    'inline-flex items-center gap-xs font-ui whitespace-nowrap',
     'transition-colors duration-fast ease-standard focus-visible:focus-ring',
     'disabled:cursor-not-allowed disabled:opacity-disabled aria-busy:cursor-progress',
     'status-border forced-colors:border',

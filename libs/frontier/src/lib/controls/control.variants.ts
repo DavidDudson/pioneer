@@ -18,7 +18,7 @@ export const controlVariants = cva(
       /** Several lines (text area): grows with `rows`, resizable in height only. */
       multiline: { true: 'resize-y py-xs', false: 'h-control-md' },
       /** Code-like text (JSON, formulas), where every character matters. */
-      monospace: { true: 'font-mono', false: '' },
+      monospace: { true: 'font-mono', false: 'font-ui' },
       /** Room for an icon at each end (search icon, clear button), each a touch target wide. */
       adorned: {
         true: 'ps-control-md pe-control-md',
