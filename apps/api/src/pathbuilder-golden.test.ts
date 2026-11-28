@@ -212,10 +212,12 @@ describe('Pathbuilder spells over the official packs', () => {
     "Mordred's Oracle fills its repertoire; the archetype caster has no entry; Lay on Hands and Read Fate are not granted",
     async () => {
       const { character, report } = await imported(mordredExport);
-      expect(spellPickCount(character.document.build.choices)).toBe(18);
+      expect(spellPickCount(character.document.build.choices)).toBe(22);
       expect(gapSummary(report.spellGaps)).toStrictEqual([
-        'Oracle no-slot: 4',
-        'Oracle not-offered: 6',
+        // Pathbuilder lists one more Oracle spell than the repertoire has slots at each rank up to 4.
+        // The extra ones are not divine: Sure Strike, Weapon Storm and Telekinetic Maneuver.
+        // The uncommon and rare divine ones are offered, since the import grants access to the spells it lists.
+        'Oracle no-slot: 6',
         'Archetype Sorcerer no-entry: 4',
         // Read Fate, and Lay on Hands too.
         // The legacy Core Rulebook feat Lasting Doubt now fills his Champion Feat 12 slot.

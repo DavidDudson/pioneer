@@ -1,14 +1,14 @@
-import { preparedReads, preparedSlots } from '@pioneer/character/domain';
+import { needsAccess, preparedReads, preparedSlots, SPELL_ACCESS_MAX } from '@pioneer/character/domain';
 import type { CharacterDocument, PreparedSlot } from '@pioneer/character/domain';
 import { ChoiceValue } from '@pioneer/rules/sdk';
-import type { SlotKey } from '@pioneer/rules/sdk';
+import type { ContentId, SlotKey } from '@pioneer/rules/sdk';
 
 import { pairCasters } from './caster-pairing';
 import type { ContentLookup } from './content-lookup';
 import { placeInnate } from './innate-placement';
 import type { ImportedCaster } from './read-spells';
 import { listed, SpellGapReason } from './spell-listing';
-import type { Listed, SpellGap, SpellPlacement, SpellPlacementContent } from './spell-listing';
+import type { Listed, SpellGap, SpellPicks, SpellPlacement, SpellPlacementContent } from './spell-listing';
 
 export { SpellGap, SpellGapReason } from './spell-listing';
 
@@ -57,8 +57,14 @@ function placeOne(slots: ReadonlyArray<PreparedSlot>, { rank, id }: Listed, used
   return { reason: open.length === 0 ? SpellGapReason.NoSlot : SpellGapReason.NotOffered };
 }
 
+/** The picks one caster's spells make and the gaps they leave. */
+interface CasterPlacement {
+  readonly choices: SpellPicks;
+  readonly gaps: ReadonlyArray<SpellGap>;
+}
+
 /** One caster's spells in its entry's slots: the picks they make and the gaps they leave. */
-function placeCaster(caster: ImportedCaster, entry: Entry | undefined, lookup: ContentLookup): SpellPlacement {
+function placeCaster(caster: ImportedCaster, entry: Entry | undefined, lookup: ContentLookup): CasterPlacement {
   const used = new Set<SlotKey>();
   const picks: Record<SlotKey, ChoiceValue> = {};
   const gaps: Array<SpellGap> = [];
@@ -78,18 +84,43 @@ function placeCaster(caster: ImportedCaster, entry: Entry | undefined, lookup: C
   return { choices: picks, gaps };
 }
 
+/** The uncommon and rare spells the export lists, each once, up to the most a build can list access to. */
+function accessNeeded(
+  casters: ReadonlyArray<ImportedCaster>,
+  { slots, lookup }: SpellPlacementContent,
+): ReadonlyArray<ContentId> {
+  const ids = casters.flatMap((caster) =>
+    listed(caster, lookup).flatMap(({ id }): Array<ContentId> => {
+      const spell = slots.spells.spell(id);
+
+      return spell !== undefined && needsAccess(spell.rarity) ? [id] : [];
+    }),
+  );
+
+  return [...new Set(ids)].slice(0, SPELL_ACCESS_MAX);
+}
+
+/** `document` with access to `access` in its build, as the slots read it. */
+function withAccess(document: CharacterDocument, access: ReadonlyArray<ContentId>): CharacterDocument {
+  const spellAccess = [...new Set([...document.build.spellAccess, ...access])];
+
+  return { ...document, build: { ...document.build, spellAccess } };
+}
+
 /**
  * Pathbuilder's spells in `document`'s prepared and repertoire slots (#311). Each caster pairs with the entry of the
  * same tradition and preparation (by name when several share them); each spell it lists, at the rank it lists it,
  * takes the first open slot of that rank that offers it. A spell that matched content but fits no slot is a gap.
- * Names that match no content are in the import report's unmatched list already. Focus spells come from the
+ * An uncommon or rare spell the export lists is given access, since the character has it. Names that match no content are in the import report's unmatched list already. Focus spells come from the
  * features that grant them, and `perDay` is compared, never imported.
  */
 export function placeSpells(
-  document: CharacterDocument,
+  plain: CharacterDocument,
   { slots, lookup }: SpellPlacementContent,
   casters: ReadonlyArray<ImportedCaster>,
 ): SpellPlacement {
+  const access = accessNeeded(casters, { slots, lookup });
+  const document = withAccess(plain, access);
   const entries = entriesOf(preparedSlots(document, preparedReads(document, slots)));
   const prepared = casters.filter(({ innate }) => !innate);
   const paired = pairCasters(prepared, entries);
@@ -101,5 +132,6 @@ export function placeSpells(
       [...placements.map(({ choices }) => choices), innate.choices].flatMap((picks) => Object.entries(picks)),
     ),
     gaps: [...placements.flatMap(({ gaps }) => gaps), ...innate.gaps],
+    access,
   };
 }
