@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795840056059,
+  "lastUpdate": 1795840342818,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -1678,6 +1678,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 217,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6de68ed2f0aa130b8f6c46bf17c0a50b29ffe88d",
+          "message": "fix(rules): keep ABP's rune overrides ahead of mythic runes (#2475)\n\n* fix(rules): keep ABP's rune overrides ahead of mythic runes\n\nVariant rules now come after the items' own rules, so Automatic Bonus\nProgression's potency and striking overrides apply last and a mythic\npotency rune cannot raise a grade past them. The four striking\noverrides carry exclusive level bands, so one holds at a time.\n\nRefs #2232\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* test(rules): pin variant rules after an item's rules in play\n\nRefs #2232\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T14:26:33+10:00",
+          "tree_id": "99294a60fa57061a73be0301b41d79d6b6e91d94",
+          "url": "https://github.com/DavidDudson/pioneer/commit/6de68ed2f0aa130b8f6c46bf17c0a50b29ffe88d"
+        },
+        "date": 1795840338272,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4293,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 208,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1236,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6403,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 219,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
