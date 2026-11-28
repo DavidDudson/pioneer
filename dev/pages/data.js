@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795842845467,
+  "lastUpdate": 1795843245451,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -2098,6 +2098,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 212,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7ae4a5f700b5aa76458294dffbfa65f33a0b1d27",
+          "message": "feat(frontier): tabular numerals by default for data (#2496)\n\n* feat(frontier): tabular numerals by default for data\n\nTable, meter, description-list values and fr-text with a width floor\nset tabular, lining figures without being asked. A lint rule flags an\nfr-text in a feature that shows a figure (modifier, total, dc, ac,\ncount and the like) without numeric.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): act on review of the tabular numerals\n\nOne figureClasses constant replaces five copies of the class pair.\nThe numeric-figures rule reads past a pipe, hoists its regexes, and no\nlonger lets numeric=\"false\" count as aligned. More fixtures and a\nlining-nums assertion for the number input.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T15:14:16+10:00",
+          "tree_id": "b56f151cfb697f61eaa00684614f91deb63a7856",
+          "url": "https://github.com/DavidDudson/pioneer/commit/7ae4a5f700b5aa76458294dffbfa65f33a0b1d27"
+        },
+        "date": 1795843241461,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 467,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4400,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 215,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1237,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6509,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 216,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
