@@ -2,9 +2,9 @@ import { characterGrants, characterSpellcasting } from '@pioneer/character/domai
 import type { CharacterDocument } from '@pioneer/character/domain';
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
 import { SlotRank, SpellPreparation } from '@pioneer/rules/sdk';
+import { foldName } from '@pioneer/shared/utils';
 
 import { openPicks, picking } from './choice-search';
-import { matchKey } from './content-lookup';
 import type { ImportedCaster } from './read-spells';
 import { listed, SpellGapReason } from './spell-listing';
 import type { Listed, SpellGap, SpellPicks, SpellPlacementContent } from './spell-listing';
@@ -30,8 +30,8 @@ interface Placed {
 
 /** Whether the caster's name is the entry's (Fey Influence's `fey-influence`), either way round. */
 function sameName(caster: ImportedCaster, entry: SpellcastingInPlay): boolean {
-  const casterKey = matchKey(caster.name);
-  const entryKey = matchKey(entry.slug);
+  const casterKey = foldName(caster.name);
+  const entryKey = foldName(entry.slug);
 
   return casterKey.includes(entryKey) || entryKey.includes(casterKey);
 }
