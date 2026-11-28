@@ -1,6 +1,6 @@
 import { isActiveSpellCommand } from './active-spells';
 import { BreathCommandField, isBreathCommand } from './breath';
-import { isCompanionCommand } from './companion-status';
+import { CompanionCommandField, isCompanionCommand } from './companion-status';
 import { isEffectCommand } from './effect-commands';
 import { isEnvironmentCommand } from './environments';
 import { isExplorationCommand } from './exploration-commands';
@@ -135,6 +135,10 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
 export function needsConditionContent(command: PlayCommand): boolean {
   if (isBreathCommand(command)) {
     return command.field === BreathCommandField.SetBreath;
+  }
+
+  if (isCompanionCommand(command)) {
+    return command.field === CompanionCommandField.CompanionCondition;
   }
 
   if (

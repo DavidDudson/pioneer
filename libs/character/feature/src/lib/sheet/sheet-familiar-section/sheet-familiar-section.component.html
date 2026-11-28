@@ -1,3 +1,10 @@
 @if (view(); as familiar) {
-  <pio-familiar-card [familiar]="familiar" />
+  <fr-stack gap="md">
+    <pio-familiar-card [familiar]="familiar" />
+    @if (id(); as companion) {
+      @if (maxHitPoints(); as max) {
+        <pio-sheet-familiar-controls [companion]="companion" [maxHitPoints]="max" />
+      }
+    }
+  </fr-stack>
 }

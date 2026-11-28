@@ -7,12 +7,15 @@ import {
   CompanionId,
   CompanionName,
   CompanionStatus,
+  ConditionCommandField,
+  ConditionInstanceId,
   FamiliarForm,
   PlayCommandField,
+  UNLIMITED,
 } from '@pioneer/character/domain';
 import type { Character, PlayCommand } from '@pioneer/character/domain';
 import { HUMAN_HIT_POINTS, humanAncestryId } from '@pioneer/character/domain/testing';
-import { CompanionKind, SlotKey, StatisticKind } from '@pioneer/rules/sdk';
+import { CompanionKind, ContentId, HitPoints, SlotKey, StatisticKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock, newId, UserId, ValidationError } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -79,7 +82,7 @@ describe('PlayService companion status', () => {
       command: become(PIP, CompanionStatus.Dead),
     });
 
-    expect(saved.play.companions).toStrictEqual({ [PIP]: { status: CompanionStatus.Dead } });
+    expect(saved.play.companions[PIP]?.status).toBe(CompanionStatus.Dead);
     expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.SetCompanionStatus);
 
     const rows = await companions.listForCharacter(kyra.id);
@@ -123,6 +126,37 @@ describe('PlayService companion status', () => {
     );
 
     expect(error).toBeInstanceOf(ValidationError);
+  });
+
+  test('a condition the content does not have is refused for a companion', async () => {
+    const instance = ConditionInstanceId.parse(newId());
+    const unknown = ContentId.parse(newId());
+
+    const error = await rejection(
+      play.patch(amiri, kyra.id, {
+        expectedRevision: FIRST_VERSION,
+        command: {
+          field: PlayCommandField.CompanionCondition,
+          companion: PIP,
+          change: {
+            field: ConditionCommandField.AddCondition,
+            condition: { id: instance, condition: unknown, duration: UNLIMITED },
+          },
+        },
+      }),
+    );
+
+    expect(error).toBeInstanceOf(ValidationError);
+  });
+
+  test('damage a companion has taken is remembered on it', async () => {
+    const saved = await play.patch(amiri, kyra.id, {
+      expectedRevision: FIRST_VERSION,
+      command: { field: PlayCommandField.SetCompanionDamage, companion: PIP, damage: HitPoints.parse(6) },
+    });
+
+    expect(saved.play.companions[PIP]?.damage).toBe(HitPoints.parse(6));
+    expect(saved.play.hp.damage).toBe(HitPoints.parse(0));
   });
 
   test('an archived companion cannot be moved', async () => {

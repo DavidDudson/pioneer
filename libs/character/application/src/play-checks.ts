@@ -1,4 +1,6 @@
 import {
+  companionConditionChange,
+  companionPlay,
   CompanionProblem,
   companionProblem,
   ConditionProblem,
@@ -74,9 +76,29 @@ const CONDITION_MESSAGES = {
   [ConditionProblem.Full]: 'character.validation.conditionFull',
 } as const satisfies Record<ConditionProblem, string>;
 
+/** Why a condition edit of the character or of one of its companions is refused, if it is. */
+function conditionProblemOf(
+  play: PlayState,
+  command: PlayCommand,
+  valued: ConditionValued,
+): ConditionProblem | undefined {
+  if (isConditionCommand(command)) {
+    return conditionProblem(play.conditions, command, valued);
+  }
+
+  if (!isCompanionCommand(command)) {
+    return undefined;
+  }
+
+  const change = companionConditionChange(command);
+  const { conditions } = companionPlay(play.companions, command.companion);
+
+  return change === undefined ? undefined : conditionProblem(conditions, change, valued);
+}
+
 /** Refuses a condition edit the content or the character's conditions rule out. */
 export function checkCondition(play: PlayState, command: PlayCommand, valued: ConditionValued): void {
-  const problem = isConditionCommand(command) ? conditionProblem(play.conditions, command, valued) : undefined;
+  const problem = conditionProblemOf(play, command, valued);
 
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(CONDITION_MESSAGES[problem]) }]);

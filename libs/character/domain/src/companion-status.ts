@@ -1,7 +1,12 @@
+import { HitPoints } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CompanionId } from './companion';
+import { ActiveConditionsSchema, applyConditionCommand, ConditionCommandSchema } from './conditions';
+import type { ConditionCommand } from './conditions';
+
+const NONE = HitPoints.parse(0);
 
 /**
  * Where a companion is in play (ADR-0079, familiars.md "Lifecycle state machine"). A character with no companion has
@@ -22,9 +27,17 @@ export type CompanionStatus = ValueOf<typeof CompanionStatus>;
 
 export const CompanionStatusSchema = z.enum(CompanionStatus);
 
-/** What play state holds of one companion. Damage and conditions join it with the familiar's Hit Points. */
+/**
+ * What play state holds of one companion: where it is, the damage it has taken and the temporary Hit Points it holds
+ * (its maximum is derived, never stored: ADR-0004), its conditions, and whether its master has commanded it this turn.
+ */
 export const CompanionPlaySchema = z.strictObject({
   status: CompanionStatusSchema.default(CompanionStatus.Active),
+  damage: HitPoints.default(NONE),
+  temp: HitPoints.default(NONE),
+  conditions: ActiveConditionsSchema,
+  /** Its master spent an action to Command it this turn, so it has 2 actions until the turn ends. */
+  commanded: z.boolean().default(false),
 });
 
 export type CompanionPlay = z.infer<typeof CompanionPlaySchema>;
@@ -37,6 +50,12 @@ export type CompanionsPlay = z.infer<typeof CompanionsPlaySchema>;
 /** The play edits that move a companion between statuses. */
 export const CompanionCommandField = {
   SetCompanionStatus: 'setCompanionStatus',
+  /** The damage a companion has taken, as the total: the sheet knows its maximum and keeps it within 0 and that. */
+  SetCompanionDamage: 'setCompanionDamage',
+  SetCompanionTempHp: 'setCompanionTempHp',
+  /** Adds, changes or removes one of a companion's conditions. */
+  CompanionCondition: 'companionCondition',
+  SetCompanionCommanded: 'setCompanionCommanded',
 } as const;
 
 export type CompanionCommandField = ValueOf<typeof CompanionCommandField>;
@@ -47,15 +66,29 @@ export const CompanionCommandSchema = z.discriminatedUnion('field', [
     companion: CompanionId,
     status: CompanionStatusSchema,
   }),
+  z.object({ field: z.literal(CompanionCommandField.SetCompanionDamage), companion: CompanionId, damage: HitPoints }),
+  z.object({ field: z.literal(CompanionCommandField.SetCompanionTempHp), companion: CompanionId, temp: HitPoints }),
+  z.object({
+    field: z.literal(CompanionCommandField.CompanionCondition),
+    companion: CompanionId,
+    change: ConditionCommandSchema,
+  }),
+  z.object({
+    field: z.literal(CompanionCommandField.SetCompanionCommanded),
+    companion: CompanionId,
+    commanded: z.boolean(),
+  }),
 ]);
 
 export type CompanionCommand = z.infer<typeof CompanionCommandSchema>;
 
-/** Whether `command` moves a companion between statuses. */
+const COMPANION_FIELDS: ReadonlySet<unknown> = new Set(Object.values(CompanionCommandField));
+
+/** Whether `command` edits a companion's play state. */
 export function isCompanionCommand<Command extends { readonly field: unknown }>(
   command: Command,
 ): command is Extract<Command, CompanionCommand> {
-  return command.field === CompanionCommandField.SetCompanionStatus;
+  return COMPANION_FIELDS.has(command.field);
 }
 
 /**
@@ -104,12 +137,58 @@ export function companionProblem(
     return CompanionProblem.Unknown;
   }
 
+  if (command.field !== CompanionCommandField.SetCompanionStatus) {
+    return undefined;
+  }
+
   return canBecome(companionStatus(companions, command.companion), command.status)
     ? undefined
     : CompanionProblem.Illegal;
 }
 
+/** A companion's play state when play state holds none: active, unhurt, with no conditions. */
+export const FRESH_COMPANION: CompanionPlay = CompanionPlaySchema.parse({});
+
+/** The play state of `companion`: its entry, or a fresh one. */
+export function companionPlay(companions: CompanionsPlay, companion: CompanionId): CompanionPlay {
+  return companions[companion] ?? FRESH_COMPANION;
+}
+
+/** The condition edit a companion condition command carries, for the checks that read it. */
+export function companionConditionChange(command: CompanionCommand): ConditionCommand | undefined {
+  return command.field === CompanionCommandField.CompanionCondition ? command.change : undefined;
+}
+
+/** `entry` after `command`: the one change it makes to a companion. */
+function changed(entry: CompanionPlay, command: CompanionCommand): CompanionPlay {
+  switch (command.field) {
+    case CompanionCommandField.SetCompanionStatus: {
+      return { ...entry, status: command.status };
+    }
+
+    case CompanionCommandField.SetCompanionDamage: {
+      return { ...entry, damage: command.damage };
+    }
+
+    case CompanionCommandField.SetCompanionTempHp: {
+      return { ...entry, temp: command.temp };
+    }
+
+    case CompanionCommandField.CompanionCondition: {
+      return { ...entry, conditions: [...applyConditionCommand(entry.conditions, command.change)] };
+    }
+
+    case CompanionCommandField.SetCompanionCommanded: {
+      return { ...entry, commanded: command.commanded };
+    }
+
+    default: {
+      return command satisfies never;
+    }
+  }
+}
+
 /** `companions` after `command`. The edit is already allowed (`companionProblem`). */
 export function applyCompanionCommand(companions: CompanionsPlay, command: CompanionCommand): CompanionsPlay {
-  return { ...companions, [command.companion]: { status: command.status } };
+  return { ...companions, [command.companion]: changed(companionPlay(companions, command.companion), command) };
 }
