@@ -777,6 +777,8 @@ export default defineConfig({
         'tools/enrich-removals.ts',
         'tools/bench.ts',
         'tools/page-budget.ts',
+        'tools/check-message-keys.ts',
+        'tools/extract-catalogs.ts',
         'libs/shared/bench/src/bench.ts',
       ],
       rules: { 'eslint/no-console': 'off' },

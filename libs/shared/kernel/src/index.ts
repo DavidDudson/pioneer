@@ -63,6 +63,8 @@ export { InstantCodec, PlainDateCodec } from './temporal-codecs';
 
 export { Locale, LocaleSchema, SOURCE_LOCALE, TextDirection, textDirection } from './locale';
 
+export { LOCALE_STATUS, LocaleStatus } from './locale-status';
+
 export {
   type FieldIssue,
   FieldIssueSchema,

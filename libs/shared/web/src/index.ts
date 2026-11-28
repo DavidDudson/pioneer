@@ -6,6 +6,8 @@ export { UNAUTHORIZED_HANDLER, type UnauthorizedHandler } from './unauthorized-h
 
 export { type LocaleMessages, provideI18n } from './i18n';
 
+export { withoutUntranslated } from './untranslated';
+
 export { IdlePreloading, PREFETCH_WHEN_IDLE } from './idle-preloading';
 
 export { IDLE_SCHEDULER, type IdleScheduler } from './idle-scheduler';
