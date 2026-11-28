@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795831159117,
+  "lastUpdate": 1795831292385,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -298,6 +298,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 214,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2cbc2ee8b1f0a22b29fd7e67fad21be7b70350c4",
+          "message": "fix(play): add the companion species kind to the content examples (#2444)\n\nmain fails web typecheck (TS2741): ContentKind.CompanionSpecies has no\nentry in EXAMPLE_CONTENT_ENTRIES or CONTENT_KIND_KEYS. Same three hunks\nas the open fix PR (libs/play/feature content-entry-examples,\nrules-core-examples and the en key), so the two merge cleanly in either\norder.\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T11:38:26+10:00",
+          "tree_id": "bac3b768a2f11bb934051e134de73cd27b8c1030",
+          "url": "https://github.com/DavidDudson/pioneer/commit/2cbc2ee8b1f0a22b29fd7e67fad21be7b70350c4"
+        },
+        "date": 1795831289405,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4272,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 216,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6377,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 209,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
