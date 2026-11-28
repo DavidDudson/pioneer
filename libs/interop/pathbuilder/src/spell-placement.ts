@@ -8,7 +8,7 @@ import type { ContentLookup } from './content-lookup';
 import { placeInnate } from './innate-placement';
 import type { ImportedCaster } from './read-spells';
 import { listed, SpellGapReason } from './spell-listing';
-import type { Listed, SpellGap, SpellPicks, SpellPlacement, SpellPlacementContent } from './spell-listing';
+import type { Listed, SpellGap, SpellPlacement, SpellPlacementContent } from './spell-listing';
 
 export { SpellGap, SpellGapReason } from './spell-listing';
 
@@ -58,10 +58,7 @@ function placeOne(slots: ReadonlyArray<PreparedSlot>, { rank, id }: Listed, used
 }
 
 /** The picks one caster's spells make and the gaps they leave. */
-interface CasterPlacement {
-  readonly choices: SpellPicks;
-  readonly gaps: ReadonlyArray<SpellGap>;
-}
+type CasterPlacement = Omit<SpellPlacement, 'access'>;
 
 /** One caster's spells in its entry's slots: the picks they make and the gaps they leave. */
 function placeCaster(caster: ImportedCaster, entry: Entry | undefined, lookup: ContentLookup): CasterPlacement {
@@ -84,7 +81,7 @@ function placeCaster(caster: ImportedCaster, entry: Entry | undefined, lookup: C
   return { choices: picks, gaps };
 }
 
-/** The uncommon and rare spells the export lists, each once, up to the most a build can list access to. */
+/** The uncommon and rare spells the prepared and repertoire casters list, each once. */
 function accessNeeded(
   casters: ReadonlyArray<ImportedCaster>,
   { slots, lookup }: SpellPlacementContent,
@@ -97,12 +94,12 @@ function accessNeeded(
     }),
   );
 
-  return [...new Set(ids)].slice(0, SPELL_ACCESS_MAX);
+  return [...new Set(ids)];
 }
 
-/** `document` with access to `access` in its build, as the slots read it. */
+/** `document` with access to `access` in its build, as the slots read it, up to the most a build can list. */
 function withAccess(document: CharacterDocument, access: ReadonlyArray<ContentId>): CharacterDocument {
-  const spellAccess = [...new Set([...document.build.spellAccess, ...access])];
+  const spellAccess = [...new Set([...document.build.spellAccess, ...access])].slice(0, SPELL_ACCESS_MAX);
 
   return { ...document, build: { ...document.build, spellAccess } };
 }
@@ -111,21 +108,23 @@ function withAccess(document: CharacterDocument, access: ReadonlyArray<ContentId
  * Pathbuilder's spells in `document`'s prepared and repertoire slots (#311). Each caster pairs with the entry of the
  * same tradition and preparation (by name when several share them); each spell it lists, at the rank it lists it,
  * takes the first open slot of that rank that offers it. A spell that matched content but fits no slot is a gap.
- * An uncommon or rare spell the export lists is given access, since the character has it. Names that match no content are in the import report's unmatched list already. Focus spells come from the
+ * An uncommon or rare spell the export lists is given access when it takes a slot, since the character has it.
+ * Names that match no content are in the import report's unmatched list already. Focus spells come from the
  * features that grant them, and `perDay` is compared, never imported.
  */
 export function placeSpells(
-  plain: CharacterDocument,
+  base: CharacterDocument,
   { slots, lookup }: SpellPlacementContent,
   casters: ReadonlyArray<ImportedCaster>,
 ): SpellPlacement {
-  const access = accessNeeded(casters, { slots, lookup });
-  const document = withAccess(plain, access);
-  const entries = entriesOf(preparedSlots(document, preparedReads(document, slots)));
   const prepared = casters.filter(({ innate }) => !innate);
+  const document = withAccess(base, accessNeeded(prepared, { slots, lookup }));
+  const entries = entriesOf(preparedSlots(document, preparedReads(document, slots)));
   const paired = pairCasters(prepared, entries);
   const placements = prepared.map((caster) => placeCaster(caster, paired.get(caster), lookup));
   const innate = placeInnate(document, { slots, lookup }, casters);
+  const placed = new Set<string>(placements.flatMap(({ choices }) => Object.values(choices)));
+  const access = document.build.spellAccess.filter((id) => placed.has(id) && !base.build.spellAccess.includes(id));
 
   return {
     choices: Object.fromEntries(
