@@ -484,6 +484,8 @@ reopens it identical. Keys and rules are fixed in ADR-0068; the `@pioneer/fronti
 
 - Give each column that may appear in a shared view a short stable `code` in the schema: `addText({ id: 'level',
 code: 'lvl', … })`. `tableViewColumns(columns)` turns the built columns into the codec's `TableViewSchema`.
+- `TableViewStore`, the token the app provides to keep views on the account, is exported from `@pioneer/frontier`, not
+  `/data`: the app shell provides it, and importing from `/data` there puts TanStack Table in the initial bundle.
 - `encodeTableView` / `decodeTableView` are the pure codec. Keys: `s` sort, `f` facets, `c` columns, `n` page size, `q`
   search. Defaults are omitted and malformed parts are dropped.
 - `injectTableView({ schema, facets })` holds the view in the route and gives signals and setters. Bind one way with the

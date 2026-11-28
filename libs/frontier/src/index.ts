@@ -268,3 +268,8 @@ export { DISTANCE_UNIT, LocaleFormat } from './lib/locale/locale-format';
 export type { ListPart } from './lib/locale/locale-format';
 
 export type { ComponentInputs } from './lib/testing/component-inputs';
+
+// Not in the data entry: the app shell provides this token, and that entry would load its table libraries up front.
+export { TableViewStore } from './lib/data/table-view/table-view-store';
+
+export type { StoredDensity, StoredTableView } from './lib/data/table-view/table-view-store';
