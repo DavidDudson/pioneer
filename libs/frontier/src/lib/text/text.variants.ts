@@ -22,7 +22,7 @@ export const FontWeight = { Regular: 'regular', Medium: 'medium', Semibold: 'sem
 
 export type FontWeight = ValueOf<typeof FontWeight>;
 
-/** Typography shared by every text-bearing primitive. `body` sets no font role, so it takes its container's (ADR-0084). */
+/** Typography shared by every text-bearing primitive. `body` sets no font role, so it takes its container's (ADR-0085). */
 export const textVariants = cva('', {
   variants: {
     variant: {
