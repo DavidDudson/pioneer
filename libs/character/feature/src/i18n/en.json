@@ -401,6 +401,19 @@
       "customBadge": "Imported",
       "removing": "Removing…",
       "coinsHeading": "Coins",
+      "loot": {
+        "heading": "Add or take coins",
+        "reasonLabel": "Reason",
+        "reason": { "gift": "Gift", "loot": "Loot" },
+        "note": "Note (optional)",
+        "cannotTake": "The coins are worth less than that, so they can't be taken.",
+        "add": "Add coins",
+        "adding": "Adding…",
+        "added": "Added",
+        "take": "Take coins",
+        "taking": "Taking…",
+        "taken": "Taken"
+      },
       "ledger": {
         "heading": "Wealth",
         "total": "{total} gp in all",
@@ -413,7 +426,11 @@
           "purchase": "Shop purchase",
           "adjustment": "Set by hand",
           "income": "Earned income",
-          "transfer": "Moved to or from another purse"
+          "transfer": "Moved to or from another purse",
+          "gift": "Gift",
+          "loot": "Loot",
+          "giftNoted": "Gift: {note}",
+          "lootNoted": "Loot: {note}"
         }
       },
       "coin": {
@@ -917,6 +934,8 @@
     "unknownItem": "That item is not available. Choose another.",
     "cannotAfford": "This character can't afford that: its coins are worth less than the cost. Buy fewer, or add it without paying.",
     "cannotAffordKit": "This character can't afford that kit: its coins are worth less than its price. Add it without paying instead.",
+    "cannotHoldCoins": "This character's purse can't hold that many more coins.",
+    "cannotTakeCoins": "This character's coins are worth less than that, so they can't be taken.",
     "unknownKit": "That kit is not available. Choose another.",
     "unknownKitItem": "That kit holds an item no loaded content has, so it can't be added. Choose another kit.",
     "kitNotAContainer": "That kit packs items inside one that can't hold anything, so it can't be added. Choose another kit.",

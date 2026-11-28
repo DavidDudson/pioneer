@@ -420,7 +420,13 @@ export { AuthorizedName, AuthorizedSchema, isEmptyState, ItemStateSchema } from 
 
 export type { Authorized, ItemState } from './item-state';
 
-export { type CoinChange, CoinChangeSchema, type LedgerEntry, LedgerReason } from './coin-ledger';
+export { type CoinChange, CoinChangeSchema, type LedgerEntry, LedgerNote, LedgerReason } from './coin-ledger';
+
+export { CoinGrantReason, SomeCoinsSchema } from './coin-grant';
+
+export { canHoldCoins, canTakeCoins } from './coin-gifts';
+
+export type { CoinGrantPatch } from './coin-gifts';
 
 export { giveCoins, giveLine, type InventoryTransfer, lineWithContents, TransferRefusal } from './inventory-transfer';
 

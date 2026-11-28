@@ -23,7 +23,7 @@ import type { CustomEffectPatch, OverridePatch } from './override-patches';
 import { OverrideId } from './override-schema';
 import { retrainDaysFor } from './retraining-fields';
 import type { RetrainingPatch } from './retraining-patch';
-import { CharacterBuilder, inventory } from './testing';
+import { CharacterBuilder, inventory, takeRefused } from './testing';
 import type { UnplacedPickPatch } from './unplaced-pick-patch';
 
 installRulesFakes();
@@ -105,6 +105,8 @@ type UnaimedField =
   | typeof CharacterPatchField.ClearSlot
   | typeof CharacterPatchField.SetCoins
   | typeof CharacterPatchField.EarnIncome
+  | typeof CharacterPatchField.GiftCoins
+  | typeof CharacterPatchField.TakeCoins
   | typeof CharacterPatchField.GrantSpellAccess
   | typeof CharacterPatchField.RevokeSpellAccess
   | UnplacedPickPatch['field']
@@ -123,6 +125,8 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.ClearSlot,
   CharacterPatchField.SetCoins,
   CharacterPatchField.EarnIncome,
+  CharacterPatchField.GiftCoins,
+  CharacterPatchField.TakeCoins,
   CharacterPatchField.GrantSpellAccess,
   CharacterPatchField.RevokeSpellAccess,
   CharacterPatchField.DismissUnplacedFeat,
@@ -283,6 +287,7 @@ describe('Character (properties)', () => {
         pre(overrideRefusal(original, patch) === undefined);
         pre(customEffectRefusal(original, patch) === undefined);
         pre(!retrainingRefused(original, patch));
+        pre(!takeRefused(original, patch));
 
         const next = original.apply(patch, later, {
           newItemId,

@@ -4,6 +4,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CharacterLevel, CharacterName } from './character-fields';
+import { CoinGrantFields } from './coin-grant';
 import { CustomEffectId, CustomEffectInput } from './custom-effect-schema';
 import { LanguageName } from './custom-language';
 import { LoreName } from './custom-lore';
@@ -65,6 +66,10 @@ export const CharacterPatchField = {
   SetCoins: 'setCoins',
   /** Days of a task worked for pay (Earn Income): the rolled degree and the rank pay the day's coins into the purse. */
   EarnIncome: 'earnIncome',
+  /** Coins added without paying (loot, a GM's reward, a gift), in any mix of denominations, with a note. */
+  GiftCoins: 'giftCoins',
+  /** Coins taken from the purse, refused when it is worth less; with a note. */
+  TakeCoins: 'takeCoins',
   /** An uncommon or rare spell the character may prepare from now on. */
   GrantSpellAccess: 'grantSpellAccess',
   /** A spell the character no longer has access to; picks of it stay, invalid. */
@@ -159,6 +164,8 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
     degree: DegreeOfSuccessSchema,
     days: EarnDays,
   }),
+  z.object({ field: z.literal(CharacterPatchField.GiftCoins), ...CoinGrantFields }),
+  z.object({ field: z.literal(CharacterPatchField.TakeCoins), ...CoinGrantFields }),
   z.object({ field: z.literal(CharacterPatchField.GrantSpellAccess), spell: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.RevokeSpellAccess), spell: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedFeat), feat: ContentId }),
@@ -301,6 +308,8 @@ const INVENTORY_FIELDS: ReadonlySet<CharacterPatchField> = new Set<InventoryPatc
   CharacterPatchField.RenameItem,
   CharacterPatchField.SetCoins,
   CharacterPatchField.EarnIncome,
+  CharacterPatchField.GiftCoins,
+  CharacterPatchField.TakeCoins,
 ]);
 
 /** Whether `patch` changes what the inventory holds (`InventoryPatch`). */

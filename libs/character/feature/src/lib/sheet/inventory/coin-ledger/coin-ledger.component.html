@@ -8,7 +8,7 @@
       @for (row of rows(); track row.key) {
         <fr-list-item>
           <fr-stack gap="xs">
-            <fr-text>{{ row.reason | transloco }}</fr-text>
+            <fr-text>{{ row.reason | transloco: row.params }}</fr-text>
             @for (part of row.amounts; track part.coin) {
               <fr-text>{{
                 'character.sheet.inventory.ledger.amount'

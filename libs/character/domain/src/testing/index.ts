@@ -12,6 +12,8 @@ export { PAST_DOCUMENTS } from './past-documents';
 
 export { TEST_SPEND, within } from './play-limits';
 
+export { takeRefused } from './take-refused';
+
 export { HUMAN_HIT_POINTS, hitPointsContent } from './hit-points-content';
 
 export { BOOST_FIXTURES, boostFixtureId } from './boost-content';

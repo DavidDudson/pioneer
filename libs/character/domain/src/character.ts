@@ -12,8 +12,9 @@ import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField, isDocumentPatch, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch } from './character-patch';
 import { ANCESTRY_SLOT, CLASS_SLOT } from './character-slots';
+import { withCoinGrant } from './coin-gifts';
 import { LedgerReason } from './coin-ledger';
-import { reasonFor, withCoinLedger, withCoins, withOpeningEntry } from './coin-ledger-edits';
+import { noteFor, reasonFor, withCoinLedger, withCoins, withOpeningEntry } from './coin-ledger-edits';
 import { withLoreEdit } from './custom-lore';
 import { withDocumentEdit } from './document-edits';
 import { withEarnedIncome } from './earn-income';
@@ -162,7 +163,13 @@ export class Character {
 
     return new Character({
       ...this.toProps(),
-      document: withCoinLedger({ before: this.document, after: document, reason: reasonFor(patch), now }),
+      document: withCoinLedger({
+        before: this.document,
+        after: document,
+        reason: reasonFor(patch),
+        note: noteFor(patch),
+        now,
+      }),
       updatedAt: now,
     });
   }
@@ -258,6 +265,11 @@ export class Character {
 
       case CharacterPatchField.EarnIncome: {
         return { document: withEarnedIncome(this.document, patch) };
+      }
+
+      case CharacterPatchField.GiftCoins:
+      case CharacterPatchField.TakeCoins: {
+        return { document: withCoinGrant(this.document, patch) };
       }
 
       default: {

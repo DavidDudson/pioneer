@@ -25,6 +25,7 @@ import type { EntryPreviews } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
+import { CoinLoot } from '../inventory/coin-loot/coin-loot.component';
 import { INVENTORY_CONTENT_KINDS } from '../inventory/sheet-inventory';
 import { sheetSectionPreviews } from '../sheet-section-previews';
 import { ShopKits } from './shop-kits.component';
@@ -51,6 +52,7 @@ const CLEARED: Readonly<Record<string, undefined>> = Object.fromEntries(
     AsyncData,
     AsyncPending,
     AsyncRegion,
+    CoinLoot,
     FacetFilterView,
     Heading,
     SearchInput,
