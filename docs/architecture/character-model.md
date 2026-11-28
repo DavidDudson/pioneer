@@ -240,12 +240,13 @@ the old one: the subclass and a key attribute it no longer offers read hidden, a
 `secondClass` adds a second root slot, `second-class`, beside `class` (`characterRootSlots`). It offers the same
 classes; its pick grants that class's features and opens the feat slots they ask for, each keyed by its own entry, so
 nothing collides with the first class's. A proficiency the two classes raise takes the better rank (`ranksInPlay`'s
-highest raise wins). The second class has a key attribute boost of its own, `boost:1:second-class:0`, labelled
-"Second class key attribute"; its subclass is the `ChoiceSet` tagged for that class. Skill slots follow the Dual-Class
-rules: the larger of the two classes' additional trained skills, and a skill increase at each level either class gives
-one. Hit Points and the class DC still read the first class. The pick is kept when the variant is off, read again when it
-comes back, and the second class is a pick like any other: schema version 7 adds it. A rogue's racket widens the key
-attribute options of both classes, since the options are not tracked per class yet.
+highest raise wins). The second class has a key attribute boost of its own, `boost:1:second-class:0`, labelled "Second
+class key attribute"; its subclass is the `ChoiceSet` tagged for that class. Skill slots follow the Dual-Class rules:
+the larger of the two classes' additional trained skills, and a skill increase at each level either class gives one.
+General and skill feat slots are had once per level, whichever class gives them. Hit Points and the class DC still
+read the first class. The pick is kept when the variant is off, read again when it comes back, and the second class is
+a pick like any other: schema version 7 adds it. A rogue's racket widens the key attribute options of both classes,
+since the options are not tracked per class yet.
 
 The engine reads the class's Hit Points and key attribute, and the ranks the effective set's `Proficiency` elements
 raise (`ranksInPlay`, the highest raise winning): the class's starting ranks, a background's skills, a feature's

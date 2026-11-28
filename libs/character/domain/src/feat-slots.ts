@@ -5,6 +5,7 @@ import type { ChoiceValue, ContentLevel, ContentText, RichText, SlotKey } from '
 
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
+import { hasSecondClass } from './character-slots';
 import { dedicationWait, dedicationWaits, featsTaken, NO_DEDICATION_LOCK, slotsInOrder } from './dedication-lock';
 import type { DedicationWait } from './dedication-lock';
 import { FeatPickProblem } from './feat-content';
@@ -84,6 +85,32 @@ function factsByLevel(document: CharacterDocument, content: SlotContent): (level
   };
 }
 
+/** The flags of the feats a class gives a level at a time whatever its class: general and skill feats. */
+const SHARED_FEAT_FLAG = /^(?:general|skill)-feat-\d+$/u;
+
+/**
+ * `slots` less the general and skill feats a second class repeats: a dual-class character gets those once per level,
+ * since both classes would give the same one (Gamemastery Guide, Dual-Class Characters), at every level either gives one.
+ */
+function withoutRepeatedFeats(slots: ReadonlyArray<ChoiceSlot>, dual: boolean): ReadonlyArray<ChoiceSlot> {
+  if (!dual) {
+    return slots;
+  }
+
+  const seen = new Set<string>();
+
+  return slots.filter(({ flag }) => {
+    if (!SHARED_FEAT_FLAG.test(flag)) {
+      return true;
+    }
+
+    const repeated = seen.has(flag);
+    seen.add(flag);
+
+    return !repeated;
+  });
+}
+
 /** The keys of the feat slots the character has at each level, a set that only grows with the level. */
 function featSlotsAt(document: CharacterDocument, content: SlotContent): (level: Level) => ReadonlySet<SlotKey> {
   const { grantsAt } = skillReads(document, content);
@@ -91,7 +118,8 @@ function featSlotsAt(document: CharacterDocument, content: SlotContent): (level:
   return bisected(
     (level) => {
       const resolution = grantsAt(level);
-      const slots = [...resolution.open, ...resolution.answered].filter((slot) => isFeatSlot(slot, content.lookup));
+      const offered = [...resolution.open, ...resolution.answered].filter((slot) => isFeatSlot(slot, content.lookup));
+      const slots = withoutRepeatedFeats(offered, hasSecondClass(content.rootSlots));
 
       return new Set(slots.map(({ key }) => key));
     },
