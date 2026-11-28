@@ -113,6 +113,11 @@ describe('Pathbuilder exports over the official packs', () => {
     async () => {
       const { report } = await imported(mordredExport);
       expect(report.discrepancies.compared).toBe(COMPARED);
+      /**
+       * Class DC: accepted. Champion Expertise raises the champion class DC to expert (Player Core 2), so Pioneer's 30 follows the rules; Pathbuilder keeps it trained (28).
+       * Champion focus spell DC: 1 low because the Cha modifier is 5 for the level 5 free boost that has no slot (#1608).
+       * Perception: 1 low in both builds. Pathbuilder's mods give Perception a +1 potency bonus that no item in the content grants, and it is not Mordred's Encumbered condition (that is Dex only).
+       */
       /** AC: Pioneer's engine is 34 before Encumbered's Clumsy 1 (-1 on Dex-based AC). He carries 17.8 Bulk (two suits of Full Plate, three swords and axes, two Healer's Toolkits) against a limit of 9 (5 + Str 4); Pathbuilder does not track Bulk, and the No Encumbrance variant rule lifts the condition. */
       expect(summary(report.discrepancies.differences)).toStrictEqual([
         'ac: Pathbuilder 34, Pioneer 33',
@@ -198,6 +203,7 @@ describe('Pathbuilder spells over the official packs', () => {
       expect(gapSummary(report.spellGaps)).toStrictEqual([
         'Animist Prepared no-entry: 13',
         'Animist Apparition no-entry: 21',
+        // The focus spells and the other two focus points come from the apparitions the Animist attunes (#2518 to #2521).
         'divine wis focus no-entry: 3',
         'occult wis focus no-entry: 3',
       ]);
@@ -215,9 +221,9 @@ describe('Pathbuilder spells over the official packs', () => {
         // The extra ones are not divine: Sure Strike, Weapon Storm and Telekinetic Maneuver.
         // The uncommon and rare divine ones are offered, since the import grants access to the spells it lists.
         'Oracle no-slot: 6',
-        // Read Fate, and Lay on Hands too.
-        // The legacy Core Rulebook feat Lasting Doubt now fills his Champion Feat 12 slot.
-        // That slot took the Blessed One Dedication, which granted Lay on Hands, before.
+        // Lay on Hands: Devotion Spells offers it only with a deity whose font heals, and his export has "Not set".
+        // Read Fate: the Deity's Domain feat has no rules in the content yet, and a domain comes from a deity too.
+        // The legacy Core Rulebook feat Lasting Doubt now fills his Champion Feat 12 slot, so the Blessed One Dedication is not taken.
         'divine cha focus not-granted: 2',
       ]);
     },
