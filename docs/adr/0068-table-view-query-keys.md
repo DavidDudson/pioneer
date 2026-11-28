@@ -42,3 +42,17 @@ Alternatives:
   `traits:fire~level:..5`, in place of its `f.<facet id>` params;
   links in the old form stop narrowing, as an unknown param does.
 - `+` is not a mark: a query string reads it back as a space. The mark for a shown column is `~`, which is never escaped.
+
+## Amendment: a signed-in user's stored columns
+
+A table that names an entity keeps the signed-in user's visible columns and density on their account
+(`user_table_views`, one document per user and entity). The columns follow, in order, the URL's `c`, then what the
+account stored, then the table's defaults. A link that carries no `c` therefore opens the recipient's stored columns,
+not the defaults; the sender who needs the defaults to reproduce shares a link with a `c`. A signed-out visitor, or a
+table with no entity, sees the URL and the defaults as before.
+
+- The account keeps the visible column ids, so a column added to the schema after a view was stored starts hidden for
+  that user until they show it.
+- A stored list that names no column of the table's current schema (another kind of the table) is ignored, and a
+  change keeps the ids this schema does not know.
+- Density is never part of a link.

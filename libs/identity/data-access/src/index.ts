@@ -2,6 +2,8 @@ export { ACCOUNT_MENU_EXTRAS } from './account-menu-extras';
 
 export { AccountPreferences, provideAccountPreferences } from './account-preferences';
 
+export { AccountTableViews } from './account-table-views';
+
 export { APP_VERSION, type BugReportDraft, BugReporter } from './bug-reporter';
 
 export { SessionStore } from './session-store';

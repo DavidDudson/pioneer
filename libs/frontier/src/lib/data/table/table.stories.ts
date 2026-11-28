@@ -1,6 +1,7 @@
 import { argsToTemplate } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { Temporal } from '@pioneer/shared/kernel';
+import { expect, userEvent, within } from 'storybook/test';
 
 import { BadgeTone } from '../../text/badge/badge.component';
 import { ColumnChooser } from './column-chooser/column-chooser.component';
@@ -131,5 +132,17 @@ export const SortedFromTheStart: TableStory = {
       { column: 'level', descending: true },
       { column: 'name', descending: false },
     ],
+  },
+};
+
+/** `showDensity` adds the *Row density* switch; compact tightens the rows, and the page keeps the choice. */
+export const Density: TableStory = {
+  args: { showDensity: true },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const compact = canvas.getByRole('button', { name: 'Compact' });
+    await userEvent.click(compact);
+    await expect(compact).toHaveAttribute('aria-pressed', 'true');
+    await expect(canvasElement.querySelector('td')).toHaveClass('py-3xs');
   },
 };

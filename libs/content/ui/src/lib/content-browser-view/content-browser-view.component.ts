@@ -3,6 +3,7 @@ import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { AsyncData, AsyncPending, AsyncRegion, Button, HeadingLevel, Skeleton, Stack } from '@pioneer/frontier';
 import type { AsyncQuery, FilterField, SelectOption } from '@pioneer/frontier';
+import { TableDensity } from '@pioneer/frontier/data';
 import type { TableColumn, TableViewSort } from '@pioneer/frontier/data';
 import type { ContentKind, FilterState } from '@pioneer/rules/sdk';
 
@@ -64,6 +65,8 @@ export class ContentBrowserView {
   /** The table's sort and hidden columns, which only the page tier has. */
   public readonly sorting = model<ReadonlyArray<TableViewSort>>([]);
   public readonly hidden = model<ReadonlyArray<string> | undefined>(undefined);
+  /** The table's row spacing, which only the page tier has. */
+  public readonly density = model<TableDensity>(TableDensity.Comfortable);
   /** The facet panel changed a filter. */
   public readonly facetChange = output<FilterState>();
   /** "Show more" was pressed. */

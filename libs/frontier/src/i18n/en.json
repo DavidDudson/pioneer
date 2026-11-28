@@ -42,6 +42,11 @@
         "level": "Level",
         "rarity": "Rarity",
         "added": "Added"
+      },
+      "density": {
+        "label": "Row density",
+        "compact": "Compact",
+        "comfortable": "Comfortable"
       }
     },
     "property": {
