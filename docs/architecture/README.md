@@ -14,6 +14,7 @@ the delivery plan is in [`../roadmap.md`](../roadmap.md).
 | [play-and-campaigns.md](play-and-campaigns.md) | Actions, conditions, dice, campaigns, live sync, interop               |
 | [animal-companions.md](animal-companions.md)   | Animal companion rules with citations: tiers, statistics, Command      |
 | [familiars.md](familiars.md)                   | Familiar rules, ability counts, lifecycle, with citations              |
+| [familiar-spells.md](familiar-spells.md)       | A witch's familiar as the spell repository, learning, formulas         |
 
 ## Pillars
 
