@@ -49,6 +49,7 @@
         @if (choosingInitiative()) {
           <pio-sheet-initiative (closed)="choosingInitiative.set(false)" />
         }
+        <pio-sheet-trigger-prompts [prompts]="prompts()" />
         @for (line of log(); track $index) {
           <fr-stack gap="2xs">
             <fr-text>{{ worded(line) }}</fr-text>

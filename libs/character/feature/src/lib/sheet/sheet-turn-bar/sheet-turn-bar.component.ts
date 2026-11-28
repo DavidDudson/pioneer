@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { lapsingSpells, TurnCommandField, TurnPhase } from '@pioneer/character/domain';
-import type { ActiveSpell, InventoryItemId, TurnCommand } from '@pioneer/character/domain';
+import { lapsingSpells, TurnCommandField, TurnEventKind, TurnPhase } from '@pioneer/character/domain';
+import type { ActiveSpell, InventoryItemId, TurnCommand, TurnEvent } from '@pioneer/character/domain';
 import {
   AsyncButton,
   AsyncData,
@@ -21,8 +21,17 @@ import { describeSaveError } from '../sheet-field';
 import { SheetInitiative } from '../sheet-initiative/sheet-initiative.component';
 import { SheetLapsing } from '../sheet-lapsing/sheet-lapsing.component';
 import { SheetState } from '../sheet-state';
+import { SheetTriggerPrompts } from '../sheet-trigger-prompt/sheet-trigger-prompts.component';
+import type { TriggerPrompt } from '../sheet-trigger-prompt/sheet-trigger-prompts.component';
 import { phaseKey, pipKey, pipTone, turnBarView, turnLog } from './turn-bar-view';
 import type { TurnBarView, TurnLogLine } from './turn-bar-view';
+
+/** The prompts a turn boundary's events call for: one per event, however many abilities it fired. */
+function promptsOf(events: ReadonlyArray<TurnEvent>, first: number): ReadonlyArray<TriggerPrompt> {
+  return events.flatMap((event, index): Array<TriggerPrompt> =>
+    event.kind === TurnEventKind.TriggerPrompt ? [{ id: first + index, abilities: event.abilities }] : [],
+  );
+}
 
 /**
  * The turn bar (#354): the phase, the action pips (spent, left, and the quickened one apart), the reaction pip, Start
@@ -41,6 +50,7 @@ import type { TurnBarView, TurnLogLine } from './turn-bar-view';
     SheetAttacksMade,
     SheetInitiative,
     SheetLapsing,
+    SheetTriggerPrompts,
     Skeleton,
     Stack,
     Text,
@@ -54,6 +64,7 @@ export class SheetTurnBar {
   readonly #play = inject(PlayStore);
   readonly #sheet = inject(SheetState);
   #rolled = 0;
+  #prompted = 0;
 
   public constructor() {
     // The confirmation closes once nothing would lapse, or the turn it would end is over (Leave encounter).
@@ -87,6 +98,9 @@ export class SheetTurnBar {
 
   /** What the last Start turn or End turn did, in order. */
   protected readonly log = signal<ReadonlyArray<TurnLogLine>>([]);
+
+  /** The abilities the last Start turn or End turn fired that are left to the player, a fresh prompt for each. */
+  protected readonly prompts = signal<ReadonlyArray<TriggerPrompt>>([]);
 
   /** Whether the initiative roll is on offer: Enter encounter opens it, rolling or skipping closes it. */
   protected readonly choosingInitiative = signal(false);
@@ -141,6 +155,8 @@ export class SheetTurnBar {
 
   async #send(command: TurnCommand): Promise<void> {
     const events = await this.#play.sendTurn(command);
+    this.prompts.set(promptsOf(events, this.#prompted));
+    this.#prompted += events.length;
     const lines = turnLog(events, this.#rolled);
     this.#rolled += lines.length;
     this.log.set(lines);

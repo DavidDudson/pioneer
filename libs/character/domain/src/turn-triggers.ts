@@ -1,7 +1,7 @@
 import { appliesAutomatically, triggeredAbilities } from '@pioneer/rules/engine';
-import type { TriggerableAbility } from '@pioneer/rules/engine';
+import type { ActionCandidate, TriggerableAbility } from '@pioneer/rules/engine';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { ContentKind, HitPoints, RuleElementKey, TriggerEventType } from '@pioneer/rules/sdk';
+import { ActionCost, ContentKind, HitPoints, RuleElementKey, TriggerEventType } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { Uuid } from '@pioneer/shared/kernel';
@@ -19,6 +19,8 @@ import type { SpendRequest } from './spend-log';
 import { TurnEventKind, TurnMessage } from './turn-events';
 import type { TurnEvent } from './turn-events';
 import type { TurnOutcome } from './turn-start';
+import { TurnPhase } from './turn-state';
+import type { TurnState } from './turn-state';
 
 const NO_HIT_POINTS = HitPoints.parse(0);
 
@@ -39,9 +41,17 @@ export interface TurnTrigger extends TriggerableAbility {
   readonly tempHp: HitPoints;
 }
 
-/** What the turn cycle reads to apply triggered abilities by themselves. */
+/** A granted action that fires at a turn boundary, which the player may be asked about. */
+export interface TurnOffer extends TriggerableAbility {
+  /** Whether it applies by itself when its event fires, so the player is not asked. */
+  readonly automatic: boolean;
+}
+
+/** What the turn cycle reads to apply triggered abilities by themselves, and to offer the rest. */
 export interface TurnTriggers {
   readonly triggers: ReadonlyArray<TurnTrigger>;
+  /** Every granted action that fires at a turn boundary, including those the player is asked about. */
+  readonly offers: ReadonlyArray<TurnOffer>;
   /** The roll options that hold for the character, which a trigger's predicate reads. */
   readonly facts: PredicateFacts;
 }
@@ -66,6 +76,39 @@ function tempHpOf(rules: ContentEntry['rules']): HitPoints {
   return HitPoints.parse(Math.max(NO_HIT_POINTS, ...amounts));
 }
 
+/** The granted actions that fire at a turn boundary, with what each does, and whether it applies by itself. */
+function offersOf(
+  candidates: ReadonlyArray<ActionCandidate>,
+  effects: ReadonlyMap<ContentId, ContentEntry>,
+): ReadonlyArray<TurnOffer> {
+  return candidates.flatMap(({ id, action }): Array<TurnOffer> => {
+    const event = action.triggerEvent;
+
+    if (event === undefined || !TURN_TRIGGER_EVENTS.has(event.event)) {
+      return [];
+    }
+
+    const effect = action.selfEffect === undefined ? undefined : effects.get(action.selfEffect);
+
+    const ability: TriggerableAbility = {
+      id,
+      triggerEvent: event,
+      autoApply: action.autoApply,
+      cost: action.cost,
+      frequency: action.frequency,
+      needsChoice: action.effects !== undefined,
+      rules: effect?.rules ?? [],
+    };
+
+    return [
+      {
+        ...ability,
+        automatic: effect !== undefined && action.requirements === undefined && appliesAutomatically(ability),
+      },
+    ];
+  });
+}
+
 /**
  * The character's granted actions that fire at a turn boundary and apply an effect to the user (`selfEffect`). An
  * action that has requirements is left to the player: nothing tests them here.
@@ -73,6 +116,8 @@ function tempHpOf(rules: ContentEntry['rules']): HitPoints {
 export function turnTriggers(document: CharacterDocument, sources: StatisticSources): TurnTriggers {
   const { candidates, facts } = grantedActionCandidates(document, sources);
   const effects = effectEntries(sources.registry);
+
+  const offers = offersOf(candidates, effects);
 
   const triggers = candidates.flatMap(({ id, action }): Array<TurnTrigger> => {
     const effect = action.selfEffect === undefined ? undefined : effects.get(action.selfEffect);
@@ -102,7 +147,7 @@ export function turnTriggers(document: CharacterDocument, sources: StatisticSour
     ];
   });
 
-  return { triggers, facts };
+  return { triggers, offers, facts };
 }
 
 /** The triggers that fire on `event` and apply by themselves, leaving out an effect the character already has. */
@@ -114,6 +159,26 @@ export function autoTriggers(
   return triggeredAbilities(event, facts, triggers).filter(
     (trigger) => appliesAutomatically(trigger) && !active.some(({ effect }) => effect === trigger.effect),
   );
+}
+
+/** Whether the turn can still pay `cost` after the boundary: a spent reaction cannot, nor can an action off-turn. */
+function payable(cost: ActionCost | undefined, turn: TurnState): boolean {
+  if (cost === ActionCost.Reaction) {
+    return !turn.reactionUsed;
+  }
+
+  return cost === undefined || cost === ActionCost.Free || turn.phase !== TurnPhase.OffTurn;
+}
+
+/** The actions that fire on `event` and are left to the player, and that could be paid for now. */
+export function promptedAbilities(
+  event: TriggerEventType,
+  { offers, facts }: TurnTriggers,
+  turn: TurnState,
+): ReadonlyArray<ContentId> {
+  return triggeredAbilities(event, facts, offers)
+    .filter(({ automatic, cost }) => !automatic && payable(cost, turn))
+    .map(({ id }) => id);
 }
 
 /** The free spend that applies `trigger`: it is logged, and taking it back ends the effect and the temporary Hit Points. */
@@ -165,6 +230,25 @@ export function withTriggered(outcome: TurnOutcome, event: TriggerEventType, inp
   }
 
   return current;
+}
+
+/** `event` fired `abilities`, which the player decides to use: they are offered in one prompt. */
+function triggersPrompted(event: TriggerEventType, abilities: ReadonlyArray<ContentId>): TurnEvent {
+  return {
+    kind: TurnEventKind.TriggerPrompt,
+    event,
+    abilities: [...abilities],
+    message: message(TurnMessage.TriggerPrompt, { count: abilities.length }),
+  };
+}
+
+/** `outcome` with one prompt for the abilities `event` fired that are left to the player; none when there are none. */
+export function withPrompted(outcome: TurnOutcome, event: TriggerEventType, inputs: TriggerInputs): TurnOutcome {
+  const abilities = promptedAbilities(event, inputs.triggered(), outcome.play.turn);
+
+  return abilities.length === 0
+    ? outcome
+    : { ...outcome, events: [...outcome.events, triggersPrompted(event, abilities)] };
 }
 
 /** An ability fired at the turn boundary and put `effect` on the character, with `tempHp` temporary Hit Points. */

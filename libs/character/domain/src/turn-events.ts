@@ -7,6 +7,7 @@ import {
   DegreeOfSuccessSchema,
   FastHealingType,
   HitPoints,
+  TriggerEventType,
 } from '@pioneer/rules/sdk';
 import { message, MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
@@ -24,6 +25,7 @@ export const TurnEventKind = {
   Healed: 'healed',
   EffectExpired: 'effectExpired',
   TriggeredAbility: 'triggeredAbility',
+  TriggerPrompt: 'triggerPrompt',
   SpellEnded: 'spellEnded',
   ConditionEnded: 'conditionEnded',
   ConditionLowered: 'conditionLowered',
@@ -45,6 +47,7 @@ export const TurnMessage = {
   Regeneration: 'character.turn.regeneration',
   EffectExpired: 'character.turn.effectExpired',
   TriggeredAbility: 'character.turn.triggeredAbility',
+  TriggerPrompt: 'character.turn.triggerPrompt',
   SpellEnded: 'character.turn.spellEnded',
   ConditionEnded: 'character.turn.conditionEnded',
   ConditionLowered: 'character.turn.conditionLowered',
@@ -88,6 +91,14 @@ export const TurnEventSchema = z.discriminatedUnion('kind', [
     instance: EffectInstanceId,
     /** The temporary Hit Points it gave; 0 when it gave none. */
     tempHp: HitPoints,
+    message: MessageDescriptorSchema,
+  }),
+  z.object({
+    kind: z.literal(TurnEventKind.TriggerPrompt),
+    /** The event that fired them. */
+    event: z.enum(TriggerEventType),
+    /** The actions to offer, which did not apply by themselves: one prompt for all the abilities of one event. */
+    abilities: z.array(ContentId).min(1),
     message: MessageDescriptorSchema,
   }),
   z.object({
