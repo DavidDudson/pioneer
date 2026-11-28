@@ -22,9 +22,12 @@ export const ChoiceRef = z.strictObject({ choice: RuleSlug });
 
 export type ChoiceRef = z.infer<typeof ChoiceRef>;
 
+/** `ChoiceRef` compiled to a fast path: `isChoiceRef` runs on every grant the walk follows. */
+const CompiledChoiceRef = z.compile(ChoiceRef);
+
 /** Whether a granted `item` is a reference to a choice, rather than the id of a fixed entry. */
 export function isChoiceRef(item: ContentId | ChoiceRef): item is ChoiceRef {
-  return ChoiceRef.safeParse(item).success;
+  return CompiledChoiceRef.safeParse(item).success;
 }
 
 /** Gives the character another content entry (a feature, action, spell or item), with its own rules. */
