@@ -12,6 +12,9 @@
           </fr-stack>
         </fr-surface>
       }
+      @if (entry.replaceable) {
+        <fr-button size="sm" (click)="replace(entry)">{{ Message.Replace | transloco }}</fr-button>
+      }
       @if (entry.naming) {
         <pio-companion-picker
           [source]="Message.Source | transloco"
