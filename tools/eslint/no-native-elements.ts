@@ -125,8 +125,8 @@ const OWNERS: ReadonlyMap<string, ReadonlyArray<string>> = new Map([
   ['output', []],
   ['progress', []],
   ['meter', ['feedback/meter/']],
-  ['fieldset', []],
-  ['legend', []],
+  ['fieldset', ['forms/field-set/']],
+  ['legend', ['forms/field-set/']],
   // Interactive
   ['details', ['layout/disclosure/']],
   ['summary', ['layout/disclosure/']],

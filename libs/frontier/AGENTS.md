@@ -38,11 +38,12 @@ Read this before touching any UI.
   `fr-quote`, `<ul>` / `<ol>` only in `fr-list` (whose `fr-list-item` hosts are
   the items, `role="listitem"`), table elements only in `fr-table`, `<svg>` only in `fr-icon`,
   `<textarea>` only in `fr-text-area`, `<details>` / `<summary>` only in
-  `fr-disclosure`, `<hr>` only in `fr-divider`, `<img>` only in `fr-image`, `<meter>` only in `fr-meter`.
+  `fr-disclosure`, `<hr>` only in `fr-divider`, `<img>` only in `fr-image`, `<meter>` only in `fr-meter`,
+  `<fieldset>` / `<legend>` only in `fr-field-set`.
   `<li>`, `<dl>`, `<dt>` and `<dd>` are banned: rendered inside a component
   they leave its host between list and item (`fr-description-list` uses
   list, term and definition roles instead). Elements with no owner yet
-  (`cite`, `fieldset`, `progress`, …) fail lint:
+  (`cite`, `progress`, …) fail lint:
   add a primitive first. `<select>` is banned for good (`fr-select` builds on
   `@angular/aria`); `<dialog>` is owned by `fr-drawer` alone (the one modal). Only `div`, `span` and the landmark and sectioning
   elements are free; any element missing from the ownership map
