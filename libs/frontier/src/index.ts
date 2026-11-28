@@ -36,9 +36,17 @@ export {
 
 export { AsyncIndicator } from './lib/async/async-indicator/async-indicator.component';
 
+export { AsyncItem, type AsyncItemContext } from './lib/async/async-list/async-item.directive';
+
+export { AsyncList } from './lib/async/async-list/async-list.component';
+
 export { AsyncData } from './lib/async/async-region/async-data.directive';
 
+export { AsyncEmpty } from './lib/async/async-region/async-empty.directive';
+
 export { AsyncError } from './lib/async/async-region/async-error.directive';
+
+export { AsyncFilteredEmpty } from './lib/async/async-region/async-filtered-empty.directive';
 
 export { AsyncPending } from './lib/async/async-region/async-pending.directive';
 

@@ -1,7 +1,22 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { booleanAttribute, ChangeDetectionStrategy, Component, contentChild, input, linkedSignal } from '@angular/core';
+import {
+  booleanAttribute,
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  contentChild,
+  input,
+  linkedSignal,
+  output,
+} from '@angular/core';
 import type { Signal } from '@angular/core';
 
+import { AsyncData } from '../../async/async-region/async-data.directive';
+import { AsyncEmpty } from '../../async/async-region/async-empty.directive';
+import { AsyncError } from '../../async/async-region/async-error.directive';
+import { AsyncFilteredEmpty } from '../../async/async-region/async-filtered-empty.directive';
+import { AsyncPending } from '../../async/async-region/async-pending.directive';
+import { AsyncView } from '../../async/async-region/async-view.component';
 import { CardContent } from '../card/card-content.component';
 import { Card } from '../card/card.component';
 import { Stack } from '../stack/stack.component';
@@ -23,16 +38,26 @@ import { SectionBody } from './section-body.directive';
  *     <fr-grid [columns]="3">…</fr-grid>
  *   </ng-template>
  * </fr-section>
+ *
+ * Give it an `<ng-template [frAsyncData]="query">` instead and it loads its own data: skeleton lines (or a
+ * `frAsyncPending` template) while pending, the failure inline, and `frAsyncEmpty` or `frAsyncFilteredEmpty` when the
+ * data has nothing in it (`filtered` says a filter is active; the default Clear button emits `cleared`). It replaces
+ * a section holding an `fr-async-region` and an `fr-empty-state`.
+ *
+ * ```html
+ * <fr-section anchor="feats" [heading]="'feats.heading' | transloco" [filtered]="search() !== ''" (cleared)="clear()">
+ *   <ng-template [frAsyncData]="feats" let-list>…</ng-template>
+ * </fr-section>
  * ```
  */
 @Component({
   selector: 'fr-section',
-  imports: [Card, CardContent, NgTemplateOutlet, Stack],
+  imports: [AsyncView, Card, CardContent, NgTemplateOutlet, Stack],
   templateUrl: './section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { '[class.block]': '!concealed()', '[class.hidden]': 'concealed()' },
+  host: { '[class.block]': '!concealed()', '[class.hidden]': 'concealed()', '[attr.aria-busy]': 'pending() || null' },
 })
-export class Section {
+export class Section<TData = unknown> {
   /** The heading's id, unique on the page; the region is labelled by it and skip links target it. */
   public readonly anchor = input.required<string>();
   /** The section's name, already translated. */
@@ -40,9 +65,25 @@ export class Section {
   /** Keeps the section, with its state, out of sight and the accessibility tree; for the closed ones of a set shown one at a time. */
   public readonly concealed = input(false, { transform: booleanAttribute });
 
+  /** The failure message when the query fails; defaults to a generic "Could not load" in the viewer's locale. */
+  public readonly errorMessage = input<string | undefined>(undefined);
+  /** A filter or search is narrowing the data, so nothing to show is the filtered-empty state. */
+  public readonly filtered = input(false, { transform: booleanAttribute });
+  /** The filtered-empty state's Clear button was pressed. */
+  public readonly cleared = output();
+
   /** A section pads like a bare `fr-surface`. */
   protected readonly padding = DEFAULT_SURFACE_PADDING;
   protected readonly body = contentChild(SectionBody);
+  protected readonly data = contentChild<AsyncData<TData>>(AsyncData);
+  protected readonly pendingSlot = contentChild(AsyncPending);
+  protected readonly errorSlot = contentChild(AsyncError);
+  protected readonly emptySlot = contentChild(AsyncEmpty);
+  protected readonly filteredEmptySlot = contentChild(AsyncFilteredEmpty);
+  protected readonly pending = computed(() => this.data()?.query().isPending() ?? false);
+  protected readonly detectEmpty = computed(
+    () => this.emptySlot() !== undefined || this.filteredEmptySlot() !== undefined,
+  );
   /** Whether the section has been shown: its body is built from then on. */
   protected readonly opened: Signal<boolean> = linkedSignal<boolean, boolean>({
     source: this.concealed,

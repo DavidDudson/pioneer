@@ -1,0 +1,10 @@
+<fr-section anchor="party" heading="Party" [filtered]="filtered()" (cleared)="clear()">
+  <ng-template let-names [frAsyncData]="query()">
+    @for (name of names; track name) {
+    <fr-text>{{ name }}</fr-text>
+    }
+  </ng-template>
+  @if (customEmpty()) {
+  <ng-template frAsyncEmpty><fr-text>{{ emptyText }}</fr-text></ng-template>
+  }
+</fr-section>

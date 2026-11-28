@@ -3,6 +3,9 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { beforeEach, describe, expect, it, onTestFinished } from 'vitest';
 
+import { AsyncSectionHost } from '../../testing/async-section-host';
+import type { ComponentInputs } from '../../testing/component-inputs';
+import { FakeQuery } from '../../testing/fake-query';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { Inset } from '../../tokens';
 import { DEFAULT_SURFACE_PADDING } from '../surface/surface.component';
@@ -132,5 +135,85 @@ describe('Section body', () => {
     expect(first?.closest('fr-section')?.classList.contains('hidden')).toBe(true);
     await show('first');
     expect(root.querySelector('#first-body')).toBe(first);
+  });
+});
+
+describe('Async section', () => {
+  let fixture: ComponentFixture<AsyncSectionHost>;
+  let query: FakeQuery<ReadonlyArray<string>>;
+  let section: HTMLElement;
+
+  const settle = async (): Promise<void> => {
+    await fixture.whenStable();
+  };
+
+  const mount = async (inputs: ComponentInputs<AsyncSectionHost> = {}): Promise<void> => {
+    fixture = TestBed.createComponent(AsyncSectionHost);
+    query = new FakeQuery<ReadonlyArray<string>>();
+    fixture.componentRef.setInput('query', query);
+
+    for (const [name, value] of Object.entries(inputs)) {
+      fixture.componentRef.setInput(name, value);
+    }
+
+    await settle();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
+    const found = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('fr-section');
+
+    if (found === null) {
+      throw new Error('Expected an fr-section');
+    }
+
+    section = found;
+  };
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
+  });
+
+  it('shows skeleton lines, and is busy, while the query loads', async () => {
+    await mount();
+    expect(section.querySelectorAll('fr-skeleton')).toHaveLength(3);
+    expect(section.getAttribute('aria-busy')).toBe('true');
+  });
+
+  it('shows the data once loaded', async () => {
+    await mount();
+    query.succeed(['Valeros', 'Seoni']);
+    await settle();
+    expect([...section.querySelectorAll('fr-text')].map((text) => text.textContent.trim())).toStrictEqual([
+      'Valeros',
+      'Seoni',
+    ]);
+    expect(section.hasAttribute('aria-busy')).toBe(false);
+  });
+
+  it('shows the failure inline in place of the data', async () => {
+    await mount();
+    query.fail(new Error('500'));
+    await settle();
+    expect(section.querySelector('fr-alert')).not.toBeNull();
+  });
+
+  it('shows the default empty state, or the empty slot', async () => {
+    await mount();
+    query.succeed([]);
+    await settle();
+    expect(section.querySelector('fr-empty-state')?.textContent.trim()).toBe('Nothing here yet.');
+    await mount({ customEmpty: true });
+    query.succeed([]);
+    await settle();
+    expect(section.querySelector('fr-empty-state')).toBeNull();
+    expect(section.textContent).toContain('Nobody yet');
+  });
+
+  it('shows no matches with a Clear button that emits cleared when filtered', async () => {
+    await mount({ filtered: true });
+    query.succeed([]);
+    await settle();
+    expect(section.querySelector('fr-empty-state-title')?.textContent.trim()).toBe('Nothing matches.');
+    section.querySelector<HTMLElement>('fr-button button')?.click();
+    await settle();
+    expect(fixture.componentInstance.clearCount()).toBe(1);
   });
 });

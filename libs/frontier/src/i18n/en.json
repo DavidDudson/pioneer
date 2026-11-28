@@ -8,6 +8,9 @@
       "loading": "Loading",
       "success": "Done",
       "loadFailed": "Could not load this. Try again later.",
+      "empty": "Nothing here yet.",
+      "noMatches": "Nothing matches.",
+      "clearFilters": "Clear filters",
       "actionFailed": "Something went wrong. Try again.",
       "saveFailed": "Could not save. Try again."
     },

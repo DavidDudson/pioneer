@@ -137,6 +137,24 @@ describe(AsyncRegion, () => {
     expect(names(region)).toStrictEqual([...PARTY]);
   });
 
+  it('shows the empty slot for loaded but empty data when it is given', async () => {
+    const { query, region, stable } = await render({ withEmpty: true });
+    query.succeed([]);
+    await stable();
+    expect(names(region)).toStrictEqual(['Nobody yet']);
+    expect(region.querySelector('fr-stack')).toBeNull();
+  });
+
+  it('shows the default no-matches state, and emits cleared from its button, when filtered and empty', async () => {
+    const { fixture, query, region, stable } = await render({ withEmpty: true, filtered: true });
+    query.succeed([]);
+    await stable();
+    expect(region.querySelector('fr-empty-state-title')?.textContent.trim()).toBe('Nothing matches.');
+    region.querySelector<HTMLElement>('fr-button button')?.click();
+    await stable();
+    expect(fixture.componentInstance.clearCount()).toBe(1);
+  });
+
   it('drops the failure once a retry succeeds', async () => {
     const { query, region, stable } = await render();
     query.fail(new Error('500'));

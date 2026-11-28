@@ -6,6 +6,20 @@
         @if (opened() && body(); as body) {
           <ng-container [ngTemplateOutlet]="body.template" />
         }
+        @if (opened() && data(); as data) {
+          <fr-async-view
+            [query]="data.query()"
+            [pendingTemplate]="pendingSlot()?.template"
+            [dataTemplate]="data.template"
+            [errorTemplate]="errorSlot()?.template"
+            [emptyTemplate]="emptySlot()?.template"
+            [filteredEmptyTemplate]="filteredEmptySlot()?.template"
+            [errorMessage]="errorMessage()"
+            [filtered]="filtered()"
+            [detectEmpty]="true"
+            (cleared)="cleared.emit()"
+          />
+        }
       </fr-stack>
     </fr-card-content>
   </fr-card>

@@ -1,0 +1,9 @@
+<fr-async-list [query]="query()" [filtered]="filtered()" [skeletonRows]="skeletonRows()" (cleared)="clear()">
+  <ng-template let-name frAsyncItem>
+    <fr-list-item><fr-text>{{ name }}</fr-text></fr-list-item>
+  </ng-template>
+  @if (customEmpty()) {
+  <ng-template frAsyncEmpty><fr-text>{{ emptyText }}</fr-text></ng-template>
+  <ng-template frAsyncFilteredEmpty><fr-text>{{ filteredEmptyText }}</fr-text></ng-template>
+  }
+</fr-async-list>

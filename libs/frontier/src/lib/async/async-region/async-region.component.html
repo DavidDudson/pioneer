@@ -1,11 +1,12 @@
-@if (pending()) {
-  <ng-container [ngTemplateOutlet]="pendingSlot().template" />
-} @else if (failed()) {
-  @if (errorSlot(); as slot) {
-    <ng-container [ngTemplateOutlet]="slot.template" [ngTemplateOutletContext]="{ $implicit: error() }" />
-  } @else {
-    <fr-alert>{{ errorMessage() ?? ('frontier.async.loadFailed' | transloco) }}</fr-alert>
-  }
-} @else if (value(); as value) {
-  <ng-container [ngTemplateOutlet]="data().template" [ngTemplateOutletContext]="{ $implicit: value }" />
-}
+<fr-async-view
+  [query]="data().query()"
+  [pendingTemplate]="pendingSlot().template"
+  [dataTemplate]="data().template"
+  [errorTemplate]="errorSlot()?.template"
+  [emptyTemplate]="emptySlot()?.template"
+  [filteredEmptyTemplate]="filteredEmptySlot()?.template"
+  [errorMessage]="errorMessage()"
+  [filtered]="filtered()"
+  [detectEmpty]="detectEmpty()"
+  (cleared)="cleared.emit()"
+/>

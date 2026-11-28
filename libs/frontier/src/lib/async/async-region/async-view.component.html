@@ -1,0 +1,30 @@
+<ng-template #defaultPending>
+  <fr-stack gap="xs">
+    @for (line of lines; track line) {
+      <fr-skeleton width="lg" />
+    }
+  </fr-stack>
+</ng-template>
+<ng-template #defaultError>
+  <fr-alert>{{ errorMessage() ?? ('frontier.async.loadFailed' | transloco) }}</fr-alert>
+</ng-template>
+<ng-template #defaultEmpty>
+  <fr-empty-state>
+    <fr-empty-state-title>{{ emptyTitle() | transloco }}</fr-empty-state-title>
+    @if (filtered()) {
+      <fr-button (pressed)="cleared.emit()">{{ 'frontier.async.clearFilters' | transloco }}</fr-button>
+    }
+  </fr-empty-state>
+</ng-template>
+@if (pending()) {
+  <ng-container [ngTemplateOutlet]="pendingTemplate() ?? defaultPending" />
+} @else if (failed()) {
+  <ng-container
+    [ngTemplateOutlet]="errorTemplate() ?? defaultError"
+    [ngTemplateOutletContext]="{ $implicit: error() }"
+  />
+} @else if (empty()) {
+  <ng-container [ngTemplateOutlet]="emptySlot() ?? defaultEmpty" />
+} @else if (value(); as value) {
+  <ng-container [ngTemplateOutlet]="dataTemplate()" [ngTemplateOutletContext]="{ $implicit: value }" />
+}

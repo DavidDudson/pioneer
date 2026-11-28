@@ -1,0 +1,29 @@
+<ng-template #pendingRows>
+  <fr-list>
+    @for (row of rows(); track row) {
+      <fr-list-item><fr-skeleton kind="item" /></fr-list-item>
+    }
+  </fr-list>
+</ng-template>
+<ng-template #items let-list>
+  <fr-list>
+    @for (entry of list; track $index) {
+      <ng-container
+        [ngTemplateOutlet]="item().template"
+        [ngTemplateOutletContext]="{ $implicit: entry, index: $index }"
+      />
+    }
+  </fr-list>
+</ng-template>
+<fr-async-view
+  [query]="query()"
+  [pendingTemplate]="pendingRows"
+  [dataTemplate]="items"
+  [errorTemplate]="errorSlot()?.template"
+  [emptyTemplate]="emptySlot()?.template"
+  [filteredEmptyTemplate]="filteredEmptySlot()?.template"
+  [errorMessage]="errorMessage()"
+  [filtered]="filtered()"
+  [detectEmpty]="true"
+  (cleared)="cleared.emit()"
+/>
