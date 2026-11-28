@@ -155,13 +155,14 @@ const Json = z.codec(z.string(), z.json(), {
   encode: (value): string => JSON.stringify(value),
 });
 
+/** The schema `filtersParam` builds. */
+export type FiltersParam = z.ZodDefault<z.ZodPipe<typeof Json, z.ZodArray<typeof FilterCondition>>>;
+
 /**
  * A query-string value holding conditions as JSON (`filters=[{"property":"level","operator":"gte","values":["3"]}]`).
  * Absent means none. Unreadable JSON is rejected.
  */
-export function filtersParam(
-  properties: FilterProperties,
-): z.ZodDefault<z.ZodPipe<typeof Json, z.ZodArray<typeof FilterCondition>>> {
+export function filtersParam(properties: FilterProperties): FiltersParam {
   return Json.pipe(filterSchema(properties)).default([]);
 }
 

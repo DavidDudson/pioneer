@@ -19,6 +19,7 @@ import {
   withCompanions,
 } from '@pioneer/character/domain';
 import type {
+  CharacterFacetQuery,
   CharacterListQuery,
   CharacterPage,
   CharacterPageQuery,
@@ -33,7 +34,7 @@ import type {
 } from '@pioneer/character/domain';
 import type { AncestryId, ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
 import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
-import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
+import type { Clock, FacetPage, UserId, Version } from '@pioneer/shared/kernel';
 
 import { editableCharacter, readableCharacter } from './character-access';
 import type { EditableCharacter } from './character-access';
@@ -119,6 +120,11 @@ export class CharacterService {
   /** A page of the actor's own characters, narrowed by the query's filters; nobody else's are listed. */
   public async page(actor: UserId, query: CharacterPageQuery): Promise<CharacterPage> {
     return this.#repository.pageForOwner(actor, query);
+  }
+
+  /** The values of one property among the actor's own characters, counted; nobody else's are. */
+  public async facets(actor: UserId, query: CharacterFacetQuery): Promise<FacetPage> {
+    return this.#repository.facetsForOwner(actor, query);
   }
 
   /** The actor's own characters; nobody else's are listed. */

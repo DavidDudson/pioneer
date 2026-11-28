@@ -1,5 +1,5 @@
 import { AncestryId, ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
-import { Endpoint, HttpMethod, listQuery, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
+import { Endpoint, FacetPage, HttpMethod, listQuery, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -8,7 +8,7 @@ import { CharacterAllies } from './character-allies';
 import { CharacterCompanionContract } from './character-companion-contract';
 import { CharacterId, CharacterName } from './character-fields';
 import { CharacterPacks, EnablePackBody } from './character-packs';
-import { CharacterFilter, CharacterFilters, CharacterPage, FIRST_PAGE, PageNumber } from './character-page';
+import { CharacterFacetQuery, CharacterFilters, CharacterPage, FIRST_PAGE, PageNumber } from './character-page';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterRuleLimitContract } from './character-rule-limit-contract';
 import { CharacterSheet, PatchedCharacterSheet } from './character-sheet';
@@ -42,14 +42,6 @@ export const CharacterPageQuery = CharacterListQuery.extend({
 
 export type CharacterPageQuery = z.output<typeof CharacterPageQuery>;
 
-/** What the list page holds and keeps in its address: the order, a page, and the filters a person set. */
-export const CharacterListState = CharacterListQuery.extend({
-  ...CharacterFilter.shape,
-  page: PageNumber.default(FIRST_PAGE),
-});
-
-export type CharacterListState = z.output<typeof CharacterListState>;
-
 export const CreateCharacterBody = z.object({ name: CharacterName, ancestry: AncestryId });
 
 export type CreateCharacterBody = z.infer<typeof CreateCharacterBody>;
@@ -64,6 +56,19 @@ export const CharacterContract = {
     query: CharacterPageQuery,
     body: NoBody,
     response: CharacterPage,
+  }),
+  /**
+   * The values one property takes among the signed-in user's characters, each with how many have it, most common
+   * first. The conditions in `filters` narrow what is counted, except the property's own, so picking a value does not
+   * hide the others. `search` finds values and `page` pages them.
+   */
+  facets: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/facets',
+    params: NoParams,
+    query: CharacterFacetQuery,
+    body: NoBody,
+    response: FacetPage,
   }),
   get: new Endpoint({
     method: HttpMethod.Get,

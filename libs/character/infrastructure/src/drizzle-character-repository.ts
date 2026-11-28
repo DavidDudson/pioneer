@@ -3,6 +3,7 @@ import type { CharacterAudit, PlayWrite } from '@pioneer/character/application';
 import { CHARACTER_PAGE_SIZE, CharacterCount, PlayStateId } from '@pioneer/character/domain';
 import type {
   Character,
+  CharacterFacetQuery,
   CharacterId,
   CharacterListQuery,
   CharacterPage,
@@ -10,16 +11,18 @@ import type {
   CharacterPlay,
   CharacterSort,
 } from '@pioneer/character/domain';
-import { FIRST_VERSION, newId, nextVersion, SortDirection } from '@pioneer/shared/kernel';
-import type { Temporal, UserId, Version } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, newId, nextVersion, otherConditions, SortDirection } from '@pioneer/shared/kernel';
+import type { FacetPage, Temporal, UserId, Version } from '@pioneer/shared/kernel';
 import {
   applyFilters,
   archiveRows,
+  facetCounts,
   RequestMemo,
   restoreRows,
   stampAudit,
   updateVersioned,
 } from '@pioneer/shared/server';
+import type { FilterColumn } from '@pioneer/shared/server';
 import { and, asc, count, desc, eq, inArray, isNotNull, isNull } from 'drizzle-orm';
 import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
@@ -78,6 +81,24 @@ export class DrizzleCharacterRepository extends CharacterRepository {
       page: query.page,
       pageSize: CHARACTER_PAGE_SIZE,
     };
+  }
+
+  public override async facetsForOwner(ownerId: UserId, query: CharacterFacetQuery): Promise<FacetPage> {
+    const target = new Map<string, FilterColumn>(Object.entries(CHARACTER_FILTER_COLUMNS)).get(query.property);
+
+    if (target === undefined) {
+      throw new Error(`The character list has no property ${query.property}`);
+    }
+
+    const others = otherConditions(query.filters, query.property);
+
+    const where = and(
+      eq(characters.ownerId, ownerId),
+      isNull(characters.archivedAt),
+      applyFilters(others, CHARACTER_FILTER_COLUMNS),
+    );
+
+    return facetCounts(this.#db, { table: characters, column: target.column, where }, query);
   }
 
   public override async listArchivedForOwner(

@@ -1,5 +1,5 @@
 import { AncestryId, ContentId } from '@pioneer/rules/sdk';
-import { FilterKind, FilterOperator, filtersParam, Pg } from '@pioneer/shared/kernel';
+import { facetQuery, FilterKind, FilterOperator, filtersParam, Pg } from '@pioneer/shared/kernel';
 import type { FilterCondition, FilterProperties } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -64,6 +64,11 @@ export type CharacterFilterProperty = keyof typeof CHARACTER_FILTER_PROPERTIES;
 export const CharacterFilters = filtersParam(CHARACTER_FILTER_PROPERTIES);
 
 export type CharacterFilters = z.output<typeof CharacterFilters>;
+
+/** The values of one property with their counts, given the list's other conditions: what a filter's picker offers. */
+export const CharacterFacetQuery = facetQuery(CHARACTER_FILTER_PROPERTIES);
+
+export type CharacterFacetQuery = z.output<typeof CharacterFacetQuery>;
 
 function condition(
   property: CharacterFilterProperty,
