@@ -3,6 +3,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
 import type { ComponentInputs } from '../../testing/component-inputs';
+import { InputGroupHost } from '../../testing/input-group-host';
 import { Input } from './input.component';
 
 interface Rendered {
@@ -156,6 +157,16 @@ describe(Input, () => {
 
   it('disables the input', () => {
     expect(render({ disabled: true }).input.disabled).toBe(true);
+  });
+
+  it('is flat inside an fr-input-group, which draws the box', () => {
+    const fixture = TestBed.createComponent(InputGroupHost);
+    fixture.detectChanges();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
+    const grouped = (fixture.nativeElement as HTMLElement).querySelector('input');
+    expect(grouped?.classList).toContain('bg-transparent');
+    expect(grouped?.classList).not.toContain('border');
+    expect(render().input.classList).toContain('border');
   });
 
   it('takes focus on focus()', () => {

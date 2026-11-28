@@ -24,12 +24,28 @@ export const controlVariants = cva(
       /** Room for an icon at each end (search icon, clear button), each a touch target wide. */
       adorned: {
         true: 'ps-control-md pe-control-md',
-        /** Room for two icon buttons at the end (a refreshable input). */
-        pair: 'ps-sm pe-control-md-pair',
         false: 'px-sm',
       },
     },
     defaultVariants: { multiline: false, monospace: false, adorned: false },
+  },
+);
+
+/**
+ * The input inside an `fr-input-group`: no box of its own, since the group draws the border, focus ring and
+ * status around it and its addons. Fills the room the addons leave.
+ */
+export const groupedControlVariants = cva(
+  [
+    'block h-control-md w-full min-w-none bg-transparent px-sm text-body text-fg-default',
+    'placeholder:text-fg-subtle focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-disabled',
+  ],
+  {
+    variants: {
+      numeric: { true: figureClasses, false: '' },
+      monospace: { true: 'font-mono', false: 'font-ui' },
+    },
+    defaultVariants: { monospace: false },
   },
 );
 

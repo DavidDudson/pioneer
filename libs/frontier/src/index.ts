@@ -78,6 +78,10 @@ export { FilterChips } from './lib/controls/filter-chips/filter-chips.component'
 
 export { NumberInput } from './lib/controls/number-input/number-input.component';
 
+export { InputAddon } from './lib/controls/input-group/input-addon.component';
+
+export { InputGroup } from './lib/controls/input-group/input-group.component';
+
 export { RefreshableInput } from './lib/controls/refreshable-input/refreshable-input.component';
 
 export { SearchInput } from './lib/controls/search-input/search-input.component';

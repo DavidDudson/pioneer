@@ -1,22 +1,24 @@
-<fr-text-input
-  trailing
-  [ariaLabel]="ariaLabel()"
-  [disabled]="disabled()"
-  [invalid]="ariaInvalid() || failed()"
-  [placeholder]="placeholder()"
-  [status]="status()"
-  [(value)]="value"
-/>
-<span [class]="actionsClasses">
-  <ng-content select="[frAction]" />
-  <fr-button
-    variant="ghost"
-    size="sm"
-    iconOnly
-    [disabled]="disabled() || loading()"
-    [ariaLabel]="'frontier.refreshableInput.refresh' | transloco"
-    (pressed)="refresh()"
-  >
-    <fr-icon [icon]="RefreshIcon" />
-  </fr-button>
-</span>
+<fr-input-group [disabled]="disabled()" [invalid]="showInvalid()" [status]="status()">
+  <fr-input
+    type="text"
+    [ariaLabel]="ariaLabel()"
+    [disabled]="disabled()"
+    [invalid]="showInvalid()"
+    [placeholder]="placeholder()"
+    [value]="value()"
+    (typed)="value.set($event)"
+  />
+  <fr-input-addon action>
+    <ng-content select="[frAction]" />
+    <fr-button
+      variant="ghost"
+      size="sm"
+      iconOnly
+      [disabled]="disabled() || loading()"
+      [ariaLabel]="'frontier.refreshableInput.refresh' | transloco"
+      (pressed)="refresh()"
+    >
+      <fr-icon [icon]="RefreshIcon" />
+    </fr-button>
+  </fr-input-addon>
+</fr-input-group>

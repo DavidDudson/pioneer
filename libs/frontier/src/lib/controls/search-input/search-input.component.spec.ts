@@ -139,6 +139,20 @@ describe(SearchInput, () => {
     rendered.fixture.detectChanges();
     expect(clearButton(rendered)).toBeNull();
     expect(rendered.input.disabled).toBe(true);
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
+    expect((rendered.fixture.nativeElement as HTMLElement).querySelector('fr-input-group')?.classList).toContain(
+      'cursor-not-allowed',
+    );
+  });
+
+  it('draws the invalid state on its group', () => {
+    const rendered = render('level:');
+    rendered.fixture.componentRef.setInput('invalid', true);
+    rendered.fixture.detectChanges();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
+    expect((rendered.fixture.nativeElement as HTMLElement).querySelector('fr-input-group')?.classList).toContain(
+      'border-danger-line',
+    );
   });
 
   it('searches again for a query typed after Enter', () => {

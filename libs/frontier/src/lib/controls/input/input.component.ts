@@ -3,15 +3,18 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  inject,
   input,
   output,
   viewChild,
 } from '@angular/core';
 import type { ElementRef } from '@angular/core';
+import { cva } from 'class-variance-authority';
 
 import { injectCommitKeys } from '../commit-keys';
 import { Control } from '../control';
-import { controlVariants } from '../control.variants';
+import { controlVariants, groupedControlVariants } from '../control.variants';
+import { INPUT_GROUP } from '../input-group/input-group';
 
 /** What the native input is: the `type` attribute of the controls that compose `fr-input`. */
 export const InputType = {
@@ -50,19 +53,21 @@ export const EnterKeyHint = {
 
 export type EnterKeyHint = (typeof EnterKeyHint)[keyof typeof EnterKeyHint];
 
-/** How `fr-input` styles its box: room for icons at the ends, or none. */
-export const InputAdornment = { None: 'none', Both: 'both', Pair: 'pair' } as const;
+/** How `fr-input` styles its box: room for an icon at each end, or none. Addons beside it use `fr-input-group`. */
+export const InputAdornment = { None: 'none', Both: 'both' } as const;
 
 export type InputAdornment = (typeof InputAdornment)[keyof typeof InputAdornment];
 
-const ADORNED = { none: false, both: true, pair: 'pair' } as const satisfies Record<InputAdornment, boolean | 'pair'>;
+const ADORNED = { none: false, both: true } as const satisfies Record<InputAdornment, boolean>;
+
+const hostVariants = cva('block', { variants: { grouped: { true: 'min-w-none flex-1', false: '' } } });
 
 /** The one owner of the native `<input>`: the text, search, number and date controls compose it. */
 @Component({
   selector: 'fr-input',
   templateUrl: './input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'block' },
+  host: { '[class]': 'hostClasses' },
 })
 export class Input extends Control {
   public readonly type = input<InputType>(InputType.Text);
@@ -80,12 +85,17 @@ export class Input extends Control {
   /** The raw text after every edit. */
   public readonly typed = output<string>();
 
+  /** Inside an `fr-input-group` the input is flat and the group draws the box. */
+  readonly #grouped = inject(INPUT_GROUP, { optional: true }) !== null;
+  protected readonly hostClasses = hostVariants({ grouped: this.#grouped });
   protected readonly classes = computed(() =>
-    controlVariants({
-      monospace: this.monospace(),
-      numeric: this.numeric(),
-      adorned: ADORNED[this.adornment()],
-    }),
+    this.#grouped
+      ? groupedControlVariants({ monospace: this.monospace(), numeric: this.numeric() })
+      : controlVariants({
+          monospace: this.monospace(),
+          numeric: this.numeric(),
+          adorned: ADORNED[this.adornment()],
+        }),
   );
   protected readonly control = viewChild.required<ElementRef<HTMLInputElement>>('control');
 
