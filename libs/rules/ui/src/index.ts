@@ -231,6 +231,19 @@ export { ProficiencyRankView } from './lib/proficiency-rank/proficiency-rank.com
 export { FormBanner, type FormDetail, type FormSummary } from './lib/form-banner/form-banner.component';
 
 export {
+  FamiliarCardMovement,
+  FamiliarCardSense,
+  FamiliarCardStatus,
+  type FamiliarCardHitPoints,
+  type FamiliarCardSaves,
+  type FamiliarCardSkill,
+  type FamiliarCardSpeed,
+  type FamiliarCardView,
+} from './lib/familiar-card/familiar-card';
+
+export { FamiliarCard } from './lib/familiar-card/familiar-card.component';
+
+export {
   FormPicker,
   type FormPickerOption,
   type FormPreview,
