@@ -39,6 +39,42 @@ describe('snapshotProject', () => {
   });
 });
 
+describe('field allow-list', () => {
+  const KEPT = [
+    'executor',
+    'options',
+    'configurations',
+    'defaultConfiguration',
+    'inputs',
+    'outputs',
+    'dependsOn',
+    'cache',
+    'continuous',
+    'parallelism',
+  ];
+
+  test('keeps every behaviour-defining field and nothing else', () => {
+    const fields = [...KEPT, 'metadata', 'description'].map((field) => `"${field}":1`).join(',');
+    const text = snapshotOf(`{"targets":{"build":{${fields}}}}`);
+
+    const printed = KEPT.filter((field) => text.includes(`"${field}":`));
+
+    expect(printed).toStrictEqual(KEPT);
+    expect(text).not.toContain('"metadata"');
+    expect(text).not.toContain('"description"');
+  });
+
+  test('orders the keys of an object inside an array', () => {
+    const text = snapshotOf('{"targets":{"build":{"inputs":[{"fileset":"x","dependencies":true}]}}}');
+
+    expect(text.indexOf('"dependencies"')).toBeLessThan(text.indexOf('"fileset"'));
+  });
+
+  test('a project with no tags or targets is an empty snapshot', () => {
+    expect(JSON.parse(snapshotOf('{}'))).toStrictEqual({ tags: [], targets: {} });
+  });
+});
+
 describe('parseGraphNodes', () => {
   test('reads the nodes of a graph file', () => {
     const nodes = parseGraphNodes('{"graph":{"nodes":{"web":{"data":{"tags":["a"]}}}}}');

@@ -27,7 +27,8 @@ const INFERRERS = {
   test: (facts: ProjectFacts): TargetConfiguration | undefined => inferAngularTest(facts) ?? inferBunTest(facts),
 } satisfies Record<string, TargetInferrer>;
 
-function inferTargets(facts: ProjectFacts): Record<string, TargetConfiguration> {
+/** Every target the project gets from the inferrers; a target no inferrer applies to is left out. */
+export function inferTargets(facts: ProjectFacts): Record<string, TargetConfiguration> {
   const inferred = Object.entries(INFERRERS).map(([name, infer]): [string, TargetConfiguration | undefined] => [
     name,
     infer(facts),

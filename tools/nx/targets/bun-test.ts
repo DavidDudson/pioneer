@@ -2,10 +2,7 @@ import type { TargetConfiguration } from '@nx/devkit';
 
 import type { ProjectFacts } from '../project-facts.ts';
 
-/**
- * `test`: `bun test` for a project with `*.test.ts` files (Bun-run code). Angular projects use `*.spec.ts` with the
- * Angular Vitest builder instead.
- */
+/** `test`: `bun test` for a project with `*.test.ts` files; Angular projects use `*.spec.ts` with their own builder. */
 export function inferBunTest({ root, hasFile }: ProjectFacts): TargetConfiguration | undefined {
   const hasTests = hasFile((file) => file.endsWith('.test.ts'));
 
