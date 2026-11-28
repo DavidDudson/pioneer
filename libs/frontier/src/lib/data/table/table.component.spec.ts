@@ -132,6 +132,12 @@ describe(Table, () => {
     expect(host.querySelector('table')?.classList).toContain('font-ui');
   });
 
+  it('sets the table in tabular, lining figures, so a column of numbers aligns', async () => {
+    const { host } = await render();
+    expect(host.querySelector('table')?.className).toContain('tabular-nums');
+    expect(host.querySelector('table')?.className).toContain('lining-nums');
+  });
+
   it('renders one row per item in data order, a cell per column', async () => {
     const { host } = await render();
     expect(rows(host)).toStrictEqual([

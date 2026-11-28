@@ -11,6 +11,7 @@ import { noInterruptions } from './tools/eslint/no-interruptions';
 import { noLiteralText } from './tools/eslint/no-literal-text';
 import { noNativeElements } from './tools/eslint/no-native-elements';
 import { noTemplateStyling } from './tools/eslint/no-template-styling';
+import { numericFigures } from './tools/eslint/numeric-figures';
 
 const config: Array<Linter.Config> = defineConfig([
   { ignores: ['dist/**', 'coverage/**', '.angular/**', '.nx/**', '**/storybook-static/**', 'apps/web/src/index.html'] },
@@ -25,6 +26,7 @@ const config: Array<Linter.Config> = defineConfig([
           'no-interruptions': noInterruptions,
           'no-native-elements': noNativeElements,
           'no-literal-text': noLiteralText,
+          'numeric-figures': numericFigures,
         },
       },
     },
@@ -35,6 +37,7 @@ const config: Array<Linter.Config> = defineConfig([
       'pioneer/no-interruptions': 'error',
       'pioneer/no-native-elements': 'error',
       'pioneer/no-literal-text': 'error',
+      'pioneer/numeric-figures': 'error',
       // Superseded by pioneer/no-literal-text: Pioneer uses Transloco message keys, not Angular's i18n attribute.
       '@angular-eslint/template/i18n': 'off',
       // Signals are called in templates by design.

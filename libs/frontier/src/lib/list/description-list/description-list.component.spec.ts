@@ -86,6 +86,11 @@ async function gridClasses(inputs: ComponentInputs<Grid>): Promise<string | unde
   return (fixture.nativeElement as HTMLElement).firstElementChild?.className;
 }
 
+/** The value cell of the first item: the `definition` the projected value sits in. */
+function definition(list: HTMLElement): HTMLElement | null {
+  return list.querySelector<HTMLElement>('[role="definition"]');
+}
+
 describe(DescriptionList, () => {
   it('renders a list as a column with a token gap, inside a box the rows query', async () => {
     const { fixture, list } = await render({}, []);
@@ -132,5 +137,12 @@ describe(DescriptionList, () => {
   it('leaves each row unpadded and undivided unless the row asks', async () => {
     const { list } = await render({}, ['Speed']);
     expect(sorted(row(list).parentElement?.parentElement?.className)).toStrictEqual(['block', 'p-none']);
+  });
+
+  it('sets a value in tabular, lining figures, so a column of values lines up', async () => {
+    const { list } = await render({}, ['AC']);
+
+    expect(definition(list)?.className).toContain('tabular-nums');
+    expect(definition(list)?.className).toContain('lining-nums');
   });
 });

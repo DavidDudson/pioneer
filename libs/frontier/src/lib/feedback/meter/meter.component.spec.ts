@@ -70,6 +70,12 @@ describe(Meter, () => {
     expect(number(host)?.getAttribute('aria-hidden')).toBe('true');
   });
 
+  it('sets the number in tabular, lining figures, so it does not shift as the value changes', async () => {
+    const host = await render({ value: 12, max: 30 });
+    expect(number(host)?.className).toContain('tabular-nums');
+    expect(number(host)?.className).toContain('lining-nums');
+  });
+
   it('formats the numbers in the UI locale', async () => {
     const host = await render({ value: 1200, max: 2500 });
     expect(number(host)?.textContent.trim()).toBe('1,200/2,500');

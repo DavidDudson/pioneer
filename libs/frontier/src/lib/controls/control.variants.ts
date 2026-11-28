@@ -12,7 +12,7 @@ export const controlVariants = cva(
   ],
   {
     variants: {
-      numeric: { true: 'tabular-nums', false: '' },
+      numeric: { true: 'lining-nums tabular-nums', false: '' },
       /** A button that opens a popup (select trigger). */
       trigger: { true: 'flex items-center justify-between gap-xs text-start', false: '' },
       /** Several lines (text area): grows with `rows`, resizable in height only. */

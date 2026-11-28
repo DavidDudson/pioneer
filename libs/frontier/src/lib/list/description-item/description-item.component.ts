@@ -9,8 +9,11 @@ import { rowVariants } from '../item/row';
 
 const termClasses = textVariants({ variant: 'label', tone: 'muted', class: 'break-words' });
 
-/** May shrink below its content's width, so a long value wraps instead of widening the row. */
-const valueClasses = cva('min-w-none')();
+/**
+ * May shrink below its content's width, so a long value wraps instead of widening the row. Figures are tabular and
+ * lining, so a column of values lines up and a changing value does not shift its neighbours.
+ */
+const valueClasses = cva('min-w-none lining-nums tabular-nums')();
 
 /**
  * One row of an `fr-description-list`: the host is its `listitem`, holding a `term` and a `definition` (the

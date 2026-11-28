@@ -44,7 +44,7 @@ export const textVariants = cva('', {
       bold: 'font-bold',
     } satisfies Record<FontWeight, string>,
     truncate: { true: 'truncate', false: '' },
-    numeric: { true: 'tabular-nums', false: '' },
+    numeric: { true: 'lining-nums tabular-nums', false: '' },
     monospace: { true: 'font-mono', false: '' },
     minWidth: { modifier: 'min-w-modifier' } satisfies Record<MinWidth, string>,
   },
