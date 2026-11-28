@@ -34,9 +34,7 @@ export {
   type TableViewState,
 } from './lib/data/table-view/table-view-state';
 
-export { TableDensity, TableViewStore } from './lib/data/table-view/table-view-store';
-
-export type { StoredDensity, StoredTableView } from './lib/data/table-view/table-view-store';
+export { TableDensity } from './lib/data/table-view/table-view-store';
 
 export { TableViewKey } from './lib/data/table-view/table-view-keys';
 

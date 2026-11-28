@@ -268,3 +268,9 @@ export { DISTANCE_UNIT, LocaleFormat } from './lib/locale/locale-format';
 export type { ListPart } from './lib/locale/locale-format';
 
 export type { ComponentInputs } from './lib/testing/component-inputs';
+
+// The token lives here, not in `@pioneer/frontier/data`: the app shell provides it, and the data entry would pull
+// TanStack Table, Charts and Virtual into the initial bundle.
+export { TableViewStore } from './lib/data/table-view/table-view-store';
+
+export type { StoredDensity, StoredTableView } from './lib/data/table-view/table-view-store';

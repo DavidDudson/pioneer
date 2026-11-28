@@ -2,8 +2,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { inject, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import type { ApplicationConfig } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withPreloading } from '@angular/router';
-import { DISTANCE_UNIT } from '@pioneer/frontier';
-import { TableViewStore } from '@pioneer/frontier/data';
+import { DISTANCE_UNIT, TableViewStore } from '@pioneer/frontier';
 import {
   AccountTableViews,
   provideAccountPreferences,
