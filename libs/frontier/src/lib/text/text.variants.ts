@@ -22,13 +22,13 @@ export const FontWeight = { Regular: 'regular', Medium: 'medium', Semibold: 'sem
 
 export type FontWeight = ValueOf<typeof FontWeight>;
 
-/** Typography shared by every text-bearing primitive (fr-text, fr-heading, fr-label, fr-link). */
+/** Typography shared by every text-bearing primitive. `body` sets no font role, so it takes its container's (ADR-0085). */
 export const textVariants = cva('', {
   variants: {
     variant: {
-      display: 'font-display text-display font-bold tracking-tight',
-      title: 'font-display text-title font-semibold tracking-tight',
-      heading: 'font-display text-heading font-semibold',
+      display: 'text-display font-bold tracking-tight',
+      title: 'text-title font-semibold tracking-tight',
+      heading: 'text-heading font-semibold',
       subheading: 'text-subheading font-semibold',
       lead: 'text-lead',
       body: 'text-body',
@@ -48,6 +48,12 @@ export const textVariants = cva('', {
     monospace: { true: 'font-mono', false: '' },
     minWidth: { modifier: 'min-w-modifier' } satisfies Record<MinWidth, string>,
   },
+  compoundVariants: [
+    { variant: ['display', 'title', 'heading', 'subheading'], monospace: false, class: 'font-display' },
+    { variant: ['label', 'caption'], monospace: false, class: 'font-ui' },
+    { variant: 'lead', monospace: false, class: 'font-text' },
+  ],
+  defaultVariants: { monospace: false },
 });
 
 /** The widths a text can be given a floor of: `modifier` is the width of a signed modifier such as +10. */

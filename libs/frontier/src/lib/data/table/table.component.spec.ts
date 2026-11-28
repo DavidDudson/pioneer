@@ -127,6 +127,11 @@ describe(Table, () => {
     expect(headers(host).map((header) => header.textContent.trim())).toStrictEqual(['Name', 'Level']);
   });
 
+  it('sets the table in the UI role', async () => {
+    const { host } = await render();
+    expect(host.querySelector('table')?.classList).toContain('font-ui');
+  });
+
   it('renders one row per item in data order, a cell per column', async () => {
     const { host } = await render();
     expect(rows(host)).toStrictEqual([

@@ -107,6 +107,14 @@ describe(TextInput, () => {
     expect(input.classList).not.toContain('font-mono');
   });
 
+  it('sets plain text in the UI role and monospace text in the mono face alone', () => {
+    expect(render().input.classList).toContain('font-ui');
+
+    const code = render({ monospace: true });
+    expect(code.input.classList).toContain('font-mono');
+    expect(code.input.classList).not.toContain('font-ui');
+  });
+
   it('turns off spellcheck, autocapitalise and autocorrect for monospace text', () => {
     const code = render({ monospace: true });
     expect(code.input.getAttribute('spellcheck')).toBe('false');

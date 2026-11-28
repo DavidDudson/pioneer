@@ -21,7 +21,7 @@ export const comboboxListboxClasses = cva('relative block w-full')();
 
 /** Placed by the virtualizer: absolute, offset with a runtime transform. */
 export const comboboxOptionClasses = cva([
-  'absolute start-none top-none block w-full cursor-pointer px-sm py-sm text-body aria-disabled:cursor-not-allowed aria-disabled:text-fg-subtle aria-selected:bg-accent-subtle aria-selected:text-accent-fg pointer-fine:py-xs highlighted:bg-surface-sunken',
+  'absolute start-none top-none block w-full cursor-pointer px-sm py-sm font-ui text-body aria-disabled:cursor-not-allowed aria-disabled:text-fg-subtle aria-selected:bg-accent-subtle aria-selected:text-accent-fg pointer-fine:py-xs highlighted:bg-surface-sunken',
   forcedOptionClasses,
 ])();
 

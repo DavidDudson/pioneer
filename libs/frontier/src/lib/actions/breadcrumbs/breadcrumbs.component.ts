@@ -15,7 +15,7 @@ export interface BreadcrumbItem {
   readonly to?: LinkTarget;
 }
 
-const listClasses = cva('flex flex-nowrap items-center gap-2xs text-label')();
+const listClasses = cva('flex flex-nowrap items-center gap-2xs font-ui text-label')();
 
 const itemVariants = cva('flex items-center gap-2xs', {
   variants: {

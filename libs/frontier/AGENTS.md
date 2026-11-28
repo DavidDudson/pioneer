@@ -352,6 +352,12 @@ together, so `readable`, `lexend` and `opendyslexic` always win over the themati
 Fraunces for all of them and changes only for `system`, which sets all three to the device's sans. Every stack ends
 in a generic family.
 
+`text.variants.ts` and `control.variants.ts` pick the role once, so a feature template names none: headings, `title`,
+`display` and `subheading` use display; `label`, `caption`, buttons, button-like links, tabs, options, badges,
+breadcrumbs, inputs and tables use UI; `lead` uses text; `brand` keeps `font-brand`. `body`
+sets no role and takes the one of what holds it (the page is text, so rules prose reads as text; a table cell reads as
+UI). Monospace text keeps `font-mono` in place of the role.
+
 A font file is not bundled: the app loads the faces the current choice needs from Google Fonts on demand
 (`FontStylesheets` in `@pioneer/shared/web`), as one `css2` request for every Google family plus the wordmark's own
 request (OpenDyslexic comes from Fontsource). A new face goes in `fonts.css` and in the loader's family table, and

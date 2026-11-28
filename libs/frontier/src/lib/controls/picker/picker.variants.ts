@@ -28,7 +28,7 @@ const columnWidthClasses = {
 /** A body cell. The row's highlight and picked state are on its cells, which is where the grid puts them. */
 export const pickerCellVariants = cva(
   [
-    'block shrink-0 px-sm py-sm text-start text-body text-fg-default pointer-fine:py-xs',
+    'block shrink-0 px-sm py-sm text-start font-ui text-body text-fg-default pointer-fine:py-xs',
     'aria-selected:bg-accent-subtle aria-selected:text-accent-fg highlighted:bg-surface-sunken',
     'aria-disabled:cursor-not-allowed aria-disabled:text-fg-subtle',
     forcedOptionClasses,
@@ -38,7 +38,7 @@ export const pickerCellVariants = cva(
 
 /** A column header: quieter than a cell. Its sort button is the pressable part. */
 export const pickerHeaderCellVariants = cva(
-  'flex shrink-0 items-center px-sm py-xs text-label font-medium text-fg-muted',
+  'flex shrink-0 items-center px-sm py-xs font-ui text-label font-medium text-fg-muted',
   {
     variants: { width: columnWidthClasses },
     defaultVariants: { width: 'md' },

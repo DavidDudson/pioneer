@@ -26,7 +26,7 @@ const POSITIONS = overlayPositions(OverlayAlign.Start);
 const listboxClasses = cva(`z-overlay max-h-listbox overflow-auto border p-2xs ${elevationVariants.overlay}`)();
 
 const optionClasses = cva([
-  'cursor-pointer px-sm py-sm text-body aria-selected:bg-accent-subtle aria-selected:text-accent-fg pointer-fine:py-xs highlighted:bg-surface-sunken',
+  'cursor-pointer px-sm py-sm font-ui text-body aria-selected:bg-accent-subtle aria-selected:text-accent-fg pointer-fine:py-xs highlighted:bg-surface-sunken',
   forcedOptionClasses,
 ])();
 

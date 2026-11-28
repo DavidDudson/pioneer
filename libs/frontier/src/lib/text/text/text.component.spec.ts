@@ -65,6 +65,48 @@ describe(Text, () => {
     expect([...rendered.classList]).not.toContain('text-body');
   });
 
+  it.each([
+    [TextVariant.Display, 'font-display'],
+    [TextVariant.Title, 'font-display'],
+    [TextVariant.Heading, 'font-display'],
+    [TextVariant.Subheading, 'font-display'],
+    [TextVariant.Label, 'font-ui'],
+    [TextVariant.Caption, 'font-ui'],
+    [TextVariant.Lead, 'font-text'],
+    [TextVariant.Brand, 'font-brand'],
+  ])('sets the %s variant in the %s role', async (variant, role) => {
+    const rendered = await render({ variant });
+    expect([...rendered.classList]).toContain(role);
+  });
+
+  it.each(['font-display', 'font-ui', 'font-text', 'font-brand', 'font-mono'])(
+    'leaves body text without %s, so it takes the role of what holds it',
+    async (role) => {
+      const rendered = await render({ variant: TextVariant.Body });
+      expect([...rendered.classList]).not.toContain(role);
+    },
+  );
+
+  it.each([TextElement.Code, TextElement.Preformatted, TextElement.Keyboard])(
+    'sets <%s> in the mono face alone, whatever its variant',
+    async (element) => {
+      const rendered = await render({ element, variant: TextVariant.Label });
+      expect([...rendered.classList]).toContain('font-mono');
+      expect([...rendered.classList]).not.toContain('font-ui');
+    },
+  );
+
+  it.each([TextVariant.Display, TextVariant.Label, TextVariant.Lead])(
+    'sets monospace %s text in the mono face alone',
+    async (variant) => {
+      const rendered = await render({ variant, monospace: true });
+      expect([...rendered.classList]).toContain('font-mono');
+      expect([...rendered.classList]).not.toContain('font-display');
+      expect([...rendered.classList]).not.toContain('font-ui');
+      expect([...rendered.classList]).not.toContain('font-text');
+    },
+  );
+
   it('takes a tone and weight, truncates and aligns figures when asked', async () => {
     const rendered = await render({ tone: Tone.Muted, weight: FontWeight.Bold, truncate: true, numeric: true });
     expect([...rendered.classList]).toStrictEqual(

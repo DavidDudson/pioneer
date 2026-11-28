@@ -37,6 +37,16 @@ function isPhraseElement(element: TextElement): element is PhraseElement {
 
 const STRESS_ELEMENTS: ReadonlySet<TextElement> = new Set(Object.values(StressElement));
 
+const MONOSPACE_ELEMENTS: ReadonlySet<TextElement> = new Set([
+  TextElement.Preformatted,
+  TextElement.Code,
+  TextElement.Keyboard,
+]);
+
+function isMonospaceElement(element: TextElement): boolean {
+  return MONOSPACE_ELEMENTS.has(element);
+}
+
 function isStressElement(element: TextElement): element is StressElement {
   return STRESS_ELEMENTS.has(element);
 }
@@ -50,9 +60,9 @@ const elementVariants = cva('', {
     element: {
       [TextElement.Span]: '',
       [TextElement.Paragraph]: '',
-      [TextElement.Preformatted]: 'font-mono break-words whitespace-pre-wrap',
-      [TextElement.Code]: 'font-mono wrap-anywhere',
-      [TextElement.Keyboard]: 'border border-line-default bg-surface-sunken px-3xs font-mono',
+      [TextElement.Preformatted]: 'break-words whitespace-pre-wrap',
+      [TextElement.Code]: 'wrap-anywhere',
+      [TextElement.Keyboard]: 'border border-line-default bg-surface-sunken px-3xs',
       [TextElement.Abbreviation]: '',
       [TextElement.Quotation]: '',
       [TextElement.Emphasis]: 'italic',
@@ -108,6 +118,7 @@ export class Text {
   protected readonly classes = computed(() => {
     const damage = this.damage();
     const tone = this.tone();
+    const monospace = this.monospace() || isMonospaceElement(this.element());
 
     return cx(
       textVariants({
@@ -116,7 +127,7 @@ export class Text {
         weight: this.weight(),
         truncate: this.truncate(),
         numeric: this.numeric(),
-        monospace: this.monospace(),
+        monospace,
         minWidth: this.minWidth(),
       }),
       elementVariants({ element: this.element() }),
