@@ -6,9 +6,11 @@
       [state]="state()"
       [sorting]="view.sorting()"
       [hidden]="view.hidden()"
+      [density]="view.density() ?? Density.Comfortable"
       (stateChange)="write($event)"
       (sortingChange)="view.setSorting($event)"
       (hiddenChange)="view.setHidden($event)"
+      (densityChange)="view.setDensity($event)"
     />
   </fr-page-body>
 </fr-page>

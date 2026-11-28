@@ -4,10 +4,12 @@ import type { RowData, SortingState, Updater } from '@tanstack/angular-table';
 import { cva } from 'class-variance-authority';
 
 import { injectTranslate } from '../../locale/inject-translate';
+import { TableDensity } from '../table-view/table-view-store';
 import type { TableViewSort } from '../table-view/table-view.types';
 import { ColumnChooser } from './column-chooser/column-chooser.component';
 import type { ColumnChoice, ColumnToggle } from './column-chooser/column-chooser.component';
 import { TableHeaderCell } from './header-cell/header-cell.component';
+import { TableDensityControl } from './table-density/table-density.component';
 import { HEADER_KEY, TABLE_FEATURES } from './table-features';
 import type { TableColumn, TableFeatureSet, TableHeader } from './table-features';
 import { sortAfter, toSortingState } from './table-sort';
@@ -27,11 +29,15 @@ const captionVariants = cva('pb-xs text-start text-label font-medium text-fg-mut
   variants: { hidden: { true: 'sr-only', false: '' } },
 });
 
-const headerCellClasses = cva(
-  'border-b border-line-default px-sm py-xs text-start text-label font-medium text-fg-muted',
-)();
+const headerCellVariants = cva('border-b border-line-default px-sm text-start text-label font-medium text-fg-muted', {
+  variants: { density: { comfortable: 'py-xs', compact: 'py-3xs' } },
+});
 
-const cellClasses = cva('border-b border-line-subtle px-sm py-xs text-fg-default')();
+const densitySwitchVariants = cva('pb-xs', { variants: { shown: { true: '', false: 'hidden' } } });
+
+const cellVariants = cva('border-b border-line-subtle px-sm text-fg-default', {
+  variants: { density: { comfortable: 'py-xs', compact: 'py-3xs' } },
+});
 
 /** What the *Columns* control needs to know of a column. */
 interface KnownColumn {
@@ -82,7 +88,7 @@ function sameIds(left: ReadonlyArray<string>, right: ReadonlyArray<string>): boo
  */
 @Component({
   selector: 'fr-table',
-  imports: [ColumnChooser, FlexRender, TableHeaderCell],
+  imports: [ColumnChooser, FlexRender, TableDensityControl, TableHeaderCell],
   templateUrl: './table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
@@ -98,6 +104,10 @@ export class Table<TData extends RowData> {
   public readonly columnVisibility = model<ReadonlyArray<string> | undefined>(undefined);
   /** The sorted columns, first wins; pressing a header changes it. Empty is the order of `data`. */
   public readonly sorting = model<ReadonlyArray<TableViewSort>>([]);
+  /** Row spacing. Comfortable until the user picks compact (`showDensity`) or the page sets it. */
+  public readonly density = model<TableDensity>(TableDensity.Comfortable);
+  /** Shows the *Row density* switch beside the *Columns* control. */
+  public readonly showDensity = input(false, { transform: booleanAttribute });
 
   /** Every column, with what the *Columns* control needs of it. Read from the definitions, before the table exists. */
   private readonly known = computed(() => this.columns().flatMap((column) => describe(column)));
@@ -137,8 +147,9 @@ export class Table<TData extends RowData> {
 
   protected readonly scrollerClasses = scrollerClasses;
   protected readonly tableClasses = tableClasses;
-  protected readonly headerCellClasses = headerCellClasses;
-  protected readonly cellClasses = cellClasses;
+  protected readonly headerCellClasses = computed(() => headerCellVariants({ density: this.density() }));
+  protected readonly densitySwitchClasses = computed(() => densitySwitchVariants({ shown: this.showDensity() }));
+  protected readonly cellClasses = computed(() => cellVariants({ density: this.density() }));
   protected readonly captionClasses = computed(() => captionVariants({ hidden: this.hideCaption() }));
   protected readonly ariaSort = ariaSort<TData>;
 

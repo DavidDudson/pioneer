@@ -7,7 +7,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { ContentBrowserTier } from '@pioneer/content/ui';
 import type { ContentBrowserState } from '@pioneer/content/ui';
 import { Page, PageBody, PageHeader } from '@pioneer/frontier';
-import { injectTableView, tableViewColumns } from '@pioneer/frontier/data';
+import { injectTableView, TableDensity, tableViewColumns } from '@pioneer/frontier/data';
 import type { TableViewSchema } from '@pioneer/frontier/data';
 import { filterParamName } from '@pioneer/rules/sdk';
 import type { QueryParams } from '@pioneer/rules/sdk';
@@ -52,6 +52,7 @@ export class ContentBrowserPage {
 
   protected readonly Message = BrowseMessage;
   protected readonly tier = ContentBrowserTier.Page;
+  protected readonly Density = TableDensity;
 
   readonly #kinds = computed(() => kindsFromQuery(queryTextOf(this.#params(), KIND_PARAM)));
   readonly #codec = facetTextCodec(() => facetsOf(this.#kinds()));

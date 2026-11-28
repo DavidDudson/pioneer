@@ -22,6 +22,7 @@ import type {
 } from '@pioneer/content/ui';
 import { LocaleFormat } from '@pioneer/frontier';
 import type { AsyncQuery, SelectOption } from '@pioneer/frontier';
+import { TableDensity } from '@pioneer/frontier/data';
 import type { TableViewSort } from '@pioneer/frontier/data';
 import { CONTENT_SCOPE } from '@pioneer/rules/data-access';
 import { ContentKind } from '@pioneer/rules/sdk';
@@ -92,6 +93,8 @@ export class ContentBrowser {
   /** The table's sort and hidden columns, which only the page tier has. */
   public readonly sorting = model<ReadonlyArray<TableViewSort>>([]);
   public readonly hidden = model<ReadonlyArray<string> | undefined>(undefined);
+  /** The table's row spacing, which only the page tier has. */
+  public readonly density = model<TableDensity>(TableDensity.Comfortable);
 
   /** The host's state, or what the browser last wrote if the host has not set it back yet. */
   readonly #written = linkedSignal<ContentBrowserState | undefined>(() => this.state());

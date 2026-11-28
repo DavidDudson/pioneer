@@ -1,5 +1,12 @@
 /** Row spacing a user can pick for a table. */
-export type StoredDensity = 'compact' | 'comfortable';
+export const TableDensity = {
+  Compact: 'compact',
+  Comfortable: 'comfortable',
+} as const;
+
+export type TableDensity = (typeof TableDensity)[keyof typeof TableDensity];
+
+export type StoredDensity = TableDensity;
 
 /** What a user chose for one table and the account keeps: the visible columns in order, and the density. */
 export interface StoredTableView {

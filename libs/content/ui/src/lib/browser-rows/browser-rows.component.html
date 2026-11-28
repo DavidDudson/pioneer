@@ -9,14 +9,17 @@
     @if (table()) {
       <fr-table
         hideCaption
+        showDensity
         [data]="list().rows"
         [columns]="columns()"
         [rowId]="rowId"
         [sorting]="sorting()"
+        [density]="density()"
         [columnVisibility]="hidden()"
         [caption]="Message.Caption | transloco"
         (sortingChange)="sorting.set($event)"
         (columnVisibilityChange)="hidden.set($event)"
+        (densityChange)="density.set($event)"
       />
     } @else {
       <fr-list>

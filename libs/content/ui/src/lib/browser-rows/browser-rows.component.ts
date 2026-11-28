@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input, model, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Button, ButtonVariant, EmptyState, List, ListItem, Stack } from '@pioneer/frontier';
-import { Table } from '@pioneer/frontier/data';
+import { Table, TableDensity } from '@pioneer/frontier/data';
 import type { TableColumn, TableViewSort } from '@pioneer/frontier/data';
 import { PackageSearch } from 'lucide';
 
@@ -38,6 +38,8 @@ export class BrowserRows {
   public readonly sorting = model<ReadonlyArray<TableViewSort>>([]);
   /** The hidden column ids; `undefined` is each column's default. */
   public readonly hidden = model<ReadonlyArray<string> | undefined>(undefined);
+  /** The table's row spacing, which only the page tier has. */
+  public readonly density = model<TableDensity>(TableDensity.Comfortable);
   /** More of the entries were asked for. */
   public readonly more = output();
   /** A name in the compact list was pressed. */
