@@ -169,6 +169,24 @@ export const elevationVariants = {
   modal: 'bg-elevation-modal border-elevation-modal-line',
 } as const satisfies Record<Elevation, string>;
 
+/** Motion: a duration and an easing, always taken together (meanings in `semantic.css`). */
+export const Motion = {
+  Enter: 'enter',
+  Exit: 'exit',
+  Move: 'move',
+  Emphasis: 'emphasis',
+} as const;
+
+export type Motion = ValueOf<typeof Motion>;
+
+/** Duration and easing utilities of each motion token. */
+export const motionVariants = {
+  enter: 'duration-enter ease-enter',
+  exit: 'duration-exit ease-exit',
+  move: 'duration-move ease-move',
+  emphasis: 'duration-emphasis ease-emphasis',
+} as const satisfies Record<Motion, string>;
+
 export const toneVariants = {
   default: 'text-fg-default',
   muted: 'text-fg-muted',

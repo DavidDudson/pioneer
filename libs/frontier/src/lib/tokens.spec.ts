@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { Elevation, elevationVariants, GapRole, gapVariants } from './tokens';
+import { Elevation, elevationVariants, GapRole, gapVariants, Motion, motionVariants } from './tokens';
 
 describe('an elevation level', () => {
   it.each(Object.values(Elevation))('takes the %s surface and line from the same level', (level) => {
@@ -15,5 +15,11 @@ describe('the gap ladder', () => {
 
   it('steps up from text to page', () => {
     expect([GapRole.Text, GapRole.Row, GapRole.Card, GapRole.Page]).toStrictEqual(['2xs', 'sm', 'md', 'xl']);
+  });
+});
+
+describe('a motion token', () => {
+  it.each(Object.values(Motion))('takes the %s duration and easing together', (motion) => {
+    expect(motionVariants[motion]).toBe(`duration-${motion} ease-${motion}`);
   });
 });

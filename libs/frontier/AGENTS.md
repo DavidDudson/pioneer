@@ -50,7 +50,7 @@ Read this before touching any UI.
   (`tools/eslint/no-native-elements.ts`) fails, so classify it there first.
 - **Tokens only.** Components take token names (`gap="md"`, `tone="muted"`),
   never lengths or colours. Inside frontier, only semantic utilities exist:
-  the default Tailwind palette, spacing, type, radius, shadow, duration,
+  the default Tailwind palette, spacing, type, radius, shadow, duration, easing (only the four motion eases remain),
   opacity, z-index and animation scales are wiped in
   `src/styles/frontier.css`.
 - **Sharp and flat.** No rounded corners and no shadows, in any theme:
@@ -65,7 +65,7 @@ Read this before touching any UI.
   `h-px`, `opacity-50`, `z-10`, `duration-150`, `w-1/2`, `bg-x/50` or `!`.
   Need a value? Add a semantic token (tier 2) and map it in `@theme`
   (`h-touch`, `max-h-listbox`, `w-placeholder-md`, `grid-cols-fill-md`,
-  `opacity-disabled`, `z-sticky`, `duration-fast`, `pt-safe-top`). Need a
+  `opacity-disabled`, `z-sticky`, `duration-move`, `pt-safe-top`). Need a
   state selector? Add a `@custom-variant` (`highlighted:`). Counts are fine
   (`grid-cols-3`, `flex-1`, `shrink-0`), as are token steps (`gap-2xs`).
 - **CVA for every class.** Variants are `cva()` configs

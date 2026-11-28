@@ -30,7 +30,7 @@ export const CLASS_TOKEN_MESSAGES = {
     '`{{variant}}` uses an arbitrary value or variant. Add a semantic token to src/styles (or a @custom-variant) and use its utility.',
   px: '`{{variant}}` is a pixel value. Use a spacing or size token.',
   numeric:
-    '`{{variant}}` uses a raw scale number. Use a semantic token (e.g. `opacity-disabled`, `z-sticky`, `duration-fast`).',
+    '`{{variant}}` uses a raw scale number. Use a semantic token (e.g. `opacity-disabled`, `z-sticky`, `duration-move`).',
   important: '`{{variant}}` forces `!important`. Fix the conflicting classes in the cva instead.',
   physical:
     '`{{variant}}` is a physical direction and will not flip for right-to-left locales. Use the logical utility (`ms`/`me`, `ps`/`pe`, `start`/`end`, `border-s`/`border-e`, `text-start`/`text-end`).',

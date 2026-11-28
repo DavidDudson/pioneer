@@ -4,7 +4,7 @@ import { cva } from 'class-variance-authority';
 import { ChevronDown, ChevronUp } from 'lucide';
 
 import { Icon } from '../../icon/icon.component';
-import { elevationVariants } from '../../tokens';
+import { elevationVariants, motionVariants } from '../../tokens';
 
 export const DisclosureVariant = {
   /** Just the trigger row and the content below it; for lists of rows that already have separators. */
@@ -29,7 +29,7 @@ const summaryVariants = cva(
   [
     'flex min-h-control-md cursor-pointer items-center justify-between gap-sm select-none',
     'text-body font-medium text-fg-default',
-    'transition-colors duration-fast ease-standard hover:bg-surface-sunken focus-visible:focus-ring',
+    `transition-colors ${motionVariants.move} hover:bg-surface-sunken focus-visible:focus-ring`,
   ],
   {
     variants: {
