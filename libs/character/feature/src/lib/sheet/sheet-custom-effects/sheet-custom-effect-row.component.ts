@@ -43,7 +43,7 @@ const Message = {
  */
 @Component({
   selector: 'pio-sheet-custom-effect-row',
-  imports: [AsyncButton, DateDisplay, FormField, Stack, Badge, Text, TextField, TranslocoPipe],
+  imports: [AsyncButton, Badge, DateDisplay, FormField, Stack, Text, TextField, TranslocoPipe],
   templateUrl: './sheet-custom-effect-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

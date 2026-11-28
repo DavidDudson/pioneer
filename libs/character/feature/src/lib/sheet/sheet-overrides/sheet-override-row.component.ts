@@ -39,7 +39,7 @@ const Message = {
  */
 @Component({
   selector: 'pio-sheet-override-row',
-  imports: [AsyncButton, DateDisplay, FormField, Link, Stack, Badge, Text, TextField, TranslocoPipe],
+  imports: [AsyncButton, Badge, DateDisplay, FormField, Link, Stack, Text, TextField, TranslocoPipe],
   templateUrl: './sheet-override-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -36,7 +36,7 @@ export const RARITY_TONES: Readonly<Record<Rarity, BadgeTone>> = {
  */
 @Component({
   selector: 'pio-chip-list',
-  imports: [ContentPreview, NgTemplateOutlet, Stack, Badge, Text, TraitChip],
+  imports: [Badge, ContentPreview, NgTemplateOutlet, Stack, Text, TraitChip],
   templateUrl: './chip-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

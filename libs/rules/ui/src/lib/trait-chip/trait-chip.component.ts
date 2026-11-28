@@ -19,7 +19,7 @@ import { humaniseTrait } from './trait-label';
  */
 @Component({
   selector: 'pio-trait-chip',
-  imports: [ContentPreview, Badge, Text],
+  imports: [Badge, ContentPreview, Text],
   templateUrl: './trait-chip.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

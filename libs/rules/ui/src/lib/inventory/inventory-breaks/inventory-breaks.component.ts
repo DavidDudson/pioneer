@@ -19,7 +19,7 @@ interface BreakGroup {
  */
 @Component({
   selector: 'pio-inventory-breaks',
-  imports: [Stack, Badge, Text, TranslocoPipe],
+  imports: [Badge, Stack, Text, TranslocoPipe],
   templateUrl: './inventory-breaks.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
