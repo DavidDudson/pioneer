@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795836298027,
+  "lastUpdate": 1795836301115,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -1318,6 +1318,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 218,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cd94e8434d85609edffb3681f4c4e0c5ff82e5c5",
+          "message": "feat(frontier): table headers take message keys (#2461)\n\n* feat(frontier): table headers take message keys\n\nThe table translates each column header, so a language switch re-renders it\nand consumers no longer re-read messages to build their columns. Four level\nheader keys collapse into rules.column.level.\n\nCloses #2319\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): tighten table header keys after review\n\nShare one header-key schema, translate chooser labels only for key\nheaders, render empty translations, share the rune header map, and\ncover the chooser and non-string header paths with specs.\n\nRefs #2319\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T13:00:55+10:00",
+          "tree_id": "adf91109ca6b985bb4ad3a8a74a38d9553f2a214",
+          "url": "https://github.com/DavidDudson/pioneer/commit/cd94e8434d85609edffb3681f4c4e0c5ff82e5c5"
+        },
+        "date": 1795836297466,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4282,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 217,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6386,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 216,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
