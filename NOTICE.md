@@ -151,6 +151,13 @@ Only remastered, ORC-licensed entries are imported, except from the books the bo
 books still point at (see below). Pioneer is not affiliated
 with Foundry Gaming LLC or the pf2e system maintainers.
 
+## Radix Colors (test fixture)
+
+`tools/radix-scales.ts` holds the sRGB values of six scales from
+[@radix-ui/colors](https://github.com/radix-ui/colors) 3.0.0 (MIT licence,
+Copyright (c) 2021 Radix). Tests compare frontier's colour scales to them for
+contrast. Nothing from it ships in the app.
+
 ## Artwork
 
 The blood-splatter overlay on a wounded character avatar (`libs/frontier/src/styles/blood-splatter.webp`) is

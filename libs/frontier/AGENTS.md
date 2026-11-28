@@ -242,13 +242,19 @@ more room, never a separate design.
 ## Token tiers
 
 1. **Primitives** (`primitives.color.css`, `primitives.scale.css`): one
-   OKLCH ramp per colour role (`--fr-ramp-accent-600`; roles `neutral`,
+   12-step OKLCH scale per colour role (`--fr-ramp-accent-9`; roles `neutral`,
    `accent`, `danger`, `success`, `warning`, `info`), spacing/type/duration
-   scales. Ramps have no colour of their own: each step is computed
-   from its role's `--fr-ramp-<role>-hue` / `-chroma`, which the theme sets.
-   Both files are generated from `src/tokens/primitives.tokens.json` (DTCG,
-   ADR-0083) by `bun run tokens`; never edit the CSS by hand, and
-   `bun run check:tokens` fails when it is out of date.
+   scales. Steps mean the same in both modes: 1-2 backgrounds, 3-5 component
+   fills (normal, hover, active), 6-8 borders (subtle, default, hover), 9-10
+   solids (normal, hover), 11-12 text (low, high contrast). Each step has an
+   alpha variant, `--fr-ramp-<role>-a<step>`: the same step as a translucent
+   colour over the page. Scales have no colour of their own: each step is
+   computed from its role's `--fr-ramp-<role>-hue` / `-chroma`, which the
+   theme sets, and dark is the inverse ramp, defined beside light in one
+   token (`$extensions.mode.dark`). Both files are generated from
+   `src/tokens/primitives.tokens.json` (DTCG, ADR-0083) by `bun run tokens`;
+   never edit the CSS by hand, and `bun run check:tokens` fails when it is
+   out of date. The "Colour scales" story shows every step in the active mode.
 2. **Semantic** (`semantic.css`): `--fr-surface-*`, `--fr-fg-*`,
    `--fr-line-*`, and per colour role (`accent|danger|success|warning|info`)
    the same set: `fg`, `line`, `subtle`, `solid`, `solid-hover`,
@@ -257,7 +263,8 @@ more room, never a separate design.
    4.5:1 on its fills in every theme and mode,
    spacing names (`3xs … 3xl`), named sizes (`--fr-size-touch`,
    `--fr-size-control-*`, …), motion, opacity, z-index, chart series.
-   Colours reference ramp steps only, never a hue.
+   Colours reference ramp steps only, never a hue. Most colour tokens are written once, on the same step in both
+   modes; the mode blocks hold surfaces, text on a bright solid and the fixed-hue damage and rune colours.
    Elevation levels (`flat`, `raised`, `overlay`, `modal`) are a surface and
    a line each (`--fr-elevation-<level>-surface` / `-line`). A component that
    floats or sits on a plane takes both from `elevationVariants` in
@@ -280,8 +287,9 @@ Two independent axes, both attributes on `<html>`, set by `ThemeStore`
 boot):
 
 - **Mode** (`data-mode`): **dark is the default** on plain `:root`; light is
-  `data-mode="light"`. Modes live only in `semantic.css` and only choose ramp
-  steps, so every theme gets both modes for free.
+  `data-mode="light"`. The ramps hold each mode's colour, so a
+  step means the same in both; `semantic.css` mode blocks hold only what the steps cannot carry (surfaces and
+  fixed-hue colours), so every theme gets both modes for free.
 - **Theme** (`data-theme`): a file in `src/styles/themes/`. `frontier.css`
   is the default on plain `:root` and defines every parameter; others
   override under `:root[data-theme='<name>']`. A theme sets
