@@ -171,8 +171,9 @@ only its shape shows, in the danger colour. The file keeps only the shape (its a
 1. Declare the licence in the pack manifest.
 2. Include rules text only for ORC-licensed material, and always include a
    source reference. This holds for hand edits to imported packs too: text
-   comes from the source book or the pinned Foundry data, and Archives of
-   Nethys supplies page numbers and links only.
+   comes from the pinned Foundry data first, then the source book or the
+   entry's Archives of Nethys page where Foundry has none (ADR-0087). Never
+   invent text; an entry with no source stays empty.
 3. No Paizo art, logos or trade dress.
 4. Never put Paizo content behind anything that costs money or requires sign-up.
    The content browser, rules text and the Legal page (with content cache
