@@ -25,23 +25,23 @@ export type SkillTrainingSource =
 /** A skill the character is trained in when a trained skill slot is read, and everything that trains it. */
 export interface TrainedSkill {
   readonly skill: SkillOption;
-  readonly sources: readonly SkillTrainingSource[];
+  readonly sources: ReadonlyArray<SkillTrainingSource>;
 }
 
 /** What trains each skill so far: the grants' entries at a level, and the slots read before. */
 interface TrainingSources {
-  readonly entries: ReadonlyMap<Selector, readonly ContentId[]>;
-  readonly slots: ReadonlyMap<Selector, readonly SlotKey[]>;
+  readonly entries: ReadonlyMap<Selector, ReadonlyArray<ContentId>>;
+  readonly slots: ReadonlyMap<Selector, ReadonlyArray<SlotKey>>;
 }
 
 /** The skills among `skills` the character is trained in already, those `isTrained` accepts, each with its sources. */
 export function trainedSkills(
-  skills: readonly SkillOption[],
+  skills: ReadonlyArray<SkillOption>,
   isTrained: (skill: SkillOption) => boolean,
   { entries, slots }: TrainingSources,
-): TrainedSkill[] {
-  return skills.flatMap((skill): TrainedSkill[] => {
-    const sources: SkillTrainingSource[] = [
+): Array<TrainedSkill> {
+  return skills.flatMap((skill): Array<TrainedSkill> => {
+    const sources: Array<SkillTrainingSource> = [
       ...(entries.get(skill.selector) ?? []).map((entry): SkillTrainingSource => ({
         kind: SkillTrainingSourceKind.Entry,
         entry,

@@ -49,11 +49,11 @@ const PERCEPTION: RollPresentation = {
 interface Rendered {
   readonly fixture: ComponentFixture<RollStage>;
   readonly presenter: RollPresenter;
-  readonly surfaces: HTMLElement[];
+  readonly surfaces: Array<HTMLElement>;
 }
 
 async function render(): Promise<Rendered> {
-  const surfaces: HTMLElement[] = [];
+  const surfaces: Array<HTMLElement> = [];
 
   const factory: DiceRollerFactory = async (surface) => {
     surfaces.push(surface);

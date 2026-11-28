@@ -7,5 +7,5 @@ import type { CampaignId, FlaggedItem } from '@pioneer/campaign/domain';
  */
 export abstract class FlaggedItems {
   /** Every item of the party that breaks a rule, one entry per item and rule, approved or not. */
-  public abstract of(campaignId: CampaignId): Promise<readonly FlaggedItem[]>;
+  public abstract of(campaignId: CampaignId): Promise<ReadonlyArray<FlaggedItem>>;
 }

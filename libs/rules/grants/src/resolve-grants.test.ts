@@ -10,7 +10,7 @@ import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
 import { entry, grantOf, idOf, inputsOf, picked } from './testing/builders';
 
-function resolve(entries: readonly GrantEntry[], roots: readonly GrantRoot[], level = 1): GrantResolution {
+function resolve(entries: ReadonlyArray<GrantEntry>, roots: ReadonlyArray<GrantRoot>, level = 1): GrantResolution {
   return resolveGrants(inputsOf({ entries, roots, level }));
 }
 
@@ -21,7 +21,7 @@ const chosen = (slot: string): OriginHop => OriginHop.parse({ kind: 'choice', sl
 const granted = (by: string, rule: number): OriginHop => OriginHop.parse({ kind: 'grant', by: idOf(by), rule });
 
 /** A chain of `length` entries, each granting the next. */
-function chainOf(length: number): GrantEntry[] {
+function chainOf(length: number): Array<GrantEntry> {
   const slugs = Array.from({ length }, (_value, index) => `link-${index}`);
 
   return slugs.map((slug, index) =>
@@ -32,7 +32,8 @@ function chainOf(length: number): GrantEntry[] {
   );
 }
 
-const names = (items: readonly { readonly entry: GrantEntry }[]): string[] => items.map((item) => item.entry.name);
+const names = (items: ReadonlyArray<{ readonly entry: GrantEntry }>): Array<string> =>
+  items.map((item) => item.entry.name);
 
 /** A fighter: Shield Block feature granting the Shield Block action, and Attack of Opportunity. */
 const fighterContent = [

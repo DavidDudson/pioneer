@@ -50,7 +50,7 @@ function idAt(index: number): InventoryItemId {
 }
 
 /** An inventory of `items`, each carried as given, the nth with id `idAt(n)`. */
-function carrying(...items: readonly (readonly [ItemFixture, Carry])[]): Inventory {
+function carrying(...items: ReadonlyArray<readonly [ItemFixture, Carry]>): Inventory {
   let stock = EMPTY_INVENTORY;
 
   for (const [index, [name, carry]] of items.entries()) {
@@ -221,7 +221,7 @@ describe('equippedRules', () => {
   });
 });
 
-function etched(inventory: Inventory, ...etchings: readonly RuneEtching[]): Inventory {
+function etched(inventory: Inventory, ...etchings: ReadonlyArray<RuneEtching>): Inventory {
   let stock = inventory;
 
   for (const etching of etchings) {

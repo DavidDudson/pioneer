@@ -37,7 +37,7 @@ export function encumberedRoots(
   document: CharacterDocument,
   content: ItemContent,
   slots: SlotContent,
-): readonly GrantRoot[] {
+): ReadonlyArray<GrantRoot> {
   if (encumbranceOff(slots)) {
     return [];
   }

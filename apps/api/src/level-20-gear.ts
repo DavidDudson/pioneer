@@ -31,7 +31,7 @@ function armorClass(entry: ItemEntry): number {
 }
 
 /** Armor and shields by their bonus, the rest by level, highest first. */
-function bestFirst(entries: readonly ItemEntry[]): ItemEntry[] {
+function bestFirst(entries: ReadonlyArray<ItemEntry>): Array<ItemEntry> {
   return entries.toSorted(
     (left, right) =>
       armorClass(right) - armorClass(left) || right.level - left.level || left.id.localeCompare(right.id),
@@ -39,7 +39,7 @@ function bestFirst(entries: readonly ItemEntry[]): ItemEntry[] {
 }
 
 /** The items of `kind` at the build level or below, best first. */
-function ofKind(items: ItemContent, kind: ContentKind): ItemEntry[] {
+function ofKind(items: ItemContent, kind: ContentKind): Array<ItemEntry> {
   return bestFirst([...items.values()].filter((entry) => entry.kind === kind && entry.level <= BUILD_LEVEL));
 }
 
@@ -106,7 +106,7 @@ class Gear {
 }
 
 /** Worn items that must be invested, most powerful first, up to the limit less the armor. */
-function investedWorn(items: ItemContent): ItemEntry[] {
+function investedWorn(items: ItemContent): Array<ItemEntry> {
   const worn = [...items.values()].filter(
     (entry) =>
       entry.kind === ContentKind.Equipment &&

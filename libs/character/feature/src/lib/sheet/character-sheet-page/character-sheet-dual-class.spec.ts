@@ -30,7 +30,7 @@ function fighter(second = false): JsonObject {
 }
 
 /** The labels of the Identity section's inline fields. */
-function labels(root: HTMLElement): string[] {
+function labels(root: HTMLElement): Array<string> {
   const identity = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
 
   return [...identity.querySelectorAll('fr-inline-field')].map((field) =>

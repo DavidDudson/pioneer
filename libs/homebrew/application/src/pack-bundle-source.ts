@@ -6,5 +6,5 @@ import type { ContentBundles, ContentPackId } from '@pioneer/rules/sdk';
  */
 export abstract class PackBundleSource {
   /** The bundles of `packs` and the packs they extend, each after what it extends. */
-  public abstract of(packs: readonly ContentPackId[]): Promise<ContentBundles>;
+  public abstract of(packs: ReadonlyArray<ContentPackId>): Promise<ContentBundles>;
 }

@@ -45,7 +45,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
 }
 
 /** Every button whose text starts with `label`, in document order. */
-function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
+function buttons(root: HTMLElement, label: string): Array<HTMLButtonElement> {
   return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.trim().startsWith(label));
 }
 

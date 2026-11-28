@@ -10,12 +10,12 @@ import type { BreadcrumbItem } from '../../actions/breadcrumbs/breadcrumbs.compo
  */
 @Injectable({ providedIn: 'root' })
 export class HeaderCrumbs {
-  readonly #source = signal<Signal<readonly BreadcrumbItem[]> | undefined>(undefined);
+  readonly #source = signal<Signal<ReadonlyArray<BreadcrumbItem>> | undefined>(undefined);
 
-  public readonly trail = computed<readonly BreadcrumbItem[]>(() => this.#source()?.() ?? []);
+  public readonly trail = computed<ReadonlyArray<BreadcrumbItem>>(() => this.#source()?.() ?? []);
 
   /** Shows `trail` in the header until the returned function is called, unless a later page has taken over. */
-  public show(trail: Signal<readonly BreadcrumbItem[]>): () => void {
+  public show(trail: Signal<ReadonlyArray<BreadcrumbItem>>): () => void {
     this.#source.set(trail);
 
     return (): void => {

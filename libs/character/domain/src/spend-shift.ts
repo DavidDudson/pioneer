@@ -12,13 +12,13 @@ const NONE = HitPoints.parse(0);
 
 /** The part of a play state a form shift reads and writes. */
 export interface ShiftPlay {
-  readonly effects: readonly ActiveEffect[];
+  readonly effects: ReadonlyArray<ActiveEffect>;
   readonly hp: { readonly damage: HitPoints; readonly temp: HitPoints };
 }
 
 /** The active effects and temporary Hit Points after a form shift, and the effect it changed, as it was. */
 export interface ShiftChange {
-  readonly effects: readonly ActiveEffect[];
+  readonly effects: ReadonlyArray<ActiveEffect>;
   readonly temp: HitPoints;
   readonly shifted?: ActiveEffect;
 }

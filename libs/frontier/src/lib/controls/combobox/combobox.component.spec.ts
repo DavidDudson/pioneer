@@ -274,7 +274,7 @@ describe(Combobox, () => {
 
     it('emits every keystroke as typed, before the debounce', () => {
       const rendered = render();
-      const typed: string[] = [];
+      const typed: Array<string> = [];
       rendered.fixture.componentInstance.typed.subscribe((text) => {
         typed.push(text);
       });

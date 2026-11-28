@@ -80,10 +80,10 @@ function start(legacy = true): Started {
   return { session: TestBed.inject(GlobalSearchSession), delivery };
 }
 
-const labels = ({ session }: Started): string[] => session.options().map((option) => option.label);
+const labels = ({ session }: Started): Array<string> => session.options().map((option) => option.label);
 
 /** Waits for the names to be matched in the kinds loaded so far. */
-async function listsNames(started: Started, expected: readonly string[]): Promise<void> {
+async function listsNames(started: Started, expected: ReadonlyArray<string>): Promise<void> {
   await vi.waitFor(() => {
     expect(labels(started)).toStrictEqual(expected);
   });

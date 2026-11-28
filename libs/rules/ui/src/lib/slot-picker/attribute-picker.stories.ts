@@ -8,7 +8,7 @@ import type { AttributePickerRow } from './slot-picker-row';
 
 type AttributePickerStory = StoryObj<AttributePicker>;
 
-const ATTRIBUTES: readonly AttributePickerRow[] = [
+const ATTRIBUTES: ReadonlyArray<AttributePickerRow> = [
   attributeRow({ id: Attribute.Strength, name: 'Strength', modifier: 4, boosted: 5 }),
   attributeRow({ id: Attribute.Dexterity, name: 'Dexterity', modifier: 2, boosted: 3 }),
   attributeRow({ id: Attribute.Constitution, name: 'Constitution', modifier: 2, boosted: 3 }),

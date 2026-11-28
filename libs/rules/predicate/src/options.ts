@@ -13,7 +13,7 @@ import { childStatements } from './evaluate';
  * The options a comparison reads: its left operand, and its right one when that is an option and the test reads
  * facts for it. `eq` against an option compares the two as plain text, so it reads none.
  */
-function comparisonOptions(statement: PredicateComparison): readonly RollOption[] {
+function comparisonOptions(statement: PredicateComparison): ReadonlyArray<RollOption> {
   if ('eq' in statement) {
     const [left, right] = statement.eq;
 

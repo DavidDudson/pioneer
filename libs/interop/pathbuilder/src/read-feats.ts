@@ -27,8 +27,8 @@ function named(value: string | null | undefined): PathbuilderName | undefined {
 }
 
 /** The export's feats in order, rows with no name or a level outside 1 to 20 left out. */
-export function importedFeats(build: PathbuilderBuild): ImportedFeat[] {
-  return build.feats.flatMap(([rawName, choice, rawType, rawLevel, slot]): ImportedFeat[] => {
+export function importedFeats(build: PathbuilderBuild): Array<ImportedFeat> {
+  return build.feats.flatMap(([rawName, choice, rawType, rawLevel, slot]): Array<ImportedFeat> => {
     const name = named(rawName);
     const type = named(rawType);
     const level = Level.safeParse(rawLevel);

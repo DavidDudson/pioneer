@@ -22,7 +22,7 @@ function isGroup(message: string | Messages): message is Messages {
 }
 
 /** The dotted key of every message under `messages`, nested groups walked. */
-function messageKeys(messages: Messages, prefix = ''): readonly string[] {
+function messageKeys(messages: Messages, prefix = ''): ReadonlyArray<string> {
   return Object.entries(messages).flatMap(([key, message]) =>
     isGroup(message) ? messageKeys(message, `${prefix}${key}.`) : [`${prefix}${key}`],
   );
@@ -45,7 +45,7 @@ export function translatedShare(source: Messages, target: Messages): number {
 export function localeRows(
   englishName: (locale: Locale) => string,
   coverage: (locale: Locale) => number,
-): readonly LocaleRow[] {
+): ReadonlyArray<LocaleRow> {
   return Object.values(Locale).map((locale) => ({
     locale,
     nativeName: new Intl.DisplayNames(locale, { type: 'language' }).of(locale) ?? locale,
@@ -56,10 +56,10 @@ export function localeRows(
 
 /** The locales whose names hold `query`, in the order asked for; the list is short, so the page holds it all. */
 export function shownLocales(
-  rows: readonly LocaleRow[],
+  rows: ReadonlyArray<LocaleRow>,
   query: string,
   sort: PickerSort | undefined,
-): readonly LocaleRow[] {
+): ReadonlyArray<LocaleRow> {
   const typed = query.trim().toLowerCase();
   const matching = rows.filter((row) => `${row.nativeName} ${row.englishName}`.toLowerCase().includes(typed));
 
@@ -87,7 +87,7 @@ export function localeColumns(headers: {
   readonly native: string;
   readonly english: string;
   readonly coverage: string;
-}): readonly TableColumn<LocaleRow>[] {
+}): ReadonlyArray<TableColumn<LocaleRow>> {
   return tableSchema<LocaleRow>()
     .addText({ id: 'nativeName', header: headers.native, value: (row) => row.nativeName, width: 'md' })
     .addTag({ id: 'englishName', header: headers.english, value: (row) => ({ label: row.englishName }), width: 'md' })

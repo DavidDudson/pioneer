@@ -32,7 +32,7 @@ interface ValueRow {
 interface FacetRow {
   readonly id: string;
   readonly label: string;
-  readonly values: readonly ValueRow[];
+  readonly values: ReadonlyArray<ValueRow>;
 }
 
 function labelOf(facet: FacetDefinition, value: FacetValue): string | undefined {
@@ -90,7 +90,7 @@ export class FiltersResult {
   public readonly check = input.required<FiltersCheck>();
   readonly #format = inject(LocaleFormat);
 
-  protected readonly facets = computed((): readonly FacetRow[] => {
+  protected readonly facets = computed((): ReadonlyArray<FacetRow> => {
     this.#format.locale();
     const result = this.check();
 

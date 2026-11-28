@@ -258,7 +258,7 @@ const FORTIFICATION = physical(
   },
 );
 
-export const EQUIPMENT: readonly DocumentFixture[] = [
+export const EQUIPMENT: ReadonlyArray<DocumentFixture> = [
   LONGSWORD,
   LONGBOW,
   ALCHEMISTS_FIRE,

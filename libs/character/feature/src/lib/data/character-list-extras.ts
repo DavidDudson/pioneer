@@ -8,6 +8,9 @@ export type CharacterListExtraLoader = () => Promise<Type<unknown>>;
  * Extra actions on the character list. Empty in production; development builds provide the sample character
  * imports (apps/web `environment.development.ts`, wired in `app.routes.ts`).
  */
-export const CHARACTER_LIST_EXTRAS = new InjectionToken<readonly CharacterListExtraLoader[]>('CHARACTER_LIST_EXTRAS', {
-  factory: (): readonly CharacterListExtraLoader[] => [],
-});
+export const CHARACTER_LIST_EXTRAS = new InjectionToken<ReadonlyArray<CharacterListExtraLoader>>(
+  'CHARACTER_LIST_EXTRAS',
+  {
+    factory: (): ReadonlyArray<CharacterListExtraLoader> => [],
+  },
+);

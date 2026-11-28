@@ -34,7 +34,7 @@ const STRUCTURAL =
  * nobody yet (add a primitive first). Covers every element in the HTML
  * content model that carries semantics or behaviour.
  */
-const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
+const OWNERS: ReadonlyMap<string, ReadonlyArray<string>> = new Map([
   // Sections and headings
   ['h1', ['text/heading/']],
   ['h2', ['text/heading/']],

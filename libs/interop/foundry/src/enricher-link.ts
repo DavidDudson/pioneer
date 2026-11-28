@@ -32,7 +32,7 @@ interface Target {
   readonly name: string | undefined;
 }
 
-function refRun({ id, name }: Target, label: string | undefined, context: EnricherContext): RunNode[] {
+function refRun({ id, name }: Target, label: string | undefined, context: EnricherContext): Array<RunNode> {
   // A label that only repeats the target's name adds nothing: the link shows the entry's own name.
   const kept = label === undefined || label.trim() === name ? undefined : inlineLabel(label, `${UUID}[label]`, context);
 
@@ -52,7 +52,7 @@ function nameInUuid(uuid: string): string | undefined {
   return document === undefined || DOCUMENT_ID.test(document) ? undefined : document;
 }
 
-export function uuidRun(params: string, label: string | undefined, context: EnricherContext): RunNode[] {
+export function uuidRun(params: string, label: string | undefined, context: EnricherContext): Array<RunNode> {
   const uuid = params.trim();
   const { entries, names, books } = context.links;
   const id = entries.get(uuid);
@@ -69,7 +69,7 @@ export function uuidRun(params: string, label: string | undefined, context: Enri
 }
 
 /** `[[/act trip]]`, `[[/act escape dc=20]]`: a link to the action, its options reported by name. */
-export function actRun(args: string, label: string | undefined, context: EnricherContext): RunNode[] {
+export function actRun(args: string, label: string | undefined, context: EnricherContext): Array<RunNode> {
   const [slug = '', ...options] = args.split(WHITESPACE);
 
   for (const option of options) {

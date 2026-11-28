@@ -89,7 +89,7 @@ interface PrintedRunes {
   readonly potency?: RuneGrade | undefined;
   readonly striking?: RuneGrade | undefined;
   readonly resilient?: RuneGrade | undefined;
-  readonly property: readonly ContentId[];
+  readonly property: ReadonlyArray<ContentId>;
   /** The energy a rune was printed for, by rune: Foundry's `propertyEnergy`. */
   readonly propertyEnergy?: Readonly<Record<ContentId, string>> | undefined;
 }
@@ -179,7 +179,7 @@ export type PropertyRuneCount = z.infer<typeof PropertyRuneCount>;
 
 /** What a rune's rules say about its item. */
 export interface RuneRules {
-  readonly rules: readonly RuleElement[];
+  readonly rules: ReadonlyArray<RuleElement>;
 }
 
 /** Reads a rune's rules by id; undefined for a rune the loaded packs lack. */
@@ -200,8 +200,8 @@ export function readerOf(content: RuneContent): RuneReader {
 }
 
 /** The potency changes the etched `rune` makes to its item: those of its `raisesPotency` rules. */
-function potencyChangesOf(rune: RuneRules | undefined): readonly PotencyChange[] {
-  const changes: PotencyChange[] = [];
+function potencyChangesOf(rune: RuneRules | undefined): ReadonlyArray<PotencyChange> {
+  const changes: Array<PotencyChange> = [];
 
   for (const element of rune?.rules ?? []) {
     if (raisesPotency(element) && element.property === NumericItemProperty.Potency) {
@@ -229,7 +229,7 @@ export function itemPotency(runes: ItemRunes, read: RuneReader): RuneGrade | und
 }
 
 /** The etched property runes of `runes` that take one of its slots: all but those that raise its potency. */
-export function slottedRunes(runes: ItemRunes, read: RuneReader): readonly EtchedRune[] {
+export function slottedRunes(runes: ItemRunes, read: RuneReader): ReadonlyArray<EtchedRune> {
   return runes.property.filter(({ rune }) => !takesNoSlot(read(rune)));
 }
 
@@ -254,7 +254,7 @@ export function workingEtchedRunes(
   item: InventoryItem,
   entry: ItemEntry | undefined,
   read: RuneReader,
-): readonly EtchedRune[] {
+): ReadonlyArray<EtchedRune> {
   const runes = itemRunes(item, entry);
 
   if (isSpecific(entry)) {
@@ -280,7 +280,7 @@ export function workingPropertyRunes(
   item: InventoryItem,
   entry: ItemEntry | undefined,
   read: RuneReader,
-): readonly ContentId[] {
+): ReadonlyArray<ContentId> {
   return workingEtchedRunes(item, entry, read).map(({ rune }) => rune);
 }
 

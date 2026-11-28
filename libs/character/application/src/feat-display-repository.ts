@@ -19,7 +19,7 @@ export interface FeatDisplaySetting {
  */
 export abstract class FeatDisplayRepository {
   /** The sections where the user shows the character's grant-only feats. */
-  public abstract findShown(key: FeatDisplayKey): Promise<readonly FeatDisplaySection[]>;
+  public abstract findShown(key: FeatDisplayKey): Promise<ReadonlyArray<FeatDisplaySection>>;
 
   /** Stores `setting` as the user's filter on the character, replacing any earlier one for its section. */
   public abstract save(key: FeatDisplayKey, setting: FeatDisplaySetting, now: Temporal.Instant): Promise<void>;

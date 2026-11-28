@@ -15,7 +15,7 @@ import type { ShownSense } from '../shown-senses';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SenseList {
-  public readonly senses = input.required<readonly ShownSense[]>();
+  public readonly senses = input.required<ReadonlyArray<ShownSense>>();
   /** Display names of the entries the origins name. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly names = input<OriginNames>(NO_ORIGIN_NAMES);

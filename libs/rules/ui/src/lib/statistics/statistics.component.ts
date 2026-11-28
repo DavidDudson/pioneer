@@ -23,7 +23,7 @@ import { StatisticsMessage } from './statistics-messages';
 
 /** The conditional lines of a statistic whose situation can be claimed, as the sheet shows them, and the rules claimed. */
 export interface StatisticSituations {
-  readonly offered: readonly BreakdownLine[];
+  readonly offered: ReadonlyArray<BreakdownLine>;
   readonly claimed: ReadonlySet<RuleId>;
 }
 
@@ -43,7 +43,7 @@ export interface NamedStatistic {
   /** The proficiency rank in it, shown as its letter beside the name: a skill's. */
   readonly rank?: Proficiency | undefined;
   /** What gave that rank and the ranks still to come, for the rank's popover. */
-  readonly rankSources?: readonly RankSource[] | undefined;
+  readonly rankSources?: ReadonlyArray<RankSource> | undefined;
   /** The situations a roll of it can claim, when the page lets the player claim them. */
   readonly situations?: StatisticSituations | undefined;
   /** Roll it as one d20 plus its total, though it is no check: a DC, or the proficiency bonus. */
@@ -52,8 +52,8 @@ export interface NamedStatistic {
 
 /** What a row says about its conditional lines: each worded, and a toggle for those whose situation can be claimed. */
 interface ShownConditions {
-  readonly conditions: readonly string[];
-  readonly toggles: readonly ConditionToggle[];
+  readonly conditions: ReadonlyArray<string>;
+  readonly toggles: ReadonlyArray<ConditionToggle>;
 }
 
 /** A statistic as shown: its total, its conditional lines and breakdown, or why it has none. */
@@ -71,12 +71,12 @@ type ShownStatistic =
       /** "from Plant Form" when a battle form sets the total; undefined otherwise. */
       readonly fromForm: string | undefined;
       /** "+2 circumstance when your shield is raised (Steel Shield)": each line that applies only in some situations and could change the total. */
-      readonly conditions: readonly string[];
+      readonly conditions: ReadonlyArray<string>;
       /** Each line whose situation can be claimed, as a toggle. */
-      readonly toggles: readonly ConditionToggle[];
+      readonly toggles: ReadonlyArray<ConditionToggle>;
       readonly kind: StatisticKind;
       readonly rank: Proficiency | undefined;
-      readonly rankSources: readonly RankSource[];
+      readonly rankSources: ReadonlyArray<RankSource>;
       readonly rankNote: string | undefined;
       readonly statistic: StatisticValue;
       readonly flat: boolean;
@@ -121,7 +121,7 @@ const LOADING_ROWS = 5;
 })
 export class StatisticsView {
   /** Undefined while loading: the list then shows placeholder rows. */
-  public readonly statistics = input.required<readonly NamedStatistic[] | undefined>();
+  public readonly statistics = input.required<ReadonlyArray<NamedStatistic> | undefined>();
   /** Display names of the entries the breakdown lines come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   /** Names for what the breakdown lines' origin chains refer to beyond entries. */
@@ -197,7 +197,7 @@ export class StatisticsView {
     };
   }
 
-  protected readonly shown = computed((): readonly ShownStatistic[] | undefined => {
+  protected readonly shown = computed((): ReadonlyArray<ShownStatistic> | undefined => {
     this.#messages();
     this.#format.locale();
 

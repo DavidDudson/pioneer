@@ -24,7 +24,7 @@ interface KeptAlteration {
 
 /** The effects of an entry's rank, derived once on first read. */
 interface KeptEffects {
-  effects: readonly PreviewEffect[] | undefined;
+  effects: ReadonlyArray<PreviewEffect> | undefined;
 }
 
 /** The registry's one load, and what it fetched. */
@@ -119,7 +119,7 @@ function withAlterations(
   const derived: EntryPreview = Object.create(preview);
 
   return Object.defineProperties(derived, {
-    traits: { get: (): readonly string[] => altered().traits, enumerable: true },
+    traits: { get: (): ReadonlyArray<string> => altered().traits, enumerable: true },
     summary: { get: (): RichText => altered().description, enumerable: true },
   });
 }
@@ -146,9 +146,9 @@ function previewOnCharacter(
 
   if (ranks !== undefined) {
     // Each rank derives the first time it is picked; a card shows one rank at a time.
-    const keptByRank = new Map<SpellRank, readonly PreviewEffect[]>();
+    const keptByRank = new Map<SpellRank, ReadonlyArray<PreviewEffect>>();
 
-    const effects = (rank: SpellRank): readonly PreviewEffect[] => {
+    const effects = (rank: SpellRank): ReadonlyArray<PreviewEffect> => {
       const known = keptByRank.get(rank);
 
       if (known !== undefined) {
@@ -166,7 +166,7 @@ function previewOnCharacter(
 
   const withEffects: EntryPreview = {
     ...preview,
-    get effects(): readonly PreviewEffect[] {
+    get effects(): ReadonlyArray<PreviewEffect> {
       kept.effects ??= sheetEntryEffects(registry, character, { entry, mode: EffectMode.WouldApply });
 
       return kept.effects;
@@ -188,7 +188,7 @@ export function sheetEntryPreviews(registry: () => ContentRegistry | undefined):
 }
 
 /** The kinds the sheet's action, Strike, effect and condition rows name, so a card fetches these and no others. */
-const FETCHED_PREVIEW_KINDS: readonly ContentKind[] = [
+const FETCHED_PREVIEW_KINDS: ReadonlyArray<ContentKind> = [
   ContentKind.Action,
   ContentKind.Condition,
   ContentKind.Effect,
@@ -203,7 +203,7 @@ const FETCHED_PREVIEW_KINDS: readonly ContentKind[] = [
 export function sheetFetchingPreviews(
   registry: () => ContentRegistry | undefined,
   character: () => Character | undefined,
-  kinds: readonly ContentKind[] = FETCHED_PREVIEW_KINDS,
+  kinds: ReadonlyArray<ContentKind> = FETCHED_PREVIEW_KINDS,
 ): EntryPreviews {
   const loader = inject(ContentLoader);
   const router = inject(Router);

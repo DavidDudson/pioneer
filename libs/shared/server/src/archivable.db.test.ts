@@ -27,7 +27,7 @@ class CountingGuard {
 
 /** The steps of a guard, recording the order they ran in. */
 class OrderedGuard {
-  public readonly steps: string[] = [];
+  public readonly steps: Array<string> = [];
 
   public readonly beforeLock = async (): Promise<void> => {
     this.steps.push('beforeLock');

@@ -56,6 +56,6 @@ class BareInlineRoller implements InlineRoller {
 }
 
 /** Provides the roller for text read with no character, to the whole app; a character's sheet provides its own. */
-export function provideBareInlineRoller(): Provider[] {
+export function provideBareInlineRoller(): Array<Provider> {
   return [BareInlineRoller, { provide: INLINE_ROLLER, useExisting: BareInlineRoller }];
 }

@@ -24,7 +24,7 @@ function seedFromSheetBundle(client: QueryClient, id: CharacterId, bundle: Chara
 /** What the bundle carries for one store. */
 type SeededValue = NonNullable<CharacterSheetBundle[keyof CharacterSheetBundle]>;
 
-function seed(client: QueryClient, key: readonly unknown[], value: SeededValue | undefined): void {
+function seed(client: QueryClient, key: ReadonlyArray<unknown>, value: SeededValue | undefined): void {
   if (value !== undefined) {
     client.setQueryData(key, value);
   }

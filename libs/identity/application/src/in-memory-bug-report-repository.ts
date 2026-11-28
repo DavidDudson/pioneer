@@ -21,7 +21,7 @@ export class InMemoryBugReportRepository extends BugReportRepository {
     ).length;
   }
 
-  public override async list(limit: number): Promise<BugReportListItem[]> {
+  public override async list(limit: number): Promise<Array<BugReportListItem>> {
     return [...this.#reports.values()]
       .toSorted((left, right) => Temporal.Instant.compare(right.createdAt, left.createdAt))
       .slice(0, limit)

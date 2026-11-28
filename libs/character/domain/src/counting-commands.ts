@@ -50,11 +50,11 @@ export type CountingCommand =
 export type CountingPlay = RestPlay & {
   readonly toggles: Toggles;
   readonly shapes?: Shifts;
-  readonly effects: readonly ActiveEffect[];
+  readonly effects: ReadonlyArray<ActiveEffect>;
   readonly environments: ActiveEnvironments;
   readonly exposure: Exposure;
   readonly breath?: BreathState | undefined;
-  readonly activeSpells: readonly ActiveSpell[];
+  readonly activeSpells: ReadonlyArray<ActiveSpell>;
   readonly spendLog: SpendLog;
   readonly turn: TurnState;
   readonly exploration?: ExplorationActivity;

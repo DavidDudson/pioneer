@@ -14,14 +14,14 @@ import { entry, grantOf, idOf, inputsOf, picked, picksOf, slotOf } from './testi
 
 /** The player's picks, the character's level and the roll options supplied. */
 interface Situation {
-  readonly picks?: readonly (readonly [SlotKey, string])[];
+  readonly picks?: ReadonlyArray<readonly [SlotKey, string]>;
   readonly level?: number;
-  readonly situation?: readonly string[];
+  readonly situation?: ReadonlyArray<string>;
 }
 
 function resolve(
-  entries: readonly GrantEntry[],
-  roots: readonly GrantRoot[],
+  entries: ReadonlyArray<GrantEntry>,
+  roots: ReadonlyArray<GrantRoot>,
   { picks = [], level, situation }: Situation = {},
 ): GrantResolution {
   return resolveGrants(inputsOf({ entries, roots, level, situation, picks: picksOf(picks) }));
@@ -29,7 +29,9 @@ function resolve(
 
 const chosen = (slot: string): OriginHop => OriginHop.parse({ kind: 'choice', slot });
 const granted = (by: string, rule: number): OriginHop => OriginHop.parse({ kind: 'grant', by: idOf(by), rule });
-const names = (items: readonly { readonly entry: GrantEntry }[]): string[] => items.map((item) => item.entry.name);
+
+const names = (items: ReadonlyArray<{ readonly entry: GrantEntry }>): Array<string> =>
+  items.map((item) => item.entry.name);
 
 /** A choice's option as JSON. */
 interface ChoiceOptionJson {
@@ -243,7 +245,8 @@ describe('resolveGrants choices', () => {
   });
 });
 
-const offered = (result: GrantResolution): string[] => result.open[0]?.options.map((each) => String(each.value)) ?? [];
+const offered = (result: GrantResolution): Array<string> =>
+  result.open[0]?.options.map((each) => String(each.value)) ?? [];
 
 const feature = (level: number): GrantEntry => ({
   ...entry('animal-feature', [

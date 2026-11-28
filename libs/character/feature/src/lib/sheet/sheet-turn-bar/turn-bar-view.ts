@@ -30,7 +30,7 @@ export interface ActionPip {
 /** The turn as the bar shows it. */
 export interface TurnBarView {
   readonly phase: TurnPhase;
-  readonly pips: readonly ActionPip[];
+  readonly pips: ReadonlyArray<ActionPip>;
   readonly reactionUsed: boolean;
   /** The attacks made this turn; undefined outside a running turn, which counts none. */
   readonly attacks: number | undefined;
@@ -52,7 +52,10 @@ export function phaseKey(phase: TurnPhase): string {
 }
 
 /** The pips of a turn: the ordinary actions, spent or left, then the quickened one. Only a running turn has any. */
-function pipsOf({ phase, actions, quickened, quickenedFor }: TurnState, weaponName: WeaponName): readonly ActionPip[] {
+function pipsOf(
+  { phase, actions, quickened, quickenedFor }: TurnState,
+  weaponName: WeaponName,
+): ReadonlyArray<ActionPip> {
   if (phase !== TurnPhase.Turn) {
     return [];
   }
@@ -65,7 +68,7 @@ function pipsOf({ phase, actions, quickened, quickenedFor }: TurnState, weaponNa
     strikeOnly: false,
   }));
 
-  const extra: ActionPip[] = quickened > 0 ? [quickenedPip(quickenedFor, weaponName)] : [];
+  const extra: Array<ActionPip> = quickened > 0 ? [quickenedPip(quickenedFor, weaponName)] : [];
 
   return [...ordinary, ...extra];
 }
@@ -146,7 +149,7 @@ export interface TurnLogLine {
 }
 
 /** The lines of a turn boundary's events, numbering the roll cards from `first`. */
-export function turnLog(events: readonly TurnEvent[], first: number): readonly TurnLogLine[] {
+export function turnLog(events: ReadonlyArray<TurnEvent>, first: number): ReadonlyArray<TurnLogLine> {
   return events.map((event, index): TurnLogLine => {
     if (event.kind !== TurnEventKind.PersistentDamage) {
       return { message: event.message, roll: undefined };

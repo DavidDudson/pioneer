@@ -23,7 +23,7 @@ async function read(path: string): Promise<string> {
   return Bun.file(path).text();
 }
 
-async function scan(glob: Glob): Promise<string[]> {
+async function scan(glob: Glob): Promise<Array<string>> {
   const paths = await Array.fromAsync(glob.scan({ dot: false }));
 
   return paths.filter((path) => !path.includes('node_modules'));
@@ -33,7 +33,7 @@ const allSourcePaths = await scan(SOURCES);
 const sourcePaths = allSourcePaths.filter((path) => !TEST_FILE.test(path));
 const sources = new Map(await Promise.all(sourcePaths.map(async (path) => [path, await read(path)] as const)));
 
-async function bundleKeys(bundle: string): Promise<string[]> {
+async function bundleKeys(bundle: string): Promise<Array<string>> {
   const projectSrc = bundle.slice(0, bundle.indexOf('/i18n/en.json'));
 
   const projectSources = sources

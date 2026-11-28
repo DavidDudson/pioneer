@@ -52,7 +52,7 @@ function useOf(name: string, payment?: UsePayment): ActionUse {
 }
 
 /** A caster with `options` as roll options, a focus rank of 3. */
-function casterWith(...options: string[]): FormCaster {
+function casterWith(...options: Array<string>): FormCaster {
   return {
     facts: new PredicateFacts(
       options.map((option) => RollOption.parse(option)),
@@ -64,7 +64,7 @@ function casterWith(...options: string[]): FormCaster {
 }
 
 /** The labels of the forms Untamed Form offers `caster`. */
-function untamedLabels(caster: FormCaster | undefined): readonly string[] | undefined {
+function untamedLabels(caster: FormCaster | undefined): ReadonlyArray<string> | undefined {
   return formCastOf(registry, useOf('untamed-form'), caster)?.choices.map(({ label }) => label);
 }
 

@@ -45,7 +45,7 @@ function difference(after: number | undefined, before: number | undefined): numb
 function termOrigins(
   results: ReadonlyMap<Selector, StatisticResult>,
   selector: string,
-): readonly (Origin | undefined)[] {
+): ReadonlyArray<Origin | undefined> {
   const result = results.get(Selector.parse(selector));
   const terms = result?.ok === true ? result.base : [];
 

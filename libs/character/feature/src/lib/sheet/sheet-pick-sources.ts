@@ -22,7 +22,7 @@ export interface BuildPickSources {
   readonly timelineRegistry: Signal<ContentRegistry | undefined>;
   readonly character: Signal<Character | undefined>;
   /** The slots as the server read them. */
-  readonly slots: Signal<readonly CharacterSlot[] | undefined>;
+  readonly slots: Signal<ReadonlyArray<CharacterSlot> | undefined>;
   readonly select: (slot: SlotKey, selection: ChoiceValue, loreName?: LoreName) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
   readonly translate: (key: string, params?: MessageParams) => string;
@@ -33,17 +33,17 @@ export interface BuildPickSources {
 /** What the sheet reads from the engine, over the registry with the item kinds once anything is carried. */
 export interface EngineReads {
   /** AC, the saves and Perception from the engine; undefined while the character or the content loads. */
-  readonly statistics: Signal<readonly NamedStatistic[] | undefined>;
+  readonly statistics: Signal<ReadonlyArray<NamedStatistic> | undefined>;
   /** Every skill and Lore with what the engine derives for it; undefined while the character or the content loads. */
-  readonly skills: Signal<readonly NamedStatistic[] | undefined>;
+  readonly skills: Signal<ReadonlyArray<NamedStatistic> | undefined>;
   /** Each Strike, held weapons' then a feature's fist; undefined while the character or the content loads. */
-  readonly strikes: Signal<readonly NamedStrike[] | undefined>;
+  readonly strikes: Signal<ReadonlyArray<NamedStrike> | undefined>;
   /** The names of the weapon Strikes a form replaces, to say where they went (#530); none out of form. */
-  readonly suppressedStrikes: Signal<readonly string[]>;
+  readonly suppressedStrikes: Signal<ReadonlyArray<string>>;
   /** The shields held, shown beside the Strikes; none while the character or the content loads. */
-  readonly shields: Signal<readonly StrikesShield[]>;
+  readonly shields: Signal<ReadonlyArray<StrikesShield>>;
   /** Each spellcasting entry with its spell attack and DC; undefined while the character or the content loads. */
-  readonly spellcasting: Signal<readonly SpellcastingEntryLine[] | undefined>;
+  readonly spellcasting: Signal<ReadonlyArray<SpellcastingEntryLine> | undefined>;
   /** Names for the entries the defences, statistics and spellcasting lines come from; none while the content loads. */
   readonly entryNames: Signal<ReadonlyMap<ContentId, string>>;
 }

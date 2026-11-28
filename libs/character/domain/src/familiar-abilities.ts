@@ -31,13 +31,13 @@ export interface FamiliarAbilityPart {
 /** The abilities a familiar carries each day: the total and each source's part of it. */
 export interface FamiliarAbilities {
   readonly total: FamiliarAbilityCount;
-  readonly parts: readonly FamiliarAbilityPart[];
+  readonly parts: ReadonlyArray<FamiliarAbilityPart>;
 }
 
 /** What the count reads: the character's level and the roll options its grants set (`feat:enhanced-familiar`). */
 export interface FamiliarAbilityInputs {
   readonly level: Level;
-  readonly options: readonly RollOption[];
+  readonly options: ReadonlyArray<RollOption>;
 }
 
 const BASE = FamiliarAbilityCount.parse(2);
@@ -49,7 +49,7 @@ const GROWTH = FamiliarAbilityCount.parse(1);
 const WITCH_GROWTH_FIRST = Level.parse(6);
 const WITCH_GROWTH_SECOND = Level.parse(12);
 const WITCH_GROWTH_THIRD = Level.parse(18);
-const WITCH_GROWTH_LEVELS: readonly Level[] = [WITCH_GROWTH_FIRST, WITCH_GROWTH_SECOND, WITCH_GROWTH_THIRD];
+const WITCH_GROWTH_LEVELS: ReadonlyArray<Level> = [WITCH_GROWTH_FIRST, WITCH_GROWTH_SECOND, WITCH_GROWTH_THIRD];
 
 const ENHANCED_FAMILIAR_OPTION = RollOption.parse('feat:enhanced-familiar');
 const INCREDIBLE_FAMILIAR_OPTION = RollOption.parse('feat:incredible-familiar');
@@ -67,7 +67,7 @@ export function familiarAbilities({ level, options }: FamiliarAbilityInputs): Fa
   const isWitch = has(WITCH_CLASS_OPTION);
   const growthLevelsReached = WITCH_GROWTH_LEVELS.filter((at) => level >= at).length;
 
-  const candidates: readonly FamiliarAbilityPart[] = [
+  const candidates: ReadonlyArray<FamiliarAbilityPart> = [
     part(true, FamiliarAbilitySource.Base, BASE),
     part(has(ENHANCED_FAMILIAR_OPTION), FamiliarAbilitySource.EnhancedFamiliar, FEAT_BONUS),
     part(has(INCREDIBLE_FAMILIAR_OPTION), FamiliarAbilitySource.IncredibleFamiliar, FEAT_BONUS),

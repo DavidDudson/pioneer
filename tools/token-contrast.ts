@@ -124,8 +124,8 @@ export function contrastRatio(first: LinearRgb, second: LinearRgb): number {
 }
 
 export interface PairSpec {
-  readonly foreground: readonly string[];
-  readonly background: readonly string[];
+  readonly foreground: ReadonlyArray<string>;
+  readonly background: ReadonlyArray<string>;
   readonly minimum: number;
 }
 
@@ -137,7 +137,7 @@ export interface PairResult {
 }
 
 /** Every foreground × background of every pair under one set of tokens; names are `--fr-` tokens unprefixed. */
-export function measurePairs(tokens: ReadonlyMap<string, string>, pairs: readonly PairSpec[]): PairResult[] {
+export function measurePairs(tokens: ReadonlyMap<string, string>, pairs: ReadonlyArray<PairSpec>): Array<PairResult> {
   const colour = (name: string): LinearRgb => oklchToLinearRgb(resolveToken(tokens, `--fr-${name}`));
 
   return pairs.flatMap(({ foreground, background, minimum }) =>

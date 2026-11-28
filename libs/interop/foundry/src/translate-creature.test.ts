@@ -48,7 +48,11 @@ describe('translateCreature: core statistics', () => {
     const entry = entryOf(translate([AAPOPH_GRANITESCALE]), 'aapoph-granitescale');
 
     expect<number | undefined>(entry?.envelope.level).toBe(6);
-    expect<readonly string[] | undefined>(entry?.envelope.traits).toStrictEqual(['humanoid', 'mutant', 'serpentfolk']);
+    expect<ReadonlyArray<string> | undefined>(entry?.envelope.traits).toStrictEqual([
+      'humanoid',
+      'mutant',
+      'serpentfolk',
+    ]);
     expect(entry?.kindData?.data).toMatchObject({
       role: CreatureRole.Monster,
       resistances: [{ type: 'poison', value: 5 }],
@@ -116,7 +120,7 @@ describe('translateCreature: what has no home', () => {
 
   test('adds the creature’s vocabulary: its traits and languages', () => {
     const translation = translate([AAPOPH_GRANITESCALE]);
-    const vocabulary: string[] = translation.vocabulary.map(({ envelope }) => envelope.slug);
+    const vocabulary: Array<string> = translation.vocabulary.map(({ envelope }) => envelope.slug);
 
     expect(vocabulary).toContain('language:aklo');
   });

@@ -63,9 +63,9 @@ export interface StatisticInputs {
   /** Worn armour, whose bonus reaches AC as an `item` line (`armorBonus`). None when absent. */
   readonly armor?: ArmorInputs;
   /** The equipped weapons: a statistic derived per weapon (a Strike) is derived for each. None when absent. */
-  readonly weapons?: readonly WeaponInputs[];
+  readonly weapons?: ReadonlyArray<WeaponInputs>;
   /** The spellcasting entries: a statistic derived per entry (a spell attack, a spell DC) is derived for each. */
-  readonly spellcasting?: readonly SpellcastingInputs[];
+  readonly spellcasting?: ReadonlyArray<SpellcastingInputs>;
 }
 
 const AncestryInputsJson = z.strictObject({ hitPoints: HitPoints, speed: Feet });
@@ -160,7 +160,7 @@ export const StatisticInputsJson = z
   );
 
 /** The order of ranks, so `@rank.<selector>` reads 0 for untrained to 4 for legendary. */
-const RANK_ORDER: readonly Proficiency[] = Object.values(Proficiency);
+const RANK_ORDER: ReadonlyArray<Proficiency> = Object.values(Proficiency);
 
 function rankOf(inputs: StatisticInputs, selector: Selector): Proficiency {
   return inputs.ranks.get(selector) ?? Proficiency.Untrained;

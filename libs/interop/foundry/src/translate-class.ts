@@ -57,12 +57,12 @@ const FEAT_STEP = 4;
 const SKILL_STEP = 2;
 
 /** `first`, then every `step` levels up to 20th. */
-function everyLevel(first: number, step: number): readonly number[] {
+function everyLevel(first: number, step: number): ReadonlyArray<number> {
   return Array.from({ length: Math.floor((LEVELS_MAX - first) / step) + 1 }, (_value, at) => first + at * step);
 }
 
 /** Player Core's ancestry feat levels: the ancestry entry opens these slots (`translate-ancestry.ts`). */
-export const ANCESTRY_FEAT_LEVELS: readonly number[] = everyLevel(ANCESTRY_FEAT_FIRST, FEAT_STEP);
+export const ANCESTRY_FEAT_LEVELS: ReadonlyArray<number> = everyLevel(ANCESTRY_FEAT_FIRST, FEAT_STEP);
 
 /** Player Core's schedule for the slots every class shares, used when Foundry gives a class none. */
 const SHARED_SLOT_LEVELS = {
@@ -74,7 +74,7 @@ const SHARED_SLOT_LEVELS = {
 
 type SharedSlot = keyof typeof SHARED_SLOT_LEVELS;
 
-const SHARED_SLOTS: readonly SharedSlot[] = [
+const SHARED_SLOTS: ReadonlyArray<SharedSlot> = [
   'ancestryFeatLevels',
   'generalFeatLevels',
   'skillFeatLevels',
@@ -115,7 +115,7 @@ const SUBCLASS_TAGS: ReadonlyMap<string, string> = new Map([
  * Each statistic the class starts above untrained in, by selector, with Foundry's rank. Every class is trained in its
  * class DC at 1st level; Foundry sets it for the actor rather than the class.
  */
-function startingRanks(system: FoundryClassSystem): (readonly [string, number])[] {
+function startingRanks(system: FoundryClassSystem): Array<readonly [string, number]> {
   const { savingThrows, attacks, defenses } = system;
 
   return [
@@ -155,7 +155,7 @@ function proficiencies(system: FoundryClassSystem, input: KindInput): void {
   trainSkills(system.trainedSkills, input);
 }
 
-function sameLevels(levels: readonly number[], schedule: readonly number[]): boolean {
+function sameLevels(levels: ReadonlyArray<number>, schedule: ReadonlyArray<number>): boolean {
   return levels.length === schedule.length && levels.every((level, at) => level === schedule[at]);
 }
 

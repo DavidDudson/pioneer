@@ -25,18 +25,18 @@ export type BoostChoices = Readonly<Record<SlotKey, ChoiceValue>>;
 /** The picks for the character's boost slots, and the boosts left over. */
 export interface BoostPlacement {
   readonly choices: BoostChoices;
-  readonly unplaced: readonly UnplacedBoost[];
+  readonly unplaced: ReadonlyArray<UnplacedBoost>;
 }
 
 /** Slots being filled from picks: pick index per slot index. */
 interface Matching {
-  readonly slots: readonly BoostSlot[];
-  readonly picks: readonly Attribute[];
+  readonly slots: ReadonlyArray<BoostSlot>;
+  readonly picks: ReadonlyArray<Attribute>;
   readonly pickBySlot: Map<number, number>;
 }
 
 /** The slots that offer `pick`'s attribute, in slot order. */
-function offering({ slots, picks }: Matching, pick: number): number[] {
+function offering({ slots, picks }: Matching, pick: number): Array<number> {
   const attribute = picks[pick];
 
   return [...slots.keys()].filter(
@@ -78,7 +78,7 @@ function place(matching: Matching, pick: number, tried: Set<number>): boolean {
 }
 
 /** Pick index per slot index, as many picks placed as can be, each taking the first slot free for it in export order. */
-function matchSlots(slots: readonly BoostSlot[], picks: readonly Attribute[]): ReadonlyMap<number, number> {
+function matchSlots(slots: ReadonlyArray<BoostSlot>, picks: ReadonlyArray<Attribute>): ReadonlyMap<number, number> {
   const matching: Matching = { slots, picks, pickBySlot: new Map() };
 
   for (const pick of picks.keys()) {
@@ -89,7 +89,7 @@ function matchSlots(slots: readonly BoostSlot[], picks: readonly Attribute[]): R
 }
 
 /** The attributes left for slots: each once, and none the set's fixed boosts already raise. */
-function slotPicks(attributes: readonly Attribute[], fixed: readonly Attribute[]): Attribute[] {
+function slotPicks(attributes: ReadonlyArray<Attribute>, fixed: ReadonlyArray<Attribute>): Array<Attribute> {
   const seen = new Set<Attribute>(fixed);
 
   return attributes.filter((attribute) => {
@@ -104,7 +104,7 @@ function slotPicks(attributes: readonly Attribute[], fixed: readonly Attribute[]
 }
 
 /** What of `attributes` is left once each of `taken` has taken one. */
-function leftOver(attributes: readonly Attribute[], taken: readonly Attribute[]): Attribute[] {
+function leftOver(attributes: ReadonlyArray<Attribute>, taken: ReadonlyArray<Attribute>): Array<Attribute> {
   const remaining = [...taken];
 
   return attributes.filter((attribute) => {
@@ -128,12 +128,12 @@ function leftOver(attributes: readonly Attribute[], taken: readonly Attribute[])
 export function placeBoosts(
   document: CharacterDocument,
   content: BoostContent,
-  imported: readonly ImportedBoosts[],
+  imported: ReadonlyArray<ImportedBoosts>,
 ): BoostPlacement {
   const sets = boostSets(document, content);
   const choices: Record<SlotKey, ChoiceValue> = {};
 
-  const unplaced = imported.flatMap(({ source, level, attributes }): UnplacedBoost[] => {
+  const unplaced = imported.flatMap(({ source, level, attributes }): Array<UnplacedBoost> => {
     const set = sets.find((each) => each.source === source && each.level === level);
     const open = set?.slots ?? [];
     const picks = slotPicks(attributes, set?.fixed ?? []);
@@ -164,7 +164,7 @@ export function placeBoosts(
 export function placeFlaws(
   document: CharacterDocument,
   content: BoostContent,
-  flaws: readonly Attribute[],
+  flaws: ReadonlyArray<Attribute>,
 ): BoostChoices {
   const slots = flawSlots(document, content);
   const voluntary = [...new Set(flaws)].filter((attribute) => slots[0]?.options.includes(attribute) === true);
@@ -180,8 +180,11 @@ export function placeFlaws(
 }
 
 /** Each attribute, in order, whose derived modifier isn't the one Pathbuilder computed. */
-export function modifierDifferences(imported: AttributeModifiers, derived: AttributeModifiers): ModifierDifference[] {
-  return Object.values(Attribute).flatMap((attribute): ModifierDifference[] => {
+export function modifierDifferences(
+  imported: AttributeModifiers,
+  derived: AttributeModifiers,
+): Array<ModifierDifference> {
+  return Object.values(Attribute).flatMap((attribute): Array<ModifierDifference> => {
     const theirs = imported.get(attribute);
     const ours = derived.get(attribute);
 

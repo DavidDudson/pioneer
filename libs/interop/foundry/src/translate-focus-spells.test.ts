@@ -30,14 +30,14 @@ import {
 const { ChoiceSet, FocusSpells, SpellcastingEntry } = RuleElementKey;
 
 /** The values a `ChoiceSet` offers. */
-function valuesOf(choice: Record<string, unknown> | undefined): string[] {
+function valuesOf(choice: Record<string, unknown> | undefined): Array<string> {
   // SAFETY: Array.isArray on the line above proved choices is an array, and a ChoiceSet's elements carry a value.
-  const choices = Array.isArray(choice?.['choices']) ? (choice['choices'] as { value: string }[]) : [];
+  const choices = Array.isArray(choice?.['choices']) ? (choice['choices'] as Array<{ value: string }>) : [];
 
   return choices.map(({ value }) => value);
 }
 
-function keyed(key: string, name: string, fixture: DocumentFixture): Record<string, unknown>[] {
+function keyed(key: string, name: string, fixture: DocumentFixture): Array<Record<string, unknown>> {
   return rulesIn(translate([fixture]), name).filter(
     (rule): rule is Record<string, unknown> =>
       typeof rule === 'object' && rule !== null && 'key' in rule && rule.key === key,
@@ -86,7 +86,7 @@ describe('translateKindData: focus spells', () => {
     const choices = keyed(ChoiceSet, 'domain-initiate', DOMAIN_INITIATE);
     expect(choices).toHaveLength(1);
     const values = valuesOf(choices[0]);
-    const domains: readonly string[] = Object.values(DeityDomain);
+    const domains: ReadonlyArray<string> = Object.values(DeityDomain);
     expect(values.filter((value) => !domains.includes(value))).toEqual([]);
     expect(new Set(values).size).toBe(values.length);
   });

@@ -206,8 +206,8 @@ function torch(inside: PathbuilderContainerKey | undefined): ImportedItem {
 }
 
 async function withContainers(
-  containers: readonly ImportedContainer[],
-  items: readonly ImportedItem[],
+  containers: ReadonlyArray<ImportedContainer>,
+  items: ReadonlyArray<ImportedItem>,
 ): Promise<Inventory> {
   const { inventory } = await importOf({ ...readExport(mordredExport), containers, items });
 

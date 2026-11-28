@@ -46,7 +46,7 @@ function bodyColumns(say: Say): OriginTableSchema<ClassPickerRow> {
 }
 
 /** The columns of a class picker: what it is, then its tradition and starting ranks, then where it comes from. */
-export function classPickerColumns(say: Say): readonly TableColumn<ClassPickerRow>[] {
+export function classPickerColumns(say: Say): ReadonlyArray<TableColumn<ClassPickerRow>> {
   return bodyColumns(say)
     .addFacts({
       id: 'tradition',
@@ -80,7 +80,7 @@ export function classPickerColumns(say: Say): readonly TableColumn<ClassPickerRo
 }
 
 /** The columns of a subclass picker: what it grants. */
-export function subclassPickerColumns(say: Say): readonly TableColumn<SubclassPickerRow>[] {
+export function subclassPickerColumns(say: Say): ReadonlyArray<TableColumn<SubclassPickerRow>> {
   return withName(new OriginTableSchema<SubclassPickerRow>(), say)
     .addSummary({
       id: 'summary',
@@ -107,7 +107,7 @@ export function subclassPickerColumns(say: Say): readonly TableColumn<SubclassPi
 }
 
 /** The columns of a key attribute picker: the attribute, then the character's modifier and score in it. */
-export function keyAttributePickerColumns(say: Say): readonly TableColumn<KeyAttributePickerRow>[] {
+export function keyAttributePickerColumns(say: Say): ReadonlyArray<TableColumn<KeyAttributePickerRow>> {
   return withName(new OriginTableSchema<KeyAttributePickerRow>(), say)
     .addFacts({
       id: ClassPickerColumn.Modifier,

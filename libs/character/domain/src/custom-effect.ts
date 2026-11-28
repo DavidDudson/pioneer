@@ -21,7 +21,7 @@ import type { CustomEffectPatch } from './override-patches';
 import { OverrideMode, OverrideRole, overrideTime } from './override-schema';
 
 /** The custom effects in force: the ones nobody has removed. */
-export function activeCustomEffects(document: CharacterDocument): readonly CustomEffect[] {
+export function activeCustomEffects(document: CharacterDocument): ReadonlyArray<CustomEffect> {
   return document.customEffects.filter((effect) => effect.removed === undefined);
 }
 
@@ -63,7 +63,7 @@ function elementOf(name: CustomEffect['name'], line: CustomEffectLine): RuleElem
  * The rule elements the character's switched-on custom effects compile to, one per line, each with an `override` hop
  * naming who added the effect, when and why, and the effect's name as its label, so the breakdown lists them under it. Off or removed compiles to nothing.
  */
-export function customEffectRules(document: CharacterDocument): readonly RuleInPlay[] {
+export function customEffectRules(document: CharacterDocument): ReadonlyArray<RuleInPlay> {
   const lines = activeCustomEffects(document)
     .filter((effect) => effect.enabled)
     .flatMap((effect) => effect.lines.map((line) => ({ effect, line })));

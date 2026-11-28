@@ -30,11 +30,11 @@ const links: FoundryLinks = {
 
 interface Enriched {
   readonly run: unknown;
-  readonly reported: string[];
+  readonly reported: Array<string>;
 }
 
 function enriched(text: string): Enriched {
-  const reported: string[] = [];
+  const reported: Array<string> = [];
 
   const run = enrichedRun(text, {
     links,

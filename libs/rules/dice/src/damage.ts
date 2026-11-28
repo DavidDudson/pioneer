@@ -58,7 +58,7 @@ export interface DamageOptions {
   /** The roll is environmental damage, so a weakness or resistance to environmental damage applies. */
   readonly environmental?: boolean;
   /** The materials and property runes the damage counts as (`silver`): a weakness or resistance that excepts one does not apply. */
-  readonly counts?: readonly DamageException[];
+  readonly counts?: ReadonlyArray<DamageException>;
   /** The degree of the basic save this damage is for: it scales each instance before immunity, weakness and resistance. */
   readonly save?: DegreeOfSuccess;
 }
@@ -96,7 +96,7 @@ function isPrecision(term: Term): boolean {
 }
 
 /** Adds a term's value to the instance of its type and timing, starting one if there is none yet. */
-function addTerm(pools: Pooled[], { term, value }: TermResult): void {
+function addTerm(pools: Array<Pooled>, { term, value }: TermResult): void {
   const { type, category } = term.tags;
   const persistent = category === DamageCategory.Persistent;
   const index = pools.findIndex((entry) => entry.type === type && entry.persistent === persistent);
@@ -125,8 +125,8 @@ function addTerm(pools: Pooled[], { term, value }: TermResult): void {
  * Precision joins the first immediate instance, as Foundry adds it to the base damage; with nothing to
  * join it stays an instance of its own.
  */
-function pool(roll: RollResult): readonly Pooled[] {
-  const pools: Pooled[] = [];
+function pool(roll: RollResult): ReadonlyArray<Pooled> {
+  const pools: Array<Pooled> = [];
 
   for (const result of roll.terms.filter((entry) => !isPrecision(entry.term))) {
     addTerm(pools, result);
@@ -234,7 +234,7 @@ function immunise(pooled: Pooled, dealtNow: Dealt, target: DamageTarget): Applie
 }
 
 /** The damage types an instance counts as for weakness and resistance once immunities have applied. */
-function typesOf(pooled: Pooled, precisionLeft: boolean): readonly DamageType[] {
+function typesOf(pooled: Pooled, precisionLeft: boolean): ReadonlyArray<DamageType> {
   const own = pooled.type === undefined ? [] : [pooled.type];
 
   return precisionLeft ? [...own, DamageType.Precision] : own;
@@ -247,7 +247,7 @@ interface Dealing {
   readonly spell: boolean;
   readonly environmental: boolean;
   readonly save: DegreeOfSuccess | undefined;
-  readonly counts: readonly DamageException[];
+  readonly counts: ReadonlyArray<DamageException>;
 }
 
 /** Deals one instance, then immunities, the highest weakness and the highest resistance adjust it. */
@@ -279,7 +279,7 @@ function deal(
   };
 }
 
-function sum(instances: readonly DamageInstance[]): DamageTotal {
+function sum(instances: ReadonlyArray<DamageInstance>): DamageTotal {
   let total = 0;
 
   for (const instance of instances) {

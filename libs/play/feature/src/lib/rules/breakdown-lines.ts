@@ -41,7 +41,7 @@ export function weaponOrigin(slug: string): Origin {
 }
 
 /** The typed rule elements from one box as rules in play, each at its index in the array. */
-export function rulesInPlay(elements: readonly RuleElement[], source: RuleSource): RuleInPlay[] {
+export function rulesInPlay(elements: ReadonlyArray<RuleElement>, source: RuleSource): Array<RuleInPlay> {
   return elements.map((element, index) => ({ element, origin: ORIGINS[source], rule: RuleIndex.parse(index) }));
 }
 
@@ -50,7 +50,7 @@ function sourceOf(rule: RuleInPlay): RuleSource {
 }
 
 /** Names every rule in play by its box and its place in the typed array, for naming them in lines. */
-export function ruleNames(rules: readonly RuleInPlay[]): ReadonlyMap<RuleId, RuleName> {
+export function ruleNames(rules: ReadonlyArray<RuleInPlay>): ReadonlyMap<RuleId, RuleName> {
   return new Map(rules.map((rule) => [ruleIdOf(rule), { source: sourceOf(rule), number: rule.rule + 1 }]));
 }
 

@@ -55,7 +55,10 @@ const NAME: PropertyDescriptor<Hero> = {
   value: (hero) => hero.name,
 };
 
-async function render(property: PropertyDescriptor<Hero>, providers: readonly Provider[] = []): Promise<HTMLElement> {
+async function render(
+  property: PropertyDescriptor<Hero>,
+  providers: ReadonlyArray<Provider> = [],
+): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [...provideFrontierI18nTesting(), ...providers],
   });

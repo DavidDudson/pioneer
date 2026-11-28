@@ -24,18 +24,18 @@ import { gapsOf } from './testing/kind-fixtures';
 const translation = translate(BUILD, { journals: [ARCHETYPES_JOURNAL] });
 
 /** One paragraph of plain text, as rich text. */
-function paragraph(text: string): unknown[] {
+function paragraph(text: string): Array<unknown> {
   return [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 }
 
 /** The archetypes journal with `pages` added before its own. */
-function withPages(...pages: FoundryJournalPage[]): JournalDocument {
+function withPages(...pages: Array<FoundryJournalPage>): JournalDocument {
   const { journal } = ARCHETYPES_JOURNAL;
 
   return { ...ARCHETYPES_JOURNAL, journal: { ...journal, pages: [...pages, ...journal.pages] } };
 }
 
-function archetypeSlugs({ archetypes }: typeof translation): string[] {
+function archetypeSlugs({ archetypes }: typeof translation): Array<string> {
   return archetypes.map(({ envelope }) => String(envelope.slug));
 }
 

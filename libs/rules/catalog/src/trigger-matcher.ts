@@ -137,7 +137,7 @@ export interface TriggerMatch {
  * event keeps it, so a hand correction is never overwritten. An action whose requirements are only wording is skipped:
  * the engine can't read them, so its event needs a predicate set by hand, or it would fire when they aren't met.
  */
-export function triggerMatches(entries: readonly ContentEntry[], names: RefNames): readonly TriggerMatch[] {
+export function triggerMatches(entries: ReadonlyArray<ContentEntry>, names: RefNames): ReadonlyArray<TriggerMatch> {
   return entries.flatMap((entry) => {
     const action = entryAction(entry);
 

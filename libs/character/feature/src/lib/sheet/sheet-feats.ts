@@ -29,7 +29,7 @@ import type { TrainedAgain, Translate } from './sheet-skill-repeats';
 import { sheetSlotContent } from './sheet-slot-content';
 
 /** The kinds the feat pickers read: the character's, so its entries resolve, the feats and their archetypes. */
-export const FEAT_CONTENT_KINDS: readonly ContentKind[] = [
+export const FEAT_CONTENT_KINDS: ReadonlyArray<ContentKind> = [
   ...CHARACTER_CONTENT_KINDS,
   ContentKind.Feat,
   ContentKind.Archetype,
@@ -39,7 +39,7 @@ export const FEAT_CONTENT_KINDS: readonly ContentKind[] = [
 export interface SheetFeatSlot {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
-  readonly options: readonly SheetFeatOption[];
+  readonly options: ReadonlyArray<SheetFeatOption>;
   /** The stored pick's name, so a pick the slot no longer offers still reads by name. */
   readonly storedName: string | undefined;
   /** What each of some feats would train again, by skill name; reads only the ones asked about. */
@@ -65,11 +65,11 @@ export interface SheetFeatOption {
   readonly category: FeatCategory;
   readonly action: ActionKind;
   readonly rarity: Rarity;
-  readonly traits: readonly Chip[];
-  readonly sources: readonly SourceRef[];
+  readonly traits: ReadonlyArray<Chip>;
+  readonly sources: ReadonlyArray<SourceRef>;
   readonly status: PrerequisiteStatus;
   /** Each clause of the prerequisites with its own state, for a feat with several; undefined for any other. */
-  readonly clauses: readonly PrerequisiteClauseStatus[] | undefined;
+  readonly clauses: ReadonlyArray<PrerequisiteClauseStatus> | undefined;
   /** What the prerequisites are, as printed; none for a feat without any. */
   readonly prerequisites: string | undefined;
   readonly locked: SheetFeatLock | undefined;
@@ -77,7 +77,7 @@ export interface SheetFeatOption {
 
 /** Every feat slot, lowest first, with the feats each offers at its level (#492): the level tabs' pickers. */
 export interface SheetFeats {
-  readonly planned: readonly SheetFeatSlot[];
+  readonly planned: ReadonlyArray<SheetFeatSlot>;
 }
 
 /** The words of rich text: its text, and each reference by its label or the name of the entry it names. */
@@ -101,8 +101,8 @@ interface FeatFacts {
   readonly category: FeatCategory;
   readonly action: ActionKind;
   readonly rarity: Rarity;
-  readonly traits: readonly Chip[];
-  readonly sources: readonly SourceRef[];
+  readonly traits: ReadonlyArray<Chip>;
+  readonly sources: ReadonlyArray<SourceRef>;
 }
 
 /** A feat's cost: its action glyph, a variable one, or none for a passive feat. */
@@ -175,7 +175,7 @@ function labelOf(slot: FeatSlot, nameOf: (id: ContentId) => string | undefined):
   return message('character.sheet.feats.slotFrom', { entry: nameOf(slot.entry) ?? '', level: slot.level });
 }
 
-function slotRead(slots: readonly CharacterSlot[], key: SlotKey): CharacterSlot | undefined {
+function slotRead(slots: ReadonlyArray<CharacterSlot>, key: SlotKey): CharacterSlot | undefined {
   return slots.find((slot) => slot.key === key);
 }
 
@@ -186,7 +186,7 @@ function slotRead(slots: readonly CharacterSlot[], key: SlotKey): CharacterSlot 
 export function sheetFeats(
   registry: ContentRegistry,
   character: Character,
-  slots: readonly CharacterSlot[],
+  slots: ReadonlyArray<CharacterSlot>,
 ): SheetFeats {
   const content = sheetSlotContent(registry);
   const nameOf = (id: ContentId): string | undefined => content.lookup.entry(id)?.name;
@@ -240,7 +240,7 @@ const PREREQUISITE_STATES: Readonly<Record<PrerequisiteStatus, PrerequisiteState
  * The prerequisites as the cell shows them: a line for each clause of a feat with several, each in its own state;
  * otherwise the printed text once, in the state the engine read for the feat.
  */
-function prerequisiteLines(option: SheetFeatOption): readonly PrerequisiteLine[] {
+function prerequisiteLines(option: SheetFeatOption): ReadonlyArray<PrerequisiteLine> {
   if (option.clauses !== undefined) {
     return option.clauses.map(({ text, status }) => ({ label: text, state: PREREQUISITE_STATES[status] }));
   }
@@ -262,10 +262,10 @@ function prerequisiteLines(option: SheetFeatOption): readonly PrerequisiteLine[]
  * again is the costly part (about a millisecond a feat), and the player's filters usually leave most feats out.
  */
 export function featRows(
-  options: readonly SheetFeatOption[],
+  options: ReadonlyArray<SheetFeatOption>,
   { translate, trainedAgain }: FeatRowReads,
   hidden: ReadonlySet<string> = new Set(),
-): readonly FeatPickerRow[] {
+): ReadonlyArray<FeatPickerRow> {
   const shown = options.filter((option) => !hidden.has(option.value));
   const marks = trainedAgain(shown.map((option) => option.value));
 

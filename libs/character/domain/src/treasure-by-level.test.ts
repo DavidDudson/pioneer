@@ -12,7 +12,7 @@ const LEVEL_TWENTY_GP = 112_000;
 const PAIRS_FROM = 1;
 
 /** The values that are worth less than the one before. */
-function falls(table: readonly number[]): readonly number[] {
+function falls(table: ReadonlyArray<number>): ReadonlyArray<number> {
   return table.filter((value, index) => value < (table[index - PAIRS_FROM] ?? value));
 }
 

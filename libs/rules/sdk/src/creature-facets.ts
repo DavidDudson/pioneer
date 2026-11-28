@@ -27,7 +27,7 @@ const SIZE_LABELS = facetLabels({
  * What the bestiary filters on besides the common level, rarity and traits (a creature's type is one of its traits):
  * monster or NPC, and size.
  */
-export const CREATURE_FACETS: readonly FacetDefinition[] = [
+export const CREATURE_FACETS: ReadonlyArray<FacetDefinition> = [
   {
     id: FacetId.parse('role'),
     type: FacetType.Set,

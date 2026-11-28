@@ -21,9 +21,9 @@ export interface AttachRow {
 
 /** The rows of `characters`, their ancestry and class named by `nameOf`. */
 export function attachRows(
-  characters: readonly OwnedCharacter[],
+  characters: ReadonlyArray<OwnedCharacter>,
   nameOf: (id: string | undefined) => string,
-): readonly AttachRow[] {
+): ReadonlyArray<AttachRow> {
   return characters.map((character) => ({
     characterId: character.characterId,
     name: character.name,
@@ -45,10 +45,10 @@ const columnOrder: ReadonlyMap<string, ColumnOrder> = new Map<string, ColumnOrde
 
 /** The rows whose name, ancestry or class hold `query`, in the order asked for, then by name. */
 export function shownAttachRows(
-  rows: readonly AttachRow[],
+  rows: ReadonlyArray<AttachRow>,
   query: string,
   sort: PickerSort | undefined,
-): readonly AttachRow[] {
+): ReadonlyArray<AttachRow> {
   const needle = query.trim().toLocaleLowerCase();
 
   const matching = rows.filter((row) =>
@@ -67,7 +67,7 @@ export function shownAttachRows(
 }
 
 /** The columns of the attach picker: the character, its ancestry and class as chips, and its level. */
-export function attachColumns(headers: AttachHeaders): readonly TableColumn<AttachRow>[] {
+export function attachColumns(headers: AttachHeaders): ReadonlyArray<TableColumn<AttachRow>> {
   return new RulesTableSchema<AttachRow>()
     .addText({ id: 'name', header: headers.name, value: (row) => row.name, width: 'md' })
     .addTag({ id: 'ancestry', header: headers.ancestry, value: (row) => ({ label: row.ancestry }), width: 'sm' })

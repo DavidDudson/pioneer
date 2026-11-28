@@ -105,7 +105,10 @@ export class DatabasePartyStash extends PartyStashKeeper {
     this.#clock = clock;
   }
 
-  public override async view(campaign: CampaignId, party: readonly CampaignCharacterId[]): Promise<PartyStashContents> {
+  public override async view(
+    campaign: CampaignId,
+    party: ReadonlyArray<CampaignCharacterId>,
+  ): Promise<PartyStashContents> {
     const stored = await new DrizzlePartyStashRepository(this.#db, this.#clock).load(campaign);
     const [via] = party;
     const characters = new CharacterPartyStash(new DrizzleCharacterRepository(this.#db), this.#content, this.#clock);

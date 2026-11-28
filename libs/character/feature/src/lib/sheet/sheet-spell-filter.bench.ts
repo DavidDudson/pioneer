@@ -24,7 +24,7 @@ const FILTER_BUDGET_MS = 1.5;
 const GROUPS_BUDGET_MS = 3;
 
 /** A thousand spells spread over the sources, traits, damage types and targets. */
-function spells(): readonly SourcedSpell[] {
+function spells(): ReadonlyArray<SourcedSpell> {
   return Array.from({ length: SPELLS }, (_value, index): SourcedSpell => {
     const name = `Spell ${index}`;
 

@@ -17,7 +17,7 @@ interface MappingFile {
   readonly json: unknown;
 }
 
-async function mappingFiles(): Promise<readonly MappingFile[]> {
+async function mappingFiles(): Promise<ReadonlyArray<MappingFile>> {
   const files = await Array.fromAsync(new Glob('*.json').scan({ cwd: ENRICHMENT }));
 
   return Promise.all(
@@ -34,7 +34,7 @@ async function mappingFiles(): Promise<readonly MappingFile[]> {
 function problems(
   { pack, json }: MappingFile,
   slugsByPack: ReadonlyMap<string, ReadonlySet<EntrySlug>>,
-): readonly unknown[] {
+): ReadonlyArray<unknown> {
   const slugs = slugsByPack.get(pack);
 
   return slugs === undefined

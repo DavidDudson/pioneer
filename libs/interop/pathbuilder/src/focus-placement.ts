@@ -24,7 +24,7 @@ interface Placed {
 /** The picks that make the character's focus entries have the focus spells an export lists, and those they still lack. */
 export interface FocusPlacement {
   readonly choices: SpellPicks;
-  readonly gaps: readonly SpellGap[];
+  readonly gaps: ReadonlyArray<SpellGap>;
 }
 
 /** The character's focus spells and focus pool as the engine reads them from the features that grant them (ADR-0050). */
@@ -45,12 +45,12 @@ interface Listed {
 }
 
 /** The names a list holds, trimmed, without the empty ones. */
-function named(names: readonly string[]): PathbuilderName[] {
+function named(names: ReadonlyArray<string>): Array<PathbuilderName> {
   return names.flatMap((name) => (name.trim() === '' ? [] : [PathbuilderName.parse(name.trim())]));
 }
 
 /** The focus cantrips and focus spells Pathbuilder lists that matched content. */
-function listed(value: PathbuilderImport, content: SpellPlacementContent): Listed[] {
+function listed(value: PathbuilderImport, content: SpellPlacementContent): Array<Listed> {
   return Object.entries(value.reported.focus).flatMap(([tradition, byAttribute]) =>
     Object.entries(byAttribute).flatMap(([attribute, listing]) => {
       const caster = PathbuilderName.parse(`${tradition} ${attribute} focus`);
@@ -61,7 +61,7 @@ function listed(value: PathbuilderImport, content: SpellPlacementContent): Liste
       ];
 
       return lists.flatMap(({ cantrip, names }) =>
-        names.flatMap((name): Listed[] => {
+        names.flatMap((name): Array<Listed> => {
           const match = content.lookup.resolve(ImportKind.Spell, name);
 
           return match === undefined
@@ -146,7 +146,7 @@ function mayGiveFocus(content: SpellPlacementContent, [, value]: ChoicePick): bo
 }
 
 /** The label of the option a pick answers with, among the document's open choices. */
-function labelOf(open: readonly ChoiceSlot[], [key, value]: ChoicePick): string | undefined {
+function labelOf(open: ReadonlyArray<ChoiceSlot>, [key, value]: ChoicePick): string | undefined {
   return open.find((slot) => slot.key === key)?.options.find((option) => option.value === value)?.label;
 }
 
@@ -154,7 +154,7 @@ function labelOf(open: readonly ChoiceSlot[], [key, value]: ChoicePick): string 
  * The open choice option that gives the character one of the `left` spells, if any does: the first, unless the export
  * names another (Cultivation Order is a variant of Leaf Order and gives the same order spell).
  */
-function helpful(placed: Placed, content: SpellPlacementContent, left: readonly Listed[]): ChoicePick | undefined {
+function helpful(placed: Placed, content: SpellPlacementContent, left: ReadonlyArray<Listed>): ChoicePick | undefined {
   const { document, exported } = placed;
 
   const helping = openPicks(document, content, (slot) => answersFocus(content, slot)).filter((pick) => {
@@ -179,7 +179,7 @@ function helpful(placed: Placed, content: SpellPlacementContent, left: readonly 
 }
 
 /** The picks that give the wanted spells, one choice at a time: each makes the character hold one more of them. */
-function pickChoices(placed: Placed, content: SpellPlacementContent, wanted: readonly Listed[]): Placed {
+function pickChoices(placed: Placed, content: SpellPlacementContent, wanted: ReadonlyArray<Listed>): Placed {
   const have = held(placed.document, content);
   const left = wanted.filter((spell) => !have.has(spell.key));
   const pick = left.length === 0 || placed.passes === 0 ? undefined : helpful(placed, content, left);
@@ -203,12 +203,16 @@ function pickChoices(placed: Placed, content: SpellPlacementContent, wanted: rea
 }
 
 /** The wanted spells the character still lacks, with why. */
-function lacking(document: CharacterDocument, content: SpellPlacementContent, wanted: readonly Listed[]): SpellGap[] {
+function lacking(
+  document: CharacterDocument,
+  content: SpellPlacementContent,
+  wanted: ReadonlyArray<Listed>,
+): Array<SpellGap> {
   const have = held(document, content);
   const { rank, entries } = documentFocus(document, content.slots);
   const homes = new Set(entries.map(({ entry }) => homeOf(entry.tradition, entry.attribute)));
 
-  return wanted.flatMap((spell): SpellGap[] =>
+  return wanted.flatMap((spell): Array<SpellGap> =>
     have.has(spell.key)
       ? []
       : [

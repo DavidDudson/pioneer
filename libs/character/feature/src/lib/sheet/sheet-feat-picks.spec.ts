@@ -27,9 +27,9 @@ const FIGHTER = ['fighter'];
 const FEAT_PACKS = cutTo(FEAT_CONTENT_KINDS);
 const FIGHTER_FEAT_1 = await classFeatSlotKey('fighter', 1);
 
-const prerequisites = (text: string): JsonObject[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
+const prerequisites = (text: string): Array<JsonObject> => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
-function keysOf(read: readonly { readonly key: string }[] | undefined): readonly string[] {
+function keysOf(read: ReadonlyArray<{ readonly key: string }> | undefined): ReadonlyArray<string> {
   return (read ?? []).map((each) => each.key);
 }
 
@@ -133,16 +133,16 @@ describe('feat pickers across a level change', () => {
 });
 
 interface Filtered {
-  readonly fields: Signal<readonly FeatField[]>;
+  readonly fields: Signal<ReadonlyArray<FeatField>>;
   readonly params: WritableSignal<QueryParams>;
-  readonly writes: Record<string, string | undefined>[];
+  readonly writes: Array<Record<string, string | undefined>>;
 }
 
 /** A fighter at 4th level whose pickers filter, with the URL's params and what was written to them. */
 async function filtered(params: QueryParams = {}): Promise<Filtered> {
   const registry = await gatedRegistry();
   const url = signal<QueryParams>(params);
-  const writes: Record<string, string | undefined>[] = [];
+  const writes: Array<Record<string, string | undefined>> = [];
 
   const sources: FeatPickSources = {
     registry: signal(registry),
@@ -174,7 +174,7 @@ async function filtered(params: QueryParams = {}): Promise<Filtered> {
 const fieldAt = (read: Filtered, key: string): FeatField | undefined =>
   read.fields().find((field) => field.key === key);
 
-const namesAt = (read: Filtered, key: string): readonly string[] =>
+const namesAt = (read: Filtered, key: string): ReadonlyArray<string> =>
   (fieldAt(read, key)?.rows() ?? []).map((row) => row.name);
 
 describe('feat picker filters', () => {

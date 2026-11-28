@@ -23,7 +23,7 @@ function timelineLine(slot: CharacterSlot, character: Character, content: SlotCo
 }
 
 /** One row per level from 1 to 20 with the slots it opens, the character's level marked (#491). */
-export function sheetTimeline(registry: ContentRegistry, character: Character): readonly LevelTimelineRow[] {
+export function sheetTimeline(registry: ContentRegistry, character: Character): ReadonlyArray<LevelTimelineRow> {
   const content = sheetSlotContent(registry);
   const automatic = sheetAutomatic(character, content);
 

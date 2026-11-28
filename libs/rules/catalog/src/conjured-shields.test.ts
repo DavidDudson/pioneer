@@ -4,7 +4,7 @@ import { ContentEntryFile, ContentKind, RuleElementKey } from '@pioneer/rules/sd
 import type { JsonObject } from '@pioneer/rules/sdk/testing';
 
 /** The `GrantShield` rules of the effect `slug` in `pack`. */
-async function shieldsOf(pack: string, slug: string): Promise<readonly JsonObject[]> {
+async function shieldsOf(pack: string, slug: string): Promise<ReadonlyArray<JsonObject>> {
   const file: unknown = await Bun.file(`${import.meta.dir}/../../../../content/packs/${pack}/effect.json`).json();
   const effect = ContentEntryFile.parse(file).find((entry) => entry.kind === ContentKind.Effect && entry.slug === slug);
 
@@ -12,7 +12,7 @@ async function shieldsOf(pack: string, slug: string): Promise<readonly JsonObjec
 }
 
 /** The rule elements of the effect `slug` in `pack`. */
-async function rulesOf(pack: string, slug: string): Promise<readonly JsonObject[]> {
+async function rulesOf(pack: string, slug: string): Promise<ReadonlyArray<JsonObject>> {
   const file: unknown = await Bun.file(`${import.meta.dir}/../../../../content/packs/${pack}/effect.json`).json();
 
   return (

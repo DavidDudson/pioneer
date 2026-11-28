@@ -81,7 +81,7 @@ function frequencyText(frequency: Frequency, words: StatBlockWords): string {
 }
 
 export function abilityLine(ability: CreatureAbility, words: StatBlockWords): AbilityLine {
-  const passages: StatPassage[] = [];
+  const passages: Array<StatPassage> = [];
 
   if (ability.requirements !== undefined) {
     passages.push({ label: words.translate(CreatureStatBlockMessage.Requirements), text: ability.requirements });
@@ -155,8 +155,11 @@ const textTag = (text: string): StrikeTag => ({ text, trait: undefined });
  * The bracketed list of a Strike: reach and range increment as text and each trait as a chip, joined as the locale's
  * list joins them ("(reach 5 ft, agile, finesse)").
  */
-function strikeTags({ reach, increment, traits }: StrikeQualifiers, words: StatBlockWords): readonly StrikeTag[] {
-  const text = [reach, increment].flatMap((each): readonly StrikeTag[] => (each === undefined ? [] : [textTag(each)]));
+function strikeTags({ reach, increment, traits }: StrikeQualifiers, words: StatBlockWords): ReadonlyArray<StrikeTag> {
+  const text = [reach, increment].flatMap((each): ReadonlyArray<StrikeTag> =>
+    each === undefined ? [] : [textTag(each)],
+  );
+
   const items = [...text, ...traits.map((trait): StrikeTag => ({ text: trait, trait }))];
 
   if (items.length === 0) {

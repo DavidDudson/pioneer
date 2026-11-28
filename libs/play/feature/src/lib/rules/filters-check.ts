@@ -22,14 +22,14 @@ export type FiltersStatus = ValueOf<typeof FiltersStatus>;
 interface KeptEntry {
   readonly name: ContentText;
   readonly kindKey: string;
-  readonly sources: readonly SourceRef[];
+  readonly sources: ReadonlyArray<SourceRef>;
 }
 
 export type FiltersCheck =
   | {
       readonly status: typeof FiltersStatus.Valid;
-      readonly counts: readonly FacetCounts[];
-      readonly kept: readonly KeptEntry[];
+      readonly counts: ReadonlyArray<FacetCounts>;
+      readonly kept: ReadonlyArray<KeptEntry>;
       readonly total: number;
       /** The query as the URL would hold it, in one canonical order, with what didn't read dropped. */
       readonly query: string;

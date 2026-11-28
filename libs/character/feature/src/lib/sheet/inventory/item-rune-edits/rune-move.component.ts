@@ -73,7 +73,7 @@ export class RuneMove {
   readonly #item: Signal<InventoryItem | undefined> = computed(() =>
     this.#store.selected()?.document.inventory.items.find((each) => each.id === this.id()),
   );
-  readonly #etched: Signal<readonly RuneRef[]> = computed(() => {
+  readonly #etched: Signal<ReadonlyArray<RuneRef>> = computed(() => {
     const item = this.#item();
 
     return item === undefined ? [] : etchedRunes(item, this.content().items.get(item.item));
@@ -122,7 +122,7 @@ export class RuneMove {
 
   /** The items the rune can move onto, by the names their rows show, so two longswords read apart, with their open slots. */
   protected readonly targets = new PickerRows<RuneTargetRow>(
-    computed((): readonly RuneTargetRow[] => {
+    computed((): ReadonlyArray<RuneTargetRow> => {
       this.#messages();
       const character = this.#store.selected();
       const names = this.#names();
@@ -133,7 +133,7 @@ export class RuneMove {
 
       const { inventory } = character.document;
 
-      return transferTargets(inventory, this.content(), this.id()).flatMap((id): RuneTargetRow[] => {
+      return transferTargets(inventory, this.content(), this.id()).flatMap((id): Array<RuneTargetRow> => {
         const item = inventory.items.find((each) => each.id === id);
         const entry = item === undefined ? undefined : this.content().items.get(item.item);
         const runed = runedItemOf(entry);

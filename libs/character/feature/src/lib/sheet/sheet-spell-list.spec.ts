@@ -12,23 +12,23 @@ interface Spell {
   readonly id: string;
   readonly name: string;
   readonly source: string;
-  readonly targetValues?: readonly TargetValue[];
+  readonly targetValues?: ReadonlyArray<TargetValue>;
 }
 
 function detail({ id, name, source, targetValues }: Spell): SpellDetailLine {
   return spellLine({ slug: id, name, source, targets: targetValues });
 }
 
-function focusOf(...spells: readonly SpellDetailLine[]): SpellOrigins['focus'] {
+function focusOf(...spells: ReadonlyArray<SpellDetailLine>): SpellOrigins['focus'] {
   return { entries: [{ key: 'focus', spells: spells.map((each) => ({ key: each.name, detail: each })) }] };
 }
 
-function innateOf(...spells: readonly SpellDetailLine[]): SpellOrigins['innate'] {
+function innateOf(...spells: ReadonlyArray<SpellDetailLine>): SpellOrigins['innate'] {
   return { entries: [{ key: 'innate', spells: spells.map((each) => ({ key: each.name, detail: each })) }] };
 }
 
 /** A prepared entry with a slot per spell; `undefined` is an empty slot. */
-function preparedOf(...slots: readonly (SpellDetailLine | undefined)[]): SpellOrigins['prepared'] {
+function preparedOf(...slots: ReadonlyArray<SpellDetailLine | undefined>): SpellOrigins['prepared'] {
   return [
     {
       preparation: SpellPreparation.Prepared,
@@ -46,7 +46,7 @@ function preparedOf(...slots: readonly (SpellDetailLine | undefined)[]): SpellOr
   ];
 }
 
-function namesOf(lines: readonly SpellRowLine[]): string[] {
+function namesOf(lines: ReadonlyArray<SpellRowLine>): Array<string> {
   return lines.map(({ detail: line }) => `${line.name} (${line.source})`);
 }
 

@@ -34,17 +34,17 @@ export interface ImportContext {
    * trait and ancestry). */
   readonly vocabularyPack: PackId;
   /** The run's target books, in the order given. */
-  readonly books: readonly BookId[];
+  readonly books: ReadonlyArray<BookId>;
   readonly config: FoundryConfig;
   readonly lang: FoundryLang;
   /** The entries of the other official packs (the target pack's own are replaced by the import). */
-  readonly known: readonly KnownEntry[];
+  readonly known: ReadonlyArray<KnownEntry>;
   /** The release's item documents, naming link targets outside the import; without them such links read as labels. */
-  readonly documents?: readonly PackDocument[];
+  readonly documents?: ReadonlyArray<PackDocument>;
   /** The release's journals, for the archetypes Foundry keeps as journal pages; without them none are imported. */
-  readonly journals?: readonly JournalDocument[];
+  readonly journals?: ReadonlyArray<JournalDocument>;
   /** The polymorph spells, feats and actions already committed in the target pack, which give their trait to effects. */
-  readonly polymorph?: readonly PolymorphSource[];
+  readonly polymorph?: ReadonlyArray<PolymorphSource>;
 }
 
 export interface ImportedEntry {
@@ -56,12 +56,12 @@ export interface ImportedEntry {
 
 export interface ImportTranslation {
   readonly envelopes: EnvelopeTranslation;
-  readonly entries: readonly ImportedEntry[];
+  readonly entries: ReadonlyArray<ImportedEntry>;
   /** Archetypes from the archetypes journal, whose dedications the import brings in. */
-  readonly archetypes: readonly ArchetypeEntry[];
-  readonly vocabulary: readonly VocabularyEntry[];
-  readonly vocabularyGaps: readonly VocabularyGap[];
-  readonly kindDataGaps: readonly KindDataGap[];
+  readonly archetypes: ReadonlyArray<ArchetypeEntry>;
+  readonly vocabulary: ReadonlyArray<VocabularyEntry>;
+  readonly vocabularyGaps: ReadonlyArray<VocabularyGap>;
+  readonly kindDataGaps: ReadonlyArray<KindDataGap>;
 }
 
 function knownOf({ envelope, kindData }: VocabularyEntry): KnownEntry {
@@ -69,7 +69,7 @@ function knownOf({ envelope, kindData }: VocabularyEntry): KnownEntry {
 }
 
 /** The traits Pioneer knows: its `trait` entries, by name. */
-function traitsOf(known: readonly KnownEntry[]): ReadonlySet<Trait> {
+function traitsOf(known: ReadonlyArray<KnownEntry>): ReadonlySet<Trait> {
   const entries = known.filter(({ kind }) => kind === ContentKind.Trait);
 
   return new Set(entries.map(({ slug }) => Trait.parse(slugName(slug))));
@@ -79,7 +79,7 @@ function importedEntry({ source, envelope, kindData }: ImportedEntry): ImportedE
   return { source, envelope, ...present({ kindData }) };
 }
 
-export function translateImport(selected: readonly SelectedEntry[], context: ImportContext): ImportTranslation {
+export function translateImport(selected: ReadonlyArray<SelectedEntry>, context: ImportContext): ImportTranslation {
   const { pack, vocabularyPack, known } = context;
   const vocabulary = importVocabulary(selected, { ...context, pack: vocabularyPack });
   const all = [...known, ...vocabulary.entries.map((entry) => knownOf(entry))];

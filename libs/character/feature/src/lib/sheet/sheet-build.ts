@@ -33,7 +33,7 @@ export const NOT_CHOSEN = '';
 export const RootPick = z.union([ChoiceValue, z.literal(NOT_CHOSEN)]);
 
 /** The name of the entry picked in `slot`, when the slot holds one it offers. */
-function picked(slots: readonly CharacterSlot[], slot: SlotKey): BuildValue | undefined {
+function picked(slots: ReadonlyArray<CharacterSlot>, slot: SlotKey): BuildValue | undefined {
   const found = slots.find((each) => each.key === slot);
 
   return found?.status === SlotStatus.Filled && found.selectionName !== undefined
@@ -68,7 +68,7 @@ export function traitNames(registry: ContentRegistry): ReadonlyMap<Trait, string
     new Map(
       registry.packs
         .flatMap((pack) => pack.otherEntries)
-        .flatMap((entry): [Trait, string][] =>
+        .flatMap((entry): Array<[Trait, string]> =>
           entry.kind === ContentKind.Trait ? [[Trait.parse(slugName(entry.slug)), entry.name]] : [],
         ),
     );
@@ -82,7 +82,7 @@ export function traitNames(registry: ContentRegistry): ReadonlyMap<Trait, string
  * Chips for `slugs`: each carries its slug, which opens its card, and its name where the vocabulary has one, else the
  * slug read as words (as it is without a registry, still loading).
  */
-export function traitChips(registry: ContentRegistry | undefined, slugs: readonly Trait[]): readonly Chip[] {
+export function traitChips(registry: ContentRegistry | undefined, slugs: ReadonlyArray<Trait>): ReadonlyArray<Chip> {
   const names = registry === undefined ? new Map<Trait, string>() : traitNames(registry);
 
   return slugs.map((trait): Chip => ({ label: names.get(trait) ?? humaniseTrait(trait), trait }));
@@ -106,8 +106,8 @@ function traits(registry: ContentRegistry, character: Character): BuildValue | u
 export function sheetBuildSummary(
   registry: ContentRegistry,
   character: Character,
-  slots: readonly CharacterSlot[],
-): readonly BuildLine[] {
+  slots: ReadonlyArray<CharacterSlot>,
+): ReadonlyArray<BuildLine> {
   const subclass = sheetSubclass(registry, character);
 
   return [
@@ -131,7 +131,7 @@ export function sheetRootOptions(
   registry: ContentRegistry,
   character: Character,
   slot: SlotKey,
-): readonly SelectOption<string>[] {
+): ReadonlyArray<SelectOption<string>> {
   const options = rootSlotOptions(character.document, sheetSlotContent(registry), slot);
 
   return options.map((option) => ({ value: option.value, label: option.label }));
@@ -142,7 +142,7 @@ export interface SheetSubclass {
   readonly key: SlotKey;
   /** What the class calls it, from the entry that asks: "Druidic Order", "Muse", "Doctrine". */
   readonly name: string | undefined;
-  readonly options: readonly SelectOption<string>[];
+  readonly options: ReadonlyArray<SelectOption<string>>;
 }
 
 /**
@@ -170,7 +170,7 @@ export function sheetSubclass(
 /** The class's key attribute slot and the attributes it allows; undefined when the class allows only one. */
 export interface SheetKeyAttribute {
   readonly key: SlotKey;
-  readonly options: readonly Attribute[];
+  readonly options: ReadonlyArray<Attribute>;
 }
 
 /** The class's key attribute slot (the second class's for `BoostSource.SecondClass`); undefined when it allows one. */

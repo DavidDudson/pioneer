@@ -20,7 +20,7 @@ const levels = integer({ min: 1, max: 20 });
 const SLOTS_MAX = 40;
 
 /** `length` picks, each an attribute or nothing. */
-function attributePicks(length: number): Arbitrary<(Attribute | undefined)[]> {
+function attributePicks(length: number): Arbitrary<Array<Attribute | undefined>> {
   return tuple(...Array.from({ length }, () => option(constantFrom(...ATTRIBUTES), { nil: undefined })));
 }
 
@@ -34,8 +34,8 @@ interface Generated {
   readonly ancestry: string;
   readonly characterClass: string;
   readonly level: number;
-  readonly chosen: readonly (Attribute | undefined)[];
-  readonly flaws: readonly (Attribute | undefined)[];
+  readonly chosen: ReadonlyArray<Attribute | undefined>;
+  readonly flaws: ReadonlyArray<Attribute | undefined>;
 }
 
 /**

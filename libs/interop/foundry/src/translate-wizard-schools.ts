@@ -4,7 +4,7 @@ import { WIZARD, WIZARD_ENTRY } from './focus-plan';
 import type { Grant, Planned } from './focus-plan';
 
 /** A wizard's school by its feature's slug, its name, and its initial and advanced school spells. */
-export const SCHOOLS: readonly (readonly [string, string, string, string])[] = [
+export const SCHOOLS: ReadonlyArray<readonly [string, string, string, string]> = [
   ['school-of-ars-grammatica', 'School of Ars Grammatica', 'protective-wards', 'rune-of-observation'],
   ['school-of-battle-magic', 'School of Battle Magic', 'force-bolt', 'energy-absorption'],
   ['school-of-civic-wizardry', 'School of Civic Wizardry', 'earthworks', 'community-restoration'],

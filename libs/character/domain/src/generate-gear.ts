@@ -54,7 +54,7 @@ interface Shop {
 
 /** What one purchase is for: the kinds to pick from, the share of the coins left it may cost, and whether it is used. */
 interface Want {
-  readonly kinds: readonly ContentKind[];
+  readonly kinds: ReadonlyArray<ContentKind>;
   /** The purchase costs at most this fraction's worth of the coins left: 3 is a third. */
   readonly share: Share;
   /** Whether the item is worn or held as it is used, rather than stowed. */
@@ -191,7 +191,7 @@ function wornWeapon(entry: ItemEntry): boolean {
  * The items `character` may buy for `want` with at most `cap`: common, no higher in level than it, and priced. A
  * weapon bought for use is one it can hold.
  */
-function candidates({ character, want }: Buying, cap: CopperValue, shop: Shop): readonly ItemEntry[] {
+function candidates({ character, want }: Buying, cap: CopperValue, shop: Shop): ReadonlyArray<ItemEntry> {
   const owned = new Set<ContentId>(character.document.inventory.items.map((line) => line.item));
 
   return [...shop.items.values()].filter((entry) => {
@@ -216,7 +216,7 @@ function candidates({ character, want }: Buying, cap: CopperValue, shop: Shop): 
 const LEVEL_BAND = 2;
 
 /** The items within `LEVEL_BAND` levels of the highest in `offer`. */
-function topOf(offer: readonly ItemEntry[]): readonly ItemEntry[] {
+function topOf(offer: ReadonlyArray<ItemEntry>): ReadonlyArray<ItemEntry> {
   const best = Math.max(...offer.map((entry) => entry.level), 0);
 
   return offer.filter((entry) => entry.level + LEVEL_BAND >= best);

@@ -48,7 +48,7 @@ export const EntryIdentityJson = z.looseObject({ id: z.string(), pack: z.string(
 const ImplyingData = z.looseObject({ implies: z.array(z.json()).optional() });
 
 /** A condition grants each condition it implies; other kinds have no `implies`, so nothing. */
-export function impliedGrants(data: JsonObject): JsonObject[] {
+export function impliedGrants(data: JsonObject): Array<JsonObject> {
   const { implies = [] } = ImplyingData.parse(data);
 
   return implies.map((item) => ({ key: 'GrantItem', item }));

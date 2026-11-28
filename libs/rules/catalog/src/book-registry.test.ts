@@ -32,7 +32,7 @@ function playerCore(overrides: JsonObject = {}): BookFixture {
   };
 }
 
-function registryIssues(input: readonly BookFixture[]): readonly FieldIssue[] {
+function registryIssues(input: ReadonlyArray<BookFixture>): ReadonlyArray<FieldIssue> {
   try {
     BookRegistry.parse(z.json().parse(input));
 

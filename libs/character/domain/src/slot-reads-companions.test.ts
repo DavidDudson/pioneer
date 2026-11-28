@@ -16,7 +16,7 @@ const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const { document } = new CharacterBuilder().build();
 const FAMILIAR = companionRollOption(CompanionKind.Familiar);
 
-const optionsWith = (kinds: readonly CompanionKind[]): readonly string[] =>
+const optionsWith = (kinds: ReadonlyArray<CompanionKind>): ReadonlyArray<string> =>
   resolveSlotsAt(Level.parse(1), slotContextOf(document, withCompanions(content, kinds))).rollOptions.map(String);
 
 describe('slot reads with companions', () => {

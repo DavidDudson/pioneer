@@ -43,8 +43,8 @@ function targetOf(patch: CharacterPatch): string {
  * edit of the same field, slot or item. An edit to something else leaves it showing.
  */
 export class EditTracker {
-  readonly #inFlight = signal<readonly SentEdit[]>([]);
-  readonly #failed = signal<readonly FailedEdit[]>([]);
+  readonly #inFlight = signal<ReadonlyArray<SentEdit>>([]);
+  readonly #failed = signal<ReadonlyArray<FailedEdit>>([]);
   /** The latest edit saved per character and target, so an older edit failing after it is already superseded. */
   readonly #lastSaved = new Map<string, number>();
   #sent = 0;

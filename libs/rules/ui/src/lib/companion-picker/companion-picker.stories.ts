@@ -6,7 +6,7 @@ import type { CompanionSpeciesOption } from './companion-picker.component';
 
 type CompanionPickerStory = StoryObj<CompanionPicker>;
 
-const SPECIES: readonly CompanionSpeciesOption[] = [
+const SPECIES: ReadonlyArray<CompanionSpeciesOption> = [
   { value: 'companion:bear', label: 'Bear' },
   { value: 'companion:wolf', label: 'Wolf' },
   { value: 'companion:horse', label: 'Horse' },

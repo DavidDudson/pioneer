@@ -22,7 +22,7 @@ export interface OverrideRow {
   readonly name: string;
   readonly current: OverrideState;
   /** The states edits replaced, newest first. */
-  readonly history: readonly OverrideState[];
+  readonly history: ReadonlyArray<OverrideState>;
 }
 
 /** What a row needs to word a state; the caller owns the locale and the messages. */
@@ -47,7 +47,7 @@ function stateOf(
 }
 
 /** The character's overrides in force, in the order they were added, each with the edits it has had. */
-export function overrideRows(character: Character, words: OverrideWords): readonly OverrideRow[] {
+export function overrideRows(character: Character, words: OverrideWords): ReadonlyArray<OverrideRow> {
   return activeOverrides(character.document).map((override) => ({
     override,
     name: words.statisticName(override),

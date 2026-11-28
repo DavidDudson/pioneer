@@ -26,7 +26,14 @@ const GRANT_MAINTAINER_COMMAND = 'grant-maintainer';
 
 /** Where `grant-maintainer` finds the account id: `bun main.ts grant-maintainer <id>`. */
 const USER_ID_ARGUMENT = 3;
-const COMMANDS: readonly string[] = [MIGRATE_COMMAND, CONTENT_SEED_COMMAND, HEALTH_COMMAND, GRANT_MAINTAINER_COMMAND];
+
+const COMMANDS: ReadonlyArray<string> = [
+  MIGRATE_COMMAND,
+  CONTENT_SEED_COMMAND,
+  HEALTH_COMMAND,
+  GRANT_MAINTAINER_COMMAND,
+];
+
 const HEALTH_TIMEOUT = 5000;
 
 function log(line: string): void {

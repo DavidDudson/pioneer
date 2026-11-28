@@ -12,8 +12,8 @@ import type { ContentLookup, ImportedFeat, PathbuilderName } from '@pioneer/inte
 import { ContentId } from '@pioneer/rules/sdk';
 
 /** The content `names` match, each once; a name that matched none is left out. */
-function kept(kind: ImportKind, names: readonly PathbuilderName[], lookup: ContentLookup): ContentId[] {
-  const ids = names.flatMap((name): ContentId[] => {
+function kept(kind: ImportKind, names: ReadonlyArray<PathbuilderName>, lookup: ContentLookup): Array<ContentId> {
+  const ids = names.flatMap((name): Array<ContentId> => {
     const match = lookup.resolve(kind, name);
 
     return match === undefined ? [] : [ContentId.parse(match.id)];
@@ -24,15 +24,15 @@ function kept(kind: ImportKind, names: readonly PathbuilderName[], lookup: Conte
 
 /** What an import found that the build keeps: the feats and spells no slot took, the languages, the rituals, the class features and the deity. */
 export interface ImportedPicks {
-  readonly feats: readonly ImportedFeat[];
-  readonly languages: readonly PathbuilderName[];
+  readonly feats: ReadonlyArray<ImportedFeat>;
+  readonly languages: ReadonlyArray<PathbuilderName>;
   /** The languages no loaded content defines, kept by name. */
-  readonly customLanguages: readonly PathbuilderName[];
-  readonly rituals: readonly PathbuilderName[];
-  readonly classFeatures: readonly PathbuilderName[];
+  readonly customLanguages: ReadonlyArray<PathbuilderName>;
+  readonly rituals: ReadonlyArray<PathbuilderName>;
+  readonly classFeatures: ReadonlyArray<PathbuilderName>;
   readonly deity: PathbuilderName | undefined;
   /** The spells no prepared, repertoire or innate slot took. */
-  readonly spells: readonly PathbuilderName[];
+  readonly spells: ReadonlyArray<PathbuilderName>;
 }
 
 /**

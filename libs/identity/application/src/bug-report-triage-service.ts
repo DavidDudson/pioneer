@@ -22,7 +22,7 @@ export class BugReportTriageService {
   }
 
   /** The newest reports, newest first. */
-  public async list(actor: UserId): Promise<BugReportListItem[]> {
+  public async list(actor: UserId): Promise<Array<BugReportListItem>> {
     await this.#requireMaintainer(actor);
 
     return this.#reports.list(BUG_REPORT_LIST_LIMIT);

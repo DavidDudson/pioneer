@@ -42,7 +42,7 @@ const POLYMORPH = Trait.parse('polymorph');
  * Whether an effect is a polymorph effect: it has the trait, or sets a battle form. Foundry's spell effects (Plant Form,
  * Dragon Form) carry no traits, only the `BattleForm` rule.
  */
-export function isPolymorphEntry(traits: readonly Trait[], rules: readonly RuleElement[]): boolean {
+export function isPolymorphEntry(traits: ReadonlyArray<Trait>, rules: ReadonlyArray<RuleElement>): boolean {
   return traits.includes(POLYMORPH) || rules.some(({ key }) => key === RuleElementKey.BattleForm);
 }
 
@@ -279,8 +279,8 @@ export function effectContent(registry: ContentRegistry): EffectContent {
  * `self:effect:<slug>:badge:<value>` for each effect whose badge shows a number, so a rule can ask how far it has
  * counted (Shield (Amped) keeps its AC bonus while all three layers stand).
  */
-export function badgeOptions(effects: readonly ActiveEffect[], lookup: ContentLookup): readonly RollOption[] {
-  return effects.flatMap(({ effect, badge }): RollOption[] => {
+export function badgeOptions(effects: ReadonlyArray<ActiveEffect>, lookup: ContentLookup): ReadonlyArray<RollOption> {
+  return effects.flatMap(({ effect, badge }): Array<RollOption> => {
     const found = lookup.entry(effect);
     const base = found === undefined ? undefined : kindOption(found.kind, found.slug);
 
@@ -292,7 +292,7 @@ export function badgeOptions(effects: readonly ActiveEffect[], lookup: ContentLo
  * The effects as roots of the effective set, each behind an effect hop, so their modifiers show in breakdowns until
  * they end. The hop carries no badge yet, so a badge changes what the sheet shows but not what the effect grants.
  */
-export function effectRoots(effects: readonly ActiveEffect[]): readonly GrantRoot[] {
+export function effectRoots(effects: ReadonlyArray<ActiveEffect>): ReadonlyArray<GrantRoot> {
   return effects.map(({ effect, rank, tradition }): GrantRoot => {
     const hop: OriginHop = { kind: OriginHopKind.Effect, effect };
 

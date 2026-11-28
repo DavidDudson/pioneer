@@ -48,7 +48,7 @@ export interface CompanionLine {
 /** A derived statistic: its total, and the lines that add up to it. */
 export interface CompanionStatistic {
   readonly total: Modifier;
-  readonly lines: readonly CompanionLine[];
+  readonly lines: ReadonlyArray<CompanionLine>;
 }
 
 /** An unarmed attack as the companion makes it: the roll, and the damage it deals. */
@@ -66,17 +66,17 @@ export interface CompanionStatistics {
   readonly size: Size;
   readonly speed: Feet;
   readonly movement: CompanionMovements;
-  readonly senses: readonly ContentText[];
-  readonly special: readonly ContentText[];
+  readonly senses: ReadonlyArray<ContentText>;
+  readonly special: ReadonlyArray<ContentText>;
   readonly attributes: Readonly<Record<Attribute, CompanionStatistic>>;
-  readonly hitPoints: { readonly total: HitPoints; readonly lines: readonly CompanionLine[] };
+  readonly hitPoints: { readonly total: HitPoints; readonly lines: ReadonlyArray<CompanionLine> };
   readonly armorClass: CompanionStatistic;
   readonly fortitude: CompanionStatistic;
   readonly reflex: CompanionStatistic;
   readonly will: CompanionStatistic;
   readonly perception: CompanionStatistic;
   readonly skills: Readonly<Partial<Record<CompanionSkillName, CompanionStatistic>>>;
-  readonly strikes: readonly CompanionStrike[];
+  readonly strikes: ReadonlyArray<CompanionStrike>;
 }
 
 /** What a companion's statistics derive from: its master's level and proficiency bonuses, its species and its tiers. */

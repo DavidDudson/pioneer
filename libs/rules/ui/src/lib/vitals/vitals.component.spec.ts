@@ -8,7 +8,7 @@ import { FIGHTER_VITALS } from '../testing/vitals-fixtures';
 import type { Vital } from './vital';
 import { VitalsView } from './vitals.component';
 
-async function render(vitals: readonly Vital[] | undefined): Promise<HTMLElement> {
+async function render(vitals: ReadonlyArray<Vital> | undefined): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(VitalsView);
   fixture.componentRef.setInput('vitals', vitals);

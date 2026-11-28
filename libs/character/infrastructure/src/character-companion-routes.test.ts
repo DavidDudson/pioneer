@@ -106,7 +106,7 @@ describe('character companion routes', () => {
 
     expect(added.status).toBe(200);
     // SAFETY: the list endpoint answers with the companions, of which the test reads the name and kind.
-    const { companions } = (await listed.json()) as { companions: { name: string; kind: string }[] };
+    const { companions } = (await listed.json()) as { companions: Array<{ name: string; kind: string }> };
     expect(companions.map((each) => [each.name, each.kind])).toStrictEqual([['Pip', 'familiar']]);
   });
 

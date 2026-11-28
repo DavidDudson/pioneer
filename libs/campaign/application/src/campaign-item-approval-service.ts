@@ -109,8 +109,8 @@ export class CampaignItemApprovalService {
       this.#approvals.listForCampaign(campaign.id),
     ]);
 
-    const approvedItems: ApprovedItem[] = [];
-    const open: FlaggedItem[] = [];
+    const approvedItems: Array<ApprovedItem> = [];
+    const open: Array<FlaggedItem> = [];
 
     for (const item of flagged) {
       const covering = approvals.find((approval) => approves(approval, item));

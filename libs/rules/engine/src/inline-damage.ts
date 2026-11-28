@@ -33,7 +33,7 @@ function tagged(term: Term, { damageType, category }: DamageInstance): Term {
  * Without a character (`inputs` unset) only a formula with no references resolves. Never throws.
  */
 export function resolveDamageNode(node: DamageNode, inputs: StatisticInputs | undefined): ResolvedDamageNode {
-  const terms: Term[] = [];
+  const terms: Array<Term> = [];
 
   for (const instance of node.instances) {
     if (inputs === undefined && instance.formula.includes(REFERENCE)) {

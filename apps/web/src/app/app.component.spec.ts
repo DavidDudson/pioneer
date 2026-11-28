@@ -55,7 +55,7 @@ async function answerMe(fixture: ComponentFixture<App>, status: number, body: Me
 }
 
 /** Labels of the shell's buttons. */
-function buttonLabels(element: HTMLElement): string[] {
+function buttonLabels(element: HTMLElement): Array<string> {
   return [...element.querySelectorAll('button')].map((button) => button.textContent.trim());
 }
 

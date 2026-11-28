@@ -42,7 +42,7 @@ const HEAL = entry('spell:heal', 'Heal', {
 interface ListJson extends JsonObject {
   readonly type: string;
   readonly ordered: boolean;
-  readonly items: readonly (readonly JsonObject[])[];
+  readonly items: ReadonlyArray<ReadonlyArray<JsonObject>>;
 }
 
 const list = (words: string): ListJson => ({
@@ -78,7 +78,7 @@ function staff(slug: string, words: string, data: JsonObject = {}): object {
 }
 
 /** The file after the pass, with matches read from its own entries. */
-function enrich(file: readonly object[]): readonly unknown[] | undefined {
+function enrich(file: ReadonlyArray<object>): ReadonlyArray<unknown> | undefined {
   const matches = staffMatches(ContentEntryFile.parse(file));
 
   return enrichStaffFile(file, new Map(matches.map((match) => [match.entry, match.staff])));

@@ -8,7 +8,7 @@ import { browseSources, storeLinks } from './entry-sources';
 
 const PACK = new ContentPackBuilder().withId('sources-test').withFeat('sudden-charge').build();
 
-function entryCiting(...sources: readonly SourceRef[]): ContentEntry {
+function entryCiting(...sources: ReadonlyArray<SourceRef>): ContentEntry {
   const [first] = PACK.otherEntries;
 
   if (first === undefined) {

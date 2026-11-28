@@ -24,7 +24,7 @@ describe('RollOption from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         key: RuleElementKey.RollOption,
         display: { label: 'Divine Spark' },
@@ -45,7 +45,7 @@ describe('RollOption from Foundry', () => {
 
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         key: RuleElementKey.RollOption,
         option: 'target:condition:off-guard',
@@ -66,7 +66,7 @@ describe('RollOption from Foundry', () => {
 
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       { key: RuleElementKey.RollOption, domain: 'skill:performance', option: 'option:playing', toggleable: true },
     ]);
   });
@@ -89,7 +89,7 @@ describe('RollOption from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         key: RuleElementKey.RollOption,
         domain: 'damage',

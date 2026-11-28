@@ -18,8 +18,8 @@ import type { ShopOrderModel } from './shop-order-form';
 
 /** What the bill shows: the cost of the quantity picked, the character's coins, and whether they cover it. */
 interface Bill {
-  readonly cost: readonly CoinCount[];
-  readonly coins: readonly CoinCount[];
+  readonly cost: ReadonlyArray<CoinCount>;
+  readonly coins: ReadonlyArray<CoinCount>;
   readonly affordable: boolean;
 }
 

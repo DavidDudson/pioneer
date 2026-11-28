@@ -31,9 +31,9 @@ const raging = inPlay({ ...flatModifier('status', 2, ['perception']), ...KNOWN_F
 const always = inPlay(flatModifier('item', 1, ['perception']), 'lenses');
 
 function derived(
-  rules: readonly RuleInPlay[],
-  situation: readonly RuleId[] = [],
-  options: readonly string[] = [],
+  rules: ReadonlyArray<RuleInPlay>,
+  situation: ReadonlyArray<RuleId> = [],
+  options: ReadonlyArray<string> = [],
 ): StatisticValue {
   const result = deriveStatistics(
     { definitions: [perception], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
@@ -111,7 +111,7 @@ describe('rollSituation', () => {
       ruleIdOf(forest),
       ruleIdOf(vsUndead),
     ]);
-    const options: string[] = [...situation.options].toSorted();
+    const options: Array<string> = [...situation.options].toSorted();
     expect(options).toStrictEqual(['self:effect:rage', 'target:trait:undead', 'terrain:forest']);
   });
 

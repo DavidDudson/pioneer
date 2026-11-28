@@ -115,7 +115,7 @@ describe('bug report triage routes', () => {
     const response = await call(setup.api, { method: 'GET', path: '/bug-reports', user: setup.maintainer });
     expect(response.status).toBe(200);
     // SAFETY: the triage list route answers with one item per report, each carrying `id` and `hasSnapshot`; the status is asserted above.
-    const items = (await response.json()) as { id: string; hasSnapshot: boolean }[];
+    const items = (await response.json()) as Array<{ id: string; hasSnapshot: boolean }>;
     expect(items.map(({ id }) => id)).toStrictEqual([setup.newer.id, setup.older.id]);
     expect(items.map(({ hasSnapshot }) => hasSnapshot)).toStrictEqual([true, false]);
   });

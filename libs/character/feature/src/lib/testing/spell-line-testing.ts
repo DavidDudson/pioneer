@@ -12,9 +12,9 @@ export interface SpellLineFields {
   readonly slug: string;
   readonly name: string;
   readonly source?: string | undefined;
-  readonly targets?: readonly TargetValue[] | undefined;
-  readonly traits?: readonly string[] | undefined;
-  readonly damage?: readonly DamageType[] | undefined;
+  readonly targets?: ReadonlyArray<TargetValue> | undefined;
+  readonly traits?: ReadonlyArray<string> | undefined;
+  readonly damage?: ReadonlyArray<DamageType> | undefined;
   readonly cost?: SpellDetailLine['cost'] | undefined;
 }
 

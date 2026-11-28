@@ -9,7 +9,7 @@ export type SingleSpellCostLine =
 
 /** What casting costs: one way, or several the caster picks from ("2 actions or 2 rounds"). */
 export type SpellCostLine =
-  SingleSpellCostLine | { readonly kind: 'either'; readonly options: readonly SingleSpellCostLine[] };
+  SingleSpellCostLine | { readonly kind: 'either'; readonly options: ReadonlyArray<SingleSpellCostLine> };
 
 /** One part of a spell's damage or healing, worded: "6d6 fire", "2d8 healing". */
 export interface SpellEffectLine {
@@ -29,7 +29,7 @@ export interface SpellFieldsLine {
   readonly defence: string | undefined;
   readonly duration: string | undefined;
   /** Its damage and healing at the cast rank. */
-  readonly effects: readonly SpellEffectLine[];
+  readonly effects: ReadonlyArray<SpellEffectLine>;
 }
 
 /** A variant of a spell (Heal's three versions), under its name. */
@@ -45,14 +45,14 @@ export interface SpellDetailLine extends SpellFieldsLine {
   /** The rank it is cast at: heightened to the slot's. */
   readonly rank: SpellRank;
   /** What it targets as the spell facets sort it: one target, several, allies, itself or nothing. */
-  readonly targetValues: readonly TargetValue[];
+  readonly targetValues: ReadonlyArray<TargetValue>;
   /** It counteracts (Dispel Magic). */
   readonly counteract: boolean;
   /** Badges, as message keys: "Cantrip", "Focus", "Signature". */
-  readonly tags: readonly string[];
+  readonly tags: ReadonlyArray<string>;
   /** Its traits, named. */
-  readonly traits: readonly Chip[];
+  readonly traits: ReadonlyArray<Chip>;
   /** Where it comes from, worded ("Animist spellcasting", a feat or an item); absent when the list says so already. */
   readonly source: string | undefined;
-  readonly variants: readonly SpellVariantLine[];
+  readonly variants: ReadonlyArray<SpellVariantLine>;
 }

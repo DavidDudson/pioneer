@@ -19,12 +19,12 @@ export const BROWSE_KINDS = [
   ContentKind.Statistic,
   ContentKind.Treasure,
   ContentKind.Weapon,
-] as const satisfies readonly RegisteredKind[];
+] as const satisfies ReadonlyArray<RegisteredKind>;
 
 export type BrowseKind = (typeof BROWSE_KINDS)[number];
 
 /** What the list shows when the link names no kind. */
-export const DEFAULT_KINDS: readonly BrowseKind[] = [ContentKind.Feat];
+export const DEFAULT_KINDS: ReadonlyArray<BrowseKind> = [ContentKind.Feat];
 
 /** The message key of each kind's name, spelled out in full so the key check sees them. */
 export const KIND_MESSAGES: Readonly<Record<BrowseKind, string>> = {
@@ -48,7 +48,7 @@ export const KIND_PARAM = 'kind';
 const KIND_SEPARATOR = ',';
 
 /** The kinds a link names, in browser order; unknown ones are dropped, and none left means the default. */
-export function kindsFromQuery(text: QueryText): readonly BrowseKind[] {
+export function kindsFromQuery(text: QueryText): ReadonlyArray<BrowseKind> {
   const first = firstQueryText(text);
   const named = new Set(first?.split(KIND_SEPARATOR));
   const kinds = BROWSE_KINDS.filter((kind) => named.has(kind));
@@ -57,7 +57,7 @@ export function kindsFromQuery(text: QueryText): readonly BrowseKind[] {
 }
 
 /** The query value for `kinds`. */
-export function kindsToQuery(kinds: readonly BrowseKind[]): string {
+export function kindsToQuery(kinds: ReadonlyArray<BrowseKind>): string {
   return BROWSE_KINDS.filter((kind) => kinds.includes(kind)).join(KIND_SEPARATOR);
 }
 
@@ -65,14 +65,14 @@ export function kindsToQuery(kinds: readonly BrowseKind[]): string {
  * The facets for a list of `kinds`: the common ones and each kind's. A facet that reads only some kinds (weapon group)
  * is left out unless the list holds one of them.
  */
-export function facetsOf(kinds: readonly BrowseKind[]): readonly FacetDefinition[] {
+export function facetsOf(kinds: ReadonlyArray<BrowseKind>): ReadonlyArray<FacetDefinition> {
   return facetsFor(kinds).filter(
     (facet) => facet.appliesTo === undefined || facet.appliesTo.some((kind) => kinds.some((held) => held === kind)),
   );
 }
 
 /** Every facet any browsable list can have, so a link's params for a facet the new list drops can be cleared. */
-export const ALL_FACETS: readonly FacetDefinition[] = facetsFor(BROWSE_KINDS);
+export const ALL_FACETS: ReadonlyArray<FacetDefinition> = facetsFor(BROWSE_KINDS);
 
 /** Whether the browser lists `kind`. */
 export function isBrowseKind(kind: ContentKind): kind is BrowseKind {

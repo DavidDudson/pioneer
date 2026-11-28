@@ -56,8 +56,8 @@ function anyAncestry(content: SlotContent): AncestryId {
 }
 
 /** Refuses with a 422 when `unmet` is not empty: one issue at each unmet lock's place in the body. */
-function assertKept(locks: readonly GenerateLock[], unmet: readonly SlotKey[]): void {
-  const issues = locks.flatMap((lock, index): FieldIssue[] =>
+function assertKept(locks: ReadonlyArray<GenerateLock>, unmet: ReadonlyArray<SlotKey>): void {
+  const issues = locks.flatMap((lock, index): Array<FieldIssue> =>
     unmet.includes(lock.slot) ? [{ path: ['locks', index], message: message('character.validation.lockNotKept') }] : [],
   );
 
@@ -79,13 +79,13 @@ function roleLock(registry: ContentRegistry, role: ClassRole, seed: Seed): Gener
 
 /** `locks`, and the class `role` draws unless a lock already picks the class. */
 function withRoleLock(
-  locks: readonly GenerateLock[],
+  locks: ReadonlyArray<GenerateLock>,
   {
     registry,
     role,
     seed,
   }: { readonly registry: ContentRegistry; readonly role: ClassRole | undefined; readonly seed: Seed },
-): readonly GenerateLock[] {
+): ReadonlyArray<GenerateLock> {
   const classGiven = locks.some((lock) => lock.slot === CLASS_SLOT);
 
   return role === undefined || classGiven ? locks : [...locks, roleLock(registry, role, seed)];

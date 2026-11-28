@@ -21,7 +21,7 @@ export const Armoury = {
   SpareSword: InventoryItemId.parse('77777777-7777-4777-8777-777777777777'),
 } as const;
 
-const STOCK: readonly (readonly [InventoryItemId, ItemFixture])[] = [
+const STOCK: ReadonlyArray<readonly [InventoryItemId, ItemFixture]> = [
   [Armoury.Sword, ItemFixture.Longsword],
   [Armoury.Armor, ItemFixture.LeatherArmor],
   [Armoury.Shield, ItemFixture.SteelShield],

@@ -40,7 +40,7 @@ interface Flags {
   readonly hasHands: boolean | undefined;
 }
 
-function candidateOf(each: { casts: boolean; traits: readonly Trait[] }, index: number): ActionCandidate {
+function candidateOf(each: { casts: boolean; traits: ReadonlyArray<Trait> }, index: number): ActionCandidate {
   const id = ContentId.parse(`00000000-0000-4000-8000-${String(index + 1).padStart(ID_DIGITS, '0')}`);
 
   return { id, action: ActionData.parse({}), origin: { kind: ActionOriginKind.Basic }, ...each };
@@ -64,7 +64,7 @@ function everyReasonNamesTheForm(result: AvailableAction): boolean {
 }
 
 /** The actions weighed under a form that sets `flags`, with the form. */
-function weighed(flags: Flags, candidates: readonly ActionCandidate[]): readonly AvailableAction[] {
+function weighed(flags: Flags, candidates: ReadonlyArray<ActionCandidate>): ReadonlyArray<AvailableAction> {
   const set = Object.fromEntries(Object.entries(flags).filter(([, value]) => value !== undefined));
 
   return availableActions({

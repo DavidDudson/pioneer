@@ -16,7 +16,7 @@ export interface ContentDelivery {
   readonly manifest: () => Promise<ContentManifest>;
   readonly bundle: (pack: PackId, file: BundleFile) => Promise<BundleBody>;
   /** The bundles of the homebrew `packs` (and what they extend) the signed-in user may read. */
-  readonly homebrewManifest: (packs: readonly ContentPackId[]) => Promise<ContentManifest>;
+  readonly homebrewManifest: (packs: ReadonlyArray<ContentPackId>) => Promise<ContentManifest>;
   readonly homebrewBundle: (pack: PackId, file: BundleFile) => Promise<BundleBody>;
   /** Full-text search on the server: the ids of the entries that match, best first. */
   readonly search: (query: ContentSearchQuery) => Promise<ContentSearchResult>;
@@ -27,7 +27,7 @@ function apiDelivery(api: ApiClient): ContentDelivery {
     manifest: async (): Promise<ContentManifest> => api.call(ContentContract.manifest, { params: {}, body: undefined }),
     bundle: async (pack: PackId, file: BundleFile): Promise<BundleBody> =>
       api.call(ContentContract.bundle, { params: { pack, file }, body: undefined }),
-    homebrewManifest: async (packs: readonly ContentPackId[]): Promise<ContentManifest> =>
+    homebrewManifest: async (packs: ReadonlyArray<ContentPackId>): Promise<ContentManifest> =>
       api.call(HomebrewContentContract.manifest, { params: {}, body: { packs } }),
     homebrewBundle: async (pack: PackId, file: BundleFile): Promise<BundleBody> =>
       api.call(HomebrewContentContract.bundle, { params: { pack, file }, body: undefined }),

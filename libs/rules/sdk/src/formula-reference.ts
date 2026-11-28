@@ -178,9 +178,9 @@ const ATTRIBUTE = PathSegment.parse('<attribute>');
 const PLACEHOLDER = /^<[a-z]+>$/u;
 
 /** What each placeholder took, by placeholder (`<attribute>`): one segment, or the rest of the path for `<selector>` and `<flag>`. */
-type Captures = ReadonlyMap<PathSegment, readonly PathSegment[]>;
+type Captures = ReadonlyMap<PathSegment, ReadonlyArray<PathSegment>>;
 
-function segments(path: ReferencePath | ReferencePattern | FoundryReferencePattern): PathSegment[] {
+function segments(path: ReferencePath | ReferencePattern | FoundryReferencePattern): Array<PathSegment> {
   return path.split(SEPARATOR).map((segment) => PathSegment.parse(segment));
 }
 
@@ -189,7 +189,11 @@ function isPlaceholder(segment: PathSegment): boolean {
 }
 
 /** Whether one path segment fits one pattern segment, recording what a placeholder took. */
-function fits(wanted: PathSegment, taken: PathSegment | undefined, captures: Map<PathSegment, PathSegment[]>): boolean {
+function fits(
+  wanted: PathSegment,
+  taken: PathSegment | undefined,
+  captures: Map<PathSegment, Array<PathSegment>>,
+): boolean {
   if (taken === undefined) {
     return false;
   }
@@ -210,7 +214,7 @@ export function match(pattern: ReferencePattern | FoundryReferencePattern, path:
   const restAt = wanted.findIndex((segment) => RESTS.has(segment));
   const fixed = restAt === -1 ? wanted : wanted.slice(0, restAt);
   const lengthFits = restAt === -1 ? given.length === wanted.length : given.length > restAt;
-  const captures = new Map<PathSegment, PathSegment[]>();
+  const captures = new Map<PathSegment, Array<PathSegment>>();
   const rest = wanted[restAt];
 
   if (rest !== undefined) {
@@ -220,7 +224,7 @@ export function match(pattern: ReferencePattern | FoundryReferencePattern, path:
   return lengthFits && fixed.every((segment, index) => fits(segment, given[index], captures)) ? captures : undefined;
 }
 
-function captured(captures: Captures, placeholder: PathSegment): readonly PathSegment[] {
+function captured(captures: Captures, placeholder: PathSegment): ReadonlyArray<PathSegment> {
   return captures.get(placeholder) ?? [];
 }
 
@@ -295,7 +299,7 @@ function referenceOf(kind: ReferenceKind, captures: Captures): KnownReference | 
   }
 }
 
-const KINDS: readonly ReferenceKind[] = Object.values(ReferenceKind);
+const KINDS: ReadonlyArray<ReferenceKind> = Object.values(ReferenceKind);
 
 /** What a reference path means in Pioneer's vocabulary, or undefined when the catalogue has no such path. */
 export function knownReference(path: ReferencePath): KnownReference | undefined {

@@ -150,7 +150,7 @@ describe('a themed stylesheet end to end', () => {
 
   const pairs = [{ foreground: ['ink'], background: ['paper'], minimum: 4.5 }];
 
-  const failing = (attributes: Record<string, string>): boolean[] =>
+  const failing = (attributes: Record<string, string>): Array<boolean> =>
     measurePairs(cascade(parseTokenRules([css]), attributes), pairs).map(({ ratio, minimum }) => ratio < minimum);
 
   test('flags a pair only in the theme and mode whose override drops it below its minimum', () => {

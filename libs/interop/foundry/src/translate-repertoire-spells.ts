@@ -70,10 +70,10 @@ interface Named {
 }
 
 /** Names each gift's spell by id; one whose spell doesn't resolve is reported and left out. */
-type Resolve = (gifts: readonly Gift[]) => readonly Named[];
+type Resolve = (gifts: ReadonlyArray<Gift>) => ReadonlyArray<Named>;
 
 /** The sorcerer's entry in `tradition`, which the bloodline (or its draconic exemplar) names, holding while `predicate` does. */
-function sorcererEntry(tradition: string, predicate?: readonly unknown[]): Fields {
+function sorcererEntry(tradition: string, predicate?: ReadonlyArray<unknown>): Fields {
   return {
     key: RuleElementKey.SpellcastingEntry,
     slug: SORCERER,
@@ -96,12 +96,12 @@ function choiceSet({ flag, prompt, options }: Pick): Fields {
 }
 
 /** The sorcerer's entries a choice names: one per option, in its tradition, holding while the option is picked. */
-function pickedEntries({ flag, options }: Pick): readonly object[] {
+function pickedEntries({ flag, options }: Pick): ReadonlyArray<object> {
   return options.map(({ value, tradition }) => sorcererEntry(tradition ?? PRIMAL, [`${flag}:${value}`]));
 }
 
 /** The skills the picks train, as the bloodline trains its own: not when Crossblooded Evolution borrows the bloodline. */
-function pickedSkills({ flag, options }: Pick): readonly object[] {
+function pickedSkills({ flag, options }: Pick): ReadonlyArray<object> {
   return options.flatMap(({ value, skill }) =>
     skill === undefined
       ? []
@@ -117,7 +117,11 @@ function pickedSkills({ flag, options }: Pick): readonly object[] {
 }
 
 /** A `RepertoireSpells` element for `spells`, if any resolved, holding while `predicate` does. */
-function repertoire(entry: string, spells: readonly Named[], predicate?: readonly unknown[]): readonly object[] {
+function repertoire(
+  entry: string,
+  spells: ReadonlyArray<Named>,
+  predicate?: ReadonlyArray<unknown>,
+): ReadonlyArray<object> {
   return spells.length === 0
     ? []
     : [{ key: RuleElementKey.RepertoireSpells, entry, spells, ...present({ predicate }) }];
@@ -127,7 +131,7 @@ function repertoire(entry: string, spells: readonly Named[], predicate?: readonl
  * The deity Divine Access picks (ADR-0063): a `ChoiceSet` offering the deities that grant one of the mystery's domains,
  * primary or alternate, from the level the feature arrives at.
  */
-function divineAccessDeity(domains: readonly string[]): Fields {
+function divineAccessDeity(domains: ReadonlyArray<string>): Fields {
   return {
     key: RuleElementKey.ChoiceSet,
     flag: DIVINE_ACCESS_DEITY,
@@ -140,7 +144,7 @@ function divineAccessDeity(domains: readonly string[]): Fields {
 }
 
 /** The rule elements one bloodline or mystery gains, its gifts named by id. */
-function elements({ entry, tradition, gifts, pick, domains }: Source, resolve: Resolve): readonly object[] {
+function elements({ entry, tradition, gifts, pick, domains }: Source, resolve: Resolve): ReadonlyArray<object> {
   const fixed = entry === SORCERER && tradition !== undefined ? [sorcererEntry(tradition)] : [];
   const picked = entry === SORCERER && tradition === undefined && pick !== undefined ? pickedEntries(pick) : [];
 
@@ -160,7 +164,7 @@ function elements({ entry, tradition, gifts, pick, domains }: Source, resolve: R
 }
 
 /** The spontaneous entry and `RepertoireSpells` elements the bloodline or mystery of `input` gains, if any. */
-export function repertoireSpellRules(input: KindInput): readonly object[] {
+export function repertoireSpellRules(input: KindInput): ReadonlyArray<object> {
   const source = SOURCES.get(input.envelope.slug);
 
   if (source === undefined) {

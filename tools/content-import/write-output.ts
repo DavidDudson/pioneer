@@ -28,7 +28,7 @@ const ROOT = path.resolve(import.meta.dir, '../..');
 const MANIFEST = 'pack.json';
 
 /** The files below `directory` (relative to the root) matching `pattern`, as root-relative paths; none if it is absent. */
-async function scan(pattern: string, directory: string): Promise<readonly string[]> {
+async function scan(pattern: string, directory: string): Promise<ReadonlyArray<string>> {
   const cwd = path.join(ROOT, directory);
 
   const present = await stat(cwd)
@@ -52,7 +52,7 @@ export async function previousImport(targets: PackTargets): Promise<ReadonlySet<
 }
 
 /** The entries committed in the target pack, which this run replaces; its page numbers and AoN links carry over. */
-export async function committedEntries({ pack }: PackTargets): Promise<readonly ContentEntry[]> {
+export async function committedEntries({ pack }: PackTargets): Promise<ReadonlyArray<ContentEntry>> {
   const files = await scan('*.json', path.posix.join(PACKS_DIRECTORY, pack));
   const entryFiles = files.filter((file) => path.posix.basename(file) !== MANIFEST);
 
@@ -82,7 +82,7 @@ async function committedBacklog({ pack }: PackTargets): Promise<ImportFile> {
 
 /** The files `applyRules` wrote, and how many entries gained rules. */
 export interface AppliedOutput {
-  readonly written: readonly string[];
+  readonly written: ReadonlyArray<string>;
   readonly applied: number;
 }
 
@@ -93,7 +93,7 @@ interface PackText {
 }
 
 /** The committed entry files of the target pack that `merge` touches, with its rules laid into their text. */
-async function mergedEntryFiles(targets: PackTargets, merge: RulesMerge): Promise<readonly PackText[]> {
+async function mergedEntryFiles(targets: PackTargets, merge: RulesMerge): Promise<ReadonlyArray<PackText>> {
   const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
   const scanned = await scan('*.json', directory);
   const files = scanned.filter((file) => path.posix.basename(file) !== MANIFEST);
@@ -118,7 +118,10 @@ function importedGaps(output: PackOutput, gapped: ReadonlySet<string>): Readonly
 }
 
 /** Writes `texts` and `writes` in the canonical layout and returns their paths. */
-async function writeAll(texts: readonly PackText[], writes: readonly PackWrite[]): Promise<readonly string[]> {
+async function writeAll(
+  texts: ReadonlyArray<PackText>,
+  writes: ReadonlyArray<PackWrite>,
+): Promise<ReadonlyArray<string>> {
   await Promise.all(texts.map(async ({ path: file, text }) => writeCanonical(file, text)));
   await Promise.all(writes.map(async (each) => write(each)));
 
@@ -150,7 +153,7 @@ export async function applyRules(
 
 /** The files `applyOutcomes` wrote, and what the merge did. */
 export interface OutcomesOutput {
-  readonly written: readonly string[];
+  readonly written: ReadonlyArray<string>;
   readonly report: OutcomesReport;
 }
 
@@ -167,7 +170,7 @@ function freshDescriptions(output: PackOutput): FreshDescriptions {
 }
 
 /** Each entry file of the target pack with the outcomes of `fresh` in its text. */
-async function outcomeMerges(fresh: FreshDescriptions, targets: PackTargets): Promise<readonly FileMerge[]> {
+async function outcomeMerges(fresh: FreshDescriptions, targets: PackTargets): Promise<ReadonlyArray<FileMerge>> {
   const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
   const scanned = await scan('*.json', directory);
   const files = scanned.filter((file) => path.posix.basename(file) !== MANIFEST);
@@ -181,7 +184,7 @@ async function outcomeMerges(fresh: FreshDescriptions, targets: PackTargets): Pr
   );
 }
 
-function totalReport(merges: readonly FileMerge[]): OutcomesReport {
+function totalReport(merges: ReadonlyArray<FileMerge>): OutcomesReport {
   let report = NO_REPORT;
 
   for (const each of merges) {
@@ -206,14 +209,14 @@ export async function applyOutcomes(output: PackOutput, targets: PackTargets): P
 
 /** The files `applyDescriptions` wrote, and how many entries it filled. */
 export interface DescribedOutput {
-  readonly written: readonly string[];
+  readonly written: ReadonlyArray<string>;
   readonly filled: number;
 }
 
 /** A vocabulary kind file, its entries once the empty descriptions are filled, and how many were. */
 interface KindFill {
   readonly file: string;
-  readonly entries: readonly unknown[];
+  readonly entries: ReadonlyArray<unknown>;
   readonly filled: number;
 }
 
@@ -222,7 +225,7 @@ async function filledKindFiles(
   fresh: FreshDescriptions,
   targets: PackTargets,
   kinds: ReadonlySet<string>,
-): Promise<readonly KindFill[]> {
+): Promise<ReadonlyArray<KindFill>> {
   const files = await scan('*.json', importedDirectory(targets));
 
   return Promise.all(
@@ -260,7 +263,7 @@ export async function applyDescriptions(
 
 /** The files `appendLegacy` wrote, and how many entries it added or found already committed. */
 export interface AppendedOutput {
-  readonly written: readonly string[];
+  readonly written: ReadonlyArray<string>;
   readonly added: number;
   readonly present: number;
 }
@@ -279,7 +282,10 @@ function bySlug(left: { readonly slug: string }, right: { readonly slug: string 
  * file for a kind the pack lacks. An entry the pack already holds is kept as committed; nothing else in the pack
  * changes, and the files are printed in the canonical layout. The pack's backlog is left alone.
  */
-export async function appendLegacy(entries: readonly ContentEntry[], targets: PackTargets): Promise<AppendedOutput> {
+export async function appendLegacy(
+  entries: ReadonlyArray<ContentEntry>,
+  targets: PackTargets,
+): Promise<AppendedOutput> {
   const own = entries.filter(({ pack }) => pack === targets.pack);
   const kinds = [...new Set(own.map(({ kind }) => kind))];
   const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
@@ -289,7 +295,7 @@ export async function appendLegacy(entries: readonly ContentEntry[], targets: Pa
       const file = path.posix.join(directory, `${kind}.json`);
       const source = Bun.file(path.join(ROOT, file));
       const exists = await source.exists();
-      const committed: readonly ContentEntry[] = exists ? ContentEntryFile.parse(await source.json()) : [];
+      const committed: ReadonlyArray<ContentEntry> = exists ? ContentEntryFile.parse(await source.json()) : [];
       const have = new Set(committed.map(({ slug }) => slug));
       const fresh = own.filter((entry) => entry.kind === kind && !have.has(entry.slug));
 

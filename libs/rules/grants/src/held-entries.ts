@@ -37,14 +37,14 @@ export function lazyEntry(id: ContentId, kind: ContentKind, make: () => GrantEnt
 }
 
 /** The lookup over `entries`, by id and by kind. A later entry takes the id of an earlier one. */
-export function lookupOf(entries: readonly HeldEntry[]): ContentLookup {
+export function lookupOf(entries: ReadonlyArray<HeldEntry>): ContentLookup {
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
   const byKind = Map.groupBy(entries, (entry) => entry.kind);
-  const kinds = new Map<ContentKind, readonly GrantEntry[]>();
+  const kinds = new Map<ContentKind, ReadonlyArray<GrantEntry>>();
 
   return {
     entry: (id: ContentId): GrantEntry | undefined => byId.get(id)?.read(),
-    ofKind: (kind: ContentKind): readonly GrantEntry[] => {
+    ofKind: (kind: ContentKind): ReadonlyArray<GrantEntry> => {
       const read = kinds.get(kind) ?? (byKind.get(kind) ?? []).flatMap((entry) => entry.read() ?? []);
       kinds.set(kind, read);
 

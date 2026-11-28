@@ -6,7 +6,7 @@ import type { JsonObject, JsonValue } from '@pioneer/rules/sdk/testing';
 import { triggerCoverage } from './trigger-coverage';
 
 const PACK = 'player-core';
-const prose = (words: string): JsonValue[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+const prose = (words: string): Array<JsonValue> => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A Player Core entry of `kind` with `data`. */
 function entry(name: string, kind: string, data: JsonObject): ContentEntry {

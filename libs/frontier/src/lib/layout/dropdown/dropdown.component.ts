@@ -21,7 +21,7 @@ export const DropdownAlign = { Start: 'start', End: 'end' } as const;
 export type DropdownAlign = ValueOf<typeof DropdownAlign>;
 
 /** The panel opens under the trigger, lining up with its start or end edge, and flips above it when there is no room. */
-function positionsFor(align: DropdownAlign): ConnectedPosition[] {
+function positionsFor(align: DropdownAlign): Array<ConnectedPosition> {
   return [
     { originX: align, originY: 'bottom', overlayX: align, overlayY: 'top' },
     { originX: align, originY: 'top', overlayX: align, overlayY: 'bottom' },

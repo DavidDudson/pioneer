@@ -119,7 +119,7 @@ export class PioneerFileService {
   }
 
   /** What importing `file`'s embedded homebrew does, given the packs this server has. */
-  async #plans(actor: UserId, file: PioneerCharacterFile): Promise<HomebrewPackPlan[]> {
+  async #plans(actor: UserId, file: PioneerCharacterFile): Promise<Array<HomebrewPackPlan>> {
     const embedded = file.homebrew ?? [];
 
     const existing = await this.#deps.homebrew.existing(

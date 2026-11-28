@@ -62,7 +62,7 @@ export function toPageResult(page: string, { audits }: LighthouseReport): PageRe
 }
 
 /** The paths of the manifest's representative (median) runs, in the order lhci wrote them. */
-export function representativeReports(manifest: Manifest): string[] {
+export function representativeReports(manifest: Manifest): Array<string> {
   return manifest.filter((run) => run.isRepresentativeRun).map((run) => run.jsonPath);
 }
 
@@ -86,14 +86,14 @@ export function assertOnApp(finalDisplayedUrl: string): void {
 }
 
 /** Throws unless every page asked for has a result, so a page that dropped out cannot pass unnoticed. */
-export function assertPagesMeasured(results: readonly PageResult[], expected: number): void {
+export function assertPagesMeasured(results: ReadonlyArray<PageResult>, expected: number): void {
   if (results.length !== expected) {
     throw new Error(`Expected ${expected} measured pages, got ${results.length}`);
   }
 }
 
 /** Three entries per page, so each metric has its own chart, unit and trend. */
-export function toTrackerEntries(results: readonly PageResult[]): TrackerEntry[] {
+export function toTrackerEntries(results: ReadonlyArray<PageResult>): Array<TrackerEntry> {
   return results.flatMap(({ page, requests, transferKb, lcpMs }) => [
     { name: `page ${page}: requests`, unit: 'requests', value: requests, extra: 'all resources, desktop preset' },
     { name: `page ${page}: transfer`, unit: 'KB', value: transferKb, extra: 'transfer size of all resources' },
@@ -102,7 +102,7 @@ export function toTrackerEntries(results: readonly PageResult[]): TrackerEntry[]
 }
 
 /** A Markdown table of the results, for the job summary. */
-export function toMarkdownTable(results: readonly PageResult[]): string {
+export function toMarkdownTable(results: ReadonlyArray<PageResult>): string {
   const rows = results.map(
     ({ page, requests, transferKb, lcpMs }) => `| ${page} | ${requests} | ${transferKb} | ${lcpMs} |`,
   );

@@ -9,7 +9,7 @@ import { withoutForms } from './sheet-effects';
 import { sheetSources } from './sheet-sources';
 
 /** The sheet's statistics, in order: Armor Class, the three saves, Perception, the class DC, then the land Speed. */
-export const SHEET_STATISTICS: readonly Selector[] = [
+export const SHEET_STATISTICS: ReadonlyArray<Selector> = [
   'ac',
   'save:fortitude',
   'save:reflex',
@@ -20,8 +20,8 @@ export const SHEET_STATISTICS: readonly Selector[] = [
 ].map((selector) => Selector.parse(selector));
 
 /** The speeds beside the land Speed, which always shows; each of these only once something gives the character one. */
-const OTHER_SPEEDS: readonly Selector[] = ['speed:fly', 'speed:swim', 'speed:climb', 'speed:burrow'].map((selector) =>
-  Selector.parse(selector),
+const OTHER_SPEEDS: ReadonlyArray<Selector> = ['speed:fly', 'speed:swim', 'speed:climb', 'speed:burrow'].map(
+  (selector) => Selector.parse(selector),
 );
 
 /** The distance of a Step, which shows for everyone: 5 feet, more with a rule that adds to it (a mobile rune). */
@@ -56,10 +56,10 @@ function derive(registry: ContentRegistry, character: Character): SheetDerivatio
  * Speeds a rule gives them, each named by the statistic that applies: the last pack's definition of its selector, as
  * the engine chooses. A statistic no registered pack defines is left out, and so is a Speed that is not above 0.
  */
-export function sheetStatistics(registry: ContentRegistry, character: Character): readonly NamedStatistic[] {
+export function sheetStatistics(registry: ContentRegistry, character: Character): ReadonlyArray<NamedStatistic> {
   const results = sheetDerivation(registry, character);
 
-  return [...SHEET_STATISTICS, STEP_DISTANCE, ...OTHER_SPEEDS].flatMap((selector): NamedStatistic[] => {
+  return [...SHEET_STATISTICS, STEP_DISTANCE, ...OTHER_SPEEDS].flatMap((selector): Array<NamedStatistic> => {
     const result = results.get(selector);
     const entry = registry.statisticsFor(selector).at(-1);
 
@@ -82,7 +82,7 @@ export function sheetAttributeChecks(
   const results = sheetDerivation(registry, character);
 
   return new Map(
-    Object.values(Attribute).flatMap((attribute): [Attribute, StatisticValue][] => {
+    Object.values(Attribute).flatMap((attribute): Array<[Attribute, StatisticValue]> => {
       const result = results.get(Selector.parse(`attribute:${attribute}`));
 
       return result?.ok === true ? [[attribute, result]] : [];
@@ -97,12 +97,12 @@ export function sheetAttributeChecks(
 export function namedStatistics(
   registry: ContentRegistry,
   character: Character,
-  selectors: readonly Selector[],
+  selectors: ReadonlyArray<Selector>,
 ): ReadonlyMap<Selector, NamedStatistic> {
   const results = sheetDerivation(registry, character);
 
   return new Map(
-    selectors.flatMap((selector): [Selector, NamedStatistic][] => {
+    selectors.flatMap((selector): Array<[Selector, NamedStatistic]> => {
       const result = results.get(selector);
       const entry = registry.statisticsFor(selector).at(-1);
 

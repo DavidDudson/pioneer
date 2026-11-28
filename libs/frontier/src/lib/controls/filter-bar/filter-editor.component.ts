@@ -23,7 +23,7 @@ const rowClasses = cva('flex flex-wrap items-center gap-xs')();
   host: { class: 'block' },
 })
 export class FilterEditor {
-  public readonly fields = input.required<readonly FilterField[]>();
+  public readonly fields = input.required<ReadonlyArray<FilterField>>();
   /** The filter being changed; absent for a new one. */
   public readonly initial = input<FilterCondition | undefined>(undefined);
   public readonly applied = output<FilterCondition>();
@@ -37,7 +37,7 @@ export class FilterEditor {
 
   readonly #fieldId = linkedSignal(() => this.initial()?.field);
   readonly #operator = linkedSignal<FilterOperator | undefined>(() => this.initial()?.operator);
-  protected readonly values = linkedSignal<readonly string[]>(() => this.initial()?.values ?? []);
+  protected readonly values = linkedSignal<ReadonlyArray<string>>(() => this.initial()?.values ?? []);
 
   protected readonly field = computed(() => this.fields().find((candidate) => candidate.id === this.#fieldId()));
   protected readonly operators = computed(() => {

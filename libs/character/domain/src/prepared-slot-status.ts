@@ -41,7 +41,7 @@ export function preparedStatuses(
   document: CharacterDocument,
   content: SlotContent,
   at: Level = Level.parse(document.level),
-): CharacterSlot[] {
+): Array<CharacterSlot> {
   const planned = plannedAt(document, at);
 
   return preparedSlots(atLevel(document, at), preparedReads(document, content, at)).map((slot) => {
@@ -79,7 +79,7 @@ export function signatureStatuses(
   document: CharacterDocument,
   content: SlotContent,
   at: Level = Level.parse(document.level),
-): CharacterSlot[] {
+): Array<CharacterSlot> {
   const planned = plannedAt(document, at);
 
   return signatureSlots(atLevel(document, at), preparedReads(document, content, at)).map((slot) => {

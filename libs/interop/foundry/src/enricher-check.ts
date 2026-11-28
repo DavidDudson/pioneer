@@ -196,7 +196,7 @@ function dcOf(input: CheckInput, context: EnricherContext): CheckDc | undefined 
 }
 
 /** Foundry's extra roll options; Pioneer's need a namespace (`area-effect` has none), so those are reported. */
-function optionsOf(params: ReadonlyMap<string, string>, context: EnricherContext): RollOption[] {
+function optionsOf(params: ReadonlyMap<string, string>, context: EnricherContext): Array<RollOption> {
   const values = (params.get(OPTIONS) ?? '').split(LIST_SEPARATOR).map((value) => value.trim());
   const options = values.flatMap((value) => RollOption.safeParse(value).data ?? []);
 
@@ -229,7 +229,7 @@ function fallbackText(type: string, label: string | undefined): string {
   );
 }
 
-export function checkRun(params: string, label: string | undefined, context: EnricherContext): RunNode[] {
+export function checkRun(params: string, label: string | undefined, context: EnricherContext): Array<RunNode> {
   const parsed = enricherParams(params, TYPE);
   const type = parsed.get(TYPE) ?? '';
   const statistic = type.includes(LIST_SEPARATOR) ? undefined : statisticSelector(type);

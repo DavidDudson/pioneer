@@ -50,7 +50,7 @@ export function abilityActions(registry: ContentRegistry): ReadonlyMap<ContentId
   const read = new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
-      .flatMap((entry): [ContentId, ActionData][] => {
+      .flatMap((entry): Array<[ContentId, ActionData]> => {
         const action = actionOf(entry);
 
         return action === undefined ? [] : [[entry.id, action]];
@@ -67,7 +67,7 @@ const CAST_A_SPELL = 'action:cast-a-spell';
 
 /** What an ability is, for what a battle form forbids (`ActionCandidate.traits`, `ActionCandidate.casts`). */
 interface AbilityNature {
-  readonly traits: readonly Trait[];
+  readonly traits: ReadonlyArray<Trait>;
   readonly casts: boolean;
 }
 
@@ -99,8 +99,8 @@ function abilityNatures(registry: ContentRegistry): ReadonlyMap<ContentId, Abili
 function universalCandidates(
   actions: ReadonlyMap<ContentId, ActionData>,
   natures: ReadonlyMap<ContentId, AbilityNature>,
-): readonly ActionCandidate[] {
-  return [...actions].flatMap(([id, action]): ActionCandidate[] => {
+): ReadonlyArray<ActionCandidate> {
+  return [...actions].flatMap(([id, action]): Array<ActionCandidate> => {
     if (action.universal !== true) {
       return [];
     }
@@ -120,11 +120,11 @@ interface GrantedEntry {
 
 /** The actions among the entries a character's grants put in play, each with the origin that put it there. */
 function grantedCandidates(
-  items: readonly GrantedEntry[],
+  items: ReadonlyArray<GrantedEntry>,
   actions: ReadonlyMap<ContentId, ActionData>,
   natures: ReadonlyMap<ContentId, AbilityNature>,
-): readonly ActionCandidate[] {
-  return items.flatMap(({ entry, origin }): ActionCandidate[] => {
+): ReadonlyArray<ActionCandidate> {
+  return items.flatMap(({ entry, origin }): Array<ActionCandidate> => {
     const action = actions.get(entry.id);
 
     return action === undefined
@@ -145,8 +145,8 @@ function formCandidates(
   form: FormInPlay | undefined,
   actions: ReadonlyMap<ContentId, ActionData>,
   natures: ReadonlyMap<ContentId, AbilityNature>,
-): readonly ActionCandidate[] {
-  return (form?.form.actions ?? []).flatMap(({ action: id }): ActionCandidate[] => {
+): ReadonlyArray<ActionCandidate> {
+  return (form?.form.actions ?? []).flatMap(({ action: id }): Array<ActionCandidate> => {
     const action = actions.get(id);
 
     return form === undefined || action === undefined
@@ -160,7 +160,7 @@ function formCandidates(
  * actions allow.
  */
 function spentActions(
-  candidates: readonly ActionCandidate[],
+  candidates: ReadonlyArray<ActionCandidate>,
   registry: ContentRegistry,
   { uses }: Pick<ResourcesSpent, 'uses'>,
 ): ReadonlySet<ContentId> {
@@ -191,7 +191,7 @@ export function characterActions(
   document: CharacterDocument,
   sources: StatisticSources,
   spent: Pick<ResourcesSpent, 'uses'>,
-): readonly AvailableAction[] {
+): ReadonlyArray<AvailableAction> {
   const { registry, slots } = sources;
   const grants = characterGrants(document, slots);
   const equipped = equippedGrants(document, itemContent(registry), slots);
@@ -217,7 +217,7 @@ export function characterActions(
 
 /** The actions the character's build and equipment give, and the roll options that hold for it: what triggers are read from. */
 export interface GrantedActionCandidates {
-  readonly candidates: readonly ActionCandidate[];
+  readonly candidates: ReadonlyArray<ActionCandidate>;
   readonly facts: PredicateFacts;
 }
 

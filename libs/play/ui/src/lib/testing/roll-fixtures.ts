@@ -33,7 +33,7 @@ const BOTH: FortuneSources = { fortune: FORTUNE.fortune, misfortune: MISFORTUNE.
 /** What a rolled check is compared with. */
 interface Against {
   readonly dc: number;
-  readonly adjustments?: readonly DegreeAdjustment[];
+  readonly adjustments?: ReadonlyArray<DegreeAdjustment>;
   /** The check in text that was rolled, when it was. */
   readonly inText?: CheckNode;
 }
@@ -49,7 +49,7 @@ function expressionOf(text: string): DiceExpression {
 }
 
 /** `1d20+7` rolled with `faces` falling in order, against a DC when one is given. */
-function check(faces: readonly number[], sources: FortuneSources = NO_FORTUNE, against?: Against): RollView {
+function check(faces: ReadonlyArray<number>, sources: FortuneSources = NO_FORTUNE, against?: Against): RollView {
   const expression = expressionOf('1d20+7');
   const roll = rollWithFortune(expression, sources, scriptedRandom(faces.map((face) => DieFace.parse(face))));
   const kept = roll.rolls.find((entry) => entry.kept);

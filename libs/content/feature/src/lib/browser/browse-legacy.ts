@@ -17,16 +17,18 @@ export function isLegacyEntry(entry: ContentEntry, licenses: ReadonlyMap<PackId,
 
 /** `entries` as a page with legacy content `on` shows them: all of them, or only the remaster ones. */
 export function shownEntries<Entry extends ContentEntry>(
-  entries: readonly Entry[],
+  entries: ReadonlyArray<Entry>,
   licenses: ReadonlyMap<PackId, ContentLicense>,
   on: boolean,
-): readonly Entry[] {
+): ReadonlyArray<Entry> {
   return on ? entries : entries.filter((entry) => !isLegacyEntry(entry, licenses));
 }
 
 /** For each legacy entry the `entries` replace, the remaster entries that say so in `supersedes`, in list order. */
-export function replacementsOf(entries: readonly ContentEntry[]): ReadonlyMap<ContentId, readonly ContentEntry[]> {
-  const replaced = new Map<ContentId, ContentEntry[]>();
+export function replacementsOf(
+  entries: ReadonlyArray<ContentEntry>,
+): ReadonlyMap<ContentId, ReadonlyArray<ContentEntry>> {
+  const replaced = new Map<ContentId, Array<ContentEntry>>();
 
   for (const entry of entries) {
     for (const legacy of entry.supersedes ?? []) {
@@ -40,8 +42,8 @@ export function replacementsOf(entries: readonly ContentEntry[]): ReadonlyMap<Co
 /** The replacements of `entry` as the list shows them: each one's name and where it opens. */
 export function replacedBy(
   entry: ContentEntry,
-  replacements: ReadonlyMap<ContentId, readonly ContentEntry[]>,
-): readonly BrowseReplacement[] {
+  replacements: ReadonlyMap<ContentId, ReadonlyArray<ContentEntry>>,
+): ReadonlyArray<BrowseReplacement> {
   return (replacements.get(entry.id) ?? []).map((replacement) => ({
     name: replacement.name,
     to: entryTarget(replacement),

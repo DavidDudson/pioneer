@@ -26,8 +26,8 @@ export class PickerField<TValue extends string, TRow extends object>
   implements FormValueControl<TValue | undefined>
 {
   public readonly value = model<TValue | undefined>(undefined);
-  public readonly rows = input.required<readonly TRow[]>();
-  public readonly columns = input.required<readonly TableColumn<TRow>[]>();
+  public readonly rows = input.required<ReadonlyArray<TRow>>();
+  public readonly columns = input.required<ReadonlyArray<TableColumn<TRow>>>();
   public readonly rowValue = input.required<(row: TRow) => TValue>();
   public readonly rowLabel = input.required<(row: TRow) => string>();
   public readonly rowDisabled = input<(row: TRow) => string | undefined>(() => undefined);

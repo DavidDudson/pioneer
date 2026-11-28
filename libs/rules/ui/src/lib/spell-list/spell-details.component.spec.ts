@@ -15,7 +15,7 @@ interface Rendered {
   readonly line: SpellDetailLine;
 }
 
-async function render(data: SpellData, rank: number, tags: readonly string[] = []): Promise<Rendered> {
+async function render(data: SpellData, rank: number, tags: ReadonlyArray<string> = []): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const transloco = TestBed.inject(TranslocoService);
 
@@ -35,7 +35,7 @@ function textOf(element: Element): string {
 }
 
 /** The labelled fields as "Term: value". */
-function fieldRows(fixture: ComponentFixture<SpellDetails>): string[] {
+function fieldRows(fixture: ComponentFixture<SpellDetails>): Array<string> {
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   const host = fixture.nativeElement as HTMLElement;
 

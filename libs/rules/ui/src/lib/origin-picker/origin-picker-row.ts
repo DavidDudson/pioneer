@@ -13,13 +13,13 @@ export interface AncestryPickerRow {
   readonly hitPoints: HitPoints;
   readonly size: Size;
   readonly speed: Feet;
-  readonly boosts: readonly AttributeBoost[];
-  readonly flaws: readonly Attribute[];
+  readonly boosts: ReadonlyArray<AttributeBoost>;
+  readonly flaws: ReadonlyArray<Attribute>;
   /** The languages every member speaks, by name. */
-  readonly languages: readonly string[];
+  readonly languages: ReadonlyArray<string>;
   /** Its traits, each a chip that opens the trait's card. */
-  readonly traits: readonly Chip[];
-  readonly sources: readonly SourceRef[];
+  readonly traits: ReadonlyArray<Chip>;
+  readonly sources: ReadonlyArray<SourceRef>;
   /** Why the ancestry can't be picked, already translated; undefined when it can. */
   readonly disabledReason: string | undefined;
 }
@@ -34,8 +34,8 @@ export interface HeritagePickerRow {
   /** What it does, in its own words. */
   readonly summary: RichText;
   /** The features and feats it grants, by name. */
-  readonly grants: readonly string[];
-  readonly sources: readonly SourceRef[];
+  readonly grants: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<SourceRef>;
   readonly disabledReason: string | undefined;
 }
 
@@ -44,14 +44,14 @@ export interface BackgroundPickerRow {
   /** The background's content id, which is the value picked. */
   readonly id: string;
   readonly name: string;
-  readonly boosts: readonly AttributeBoost[];
+  readonly boosts: ReadonlyArray<AttributeBoost>;
   /** The skills it trains, by name. */
-  readonly skills: readonly string[];
+  readonly skills: ReadonlyArray<string>;
   /** The Lores it trains, by name. */
-  readonly lores: readonly string[];
+  readonly lores: ReadonlyArray<string>;
   /** The feats it grants, by name. */
-  readonly feats: readonly string[];
-  readonly sources: readonly SourceRef[];
+  readonly feats: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<SourceRef>;
   /** A note on picking it, already translated: the skills it would train again; undefined when there is none. */
   readonly note: string | undefined;
   readonly disabledReason: string | undefined;

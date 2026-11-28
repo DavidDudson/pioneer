@@ -23,7 +23,7 @@ export function statisticContent(registry: ContentRegistry): StatisticContent | 
  * The rule elements of the variant rules enabled for a character, in play with a `variant` origin hop naming the
  * variant, so every line they explain cites it and its sources.
  */
-export function variantRulesInPlay(variants: readonly VariantRuleEntry[]): readonly RuleInPlay[] {
+export function variantRulesInPlay(variants: ReadonlyArray<VariantRuleEntry>): ReadonlyArray<RuleInPlay> {
   return variants.flatMap(({ id, definition }) => {
     const entry = ContentId.parse(id);
     const origin = { hops: [{ kind: OriginHopKind.Variant, rule: entry }], entry, sources: definition.sources };

@@ -22,7 +22,7 @@ const COLUMNS = column.columns([
   column.accessor('level', { header: 'Level', enableSorting: false }),
 ]);
 
-const PARTY: readonly Member[] = [
+const PARTY: ReadonlyArray<Member> = [
   { name: 'Valeros', level: 3 },
   { name: 'Kyra', level: 2 },
 ];

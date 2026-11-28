@@ -18,7 +18,7 @@ interface PackView {
   readonly title: string;
   readonly publisher: string;
   readonly statusKey: string;
-  readonly entries: readonly EntryView[];
+  readonly entries: ReadonlyArray<EntryView>;
 }
 
 /**
@@ -32,9 +32,9 @@ interface PackView {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PioneerImportHomebrew {
-  public readonly packs = input.required<readonly HomebrewPackReport[]>();
+  public readonly packs = input.required<ReadonlyArray<HomebrewPackReport>>();
 
-  protected readonly views = computed((): readonly PackView[] =>
+  protected readonly views = computed((): ReadonlyArray<PackView> =>
     this.packs().map(({ pack, title, publisher, status, entries }) => ({
       pack,
       title,

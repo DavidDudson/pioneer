@@ -28,7 +28,7 @@ const LANG_FILES = {
 const PAGE = { _id: 'pAgEfIgHtEr00001', name: 'Fighter', type: 'text', text: { content: '<p>Warfare.</p>' } };
 
 /** An archive of `files` beside the manifest and lang files, less the paths in `without`. */
-function release(files: Record<string, unknown>, without: readonly string[] = []): FoundryRelease {
+function release(files: Record<string, unknown>, without: ReadonlyArray<string> = []): FoundryRelease {
   return readFoundryRelease(
     new Map([
       [`${ROOT}/system.pf2e.json`, MANIFEST],

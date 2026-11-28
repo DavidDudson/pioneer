@@ -24,7 +24,7 @@ export interface SkillOption {
 /** What a class gives the skills: how many it trains by the player's choice, and the levels of its skill increases. */
 interface ClassSkills {
   readonly additional: SkillCount;
-  readonly increaseLevels: readonly Level[];
+  readonly increaseLevels: ReadonlyArray<Level>;
 }
 
 /**
@@ -32,7 +32,7 @@ interface ClassSkills {
  * class's skills, by id.
  */
 export interface SkillContent {
-  readonly skills: readonly SkillOption[];
+  readonly skills: ReadonlyArray<SkillOption>;
   /** The skill a pick names: any pack's statistic for its selector, so a pick of one a later pack restates counts. */
   readonly skill: (pick: ChoiceValue) => SkillOption | undefined;
   readonly classSkills: (id: ContentId) => ClassSkills | undefined;
@@ -45,7 +45,7 @@ export const SKILL_PREFIX = 'skill:';
 const INCREASE_FIRST = 3;
 const INCREASE_STEP = 2;
 
-const PLAYER_CORE_INCREASES: readonly Level[] = Array.from(
+const PLAYER_CORE_INCREASES: ReadonlyArray<Level> = Array.from(
   { length: Math.floor((CHARACTER_LEVEL_MAX - INCREASE_FIRST) / INCREASE_STEP) + 1 },
   (_unused, index) => Level.parse(INCREASE_FIRST + index * INCREASE_STEP),
 );
@@ -85,7 +85,7 @@ function classSkillsOf(registry: ContentRegistry): ReadonlyMap<ContentId, ClassS
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
 
   return new Map(
-    entries.flatMap((entry): [ContentId, ClassSkills][] => {
+    entries.flatMap((entry): Array<[ContentId, ClassSkills]> => {
       if (entry.kind !== ContentKind.Class) {
         return [];
       }

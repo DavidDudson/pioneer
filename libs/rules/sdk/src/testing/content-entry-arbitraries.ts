@@ -87,7 +87,7 @@ const variableCost: Arbitrary<JsonObject> = constantFrom(...COUNTED_COSTS).chain
   }),
 );
 
-const skills: Arbitrary<string[]> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
+const skills: Arbitrary<Array<string>> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
 
 /** A reaction always has a trigger; anything else may. */
 const untriggeredAction: Arbitrary<JsonObject> = oneof(
@@ -118,14 +118,14 @@ const classFeatureData: Arbitrary<JsonObject> = withOptional(constant({}), {
 
 const ancestryFeatureData: Arbitrary<JsonObject> = withOptional(constant({}), { action: actionData });
 
-const conditionRefs: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
+const conditionRefs: Arbitrary<Array<string>> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
 
 const conditionData: Arbitrary<JsonObject> = withOptional(
   record({ valued: boolean(), overrides: conditionRefs, implies: conditionRefs, recovery: constant([]) }),
   { group: constantFrom(...Object.values(ConditionGroup)) },
 );
 
-const environmentRestriction: Arbitrary<{ id: string; reason: string; blocks: string[] }> = record({
+const environmentRestriction: Arbitrary<{ id: string; reason: string; blocks: Array<string> }> = record({
   id: slugText,
   reason: contentText,
   blocks: array(slugText, { maxLength: LIST_MAX }),
@@ -234,7 +234,7 @@ function identity(kind: RegisteredKind): Arbitrary<EntryIdentity> {
 /** A kind's `data` with rules that keep it valid. */
 interface DataAndRules {
   readonly data: JsonObject;
-  readonly rules: JsonObject[];
+  readonly rules: Array<JsonObject>;
 }
 
 /** A valid content entry of `kind`, as plain JSON (unparsed), with every optional field sometimes present. */

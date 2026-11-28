@@ -6,7 +6,7 @@ import { maxPropertyRuns } from './property-rules.ts';
 
 const CAP = 100;
 
-function messagesFor(code: string, options: readonly unknown[] = []): readonly string[] {
+function messagesFor(code: string, options: ReadonlyArray<unknown> = []): ReadonlyArray<string> {
   const linter = new Linter();
 
   const messages = linter.verify(

@@ -38,7 +38,7 @@ export class Stepper implements StepperContext {
   public readonly count: Signal<number> = computed(() => this.steps().length);
 
   public position(step: StepperStep): number {
-    const steps: readonly StepperStep[] = this.steps();
+    const steps: ReadonlyArray<StepperStep> = this.steps();
 
     return steps.indexOf(step);
   }

@@ -19,7 +19,7 @@ type VirtualListStory = StoryObj<VirtualList<Creature>>;
 const BESTIARY_SIZE = 1000;
 const MAX_LEVEL = 25;
 
-const BESTIARY: readonly Creature[] = Array.from({ length: BESTIARY_SIZE }, (_slot, index) => ({
+const BESTIARY: ReadonlyArray<Creature> = Array.from({ length: BESTIARY_SIZE }, (_slot, index) => ({
   id: `creature-${index}`,
   name: `Creature ${index + 1}`,
   level: index % MAX_LEVEL,

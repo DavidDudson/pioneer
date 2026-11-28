@@ -10,7 +10,7 @@ import { SPELL_FACETS } from './spell-facets';
  * Facets a kind adds to the common ones. A kind joins here alongside its schema (`kind-data.ts`) when its facets
  * are defined.
  */
-const KIND_FACETS: Readonly<Partial<Record<RegisteredKind, readonly FacetDefinition[]>>> = {
+const KIND_FACETS: Readonly<Partial<Record<RegisteredKind, ReadonlyArray<FacetDefinition>>>> = {
   action: ACTION_FACETS,
   armor: EQUIPMENT_FACETS,
   consumable: EQUIPMENT_FACETS,
@@ -26,7 +26,7 @@ const KIND_FACETS: Readonly<Partial<Record<RegisteredKind, readonly FacetDefinit
 };
 
 /** The facets for a list holding `kinds`: the common ones, then each kind's own, each facet once. */
-export function facetsFor(kinds: readonly RegisteredKind[]): readonly FacetDefinition[] {
+export function facetsFor(kinds: ReadonlyArray<RegisteredKind>): ReadonlyArray<FacetDefinition> {
   const byId = new Map<FacetId, FacetDefinition>(COMMON_FACETS.map((facet) => [facet.id, facet]));
 
   for (const kind of kinds) {

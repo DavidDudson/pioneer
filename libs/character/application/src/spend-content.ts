@@ -81,7 +81,7 @@ function wrongSustain({ action, spell }: SpendRequest, registry: ContentRegistry
 }
 
 /** Whether the spend dismisses with the Dismiss action a spell whose content has no such action. */
-function wrongDismiss({ spell }: SpendRequest, registry: ContentRegistry, active: readonly ActiveSpell[]): boolean {
+function wrongDismiss({ spell }: SpendRequest, registry: ContentRegistry, active: ReadonlyArray<ActiveSpell>): boolean {
   if (spell?.kind !== SpellSpendKind.Dismiss) {
     return false;
   }
@@ -92,14 +92,14 @@ function wrongDismiss({ spell }: SpendRequest, registry: ContentRegistry, active
 }
 
 /** Whether the spend shifts an effect on the character that is not a polymorph effect, which only a form can be. */
-function shiftsNonForm(shift: FormShift, registry: ContentRegistry, active: readonly ActiveEffect[]): boolean {
+function shiftsNonForm(shift: FormShift, registry: ContentRegistry, active: ReadonlyArray<ActiveEffect>): boolean {
   const target = active.find(({ id }) => id === shift.effect);
 
   return target !== undefined && effectContent(registry).get(target.effect)?.polymorph !== true;
 }
 
 /** The effects a spell or an action lists as the forms it puts on the user. */
-function listedEffects(registry: ContentRegistry, id: ContentId): readonly SpellEffectEntry[] {
+function listedEffects(registry: ContentRegistry, id: ContentId): ReadonlyArray<SpellEffectEntry> {
   const entry = entryOf(registry, id);
 
   return entry?.kind === ContentKind.Spell || entry?.kind === ContentKind.Action ? (entry.data.effects ?? []) : [];
@@ -146,9 +146,9 @@ function wrongShift(
 
 /** What a spend's content check reads of the play state: the active spells a sustain or dismissal names. */
 export interface SpendSpells {
-  readonly activeSpells: readonly ActiveSpell[];
+  readonly activeSpells: ReadonlyArray<ActiveSpell>;
   /** The effects on the character, which a form shift changes one of. */
-  readonly activeEffects: readonly ActiveEffect[];
+  readonly activeEffects: ReadonlyArray<ActiveEffect>;
   /** The character's roll options, which a form shift's predicate reads; none refuses a form with a predicate. */
   readonly facts?: PredicateFacts | undefined;
 }

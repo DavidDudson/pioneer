@@ -26,14 +26,14 @@ function toCharacterPack(row: CharacterPackRow): CharacterPack {
 
 export class DrizzleCharacterPackRepository extends CharacterPackRepository {
   readonly #db: BunSQLDatabase;
-  readonly #listed = new RequestMemo<CharacterId, readonly CharacterPack[]>();
+  readonly #listed = new RequestMemo<CharacterId, ReadonlyArray<CharacterPack>>();
 
   public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }
 
-  public override async listForCharacter(characterId: CharacterId): Promise<readonly CharacterPack[]> {
+  public override async listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<CharacterPack>> {
     return this.#listed.of(characterId, async () => {
       const rows = await this.#db.select().from(characterPacks).where(eq(characterPacks.characterId, characterId));
 
@@ -49,7 +49,7 @@ export class DrizzleCharacterPackRepository extends CharacterPackRepository {
   public override async enable(
     actor: UserId,
     characterId: CharacterId,
-    packs: readonly CharacterPack[],
+    packs: ReadonlyArray<CharacterPack>,
   ): Promise<void> {
     if (packs.length === 0) {
       return;

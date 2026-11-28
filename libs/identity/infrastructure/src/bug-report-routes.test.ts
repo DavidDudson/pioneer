@@ -94,7 +94,7 @@ describe('bug report routes', () => {
     const amiri = UserId.parse(newId());
     const submission = BugReportSubmission.parse(BODY);
 
-    const stored: BugReport[] = Array.from({ length: BUG_REPORT_LIMIT }, () => ({
+    const stored: Array<BugReport> = Array.from({ length: BUG_REPORT_LIMIT }, () => ({
       ...submission,
       id: BugReportId.parse(newId()),
       reporter: amiri,

@@ -46,7 +46,7 @@ describe('CharacterService kit edits', () => {
 
   beforeEach(async () => {
     repository = new InMemoryCharacterRepository();
-    const packs: readonly ContentPack[] = [core, ITEM_FIXTURES, KIT_FIXTURES, lost.build()];
+    const packs: ReadonlyArray<ContentPack> = [core, ITEM_FIXTURES, KIT_FIXTURES, lost.build()];
     service = new CharacterService(repository, fixedContent(...packs), clock);
     character = await service.create(amiri, { name: CharacterName.parse('Kyra'), ancestry: humanAncestryId });
   });
@@ -69,7 +69,7 @@ describe('CharacterService kit edits', () => {
     return added.id;
   }
 
-  async function refusal(patch: CharacterPatch): Promise<readonly FieldIssue[]> {
+  async function refusal(patch: CharacterPatch): Promise<ReadonlyArray<FieldIssue>> {
     const error = await rejection(service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
     expect(error).toBeInstanceOf(ValidationError);
 

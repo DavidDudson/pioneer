@@ -31,12 +31,12 @@ export interface ReportRow {
 
 export interface ReportGroup {
   readonly kind: ImportKind;
-  readonly rows: readonly ReportRow[];
+  readonly rows: ReadonlyArray<ReportRow>;
 }
 
 /** Every name in an export by kind, in `IMPORT_KIND_ORDER`, with what it matched. Empty kinds are left out. */
 export interface ImportReport {
-  readonly groups: readonly ReportGroup[];
+  readonly groups: ReadonlyArray<ReportGroup>;
 }
 
 function status(lookup: ContentLookup, kind: ImportKind, match: ContentMatch | undefined): MatchStatus {
@@ -48,7 +48,7 @@ function status(lookup: ContentLookup, kind: ImportKind, match: ContentMatch | u
 }
 
 /** Count repeats per kind and name, keeping first-seen order. */
-function tally(names: readonly ImportedName[]): Map<ImportKind, Map<PathbuilderName, number>> {
+function tally(names: ReadonlyArray<ImportedName>): Map<ImportKind, Map<PathbuilderName, number>> {
   const counts = new Map<ImportKind, Map<PathbuilderName, number>>();
 
   for (const { kind, name } of names) {
@@ -60,10 +60,10 @@ function tally(names: readonly ImportedName[]): Map<ImportKind, Map<PathbuilderN
   return counts;
 }
 
-export function buildImportReport(names: readonly ImportedName[], lookup: ContentLookup): ImportReport {
+export function buildImportReport(names: ReadonlyArray<ImportedName>, lookup: ContentLookup): ImportReport {
   const counts = tally(names);
 
-  const groups = IMPORT_KIND_ORDER.flatMap((kind): ReportGroup[] => {
+  const groups = IMPORT_KIND_ORDER.flatMap((kind): Array<ReportGroup> => {
     const byName = counts.get(kind);
 
     if (byName === undefined) {
@@ -83,6 +83,6 @@ export function buildImportReport(names: readonly ImportedName[], lookup: Conten
 }
 
 /** The rows that did not match, for a short summary or the post-import report. */
-export function unmatchedRows(report: ImportReport): readonly ReportRow[] {
+export function unmatchedRows(report: ImportReport): ReadonlyArray<ReportRow> {
   return report.groups.flatMap((group) => group.rows.filter((row) => row.status !== MatchStatus.Matched));
 }

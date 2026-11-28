@@ -16,7 +16,7 @@ const CURRICULUM = 'curriculum';
 interface PoolFields {
   readonly entry: string;
   readonly pool: string;
-  readonly spells: readonly string[];
+  readonly spells: ReadonlyArray<string>;
 }
 
 /** A spell named `slug` in the pack being imported, or `pack:slug` in another one. */
@@ -27,7 +27,7 @@ function spellId(pack: PackId, spell: string): ContentId {
   return ContentId.parse(contentId(owner, EntrySlug.parse(`spell:${slug}`)));
 }
 
-function poolSpells(pack: PackId, { entry, pool, spells }: PoolFields, predicate?: readonly string[]): Fields {
+function poolSpells(pack: PackId, { entry, pool, spells }: PoolFields, predicate?: ReadonlyArray<string>): Fields {
   return {
     key: RuleElementKey.PoolSpells,
     entry,
@@ -38,14 +38,14 @@ function poolSpells(pack: PackId, { entry, pool, spells }: PoolFields, predicate
 }
 
 /** Heal in a healing font, harm in a harmful one: the font the Divine Font `ChoiceSet` picks (`divine-font:<font>`). */
-function divineFont(pack: PackId): readonly object[] {
+function divineFont(pack: PackId): ReadonlyArray<object> {
   return ['heal', 'harm'].map((font) =>
     poolSpells(pack, { entry: 'cleric', pool: DIVINE_FONT, spells: [font] }, [`${DIVINE_FONT}:${font}`]),
   );
 }
 
 /** The `PoolSpells` elements the entry with `slug` gains in `pack`, if any. */
-export function poolSpellRules(slug: string, pack: PackId): readonly object[] {
+export function poolSpellRules(slug: string, pack: PackId): ReadonlyArray<object> {
   if (slug === `class-feature:${DIVINE_FONT}`) {
     return divineFont(pack);
   }

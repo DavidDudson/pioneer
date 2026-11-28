@@ -17,7 +17,7 @@ const amiri = UserId.parse(newId());
 const clock = fixedClock('2026-10-07T10:00:00Z');
 
 /** Mordred's human changeling, with the champion and oracle his dual class names loaded, and the Dual Class variant. */
-function mordredPack(classes: readonly string[]): ContentPackBuilder {
+function mordredPack(classes: ReadonlyArray<string>): ContentPackBuilder {
   const all = Object.values(Attribute);
 
   const pack = new ContentPackBuilder()
@@ -33,7 +33,7 @@ function mordredPack(classes: readonly string[]): ContentPackBuilder {
 const oracle = PathbuilderName.parse('Oracle');
 
 /** The class names an import left behind, if any. */
-function unmatchedClasses(report: CharacterImportReport): readonly UnmatchedName[] | undefined {
+function unmatchedClasses(report: CharacterImportReport): ReadonlyArray<UnmatchedName> | undefined {
   return report.unmatched.find((group) => group.kind === ImportKind.Class)?.names;
 }
 
@@ -41,7 +41,7 @@ function unmatchedClasses(report: CharacterImportReport): readonly UnmatchedName
 interface MordredImport {
   readonly character: Character;
   readonly report: CharacterImportReport;
-  readonly enabled: readonly CharacterVariantRule[];
+  readonly enabled: ReadonlyArray<CharacterVariantRule>;
 }
 
 /** Mordred imported over `pack`. */

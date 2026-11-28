@@ -24,9 +24,9 @@ import { enrichedRun } from './translate-enricher';
 export interface RichTextTranslation {
   readonly richText: RichText;
   /** Markup the converter does not map, once each: an element (`span`) or an attribute (`table[class]`). */
-  readonly unknownMarkup: readonly string[];
+  readonly unknownMarkup: ReadonlyArray<string>;
   /** Enrichers, or parts of them, that stay text or are dropped, once each (`@UUID[spell-effects]`, `@Check[traits]`). */
-  readonly untranslatedEnrichers: readonly string[];
+  readonly untranslatedEnrichers: ReadonlyArray<string>;
 }
 
 /** Reported when the text would break `RichText`'s size or nesting bounds; the description is then left empty. */
@@ -49,7 +49,7 @@ const MARKS: ReadonlyMap<string, TextMark> = new Map([
   ['i', TextMark.Emphasis],
 ]);
 
-const MARK_ORDER: readonly TextMark[] = Object.values(TextMark);
+const MARK_ORDER: ReadonlyArray<TextMark> = Object.values(TextMark);
 
 /** Parts of a list or table, read where they belong; met anywhere else, each is a block. */
 const STRUCTURE: ReadonlySet<string> = new Set(['li', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td', 'caption']);
@@ -77,8 +77,8 @@ interface Context {
 
 /** Blocks finished so far and the inline run still open. */
 interface Sink {
-  readonly blocks: BlockNode[];
-  run: RunNode[];
+  readonly blocks: Array<BlockNode>;
+  run: Array<RunNode>;
 }
 
 function withMark(context: Context, mark: TextMark | undefined): Context {
@@ -97,8 +97,8 @@ function deeper(context: Context): Context {
 
 /** The text under an element, walked without recursion; dropped elements add nothing. */
 function flatText(root: Element): string {
-  const parts: string[] = [];
-  const stack: ChildNode[] = [root];
+  const parts: Array<string> = [];
+  const stack: Array<ChildNode> = [root];
   let node = stack.pop();
 
   while (node !== undefined) {
@@ -130,7 +130,7 @@ function reportAttributes(element: Element, { unknown }: Context): void {
   }
 }
 
-function blocksOf(nodes: readonly ChildNode[], context: Context): BlockNode[] {
+function blocksOf(nodes: ReadonlyArray<ChildNode>, context: Context): Array<BlockNode> {
   const sink: Sink = { blocks: [], run: [] };
 
   for (const node of nodes) {
@@ -143,14 +143,14 @@ function blocksOf(nodes: readonly ChildNode[], context: Context): BlockNode[] {
 }
 
 /** The inline content of an element that holds no blocks (a heading, a table cell); blocks inside become lines. */
-function inlineOf(nodes: readonly ChildNode[], context: Context): InlineContent {
+function inlineOf(nodes: ReadonlyArray<ChildNode>, context: Context): InlineContent {
   return normalised(joined(blocksOf(nodes, context).map((block) => runOfBlock(block))));
 }
 
 function tableContext(context: Context): TableContext {
   return {
-    inline: (nodes: readonly ChildNode[]): InlineContent => inlineOf(nodes, context),
-    blocks: (nodes: readonly ChildNode[]): BlockNode[] => blocksOf(nodes, context),
+    inline: (nodes: ReadonlyArray<ChildNode>): InlineContent => inlineOf(nodes, context),
+    blocks: (nodes: ReadonlyArray<ChildNode>): Array<BlockNode> => blocksOf(nodes, context),
     report: (element: Element): void => {
       reportAttributes(element, context);
     },
@@ -158,7 +158,7 @@ function tableContext(context: Context): TableContext {
 }
 
 /** Each `li` is an item; anything else directly inside the list is an item of its own. */
-function listOf(list: Element, context: Context): BlockNode[] {
+function listOf(list: Element, context: Context): Array<BlockNode> {
   const items = list.children
     .map((child) => {
       const isItem = isTag(child) && child.name === LIST_ITEM;
@@ -178,7 +178,7 @@ function listOf(list: Element, context: Context): BlockNode[] {
     : [{ type: BlockKind.List, ordered: list.name === ORDERED_LIST, items: [first, ...rest] }];
 }
 
-function headingOf(element: Element, level: RichTextHeadingLevel, context: Context): BlockNode[] {
+function headingOf(element: Element, level: RichTextHeadingLevel, context: Context): Array<BlockNode> {
   const content = inlineOf(element.children, context);
 
   return content.length === 0 ? [] : [{ type: BlockKind.Heading, level, content }];
@@ -188,7 +188,7 @@ function headingOf(element: Element, level: RichTextHeadingLevel, context: Conte
  * The blocks of a block element, or `undefined` when the element is not one. A list item or table part out of place
  * is a block of its own, so its words don't run into the next one's.
  */
-function blockElement(element: Element, context: Context): BlockNode[] | undefined {
+function blockElement(element: Element, context: Context): Array<BlockNode> | undefined {
   const level = HEADING_LEVELS.get(element.name);
 
   if (level !== undefined) {
@@ -309,7 +309,7 @@ function visit(node: ChildNode, sink: Sink, context: Context): void {
 }
 
 /** Each top-level block as a plain paragraph, its parts on separate lines: what is left when the structure is too big. */
-function flattened(blocks: readonly BlockNode[]): BlockNode[] {
+function flattened(blocks: ReadonlyArray<BlockNode>): Array<BlockNode> {
   return blocks
     .values()
     .map((block) => normalised(runOfBlock(block)))

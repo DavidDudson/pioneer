@@ -11,10 +11,10 @@ import type { RootSlotDefinition } from './root-slots';
 import { entry, grantOf, idOf, inputsOf, picksOf } from './testing/builders';
 
 const ANCESTRY = SlotKey.parse('ancestry');
-const ROOT_SLOTS: readonly RootSlotDefinition[] = [{ key: ANCESTRY, kind: ContentKind.Ancestry }];
+const ROOT_SLOTS: ReadonlyArray<RootSlotDefinition> = [{ key: ANCESTRY, kind: ContentKind.Ancestry }];
 
 /** An ancestry of the test pack named `name`, with `rules` as JSON. */
-function ancestry(slug: string, name: string, rules: readonly object[] = []): GrantEntry {
+function ancestry(slug: string, name: string, rules: ReadonlyArray<object> = []): GrantEntry {
   return { ...entry(slug, rules), kind: ContentKind.Ancestry, name: ContentText.parse(name) };
 }
 
@@ -25,7 +25,7 @@ const CONTENT = [
   entry('fighter'),
 ];
 
-function resolve(picks: readonly (readonly [SlotKey, string])[] = []): GrantResolution {
+function resolve(picks: ReadonlyArray<readonly [SlotKey, string]> = []): GrantResolution {
   return resolveGrants(inputsOf({ entries: CONTENT, roots: [], picks: picksOf(picks), rootSlots: ROOT_SLOTS }));
 }
 
@@ -67,7 +67,7 @@ describe('root slots', () => {
 
 const HERITAGE = SlotKey.parse('heritage');
 
-const NESTED: readonly RootSlotDefinition[] = [
+const NESTED: ReadonlyArray<RootSlotDefinition> = [
   ...ROOT_SLOTS,
   { key: HERITAGE, kind: ContentKind.Heritage, within: ANCESTRY },
 ];
@@ -81,13 +81,13 @@ function heritage(slug: string, ancestrySlug?: string): GrantEntry {
 
 const HERITAGES = [heritage('whisper-elf', 'elf'), heritage('skilled-human', 'human'), heritage('changeling')];
 
-function nested(picks: readonly (readonly [SlotKey, string])[]): GrantResolution {
+function nested(picks: ReadonlyArray<readonly [SlotKey, string]>): GrantResolution {
   const entries = [...CONTENT, ...HERITAGES];
 
   return resolveGrants(inputsOf({ entries, roots: [], picks: picksOf(picks), rootSlots: NESTED }));
 }
 
-function heritagesOffered(result: GrantResolution): string[] {
+function heritagesOffered(result: GrantResolution): Array<string> {
   const options = result.rootSlots[1]?.options ?? [];
 
   return options.map((option) => String(option.label));
@@ -137,7 +137,7 @@ describe('root slots over an unsupported pack', () => {
     },
   ];
 
-  const read = (picks: readonly (readonly [SlotKey, string])[]): GrantResolution =>
+  const read = (picks: ReadonlyArray<readonly [SlotKey, string]>): GrantResolution =>
     resolveGrants(inputsOf({ entries: content, roots: [], picks: picksOf(picks), rootSlots: ROOT_SLOTS }));
 
   test('an open slot does not offer an entry of an unsupported pack', () => {

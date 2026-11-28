@@ -29,7 +29,7 @@ interface Claim {
   readonly on: boolean;
 }
 
-function claimingRoller(claims: Claim[]): StatisticRoller {
+function claimingRoller(claims: Array<Claim>): StatisticRoller {
   return {
     roll: () => undefined,
     claim: (selector, rule, on) => {
@@ -39,7 +39,7 @@ function claimingRoller(claims: Claim[]): StatisticRoller {
 }
 
 async function renderClaiming(
-  statistics: readonly NamedStatistic[],
+  statistics: ReadonlyArray<NamedStatistic>,
   roller: StatisticRoller | undefined,
 ): Promise<HTMLElement> {
   const rolling = roller === undefined ? [] : [{ provide: STATISTIC_ROLLER, useValue: roller }];
@@ -59,7 +59,7 @@ function toggleIn(host: HTMLElement): HTMLElement {
 
 describe('StatisticsView situations', () => {
   it('offers a conditional line as a toggle that claims its situation for that statistic', async () => {
-    const claims: Claim[] = [];
+    const claims: Array<Claim> = [];
     const host = await renderClaiming(claimable(false), claimingRoller(claims));
 
     const toggle = toggleIn(host);
@@ -72,7 +72,7 @@ describe('StatisticsView situations', () => {
   });
 
   it('shows a claimed situation pressed, and lets go of it when flipped back', async () => {
-    const claims: Claim[] = [];
+    const claims: Array<Claim> = [];
     const host = await renderClaiming(claimable(true), claimingRoller(claims));
 
     const toggle = toggleIn(host);

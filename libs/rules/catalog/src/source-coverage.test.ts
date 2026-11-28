@@ -9,7 +9,7 @@ import { sourceCoverage } from './source-coverage';
 
 const AON = 'https://2e.aonprd.com/Feats.aspx?ID=1';
 
-function entry(slug: string, ...sources: readonly JsonObject[]): SourcedEntry {
+function entry(slug: string, ...sources: ReadonlyArray<JsonObject>): SourcedEntry {
   return {
     pack: PackId.parse('player-core'),
     slug: EntrySlug.parse(`feat:${slug}`),

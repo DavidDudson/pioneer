@@ -36,7 +36,7 @@ function called(view: CharacterCompanions, name: CompanionName): Companion {
 }
 
 /** The names of the companions that are live. */
-function liveNames(view: CharacterCompanions): readonly CompanionName[] {
+function liveNames(view: CharacterCompanions): ReadonlyArray<CompanionName> {
   return view.companions.filter((each) => each.archived === undefined).map((each) => each.name);
 }
 

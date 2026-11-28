@@ -26,7 +26,7 @@ const SEONI = '11111111-1111-4111-8111-111111111111';
 const FIRST = '00000000-0000-4000-8000-000000000001';
 
 /** The play state of a full-health character with `effects` on it, at `revision`. */
-function playWith(effects: readonly JsonObject[], revision = 1): JsonObject {
+function playWith(effects: ReadonlyArray<JsonObject>, revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, effects } };
 }
 
@@ -55,7 +55,7 @@ async function pick(sheet: SheetView, index: number, name: string): Promise<void
 }
 
 /** The names the picker with `index` among the effects' pickers offers. */
-function offered(sheet: SheetView, index: number): readonly string[] {
+function offered(sheet: SheetView, index: number): ReadonlyArray<string> {
   return offeredLabels(sheet.harness, effectsOf(sheet.root), index);
 }
 

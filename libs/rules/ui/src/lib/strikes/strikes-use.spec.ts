@@ -15,7 +15,7 @@ import type { NamedStrike } from './strikes.component';
 const LONGSWORD = ContentId.parse('00000000-0000-4000-8000-0000000000a1');
 
 /** `strikes` with a Use for one action on each, as the sheet adds it. */
-function usable(strikes: readonly NamedStrike[], affordable: boolean): readonly NamedStrike[] {
+function usable(strikes: ReadonlyArray<NamedStrike>, affordable: boolean): ReadonlyArray<NamedStrike> {
   return strikes.map((named): NamedStrike => ({
     ...named,
     use: { id: LONGSWORD, name: named.name, cost: ActionCost.One, affordable },
@@ -23,8 +23,8 @@ function usable(strikes: readonly NamedStrike[], affordable: boolean): readonly 
 }
 
 async function render(
-  strikes: readonly NamedStrike[],
-  used: ActionUse[] | undefined,
+  strikes: ReadonlyArray<NamedStrike>,
+  used: Array<ActionUse> | undefined,
 ): Promise<ComponentFixture<StrikesView>> {
   const user: ActionUser = {
     use: async (request): Promise<void> => {
@@ -48,7 +48,7 @@ async function render(
   return fixture;
 }
 
-function useButtons(fixture: ComponentFixture<StrikesView>): HTMLButtonElement[] {
+function useButtons(fixture: ComponentFixture<StrikesView>): Array<HTMLButtonElement> {
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('pio-use-buttons button')].filter(
     (button): button is HTMLButtonElement => button instanceof HTMLButtonElement,
@@ -57,7 +57,7 @@ function useButtons(fixture: ComponentFixture<StrikesView>): HTMLButtonElement[]
 
 describe('using a Strike', () => {
   it('shows a Use button for each Strike and spends its weapon when it is clicked', async () => {
-    const used: ActionUse[] = [];
+    const used: Array<ActionUse> = [];
     const fixture = await render(usable(FIGHTER_STRIKES, true), used);
     const buttons = useButtons(fixture);
 

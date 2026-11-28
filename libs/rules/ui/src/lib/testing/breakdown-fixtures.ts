@@ -130,10 +130,10 @@ export function term(formula: string, value: number, sign: TermSign = TermSign.P
 }
 
 interface StatisticOptions {
-  readonly base: readonly BaseTerm[];
-  readonly lines?: readonly BreakdownLine[];
+  readonly base: ReadonlyArray<BaseTerm>;
+  readonly lines?: ReadonlyArray<BreakdownLine>;
   /** `Change`s and set overrides in the order they ran; the last applied set override pins the total. */
-  readonly overrides?: readonly OverrideLine[];
+  readonly overrides?: ReadonlyArray<OverrideLine>;
 }
 
 /**
@@ -258,7 +258,7 @@ export const CYCLE: StatisticFailure = {
 };
 
 /** The sheet's statistics for a level 3 fighter, in display order. */
-export const FIGHTER_STATISTICS: readonly NamedStatistic[] = [
+export const FIGHTER_STATISTICS: ReadonlyArray<NamedStatistic> = [
   { name: 'Armor Class', kind: StatisticKind.Dc, result: FIGHTER_AC },
   { name: 'Fortitude', kind: StatisticKind.Check, result: FIGHTER_FORTITUDE },
   { name: 'Will', kind: StatisticKind.Check, result: FIGHTER_WILL },
@@ -292,7 +292,7 @@ const ROGUE_STEALTH: StatisticValue = statistic('skill:stealth', {
 });
 
 /** The fighter's statistics, then a skill with conditional lines. */
-export const CONDITIONAL_STATISTICS: readonly NamedStatistic[] = [
+export const CONDITIONAL_STATISTICS: ReadonlyArray<NamedStatistic> = [
   ...FIGHTER_STATISTICS,
   { name: 'Stealth', kind: StatisticKind.Check, result: ROGUE_STEALTH },
 ];

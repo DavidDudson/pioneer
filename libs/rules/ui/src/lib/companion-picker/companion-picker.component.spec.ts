@@ -6,7 +6,7 @@ import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing'
 import { CompanionPicker } from './companion-picker.component';
 import type { CompanionPick, CompanionSpeciesOption } from './companion-picker.component';
 
-const SPECIES: readonly CompanionSpeciesOption[] = [
+const SPECIES: ReadonlyArray<CompanionSpeciesOption> = [
   { value: 'companion:bear', label: 'Bear' },
   { value: 'companion:wolf', label: 'Wolf' },
 ];
@@ -18,14 +18,14 @@ interface Inputs {
 
 interface Rendered {
   readonly host: HTMLElement;
-  readonly confirmed: () => readonly CompanionPick[];
+  readonly confirmed: () => ReadonlyArray<CompanionPick>;
   readonly cancelled: () => number;
 }
 
 async function render({ picked, name = '' }: Inputs): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [provideTanStackQuery(new QueryClient()), provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(CompanionPicker);
-  const confirmed: CompanionPick[] = [];
+  const confirmed: Array<CompanionPick> = [];
   let cancelled = 0;
   fixture.componentInstance.confirmed.subscribe((pick) => {
     confirmed.push(pick);

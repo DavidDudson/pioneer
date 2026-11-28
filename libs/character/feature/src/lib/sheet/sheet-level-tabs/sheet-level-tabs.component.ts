@@ -9,7 +9,7 @@ import { SheetState } from '../sheet-state';
 
 /** One level tab: the route below the open tab's, the message naming it, and whether it has choices still to make. */
 interface LevelLink {
-  readonly to: readonly string[];
+  readonly to: ReadonlyArray<string>;
   readonly headingKey: string;
   readonly headingParams: Readonly<Record<string, number>> | undefined;
   readonly unresolved: boolean;
@@ -54,7 +54,7 @@ export class SheetLevelTabs {
     return levels;
   });
 
-  protected readonly links = computed((): readonly LevelLink[] => {
+  protected readonly links = computed((): ReadonlyArray<LevelLink> => {
     const unresolved = this.#unresolved();
 
     return SHEET_LEVELS.map((section, index) => ({

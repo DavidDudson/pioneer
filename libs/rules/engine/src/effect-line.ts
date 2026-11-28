@@ -84,7 +84,7 @@ export interface ModifierEffect extends LineBase {
   readonly type: ModifierType;
   readonly value: FormulaValue | undefined;
   /** The `AdjustModifier`s that changed the value. */
-  readonly adjustedBy: readonly RuleId[];
+  readonly adjustedBy: ReadonlyArray<RuleId>;
 }
 
 /** A `Change` on one statistic: what it did to the value, in the phase it acts in. */
@@ -106,7 +106,7 @@ export interface DamageAdjustmentEffect extends LineBase {
   readonly damage: DamageAdjustmentSubject;
   /** Undefined only when the line failed. */
   readonly value: DamageAmount | undefined;
-  readonly exceptions: readonly DamageException[];
+  readonly exceptions: ReadonlyArray<DamageException>;
 }
 
 export interface ImmunityEffect extends LineBase {

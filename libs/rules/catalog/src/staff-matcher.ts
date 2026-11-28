@@ -33,7 +33,7 @@ const SEGMENTATIONS_KEPT = 2;
 const RANK_LABEL = /^(?:(?<cantrip>cantrips?)|(?<rank>\d{1,2})(?:st|nd|rd|th))$/iu;
 
 /** Spell ids by lowercase name; a name shared by two spells maps to both, so a list naming it is left alone. */
-export type SpellIndex = ReadonlyMap<string, readonly ContentId[]>;
+export type SpellIndex = ReadonlyMap<string, ReadonlyArray<ContentId>>;
 
 /** Lowercase words with straight apostrophes, so "Warrior’s Regret" finds "Warrior's Regret". */
 function normalise(words: string): string {
@@ -41,8 +41,8 @@ function normalise(words: string): string {
 }
 
 /** The spells in `entries` by name. */
-export function spellIndex(entries: readonly ContentEntry[]): SpellIndex {
-  const byName = new Map<string, ContentId[]>();
+export function spellIndex(entries: ReadonlyArray<ContentEntry>): SpellIndex {
+  const byName = new Map<string, Array<ContentId>>();
 
   for (const entry of entries) {
     if (entry.kind === ContentKind.Spell) {
@@ -62,7 +62,7 @@ export function isStaffEntry(entry: ContentEntry): boolean {
 }
 
 /** The ways a run of words splits into spell names: at most `SEGMENTATIONS_KEPT` are kept. */
-type Splits = readonly (readonly ContentId[])[];
+type Splits = ReadonlyArray<ReadonlyArray<ContentId>>;
 
 /** A spell name that ends just before word `end`. */
 interface NameEnd {
@@ -71,23 +71,23 @@ interface NameEnd {
 }
 
 /** The spells whose names start at word `start`: only a name that is exactly one spell counts. */
-function namesAt(words: readonly string[], spells: SpellIndex, start: number): readonly NameEnd[] {
+function namesAt(words: ReadonlyArray<string>, spells: SpellIndex, start: number): ReadonlyArray<NameEnd> {
   const last = Math.min(words.length, start + NAME_WORDS_MAX);
   const ends = Array.from({ length: last - start }, (_unused, offset) => start + offset + 1);
 
-  return ends.flatMap((end): NameEnd[] => {
+  return ends.flatMap((end): Array<NameEnd> => {
     const [spell, ...others] = spells.get(words.slice(start, end).join(' ')) ?? [];
 
     return spell !== undefined && others.length === 0 ? [{ end, spell }] : [];
   });
 }
 
-function prepend(spell: ContentId, rest: readonly ContentId[]): readonly ContentId[] {
+function prepend(spell: ContentId, rest: ReadonlyArray<ContentId>): ReadonlyArray<ContentId> {
   return [spell, ...rest];
 }
 
 /** The one way `words` split into spell names, or undefined when there is none or more than one. */
-function segment(words: readonly string[], spells: SpellIndex): readonly ContentId[] | undefined {
+function segment(words: ReadonlyArray<string>, spells: SpellIndex): ReadonlyArray<ContentId> | undefined {
   const memo = new Map<number, Splits>();
 
   const from = (start: number): Splits => {
@@ -113,7 +113,7 @@ function segment(words: readonly string[], spells: SpellIndex): readonly Content
 }
 
 /** The spells a run of text names, comma-separated or just run together, or undefined when any of it is unknown. */
-function textSpells(text: string, spells: SpellIndex): readonly ContentId[] | undefined {
+function textSpells(text: string, spells: SpellIndex): ReadonlyArray<ContentId> | undefined {
   const chunks = text.split(',').map((chunk) => normalise(chunk));
   const parts = chunks.filter((chunk) => chunk !== '').map((chunk) => segment(chunk.split(' '), spells));
 
@@ -136,7 +136,7 @@ function isStrongText(node: InlineNode | undefined): node is TextNode {
 }
 
 /** One list item: "**3rd** Fireball, Haste" as its rank and spells, or undefined when it is anything else. */
-function itemSpells(item: readonly BlockNode[], spells: SpellIndex): StaffRankSpells | undefined {
+function itemSpells(item: ReadonlyArray<BlockNode>, spells: SpellIndex): StaffRankSpells | undefined {
   const [block, ...others] = item;
 
   if (block?.type !== BlockKind.Paragraph || others.length > 0) {
@@ -200,7 +200,7 @@ function hasStaff(entry: ContentEntry): boolean {
  * For each staff with no spells yet, the spells its description lists. A staff that has them keeps them, so a hand
  * correction is never overwritten; a staff whose list the matcher can't read is left for the coverage report.
  */
-export function staffMatches(entries: readonly ContentEntry[]): readonly StaffMatch[] {
+export function staffMatches(entries: ReadonlyArray<ContentEntry>): ReadonlyArray<StaffMatch> {
   const spells = spellIndex(entries);
 
   return entries.flatMap((entry) => {

@@ -10,7 +10,7 @@ import { InventoryBreaks } from './inventory-breaks.component';
 /** A reason that reads "Invested", standing in for the sheet's own wording. */
 const REASON = message(InventoryMessage.Invested);
 
-async function render(reasons: readonly MessageDescriptor[]): Promise<HTMLElement> {
+async function render(reasons: ReadonlyArray<MessageDescriptor>): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(InventoryBreaks);
   fixture.componentRef.setInput('reasons', reasons);

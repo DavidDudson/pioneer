@@ -30,7 +30,7 @@ async function indexed(book: BookId): Promise<AonPagesFile> {
   return AonPagesFile.parse(json);
 }
 
-async function readListings(): Promise<readonly AonListing[]> {
+async function readListings(): Promise<ReadonlyArray<AonListing>> {
   const files = await Array.fromAsync(new Glob('*.json').scan({ cwd: LISTINGS }));
 
   return Promise.all(
@@ -43,7 +43,7 @@ async function readListings(): Promise<readonly AonListing[]> {
         book,
         entries: [...AonListingFile.parse(json).entries, ...entries],
         // SAFETY: `pages` is parsed by `AonPagesFile`, which keys it by AoN url; `Object.keys` types any key as `string`.
-        printed: new Set(Object.keys(pages) as AonUrl[]),
+        printed: new Set(Object.keys(pages) as Array<AonUrl>),
       };
     }),
   );
@@ -57,7 +57,7 @@ async function readMapping(pack: string): Promise<EnrichmentMappingFile> {
   return EnrichmentMappingFile.parse(json);
 }
 
-async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
+async function readEntries(pack: string): Promise<ReadonlyArray<ContentEntry>> {
   const paths = await Array.fromAsync(new Glob('*.json').scan({ cwd: path.join(PACKS, pack), absolute: true }));
 
   const files = await Promise.all(
@@ -70,10 +70,10 @@ async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
 }
 
 /** Proposes for one pack, writes its mapping file when there is anything new, and returns the report line. */
-async function proposePack(pack: string, listings: readonly AonListing[]): Promise<string> {
+async function proposePack(pack: string, listings: ReadonlyArray<AonListing>): Promise<string> {
   const [entries, mapping] = await Promise.all([readEntries(pack), readMapping(pack)]);
   // SAFETY: `readMapping` parses the file with `EnrichmentMappingFile`, which keys it by entry slug; `Object.keys` types any key as `string`.
-  const mapped = new Set(Object.keys(mapping) as EntrySlug[]);
+  const mapped = new Set(Object.keys(mapping) as Array<EntrySlug>);
   const { proposals, ambiguous, unlisted, unmatched } = proposeAonMappings(entries, listings, mapped);
 
   if (proposals.size > 0) {

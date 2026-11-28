@@ -22,7 +22,7 @@ function sha256(json: CanonicalJson): BundleHash {
 }
 
 /** Valid entries of `kind` filed under one pack, with distinct slugs. */
-function packEntries(kind: RegisteredKind): Arbitrary<readonly object[]> {
+function packEntries(kind: RegisteredKind): Arbitrary<ReadonlyArray<object>> {
   const rehomed = contentEntryJson(kind).map((json) => {
     const slug = EntrySlug.parse(EntryIdentityJson.parse(json).slug);
 
@@ -37,7 +37,7 @@ function packEntries(kind: RegisteredKind): Arbitrary<readonly object[]> {
 }
 
 /** Entries of `kind` and the same entries in another order. */
-function reordered(kind: RegisteredKind): Arbitrary<readonly [readonly object[], readonly object[]]> {
+function reordered(kind: RegisteredKind): Arbitrary<readonly [ReadonlyArray<object>, ReadonlyArray<object>]> {
   return packEntries(kind).chain((entries) =>
     shuffledSubarray([...entries], { minLength: entries.length }).map((shuffled) => [entries, shuffled] as const),
   );

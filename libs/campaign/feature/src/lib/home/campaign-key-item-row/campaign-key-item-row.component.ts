@@ -9,7 +9,7 @@ import { CampaignKeyItemHolder } from '../campaign-key-item-holder/campaign-key-
 
 /** A link to the sheet of the character holding a key item. */
 interface SheetLink {
-  readonly to: readonly string[];
+  readonly to: ReadonlyArray<string>;
   readonly name: string;
 }
 
@@ -22,8 +22,8 @@ const GRADED = [
 ] as const;
 
 /** What a key item's runes say, as the messages the row shows: each grade it states, then the property runes. */
-export function runeLines({ property, ...grades }: KeyItemRunes): readonly MessageDescriptor[] {
-  const graded = GRADED.flatMap(([rune, key]): MessageDescriptor[] => {
+export function runeLines({ property, ...grades }: KeyItemRunes): ReadonlyArray<MessageDescriptor> {
+  const graded = GRADED.flatMap(([rune, key]): Array<MessageDescriptor> => {
     const grade = grades[rune];
 
     return grade === undefined ? [] : [message(key, { grade })];

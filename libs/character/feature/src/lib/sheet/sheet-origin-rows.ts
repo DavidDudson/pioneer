@@ -15,9 +15,9 @@ import type { SheetState } from './sheet-state';
 export interface SheetOriginRows {
   /** The content is still loading, so the pickers show their loading state. */
   readonly loading: Signal<boolean>;
-  readonly ancestries: Signal<readonly AncestryPickerRow[]>;
-  readonly heritages: Signal<readonly HeritagePickerRow[]>;
-  readonly backgrounds: Signal<readonly BackgroundPickerRow[]>;
+  readonly ancestries: Signal<ReadonlyArray<AncestryPickerRow>>;
+  readonly heritages: Signal<ReadonlyArray<HeritagePickerRow>>;
+  readonly backgrounds: Signal<ReadonlyArray<BackgroundPickerRow>>;
 }
 
 /**

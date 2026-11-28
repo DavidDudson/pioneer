@@ -59,7 +59,7 @@ export function sheetSkills(
   registry: ContentRegistry,
   character: Character,
   translate: Translate,
-): readonly NamedStatistic[] {
+): ReadonlyArray<NamedStatistic> {
   const content = characterStatisticContent(registry, character.document);
 
   if (content === undefined) {
@@ -81,7 +81,7 @@ export function sheetSkills(
   const formNote = traits.length === 0 ? undefined : translate(FORM_TRAITS_KEY, { traits: traits.join(', ') });
 
   return skills
-    .flatMap((definition): NamedStatistic[] => {
+    .flatMap((definition): Array<NamedStatistic> => {
       const { selector } = definition;
       const result = results.get(selector);
       const note = FORM_NOTED_SKILLS.has(selector) ? formNote : undefined;
@@ -121,14 +121,14 @@ export interface TrainedNote {
 export interface SheetSkillSlot {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
-  readonly options: readonly SelectOption<string>[];
+  readonly options: ReadonlyArray<SelectOption<string>>;
   /** What the skill table shows of each skill on offer. */
-  readonly rows: readonly SkillPickerRow[];
-  readonly trained: readonly TrainedNote[];
+  readonly rows: ReadonlyArray<SkillPickerRow>;
+  readonly trained: ReadonlyArray<TrainedNote>;
 }
 
 /** One note for each thing that trains each skill a slot can't offer. */
-function trainedNotes(trained: readonly TrainedSkill[], names: SourceNames): readonly TrainedNote[] {
+function trainedNotes(trained: ReadonlyArray<TrainedSkill>, names: SourceNames): ReadonlyArray<TrainedNote> {
   return trained.flatMap(({ skill, sources }) =>
     sources.map((source): TrainedNote => {
       const named = sourceName(source, names);
@@ -161,7 +161,7 @@ function trainedTwiceNotes(
   };
 
   return new Map(
-    skillsTrainedTwice(character.document, content).flatMap(({ skill, sources }): [string, string][] => {
+    skillsTrainedTwice(character.document, content).flatMap(({ skill, sources }): Array<[string, string]> => {
       const [first, second] = sources;
 
       return first === undefined || second === undefined
@@ -177,7 +177,7 @@ function trainedTwiceNotes(
 }
 
 /** The rows of the skills a slot offers. */
-type SkillRows = (options: readonly SkillOption[]) => readonly SkillPickerRow[];
+type SkillRows = (options: ReadonlyArray<SkillOption>) => ReadonlyArray<SkillPickerRow>;
 
 /**
  * The skill table's row for each skill a slot offers: the attribute that governs it, the rank the character has in it
@@ -215,7 +215,7 @@ function skillSlotsWhere(
   registry: ContentRegistry,
   character: Character,
   wanted: (level: Level) => boolean,
-): readonly SheetSkillSlot[] {
+): ReadonlyArray<SheetSkillSlot> {
   const content = sheetSlotContent(registry);
   const slots = skillSlots(character.document, skillReads(character.document, content));
   const names = sourceNamesOf(registry, slots);
@@ -236,6 +236,6 @@ function skillSlotsWhere(
  * Every trained skill and skill increase slot, at any level (#492), in the order they are read, each with what it
  * offers at its level after the grants and the slots before it: the level tabs' pickers.
  */
-export function sheetPlannedSkillSlots(registry: ContentRegistry, character: Character): readonly SheetSkillSlot[] {
+export function sheetPlannedSkillSlots(registry: ContentRegistry, character: Character): ReadonlyArray<SheetSkillSlot> {
   return skillSlotsWhere(registry, character, () => true);
 }

@@ -14,7 +14,7 @@ function facet(id: FacetId): FacetDefinition {
 }
 
 function counts(id: FacetId, values: Readonly<Record<string, number>>): FacetCounts {
-  const rows: ValueCount[] = Object.entries(values).map(([value, count]) => ({
+  const rows: Array<ValueCount> = Object.entries(values).map(([value, count]) => ({
     value: FacetValue.parse(value),
     count: EntryCount.parse(count),
   }));
@@ -27,7 +27,7 @@ const MAGICAL = FacetId.parse('magical');
 const WEAPON_GROUP = FacetId.parse('weapon-group');
 
 /** A shop's weapons and armour: levels 0 to 3, mostly common, a few magical, all from Player Core. */
-export const SHOP_FACET_COUNTS: readonly FacetCounts[] = [
+export const SHOP_FACET_COUNTS: ReadonlyArray<FacetCounts> = [
   counts(CommonFacet.Level, { '0': 14, '1': 6, '2': 3, '3': 1 }),
   counts(CommonFacet.Rarity, { common: 21, uncommon: 2, rare: 1 }),
   counts(CommonFacet.Traits, { magical: 4, 'versatile-p': 3, agile: 2 }),

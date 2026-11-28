@@ -37,18 +37,18 @@ export interface WeaponInputs {
   /** Its weapon group, whose critical specialization effect a `CriticalSpecialization` element gives its Strike. */
   readonly group?: WeaponGroup | undefined;
   /** Its own roll options without their namespace (`group:sword`, `picked:f`), which a `CriticalSpecialization` predicate reads as `item:`. */
-  readonly rollOptions?: readonly RollOptionTail[] | undefined;
+  readonly rollOptions?: ReadonlyArray<RollOptionTail> | undefined;
   /** Its traits; `finesse` lets it attack with Dexterity. */
-  readonly traits: readonly Trait[];
+  readonly traits: ReadonlyArray<Trait>;
   /** The precious materials it is made of, as its content names them and `ItemAlteration` elements add them. */
-  readonly materials?: readonly Slug[] | undefined;
+  readonly materials?: ReadonlyArray<Slug> | undefined;
   /**
    * The flags of the `ChoiceSet`s over owned items that picked it: its rolls also answer to `picked:<flag>-attack` and
    * `picked:<flag>-damage` (ADR-0075).
    */
-  readonly picked?: readonly RuleSlug[] | undefined;
+  readonly picked?: ReadonlyArray<RuleSlug> | undefined;
   /** The property runes (`flaming`) that `ItemAlteration` elements add to it; those etched on it work through its rules. */
-  readonly propertyRunes?: readonly Slug[] | undefined;
+  readonly propertyRunes?: ReadonlyArray<Slug> | undefined;
   /** The range increment of a ranged weapon, which attacks with Dexterity. A melee weapon, thrown ones included, has none. */
   readonly range?: Feet | undefined;
   /** The reach a rule element gives a melee Strike with it, in feet, when longer than its wielder's own (an extending rune's); none otherwise. */
@@ -95,7 +95,7 @@ interface Sourced {
 }
 
 /** A list of sources whose slugs are unique, since each names its statistics; a repeat is an issue at its slug. */
-function uniqueSlugs<Source extends Sourced>(source: z.ZodType<Source>): z.ZodType<readonly Source[]> {
+function uniqueSlugs<Source extends Sourced>(source: z.ZodType<Source>): z.ZodType<ReadonlyArray<Source>> {
   return z
     .array(source)
     .readonly()

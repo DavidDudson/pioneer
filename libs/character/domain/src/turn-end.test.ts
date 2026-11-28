@@ -37,7 +37,7 @@ const FRIGHTENED = ContentId.parse('00000000-0000-4000-8000-0000000000c2');
 const HEROISM = ContentId.parse('00000000-0000-4000-8000-0000000000a1');
 const INSPIRE = ContentId.parse('00000000-0000-4000-8000-0000000000a3');
 
-const faces = (...each: readonly number[]): RandomSource => scriptedRandom(each.map((face) => DieFace.parse(face)));
+const faces = (...each: ReadonlyArray<number>): RandomSource => scriptedRandom(each.map((face) => DieFace.parse(face)));
 
 const CONTENT: EffectContent = new Map<ContentId, EffectTerms>([
   [

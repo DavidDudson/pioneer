@@ -19,13 +19,13 @@ function sourceOf(registry: ContentRegistry, id: ContentId): PreviewEndingSource
 function rollsFor(
   registry: ContentRegistry,
   character: Character,
-  endings: readonly ConditionEnding[],
+  endings: ReadonlyArray<ConditionEnding>,
 ): ReadonlyMap<Selector, PreviewEndingStatistic> {
   const selectors = endings.flatMap((ending) => checkAgainst(ending));
   const named = selectors.length === 0 ? [] : [...namedStatistics(registry, character, selectors)];
 
   return new Map(
-    named.flatMap(([selector, { name, result }]): [Selector, PreviewEndingStatistic][] =>
+    named.flatMap(([selector, { name, result }]): Array<[Selector, PreviewEndingStatistic]> =>
       result.ok ? [[selector, { name, modifier: result.total }]] : [],
     ),
   );
@@ -39,13 +39,13 @@ export function heldConditionEndings(
   registry: ContentRegistry,
   character: Character,
   condition: HeldCondition,
-): readonly PreviewEnding[] {
+): ReadonlyArray<PreviewEnding> {
   const rolls = rollsFor(registry, character, condition.endings);
 
   return endingsFor(registry, { ...condition, rolls });
 }
 
 /** The endings of a condition for a character that rolls the statistics of `rolls`. */
-export function endingsFor(registry: ContentRegistry, condition: HeldCondition): readonly PreviewEnding[] {
+export function endingsFor(registry: ContentRegistry, condition: HeldCondition): ReadonlyArray<PreviewEnding> {
   return conditionEndings((id) => sourceOf(registry, id), condition);
 }

@@ -32,12 +32,12 @@ export class SpellTableSchema<TRow extends RowData> extends RulesTableSchema<TRo
   }
 
   /** The traditions a spell is on, as chips. */
-  public addTraditions(options: CellColumn<TRow, readonly Chip[]>): this {
+  public addTraditions(options: CellColumn<TRow, ReadonlyArray<Chip>>): this {
     return this.addChips(options);
   }
 
   /** Short facts of a spell as chips: where it reaches, what it hits, how long it lasts, what it is rolled against. */
-  public addFacts(options: CellColumn<TRow, readonly Chip[]>): this {
+  public addFacts(options: CellColumn<TRow, ReadonlyArray<Chip>>): this {
     return this.addChips(options);
   }
 }

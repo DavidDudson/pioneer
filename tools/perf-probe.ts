@@ -31,7 +31,7 @@ const SETTLE_MS = 300;
 const STATEMENT_LINE = /LOG: {2}(?:statement|execute [^:]*): /u;
 const OK = 200;
 
-const SHEET_ENDPOINTS: readonly string[] = [
+const SHEET_ENDPOINTS: ReadonlyArray<string> = [
   '',
   '/play',
   '/sheet-mode',
@@ -92,7 +92,7 @@ function rounded(value: number): number {
   return Math.round(value * DECIMALS) / DECIMALS;
 }
 
-function percentile(sorted: readonly number[], fraction: number): number {
+function percentile(sorted: ReadonlyArray<number>, fraction: number): number {
   return sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * fraction))] ?? 0;
 }
 
@@ -150,7 +150,7 @@ async function timed(url: string, headers: Record<string, string>): Promise<Time
 async function measure(cookie: string, characterId: string, suffix: string): Promise<Measure> {
   const url = `${api}/api/characters/${characterId}${suffix}`;
   const headers = { cookie, 'accept-encoding': 'gzip, br' };
-  const calls: Timed[] = [];
+  const calls: Array<Timed> = [];
   const before = await logMark();
 
   for (let run = 0; run < runs; run += 1) {
@@ -205,7 +205,7 @@ await db`select pg_reload_conf()`;
 
 const cookie = await signIn(api);
 const characterId = values.character ?? (await createCharacter({ api, cookie }, db, 'Perf Probe'));
-const endpoints: Measure[] = [];
+const endpoints: Array<Measure> = [];
 
 for (const suffix of [...SHEET_ENDPOINTS, BUNDLE_ENDPOINT]) {
   // oxlint-disable-next-line eslint/no-await-in-loop

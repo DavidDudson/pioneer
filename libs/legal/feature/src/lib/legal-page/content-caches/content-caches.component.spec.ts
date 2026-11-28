@@ -42,7 +42,7 @@ function download(file: string): string {
 }
 
 /** The Legal page, with the manifest request not yet answered. */
-async function renderLegalPage(extra: readonly Provider[] = []): Promise<HTMLElement> {
+async function renderLegalPage(extra: ReadonlyArray<Provider> = []): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [
       ...extra,
@@ -76,7 +76,7 @@ async function until(ready: () => boolean): Promise<void> {
 
 async function renderAnswered(
   answer: ContentManifest = manifest,
-  extra: readonly Provider[] = [],
+  extra: ReadonlyArray<Provider> = [],
   manifestUrl = '/api/content/manifest',
 ): Promise<HTMLElement> {
   const root = await renderLegalPage(extra);

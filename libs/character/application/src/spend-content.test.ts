@@ -150,7 +150,7 @@ function cast(action: ContentId, rounds: EffectRounds): SpendRequest {
 
 interface Dismissal {
   readonly request: SpendRequest;
-  readonly active: readonly ActiveSpell[];
+  readonly active: ReadonlyArray<ActiveSpell>;
 }
 
 function dismissing(spell: ContentId): Dismissal {

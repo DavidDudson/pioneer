@@ -48,7 +48,7 @@ const STRIKE = StatisticDefinition.parse({
 interface WeaponFields {
   slug: string;
   category: WeaponCategory;
-  traits: readonly string[];
+  traits: ReadonlyArray<string>;
   range?: number;
   potency?: number;
 }

@@ -32,7 +32,7 @@ const FoundryBackgroundSystem = z.looseObject({
 });
 
 /** The selector of each skill and Lore, in Foundry's order. */
-function skillSelectors({ value, lore }: FoundryTrainedSkills): string[] {
+function skillSelectors({ value, lore }: FoundryTrainedSkills): Array<string> {
   return [...value.map((skill) => `skill:${skill}`), ...lore.map((name) => `skill:lore:${loreTopic(name)}`)];
 }
 

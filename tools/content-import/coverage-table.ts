@@ -11,7 +11,7 @@ function percent(part: number, whole: number): string {
   return whole === 0 ? '' : ` (${Math.round((part / whole) * PERCENT)}%)`;
 }
 
-function cells(label: string, row: Omit<KindCoverage, 'kind'>): string[] {
+function cells(label: string, row: Omit<KindCoverage, 'kind'>): Array<string> {
   const { entries, rulesTranslated, complete, withPage, withAon, leftOut } = row;
 
   return [
@@ -25,7 +25,7 @@ function cells(label: string, row: Omit<KindCoverage, 'kind'>): string[] {
   ];
 }
 
-function total(rows: readonly KindCoverage[]): Omit<KindCoverage, 'kind'> {
+function total(rows: ReadonlyArray<KindCoverage>): Omit<KindCoverage, 'kind'> {
   const sum = (field: keyof Omit<KindCoverage, 'kind'>): number => rows.reduce((all, row) => all + row[field], 0);
 
   return {
@@ -39,7 +39,7 @@ function total(rows: readonly KindCoverage[]): Omit<KindCoverage, 'kind'> {
 }
 
 /** One row per kind and a total, columns aligned: kinds left, counts right. */
-export function formatCoverage(rows: readonly KindCoverage[]): string {
+export function formatCoverage(rows: ReadonlyArray<KindCoverage>): string {
   const table = [HEADINGS, ...rows.map((row) => cells(row.kind, row)), cells('total', total(rows))];
   const widths = [...HEADINGS.keys()].map((column) => Math.max(...table.map((row) => row[column]?.length ?? 0)));
 
@@ -53,7 +53,7 @@ export function formatCoverage(rows: readonly KindCoverage[]): string {
 }
 
 /** The creatures per role and level, one line per role. */
-export function formatCreatureCoverage(rows: readonly CreatureCoverage[]): string {
+export function formatCreatureCoverage(rows: ReadonlyArray<CreatureCoverage>): string {
   const roles = [...new Set(rows.map(({ role }) => role))];
 
   return roles

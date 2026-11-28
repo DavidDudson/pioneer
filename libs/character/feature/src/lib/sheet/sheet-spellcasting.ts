@@ -10,7 +10,7 @@ import { sheetSlotContent } from './sheet-slot-content';
 import { sheetDerivation } from './sheet-statistics';
 
 /** The statistic families each spellcasting entry derives, in the order the sheet lists them. */
-const FAMILIES: readonly Selector[] = ['spell-attack', 'spell-dc'].map((family) => Selector.parse(family));
+const FAMILIES: ReadonlyArray<Selector> = ['spell-attack', 'spell-dc'].map((family) => Selector.parse(family));
 
 /**
  * A character's spellcasting entries, each with its spell attack and spell DC from the engine, named by the family that
@@ -18,7 +18,10 @@ const FAMILIES: readonly Selector[] = ['spell-attack', 'spell-dc'].map((family) 
  * the sheet's one derivation's (`sheetDerivation`). A family no registered pack defines is left out; without a
  * proficiency bonus table nothing can be derived, so there are no entries to show either.
  */
-export function sheetSpellcasting(registry: ContentRegistry, character: Character): readonly SpellcastingEntryLine[] {
+export function sheetSpellcasting(
+  registry: ContentRegistry,
+  character: Character,
+): ReadonlyArray<SpellcastingEntryLine> {
   const content = statisticContent(registry);
 
   if (content === undefined) {
@@ -37,7 +40,7 @@ export function sheetSpellcasting(registry: ContentRegistry, character: Characte
     source: nameOf(origin),
     slots: own,
     pools: pools.map((pool): SlotPoolLine => ({ key: pool.pool, source: nameOf(pool.origin), slots: pool })),
-    statistics: FAMILIES.flatMap((family): NamedStatistic[] => {
+    statistics: FAMILIES.flatMap((family): Array<NamedStatistic> => {
       const result = results.get(Selector.parse(`${family}:${slug}`));
       const definition = registry.statisticsFor(family).at(-1)?.definition;
 

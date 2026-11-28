@@ -42,7 +42,7 @@ export const LONGSWORD = {
  * rule elements in play; a third entry in a placed tuple is the inventory item the element comes from, as for a rune.
  */
 export function strikeOf(
-  placed: readonly (readonly [RuleJson, string, string?])[],
+  placed: ReadonlyArray<readonly [RuleJson, string, string?]>,
   weapon: { readonly slug: string } = LONGSWORD,
   weaponItem?: string,
 ): Strike | undefined {

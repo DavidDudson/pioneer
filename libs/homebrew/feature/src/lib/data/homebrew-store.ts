@@ -34,7 +34,7 @@ export class HomebrewStore {
   /** Every pack the user owns, newest first. */
   public readonly list = injectQuery(() => ({
     queryKey: homebrewKeys.list(),
-    queryFn: async (): Promise<HomebrewPack[]> =>
+    queryFn: async (): Promise<Array<HomebrewPack>> =>
       this.#api.call(HomebrewContract.list, { params: {}, body: undefined }),
   }));
 

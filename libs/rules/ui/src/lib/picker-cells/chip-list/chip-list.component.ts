@@ -41,7 +41,7 @@ export const RARITY_TONES: Readonly<Record<Rarity, BadgeTone>> = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChipList {
-  public readonly chips = input.required<readonly Chip[]>();
+  public readonly chips = input.required<ReadonlyArray<Chip>>();
 
   readonly #previews = inject(ENTRY_PREVIEWS);
 

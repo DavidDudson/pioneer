@@ -66,13 +66,13 @@ interface BuiltBundles {
  */
 const built: BuiltBundles = { next: new WeakMap() };
 
-async function build(packs: readonly PackContentsLoader[]): Promise<ContentBundles> {
+async function build(packs: ReadonlyArray<PackContentsLoader>): Promise<ContentBundles> {
   const contents = await Promise.all(packs.map(async (pack) => pack.load()));
 
   return contentBundles(contents, testHash);
 }
 
-async function bundlesOf(packs: readonly PackContentsLoader[]): Promise<ContentBundles> {
+async function bundlesOf(packs: ReadonlyArray<PackContentsLoader>): Promise<ContentBundles> {
   let step = built;
 
   for (const pack of packs) {
@@ -89,7 +89,7 @@ async function bundlesOf(packs: readonly PackContentsLoader[]): Promise<ContentB
 const JsonObject = z.record(z.string(), z.json());
 
 /** Every string under a `text` key in `value`: the words of a rich text description. */
-function textsOf(value: z.core.util.JSONType): readonly string[] {
+function textsOf(value: z.core.util.JSONType): ReadonlyArray<string> {
   if (Array.isArray(value)) {
     return value.flatMap((item) => textsOf(item));
   }
@@ -127,19 +127,19 @@ export type DeliveryRequest =
  */
 export class TestContentDelivery implements ContentDelivery {
   public offline = false;
-  public readonly requests: DeliveryRequest[] = [];
-  #packs: readonly PackContentsLoader[];
-  readonly #homebrew: readonly PackContentsLoader[];
+  public readonly requests: Array<DeliveryRequest> = [];
+  #packs: ReadonlyArray<PackContentsLoader>;
+  readonly #homebrew: ReadonlyArray<PackContentsLoader>;
   #bundles: Promise<ContentBundles> | undefined;
 
   /** Serves `packs` publicly, and `homebrew` to the signed-in user who asks for them. */
-  public constructor(packs: readonly PackContentsLoader[], homebrew: readonly PackContentsLoader[] = []) {
+  public constructor(packs: ReadonlyArray<PackContentsLoader>, homebrew: ReadonlyArray<PackContentsLoader> = []) {
     this.#packs = packs;
     this.#homebrew = homebrew;
   }
 
   /** Serves `packs` from now on, as a deploy that re-seeds them does: bundles no longer current fail. */
-  public reseed(packs: readonly PackContentsLoader[]): void {
+  public reseed(packs: ReadonlyArray<PackContentsLoader>): void {
     this.#packs = packs;
     this.#bundles = undefined;
   }
@@ -165,7 +165,7 @@ export class TestContentDelivery implements ContentDelivery {
     return body;
   };
 
-  public readonly homebrewManifest = async (asked: readonly ContentPackId[]): Promise<ContentManifest> => {
+  public readonly homebrewManifest = async (asked: ReadonlyArray<ContentPackId>): Promise<ContentManifest> => {
     this.requests.push('homebrew-manifest');
     this.#checkOnline();
     const { manifest } = await bundlesOf(this.#homebrew);
@@ -217,7 +217,7 @@ export class TestContentDelivery implements ContentDelivery {
 export function provideContentTesting(
   delivery: ContentDelivery,
   store: BundleStore = new MemoryBundleStore(),
-): Provider[] {
+): Array<Provider> {
   return [
     { provide: CONTENT_DELIVERY, useValue: delivery },
     { provide: CONTENT_BUNDLE_STORE, useValue: store },
@@ -228,6 +228,6 @@ export function provideContentTesting(
  * Builds the bundles a delivery serving `packs` will serve, so a page opened next renders within a test's
  * `vi.waitFor`: the first build of Player Core's import takes seconds on a slow runner, and later ones reuse it.
  */
-export async function prebuildContentTesting(packs: readonly PackContentsLoader[]): Promise<void> {
+export async function prebuildContentTesting(packs: ReadonlyArray<PackContentsLoader>): Promise<void> {
   await bundlesOf(packs);
 }

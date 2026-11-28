@@ -20,7 +20,7 @@ export const CONTENT_PACK_CACHE = new InjectionToken<ContentPackCache>('CONTENT_
  * A kind's entries, keyed by the paths of its mechanics and names bundles, so registries over different kind sets share
  * entry objects. One per injector, unlike the pack cache: entry identity is only stable within one injector.
  */
-export type ContentEntryCache = Map<string, readonly ContentEntry[]>;
+export type ContentEntryCache = Map<string, ReadonlyArray<ContentEntry>>;
 
 export const CONTENT_ENTRY_CACHE = new InjectionToken<ContentEntryCache>('CONTENT_ENTRY_CACHE', {
   providedIn: 'root',

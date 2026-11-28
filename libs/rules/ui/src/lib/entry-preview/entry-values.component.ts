@@ -36,7 +36,7 @@ export class EntryValuesView {
   protected readonly none = computed((): boolean => this.values() === undefined);
 
   /** The stages of a staged condition, each marked when it is the value held; none for a formula. */
-  protected readonly rows = computed((): readonly StageRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<StageRow> => {
     const values = this.values();
     const held = this.current();
 

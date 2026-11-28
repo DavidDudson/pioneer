@@ -27,7 +27,7 @@ describe('DamageDice from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         category: 'precision',
         diceNumber: 1,
@@ -49,7 +49,7 @@ describe('DamageDice from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         diceNumber: 'ternary(gte(@level, 18), 2, 1)',
         key: RuleElementKey.DamageDice,
@@ -79,7 +79,7 @@ describe('DamageDice from Foundry', () => {
     expect(override.untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(critical.rules as readonly unknown[]).toEqual([
+    expect(critical.rules as ReadonlyArray<unknown>).toEqual([
       {
         critical: true,
         damageType: 'bleed',
@@ -135,7 +135,7 @@ describe('DamageAlteration from Foundry', () => {
     expect([number, type].map(({ untranslated }) => untranslated)).toEqual([[], []]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(number.rules as readonly unknown[]).toEqual([
+    expect(number.rules as ReadonlyArray<unknown>).toEqual([
       {
         key: RuleElementKey.DamageAlteration,
         mode: 'add',

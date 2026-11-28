@@ -39,7 +39,7 @@ export function conditionalLines(
   statistic: StatisticValue,
   words: ConditionWords,
   claimable: ReadonlySet<RuleId> = new Set(),
-): readonly string[] {
+): ReadonlyArray<string> {
   return statistic.lines
     .filter(
       ({ status, modifier }) =>

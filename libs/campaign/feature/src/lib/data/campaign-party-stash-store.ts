@@ -6,7 +6,7 @@ import { ApiClient, injectScopedQuery } from '@pioneer/shared/web';
 import { CampaignStore } from './campaign-store';
 
 /** TanStack Query key for a campaign's party stash. */
-export function partyStashKey(id: CampaignId | undefined): readonly unknown[] {
+export function partyStashKey(id: CampaignId | undefined): ReadonlyArray<unknown> {
   return ['campaigns', 'party-stash', id];
 }
 

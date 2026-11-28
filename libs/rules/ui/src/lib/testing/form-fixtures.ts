@@ -30,7 +30,7 @@ export function formReplacement(source: FormSource): FormReplacement {
 }
 
 /** Armor Class a form sets, and Fortitude the character's own beats: only the first is marked "from Golem Form". */
-export const FORM_STATISTICS: readonly NamedStatistic[] = [
+export const FORM_STATISTICS: ReadonlyArray<NamedStatistic> = [
   {
     name: 'Armor Class',
     kind: StatisticKind.Dc,

@@ -10,10 +10,10 @@ export type CampaignAudit = AuditContext<CampaignCommand>;
  */
 export abstract class CampaignRepository {
   /** The live campaigns `userId` is a member of, in the order they joined; campaign id breaks ties. */
-  public abstract listForMember(userId: UserId): Promise<readonly Campaign[]>;
+  public abstract listForMember(userId: UserId): Promise<ReadonlyArray<Campaign>>;
 
   /** The archived campaigns `gmId` runs (ADR-0062), in the order they joined them; campaign id breaks ties. */
-  public abstract listArchivedForGm(gmId: UserId): Promise<readonly Campaign[]>;
+  public abstract listArchivedForGm(gmId: UserId): Promise<ReadonlyArray<Campaign>>;
 
   /** Any live campaign, with all its members; an archived one reads as missing. The service applies the access policy. */
   public abstract findById(id: CampaignId): Promise<Campaign | undefined>;

@@ -101,8 +101,8 @@ interface Approved {
 
 interface ReviewJson {
   readonly manageable: boolean;
-  readonly needsReview: readonly { readonly item: string; readonly rule: string }[];
-  readonly approved: readonly Approved[];
+  readonly needsReview: ReadonlyArray<{ readonly item: string; readonly rule: string }>;
+  readonly approved: ReadonlyArray<Approved>;
 }
 
 async function statusOf(handler: AnyElysia, call: Request): Promise<number> {

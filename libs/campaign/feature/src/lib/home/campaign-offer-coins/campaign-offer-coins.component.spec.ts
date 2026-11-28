@@ -47,7 +47,7 @@ interface Opened {
 }
 
 /** Kyra's purse on the sheet of a character in the campaign, with the disclosure opened and the party loaded. */
-async function open(characters: readonly JsonObject[]): Promise<Opened> {
+async function open(characters: ReadonlyArray<JsonObject>): Promise<Opened> {
   TestBed.configureTestingModule({
     providers: [
       ...provideServerStateTesting(),

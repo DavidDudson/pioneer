@@ -13,7 +13,7 @@ import { mergeLang } from './foundry-lang';
  */
 
 /** Archive members the importer reads, below the archive's top-level directory. */
-export const RELEASE_FILES: readonly string[] = [
+export const RELEASE_FILES: ReadonlyArray<string> = [
   '*/system.pf2e.json',
   '*/static/system.json',
   '*/static/lang/*.json',
@@ -101,10 +101,10 @@ export interface UnreadableDocument {
 }
 
 export interface FoundryRelease {
-  readonly documents: readonly PackDocument[];
-  readonly journals: readonly JournalDocument[];
-  readonly actors: readonly ActorDocument[];
-  readonly unreadable: readonly UnreadableDocument[];
+  readonly documents: ReadonlyArray<PackDocument>;
+  readonly journals: ReadonlyArray<JournalDocument>;
+  readonly actors: ReadonlyArray<ActorDocument>;
+  readonly unreadable: ReadonlyArray<UnreadableDocument>;
   readonly lang: FoundryLang;
 }
 
@@ -208,7 +208,7 @@ export function readFoundryRelease(archiveFiles: ReadonlyMap<string, string>): F
 
   const reads = [...files]
     .toSorted(([left], [right]) => left.localeCompare(right))
-    .flatMap(([path, text]): (PackDocument | JournalDocument | ActorDocument | UnreadableDocument)[] => {
+    .flatMap(([path, text]): Array<PackDocument | JournalDocument | ActorDocument | UnreadableDocument> => {
       const itemPack = packOf(items, path, sources);
       const journalPack = packOf(journals, path, sources);
       const actorPack = packOf(actors, path, sources);

@@ -20,13 +20,13 @@ const armorClass = {
   keyAttribute: 'dex',
 };
 
-function issuesFrom(schema: z.ZodType, json: JsonValue): readonly FieldIssue[] {
+function issuesFrom(schema: z.ZodType, json: JsonValue): ReadonlyArray<FieldIssue> {
   const result = schema.safeParse(json);
 
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
-const issues = (json: JsonValue): readonly FieldIssue[] => issuesFrom(StatisticDefinition, json);
+const issues = (json: JsonValue): ReadonlyArray<FieldIssue> => issuesFrom(StatisticDefinition, json);
 
 describe('StatisticDefinition', () => {
   test('accepts a statistic with an actor-only base formula', () => {

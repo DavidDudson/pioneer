@@ -42,7 +42,7 @@ export interface ChoiceLockChange {
 })
 export class ChoicesView {
   /** The choices in sheet order, or undefined while they load. */
-  public readonly lines = input<readonly ChoiceLine[] | undefined>();
+  public readonly lines = input<ReadonlyArray<ChoiceLine> | undefined>();
   /** Whether chosen choices offer the keep toggle. */
   public readonly lockable = input(false, { transform: booleanAttribute });
   /** The slots that are kept. */

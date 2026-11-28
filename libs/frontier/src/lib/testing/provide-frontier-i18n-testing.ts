@@ -7,7 +7,7 @@ import { kernelMessages } from '@pioneer/shared/kernel';
 import messages from '../../i18n/en.json';
 
 /** Frontier's and the kernel's `en` messages, preloaded with the ICU transpiler, for frontier specs. */
-export function provideFrontierI18nTesting(): EnvironmentProviders[] {
+export function provideFrontierI18nTesting(): Array<EnvironmentProviders> {
   return [
     importProvidersFrom(
       TranslocoTestingModule.forRoot({

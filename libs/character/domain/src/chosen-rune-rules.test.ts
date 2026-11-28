@@ -35,7 +35,7 @@ function energyRune(rune: RuneFixture, choice?: string): RuneEtching {
 }
 
 /** The rules in play for worn, invested leather armour at +2 with `etchings` etched onto it. */
-function rulesOfArmor(...etchings: readonly RuneEtching[]): readonly object[] {
+function rulesOfArmor(...etchings: ReadonlyArray<RuneEtching>): ReadonlyArray<object> {
   let inventory = addItem(EMPTY_INVENTORY, {
     id: ARMOR,
     item: itemFixtureId(ItemFixture.LeatherArmor),
@@ -58,7 +58,7 @@ function rulesOfArmor(...etchings: readonly RuneEtching[]): readonly object[] {
 const SWORD = InventoryItemId.parse('00000000-0000-4000-8000-000000000001');
 
 /** The rules in play for a longsword held in one hand at +1 with `etchings` etched onto it. */
-function rulesOfSword(...etchings: readonly RuneEtching[]): readonly object[] {
+function rulesOfSword(...etchings: ReadonlyArray<RuneEtching>): ReadonlyArray<object> {
   let inventory = addItem(EMPTY_INVENTORY, {
     id: SWORD,
     item: itemFixtureId(ItemFixture.Longsword),

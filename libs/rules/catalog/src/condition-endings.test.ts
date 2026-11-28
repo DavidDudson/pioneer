@@ -9,7 +9,7 @@ const actionFile = await import('@pioneer/content/packs/player-core/action.json'
 const actions = ContentEntryFile.parse(actionFile.default).filter((each) => each.kind === ContentKind.Action);
 const actionIds = new Set(actions.map((each) => each.id));
 
-function endingsOf(slug: string): readonly ConditionEnding[] {
+function endingsOf(slug: string): ReadonlyArray<ConditionEnding> {
   return conditions.find((each) => slugName(each.slug) === slug)?.data.recovery ?? [];
 }
 
@@ -18,18 +18,18 @@ function actionId(slug: string): ContentId | undefined {
 }
 
 /** What each automatic ending of `slug` does, and when. */
-function automaticOf(slug: string): readonly object[] {
+function automaticOf(slug: string): ReadonlyArray<object> {
   return endingsOf(slug).flatMap((ending) =>
     ending.kind === 'automatic' ? [{ trigger: ending.trigger, change: ending.change }] : [],
   );
 }
 
-function checksOf(slug: string): readonly object[] {
+function checksOf(slug: string): ReadonlyArray<object> {
   return endingsOf(slug).flatMap((ending) => (ending.kind === 'check' ? [ending.check] : []));
 }
 
 /** The action entries the endings of `slug` link. */
-function actionsOf(slug: string): readonly (ContentId | undefined)[] {
+function actionsOf(slug: string): ReadonlyArray<ContentId | undefined> {
   return endingsOf(slug).flatMap((ending) => (ending.kind === 'action' ? [ending.action] : []));
 }
 

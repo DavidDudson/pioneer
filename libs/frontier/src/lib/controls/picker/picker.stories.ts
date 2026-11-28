@@ -14,9 +14,9 @@ import { Picker } from './picker.component';
 
 type PickerStory = StoryObj<Picker<string, Feat>>;
 
-const FEW: readonly Feat[] = FEATS.slice(0, 6);
+const FEW: ReadonlyArray<Feat> = FEATS.slice(0, 6);
 const PICKED = 'feat-2';
-const FUNCTION_INPUTS: (keyof Picker<string, Feat>)[] = ['rowValue', 'rowLabel', 'rowDisabled'];
+const FUNCTION_INPUTS: Array<keyof Picker<string, Feat>> = ['rowValue', 'rowLabel', 'rowDisabled'];
 
 /**
  * Pick one row of a table. The panel opens inline below the trigger, with a search box and sortable columns.

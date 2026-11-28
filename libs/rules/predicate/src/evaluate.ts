@@ -94,7 +94,7 @@ function testComparison(statement: PredicateComparison, facts: PredicateFacts): 
   return testOrder(lessOrEqual, statement.lte, facts);
 }
 
-function combineList(statement: ListCompound, children: readonly Truth[]): Truth {
+function combineList(statement: ListCompound, children: ReadonlyArray<Truth>): Truth {
   if ('and' in statement) {
     return all(children);
   }
@@ -124,7 +124,7 @@ function combineList(statement: ListCompound, children: readonly Truth[]): Truth
  */
 export function combine(
   statement: Exclude<PredicateStatement, RollOption>,
-  children: readonly Truth[],
+  children: ReadonlyArray<Truth>,
   facts: PredicateFacts,
 ): Truth {
   if (isPredicateComparison(statement)) {
@@ -144,7 +144,7 @@ export function combine(
   return combineList(statement, children);
 }
 
-function listStatements(statement: ListCompound): readonly PredicateStatement[] {
+function listStatements(statement: ListCompound): ReadonlyArray<PredicateStatement> {
   if ('and' in statement) {
     return statement.and;
   }
@@ -169,7 +169,7 @@ function listStatements(statement: ListCompound): readonly PredicateStatement[] 
 }
 
 /** The statements directly inside `statement`, in order: `[if, then]` for a conditional. */
-export function childStatements(statement: PredicateStatement): readonly PredicateStatement[] {
+export function childStatements(statement: PredicateStatement): ReadonlyArray<PredicateStatement> {
   if (isRollOptionStatement(statement) || isPredicateComparison(statement)) {
     return [];
   }

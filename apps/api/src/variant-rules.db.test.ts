@@ -73,9 +73,9 @@ const content: ContentSource = {
 
 /** No homebrew packs: the official variant rule is all there is. */
 class OfficialOnly extends EffectivePacks {
-  readonly #none: readonly ContentPackId[] = [];
+  readonly #none: ReadonlyArray<ContentPackId> = [];
 
-  public override async of(): Promise<readonly ContentPackId[]> {
+  public override async of(): Promise<ReadonlyArray<ContentPackId>> {
     return this.#none;
   }
 }
@@ -94,7 +94,7 @@ describe.skipIf(adminUrl === undefined)('variant rules over postgres', () => {
   let campaignId: CampaignId;
   let memberId: CampaignMemberId;
 
-  async function stored(): Promise<readonly CharacterVariantRule[]> {
+  async function stored(): Promise<ReadonlyArray<CharacterVariantRule>> {
     return repository.listForCharacter(kyra);
   }
 

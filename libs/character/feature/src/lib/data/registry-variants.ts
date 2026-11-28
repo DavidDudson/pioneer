@@ -5,13 +5,13 @@ import type { ContentRegistry, VariantRuleEntry, VariantRuleId } from '@pioneer/
  * and per set of enabled variant rules (`injectContentRegistry`), so the set rides with the registry, as the server's
  * `CharacterContent` answers for a character; the sheet's derivations read it from here.
  */
-const IN_FORCE = new WeakMap<ContentRegistry, readonly VariantRuleEntry[]>();
+const IN_FORCE = new WeakMap<ContentRegistry, ReadonlyArray<VariantRuleEntry>>();
 
 /** Records the enabled variant rules the registry holds, in the order given; one it has no entry for is dropped. */
-export function putVariantsInForce(registry: ContentRegistry, enabled: readonly VariantRuleId[]): void {
+export function putVariantsInForce(registry: ContentRegistry, enabled: ReadonlyArray<VariantRuleId>): void {
   IN_FORCE.set(
     registry,
-    enabled.flatMap((id): VariantRuleEntry[] => {
+    enabled.flatMap((id): Array<VariantRuleEntry> => {
       const entry = registry.variantRule(id);
 
       return entry === undefined ? [] : [entry];
@@ -20,6 +20,6 @@ export function putVariantsInForce(registry: ContentRegistry, enabled: readonly 
 }
 
 /** The variant rules in force for the registry's character; none for a registry built for no character. */
-export function variantsInForce(registry: ContentRegistry): readonly VariantRuleEntry[] {
+export function variantsInForce(registry: ContentRegistry): ReadonlyArray<VariantRuleEntry> {
   return IN_FORCE.get(registry) ?? [];
 }

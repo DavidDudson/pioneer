@@ -29,14 +29,14 @@ const PROF_TERM = '@prof.';
 /** A vital with no rank as shown: its statistic as the one-row list `pio-statistics` takes. */
 interface VitalTile {
   readonly key: Selector;
-  readonly list: readonly NamedStatistic[];
+  readonly list: ReadonlyArray<NamedStatistic>;
 }
 
 /** One card of the row: a tile for a statistic with no rank, or rows laid out as skills are (Armor Class, DCs, saves). */
 interface VitalBlock {
   readonly key: Selector;
   readonly tile?: VitalTile;
-  readonly rows: readonly NamedStatistic[];
+  readonly rows: ReadonlyArray<NamedStatistic>;
 }
 
 /** Placeholder tiles while the vitals load: the three saves. */
@@ -98,7 +98,7 @@ function tileOf({ statistic }: Vital): VitalTile {
 })
 export class VitalsView {
   /** Undefined while loading: the row then shows placeholder tiles. */
-  public readonly vitals = input.required<readonly Vital[] | undefined>();
+  public readonly vitals = input.required<ReadonlyArray<Vital> | undefined>();
   /** Display names of the entries the breakdown lines come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
@@ -113,7 +113,7 @@ export class VitalsView {
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   /** Armor Class and the rest as tiles, the saves in one card where the first of them stands. */
-  protected readonly blocks = computed((): readonly VitalBlock[] | undefined => {
+  protected readonly blocks = computed((): ReadonlyArray<VitalBlock> | undefined => {
     this.#messages();
     const vitals = this.vitals();
 
@@ -121,7 +121,7 @@ export class VitalsView {
       return undefined;
     }
 
-    const rowsOf = (group: VitalGroup): NamedStatistic[] => {
+    const rowsOf = (group: VitalGroup): Array<NamedStatistic> => {
       const grouped = vitals.filter((vital) => groupOf(vital) === group);
 
       return [
@@ -133,7 +133,7 @@ export class VitalsView {
 
     const placed = new Set<VitalGroup>();
 
-    return vitals.flatMap((vital): VitalBlock[] => {
+    return vitals.flatMap((vital): Array<VitalBlock> => {
       const group = groupOf(vital);
 
       if (group === undefined) {
@@ -159,7 +159,7 @@ export class VitalsView {
   });
 
   /** The class DC's proficiency bonus as a row of its own: the `@prof` term of the DC's base, so a variant rule shows. */
-  #proficiencyRows({ statistic }: Vital): NamedStatistic[] {
+  #proficiencyRows({ statistic }: Vital): Array<NamedStatistic> {
     const { result } = statistic;
 
     if (result.selector !== CLASS_DC || !result.ok) {
@@ -192,7 +192,7 @@ export class VitalsView {
   }
 
   /** Luck, a flat d20, as the last row of the DCs' card: the class DC's result with nothing in it. */
-  #luckRows({ statistic }: Vital): NamedStatistic[] {
+  #luckRows({ statistic }: Vital): Array<NamedStatistic> {
     const { result } = statistic;
 
     if (result.selector !== CLASS_DC || !result.ok) {

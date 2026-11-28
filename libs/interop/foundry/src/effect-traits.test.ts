@@ -9,7 +9,7 @@ import type { ImportTranslation } from './translate-import';
 
 const POLYMORPH = Trait.parse('polymorph');
 
-function traitsOf(translation: ImportTranslation, name: string): readonly Trait[] | undefined {
+function traitsOf(translation: ImportTranslation, name: string): ReadonlyArray<Trait> | undefined {
   return entryOfKind(translation, ContentKind.Effect, name)?.envelope.traits;
 }
 

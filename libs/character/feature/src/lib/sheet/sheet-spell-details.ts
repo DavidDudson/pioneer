@@ -11,7 +11,7 @@ export interface SpellOnSheet {
   readonly id: ContentId;
   readonly name: string;
   readonly rank: SpellRank;
-  readonly tags: readonly string[];
+  readonly tags: ReadonlyArray<string>;
   /** Where it comes from, worded, for the second row of its item. */
   readonly source?: string | undefined;
 }
@@ -19,7 +19,7 @@ export interface SpellOnSheet {
 /** A spell's data with the traits of its entry. */
 interface SpellEntry {
   readonly data: SpellData;
-  readonly traits: readonly Trait[];
+  readonly traits: ReadonlyArray<Trait>;
 }
 
 const SPELL_DATA = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, SpellEntry>>();

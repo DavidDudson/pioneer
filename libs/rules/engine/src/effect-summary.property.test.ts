@@ -36,7 +36,7 @@ interface Placed {
   readonly value: number;
 }
 
-const modifiers: Arbitrary<readonly Placed[]> = array(
+const modifiers: Arbitrary<ReadonlyArray<Placed>> = array(
   record({
     type: constantFrom(...TYPES),
     value: integer({ min: -VALUE_MAX, max: VALUE_MAX }),
@@ -44,11 +44,11 @@ const modifiers: Arbitrary<readonly Placed[]> = array(
   { maxLength: ELEMENTS_MAX },
 );
 
-function rulesOf(entry: string, elements: readonly Placed[]): RuleInPlay[] {
+function rulesOf(entry: string, elements: ReadonlyArray<Placed>): Array<RuleInPlay> {
   return elements.map(({ type, value }, rule) => inPlay(flatModifier(type, value, ['perception']), entry, { rule }));
 }
 
-function entryOf(name: string, elements: readonly Placed[]): SummarisedEntry {
+function entryOf(name: string, elements: ReadonlyArray<Placed>): SummarisedEntry {
   const slug = entrySlug(ContentKind.Effect, Slug.parse(name));
   const rules = rulesOf(name, elements);
 
@@ -59,12 +59,12 @@ function entryOf(name: string, elements: readonly Placed[]): SummarisedEntry {
   };
 }
 
-function scopeOf(rules: readonly RuleInPlay[]): EffectScope {
+function scopeOf(rules: ReadonlyArray<RuleInPlay>): EffectScope {
   return { content, inputs, modifiers: { rules, facts } };
 }
 
 /** The sum of the values of the lines that count. */
-function applied(lines: readonly EffectLine[]): number {
+function applied(lines: ReadonlyArray<EffectLine>): number {
   let sum = 0;
 
   for (const line of lines) {
@@ -79,7 +79,7 @@ function applied(lines: readonly EffectLine[]): number {
   return sum;
 }
 
-function computed(rules: readonly RuleInPlay[]): number {
+function computed(rules: ReadonlyArray<RuleInPlay>): number {
   const result = deriveStatistics(content, inputs, { rules, facts }).get(PERCEPTION);
 
   return result?.ok === true ? result.computed : Number.NaN;

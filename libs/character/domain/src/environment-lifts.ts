@@ -12,6 +12,6 @@ import type { StatisticSources } from './character-statistics';
 export function characterLiftedRestrictions(
   document: CharacterDocument,
   sources: Pick<StatisticSources, 'registry' | 'slots' | 'variants'>,
-): readonly LiftedRestriction[] {
+): ReadonlyArray<LiftedRestriction> {
   return liftedRestrictions(rulesInPlay(document, sources));
 }

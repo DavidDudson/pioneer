@@ -10,7 +10,7 @@ import type {
 import { traitChipsOf } from './trait-chip-fixtures';
 
 /** Player Core, page 1: a source for a fixture option. */
-const PLAYER_CORE: readonly SourceRef[] = [SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 })];
+const PLAYER_CORE: ReadonlyArray<SourceRef> = [SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 })];
 
 /** An option of a slot that lists its options: a name and a source. */
 export function slotRow(overrides: Partial<SlotPickerRow> & Pick<SlotPickerRow, 'id' | 'name'>): SlotPickerRow {

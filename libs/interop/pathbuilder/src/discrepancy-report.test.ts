@@ -52,7 +52,7 @@ const MORDRED_FOCUS_POINTS = 3;
  * The totals Pathbuilder gives the saves, Perception, skills and class DC, worked by hand from Mordred (level 12,
  * Strength +4, Constitution +2, Wisdom +3): the attribute modifier, the rank's number, the level and the listed bonuses.
  */
-const HAND_WORKED_TOTALS: readonly (readonly [string, number])[] = [
+const HAND_WORKED_TOTALS: ReadonlyArray<readonly [string, number]> = [
   ['perception', 3 + 4 + 12 + 1],
   ['save:fortitude', 2 + 6 + 12 + 1],
   ['skill:arcana', 1 + 2 + 12],
@@ -66,13 +66,13 @@ interface Values {
   focusPoints: number | undefined;
   readonly totals: Map<Selector, number>;
   readonly ranks: Map<Selector, Proficiency>;
-  spellSlots: PioneerSpellSlots[];
-  readonly spellDcs: {
+  spellSlots: Array<PioneerSpellSlots>;
+  readonly spellDcs: Array<{
     selector: Selector;
     tradition: string;
     attribute: string;
     total: number;
-  }[];
+  }>;
 }
 
 /** Pioneer's values as Pathbuilder reports them: no statistic differs. */

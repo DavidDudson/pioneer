@@ -7,7 +7,7 @@ import * as z from 'zod';
 import type { JsonValue } from './json-bounds';
 import { RuleElement } from './rule-element';
 
-function issues(value: JsonValue): readonly FieldIssue[] {
+function issues(value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = RuleElement.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
@@ -17,7 +17,7 @@ const OAKEN_RESILIENCE = '8c3e6b1e-2a54-5f43-9b49-5ce7c7a2b2a1';
 const ILL_OMEN = '2f6a1d0c-7b3e-5c94-8e21-4a9d6f0b3c7e';
 
 /** A feat's innate spell, and one gated on a pick. */
-const examples: object[] = [
+const examples: Array<object> = [
   { key: 'InnateSpells', entry: 'grown-of-oak', spells: [{ rank: 2, spell: OAKEN_RESILIENCE }] },
   {
     key: 'InnateSpells',
@@ -31,7 +31,7 @@ const examples: object[] = [
 interface SpellsElement {
   readonly key: string;
   readonly entry: string;
-  readonly spells: readonly { readonly rank: unknown; readonly spell: string }[];
+  readonly spells: ReadonlyArray<{ readonly rank: unknown; readonly spell: string }>;
 }
 
 /** An element naming one spell at `rank`. */

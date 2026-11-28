@@ -45,7 +45,7 @@ function pickOptionOf(raw: unknown): PickOption | undefined {
  * `raws` with each such `RollOption` folded into the `ChoiceSet` it names as its `rollOption`. A `RollOption` with no
  * `ChoiceSet` of that flag on the item, or that is conditional or scoped, stays as it is.
  */
-export function withPickRollOptions(raws: readonly unknown[]): unknown[] {
+export function withPickRollOptions(raws: ReadonlyArray<unknown>): Array<unknown> {
   const flags = new Set(
     raws.flatMap((raw) => {
       const choice = FoundryChoiceSet.safeParse(raw);
@@ -62,7 +62,7 @@ export function withPickRollOptions(raws: readonly unknown[]): unknown[] {
     }),
   );
 
-  return raws.flatMap((raw): unknown[] => {
+  return raws.flatMap((raw): Array<unknown> => {
     const option = pickOptionOf(raw);
 
     if (option !== undefined && namespaces.has(option.flag)) {

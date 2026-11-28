@@ -68,7 +68,7 @@ interface StoredPack {
   readonly version: Version;
 }
 
-function batches<Item>(items: readonly Item[]): readonly (readonly Item[])[] {
+function batches<Item>(items: ReadonlyArray<Item>): ReadonlyArray<ReadonlyArray<Item>> {
   const count = Math.ceil(items.length / BATCH_SIZE);
 
   return Array.from({ length: count }, (_unused, index) => items.slice(index * BATCH_SIZE, (index + 1) * BATCH_SIZE));
@@ -169,7 +169,7 @@ async function removeStale(write: PackWrite): Promise<number> {
 }
 
 /** The entries of the pack that have a description: only they have a text row. */
-function described(write: PackWrite): readonly ContentEntry[] {
+function described(write: PackWrite): ReadonlyArray<ContentEntry> {
   return write.contents.entries.filter((entry) => entry.description.length > 0);
 }
 
@@ -261,9 +261,9 @@ async function seedPack(db: Database, contents: PackContents, at: string): Promi
  */
 export async function seedContentPacks(
   db: Database,
-  packs: readonly PackContentsLoader[],
+  packs: ReadonlyArray<PackContentsLoader>,
   clock: Clock,
-): Promise<readonly PackSeed[]> {
+): Promise<ReadonlyArray<PackSeed>> {
   const contents = await Promise.all(packs.map(async (pack) => pack.load()));
   const at = clock.now().toString();
 

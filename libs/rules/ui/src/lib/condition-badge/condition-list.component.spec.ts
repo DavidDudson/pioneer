@@ -7,7 +7,7 @@ import { ConditionList } from './condition-list.component';
 import { ConditionSlug } from './condition-seriousness';
 
 /** The list's text in order: the Bloodied line when it shows, then each condition's name and value. */
-async function lines(conditions: readonly ConditionLine[], bloodied = false): Promise<readonly string[]> {
+async function lines(conditions: ReadonlyArray<ConditionLine>, bloodied = false): Promise<ReadonlyArray<string>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(ConditionList);
   fixture.componentRef.setInput('conditions', conditions);

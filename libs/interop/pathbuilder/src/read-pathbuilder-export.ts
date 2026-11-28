@@ -38,7 +38,7 @@ export interface PathbuilderIdentity {
   readonly heritage: PathbuilderName | undefined;
   readonly background: PathbuilderName | undefined;
   /** Class first, then the dual class when the build has one. */
-  readonly classes: readonly PathbuilderName[];
+  readonly classes: ReadonlyArray<PathbuilderName>;
 }
 
 /**
@@ -56,24 +56,24 @@ export interface PathbuilderImport {
   readonly level: CharacterLevel;
   /** Pathbuilder's modifiers, from its scores: compared with what the boosts give, never stored (ADR-0004). */
   readonly attributes: AttributeModifiers;
-  readonly boosts: readonly ImportedBoosts[];
+  readonly boosts: ReadonlyArray<ImportedBoosts>;
   /** The attributes Pathbuilder flawed: voluntary flaws, and possibly the ancestry's own. */
-  readonly flaws: readonly Attribute[];
+  readonly flaws: ReadonlyArray<Attribute>;
   readonly identity: PathbuilderIdentity;
   /** Every reference to a content entry, in export order, repeats kept. */
-  readonly names: readonly ImportedName[];
-  readonly lores: readonly ImportedLore[];
+  readonly names: ReadonlyArray<ImportedName>;
+  readonly lores: ReadonlyArray<ImportedLore>;
   /** The ranks Pathbuilder gives its skills, by the lower-case names it uses ("athletics"), untrained ones too. */
   readonly skills: Readonly<Record<string, Proficiency>>;
   /** Equipment, then weapons, then armour, in export order. */
-  readonly items: readonly ImportedItem[];
+  readonly items: ReadonlyArray<ImportedItem>;
   /** Pathbuilder's gear containers, which equipment rows in `items` name. */
-  readonly containers: readonly ImportedContainer[];
+  readonly containers: ReadonlyArray<ImportedContainer>;
   /** Every feat row in export order, awarded and heritage feats too. */
-  readonly feats: readonly ImportedFeat[];
+  readonly feats: ReadonlyArray<ImportedFeat>;
   readonly coins: ImportedCoins;
   /** Every `spellCasters` row, in export order. */
-  readonly casters: readonly ImportedCaster[];
+  readonly casters: ReadonlyArray<ImportedCaster>;
   readonly reported: PathbuilderReported;
 }
 
@@ -85,7 +85,7 @@ export interface PathbuilderRead {
 export interface PathbuilderReadFailure {
   readonly ok: false;
   readonly problem: PathbuilderProblem;
-  readonly issues: readonly z.core.$ZodIssue[];
+  readonly issues: ReadonlyArray<z.core.$ZodIssue>;
 }
 
 export type PathbuilderReadResult = PathbuilderRead | PathbuilderReadFailure;
@@ -108,7 +108,7 @@ export const RANK_BY_NUMBER: ReadonlyMap<number, Proficiency> = new Map([
   [LEGENDARY_SCORE, Proficiency.Legendary],
 ]);
 
-function failure(problem: PathbuilderProblem, issues: readonly z.core.$ZodIssue[] = []): PathbuilderReadFailure {
+function failure(problem: PathbuilderProblem, issues: ReadonlyArray<z.core.$ZodIssue> = []): PathbuilderReadFailure {
   return { ok: false, problem, issues };
 }
 
@@ -138,7 +138,7 @@ function attributeModifiers(build: PathbuilderBuild): AttributeModifiers {
   return new AttributeModifiers(wire);
 }
 
-function named(kind: ImportKind, names: readonly (string | null | undefined)[]): ImportedName[] {
+function named(kind: ImportKind, names: ReadonlyArray<string | null | undefined>): Array<ImportedName> {
   return names.flatMap((raw) => {
     const name = chosen(raw);
 
@@ -146,14 +146,14 @@ function named(kind: ImportKind, names: readonly (string | null | undefined)[]):
   });
 }
 
-function spellNames(build: PathbuilderBuild): (string | undefined)[] {
+function spellNames(build: PathbuilderBuild): Array<string | undefined> {
   const casters = build.spellCasters.flatMap((caster) => caster.spells.flatMap((rank) => rank.list));
   const focus = Object.values(build.focus).flatMap((byAttribute) => Object.values(byAttribute));
 
   return [...casters, ...focus.flatMap((entry) => entry.focusCantrips), ...focus.flatMap((entry) => entry.focusSpells)];
 }
 
-function contentNames(build: PathbuilderBuild): ImportedName[] {
+function contentNames(build: PathbuilderBuild): Array<ImportedName> {
   return [
     ...named(ImportKind.Ancestry, [build.ancestry]),
     ...named(ImportKind.Heritage, [build.heritage]),
@@ -175,7 +175,7 @@ function contentNames(build: PathbuilderBuild): ImportedName[] {
   ];
 }
 
-function lores(build: PathbuilderBuild): ImportedLore[] {
+function lores(build: PathbuilderBuild): Array<ImportedLore> {
   return build.lores.flatMap(([raw, number]) => {
     const name = chosen(raw);
     const rank = RANK_BY_NUMBER.get(number);
@@ -263,7 +263,7 @@ export type PathbuilderInput =
   | boolean
   | null
   | undefined
-  | readonly PathbuilderInput[]
+  | ReadonlyArray<PathbuilderInput>
   | { readonly [key: string]: PathbuilderInput };
 
 const NOT_JSON = Symbol('not JSON');

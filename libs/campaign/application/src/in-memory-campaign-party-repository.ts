@@ -23,7 +23,7 @@ export class InMemoryCampaignPartyRepository extends CampaignPartyRepository {
     this.#campaigns = campaigns;
   }
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignCharacter[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignCharacter>> {
     const rows = await this.#current();
 
     return rows
@@ -35,13 +35,13 @@ export class InMemoryCampaignPartyRepository extends CampaignPartyRepository {
   }
 
   public override async campaignsOf(
-    characterIds: readonly CharacterId[],
+    characterIds: ReadonlyArray<CharacterId>,
   ): Promise<ReadonlyMap<CharacterId, CampaignId>> {
     const rows = await this.#current();
     const placed = new Map(rows.map((attached) => [attached.character.characterId, attached.campaignId]));
 
     return new Map(
-      characterIds.flatMap((characterId): [CharacterId, CampaignId][] => {
+      characterIds.flatMap((characterId): Array<[CharacterId, CampaignId]> => {
         const campaignId = placed.get(characterId);
 
         return campaignId === undefined ? [] : [[characterId, campaignId]];
@@ -75,7 +75,7 @@ export class InMemoryCampaignPartyRepository extends CampaignPartyRepository {
   }
 
   /** The attachments whose member is still in their campaign; the rest are dropped, like a cascade. */
-  async #current(): Promise<readonly Attached[]> {
+  async #current(): Promise<ReadonlyArray<Attached>> {
     const rows = [...this.#rows.values()];
     const campaigns = await Promise.all(rows.map(async (attached) => this.#campaigns.findById(attached.campaignId)));
 

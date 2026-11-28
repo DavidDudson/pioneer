@@ -17,7 +17,7 @@ export const PLAYER_CORE_CLASS_PACK = PackId.parse('player-core');
 /** Bard, cleric, druid, fighter, ranger, rogue, witch and wizard. */
 export type PlayerCoreClass = 'bard' | 'cleric' | 'druid' | 'fighter' | 'ranger' | 'rogue' | 'witch' | 'wizard';
 
-export const PLAYER_CORE_CLASSES: readonly PlayerCoreClass[] = [
+export const PLAYER_CORE_CLASSES: ReadonlyArray<PlayerCoreClass> = [
   'bard',
   'cleric',
   'druid',

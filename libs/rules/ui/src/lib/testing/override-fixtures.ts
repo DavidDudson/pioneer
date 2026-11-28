@@ -81,7 +81,7 @@ const EARLIER_RULING = 19;
 const GM_RULING = 22;
 
 /** Overrides on the fighter's AC: a form's `Change` not in effect, then a GM's set override replacing an earlier one. */
-const AC_OVERRIDES: readonly OverrideLine[] = [
+const AC_OVERRIDES: ReadonlyArray<OverrideLine> = [
   override(GOLEM_FORM, {
     phase: OverridePhase.Base,
     mode: ChangeMode.Upgrade,
@@ -118,7 +118,7 @@ export const PINNED_AC: StatisticValue = statistic('ac', {
 });
 
 /** The fighter's statistics with Armor Class pinned. */
-export const PINNED_STATISTICS: readonly NamedStatistic[] = [
+export const PINNED_STATISTICS: ReadonlyArray<NamedStatistic> = [
   { name: 'Armor Class', kind: StatisticKind.Dc, result: PINNED_AC },
   ...FIGHTER_STATISTICS.slice(1),
 ];

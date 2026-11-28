@@ -34,7 +34,7 @@ function isMelee(weapon: WeaponEntry): boolean {
   return weapon.data.range === undefined;
 }
 
-function deals(weapon: WeaponEntry, ...types: readonly DamageType[]): boolean {
+function deals(weapon: WeaponEntry, ...types: ReadonlyArray<DamageType>): boolean {
   const dealt = damageTypes(weapon);
 
   return types.some((type) => dealt.has(type));
@@ -60,7 +60,7 @@ function isMetal(armor: ArmorEntry): boolean {
   return armor.data.group !== undefined && METAL.has(armor.data.group);
 }
 
-function isCategory(armor: ArmorEntry, ...categories: readonly ArmorItemCategory[]): boolean {
+function isCategory(armor: ArmorEntry, ...categories: ReadonlyArray<ArmorItemCategory>): boolean {
   return categories.includes(armor.data.category);
 }
 

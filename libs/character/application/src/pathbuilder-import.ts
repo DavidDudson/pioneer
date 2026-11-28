@@ -119,7 +119,7 @@ export function freeArchetypeVariant(
 function rootChoices(value: PathbuilderImport, { lookup, slots }: ImportContent): BoostChoices {
   const [first, second] = value.identity.classes;
 
-  const picks: [SlotKey, ImportKind, PathbuilderName | undefined][] = [
+  const picks: Array<[SlotKey, ImportKind, PathbuilderName | undefined]> = [
     [BACKGROUND_SLOT, ImportKind.Background, value.identity.background],
     [CLASS_SLOT, ImportKind.Class, first],
     [SECOND_CLASS_SLOT, ImportKind.Class, hasSecondClass(slots.rootSlots) ? second : undefined],
@@ -178,7 +178,10 @@ function heritageChoice(
  * The second class an export names that matched loaded content but has no slot to go in, because the character does
  * not use Dual Class: named as not offered.
  */
-function secondClassNotOffered(value: PathbuilderImport, { lookup, slots }: ImportContent): readonly ImportedName[] {
+function secondClassNotOffered(
+  value: PathbuilderImport,
+  { lookup, slots }: ImportContent,
+): ReadonlyArray<ImportedName> {
   const [, name] = value.identity.classes;
   const matched = name !== undefined && lookup.resolve(ImportKind.Class, name) !== undefined;
 
@@ -190,10 +193,10 @@ export interface ImportedCharacter {
   /** Whether the second class is picked, so the character needs the Dual Class variant rule. */
   readonly dualClass: boolean;
   readonly character: Character;
-  readonly unplaced: readonly UnplacedBoost[];
-  readonly skillGaps: readonly SkillGap[];
-  readonly spellGaps: readonly SpellGap[];
-  readonly notOffered: readonly ImportedName[];
+  readonly unplaced: ReadonlyArray<UnplacedBoost>;
+  readonly skillGaps: ReadonlyArray<SkillGap>;
+  readonly spellGaps: ReadonlyArray<SpellGap>;
+  readonly notOffered: ReadonlyArray<ImportedName>;
 }
 
 /** What the feat, skill and language slots took from an export, on top of the choices already made. */
@@ -204,8 +207,8 @@ interface SlotFills {
    * The Lores no content defines that the skill slots took come with it, for the names the export gave them.
    */
   readonly unplaced: UnplacedPicks;
-  readonly skillGaps: readonly SkillGap[];
-  readonly spellGaps: readonly SpellGap[];
+  readonly skillGaps: ReadonlyArray<SkillGap>;
+  readonly spellGaps: ReadonlyArray<SpellGap>;
 }
 
 /** The character `create` makes, and the choices already made in it. */
@@ -215,7 +218,7 @@ interface Build {
 }
 
 /** The names of the `kind` an export lists. */
-function namesOf({ names }: PathbuilderImport, kind: ImportKind): PathbuilderName[] {
+function namesOf({ names }: PathbuilderImport, kind: ImportKind): Array<PathbuilderName> {
   return names.filter((each) => each.kind === kind).map(({ name }) => name);
 }
 
@@ -282,7 +285,7 @@ export function importedCharacter(value: PathbuilderImport, content: ImportConte
 }
 
 /** The problem first, as the issue the UI shows, then the schema issues that explain it. */
-function readIssues({ problem, issues }: PathbuilderReadFailure): FieldIssue[] {
+function readIssues({ problem, issues }: PathbuilderReadFailure): Array<FieldIssue> {
   return [{ path: [], message: message(PROBLEM_MESSAGES[problem]) }, ...fieldIssues(issues)];
 }
 

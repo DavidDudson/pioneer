@@ -105,7 +105,7 @@ const SENSE_DIRECTION = line('sense-direction', 'Sense Direction', {
 });
 
 /** A standing character in an encounter: basic and skill actions, one rolls, one needs training, one has requirements. */
-export const STANDING_ACTIONS: readonly ActionLine[] = [
+export const STANDING_ACTIONS: ReadonlyArray<ActionLine> = [
   STRIDE,
   STAND,
   ESCAPE,
@@ -122,7 +122,7 @@ export const STANDING_ACTIONS: readonly ActionLine[] = [
 const ITEM_ORIGIN = { kind: ActionOriginKind.Item } as const;
 
 /** The actions a character's items give: a stack of potions, an activation with a daily use, and a staff's spell. */
-export const ITEM_ACTIONS: readonly ActionLine[] = [
+export const ITEM_ACTIONS: ReadonlyArray<ActionLine> = [
   line('healing-potion', 'Healing Potion', {
     origin: ITEM_ORIGIN,
     resource: { kind: ActionResourceKind.Quantity, current: 2 },
@@ -139,7 +139,7 @@ export const ITEM_ACTIONS: readonly ActionLine[] = [
   }),
 ];
 
-export const PRONE_ACTIONS: readonly ActionLine[] = [
+export const PRONE_ACTIONS: ReadonlyArray<ActionLine> = [
   STRIDE,
   { ...CRAWL, priority: 1 },
   { ...STAND, priority: 0 },
@@ -150,12 +150,12 @@ export const PRONE_ACTIONS: readonly ActionLine[] = [
 
 /** The character grabbed: Escape is called for, ahead of the other one-action skill actions. */
 /** Stride, which rolls nothing, and Grapple, whose roll has a line that holds only in darkness. */
-export const CONDITIONAL_ACTIONS: readonly ActionLine[] = [STRIDE, { ...GRAPPLE, roll: DARK_ATHLETICS }];
+export const CONDITIONAL_ACTIONS: ReadonlyArray<ActionLine> = [STRIDE, { ...GRAPPLE, roll: DARK_ATHLETICS }];
 
-export const GRABBED_ACTIONS: readonly ActionLine[] = [STRIDE, DEMORALIZE, { ...ESCAPE, priority: 0 }];
+export const GRABBED_ACTIONS: ReadonlyArray<ActionLine> = [STRIDE, DEMORALIZE, { ...ESCAPE, priority: 0 }];
 
 /** The character with its shield raised: Shield Block is enabled and called for. */
-export const SHIELD_RAISED_ACTIONS: readonly ActionLine[] = [STRIDE, { ...SHIELD_BLOCK, priority: 0 }];
+export const SHIELD_RAISED_ACTIONS: ReadonlyArray<ActionLine> = [STRIDE, { ...SHIELD_BLOCK, priority: 0 }];
 
 function paragraph(text: string): RichText {
   return RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text }] }]);

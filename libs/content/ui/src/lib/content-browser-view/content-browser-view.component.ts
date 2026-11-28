@@ -55,17 +55,17 @@ const LOADING_ROWS = ['first', 'second', 'third', 'fourth'];
 export class ContentBrowserView {
   public readonly tier = input.required<ContentBrowserTier>();
   public readonly state = model.required<ContentBrowserState>();
-  public readonly kindOptions = input.required<readonly SelectOption<ContentKind>[]>();
+  public readonly kindOptions = input.required<ReadonlyArray<SelectOption<ContentKind>>>();
   /** What the filter bar offers. */
-  public readonly fields = input.required<readonly FilterField[]>();
+  public readonly fields = input.required<ReadonlyArray<FilterField>>();
   /** What the filters mean for the list's facets. */
   public readonly facetState = input.required<FilterState>();
   public readonly list = input.required<AsyncQuery<ContentBrowserList>>();
   public readonly entry = input.required<AsyncQuery<ContentBrowserEntry>>();
-  public readonly columns = input.required<readonly TableColumn<BrowseRow>[]>();
+  public readonly columns = input.required<ReadonlyArray<TableColumn<BrowseRow>>>();
   /** The table's sort and hidden columns, which only the page tier has. */
-  public readonly sorting = model<readonly TableViewSort[]>([]);
-  public readonly hidden = model<readonly string[] | undefined>(undefined);
+  public readonly sorting = model<ReadonlyArray<TableViewSort>>([]);
+  public readonly hidden = model<ReadonlyArray<string> | undefined>(undefined);
   /** The facet panel changed a filter. */
   public readonly facetChange = output<FilterState>();
   /** "Show more" was pressed. */

@@ -29,10 +29,10 @@ interface StrikeSummary {
   readonly dice: string;
   readonly type: string | undefined;
   readonly bonus: number | undefined;
-  readonly traits: readonly string[];
+  readonly traits: ReadonlyArray<string>;
 }
 
-function summary(view: FormView): readonly StrikeSummary[] {
+function summary(view: FormView): ReadonlyArray<StrikeSummary> {
   return view.strikes.map(({ weapon, attack, damage }) => ({
     slug: weapon.slug,
     attack: attack?.ok === true ? Number(attack.total) : undefined,
@@ -46,13 +46,13 @@ function summary(view: FormView): readonly StrikeSummary[] {
 /** A resistance's damage type and amount. */
 type ResistanceLine = readonly [string, number | undefined];
 
-function resistances(view: FormView): readonly ResistanceLine[] {
+function resistances(view: FormView): ReadonlyArray<ResistanceLine> {
   return view.defences.resistances
     .filter(({ status }) => status.kind === DefenceStatusKind.Applied)
     .map(({ type, value }) => [type, value]);
 }
 
-function senses(view: FormView): string[] {
+function senses(view: FormView): Array<string> {
   return view.senses.map(({ sense }) => String(sense));
 }
 
@@ -204,7 +204,7 @@ function says(rank: number): AnimalFormSays {
 }
 
 /** The attack modifier of each Strike. */
-function attacks(view: FormView): number[] {
+function attacks(view: FormView): Array<number> {
   return view.strikes.map(({ attack }) => (attack?.ok === true ? Number(attack.total) : Number.NaN));
 }
 

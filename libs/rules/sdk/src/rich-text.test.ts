@@ -10,7 +10,7 @@ import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import { RICH_TEXT_CONTAINERS_MAX, RICH_TEXT_DEPTH_MAX, RichText } from './rich-text';
 
-function issues(schema: z.ZodType, value: JsonValue): readonly FieldIssue[] {
+function issues(schema: z.ZodType, value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = schema.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
@@ -21,9 +21,9 @@ const offGuard = contentId(PackId.parse('player-core'), EntrySlug.parse('conditi
 /** A block node as JSON. */
 interface Block {
   readonly type: string;
-  readonly content?: readonly unknown[];
+  readonly content?: ReadonlyArray<unknown>;
   readonly ordered?: boolean;
-  readonly items?: readonly (readonly Block[])[];
+  readonly items?: ReadonlyArray<ReadonlyArray<Block>>;
 }
 
 const paragraph = (text: string): Block => ({ type: 'paragraph', content: [{ type: 'text', text }] });
@@ -39,7 +39,7 @@ function nestedList(depth: number): Block {
   return block;
 }
 
-const nestedLists = (depth: number): readonly Block[] => [nestedList(depth)];
+const nestedLists = (depth: number): ReadonlyArray<Block> => [nestedList(depth)];
 
 describe('RichText', () => {
   test('accepts every block and inline node', () => {
@@ -168,7 +168,7 @@ describe('DamageFormula', () => {
   });
 });
 
-const inline = (node: JsonValue): readonly Block[] => [{ type: 'paragraph', content: [node] }];
+const inline = (node: JsonValue): ReadonlyArray<Block> => [{ type: 'paragraph', content: [node] }];
 
 describe('RichText inline rules', () => {
   test('only a saving throw can be basic', () => {

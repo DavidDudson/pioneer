@@ -12,5 +12,5 @@ import type { SpellcastingLine } from './creature-stat-block';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatSpellcastingView {
-  public readonly entries = input.required<readonly SpellcastingLine[]>();
+  public readonly entries = input.required<ReadonlyArray<SpellcastingLine>>();
 }

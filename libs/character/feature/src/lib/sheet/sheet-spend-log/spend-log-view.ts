@@ -39,7 +39,7 @@ export function costMessage(cost: SpendCost): MessageDescriptor {
 }
 
 /** The rows of `log`, newest first, with each action's name when `names` has it. */
-export function spendRows(log: SpendLog, names: ReadonlyMap<ContentId, string>): readonly SpendRow[] {
+export function spendRows(log: SpendLog, names: ReadonlyMap<ContentId, string>): ReadonlyArray<SpendRow> {
   return log
     .map((entry): SpendRow => ({
       id: entry.id,

@@ -29,21 +29,21 @@ import type { Round } from './round-log';
 import type { ToggleSlot, ToggleStates } from './toggles';
 
 export interface GrantInputs {
-  readonly roots: readonly GrantRoot[];
+  readonly roots: ReadonlyArray<GrantRoot>;
   readonly lookup: ContentLookup;
   /** The character's level, read as `self:level:<level>`. */
   readonly level: Level;
   /** The character's attribute modifiers, read as `attribute:str:mod:2`; none when the caller has no boosts to give. */
   readonly attributes?: AttributeModifiers | undefined;
   /** The kinds of companion the character has live (ADR-0079). */
-  readonly companions?: readonly CompanionKind[] | undefined;
+  readonly companions?: ReadonlyArray<CompanionKind> | undefined;
   /** What the caller knows of the moment (`terrain:forest`), on top of what the character's entries set. */
-  readonly situation: readonly RollOption[];
+  readonly situation: ReadonlyArray<RollOption>;
   readonly picks: ChoicePicks;
   /** The items the character owns, which a `ChoiceSet` over them offers; none when the caller has no inventory. */
-  readonly owned?: readonly OwnedItem[];
+  readonly owned?: ReadonlyArray<OwnedItem>;
   /** The slots the character has itself (its ancestry); their picks are roots too. */
-  readonly rootSlots: readonly RootSlotDefinition[];
+  readonly rootSlots: ReadonlyArray<RootSlotDefinition>;
   readonly toggles: ToggleStates;
   /** Which namespaces are known: the registry's merged table (`ContentRegistry.rollOptionNamespaces`). */
   readonly namespaces: NamespaceTable;
@@ -55,24 +55,24 @@ export interface GrantInputs {
  * to make, the toggles, the facts the set derives, and what failed.
  */
 export interface GrantResolution {
-  readonly items: readonly GrantedItem[];
+  readonly items: ReadonlyArray<GrantedItem>;
   /** Grants of an entry already on the character, without `allowDuplicate`. */
-  readonly duplicates: readonly GrantedItem[];
-  readonly conditional: readonly ConditionalGrant[];
+  readonly duplicates: ReadonlyArray<GrantedItem>;
+  readonly conditional: ReadonlyArray<ConditionalGrant>;
   /** `ChoiceSet` slots the player has yet to answer, or whose pick is not on offer. An open root slot is in `rootSlots`, with no `pick`. */
-  readonly open: readonly ChoiceSlot[];
-  readonly answered: readonly AnsweredSlot[];
+  readonly open: ReadonlyArray<ChoiceSlot>;
+  readonly answered: ReadonlyArray<AnsweredSlot>;
   /** Each root slot, open or answered, with what it offers. */
-  readonly rootSlots: readonly RootSlot[];
-  readonly toggles: readonly ToggleSlot[];
+  readonly rootSlots: ReadonlyArray<RootSlot>;
+  readonly toggles: ReadonlyArray<ToggleSlot>;
   /**
    * What the set says of the character, sorted: its level, the option each entry's kind sets (`feat:shield-block`),
    * its `RollOption` elements and the toggles that are on, and its picks' `rollOption`s.
    */
-  readonly rollOptions: readonly RollOption[];
+  readonly rollOptions: ReadonlyArray<RollOption>;
   /** `rollOptions` and the situation, with the namespaces the picks write known: what every predicate read last. */
   readonly facts: PredicateFacts;
-  readonly errors: readonly GrantError[];
+  readonly errors: ReadonlyArray<GrantError>;
 }
 
 /** A resolution before its root slots are added: what the rounds of walking produce. */
@@ -99,7 +99,7 @@ function fingerprintOf({ options, known }: FactState): string {
 }
 
 /** The values found in every list, in the first list's order. */
-function common<Value>(lists: readonly (readonly Value[])[]): Value[] {
+function common<Value>(lists: ReadonlyArray<ReadonlyArray<Value>>): Array<Value> {
   const [first = [], ...rest] = lists;
   const others = rest.map((list) => new Set(list));
 
@@ -107,7 +107,7 @@ function common<Value>(lists: readonly (readonly Value[])[]): Value[] {
 }
 
 /** The entries that set an option outside `kept`. */
-function settersOutside(derived: CharacterFacts, kept: ReadonlySet<RollOption>): ContentId[] {
+function settersOutside(derived: CharacterFacts, kept: ReadonlySet<RollOption>): Array<ContentId> {
   return [...derived.setBy].flatMap(([option, setBy]) => (kept.has(option) ? [] : setBy));
 }
 
@@ -121,7 +121,7 @@ type Kept = Omit<Walked, 'rollOptions' | 'facts'>;
 
 /** The parts of `round` every entry behind which is in `core`. */
 function keptOf({ walk, derived }: Round, core: ReadonlySet<ContentId>): Kept {
-  const inCore = (hops: readonly OriginHop[]): boolean =>
+  const inCore = (hops: ReadonlyArray<OriginHop>): boolean =>
     hops.every((hop) => hop.kind !== OriginHopKind.Grant || core.has(hop.by));
 
   return {
@@ -140,10 +140,10 @@ function keptOf({ walk, derived }: Round, core: ReadonlySet<ContentId>): Kept {
  * at least one, since its rounds differ in an entry or in an option an entry set.
  */
 function involvedNames(
-  rounds: readonly Round[],
+  rounds: ReadonlyArray<Round>,
   core: ReadonlySet<ContentId>,
   kept: ReadonlySet<RollOption>,
-): string[] {
+): Array<string> {
   const names = new Map<ContentId, ContentText>();
   const involved = new Set<ContentId>();
 
@@ -216,7 +216,7 @@ class Fixpoint {
     return { walk, facts, derived };
   }
 
-  #initialOptions(): RollOption[] {
+  #initialOptions(): Array<RollOption> {
     return inputOptions(this.#inputs).toSorted(byCodeUnit);
   }
 
@@ -228,7 +228,7 @@ class Fixpoint {
    * Rounds that never settle: only what every one of them agrees on stays, taken from `last`. The entries that come
    * and go, or that set options that come and go, are named in an error.
    */
-  #unsettled(last: Round, rounds: readonly Round[], error: UnsettledError): Walked {
+  #unsettled(last: Round, rounds: ReadonlyArray<Round>, error: UnsettledError): Walked {
     const core = new Set(common(rounds.map(({ walk }) => walk.items.map((item) => item.entry.id))));
     const options = common(rounds.map(({ derived }) => derived.options));
     const known = common(rounds.map(({ derived }) => derived.known));

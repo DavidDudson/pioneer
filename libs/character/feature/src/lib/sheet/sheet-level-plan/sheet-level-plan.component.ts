@@ -13,12 +13,12 @@ import type { SlotPickRows } from '../sheet-slot-picks';
 import { SheetState } from '../sheet-state';
 
 /** The skills a planned skill slot offers; none for any other kind of slot. */
-function skillRowsOf(read: SlotPickRows): readonly SkillPickerRow[] {
+function skillRowsOf(read: SlotPickRows): ReadonlyArray<SkillPickerRow> {
   return read.kind === 'skills' ? read.rows : [];
 }
 
 /** The attributes a planned boost slot offers; none for any other kind of slot. */
-function attributeRowsOf(read: SlotPickRows): readonly AttributePickerRow[] {
+function attributeRowsOf(read: SlotPickRows): ReadonlyArray<AttributePickerRow> {
   return read.kind === 'attributes' ? read.rows : [];
 }
 
@@ -91,7 +91,7 @@ export class SheetLevelPlan {
   });
 
   /** The timeline's rows with a picker on each planned slot that has one; undefined while the character loads. */
-  protected readonly rows = computed((): readonly LevelTimelineRow[] | undefined => {
+  protected readonly rows = computed((): ReadonlyArray<LevelTimelineRow> | undefined => {
     const picks = this.#picks();
 
     return this.#state.picks

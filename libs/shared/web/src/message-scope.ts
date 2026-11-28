@@ -11,7 +11,7 @@ export interface MessageScope {
   readonly messages: LocaleMessages;
 }
 
-const MESSAGE_SCOPES = new InjectionToken<readonly MessageScope[]>('MESSAGE_SCOPES');
+const MESSAGE_SCOPES = new InjectionToken<ReadonlyArray<MessageScope>>('MESSAGE_SCOPES');
 
 /**
  * A feature's messages, keyed `<scope>.*`. Provide on the feature's route so they are split
@@ -43,7 +43,7 @@ export function loadWithMessages<TLoaded>(load: () => Promise<TLoaded>): () => P
  * Loads message scopes into the active language. For code that renders outside a route's injector, where the scopes
  * `provideMessageScope` registered may be shadowed by another route's.
  */
-export async function loadMessageScopes(i18n: TranslocoService, scopes: readonly MessageScope[]): Promise<void> {
+export async function loadMessageScopes(i18n: TranslocoService, scopes: ReadonlyArray<MessageScope>): Promise<void> {
   const locale = LocaleSchema.parse(i18n.getActiveLang());
   await Promise.all(
     scopes.map(async ({ scope, messages }) => {

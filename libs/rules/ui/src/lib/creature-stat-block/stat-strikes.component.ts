@@ -14,6 +14,6 @@ import { StatLinesView } from './stat-lines.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatStrikesView {
-  public readonly strikes = input.required<readonly StrikeLine[]>();
+  public readonly strikes = input.required<ReadonlyArray<StrikeLine>>();
   public readonly headingLevel = input<HeadingLevel>(HeadingLevel.Three);
 }

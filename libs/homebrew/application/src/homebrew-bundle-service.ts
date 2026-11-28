@@ -82,7 +82,7 @@ export class HomebrewBundleService {
   }
 
   /** The homebrew packs among `ids` that the actor may read. */
-  async #readable(actor: UserId, ids: readonly ContentPackId[]): Promise<readonly ContentPackId[]> {
+  async #readable(actor: UserId, ids: ReadonlyArray<ContentPackId>): Promise<ReadonlyArray<ContentPackId>> {
     const listed = await Promise.all(ids.map(async (id) => this.#directory.findById(id)));
 
     const checked = await Promise.all(

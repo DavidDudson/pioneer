@@ -76,7 +76,7 @@ interface Armor {
 }
 
 /** Armor's rules on entry `slug`: the AC bonus, and the penalties gated by its Strength requirement. */
-function armorRules(slug: string, armor: Armor): readonly RuleInPlay[] {
+function armorRules(slug: string, armor: Armor): ReadonlyArray<RuleInPlay> {
   const { ac, checkPenalty, speedPenalty, speedPenaltyWithStrength } = armor;
 
   const elements = [
@@ -92,7 +92,7 @@ function armorRules(slug: string, armor: Armor): readonly RuleInPlay[] {
 }
 
 /** A shield's circumstance bonus to AC on entry `slug`, while it is raised. */
-function shieldRules(slug: string, bonus: number): readonly RuleInPlay[] {
+function shieldRules(slug: string, bonus: number): ReadonlyArray<RuleInPlay> {
   return [inPlay({ ...flatModifier('circumstance', bonus, ['ac']), predicate: ['self:effect:raise-a-shield'] }, slug)];
 }
 
@@ -106,7 +106,7 @@ export const level1FighterItems = {
   'steel-shield': shieldRules('steel-shield', STEEL_SHIELD_AC),
 };
 
-export const level1FighterRules: readonly RuleInPlay[] = Object.values(level1FighterItems).flat();
+export const level1FighterRules: ReadonlyArray<RuleInPlay> = Object.values(level1FighterItems).flat();
 
 /** The core rules pack's roll option namespace table, which every fighter predicate is read through. */
 export function coreNamespaces(): NamespaceTable {
@@ -176,7 +176,7 @@ const HEROISM_BONUS = 3;
 
 /** Item bonuses from worn and drunk items, each on its own entry: `[entry, value, selectors]`. The mutagen and the rune
  * both give an item bonus to Fortitude, so only the first counts there. */
-const WORN_ITEMS: readonly (readonly [string, number, readonly string[]])[] = [
+const WORN_ITEMS: ReadonlyArray<readonly [string, number, ReadonlyArray<string>]> = [
   ['resilient-rune', TOP_ITEM_BONUS, ['saving-throw']],
   ['survival-item', TOP_ITEM_BONUS, ['skill:survival']],
   ['fortitude-mutagen', TOP_ITEM_BONUS, ['save:fortitude']],
@@ -192,7 +192,7 @@ const WORN_ITEMS: readonly (readonly [string, number, readonly string[]])[] = [
  * The level 20 fighter's rules: armor and shield as above, item bonuses that stack only by type, two status bonuses
  * where the lower is suppressed, a situational bonus left conditional, and a condition that is not on.
  */
-export const level20FighterRules: readonly RuleInPlay[] = [
+export const level20FighterRules: ReadonlyArray<RuleInPlay> = [
   ...armorRules('full-plate', FULL_PLATE),
   ...shieldRules('sturdy-shield', STEEL_SHIELD_AC),
   ...WORN_ITEMS.map(([slug, value, selectors]) => inPlay(flatModifier('item', value, selectors), slug)),
@@ -215,7 +215,7 @@ export const level20FighterRules: readonly RuleInPlay[] = [
 ];
 
 /** The situation the level 20 fighter is benchmarked in: Strength met, heroism and an anthem both on. */
-export const LEVEL_20_SITUATION: readonly string[] = [
+export const LEVEL_20_SITUATION: ReadonlyArray<string> = [
   STRENGTH_MET,
   'self:effect:heroism',
   'self:effect:courageous-anthem',

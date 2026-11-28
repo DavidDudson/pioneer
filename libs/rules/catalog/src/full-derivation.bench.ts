@@ -59,10 +59,10 @@ interface Derivation {
 interface Given {
   readonly content: StatisticContent;
   readonly grantInputs: GrantInputs;
-  readonly rules: readonly RuleInPlay[];
+  readonly rules: ReadonlyArray<RuleInPlay>;
 }
 
-function given(content: StatisticContent, extra: readonly RuleInPlay[] = []): Given {
+function given(content: StatisticContent, extra: ReadonlyArray<RuleInPlay> = []): Given {
   return { content, grantInputs: grantInputs(), rules: [...level20FighterRules, ...extra] };
 }
 
@@ -74,7 +74,7 @@ function derive({ content, grantInputs: inputs, rules }: Given): Derivation {
 }
 
 /** Every status a breakdown line ends in, so the load is known to exercise stacking, predicates and conditions. */
-function lineStatuses(statistics: ReadonlyMap<Selector, StatisticResult>): readonly LineStatusKind[] {
+function lineStatuses(statistics: ReadonlyMap<Selector, StatisticResult>): ReadonlyArray<LineStatusKind> {
   const kinds = [...statistics.values()].flatMap((result) =>
     result.ok ? result.lines.map(({ status }) => status.kind) : [],
   );
@@ -82,7 +82,7 @@ function lineStatuses(statistics: ReadonlyMap<Selector, StatisticResult>): reado
   return [...new Set(kinds)].toSorted();
 }
 
-function failed(statistics: ReadonlyMap<Selector, StatisticResult>): readonly Selector[] {
+function failed(statistics: ReadonlyMap<Selector, StatisticResult>): ReadonlyArray<Selector> {
   return [...statistics].flatMap(([selector, result]) => (result.ok ? [] : [selector]));
 }
 

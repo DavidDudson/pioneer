@@ -8,7 +8,7 @@ type Hand = 'one' | 'two';
 
 type SegmentedFieldStory = StoryObj<SegmentedField<Hand>>;
 
-const HANDS: readonly SelectOption<Hand>[] = [
+const HANDS: ReadonlyArray<SelectOption<Hand>> = [
   { value: 'one', label: 'One hand' },
   { value: 'two', label: 'Two hands' },
 ];

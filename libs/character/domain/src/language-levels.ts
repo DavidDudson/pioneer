@@ -27,7 +27,7 @@ interface PlacedElement {
 /** What the character is at one level, as `Language` elements read it. */
 export interface LevelRead {
   readonly level: Level;
-  readonly elements: readonly PlacedElement[];
+  readonly elements: ReadonlyArray<PlacedElement>;
   readonly holds: (predicate: Predicate | undefined) => boolean;
 }
 
@@ -38,18 +38,18 @@ export interface LanguageReads {
   readonly skills: SkillReads;
 }
 
-const RANKS: readonly Proficiency[] = Object.values(Proficiency);
+const RANKS: ReadonlyArray<Proficiency> = Object.values(Proficiency);
 
-function levels(): Level[] {
+function levels(): Array<Level> {
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + 1;
 
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MIN + index));
 }
 
 /** The `Language` elements of every entry on the character in `resolution`. */
-function languageElements({ items }: GrantResolution): PlacedElement[] {
+function languageElements({ items }: GrantResolution): Array<PlacedElement> {
   return items.flatMap(({ entry }) =>
-    entry.rules.flatMap((element, index): PlacedElement[] =>
+    entry.rules.flatMap((element, index): Array<PlacedElement> =>
       element.key === RuleElementKey.Language
         ? [{ feature: { entry: entry.id, name: entry.name }, rule: RuleIndex.parse(index), element }]
         : [],
@@ -58,7 +58,7 @@ function languageElements({ items }: GrantResolution): PlacedElement[] {
 }
 
 /** `skill:society:rank:3` for each skill rank, as Foundry writes them: untrained 0 to legendary 4. */
-export function rankOptions(ranks: ReadonlyMap<Selector, Proficiency>): RollOption[] {
+export function rankOptions(ranks: ReadonlyMap<Selector, Proficiency>): Array<RollOption> {
   return [...ranks].map(([selector, rank]) => RollOption.parse(`${selector}:rank:${RANKS.indexOf(rank)}`));
 }
 
@@ -67,7 +67,7 @@ export function rankOptions(ranks: ReadonlyMap<Selector, Proficiency>): RollOpti
  * holds over its roll options and its skill ranks there (`skill:society:rank:3`), its skill picks up to that level
  * included.
  */
-export function levelReads(document: CharacterDocument, reads: LanguageReads): readonly LevelRead[] {
+export function levelReads(document: CharacterDocument, reads: LanguageReads): ReadonlyArray<LevelRead> {
   const skills = skillSlots(document, reads.skills);
 
   return levels().map((level) => {

@@ -8,7 +8,7 @@ import type { PropertyContext, PropertyKind } from './property.types';
 
 export type PropertyKindMap = ReadonlyMap<string, PropertyKind>;
 
-function kindMap(kinds: readonly PropertyKind[], base: PropertyKindMap): PropertyKindMap {
+function kindMap(kinds: ReadonlyArray<PropertyKind>, base: PropertyKindMap): PropertyKindMap {
   const merged = new Map(base);
 
   for (const kind of kinds) {
@@ -27,7 +27,7 @@ export const PROPERTY_KINDS = new InjectionToken<PropertyKindMap>('PROPERTY_KIND
 });
 
 /** Adds kinds to the ones above, or replaces a kind of the same id. */
-export function providePropertyKinds(...kinds: readonly PropertyKind[]): Provider {
+export function providePropertyKinds(...kinds: ReadonlyArray<PropertyKind>): Provider {
   return {
     provide: PROPERTY_KINDS,
     useFactory: (): PropertyKindMap => {

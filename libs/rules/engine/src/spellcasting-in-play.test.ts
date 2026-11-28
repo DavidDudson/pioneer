@@ -25,7 +25,7 @@ const FIREBALL = '2f6a1d0c-7b3e-5c94-8e21-4a9d6f0b3c7e';
 interface PoolSpellsFields {
   readonly entry: string;
   readonly pool: string;
-  readonly spells: readonly string[];
+  readonly spells: ReadonlyArray<string>;
 }
 
 const poolSpells = (fields: PoolSpellsFields, extra: JsonObject = {}): RuleJson => ({
@@ -42,9 +42,9 @@ const fontSpell = (spell: string, option: string): RuleJson =>
 const deitySpells = (predicate: string): RuleJson => ({ key: 'DeitySpells', entry: 'cleric', predicate: [predicate] });
 
 function entriesOf(
-  placed: readonly (readonly [RuleJson, string])[],
-  options: readonly string[] = [],
-): SpellcastingInPlay[] {
+  placed: ReadonlyArray<readonly [RuleJson, string]>,
+  options: ReadonlyArray<string> = [],
+): Array<SpellcastingInPlay> {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));
 
   const facts = new PredicateFacts(
@@ -63,7 +63,12 @@ describe('spellcastingInPlay', () => {
     ]);
 
     expect(
-      entries.map(({ slug, tradition, attribute, preparation }): string[] => [slug, tradition, attribute, preparation]),
+      entries.map(({ slug, tradition, attribute, preparation }): Array<string> => [
+        slug,
+        tradition,
+        attribute,
+        preparation,
+      ]),
     ).toEqual([
       ['first-world-magic', 'primal', 'cha', 'innate'],
       ['wizard', 'arcane', 'int', 'prepared'],
@@ -78,7 +83,7 @@ describe('spellcastingInPlay', () => {
       [entry('witch', 'divine'), 'faiths-flamekeeper'],
     ]);
 
-    expect(entries.map(({ slug, tradition }): string[] => [slug, tradition])).toEqual([['witch', 'primal']]);
+    expect(entries.map(({ slug, tradition }): Array<string> => [slug, tradition])).toEqual([['witch', 'primal']]);
   });
 
   test('an entry whose predicate fails or depends on the situation gives none', () => {
@@ -249,7 +254,7 @@ describe('spellcastingInPlay slots', () => {
   });
 
   test('a pool takes the spells of every pool spells element in play for it, each once', () => {
-    const curriculum = (spells: readonly string[]): RuleJson =>
+    const curriculum = (spells: ReadonlyArray<string>): RuleJson =>
       poolSpells({ entry: 'wizard', pool: 'curriculum', spells });
 
     const [wizard] = entriesOf([
@@ -267,7 +272,7 @@ describe('spellcastingInPlay slots', () => {
   });
 
   test('a pool takes only the spells whose element holds, and none without one', () => {
-    const placed: (readonly [RuleJson, string])[] = [
+    const placed: Array<readonly [RuleJson, string]> = [
       [entry('cleric', 'divine'), 'cleric-spellcasting'],
       [slots('cleric', [1, 2]), 'cleric-spellcasting'],
       [slots('cleric', ['highest', 4], { pool: 'divine-font' }), 'divine-font'],
@@ -275,7 +280,7 @@ describe('spellcastingInPlay slots', () => {
       [fontSpell(HARM, 'divine-font:harm'), 'divine-font'],
     ];
 
-    const spellsOf = (options: readonly string[]): readonly string[] | undefined =>
+    const spellsOf = (options: ReadonlyArray<string>): ReadonlyArray<string> | undefined =>
       entriesOf(placed, options)[0]?.pools[0]?.spells;
 
     expect(spellsOf(['divine-font:harm'])).toEqual([HARM]);
@@ -286,12 +291,13 @@ describe('spellcastingInPlay slots', () => {
     const bard = entry('bard', 'occult', { attribute: 'cha', preparation: 'spontaneous' });
     const signatures = { key: 'SignatureSpells', entry: 'bard', predicate: ['feature:signature-spells'] };
 
-    const placed: (readonly [RuleJson, string])[] = [
+    const placed: Array<readonly [RuleJson, string]> = [
       [bard, 'bard-spellcasting'],
       [signatures, 'signature-spells'],
     ];
 
-    const signaturesOf = (options: readonly string[]): boolean | undefined => entriesOf(placed, options)[0]?.signatures;
+    const signaturesOf = (options: ReadonlyArray<string>): boolean | undefined =>
+      entriesOf(placed, options)[0]?.signatures;
 
     expect(signaturesOf(['feature:signature-spells'])).toBe(true);
     expect(signaturesOf([])).toBe(false);

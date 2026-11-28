@@ -24,11 +24,11 @@ function dwarf(level: number, roots: { readonly background?: boolean } = {}): Ch
   return builder.build().document;
 }
 
-function boosts(source: BoostSource, level: number, attributes: readonly Attribute[]): ImportedBoosts {
+function boosts(source: BoostSource, level: number, attributes: ReadonlyArray<Attribute>): ImportedBoosts {
   return { source, level: Level.parse(level), attributes };
 }
 
-const FIRST_LEVEL: readonly ImportedBoosts[] = [
+const FIRST_LEVEL: ReadonlyArray<ImportedBoosts> = [
   boosts(BoostSource.Ancestry, 1, [CON, WIS, DEX]),
   boosts(BoostSource.Background, 1, [WIS, CON]),
   boosts(BoostSource.Class, 1, [STR]),
@@ -163,7 +163,7 @@ describe('modifierDifferences', () => {
       AttributeModifiersWire.parse({ str: 4, dex: 1, con: 1, int: 0, wis: 1, cha: 0 }),
     );
 
-    expect<readonly object[]>(modifierDifferences(imported, derived)).toStrictEqual([
+    expect<ReadonlyArray<object>>(modifierDifferences(imported, derived)).toStrictEqual([
       { attribute: DEX, imported: 0, derived: 1 },
       { attribute: WIS, imported: 2, derived: 1 },
     ]);

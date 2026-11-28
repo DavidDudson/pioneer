@@ -77,7 +77,7 @@ export class PackHomePage {
 
   protected readonly title = computed(() => this.store.selected.data()?.title);
   protected readonly visibilityMessages = VISIBILITY_MESSAGES;
-  protected readonly visibilityOptions = computed((): readonly SelectOption<PackVisibility>[] => {
+  protected readonly visibilityOptions = computed((): ReadonlyArray<SelectOption<PackVisibility>> => {
     this.#messages();
 
     return Object.values(PackVisibility).map((visibility) => ({

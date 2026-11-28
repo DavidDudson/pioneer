@@ -17,7 +17,7 @@ interface VariantRuleLine {
 }
 
 /** Every variant rule the character can use, in name order, each with whether it is on. */
-function variantRuleLines(rules: CharacterVariantRules): readonly VariantRuleLine[] {
+function variantRuleLines(rules: CharacterVariantRules): ReadonlyArray<VariantRuleLine> {
   return [
     ...rules.enabled.map((rule): VariantRuleLine => ({ rule, on: true })),
     ...rules.available.map((rule): VariantRuleLine => ({ rule, on: false })),

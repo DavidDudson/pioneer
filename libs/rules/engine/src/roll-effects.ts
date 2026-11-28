@@ -62,15 +62,15 @@ export interface DegreeAdjustmentLine {
  * degree of success. Both are in id order; an effect whose predicate is known to fail is left out.
  */
 export interface RollEffects {
-  readonly rollTwice: readonly RollTwiceLine[];
-  readonly degreeAdjustments: readonly DegreeAdjustmentLine[];
+  readonly rollTwice: ReadonlyArray<RollTwiceLine>;
+  readonly degreeAdjustments: ReadonlyArray<DegreeAdjustmentLine>;
 }
 
 /** A `RollTwice` or `AdjustDegreeOfSuccess` in play, before it is matched to a statistic. */
 interface RollEffectSource {
   readonly id: RuleId;
   readonly label: ModifierLabel;
-  readonly targets: readonly ModifierTarget[];
+  readonly targets: ReadonlyArray<ModifierTarget>;
   readonly predicate: Predicate | undefined;
   readonly summary: ContentText | undefined;
 }
@@ -86,14 +86,14 @@ interface DegreeSource extends RollEffectSource {
 
 /** The `RollTwice` and `AdjustDegreeOfSuccess` elements in play. */
 export interface RollEffectsInPlay {
-  readonly rollTwice: readonly RollTwiceSource[];
-  readonly degree: readonly DegreeSource[];
+  readonly rollTwice: ReadonlyArray<RollTwiceSource>;
+  readonly degree: ReadonlyArray<DegreeSource>;
 }
 
 /** The fortune, misfortune and degree adjustments among the rules; other elements are ignored. */
-export function rollEffectsInPlay(rules: readonly RuleInPlay[]): RollEffectsInPlay {
-  const rollTwice: RollTwiceSource[] = [];
-  const degree: DegreeSource[] = [];
+export function rollEffectsInPlay(rules: ReadonlyArray<RuleInPlay>): RollEffectsInPlay {
+  const rollTwice: Array<RollTwiceSource> = [];
+  const degree: Array<DegreeSource> = [];
 
   for (const rule of rules) {
     const { element } = rule;

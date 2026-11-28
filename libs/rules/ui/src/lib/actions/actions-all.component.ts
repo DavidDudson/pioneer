@@ -28,7 +28,7 @@ import { ACTION_MODE_MESSAGES, ACTION_SOURCE_MESSAGES, ActionsMessage } from './
 })
 export class ActionsAll {
   /** Undefined while loading. */
-  public readonly lines = input.required<readonly ActionLine[] | undefined>();
+  public readonly lines = input.required<ReadonlyArray<ActionLine> | undefined>();
   /** What names the entries and items a conditional line comes from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
@@ -42,7 +42,7 @@ export class ActionsAll {
   protected readonly traits = computed(() => this.#filters().traits);
   protected readonly sources = computed(() => this.#filters().sources);
 
-  protected readonly modeOptions = computed((): readonly SelectOption<ActionMode>[] => {
+  protected readonly modeOptions = computed((): ReadonlyArray<SelectOption<ActionMode>> => {
     this.#words.changed();
 
     return Object.values(ActionMode).map((value) => ({
@@ -51,13 +51,13 @@ export class ActionsAll {
     }));
   });
 
-  protected readonly costOptions = computed((): readonly SelectOption<CostGroup>[] => {
+  protected readonly costOptions = computed((): ReadonlyArray<SelectOption<CostGroup>> => {
     this.#words.changed();
 
     return COST_ORDER.map((value) => ({ value, label: this.#words.cost(value) }));
   });
 
-  protected readonly sourceOptions = computed((): readonly SelectOption<ActionOriginKind>[] => {
+  protected readonly sourceOptions = computed((): ReadonlyArray<SelectOption<ActionOriginKind>> => {
     this.#words.changed();
 
     return Object.values(ActionOriginKind).map((value) => ({
@@ -66,7 +66,7 @@ export class ActionsAll {
     }));
   });
 
-  protected readonly traitOptions = computed((): readonly SelectOption<string>[] => {
+  protected readonly traitOptions = computed((): ReadonlyArray<SelectOption<string>> => {
     this.#words.changed();
 
     return traitsOf(this.lines() ?? [], this.#words.compare).map((value) => ({
@@ -76,7 +76,7 @@ export class ActionsAll {
   });
 
   /** Every action the filters let through. */
-  protected readonly rows = computed((): readonly ShownAction[] | undefined => {
+  protected readonly rows = computed((): ReadonlyArray<ShownAction> | undefined => {
     this.#words.changed();
     const lines = this.lines();
 

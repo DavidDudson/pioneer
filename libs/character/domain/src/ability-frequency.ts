@@ -37,7 +37,7 @@ export function abilityFrequencies(registry: ContentRegistry): ReadonlyMap<Conte
   const read = new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
-      .flatMap((entry): [ContentId, Frequency][] => {
+      .flatMap((entry): Array<[ContentId, Frequency]> => {
         const frequency = frequencyOf(entry);
 
         return frequency === undefined ? [] : [[entry.id, frequency]];
@@ -50,10 +50,10 @@ export function abilityFrequencies(registry: ContentRegistry): ReadonlyMap<Conte
 }
 
 /** Activations already read, by registry, for the same reason as `READ`. */
-const ACTIVATIONS_READ = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, readonly Activation[]>>();
+const ACTIVATIONS_READ = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, ReadonlyArray<Activation>>>();
 
 /** The activations with a frequency an item has. */
-function activationsOf(entry: ContentEntry): readonly Activation[] {
+function activationsOf(entry: ContentEntry): ReadonlyArray<Activation> {
   const physical =
     entry.kind === ContentKind.Armor ||
     entry.kind === ContentKind.Consumable ||
@@ -66,7 +66,7 @@ function activationsOf(entry: ContentEntry): readonly Activation[] {
 }
 
 /** The activations with a frequency of each item in the registry that has any; read once per registry. */
-export function itemActivations(registry: ContentRegistry): ReadonlyMap<ContentId, readonly Activation[]> {
+export function itemActivations(registry: ContentRegistry): ReadonlyMap<ContentId, ReadonlyArray<Activation>> {
   const existing = ACTIVATIONS_READ.get(registry);
 
   if (existing !== undefined) {
@@ -76,7 +76,7 @@ export function itemActivations(registry: ContentRegistry): ReadonlyMap<ContentI
   const read = new Map(
     registry.packs
       .flatMap((pack) => pack.otherEntries)
-      .flatMap((entry): [ContentId, readonly Activation[]][] => {
+      .flatMap((entry): Array<[ContentId, ReadonlyArray<Activation>]> => {
         const activations = activationsOf(entry);
 
         return activations.length === 0 ? [] : [[entry.id, activations]];
@@ -89,7 +89,7 @@ export function itemActivations(registry: ContentRegistry): ReadonlyMap<ContentI
 }
 
 /** The activations with a frequency one inventory line gives: its item's own and those of the property runes working on it. */
-export type ActivationsOf = (item: InventoryItem) => readonly Activation[];
+export type ActivationsOf = (item: InventoryItem) => ReadonlyArray<Activation>;
 
 /**
  * The activations of an inventory line (`ActivationsOf`) over `registry`: the item's, then those of the etched runes
@@ -108,7 +108,7 @@ export function itemActivationsOf(registry: ContentRegistry): ActivationsOf {
 
 /** The character's items, the activations with a frequency each of them has, and the wands among them. */
 export interface CarriedActivations {
-  readonly items: readonly InventoryItem[];
+  readonly items: ReadonlyArray<InventoryItem>;
   readonly activations: ActivationsOf;
   readonly wands: ReadonlyMap<ContentId, WandSpell>;
 }

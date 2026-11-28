@@ -6,7 +6,7 @@ import { FOUNDRY_NULL } from './testing/kind-fixtures';
 
 const CLASS_FEATURES = { name: 'classfeatures', directory: 'class-features' };
 
-function classFeature(id: string, name: string, rules: readonly object[]): DocumentFixture {
+function classFeature(id: string, name: string, rules: ReadonlyArray<object>): DocumentFixture {
   return {
     id,
     name,

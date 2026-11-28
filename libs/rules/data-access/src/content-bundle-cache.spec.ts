@@ -20,10 +20,10 @@ interface EntryFixture {
   readonly slug: string;
   readonly name: string;
   readonly rarity: string;
-  readonly traits: readonly string[];
-  readonly sources: readonly unknown[];
-  readonly description: readonly unknown[];
-  readonly rules: readonly unknown[];
+  readonly traits: ReadonlyArray<string>;
+  readonly sources: ReadonlyArray<unknown>;
+  readonly description: ReadonlyArray<unknown>;
+  readonly rules: ReadonlyArray<unknown>;
   readonly data: object;
 }
 
@@ -45,7 +45,7 @@ function language(name: string, label: string): EntryFixture {
   };
 }
 
-function homebrew(name: string): readonly PackContentsLoader[] {
+function homebrew(name: string): ReadonlyArray<PackContentsLoader> {
   const contents: PackContents = packContentsFromFiles(packFile, [[language('common', name)]]);
 
   return [{ id: PACK, load: async (): Promise<PackContents> => contents }];
@@ -57,7 +57,7 @@ interface Visit {
 }
 
 /** A fresh page over `store`, served `packs`: what a later visit looks like. */
-function visit(store: BundleStore, packs: readonly PackContentsLoader[] = homebrew('Common')): Visit {
+function visit(store: BundleStore, packs: ReadonlyArray<PackContentsLoader> = homebrew('Common')): Visit {
   TestBed.resetTestingModule();
   const delivery = new TestContentDelivery(packs);
   TestBed.configureTestingModule({ providers: provideContentTesting(delivery, store) });

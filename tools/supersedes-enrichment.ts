@@ -9,12 +9,12 @@ import type { AonSupersedesFile, ContentEntry, ContentId } from '@pioneer/rules/
 
 /** The legacy entries each remaster entry replaces, and how many AoN pairs had no entry on one side or both. */
 export interface SupersedesLinks {
-  readonly replaces: ReadonlyMap<ContentId, readonly ContentId[]>;
+  readonly replaces: ReadonlyMap<ContentId, ReadonlyArray<ContentId>>;
   readonly unresolved: number;
 }
 
 /** Entry ids by the AoN URL their book sources cite. */
-function idsByAon(entries: readonly ContentEntry[]): ReadonlyMap<string, ContentId> {
+function idsByAon(entries: ReadonlyArray<ContentEntry>): ReadonlyMap<string, ContentId> {
   const found = entries.flatMap((entry) =>
     entry.sources.flatMap((source) =>
       source.kind === SourceKind.Book && source.aon !== undefined ? [[source.aon, entry.id] as const] : [],
@@ -26,11 +26,11 @@ function idsByAon(entries: readonly ContentEntry[]): ReadonlyMap<string, Content
 
 /** Which remaster entry replaces which legacy ones, from every pack's entries and the books' AoN pairs. */
 export function supersedesLinks(
-  entries: readonly ContentEntry[],
-  files: readonly AonSupersedesFile[],
+  entries: ReadonlyArray<ContentEntry>,
+  files: ReadonlyArray<AonSupersedesFile>,
 ): SupersedesLinks {
   const ids = idsByAon(entries);
-  const replaces = new Map<ContentId, ContentId[]>();
+  const replaces = new Map<ContentId, Array<ContentId>>();
   let unresolved = 0;
 
   for (const [legacyUrl, targets] of files.flatMap((file) => Object.entries(file.replacedBy))) {
@@ -58,7 +58,7 @@ export interface SupersedesEnrichedFile {
 
 /** A file's lines, and how many ids the pass has added to them so far. */
 interface Patched {
-  readonly lines: readonly string[];
+  readonly lines: ReadonlyArray<string>;
   readonly set: number;
 }
 
@@ -73,7 +73,7 @@ const ENTRY_START = '  {';
 const ENTRY_END = /^ {2}\},?$/u;
 
 /** The lines of the entry whose `"id"` is `id`: from its opening `  {` to the `  }` that closes it. */
-function entryRange(lines: readonly string[], id: ContentId): LineRange | undefined {
+function entryRange(lines: ReadonlyArray<string>, id: ContentId): LineRange | undefined {
   const idLine = lines.indexOf(`    "id": "${id}",`);
   const start = lines.findLastIndex((line, index) => index <= idLine && line === ENTRY_START);
   const end = lines.findIndex((line, index) => index > idLine && ENTRY_END.test(line));
@@ -82,7 +82,7 @@ function entryRange(lines: readonly string[], id: ContentId): LineRange | undefi
 }
 
 /** One entry's lines with `supersedes` set to `ids`: its own line replaced, or one added as the last field. */
-function withSupersedes(entryLines: readonly string[], ids: readonly ContentId[]): readonly string[] {
+function withSupersedes(entryLines: ReadonlyArray<string>, ids: ReadonlyArray<ContentId>): ReadonlyArray<string> {
   const field = `    "supersedes": [${ids.map((id) => `"${id}"`).join(', ')}]`;
   const held = entryLines.findIndex((line) => SUPERSEDES_FIELD.test(line));
 
@@ -102,7 +102,7 @@ function withSupersedes(entryLines: readonly string[], ids: readonly ContentId[]
 function patchEntry(
   patched: Patched,
   entry: ContentEntry,
-  replaces: ReadonlyMap<ContentId, readonly ContentId[]>,
+  replaces: ReadonlyMap<ContentId, ReadonlyArray<ContentId>>,
 ): Patched {
   const held = entry.supersedes ?? [];
   const lacking = (replaces.get(entry.id) ?? []).filter((id) => !held.includes(id) && id !== entry.id);
@@ -126,7 +126,7 @@ function patchEntry(
  */
 export function enrichSupersedesText(
   text: string,
-  replaces: ReadonlyMap<ContentId, readonly ContentId[]>,
+  replaces: ReadonlyMap<ContentId, ReadonlyArray<ContentId>>,
 ): SupersedesEnrichedFile {
   const entries = ContentEntryFile.parse(JSON.parse(text));
   const start: Patched = { lines: text.split('\n'), set: 0 };

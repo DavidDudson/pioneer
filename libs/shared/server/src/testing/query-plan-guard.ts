@@ -7,7 +7,7 @@ const FORBIDDEN_NODES = new Set(['Seq Scan', 'Sort']);
 interface PlanNode {
   readonly 'Node Type': string;
   readonly 'Relation Name'?: string | undefined;
-  readonly Plans?: readonly PlanNode[] | undefined;
+  readonly Plans?: ReadonlyArray<PlanNode> | undefined;
 }
 
 const PlanNodeSchema: z.ZodType<PlanNode> = z.lazy(() =>
@@ -23,23 +23,23 @@ const PlanRowsSchema = z.array(z.object({ 'QUERY PLAN': z.array(PlanEntrySchema)
 
 interface RecordedQuery {
   readonly query: string;
-  readonly params: readonly unknown[];
+  readonly params: ReadonlyArray<unknown>;
 }
 
 /** A Drizzle logger that remembers every statement, for `assertIndexedPlans`. */
 export class QueryRecorder implements Logger {
-  readonly #queries: RecordedQuery[] = [];
+  readonly #queries: Array<RecordedQuery> = [];
 
-  public logQuery(query: string, params: unknown[]): void {
+  public logQuery(query: string, params: Array<unknown>): void {
     this.#queries.push({ query, params });
   }
 
-  public get queries(): readonly RecordedQuery[] {
+  public get queries(): ReadonlyArray<RecordedQuery> {
     return this.#queries;
   }
 }
 
-function forbiddenNodes(node: PlanNode): readonly string[] {
+function forbiddenNodes(node: PlanNode): ReadonlyArray<string> {
   const own = FORBIDDEN_NODES.has(node['Node Type']) ? [`${node['Node Type']} on ${node['Relation Name'] ?? '?'}`] : [];
 
   return [...own, ...(node.Plans ?? []).flatMap((child) => forbiddenNodes(child))];
@@ -70,7 +70,7 @@ async function explain(client: Bun.SQL, { query, params }: RecordedQuery): Promi
 export async function unindexedQueries(
   db: { readonly $client: Bun.SQL },
   recorder: QueryRecorder,
-): Promise<readonly string[]> {
+): Promise<ReadonlyArray<string>> {
   const planned = recorder.queries.filter(({ query }) => PLANNABLE.test(query));
   const problems = await Promise.all(planned.map(async (recorded) => explain(db.$client, recorded)));
 

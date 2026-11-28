@@ -21,7 +21,7 @@ export interface StrikeTargets {
   readonly origin?: Origin | undefined;
   /** The weapon's group and its own roll options, which a `CriticalSpecialization` element reads. */
   readonly group?: WeaponGroup | undefined;
-  readonly rollOptions?: readonly RollOptionTail[] | undefined;
+  readonly rollOptions?: ReadonlyArray<RollOptionTail> | undefined;
   /** The selectors and domains of the Strike's attack roll. */
   readonly attack: ReadonlySet<ModifierTarget>;
   /** The selectors and domains of the Strike's damage roll. */
@@ -50,7 +50,7 @@ export function ownsStrike(rule: RuleInPlay, { origin }: StrikeTargets): boolean
 
 /** Whether `targets` reach one of `reached`; `etched` says whether the element comes from the Strike's own item. */
 export function reaches(
-  targets: readonly ModifierTarget[],
+  targets: ReadonlyArray<ModifierTarget>,
   reached: ReadonlySet<ModifierTarget>,
   etched: boolean,
 ): boolean {

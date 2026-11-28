@@ -33,7 +33,7 @@ const crumbOf = (route: Route): Crumb | undefined => {
 };
 
 /** Every route below `routes`, each with the URL path it is at. */
-function flatten(routes: Routes, parent = ''): RouteAt[] {
+function flatten(routes: Routes, parent = ''): Array<RouteAt> {
   return routes.flatMap((route) => {
     const path = [parent, route.path ?? ''].filter((part) => part !== '').join('/');
 
@@ -66,13 +66,13 @@ function unwrap(routes: Routes): Routes {
 }
 
 /** The routes with a path of their own, which show as a step of the trail: a redirect never does. */
-async function pagesOf(category: string): Promise<RouteAt[]> {
+async function pagesOf(category: string): Promise<Array<RouteAt>> {
   const all = flatten(await treeOf(category));
 
   return all.filter(({ route }) => route.redirectTo === undefined && route.path !== undefined && route.path !== '');
 }
 
-async function idsOf(category: string): Promise<RouteAt[]> {
+async function idsOf(category: string): Promise<Array<RouteAt>> {
   const all = flatten(await treeOf(category));
 
   return all.filter(({ route }) => route.path?.includes(':') === true);

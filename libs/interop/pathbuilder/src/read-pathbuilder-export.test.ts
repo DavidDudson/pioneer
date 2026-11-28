@@ -26,13 +26,13 @@ function problemOf(input: PathbuilderInput): PathbuilderProblem | undefined {
   return result.ok ? undefined : result.problem;
 }
 
-function issuePaths(input: PathbuilderInput): readonly (readonly PropertyKey[])[] {
+function issuePaths(input: PathbuilderInput): ReadonlyArray<ReadonlyArray<PropertyKey>> {
   const result = readPathbuilderExport(input);
 
   return result.ok ? [] : result.issues.map((issue) => issue.path);
 }
 
-function namesOf(value: PathbuilderImport, kind: ImportKindType): readonly string[] {
+function namesOf(value: PathbuilderImport, kind: ImportKindType): ReadonlyArray<string> {
   return value.names.filter((entry) => entry.kind === kind).map((entry) => entry.name);
 }
 
@@ -154,7 +154,7 @@ describe('readPathbuilderExport: golden fixture (Mordred)', () => {
   });
 
   test('reads boosts by set: ancestry free boosts with the ancestry, each class of a dual class a set, gradual boosts folded into the next free set', () => {
-    expect<readonly (readonly unknown[])[]>(
+    expect<ReadonlyArray<ReadonlyArray<unknown>>>(
       mordred.boosts.map(({ source, level, attributes }) => [source, level, attributes]),
     ).toStrictEqual([
       [BoostSource.Ancestry, 1, [Attribute.Strength, Attribute.Charisma]],
@@ -178,7 +178,7 @@ describe('readPathbuilderExport', () => {
     const value = read(minimal);
     expect(value.boosts).toEqual([]);
     expect(value.flaws).toEqual([]);
-    expect<readonly string[]>(value.identity.classes).toEqual(['Fighter']);
+    expect<ReadonlyArray<string>>(value.identity.classes).toEqual(['Fighter']);
     expect(value.lores).toEqual([]);
     expect(namesOf(value, ImportKind.Spell)).toEqual([]);
     expect(value.reported.proficiencies).toEqual({});

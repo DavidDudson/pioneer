@@ -12,7 +12,7 @@ import { RollPresenter } from './roll-presenter';
 import { RollStage } from './roll-stage.component';
 
 /** The damage tones, with the die faces and the total each demo roll lands on. */
-const DEMO_ROLLS: readonly RollPresentation[] = [
+const DEMO_ROLLS: ReadonlyArray<RollPresentation> = [
   {
     id: 1,
     label: 'Fireball',

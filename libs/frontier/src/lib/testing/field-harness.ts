@@ -52,7 +52,7 @@ export class FieldHarness {
   }
 
   /** The text of whatever `element`'s `aria-describedby` points at, in order. */
-  public described(element: Element): string[] {
+  public described(element: Element): Array<string> {
     const ids = element.getAttribute('aria-describedby')?.split(' ') ?? [];
 
     return ids.map((id) => this.root.querySelector(`#${id}`)?.textContent.trim() ?? `missing #${id}`);

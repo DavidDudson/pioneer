@@ -30,7 +30,7 @@ export class SheetExplorationActivity {
   protected readonly registry = injectContentRegistry(EXPLORATION_CONTENT_KINDS);
   protected readonly playQuery = this.#play.play;
 
-  protected readonly choices = computed((): readonly SelectOption<string>[] => {
+  protected readonly choices = computed((): ReadonlyArray<SelectOption<string>> => {
     const registry = this.registry.data();
 
     const none: SelectOption<string> = {

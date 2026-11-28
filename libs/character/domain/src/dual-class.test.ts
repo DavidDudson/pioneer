@@ -56,9 +56,11 @@ registry.register(playerCoreClasses());
 
 registry.register(variantPack());
 
-const dual: readonly VariantRuleEntry[] = registry.variantRules().filter((each) => each.definition.slug === DUAL_CLASS);
+const dual: ReadonlyArray<VariantRuleEntry> = registry
+  .variantRules()
+  .filter((each) => each.definition.slug === DUAL_CLASS);
 
-const plain: readonly VariantRuleEntry[] = registry
+const plain: ReadonlyArray<VariantRuleEntry> = registry
   .variantRules()
   .filter((each) => each.definition.slug !== DUAL_CLASS);
 

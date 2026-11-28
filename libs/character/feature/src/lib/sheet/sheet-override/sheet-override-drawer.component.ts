@@ -26,7 +26,7 @@ export class SheetOverrideDrawer {
 
   protected readonly overrides = inject(SheetOverrides);
   protected readonly open = signal(false);
-  protected readonly targets = computed((): readonly OverrideTarget[] => {
+  protected readonly targets = computed((): ReadonlyArray<OverrideTarget> => {
     const target = this.overrides.target();
 
     return target === undefined ? [] : [target];

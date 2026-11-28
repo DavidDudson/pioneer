@@ -17,7 +17,7 @@ interface ComposedStorybook {
   readonly port: number;
 }
 
-const COMPOSED: readonly ComposedStorybook[] = [
+const COMPOSED: ReadonlyArray<ComposedStorybook> = [
   { project: 'frontier', title: 'Frontier', root: 'libs/frontier', port: 6007 },
   { project: 'rules-ui', title: 'Rules UI', root: 'libs/rules/ui', port: 6008 },
   { project: 'play-ui', title: 'Play UI', root: 'libs/play/ui', port: 6009 },

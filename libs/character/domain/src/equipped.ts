@@ -26,7 +26,7 @@ import { shiftedInventory } from './weapon-shifts';
 
 /** The rules in play and the facts they read, with the `RollOption` toggles the character's items offer. */
 export interface EquippedRules extends ModifierInputs {
-  readonly toggles: readonly ToggleSlot[];
+  readonly toggles: ReadonlyArray<ToggleSlot>;
   /** The items the character's `ChoiceSet`s over owned items picked (ADR-0075). */
   readonly picked: PickedItems;
 }
@@ -43,7 +43,7 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
   const exclusive = exclusiveEffects(document.play.effects, lookup);
   const level = Level.parse(document.level);
 
-  const roots: GrantRoot[] = [
+  const roots: Array<GrantRoot> = [
     ...active.flatMap((each) => {
       const hop = inventoryHop(each);
 
@@ -78,13 +78,13 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
 
 /** An entry that is in play through the inventory or a condition, and why. */
 export interface EquippedGrants {
-  readonly items: readonly Resolved[];
+  readonly items: ReadonlyArray<Resolved>;
   /** With the traits of the battle form in force, as the character's own. */
   readonly facts: PredicateFacts;
   /** The battle form in force; none when there is none. */
   readonly form: FormInPlay | undefined;
   /** The polymorph effects a newer one replaced, oldest first, so play can end them. */
-  readonly replacedEffects: readonly ActiveEffect[];
+  readonly replacedEffects: ReadonlyArray<ActiveEffect>;
 }
 
 /** What the character's active items and conditions put in play, and the facts that holds (see `equippedRules`). */
@@ -132,7 +132,7 @@ export function buildRules(
   document: CharacterDocument,
   content: ItemContent,
   slots: SlotContent,
-): readonly RuleInPlay[] {
+): ReadonlyArray<RuleInPlay> {
   const shifted = shiftedDocument(document, content, slots);
   const resolution = equippedResolution(shifted, content, slots);
 

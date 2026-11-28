@@ -14,7 +14,7 @@ export interface SenseInPlay {
   /** Absent when the sense reaches as far as the character can perceive. */
   readonly range?: Feet;
   /** Every ancestry vision and `Sense` element that gives it with this acuity and range, in the order found. */
-  readonly origins: readonly Origin[];
+  readonly origins: ReadonlyArray<Origin>;
   /** Set when a battle form gives the sense: the sheet marks it as from the form. */
   readonly fromForm?: true;
 }
@@ -35,7 +35,7 @@ interface SenseGrant {
   readonly fromForm?: true;
 }
 
-const ACUITY_ORDER: readonly SenseAcuity[] = [SenseAcuity.Vague, SenseAcuity.Imprecise, SenseAcuity.Precise];
+const ACUITY_ORDER: ReadonlyArray<SenseAcuity> = [SenseAcuity.Vague, SenseAcuity.Imprecise, SenseAcuity.Precise];
 
 /** Whether `left` reaches at least as far as `right`, where no range is unlimited. */
 function reachesAsFar(left: Feet | undefined, right: Feet | undefined): boolean {
@@ -61,7 +61,7 @@ function sameReading(left: SenseGrant, right: SenseGrant): boolean {
 }
 
 /** Whether another grant of its sense covers `grant` and is better in acuity or range. */
-function isBeaten(grant: SenseGrant, grants: readonly SenseGrant[]): boolean {
+function isBeaten(grant: SenseGrant, grants: ReadonlyArray<SenseGrant>): boolean {
   return grants.some((other) => other.sense === grant.sense && !sameReading(other, grant) && covers(other, grant));
 }
 
@@ -79,7 +79,7 @@ function precedes(left: SenseInPlay, right: SenseInPlay): boolean {
 }
 
 /** The grants of `elements` whose predicate holds, after the ancestry's vision. */
-function grantsOf({ rules, facts }: ModifierInputs, vision: AncestryVision | undefined): SenseGrant[] {
+function grantsOf({ rules, facts }: ModifierInputs, vision: AncestryVision | undefined): Array<SenseGrant> {
   const form = battleFormInPlay({ rules, facts });
 
   if (form?.form.senses !== undefined) {
@@ -92,7 +92,7 @@ function grantsOf({ rules, facts }: ModifierInputs, vision: AncestryVision | und
     }));
   }
 
-  const grants: SenseGrant[] =
+  const grants: Array<SenseGrant> =
     vision === undefined ? [] : [{ ...vision, acuity: SenseAcuity.Precise, range: undefined }];
 
   for (const { element, origin } of rules) {
@@ -114,9 +114,9 @@ function grantsOf({ rules, facts }: ModifierInputs, vision: AncestryVision | und
  * alone remains; grants neither beats (imprecise scent 30 feet, vague scent unlimited) both remain. Grants that read
  * alike are one sense with each origin. In order of sense id, then the more acute and the farther first.
  */
-export function sensesInPlay(inputs: ModifierInputs, vision?: AncestryVision): readonly SenseInPlay[] {
+export function sensesInPlay(inputs: ModifierInputs, vision?: AncestryVision): ReadonlyArray<SenseInPlay> {
   const grants = grantsOf(inputs, vision);
-  const senses: SenseInPlay[] = [];
+  const senses: Array<SenseInPlay> = [];
 
   for (const grant of grants.filter((each) => !isBeaten(each, grants))) {
     const index = senses.findIndex(

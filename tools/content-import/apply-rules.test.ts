@@ -23,7 +23,7 @@ const modifier = { key: 'FlatModifier', selectors: ['ac'], type: 'item', value: 
 // SAFETY: the object literal is a rule element with the key and fields of that rule, as the import writes them; the test needs no more of it.
 const proficiency = { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' } as RuleElement;
 
-function entry(id: ContentId, rules: readonly RuleElement[]): ContentEntry {
+function entry(id: ContentId, rules: ReadonlyArray<RuleElement>): ContentEntry {
   // SAFETY: the test entry holds only the fields the merge reads (id, pack, slug and rules), not the rest of a content entry.
   return { id, pack, slug, rules } as ContentEntry;
 }
@@ -31,7 +31,7 @@ function entry(id: ContentId, rules: readonly RuleElement[]): ContentEntry {
 const ruleGap = { type: BacklogGapType.Rule, key: 'FlatModifier', raw: { key: 'FlatModifier' } } as const;
 const enricher = { type: BacklogGapType.Enricher, enricher: '@UUID[spells-srd]' } as const;
 
-function item(gaps: readonly (typeof ruleGap | typeof enricher)[]): BacklogItem {
+function item(gaps: ReadonlyArray<typeof ruleGap | typeof enricher>): BacklogItem {
   return { type: BacklogItemType.Entry, pack, slug, gaps };
 }
 

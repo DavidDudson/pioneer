@@ -23,8 +23,8 @@ export abstract class SearchableHomebrew {
   /** The packs among `packs` that `actor` may read; none for an anonymous caller. A pack that does not exist is left out. */
   public abstract readable(
     actor: UserId | undefined,
-    packs: readonly ContentPackId[],
-  ): Promise<readonly ContentPackId[]>;
+    packs: ReadonlyArray<ContentPackId>,
+  ): Promise<ReadonlyArray<ContentPackId>>;
 }
 
 /**

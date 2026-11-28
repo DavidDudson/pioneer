@@ -61,15 +61,15 @@ export class InMemoryCharacterDirectory extends CharacterDirectory {
     return this;
   }
 
-  public override async ownedBy(userId: UserId): Promise<readonly CharacterSummary[]> {
+  public override async ownedBy(userId: UserId): Promise<ReadonlyArray<CharacterSummary>> {
     return [...this.#characters.values()]
       .filter((character) => character.ownerId === userId && !character.archived)
       .toSorted((left, right) => left.name.localeCompare(right.name) || left.id.localeCompare(right.id));
   }
 
-  public override async byIds(ids: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, CharacterSummary>> {
+  public override async byIds(ids: ReadonlyArray<CharacterId>): Promise<ReadonlyMap<CharacterId, CharacterSummary>> {
     return new Map(
-      ids.flatMap((id): [CharacterId, CharacterSummary][] => {
+      ids.flatMap((id): Array<[CharacterId, CharacterSummary]> => {
         const character = this.#characters.get(id);
 
         return character === undefined ? [] : [[id, character]];
@@ -77,9 +77,9 @@ export class InMemoryCharacterDirectory extends CharacterDirectory {
     );
   }
 
-  public override async vitalsOf(ids: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, PartyVitals>> {
+  public override async vitalsOf(ids: ReadonlyArray<CharacterId>): Promise<ReadonlyMap<CharacterId, PartyVitals>> {
     return new Map(
-      ids.flatMap((id): [CharacterId, PartyVitals][] => {
+      ids.flatMap((id): Array<[CharacterId, PartyVitals]> => {
         const vitals = this.#vitals.get(id);
 
         return vitals === undefined ? [] : [[id, vitals]];

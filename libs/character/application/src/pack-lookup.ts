@@ -5,5 +5,5 @@ import type { ContentId, ContentPackId } from '@pioneer/rules/sdk';
  * adapter lives in the composition root. An id that is no entry of a homebrew pack in force is left out.
  */
 export abstract class PackLookup {
-  public abstract packsOf(entryIds: readonly ContentId[]): Promise<readonly ContentPackId[]>;
+  public abstract packsOf(entryIds: ReadonlyArray<ContentId>): Promise<ReadonlyArray<ContentPackId>>;
 }

@@ -26,7 +26,7 @@ import { shownSubclassRows, subclassPickerColumns } from './class-picker-table';
 })
 export class SubclassPicker {
   /** Every subclass the class offers, with what each grants. */
-  public readonly rows = input.required<readonly SubclassPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<SubclassPickerRow>>();
   /** The picked subclass; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

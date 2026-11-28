@@ -4,7 +4,7 @@ export const DrawerWidth = { Narrow: 'narrow', Default: 'default', Wide: 'wide' 
 export type DrawerWidth = (typeof DrawerWidth)[keyof typeof DrawerWidth];
 
 /** Narrowest to widest, the order the resize handle steps through. */
-export const WIDTHS: readonly DrawerWidth[] = [DrawerWidth.Narrow, DrawerWidth.Default, DrawerWidth.Wide];
+export const WIDTHS: ReadonlyArray<DrawerWidth> = [DrawerWidth.Narrow, DrawerWidth.Default, DrawerWidth.Wide];
 
 /** Each width in rem, as `--container-drawer-*` sets them, for placing a drag between steps. */
 const WIDTH_REM: Readonly<Record<DrawerWidth, number>> = { narrow: 20, default: 28, wide: 40 };

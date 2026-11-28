@@ -40,7 +40,7 @@ registry.register(
 );
 
 /** Content whose variant rules in force are whatever `enabled` holds. */
-function content(enabled: readonly VariantRuleEntry[]): CharacterContentSource {
+function content(enabled: ReadonlyArray<VariantRuleEntry>): CharacterContentSource {
   return { registry: async () => registry, variantRules: async () => enabled };
 }
 
@@ -56,7 +56,7 @@ describe('PlayService with variant rules', () => {
     });
   });
 
-  async function damageTaken(enabled: readonly VariantRuleEntry[]): Promise<HitPoints> {
+  async function damageTaken(enabled: ReadonlyArray<VariantRuleEntry>): Promise<HitPoints> {
     const play = new PlayService(repository, content(enabled), clock);
 
     const saved = await play.patch(amiri, kyra.id, {

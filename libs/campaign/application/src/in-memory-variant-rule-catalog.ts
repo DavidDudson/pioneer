@@ -4,16 +4,16 @@ import { VariantRuleCatalog } from './variant-rule-catalog';
 
 /** Catalog adapter for tests: the variant rules each campaign can use are given up front, and can change. */
 export class InMemoryVariantRuleCatalog extends VariantRuleCatalog {
-  readonly #options = new Map<CampaignId, readonly VariantRuleOption[]>();
+  readonly #options = new Map<CampaignId, ReadonlyArray<VariantRuleOption>>();
 
   /** The campaign can use exactly these variant rules from now on. */
-  public offer(campaignId: CampaignId, options: readonly VariantRuleOption[]): this {
+  public offer(campaignId: CampaignId, options: ReadonlyArray<VariantRuleOption>): this {
     this.#options.set(campaignId, options);
 
     return this;
   }
 
-  public override async of(campaignId: CampaignId): Promise<readonly VariantRuleOption[]> {
+  public override async of(campaignId: CampaignId): Promise<ReadonlyArray<VariantRuleOption>> {
     return this.#options.get(campaignId) ?? [];
   }
 }

@@ -48,7 +48,7 @@ const THIRD = staffSpellId('fireball');
 interface EntryInput {
   readonly slug: string;
   readonly preparation: SpellPreparation;
-  readonly ranks: readonly number[];
+  readonly ranks: ReadonlyArray<number>;
   readonly tradition?: 'arcane' | 'primal';
 }
 
@@ -61,12 +61,12 @@ const WIZARD = entry({ slug: 'wizard', preparation: SpellPreparation.Prepared, r
 
 /** What a character with `entries` has: the staff prepared with `max` charges (none when undefined), and the slots counted. */
 interface Table {
-  readonly entries: readonly SpellcastingInPlay[];
+  readonly entries: ReadonlyArray<SpellcastingInPlay>;
   readonly counted: CountedMaxima;
   readonly resources: ResourcesSpent;
 }
 
-function table(entries: readonly SpellcastingInPlay[], max: number | undefined): Table {
+function table(entries: ReadonlyArray<SpellcastingInPlay>, max: number | undefined): Table {
   const charges = StaffChargesSchema.parse(max === undefined ? {} : { [STAFF_ID]: { max, spent: 0 } });
 
   return {
@@ -142,7 +142,7 @@ function chargesLeft({ resources }: Table): number {
   return chargesHeld(resources.staff, STAFF_ID);
 }
 
-function optionsFor(at: Table, spell: typeof CANTRIP): readonly StaffCommand[] {
+function optionsFor(at: Table, spell: typeof CANTRIP): ReadonlyArray<StaffCommand> {
   return staffCastOptions(sourceOf(at), spell, slotsOf(at));
 }
 

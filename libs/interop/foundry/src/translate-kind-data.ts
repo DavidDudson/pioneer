@@ -76,8 +76,8 @@ export type ImportedKindData =
 export interface KindDataTranslation {
   readonly kindData?: ImportedKindData;
   /** Rule elements the kind's fields add to the entry's own, already parsed. */
-  readonly rules: readonly RuleElement[];
-  readonly gaps: readonly KindDataGap[];
+  readonly rules: ReadonlyArray<RuleElement>;
+  readonly gaps: ReadonlyArray<KindDataGap>;
 }
 
 /** What a kind translator makes of a document: its kind data, when it has any. */
@@ -199,7 +199,7 @@ export function translateKindData(
   }
 
   const log: GapLog = { entry: envelope.id, gaps: [] };
-  const rules: RuleElement[] = [];
+  const rules: Array<RuleElement> = [];
   const { document, pack } = entry;
 
   const kindData = translator({

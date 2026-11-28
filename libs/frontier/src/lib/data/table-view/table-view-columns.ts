@@ -2,7 +2,7 @@ import { MINUS, SHOW } from './table-view-keys';
 import { listOf, listText } from './table-view-text';
 import type { TableViewColumn } from './table-view.types';
 
-function defaultHiddenIds(columns: readonly TableViewColumn[]): readonly string[] {
+function defaultHiddenIds(columns: ReadonlyArray<TableViewColumn>): ReadonlyArray<string> {
   return columns
     .values()
     .filter((column) => column.defaultHidden === true)
@@ -14,7 +14,7 @@ function defaultHiddenIds(columns: readonly TableViewColumn[]): readonly string[
  * `-src,~bk`: only the columns that differ from the defaults, in schema order. `-` hides a column shown by default
  * and `+` shows one hidden by default.
  */
-export function columnsText(hidden: readonly string[], columns: readonly TableViewColumn[]): string {
+export function columnsText(hidden: ReadonlyArray<string>, columns: ReadonlyArray<TableViewColumn>): string {
   const wanted = new Set(hidden);
 
   const tokens = columns.flatMap((column) => {
@@ -31,7 +31,7 @@ export function columnsText(hidden: readonly string[], columns: readonly TableVi
 }
 
 /** The ids of the hidden columns after the text's changes to the defaults. Unknown codes and bare codes are dropped. */
-export function hiddenOf(text: string, columns: readonly TableViewColumn[]): readonly string[] {
+export function hiddenOf(text: string, columns: ReadonlyArray<TableViewColumn>): ReadonlyArray<string> {
   const ids = new Map(columns.map((column) => [column.code, column.id]));
   const hidden = new Set(defaultHiddenIds(columns));
 

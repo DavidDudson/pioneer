@@ -10,7 +10,7 @@ import { render, settle, textOf } from '../../testing/sheet-tabs-testing';
 import { SHEET_TAB_SECTIONS } from '../sheet-sections';
 
 /** Each tab's first section, which its own address opens, and the path it opens at. */
-const FIRST_SECTIONS: readonly (readonly [SheetMode, string, string])[] = [
+const FIRST_SECTIONS: ReadonlyArray<readonly [SheetMode, string, string]> = [
   [SheetMode.Plan, 'level-0', 'Identity'],
   [SheetMode.Encounter, 'defences', 'Defences'],
   [SheetMode.Exploration, 'roleplay', 'Appearance and personality'],
@@ -18,7 +18,7 @@ const FIRST_SECTIONS: readonly (readonly [SheetMode, string, string])[] = [
 ];
 
 /** The headings of the sections in view: those of the tab's regions that are not concealed. */
-function shownHeadings(root: HTMLElement): string[] {
+function shownHeadings(root: HTMLElement): Array<string> {
   return [...root.querySelectorAll('router-outlet ~ * section')]
     .values()
     .filter((region) => !region.classList.contains('hidden') && !region.closest('.hidden'))

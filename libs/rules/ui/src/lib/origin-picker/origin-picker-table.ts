@@ -23,7 +23,7 @@ export const originRowValue = (row: NamedRow): string => row.id;
 export const originRowLabel = (row: NamedRow): string => row.name;
 export const originRowDisabled = (row: NamedRow): string | undefined => row.disabledReason;
 
-export const chips = (labels: readonly string[]): readonly Chip[] => labels.map((label): Chip => ({ label }));
+export const chips = (labels: ReadonlyArray<string>): ReadonlyArray<Chip> => labels.map((label): Chip => ({ label }));
 
 /** The name column every origin picker starts with. */
 function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>, say: Say): OriginTableSchema<TRow> {
@@ -100,12 +100,12 @@ function givesColumns(schema: OriginTableSchema<AncestryPickerRow>, say: Say): O
 }
 
 /** The columns of an ancestry picker: what a member is, then what it gives and costs, then where it comes from. */
-export function ancestryPickerColumns(say: Say): readonly TableColumn<AncestryPickerRow>[] {
+export function ancestryPickerColumns(say: Say): ReadonlyArray<TableColumn<AncestryPickerRow>> {
   return givesColumns(bodyColumns(say), say).build();
 }
 
 /** The columns of a heritage picker: its ancestry, what it does and what it grants. */
-export function heritagePickerColumns(say: Say): readonly TableColumn<HeritagePickerRow>[] {
+export function heritagePickerColumns(say: Say): ReadonlyArray<TableColumn<HeritagePickerRow>> {
   return withName(new OriginTableSchema<HeritagePickerRow>(), say)
     .addFacts({
       id: 'ancestry',
@@ -139,7 +139,7 @@ export function heritagePickerColumns(say: Say): readonly TableColumn<HeritagePi
 }
 
 /** The columns of a background picker: its boosts, the skill and Lore it trains, and the feat it grants. */
-export function backgroundPickerColumns(say: Say): readonly TableColumn<BackgroundPickerRow>[] {
+export function backgroundPickerColumns(say: Say): ReadonlyArray<TableColumn<BackgroundPickerRow>> {
   return withName(new OriginTableSchema<BackgroundPickerRow>(), say)
     .addBoosts({
       id: 'boosts',
@@ -203,7 +203,11 @@ const byName = (left: NamedRow, right: NamedRow): number =>
   left.name.localeCompare(right.name, undefined, { sensitivity: 'base' });
 
 /** The rows whose name holds `query`, in the order asked for; unsorted, in the order given. */
-export type ShownRows<TRow> = (rows: readonly TRow[], query: string, sort: PickerSort | undefined) => readonly TRow[];
+export type ShownRows<TRow> = (
+  rows: ReadonlyArray<TRow>,
+  query: string,
+  sort: PickerSort | undefined,
+) => ReadonlyArray<TRow>;
 
 /** Rows searched by name and sorted by `compare`, then by name. */
 export function shownBy<TRow extends NamedRow>(

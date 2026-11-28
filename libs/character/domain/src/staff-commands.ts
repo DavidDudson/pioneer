@@ -225,7 +225,11 @@ function withSlot(command: StaffCommand, slot: SlotCountKey): StaffCommand {
  * each slot of the spell's rank or higher that is left, each with 1 charge. Empty when the spell can't be cast or paid
  * for. The options are commands, so the sheet previews exactly what the server would accept.
  */
-export function staffCastOptions(source: StaffSource, spell: ContentId, slots: StaffSlots): readonly StaffCommand[] {
+export function staffCastOptions(
+  source: StaffSource,
+  spell: ContentId,
+  slots: StaffSlots,
+): ReadonlyArray<StaffCommand> {
   const held = source.spells.find(({ id }) => id === spell);
 
   if (held === undefined) {

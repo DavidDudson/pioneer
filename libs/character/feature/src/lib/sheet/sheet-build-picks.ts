@@ -34,12 +34,12 @@ import { sheetTimeline } from './sheet-timeline';
 export interface ClassPicks {
   /** Undefined before a class is picked, or for a class without a subclass (fighter). */
   readonly subclass: Signal<SheetSubclass | undefined>;
-  readonly subclassOptions: Signal<readonly SelectOption<string>[]>;
+  readonly subclassOptions: Signal<ReadonlyArray<SelectOption<string>>>;
   /** One edit per subclass slot, so a class change starts a new edit session; undefined while there is none. */
   readonly subclassField: Signal<InlineEdit<string | undefined> | undefined>;
   /** Undefined when the class allows a single key attribute. */
   readonly keyAttribute: Signal<SheetKeyAttribute | undefined>;
-  readonly keyAttributeOptions: Signal<readonly SelectOption<string>[]>;
+  readonly keyAttributeOptions: Signal<ReadonlyArray<SelectOption<string>>>;
   /** One edit per key attribute slot; undefined while there is none. */
   readonly keyAttributeField: Signal<InlineEdit<string | undefined> | undefined>;
 }
@@ -51,11 +51,11 @@ export interface ClassPicks {
  */
 export interface BuildPicks extends EngineReads, ClassPicks {
   /** The picker options of one of the character's own slots; none while it or the content loads. */
-  readonly rootOptions: (slot: SlotKey) => Signal<readonly SelectOption<string>[]>;
+  readonly rootOptions: (slot: SlotKey) => Signal<ReadonlyArray<SelectOption<string>>>;
   /** One of the character's own slots as an inline pick, named by `options`. */
   readonly rootField: (
     slot: SlotKey,
-    options: Signal<readonly SelectOption<string>[]>,
+    options: Signal<ReadonlyArray<SelectOption<string>>>,
   ) => InlineEdit<string | undefined>;
   /** Whether the character has a second class (Dual Class is in force); false while the content loads. */
   readonly hasSecondClass: Signal<boolean>;
@@ -69,13 +69,13 @@ export interface BuildPicks extends EngineReads, ClassPicks {
   readonly attributes: Signal<SheetAttributes | undefined>;
   /** Undefined while the character or the content loads. */
   /** What the character is, part by part; undefined while it, its slots or the content load. */
-  readonly buildLines: Signal<readonly BuildLine[] | undefined>;
+  readonly buildLines: Signal<ReadonlyArray<BuildLine> | undefined>;
   /** Every choice with its status, as the server read the slots; undefined while the character loads. */
-  readonly choices: Signal<readonly ChoiceLine[] | undefined>;
+  readonly choices: Signal<ReadonlyArray<ChoiceLine> | undefined>;
   /** One row per level from 1 to 20 with the slots it opens; undefined while the character or the content loads. */
-  readonly timeline: Signal<readonly LevelTimelineRow[] | undefined>;
+  readonly timeline: Signal<ReadonlyArray<LevelTimelineRow> | undefined>;
   /** One pick per skill and boost slot at any level, for the level tabs to offer (#492). */
-  readonly plannedFields: Signal<readonly SlotPickField[]>;
+  readonly plannedFields: Signal<ReadonlyArray<SlotPickField>>;
 }
 
 /**
@@ -86,7 +86,7 @@ export interface BuildPicks extends EngineReads, ClassPicks {
 function fieldPerSlot(
   sources: BuildPickSources,
   slot: Signal<SlotKey | undefined>,
-  options: Signal<readonly SelectOption<string>[]>,
+  options: Signal<ReadonlyArray<SelectOption<string>>>,
 ): Signal<InlineEdit<string | undefined> | undefined> {
   return computed(() => {
     const key = slot();
@@ -99,7 +99,7 @@ function fieldPerSlot(
 const MARKED_ROOT_SLOTS: ReadonlySet<SlotKey> = new Set([BACKGROUND_SLOT, CLASS_SLOT, SECOND_CLASS_SLOT]);
 
 /** The picker options of one of the character's own slots; none while it or the content loads. */
-function rootOptionsOf(sources: BuildPickSources, slot: SlotKey): Signal<readonly SelectOption<string>[]> {
+function rootOptionsOf(sources: BuildPickSources, slot: SlotKey): Signal<ReadonlyArray<SelectOption<string>>> {
   return computed(() => {
     const registry = sources.registry();
     const character = sources.character();
@@ -120,7 +120,7 @@ function rootOptionsOf(sources: BuildPickSources, slot: SlotKey): Signal<readonl
 function subclassOptionsOf(
   sources: BuildPickSources,
   subclass: Signal<SheetSubclass | undefined>,
-): Signal<readonly SelectOption<string>[]> {
+): Signal<ReadonlyArray<SelectOption<string>>> {
   return computed(() => {
     const registry = sources.registry();
     const character = sources.character();
@@ -140,7 +140,7 @@ function classPicks(sources: BuildPickSources, classSlot: SlotKey, source: Boost
   const subclassOptions = subclassOptionsOf(sources, subclass);
   const keyAttribute = loaded(sources, (registry, character) => sheetKeyAttribute(registry, character, source));
 
-  const keyAttributeOptions = computed((): readonly SelectOption<string>[] =>
+  const keyAttributeOptions = computed((): ReadonlyArray<SelectOption<string>> =>
     (keyAttribute()?.options ?? []).map((attribute) => ({
       value: attribute,
       label: sources.translate(ATTRIBUTE_MESSAGES[attribute]),

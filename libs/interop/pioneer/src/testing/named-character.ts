@@ -14,7 +14,7 @@ const NAME_LENGTH = 12;
 export interface NamedCharacter {
   readonly character: CharacterDocument;
   readonly name: ReferenceNamer;
-  readonly ids: readonly ContentId[];
+  readonly ids: ReadonlyArray<ContentId>;
   /** What each id in `ids` is named, for building the entry that has it. */
   readonly references: ReadonlyMap<ContentId, ContentReference>;
 }

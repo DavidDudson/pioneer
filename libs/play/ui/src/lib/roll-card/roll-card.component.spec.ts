@@ -156,7 +156,7 @@ describe(RollCard, () => {
     { name: 'letters', typed: 'ab', expected: [] },
   ])('emits for $name as typed', async ({ typed, expected, dc }) => {
     const fixture = await render(PLAIN_CHECK, { dc, dcEditable: true });
-    const emitted: (Dc | undefined)[] = [];
+    const emitted: Array<Dc | undefined> = [];
     fixture.componentInstance.dcChange.subscribe((typedDc) => {
       emitted.push(typedDc);
     });

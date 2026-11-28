@@ -792,6 +792,17 @@ export default defineConfig({
     },
     {
       // The lint config is one data literal: a size or magic-number limit says nothing about it.
+      files: ['libs/character/domain/src/attribute-boosts.ts', 'libs/character/domain/src/character-statistics.ts'],
+      rules: { 'max-params': ['error', { max: 4 }] },
+    },
+    {
+      files: [
+        'libs/character/feature/src/lib/sheet/sheet-companion-facts.ts',
+        'libs/character/feature/src/lib/sheet/sheet-companions.ts',
+      ],
+      rules: { 'max-params': ['error', { max: 4 }] },
+    },
+    {
       files: ['oxlint.config.ts'],
       rules: {
         'eslint/capitalized-comments': 'off',

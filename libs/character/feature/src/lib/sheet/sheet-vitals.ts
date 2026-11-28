@@ -21,7 +21,7 @@ function isSpeed(selector: Selector): boolean {
 /** What the engine derived for the sheet, which the vitals row shows. */
 export interface VitalReads {
   /** AC, the saves, Perception and the class DC, in display order. */
-  readonly statistics: readonly NamedStatistic[];
+  readonly statistics: ReadonlyArray<NamedStatistic>;
   /** Display names of entries, the worn armour's among them. */
   readonly entryNames: ReadonlyMap<ContentId, string>;
 }
@@ -52,7 +52,7 @@ export function sheetArmorClass(registry: ContentRegistry, character: Character,
  * for Armor Class the armour that sets it. A statistic the character has no rank in is untrained; a plain value, as a
  * Speed is, has no rank.
  */
-export function sheetVitals(registry: ContentRegistry, character: Character, reads: VitalReads): readonly Vital[] {
+export function sheetVitals(registry: ContentRegistry, character: Character, reads: VitalReads): ReadonlyArray<Vital> {
   const { ranks } = statisticInputsOf(registry, character);
 
   const own = reads.statistics
@@ -77,7 +77,7 @@ export function sheetVitals(registry: ContentRegistry, character: Character, rea
  * The spell DC of the character's spellcasting: one when every entry gives the same value, else one for each entry,
  * named by its source. It has no rank: the sheet reads none for spellcasting yet.
  */
-function spellDcVitals(registry: ContentRegistry, character: Character): readonly Vital[] {
+function spellDcVitals(registry: ContentRegistry, character: Character): ReadonlyArray<Vital> {
   const entries = sheetSpellcasting(registry, character);
 
   const found = entries.flatMap(({ source, statistics }) =>

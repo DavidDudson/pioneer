@@ -50,7 +50,7 @@ export interface ShownBreakdown {
   /** "Difficult Terrain: a Stride covers 10 feet, not 25; each square costs 5 feet more"; undefined when no terrain lowers it. */
   readonly movementCost: string | undefined;
   readonly base: string;
-  readonly terms: readonly ShownTerm[];
-  readonly lines: readonly ShownLine[];
-  readonly overrides: readonly ShownOverride[];
+  readonly terms: ReadonlyArray<ShownTerm>;
+  readonly lines: ReadonlyArray<ShownLine>;
+  readonly overrides: ReadonlyArray<ShownOverride>;
 }

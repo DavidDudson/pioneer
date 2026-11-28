@@ -13,9 +13,9 @@ export class InMemoryOverrideAuthorDirectory extends OverrideAuthorDirectory {
     return this;
   }
 
-  public override async displayNames(userIds: readonly UserId[]): Promise<ReadonlyMap<UserId, OverrideAuthorName>> {
+  public override async displayNames(userIds: ReadonlyArray<UserId>): Promise<ReadonlyMap<UserId, OverrideAuthorName>> {
     return new Map(
-      userIds.flatMap((userId): [UserId, OverrideAuthorName][] => {
+      userIds.flatMap((userId): Array<[UserId, OverrideAuthorName]> => {
         const name = this.#names.get(userId);
 
         return name === undefined ? [] : [[userId, name]];

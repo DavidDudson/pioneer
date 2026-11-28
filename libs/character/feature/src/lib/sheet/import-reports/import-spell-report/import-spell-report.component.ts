@@ -28,11 +28,11 @@ interface GapView {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImportSpellReport {
-  public readonly spellGaps = input.required<readonly SpellGap[]>();
+  public readonly spellGaps = input.required<ReadonlyArray<SpellGap>>();
 
   protected readonly anyGaps = computed(() => this.spellGaps().length > 0);
 
-  protected readonly gaps = computed((): readonly GapView[] =>
+  protected readonly gaps = computed((): ReadonlyArray<GapView> =>
     this.spellGaps().map(({ name, caster, rank, reason }) => ({
       name,
       caster,

@@ -35,7 +35,7 @@ import { rollFlatCheck } from './sheet-wand-roll';
 import { castCommand, overchargeCommand, sheetWands } from './sheet-wands';
 import type { PendingChecks } from './sheet-wands';
 
-const ITEM_CONTENT_KINDS: readonly ContentKind[] = [...new Set([...SPELL_CONTENT_KINDS, ...INVENTORY_KINDS])];
+const ITEM_CONTENT_KINDS: ReadonlyArray<ContentKind> = [...new Set([...SPELL_CONTENT_KINDS, ...INVENTORY_KINDS])];
 
 /** Nothing spent, for a character with no play state loaded yet: every slot and charge is held. */
 const NO_SPENT: ResourcesSpent = ResourcesSpentSchema.parse({});
@@ -73,7 +73,7 @@ export class SpellItemCasting {
   public readonly error = signal<string | undefined>(undefined);
 
   /** A row for each spell of a wand, staff or scroll the character carries; none while the content loads. */
-  public readonly rows = computed((): readonly SpellRowLine[] => {
+  public readonly rows = computed((): ReadonlyArray<SpellRowLine> => {
     const registry = this.registry.data();
     const character = this.#characters.selected();
     const play = this.#play.play.data();

@@ -42,7 +42,7 @@ const REFUSAL_LIMITS = {
   points: { [Resource.HeroPoints]: ResourceCount.parse(1), [Resource.FocusPoints]: ResourceCount.parse(1) },
 };
 
-function playWith(...effects: ActiveEffect[]): PlayState {
+function playWith(...effects: Array<ActiveEffect>): PlayState {
   return { ...playIn(OWN_TURN), effects };
 }
 

@@ -42,7 +42,7 @@ export interface SkillSlot {
   readonly key: SlotKey;
   readonly level: Level;
   readonly kind: SkillSlotKind;
-  readonly options: readonly SkillOption[];
+  readonly options: ReadonlyArray<SkillOption>;
   readonly stored: ChoiceValue | undefined;
   /** Undefined while the slot is empty, or holds something it doesn't offer. */
   readonly pick: SkillOption | undefined;
@@ -50,7 +50,7 @@ export interface SkillSlot {
   /** Why a stored pick naming a loaded skill isn't on offer. */
   readonly problem: SkillPickProblem | undefined;
   /** For a trained skill slot, the skills it can't offer because the character is trained already, with their sources. */
-  readonly trained: readonly TrainedSkill[];
+  readonly trained: ReadonlyArray<TrainedSkill>;
 }
 
 const MASTER_FROM = Level.parse(7);
@@ -79,7 +79,7 @@ interface SkillSlotPlace {
   readonly kind: SkillSlotKind;
 }
 
-function trainingSlots(level: Level, count: SkillCount): SkillSlotPlace[] {
+function trainingSlots(level: Level, count: SkillCount): Array<SkillSlotPlace> {
   return Array.from({ length: count }, (_unused, index) => ({
     key: SlotKey.parse(`skill-training:${level}:${index}`),
     level,
@@ -101,9 +101,12 @@ export interface IntelligenceRaise {
  * Each boost after 1st level that raises Intelligence past the highest it was, which adds a trained skill and a language
  * per point (Player Core).
  */
-export function intelligenceRaises(document: CharacterDocument, boosts: BoostContent): readonly IntelligenceRaise[] {
+export function intelligenceRaises(
+  document: CharacterDocument,
+  boosts: BoostContent,
+): ReadonlyArray<IntelligenceRaise> {
   let highest = intelligenceAt(document, boosts, FIRST_LEVEL);
-  const raises: IntelligenceRaise[] = [];
+  const raises: Array<IntelligenceRaise> = [];
   // Intelligence changes only where boosts are given, so it is read at those levels alone.
   const levels = new Set(boostSets(document, boosts).map((set) => set.level));
 
@@ -125,7 +128,7 @@ export function intelligenceRaises(document: CharacterDocument, boosts: BoostCon
  * grants train twice), one more for each point a boost raises Intelligence past what it was, and a skill increase at
  * each of the class's levels.
  */
-function skillSlotPlaces(document: CharacterDocument, { skills, boosts, grantsAt }: SkillReads): SkillSlotPlace[] {
+function skillSlotPlaces(document: CharacterDocument, { skills, boosts, grantsAt }: SkillReads): Array<SkillSlotPlace> {
   const picked = ContentId.safeParse(document.build.choices[CLASS_SLOT]);
   const classSkills = picked.success ? skills.classSkills(picked.data) : undefined;
 
@@ -176,7 +179,7 @@ interface PickRead {
 /** A slot's stored pick, what it offers, and the problem to report when it isn't among them. */
 interface PickSource {
   readonly stored: ChoiceValue | undefined;
-  readonly options: readonly SkillOption[];
+  readonly options: ReadonlyArray<SkillOption>;
   readonly kind: SkillSlotKind;
 }
 
@@ -202,12 +205,12 @@ function readPick(
  * a pick of a skill already trained, or an increase past the rank its level allows, offers nothing and counts for
  * nothing until it is changed.
  */
-export function skillSlots(document: CharacterDocument, reads: SkillReads): readonly SkillSlot[] {
+export function skillSlots(document: CharacterDocument, reads: SkillReads): ReadonlyArray<SkillSlot> {
   const picked = new Map<Selector, Proficiency>();
-  const pickedBy = new Map<Selector, readonly SlotKey[]>();
+  const pickedBy = new Map<Selector, ReadonlyArray<SlotKey>>();
   const grantsAt = skillGrantsAt(reads.grantsAt);
   const grantedAt = (level: Level): ReadonlyMap<Selector, Proficiency> => grantsAt(level).ranks;
-  const entriesAt = (level: Level): ReadonlyMap<Selector, readonly ContentId[]> => grantsAt(level).entries;
+  const entriesAt = (level: Level): ReadonlyMap<Selector, ReadonlyArray<ContentId>> => grantsAt(level).entries;
 
   return skillSlotPlaces(document, reads).map(({ key, level, kind }): SkillSlot => {
     const ranks = grantedAt(level);
@@ -253,7 +256,7 @@ export function skillSlots(document: CharacterDocument, reads: SkillReads): read
 }
 
 /** The skill ranks `slots`' picks reach at `level`: each trained skill and skill increase up to it, in order. */
-export function slotSkillRanks(slots: readonly SkillSlot[], level: Level): ReadonlyMap<Selector, Proficiency> {
+export function slotSkillRanks(slots: ReadonlyArray<SkillSlot>, level: Level): ReadonlyMap<Selector, Proficiency> {
   const ranks = new Map<Selector, Proficiency>();
 
   for (const slot of slots) {

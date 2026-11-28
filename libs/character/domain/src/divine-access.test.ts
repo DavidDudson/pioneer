@@ -91,21 +91,21 @@ function oracle(level: number, picks: Readonly<Record<string, string>>): Charact
   return builder;
 }
 
-function slotsOf(builder: CharacterBuilder): PreparedSlot[] {
+function slotsOf(builder: CharacterBuilder): Array<PreparedSlot> {
   const { document } = builder.build();
 
   return preparedSlots(document, preparedReads(document, content));
 }
 
 /** The slots of an oracle at `level` that picked `deity`, and spells by slot key. */
-function withDeity(level: number, deity: string, picks: Readonly<Record<string, string>> = {}): PreparedSlot[] {
+function withDeity(level: number, deity: string, picks: Readonly<Record<string, string>> = {}): Array<PreparedSlot> {
   return slotsOf(oracle(level, picks).picking(DEITY_SLOT, pack.idOf(ContentKind.Deity, deity)));
 }
 
-const deitySlots = (found: readonly PreparedSlot[]): PreparedSlot[] => found.filter((slot) => slot.deitySpell);
+const deitySlots = (found: ReadonlyArray<PreparedSlot>): Array<PreparedSlot> => found.filter((slot) => slot.deitySpell);
 
 /** What the first deity slot of `found` offers, by name. */
-function firstOffer(found: readonly PreparedSlot[]): string[] {
+function firstOffer(found: ReadonlyArray<PreparedSlot>): Array<string> {
   const [first] = deitySlots(found);
 
   return first?.options.map((each) => String(each.name)) ?? [];

@@ -7,5 +7,5 @@ import type { VariantRuleId } from '@pioneer/rules/sdk';
  * the ids drops it. `CharacterVariantService` is the adapter.
  */
 export abstract class EffectiveVariants {
-  public abstract of(character: Character): Promise<readonly VariantRuleId[]>;
+  public abstract of(character: Character): Promise<ReadonlyArray<VariantRuleId>>;
 }

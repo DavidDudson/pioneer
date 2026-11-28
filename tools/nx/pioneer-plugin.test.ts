@@ -4,7 +4,7 @@ import { inferTargets } from './pioneer-plugin.ts';
 import type { ProjectFacts } from './project-facts.ts';
 
 /** A project holding exactly these files (paths relative to its folder), the way `readProjectFacts` answers for a real one. */
-function projectOf(root: string, isAngular: boolean, files: readonly string[]): ProjectFacts {
+function projectOf(root: string, isAngular: boolean, files: ReadonlyArray<string>): ProjectFacts {
   return {
     root,
     isAngular,

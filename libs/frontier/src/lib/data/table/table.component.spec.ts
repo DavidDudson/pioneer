@@ -14,7 +14,7 @@ interface Member {
   readonly level: number;
 }
 
-const PARTY: readonly Member[] = [
+const PARTY: ReadonlyArray<Member> = [
   { id: 'valeros', name: 'Valeros', level: 3 },
   { id: 'kyra', name: 'Kyra', level: 2 },
   { id: 'merisiel', name: 'Merisiel', level: 4 },
@@ -22,13 +22,13 @@ const PARTY: readonly Member[] = [
 
 const column = tableColumns<Member>();
 
-const COLUMNS: readonly TableColumn<Member>[] = column.columns([
+const COLUMNS: ReadonlyArray<TableColumn<Member>> = column.columns([
   column.accessor('name', { header: 'Name' }),
   column.accessor('level', { header: 'Level', enableSorting: false }),
 ]);
 
 /** Both columns can be hidden, so the table has a *Columns* panel. */
-const HIDEABLE: readonly TableColumn<Member>[] = column.columns([
+const HIDEABLE: ReadonlyArray<TableColumn<Member>> = column.columns([
   column.accessor('name', { header: 'Name', meta: { hideable: true } }),
   column.accessor('level', { header: 'Level', meta: { hideable: true } }),
 ]);
@@ -55,7 +55,7 @@ async function render(inputs: ComponentInputs<Table<Member>> = {}): Promise<Rend
   return { fixture, host: fixture.nativeElement as HTMLElement };
 }
 
-function headers(host: HTMLElement): HTMLTableCellElement[] {
+function headers(host: HTMLElement): Array<HTMLTableCellElement> {
   return [...host.querySelectorAll<HTMLTableCellElement>('thead th')];
 }
 
@@ -70,14 +70,14 @@ function nameHeader(host: HTMLElement): HTMLTableCellElement {
 }
 
 /** Each body row's cell text, in order. */
-function rows(host: HTMLElement): string[][] {
+function rows(host: HTMLElement): Array<Array<string>> {
   return [...host.querySelectorAll('tbody tr')].map((row) =>
     [...row.querySelectorAll('td')].map((cell) => cell.textContent.trim()),
   );
 }
 
 /** The Name column, top to bottom. */
-function names(host: HTMLElement): string[] {
+function names(host: HTMLElement): Array<string> {
   return [...host.querySelectorAll('tbody tr td:first-child')].map((cell) => cell.textContent.trim());
 }
 
@@ -90,7 +90,7 @@ async function sortByName({ fixture, host }: Rendered, times = 1): Promise<void>
   }
 }
 
-function toggles(host: HTMLElement): HTMLButtonElement[] {
+function toggles(host: HTMLElement): Array<HTMLButtonElement> {
   return [...host.querySelectorAll<HTMLButtonElement>('fr-toggle-button button')];
 }
 
@@ -243,7 +243,7 @@ describe(Table, () => {
     });
 
     it('starts without a column its schema marks defaultHidden, and reset returns to that', async () => {
-      const hiddenColumns: readonly TableColumn<Member>[] = column.columns([
+      const hiddenColumns: ReadonlyArray<TableColumn<Member>> = column.columns([
         column.accessor('name', { header: 'Name' }),
         column.accessor('level', { header: 'Level', meta: { defaultHidden: true } }),
       ]);
@@ -276,7 +276,7 @@ describe(Table, () => {
     });
 
     it('offers no toggle for a column that is not hideable', async () => {
-      const pinned: readonly TableColumn<Member>[] = column.columns([
+      const pinned: ReadonlyArray<TableColumn<Member>> = column.columns([
         column.accessor('name', { header: 'Name' }),
         column.accessor('level', { header: 'Level', meta: { hideable: true } }),
       ]);

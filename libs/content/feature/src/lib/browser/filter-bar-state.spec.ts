@@ -44,7 +44,7 @@ const CONSUMABLE_FACET: FacetDefinition = {
   values: FLAG_LABELS,
 };
 
-const FACETS: readonly FacetDefinition[] = [RARITY_FACET, LEVEL_FACET, CONSUMABLE_FACET];
+const FACETS: ReadonlyArray<FacetDefinition> = [RARITY_FACET, LEVEL_FACET, CONSUMABLE_FACET];
 
 const VALUES = ['common', 'uncommon', 'rare', 'unique', 'yes', 'no'].map((value) => FacetValue.parse(value));
 const facetValue: Arbitrary<FacetValue> = constantFrom(...VALUES, UNKNOWN);
@@ -96,7 +96,7 @@ const ZERO = 0 as FacetCounts['unknown'];
 const RARE = FacetValue.parse('rare');
 
 /** Every facet's counts: the rarity facet has four rare entries, the others no values. */
-const COUNTS: readonly FacetCounts[] = [
+const COUNTS: ReadonlyArray<FacetCounts> = [
   // SAFETY: four is a valid facet count.
   { facet: RARITY_FACET, values: [{ value: RARE, count: 4 as FacetCounts['unknown'] }], unknown: ZERO },
   { facet: LEVEL_FACET, values: [], unknown: ZERO },
@@ -145,7 +145,7 @@ describe('filter bar state', () => {
   });
 
   it('combines chips of one facet the way the engine does: any pick, no exclusion', () => {
-    const conditions: FilterCondition[] = [
+    const conditions: Array<FilterCondition> = [
       { field: 'rarity', operator: FilterOperator.Is, values: ['common'] },
       { field: 'rarity', operator: FilterOperator.Is, values: ['rare'] },
       { field: 'rarity', operator: FilterOperator.IsNot, values: ['unique'] },
@@ -159,7 +159,7 @@ describe('filter bar state', () => {
   });
 
   it('drops chips it cannot use instead of throwing', () => {
-    const conditions: FilterCondition[] = [
+    const conditions: Array<FilterCondition> = [
       { field: 'nonsense', operator: FilterOperator.Is, values: ['x'] },
       { field: 'rarity', operator: FilterOperator.Is, values: ['Not A Slug!'] },
       { field: 'rarity', operator: FilterOperator.Is, values: [] },

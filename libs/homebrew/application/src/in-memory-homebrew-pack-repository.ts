@@ -14,27 +14,27 @@ function newestFirst(left: HomebrewPack, right: HomebrewPack): number {
 export class InMemoryHomebrewPackRepository extends HomebrewPackRepository {
   readonly #rows = new Map<ContentPackId, HomebrewPack>();
   readonly #archived = new Set<ContentPackId>();
-  readonly #audits: HomebrewAudit[] = [];
+  readonly #audits: Array<HomebrewAudit> = [];
 
   /** What archive and restore were stamped with, in order. */
-  public get audits(): readonly HomebrewAudit[] {
+  public get audits(): ReadonlyArray<HomebrewAudit> {
     return this.#audits;
   }
 
-  public override async listOwnedBy(ownerId: UserId): Promise<readonly HomebrewPack[]> {
+  public override async listOwnedBy(ownerId: UserId): Promise<ReadonlyArray<HomebrewPack>> {
     return [...this.#rows.values()]
       .filter((pack) => pack.ownerId === ownerId && !this.#archived.has(pack.id))
       .toSorted(newestFirst);
   }
 
-  public override async listArchivedOwnedBy(ownerId: UserId): Promise<readonly HomebrewPack[]> {
+  public override async listArchivedOwnedBy(ownerId: UserId): Promise<ReadonlyArray<HomebrewPack>> {
     return [...this.#rows.values()]
       .filter((pack) => pack.ownerId === ownerId && this.#archived.has(pack.id))
       .toSorted(newestFirst);
   }
 
   /** Every live pack, whoever owns it. */
-  public async all(): Promise<readonly HomebrewPack[]> {
+  public async all(): Promise<ReadonlyArray<HomebrewPack>> {
     return [...this.#rows.values()].filter((pack) => !this.#archived.has(pack.id));
   }
 

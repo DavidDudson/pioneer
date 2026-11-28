@@ -8,7 +8,7 @@ interface ImportSource {
   readonly description: string;
 }
 
-const SOURCES: readonly ImportSource[] = [
+const SOURCES: ReadonlyArray<ImportSource> = [
   {
     path: 'pathbuilder',
     title: 'character.import.hub.pathbuilder.title',

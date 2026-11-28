@@ -23,7 +23,7 @@ const PLAYER_CORE = {
   legendary: '8 + @level',
 };
 
-function issuesFrom(schema: z.ZodType, json: JsonValue): readonly FieldIssue[] {
+function issuesFrom(schema: z.ZodType, json: JsonValue): ReadonlyArray<FieldIssue> {
   const result = schema.safeParse(json);
 
   return result.success ? [] : fieldIssues(result.error.issues);
@@ -82,8 +82,8 @@ describe('ProficiencyBonus element', () => {
 /** A pack as JSON. */
 interface PackFixture {
   readonly manifest: JsonObject;
-  readonly ancestries: readonly unknown[];
-  readonly creatures: readonly unknown[];
+  readonly ancestries: ReadonlyArray<unknown>;
+  readonly creatures: ReadonlyArray<unknown>;
 }
 
 /** A pack as JSON with `overrides` added. */

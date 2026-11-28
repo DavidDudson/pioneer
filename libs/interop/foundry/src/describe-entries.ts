@@ -29,10 +29,10 @@ export interface UntranslatedEnricher {
 
 export interface EntryDescriptions {
   readonly descriptions: ReadonlyMap<ContentId, RichText>;
-  readonly unknownMarkup: readonly UnknownMarkup[];
-  readonly untranslatedEnrichers: readonly UntranslatedEnricher[];
+  readonly unknownMarkup: ReadonlyArray<UnknownMarkup>;
+  readonly untranslatedEnrichers: ReadonlyArray<UntranslatedEnricher>;
   /** `@Localize` keys with no English text. */
-  readonly unresolvedText: readonly UnresolvedText[];
+  readonly unresolvedText: ReadonlyArray<UnresolvedText>;
 }
 
 /** What descriptions are translated with: the `lang` for `@Localize`, and the `known` entries of other packs by UUID. */
@@ -46,8 +46,8 @@ export interface DescriptionContext {
  * entries, the release's `documents` and the `known` entries of the other official packs by UUID.
  */
 export function describeEntries(
-  entries: readonly LinkedEntry[],
-  documents: readonly PackDocument[],
+  entries: ReadonlyArray<LinkedEntry>,
+  documents: ReadonlyArray<PackDocument>,
   { lang, known }: DescriptionContext,
 ): EntryDescriptions {
   const links = foundryLinks(documents, entries, known);

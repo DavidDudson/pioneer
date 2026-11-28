@@ -31,10 +31,10 @@ export interface EnvelopeFields {
   readonly name: ContentText;
   readonly level?: ContentLevel | Level;
   readonly rarity: Rarity;
-  readonly traits: readonly Trait[];
-  readonly sources: readonly SourceRef[];
+  readonly traits: ReadonlyArray<Trait>;
+  readonly sources: ReadonlyArray<SourceRef>;
   readonly description: RichText;
-  readonly rules: readonly RuleElement[];
+  readonly rules: ReadonlyArray<RuleElement>;
   readonly license?: ContentLicense;
 }
 

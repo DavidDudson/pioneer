@@ -46,7 +46,7 @@ const FORM = BattleFormElement.parse({
 
 type Form = BattleFormElement['form'];
 
-function count(list: readonly unknown[] | undefined): number {
+function count(list: ReadonlyArray<unknown> | undefined): number {
   return list === undefined ? 0 : list.length;
 }
 
@@ -114,7 +114,7 @@ describe('heightened: properties', () => {
 });
 
 /** The facts of a character with these roll options. */
-function facts(...options: string[]): PredicateFacts {
+function facts(...options: Array<string>): PredicateFacts {
   return new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,

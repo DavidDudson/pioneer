@@ -86,7 +86,11 @@ function withPioneerFormula<Raw>(raw: Raw): Raw | Readonly<Record<string, unknow
 const OMITTED = Symbol('omitted');
 
 /** A string's text when it is a lang key, else the string; `OMITTED`, reported, when the key does not resolve. */
-function localizedString(value: string, context: RuleContext, unresolved: UnresolvedKey[]): string | typeof OMITTED {
+function localizedString(
+  value: string,
+  context: RuleContext,
+  unresolved: Array<UnresolvedKey>,
+): string | typeof OMITTED {
   if (!isLangKey(value)) {
     return value;
   }
@@ -103,7 +107,7 @@ function localizedString(value: string, context: RuleContext, unresolved: Unreso
 }
 
 /** `value` with each lang key in it resolved; one that does not resolve is reported and its field or item left out. */
-function localized(value: unknown, context: RuleContext, unresolved: UnresolvedKey[]): unknown {
+function localized(value: unknown, context: RuleContext, unresolved: Array<UnresolvedKey>): unknown {
   if (typeof value === 'string') {
     return localizedString(value, context, unresolved);
   }
@@ -148,12 +152,12 @@ export interface RuleContext {
 }
 
 export interface RuleTranslation {
-  readonly rules: readonly RuleElement[];
-  readonly untranslated: readonly UntranslatedRule[];
+  readonly rules: ReadonlyArray<RuleElement>;
+  readonly untranslated: ReadonlyArray<UntranslatedRule>;
   /** Elements dropped on purpose, as they only change a Foundry token. */
-  readonly dropped: readonly DroppedRule[];
+  readonly dropped: ReadonlyArray<DroppedRule>;
   /** Lang keys in the elements, translated or not, that had no English text. */
-  readonly unresolvedText: readonly UnresolvedText[];
+  readonly unresolvedText: ReadonlyArray<UnresolvedText>;
 }
 
 /** A raw rule element prepared two ways: as it was before `withChoiceSet`, and with it. */
@@ -174,7 +178,7 @@ function withGrants(raw: unknown, references: EntryReferences): unknown {
 function prepareRule(
   raw: unknown,
   context: RuleContext,
-  { unresolved, owned }: { readonly unresolved: UnresolvedKey[]; readonly owned: ReadonlySet<string> },
+  { unresolved, owned }: { readonly unresolved: Array<UnresolvedKey>; readonly owned: ReadonlySet<string> },
 ): PreparedRule {
   const references = context.references ?? NO_REFERENCES;
   const text = withDisplayLabel(localized(withOwnedPicks(raw, owned), context, unresolved));
@@ -196,7 +200,7 @@ function prepareRule(
 }
 
 /** The flags of the `ChoiceSet`s among `prepared` that translate. */
-function declaredFlags(prepared: readonly PreparedRule[]): ReadonlySet<string> {
+function declaredFlags(prepared: ReadonlyArray<PreparedRule>): ReadonlySet<string> {
   return new Set(
     prepared.flatMap(({ chosen }) => {
       const element = RuleElement.safeParse(chosen);
@@ -209,7 +213,7 @@ function declaredFlags(prepared: readonly PreparedRule[]): ReadonlySet<string> {
 type Parsed = z.ZodSafeParseResult<RuleElement>;
 
 /** The flags (as the translated element spells them) of the `ChoiceSet`s whose pick an element in `failed` reads. */
-function strandedFlags(prepared: readonly PreparedRule[], kept: readonly boolean[]): ReadonlySet<string> {
+function strandedFlags(prepared: ReadonlyArray<PreparedRule>, kept: ReadonlyArray<boolean>): ReadonlySet<string> {
   const failed = prepared.filter((_prepared, index) => kept[index] !== true);
 
   return new Set(
@@ -246,12 +250,12 @@ function isStranded(element: RuleElement, flags: ReadonlySet<string>): boolean {
  */
 function partition(
   entry: ContentId,
-  prepared: readonly PreparedRule[],
-  standing: readonly (RuleElement | undefined)[],
+  prepared: ReadonlyArray<PreparedRule>,
+  standing: ReadonlyArray<RuleElement | undefined>,
 ): Pick<RuleTranslation, 'rules' | 'untranslated'> {
   const declared = ownedFlagsOnce(standing);
-  const rules: RuleElement[] = [];
-  const untranslated: UntranslatedRule[] = [];
+  const rules: Array<RuleElement> = [];
+  const untranslated: Array<UntranslatedRule> = [];
 
   for (const [index, { raw }] of prepared.entries()) {
     const element = standing[index];
@@ -273,8 +277,8 @@ function partition(
  */
 function settle(
   entry: ContentId,
-  prepared: readonly PreparedRule[],
-  parsed: readonly Parsed[],
+  prepared: ReadonlyArray<PreparedRule>,
+  parsed: ReadonlyArray<Parsed>,
 ): Pick<RuleTranslation, 'rules' | 'untranslated'> {
   const reads = (flag: string): boolean =>
     parsed.some(
@@ -302,8 +306,8 @@ function settle(
   return partition(entry, prepared, standing);
 }
 
-export function translateRules(entry: ContentId, raws: readonly unknown[], context: RuleContext): RuleTranslation {
-  const unresolved: UnresolvedKey[] = [];
+export function translateRules(entry: ContentId, raws: ReadonlyArray<unknown>, context: RuleContext): RuleTranslation {
+  const unresolved: Array<UnresolvedKey> = [];
   const references = context.references ?? NO_REFERENCES;
   const { kept, dropped } = withoutDropped(entry, raws);
   const granted = withChoiceObjects(withFormSpeedBrackets(withGrantedItems(kept, references)));

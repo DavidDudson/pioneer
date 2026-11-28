@@ -43,7 +43,7 @@ function applied(slug: string, index: number): ActiveEffect {
 }
 
 /** The rules in force for `effects` once polymorph exclusivity has picked the ones that count. */
-function inForce(effects: readonly ActiveEffect[]): ModifierInputs {
+function inForce(effects: ReadonlyArray<ActiveEffect>): ModifierInputs {
   const { active } = exclusiveEffects(effects, LOOKUP);
 
   const resolution = resolveGrants({

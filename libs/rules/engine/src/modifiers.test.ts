@@ -26,7 +26,7 @@ const inputs = StatisticInputsJson.parse({
 /** AC 16 before modifiers. */
 const ac = statistic('ac', '10 + @attr.dex.capped + @prof.ac', ['dex-based']);
 
-function facts(...options: readonly string[]): PredicateFacts {
+function facts(...options: ReadonlyArray<string>): PredicateFacts {
   return new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
@@ -34,7 +34,7 @@ function facts(...options: readonly string[]): PredicateFacts {
 }
 
 function derived(
-  rules: readonly RuleInPlay[],
+  rules: ReadonlyArray<RuleInPlay>,
   known: PredicateFacts = facts(),
   definition: StatisticDefinition = ac,
 ): StatisticValue {
@@ -212,7 +212,10 @@ describe('conditional lines against applied ones', () => {
     const removesCover = adjust({ suppress: true, predicate: ['terrain:forest'] }, 'removes-cover');
     const raisesAny = adjust({ slug: undefined, mode: 'add', value: 2, predicate: ['terrain:forest'] }, 'raises-any');
     const removesOther = adjust({ slug: 'other', suppress: true, predicate: ['terrain:forest'] }, 'removes-other');
-    const beatenBy = (rules: readonly RuleInPlay[]): LineStatus | undefined => lineOf(derived(rules), smaller)?.status;
+
+    const beatenBy = (rules: ReadonlyArray<RuleInPlay>): LineStatus | undefined =>
+      lineOf(derived(rules), smaller)?.status;
+
     expect(beatenBy([cover, smaller, removesCover])).toMatchObject({ beatenBy: undefined });
     expect(beatenBy([cover, smaller, raisesAny])).toMatchObject({ beatenBy: undefined });
     expect(beatenBy([cover, smaller, removesOther])).toMatchObject({ beatenBy: ruleIdOf(cover) });

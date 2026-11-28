@@ -40,7 +40,7 @@ interface ImportModel {
 interface UnmatchedView {
   readonly kind: string;
   readonly labelKey: string;
-  readonly entries: readonly string[];
+  readonly entries: ReadonlyArray<string>;
 }
 
 /** JSON read from the text. */
@@ -134,7 +134,7 @@ export class PioneerImportPage {
     return error === null ? undefined : this.describe(error);
   });
 
-  protected readonly unmatched = computed((): readonly UnmatchedView[] =>
+  protected readonly unmatched = computed((): ReadonlyArray<UnmatchedView> =>
     (this.preview.data()?.unmatched ?? []).map(({ kind, entries }) => ({
       kind,
       labelKey: CONTENT_KIND_KEYS[kind],

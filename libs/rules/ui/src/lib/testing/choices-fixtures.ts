@@ -12,7 +12,7 @@ const NONE = { selection: undefined, level: undefined, reason: undefined };
  * A 3rd-level elf: ancestry picked, background still open, a boost placed, a planned 5th-level boost and one that
  * repeats it, a skill that stopped being offered, and a pick kept from a choice it no longer has.
  */
-export const ELF_CHOICES: readonly ChoiceLine[] = [
+export const ELF_CHOICES: ReadonlyArray<ChoiceLine> = [
   {
     ...NONE,
     key: SlotKey.parse('ancestry'),

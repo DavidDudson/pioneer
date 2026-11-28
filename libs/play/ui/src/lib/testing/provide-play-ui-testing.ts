@@ -16,7 +16,7 @@ const FIXTURE_MESSAGES = { fortune: 'Fortune effect', misfortune: 'Misfortune ef
  * The `en` messages play UI renders with: the roll card's own `roll` scope, the `dice` text of the rolls it explains and
  * the `rules` text of the degrees' reasons, preloaded with the ICU transpiler, for specs and stories.
  */
-export function providePlayUiI18nTesting(): EnvironmentProviders[] {
+export function providePlayUiI18nTesting(): Array<EnvironmentProviders> {
   return [
     importProvidersFrom(
       TranslocoTestingModule.forRoot({

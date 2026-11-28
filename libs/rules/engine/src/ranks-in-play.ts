@@ -5,7 +5,7 @@ import type { RuleElement } from '@pioneer/rules/sdk';
 import type { ModifierInputs } from './rule-in-play';
 import { truthOf } from './rule-value';
 
-const RANK_ORDER: readonly Proficiency[] = Object.values(Proficiency);
+const RANK_ORDER: ReadonlyArray<Proficiency> = Object.values(Proficiency);
 
 function higher(left: Proficiency | undefined, right: Proficiency): Proficiency {
   return left === undefined || RANK_ORDER.indexOf(right) > RANK_ORDER.indexOf(left) ? right : left;

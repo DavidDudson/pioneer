@@ -5,7 +5,7 @@ import type { PickSource } from '../pick-source';
  * Picks the given indices in order, then repeats them, each wrapped into the bound it answers. For tests that
  * need exact choices.
  */
-export function scriptedPicks(indices: readonly PickIndex[]): PickSource {
+export function scriptedPicks(indices: ReadonlyArray<PickIndex>): PickSource {
   let next = 0;
 
   return {

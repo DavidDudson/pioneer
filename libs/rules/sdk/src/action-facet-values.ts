@@ -87,7 +87,7 @@ function skillValue(selector: Selector): SkillValue | undefined {
  * The skills an entry names. With none, an entry that should name one (a skill feat, the `skill` trait) gives
  * `undefined` so it counts as unknown; any other is about no skill.
  */
-function skillValues(skills: readonly Selector[], expectsSkill: boolean): readonly (SkillValue | undefined)[] {
+function skillValues(skills: ReadonlyArray<Selector>, expectsSkill: boolean): ReadonlyArray<SkillValue | undefined> {
   if (skills.length > 0) {
     return skills.map((selector) => skillValue(selector));
   }
@@ -95,13 +95,13 @@ function skillValues(skills: readonly Selector[], expectsSkill: boolean): readon
   return expectsSkill ? [undefined] : [SkillValue.None];
 }
 
-export function featSkills({ data, traits }: FeatEntry): readonly (SkillValue | undefined)[] {
+export function featSkills({ data, traits }: FeatEntry): ReadonlyArray<SkillValue | undefined> {
   const skills = [...(data.skills ?? []), ...(data.action?.skills ?? [])];
 
   return skillValues(skills, data.category === FeatCategory.Skill || traits.includes(SKILL_TRAIT));
 }
 
-export function actionSkills({ data, traits }: ActionEntry): readonly (SkillValue | undefined)[] {
+export function actionSkills({ data, traits }: ActionEntry): ReadonlyArray<SkillValue | undefined> {
   return skillValues(data.skills ?? [], traits.includes(SKILL_TRAIT));
 }
 
@@ -109,7 +109,7 @@ export function actionSkills({ data, traits }: ActionEntry): readonly (SkillValu
  * The archetype a feat belongs to. A feat with the `archetype` trait but no archetype named gives `undefined`
  * (unknown); any other feat gives none, so picking an archetype keeps only its feats.
  */
-export function featArchetype({ data, traits }: FeatEntry): readonly FacetLeaf[] {
+export function featArchetype({ data, traits }: FeatEntry): ReadonlyArray<FacetLeaf> {
   if (data.archetype !== undefined) {
     return [data.archetype];
   }

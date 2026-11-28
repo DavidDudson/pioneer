@@ -20,7 +20,7 @@ type SpellPickerStory = StoryObj<SpellPicker>;
 
 const LONG_LIST = 300;
 
-const SPELLS: readonly SpellPickerRow[] = [
+const SPELLS: ReadonlyArray<SpellPickerRow> = [
   spellRow({
     id: 'electric-arc',
     name: 'Electric Arc',

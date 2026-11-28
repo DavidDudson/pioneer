@@ -29,7 +29,7 @@ const CRAWL = id(ContentKind.Action, 'crawl');
 const ESCAPE = id(ContentKind.Action, 'escape');
 const SHIELD_BLOCK = id(ContentKind.Feat, 'shield-block');
 
-function contextOf(...options: readonly string[]): ActionContext {
+function contextOf(...options: ReadonlyArray<string>): ActionContext {
   return actionContext(
     new PredicateFacts(
       options.map((option) => RollOption.parse(option)),

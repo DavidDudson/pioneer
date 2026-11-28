@@ -53,7 +53,7 @@ export class SkillLine {
   public readonly adjusted = input(false);
   public readonly fromForm = input<string | undefined>();
   public readonly rank = input<Proficiency | undefined>();
-  public readonly rankSources = input<readonly RankSource[]>([]);
+  public readonly rankSources = input<ReadonlyArray<RankSource>>([]);
   /** The skill two sources train, worded, for the rank's popover. */
   public readonly rankNote = input<string | undefined>();
   /** Roll it as one d20 plus its total, though it is no check. */

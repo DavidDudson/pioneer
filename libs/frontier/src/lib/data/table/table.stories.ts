@@ -20,7 +20,7 @@ interface PartyMember {
 
 type TableStory = StoryObj<Table<PartyMember>>;
 
-const PARTY: readonly PartyMember[] = [
+const PARTY: ReadonlyArray<PartyMember> = [
   { id: 'valeros', name: 'Valeros', ancestry: 'Human', className: 'Fighter', level: 3 },
   { id: 'seoni', name: 'Seoni', ancestry: 'Human', className: 'Sorcerer', level: 3 },
   { id: 'kyra', name: 'Kyra', ancestry: 'Human', className: 'Cleric', level: 2 },
@@ -31,7 +31,7 @@ const PARTY: readonly PartyMember[] = [
 
 const column = tableColumns<PartyMember>();
 
-const COLUMNS: readonly TableColumn<PartyMember>[] = column.columns([
+const COLUMNS: ReadonlyArray<TableColumn<PartyMember>> = column.columns([
   column.accessor('name', { header: 'Name' }),
   column.accessor('ancestry', { header: 'Ancestry' }),
   column.accessor('className', { header: 'Class' }),
@@ -73,7 +73,7 @@ interface Trait {
   readonly added: Temporal.PlainDate;
 }
 
-const TRAITS: readonly Trait[] = [
+const TRAITS: ReadonlyArray<Trait> = [
   { id: 'fire', name: 'Fire', rarity: 'common', added: Temporal.PlainDate.from('2026-01-15') },
   { id: 'arcane', name: 'Arcane', rarity: 'uncommon', added: Temporal.PlainDate.from('2026-02-03') },
   { id: 'cursed', name: 'Cursed', rarity: 'rare', added: Temporal.PlainDate.from('2026-03-21') },
@@ -99,7 +99,7 @@ export const BuiltFromSchema: StoryObj<Table<Trait>> = {
   args: { data: TRAITS, columns: MIXED_COLUMNS, caption: 'Traits', rowId: (trait: Trait): string => trait.id },
 };
 
-const HIDEABLE_COLUMNS: readonly TableColumn<PartyMember>[] = column.columns([
+const HIDEABLE_COLUMNS: ReadonlyArray<TableColumn<PartyMember>> = column.columns([
   column.accessor('name', { header: 'Name' }),
   column.accessor('ancestry', { header: 'Ancestry', meta: { hideable: true } }),
   column.accessor('className', { header: 'Class', meta: { hideable: true } }),

@@ -51,7 +51,7 @@ const bear = CompanionStatBlock.parse({
   ],
 });
 
-function derive(level: number, tiers: readonly CompanionTier[]): CompanionStatistics {
+function derive(level: number, tiers: ReadonlyArray<CompanionTier>): CompanionStatistics {
   return deriveCompanionStatistics({
     level: Level.parse(level),
     block: bear,

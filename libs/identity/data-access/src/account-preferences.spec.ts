@@ -253,7 +253,7 @@ describe(AccountPreferences, () => {
 
   it('lets a locale switch under way finish before signing out resets it', async () => {
     const { preferences, http, adopt, reset } = setup();
-    const order: string[] = [];
+    const order: Array<string> = [];
     const { promise: switched, resolve: finishSwitch } = Promise.withResolvers<undefined>();
     adopt.mockImplementationOnce(async () => {
       await switched;

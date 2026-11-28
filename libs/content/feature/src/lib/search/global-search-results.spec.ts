@@ -13,9 +13,9 @@ const PACK = BUILDER.withFeat('power-attack', { level: 1, traits: [] })
   .withFeat('attack', { level: 1, traits: [] })
   .build();
 
-const ENTRIES: readonly ContentEntry[] = PACK.otherEntries;
+const ENTRIES: ReadonlyArray<ContentEntry> = PACK.otherEntries;
 const compare = (left: string, right: string): number => left.localeCompare(right);
-const namesOf = (entries: readonly ContentEntry[]): string[] => entries.map((entry) => entry.name);
+const namesOf = (entries: ReadonlyArray<ContentEntry>): Array<string> => entries.map((entry) => entry.name);
 const id = (slug: string): ContentId => ContentId.parse(BUILDER.idOf(ContentKind.Feat, slug));
 
 describe(nameMatches, () => {

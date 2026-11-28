@@ -15,7 +15,7 @@ function present<TValue>(value: TValue | undefined): TValue {
 }
 
 /** A level 3 fighter's vitals: AC in a breastplate, trained; Fortitude expert; Will without a rank. */
-export const FIGHTER_VITALS: readonly Vital[] = [
+export const FIGHTER_VITALS: ReadonlyArray<Vital> = [
   {
     statistic: present(ARMOR_CLASS),
     rank: Proficiency.Trained,
@@ -26,6 +26,6 @@ export const FIGHTER_VITALS: readonly Vital[] = [
 ];
 
 /** The fighter out of armour. */
-export const UNARMORED_VITALS: readonly Vital[] = [
+export const UNARMORED_VITALS: ReadonlyArray<Vital> = [
   { statistic: present(ARMOR_CLASS), rank: Proficiency.Trained, basis: { kind: VitalBasisKind.Unarmored } },
 ];

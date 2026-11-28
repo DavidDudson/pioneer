@@ -34,18 +34,18 @@ interface Names {
 /** One list as read: its heading, and each item's parts joined with " | ", or its empty line. */
 interface ReadList {
   readonly heading: string;
-  readonly items: readonly string[];
+  readonly items: ReadonlyArray<string>;
   readonly empty: string | undefined;
 }
 
 /** The three lists in page order, and each by name. */
 interface Rendered {
-  readonly lists: readonly ReadList[];
+  readonly lists: ReadonlyArray<ReadList>;
   readonly immunities: ReadList;
   readonly weaknesses: ReadList;
   readonly resistances: ReadList;
   /** Each line's origin chain as a sentence, without its sources, in document order. */
-  readonly origins: readonly string[];
+  readonly origins: ReadonlyArray<string>;
 }
 
 const NAMED: Names = { entries: ENTRY_NAMES };

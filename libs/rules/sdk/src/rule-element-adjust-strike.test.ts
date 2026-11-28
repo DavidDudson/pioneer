@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { RuleElement } from './rule-element';
 
-const valid: object[] = [
+const valid: Array<object> = [
   { key: 'AdjustStrike', property: 'traits', mode: 'add', value: 'holy' },
   { key: 'AdjustStrike', property: 'traits', mode: 'remove', value: 'thrown-10', strikes: ['item:ranged'] },
   { key: 'AdjustStrike', property: 'materials', mode: 'add', value: 'silver', strikes: ['item:slug:longsword'] },

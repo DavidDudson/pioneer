@@ -25,7 +25,14 @@ registry.register(skillFixtures());
 
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
-const SKILLS: readonly SkillFixture[] = ['acrobatics', 'athletics', 'medicine', 'religion', 'stealth', 'scribing-lore'];
+const SKILLS: ReadonlyArray<SkillFixture> = [
+  'acrobatics',
+  'athletics',
+  'medicine',
+  'religion',
+  'stealth',
+  'scribing-lore',
+];
 
 /** A skill, or nothing, for one slot. */
 const skillPick = option(constantFrom(...SKILLS), { nil: undefined });

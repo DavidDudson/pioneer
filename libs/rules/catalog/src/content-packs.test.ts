@@ -69,7 +69,7 @@ async function registryIds(): Promise<Record<string, string>> {
 }
 
 /** The ancestries and the language and sense entries they name, read from their JSON files. */
-async function ancestryAndReferenceEntries(): Promise<readonly ContentEntry[]> {
+async function ancestryAndReferenceEntries(): Promise<ReadonlyArray<ContentEntry>> {
   const files = await Promise.all([
     import('@pioneer/content/packs/player-core/ancestry.json'),
     import('@pioneer/content/packs/core-rules/language.json'),
@@ -79,7 +79,7 @@ async function ancestryAndReferenceEntries(): Promise<readonly ContentEntry[]> {
   return files.flatMap((file) => ContentEntryFile.parse(file.default));
 }
 
-function idsOf(entries: readonly ContentEntry[], kind: ContentKind): readonly ContentId[] {
+function idsOf(entries: ReadonlyArray<ContentEntry>, kind: ContentKind): ReadonlyArray<ContentId> {
   return entries
     .values()
     .filter((entry) => entry.kind === kind)
@@ -88,12 +88,12 @@ function idsOf(entries: readonly ContentEntry[], kind: ContentKind): readonly Co
 }
 
 interface AncestryReferences {
-  readonly languages: readonly ContentId[];
-  readonly senses: readonly ContentId[];
+  readonly languages: ReadonlyArray<ContentId>;
+  readonly senses: ReadonlyArray<ContentId>;
 }
 
 /** The language and sense entries the pack's ancestries name. */
-function ancestryReferences(entries: readonly ContentEntry[]): AncestryReferences {
+function ancestryReferences(entries: ReadonlyArray<ContentEntry>): AncestryReferences {
   const ancestries = entries.flatMap((entry) => (entry.kind === ContentKind.Ancestry ? [entry.data] : []));
 
   return {
@@ -103,7 +103,7 @@ function ancestryReferences(entries: readonly ContentEntry[]): AncestryReference
 }
 
 /** The spells and effects of the player-core pack, read from their JSON files. */
-async function spellAndEffectEntries(): Promise<readonly ContentEntry[]> {
+async function spellAndEffectEntries(): Promise<ReadonlyArray<ContentEntry>> {
   const files = await Promise.all([
     import('@pioneer/content/packs/player-core/spell.json'),
     import('@pioneer/content/packs/player-core/effect.json'),
@@ -113,7 +113,7 @@ async function spellAndEffectEntries(): Promise<readonly ContentEntry[]> {
 }
 
 /** The effect ids the pack's spells list. */
-function spellEffects(entries: readonly ContentEntry[]): readonly ContentId[] {
+function spellEffects(entries: ReadonlyArray<ContentEntry>): ReadonlyArray<ContentId> {
   return entries.flatMap((entry) =>
     entry.kind === ContentKind.Spell ? (entry.data.effects ?? []).map((listed) => spellEffectId(listed)) : [],
   );

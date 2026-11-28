@@ -19,7 +19,7 @@ registry.register(deities.build());
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 /** A cleric of Sarenrae's grants, with `picks` made. */
-function cleric(picks: readonly (readonly [string, string])[] = []): GrantResolution {
+function cleric(picks: ReadonlyArray<readonly [string, string]> = []): GrantResolution {
   const builder = new CharacterBuilder()
     .picking('class', playerCoreClassId('cleric'))
     .picking('deity', deities.idOf(ContentKind.Deity, 'sarenrae'));
@@ -32,7 +32,7 @@ function cleric(picks: readonly (readonly [string, string])[] = []): GrantResolu
 }
 
 /** Each listed choice as `<entry>: <flag>`. */
-function namesOf(resolution: GrantResolution): readonly string[] {
+function namesOf(resolution: GrantResolution): ReadonlyArray<string> {
   return listedChoices(resolution, content.lookup).map(({ slot, entryName }) => `${entryName}: ${slot.flag}`);
 }
 

@@ -30,7 +30,7 @@ function language(slug: string, name: string): JsonObject {
 const common = language('common', 'Common');
 const elven = language('elven', 'Elven');
 
-function pack(file: JsonObject, entries: readonly JsonObject[] = [common, elven]): PackContents {
+function pack(file: JsonObject, entries: ReadonlyArray<JsonObject> = [common, elven]): PackContents {
   return packContentsFromFiles(file, [entries]);
 }
 

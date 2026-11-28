@@ -9,18 +9,18 @@ function richTextOf(html: string): unknown {
   return htmlToRichText(html).richText;
 }
 
-function text(value: string, marks?: readonly string[]): Fields {
+function text(value: string, marks?: ReadonlyArray<string>): Fields {
   return marks === undefined ? { type: 'text', text: value } : { type: 'text', text: value, marks };
 }
 
 /** The text of every text node, in order. */
-function textsOf(richText: RichText): string[] {
+function textsOf(richText: RichText): Array<string> {
   return richText.flatMap((block) =>
     block.type === 'paragraph' ? block.content.flatMap((node) => (node.type === 'text' ? [node.text] : [])) : [],
   );
 }
 
-function paragraph(...content: object[]): Fields {
+function paragraph(...content: Array<object>): Fields {
   return { type: 'paragraph', content };
 }
 

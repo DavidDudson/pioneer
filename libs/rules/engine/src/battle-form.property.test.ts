@@ -54,7 +54,7 @@ const modifiers = array(
   specs.map(({ type, value, selector }, index) => inPlay(flatModifier(type, value, [selector]), `modifier-${index}`)),
 );
 
-function total(rules: readonly RuleInPlay[], selector: string): number {
+function total(rules: ReadonlyArray<RuleInPlay>, selector: string): number {
   const result = deriveStatistics({ definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs, {
     rules,
     facts,

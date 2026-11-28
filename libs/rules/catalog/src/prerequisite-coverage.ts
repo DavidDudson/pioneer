@@ -6,11 +6,11 @@ export interface PrerequisiteCoverage {
   /** How many feats have prerequisites. */
   readonly withPrerequisites: number;
   /** Those with prerequisites but no `prerequisitePredicate`, offered as unknown until one is set; sorted. */
-  readonly withoutPredicate: readonly ContentKey[];
+  readonly withoutPredicate: ReadonlyArray<ContentKey>;
 }
 
 /** Prerequisite coverage (content-model.md, "Prerequisites"). A report, never a check. */
-export function prerequisiteCoverage(entries: readonly ContentEntry[]): PrerequisiteCoverage {
+export function prerequisiteCoverage(entries: ReadonlyArray<ContentEntry>): PrerequisiteCoverage {
   const feats = entries.flatMap((entry) =>
     entry.kind === ContentKind.Feat && entry.data.prerequisites !== undefined ? [entry] : [],
   );

@@ -37,7 +37,7 @@ describe('GrantItem from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         key: 'GrantItem',
         item: ASSURANCE,
@@ -56,7 +56,7 @@ describe('GrantItem from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([{ key: 'GrantItem', item: ASSURANCE, flag: 'dragon-breath' }]);
+    expect(rules as ReadonlyArray<unknown>).toEqual([{ key: 'GrantItem', item: ASSURANCE, flag: 'dragon-breath' }]);
   });
 
   test('where the sheet files the grant, and re-evaluating it on update, are dropped', () => {
@@ -72,7 +72,7 @@ describe('GrantItem from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         key: 'GrantItem',
         item: ASSURANCE,
@@ -102,7 +102,7 @@ describe('Aura from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         key: 'Aura',
         radius: 30,
@@ -142,7 +142,7 @@ describe('Aura from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([{ key: 'Aura', radius: '5 * @item.value' }]);
+    expect(rules as ReadonlyArray<unknown>).toEqual([{ key: 'Aura', radius: '5 * @item.value' }]);
   });
 
   test('an effect that does not resolve is kept for the backlog', () => {

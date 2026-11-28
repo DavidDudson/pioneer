@@ -6,13 +6,13 @@ import type { AttachedCampaign } from './attached-campaign-packs';
 /** Adapter for tests: which characters are in which campaign is given up front, and can change. */
 export class InMemoryAttachedCampaignPacks extends AttachedCampaignPacks {
   readonly #attached = new Map<CharacterId, AttachedCampaign>();
-  readonly #allies = new Map<CharacterId, readonly CampaignAlly[]>();
+  readonly #allies = new Map<CharacterId, ReadonlyArray<CampaignAlly>>();
 
   /**
    * Attach the character to a campaign enabling these packs; attaching it again replaces the campaign. `allies` are the
    * rest of its party.
    */
-  public attach(characterId: CharacterId, campaign: AttachedCampaign, allies: readonly CampaignAlly[] = []): this {
+  public attach(characterId: CharacterId, campaign: AttachedCampaign, allies: ReadonlyArray<CampaignAlly> = []): this {
     this.#attached.set(characterId, campaign);
     this.#allies.set(characterId, allies);
 
@@ -30,7 +30,7 @@ export class InMemoryAttachedCampaignPacks extends AttachedCampaignPacks {
     return this.#attached.get(characterId);
   }
 
-  public override async alliesOf(characterId: CharacterId): Promise<readonly CampaignAlly[]> {
+  public override async alliesOf(characterId: CharacterId): Promise<ReadonlyArray<CampaignAlly>> {
     return this.#allies.get(characterId) ?? [];
   }
 }

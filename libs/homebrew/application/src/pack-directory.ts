@@ -24,7 +24,7 @@ export abstract class PackDirectory {
   public abstract findById(id: ContentPackId): Promise<ListedPack | undefined>;
 
   /** Every pack, by title then id; the service keeps the ones the actor may read. */
-  public abstract all(): Promise<readonly ListedPack[]>;
+  public abstract all(): Promise<ReadonlyArray<ListedPack>>;
 }
 
 /** A homebrew pack as the directory lists it. */

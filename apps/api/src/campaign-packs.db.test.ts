@@ -43,7 +43,7 @@ describe.skipIf(adminUrl === undefined)('CampaignPackService over postgres', () 
   let campaignId: CampaignId;
 
   /** The stored rows, as the repository reads them back. */
-  async function stored(): Promise<readonly CampaignPack[]> {
+  async function stored(): Promise<ReadonlyArray<CampaignPack>> {
     return repository.listForCampaign(campaignId);
   }
 

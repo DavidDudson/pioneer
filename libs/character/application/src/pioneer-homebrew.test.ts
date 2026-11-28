@@ -29,7 +29,7 @@ const FEAT_SLOT = 'skill-feat:1';
 const one = ItemQuantity.parse(1);
 
 /** The feat and the item; the feat is a 1st-level one unless `featLevel` says otherwise, so two packs can differ. */
-function brewEntries(featLevel = 1): readonly ContentEntry[] {
+function brewEntries(featLevel = 1): ReadonlyArray<ContentEntry> {
   const { otherEntries } = new ContentPackBuilder()
     .withId(BREW)
     .withFeat('lunar-grace', { level: featLevel })
@@ -49,15 +49,15 @@ function brewEntries(featLevel = 1): readonly ContentEntry[] {
 const FEAT_AND_ITEM = ['feat:lunar-grace', 'weapon:moon-blade'];
 
 /** The slugs of `entries`, sorted. */
-function slugsOf(entries: readonly ContentEntry[] = []): string[] {
+function slugsOf(entries: ReadonlyArray<ContentEntry> = []): Array<string> {
   return entries.map((entry) => String(entry.slug)).toSorted();
 }
 
-function homebrewOf(file: PioneerCharacterFile): readonly EmbeddedPack[] {
+function homebrewOf(file: PioneerCharacterFile): ReadonlyArray<EmbeddedPack> {
   return file.homebrew ?? [];
 }
 
-function brewPack(entries: readonly ContentEntry[] = brewEntries()): EmbeddedPack {
+function brewPack(entries: ReadonlyArray<ContentEntry> = brewEntries()): EmbeddedPack {
   return EmbeddedPack.parse({
     pack: {
       id: BREW,

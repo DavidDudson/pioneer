@@ -42,13 +42,13 @@ function skill(name: SkillFixture): ContentId {
   return skillFixtureId(name);
 }
 
-function keysOf(builder: CharacterBuilder): readonly string[] {
+function keysOf(builder: CharacterBuilder): ReadonlyArray<string> {
   const { document } = builder.build();
 
   return skillSlots(document, skillReads(document, content)).map((slot) => slot.key);
 }
 
-function training(level: number, count: number): string[] {
+function training(level: number, count: number): Array<string> {
   return Array.from({ length: count }, (_unused, index) => `skill-training:${level}:${index}`);
 }
 
@@ -61,7 +61,7 @@ function refusalOf(builder: CharacterBuilder, slot: string, selection: SkillFixt
   return slotRefusal(builder.build().document, content, pick)?.message.key;
 }
 
-function increases(name: PlayerCoreClass): readonly string[] {
+function increases(name: PlayerCoreClass): ReadonlyArray<string> {
   return keysOf(as(name)).filter((key) => key.startsWith('skill-increase'));
 }
 

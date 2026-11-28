@@ -26,14 +26,14 @@ function toCharacterRuleLimit(row: CharacterRuleLimitRow): CharacterRuleLimit {
 
 export class DrizzleCharacterRuleLimitRepository extends CharacterRuleLimitRepository {
   readonly #db: BunSQLDatabase;
-  readonly #listed = new RequestMemo<CharacterId, readonly CharacterRuleLimit[]>();
+  readonly #listed = new RequestMemo<CharacterId, ReadonlyArray<CharacterRuleLimit>>();
 
   public constructor(db: BunSQLDatabase) {
     super();
     this.#db = db;
   }
 
-  public override async listForCharacter(characterId: CharacterId): Promise<readonly CharacterRuleLimit[]> {
+  public override async listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<CharacterRuleLimit>> {
     return this.#listed.of(characterId, async () => {
       const rows = await this.#db
         .select()

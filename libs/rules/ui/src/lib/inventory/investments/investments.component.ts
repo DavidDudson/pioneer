@@ -15,7 +15,7 @@ interface ShownInvestment {
   readonly id: string;
   readonly name: string;
   /** What it turns on, worded; or that it does nothing, or nothing the sheet shows. */
-  readonly effects: readonly string[];
+  readonly effects: ReadonlyArray<string>;
 }
 
 /** Message keys the investment panel renders with, spelled out so the key check sees them. */
@@ -50,7 +50,7 @@ const LOADING_ROWS = 2;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InvestmentsView {
-  public readonly investments = input<readonly Investment[] | undefined>();
+  public readonly investments = input<ReadonlyArray<Investment> | undefined>();
   /** The most items the character can have invested. */
   public readonly maximum = input.required<number>();
 
@@ -74,7 +74,7 @@ export class InvestmentsView {
         });
   });
 
-  protected readonly shown = computed((): readonly ShownInvestment[] | undefined => {
+  protected readonly shown = computed((): ReadonlyArray<ShownInvestment> | undefined => {
     this.#messages();
     this.#format.locale();
 
@@ -85,7 +85,7 @@ export class InvestmentsView {
     }));
   });
 
-  #effects(working: boolean, melded: boolean, effects: readonly InvestmentEffect[]): readonly string[] {
+  #effects(working: boolean, melded: boolean, effects: ReadonlyArray<InvestmentEffect>): ReadonlyArray<string> {
     if (!working) {
       return [this.#i18n.translate(InvestmentMessage.Off)];
     }

@@ -31,7 +31,7 @@ const FIRST_SLOT_LEVEL = 2;
 const SLOT_LEVELS = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20].map((level) => Level.parse(level));
 
 /** Free Archetype as the core rules pack writes it: an archetype feat slot at 2nd level and every even level. */
-function freeArchetypeRules(): object[] {
+function freeArchetypeRules(): Array<object> {
   return SLOT_LEVELS.flatMap((level) => {
     const flag = `free-archetype-${level}`;
     const predicate = [{ gte: ['self:level', level] }];
@@ -81,8 +81,8 @@ registry.register(DEDICATION_FIXTURES);
 registry.register(variantPack);
 
 const isFree = (each: VariantRuleEntry): boolean => each.definition.slug === FREE_ARCHETYPE;
-const free: readonly VariantRuleEntry[] = registry.variantRules().filter((each) => isFree(each));
-const plain: readonly VariantRuleEntry[] = registry.variantRules().filter((each) => !isFree(each));
+const free: ReadonlyArray<VariantRuleEntry> = registry.variantRules().filter((each) => isFree(each));
+const plain: ReadonlyArray<VariantRuleEntry> = registry.variantRules().filter((each) => !isFree(each));
 const [freeEntry] = free;
 
 const withFree = { ...slotContent(registry, free), namespaces: CORE_NAMESPACES };
@@ -95,7 +95,7 @@ function fighter(level: number): CharacterBuilder {
 const medicDedication = dedicationFixtureId('medic-dedication');
 
 /** The feat slots the variant opens: those whose origin is the variant itself, lowest level first. */
-function variantSlots(content: typeof withFree, level: number): FeatSlot[] {
+function variantSlots(content: typeof withFree, level: number): Array<FeatSlot> {
   const variant = ContentId.parse(freeEntry?.id);
 
   return featSlots(fighter(level).build().document, content).filter((slot) => slot.entry === variant);

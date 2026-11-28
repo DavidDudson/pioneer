@@ -32,7 +32,7 @@ export function systemColour(keyword: string): string {
  * The colours painted across the middle of an element, at fractions of its width, from a real screenshot. For parts
  * `getComputedStyle` can't read, such as a meter's fill pseudo-element.
  */
-export async function paintedAcross(element: Element, fractions: readonly number[]): Promise<string[]> {
+export async function paintedAcross(element: Element, fractions: ReadonlyArray<number>): Promise<Array<string>> {
   const { page } = await import('vitest/browser');
   const base64 = await page.elementLocator(element).screenshot({ save: false });
   const image = new Image();

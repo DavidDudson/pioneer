@@ -13,7 +13,7 @@ interface RestPreparedSlot {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   /** The spells it offers, as the picker's rows. */
-  readonly rows: readonly SpellPickerRow[];
+  readonly rows: ReadonlyArray<SpellPickerRow>;
   /** The spell the build prepares in the slot; undefined while it is empty. */
   readonly current: ContentId | undefined;
 }
@@ -23,14 +23,14 @@ interface RestPreparedRank {
   /** Unique across the character: the entry and the rank's key within it. */
   readonly key: string;
   readonly heading: MessageDescriptor;
-  readonly slots: readonly RestPreparedSlot[];
+  readonly slots: ReadonlyArray<RestPreparedSlot>;
 }
 
 /** A prepared entry's ranks. */
 export interface RestPreparedEntry {
   readonly key: Slug;
   readonly tradition: MagicTradition;
-  readonly ranks: readonly RestPreparedRank[];
+  readonly ranks: ReadonlyArray<RestPreparedRank>;
 }
 
 /**
@@ -39,10 +39,10 @@ export interface RestPreparedEntry {
  * with no slot.
  */
 export function restPreparedEntries(
-  entries: readonly SheetPreparedEntry[],
+  entries: ReadonlyArray<SheetPreparedEntry>,
   translate: (key: string) => string,
   registry: ContentRegistry,
-): readonly RestPreparedEntry[] {
+): ReadonlyArray<RestPreparedEntry> {
   return entries
     .values()
     .filter(({ preparation }) => preparation === SpellPreparation.Prepared)
@@ -69,15 +69,15 @@ export function restPreparedEntries(
 }
 
 /** The slots of `entries`, in order. */
-function slotsOf(entries: readonly RestPreparedEntry[]): readonly RestPreparedSlot[] {
+function slotsOf(entries: ReadonlyArray<RestPreparedEntry>): ReadonlyArray<RestPreparedSlot> {
   return entries.flatMap(({ ranks }) => ranks.flatMap(({ slots }) => slots));
 }
 
 /** The spells staged in other slots than the ones that already hold them, as the command carries them. */
 export function preparedPicks(
-  entries: readonly RestPreparedEntry[],
+  entries: ReadonlyArray<RestPreparedEntry>,
   staged: Readonly<Record<string, string>>,
-): PreparedPick[] {
+): Array<PreparedPick> {
   return slotsOf(entries).flatMap(({ key, current }) => {
     const spell = staged[key];
     const selection = spell === undefined ? undefined : ChoiceValue.safeParse(spell);
@@ -88,10 +88,10 @@ export function preparedPicks(
 
 /** What each pick would do, worded: the spell prepared in the slot. */
 export function preparedLines(
-  entries: readonly RestPreparedEntry[],
-  picks: readonly PreparedPick[],
+  entries: ReadonlyArray<RestPreparedEntry>,
+  picks: ReadonlyArray<PreparedPick>,
   names: PreparedNames,
-): readonly RestLine[] {
+): ReadonlyArray<RestLine> {
   const slots = slotsOf(entries);
 
   return picks.flatMap(({ slot, selection }) => {

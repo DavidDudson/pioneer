@@ -21,7 +21,7 @@ const withTheme: Decorator = (story, context) => {
  * toolbar, axe on every story, and a router and query client for components that link or load. `providers` adds
  * the library's own, such as its `en` messages. The caller imports frontier's CSS for its side effect.
  */
-export function storybookPreview(providers: readonly (Provider | EnvironmentProviders)[]): Preview {
+export function storybookPreview(providers: ReadonlyArray<Provider | EnvironmentProviders>): Preview {
   return {
     decorators: [
       applicationConfig({

@@ -119,7 +119,7 @@ describe.skipIf(adminUrl === undefined)('accepting a campaign transfer over post
     return { giver: now, recipient: there };
   }
 
-  async function auditedCommands(rowIds: readonly string[]): Promise<readonly string[]> {
+  async function auditedCommands(rowIds: ReadonlyArray<string>): Promise<ReadonlyArray<string>> {
     const rows = await database.db
       .select({ table: auditLog.tableName, command: auditLog.command })
       .from(auditLog)

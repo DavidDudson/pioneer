@@ -19,7 +19,7 @@ export class HeldContentPacks {
     this.#catalog = catalog;
   }
 
-  public async of(character: Character): Promise<readonly ContentPackId[]> {
+  public async of(character: Character): Promise<ReadonlyArray<ContentPackId>> {
     const packs = await this.#lookup.packsOf(heldContentIds(character.document));
 
     if (packs.length === 0) {

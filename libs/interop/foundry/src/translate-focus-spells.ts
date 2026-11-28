@@ -96,7 +96,7 @@ const ADVANCED_DOMAIN_RULES: Planned = focusChoice({
 });
 
 /** A warden feat: one of its warden spells, picked. */
-function warden(flag: string, spells: readonly (readonly [string, string])[]): Planned {
+function warden(flag: string, spells: ReadonlyArray<readonly [string, string]>): Planned {
   return [
     RANGER_ENTRY,
     ...focusChoice({
@@ -265,7 +265,7 @@ const FOCUS: ReadonlyMap<string, Planned> = new Map([
 ]);
 
 /** The focus entry, choices and `FocusSpells` elements the entry with `slug` gains in `pack`, if any. */
-export function focusSpellRules(slug: string, pack: PackId): readonly object[] {
+export function focusSpellRules(slug: string, pack: PackId): ReadonlyArray<object> {
   return (FOCUS.get(slug) ?? []).map((element) => {
     if (isNamed(element)) {
       return element(pack);

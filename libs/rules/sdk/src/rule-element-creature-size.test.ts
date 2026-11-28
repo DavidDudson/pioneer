@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { RuleElement } from './rule-element';
 
-const valid: object[] = [
+const valid: Array<object> = [
   { key: 'CreatureSize', value: 'tiny', resizeEquipment: true },
   { key: 'CreatureSize', value: 'tiny', reach: { override: 0 }, resizeEquipment: true },
   { key: 'CreatureSize', value: 1, maximumSize: 'large', reach: { add: 5 }, predicate: ['terrain:full-moon'] },

@@ -67,7 +67,7 @@ export interface PickedBase {
 export function toCreateBody(
   model: KeyItemModel,
   base: PickedBase,
-  property: readonly KeyPropertyRune[],
+  property: ReadonlyArray<KeyPropertyRune>,
 ): CreateKeyItemBody {
   const { name, notes, potency, striking, resilient, reinforcing } = KeyItemForm.parse(model);
 

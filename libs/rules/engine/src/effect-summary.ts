@@ -45,7 +45,7 @@ export interface SummarisedEntry {
 }
 
 /** The entry's rules as they would be in play when it is taken, equipped, cast or gained. */
-function candidates(entry: SummarisedEntry): readonly RuleInPlay[] {
+function candidates(entry: SummarisedEntry): ReadonlyArray<RuleInPlay> {
   const itemLevel = Level.safeParse(entry.rank ?? entry.level).data;
 
   return entry.rules.map((element, rule) =>
@@ -60,8 +60,8 @@ function candidates(entry: SummarisedEntry): readonly RuleInPlay[] {
 
 /** The rules in play with the entry's, and which of them are the entry's. */
 interface EntryRules {
-  readonly all: readonly RuleInPlay[];
-  readonly own: readonly RuleInPlay[];
+  readonly all: ReadonlyArray<RuleInPlay>;
+  readonly own: ReadonlyArray<RuleInPlay>;
 }
 
 /** The rules in play, and which of them are the entry's. In `would-apply` mode its rules not yet in play join them. */
@@ -82,8 +82,8 @@ function rulesFor(entry: SummarisedEntry, mode: EffectMode, { rules }: ModifierI
 type FromEntry = (source: { readonly origin: Origin }) => boolean;
 
 /** The lines of the entry's bonuses, penalties and `Change`s on every statistic that has a value. */
-function statisticLines(statistics: ReadonlyMap<Selector, StatisticResult>, fromEntry: FromEntry): EffectLine[] {
-  const lines: EffectLine[] = [];
+function statisticLines(statistics: ReadonlyMap<Selector, StatisticResult>, fromEntry: FromEntry): Array<EffectLine> {
+  const lines: Array<EffectLine> = [];
 
   for (const result of statistics.values()) {
     if (result.ok) {
@@ -100,7 +100,7 @@ function statisticLines(statistics: ReadonlyMap<Selector, StatisticResult>, from
 }
 
 /** The lines of the entry's weaknesses, resistances and immunities. */
-function defenceLines(defences: Defences, fromEntry: FromEntry): EffectLine[] {
+function defenceLines(defences: Defences, fromEntry: FromEntry): Array<EffectLine> {
   return [
     ...defences.weaknesses.filter(fromEntry).map((line) => adjustmentEffect(EffectChange.Weakness, line)),
     ...defences.resistances.filter(fromEntry).map((line) => adjustmentEffect(EffectChange.Resistance, line)),
@@ -109,8 +109,8 @@ function defenceLines(defences: Defences, fromEntry: FromEntry): EffectLine[] {
 }
 
 /** The lines of the entry's senses, and the not-summarised ones for the elements nothing else covers. */
-function ruleLines(own: readonly RuleInPlay[], reading: SenseReading): EffectLine[] {
-  const lines: EffectLine[] = [];
+function ruleLines(own: ReadonlyArray<RuleInPlay>, reading: SenseReading): Array<EffectLine> {
+  const lines: Array<EffectLine> = [];
 
   for (const rule of own) {
     const { element } = rule;
@@ -137,7 +137,11 @@ function ruleLines(own: readonly RuleInPlay[], reading: SenseReading): EffectLin
  * the same as `applying`. A bonus, penalty or `Change` has one line per statistic it reaches. A rule element the summary
  * does not cover yields a `not-summarised` line. A statistic that has no value has no lines. Never throws.
  */
-export function summariseEffects(scope: EffectScope, entry: SummarisedEntry, mode: EffectMode): readonly EffectLine[] {
+export function summariseEffects(
+  scope: EffectScope,
+  entry: SummarisedEntry,
+  mode: EffectMode,
+): ReadonlyArray<EffectLine> {
   const { all, own } = rulesFor(entry, mode, scope.modifiers);
   const modifiers: ModifierInputs = { ...scope.modifiers, rules: all };
   const fromEntry: FromEntry = ({ origin }) => origin.entry === entry.id;

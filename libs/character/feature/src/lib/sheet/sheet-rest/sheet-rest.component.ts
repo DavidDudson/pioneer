@@ -35,7 +35,7 @@ import type { StaffOption, StaffSlotOption } from '../sheet-staff';
 import { SheetState } from '../sheet-state';
 
 /** The kinds the actions read: the character's, so its slots resolve, and the items it carries, so its staves do. */
-const REST_CONTENT_KINDS: readonly ContentKind[] = [...FEAT_CONTENT_KINDS, ...INVENTORY_KINDS];
+const REST_CONTENT_KINDS: ReadonlyArray<ContentKind> = [...FEAT_CONTENT_KINDS, ...INVENTORY_KINDS];
 
 /** The value of the option that picks nothing. */
 const NONE = 'none';
@@ -47,7 +47,7 @@ interface RestAction {
   readonly previewKey: string;
 }
 
-const ACTIONS: readonly RestAction[] = [
+const ACTIONS: ReadonlyArray<RestAction> = [
   {
     command: { field: RestCommandField.Rest },
     labelKey: 'character.sheet.rest.restAction',
@@ -75,7 +75,7 @@ interface RestPreview {
   readonly action: RestAction;
   /** The command to run on confirm: the action's own, with the staff and slot chosen for daily preparations. */
   readonly command: RestCommand;
-  readonly lines: readonly RestLine[];
+  readonly lines: ReadonlyArray<RestLine>;
 }
 
 /**
@@ -124,7 +124,7 @@ export class SheetRest {
   protected readonly busy = signal(false);
 
   /** The staves daily preparations can prepare, and the slots a prepared caster can expend for charges. */
-  readonly #staves = computed((): readonly StaffOption[] => {
+  readonly #staves = computed((): ReadonlyArray<StaffOption> => {
     const registry = this.registry.data();
     const character = this.#characters.selected();
 
@@ -132,7 +132,7 @@ export class SheetRest {
       ? []
       : staffOptions(registry, character, sheetStaffLimits(registry, character));
   });
-  readonly #slots = computed((): readonly StaffSlotOption[] => {
+  readonly #slots = computed((): ReadonlyArray<StaffSlotOption> => {
     const registry = this.registry.data();
     const character = this.#characters.selected();
 
@@ -143,13 +143,13 @@ export class SheetRest {
   protected readonly choosingStaff = computed(
     (): boolean => this.#chosen()?.command.field === RestCommandField.DailyPreparations && this.#staves().length > 0,
   );
-  protected readonly staffChoices = computed((): readonly SelectOption<string>[] => [
+  protected readonly staffChoices = computed((): ReadonlyArray<SelectOption<string>> => [
     { value: NONE, label: this.#i18n.translate('character.sheet.rest.staffNone') },
     ...this.#staves().map(({ id, name }) => ({ value: id, label: name })),
   ]);
 
   /** The slots on offer once a staff is picked; none for a character without a prepared entry. */
-  protected readonly slotChoices = computed((): readonly SelectOption<string>[] =>
+  protected readonly slotChoices = computed((): ReadonlyArray<SelectOption<string>> =>
     this.staffPicked() === NONE || this.#slots().length === 0
       ? []
       : [
@@ -171,7 +171,7 @@ export class SheetRest {
   protected readonly staged = signal<Readonly<Record<string, string>>>({});
 
   /** The prepared entries' ranks daily preparations can change: none while the spells load. */
-  protected readonly preparedEntries = computed((): readonly RestPreparedEntry[] => {
+  protected readonly preparedEntries = computed((): ReadonlyArray<RestPreparedEntry> => {
     const registry = this.#spells.data();
     const character = this.#characters.selected();
     const slots = this.#characters.slots();
@@ -186,7 +186,7 @@ export class SheetRest {
   });
 
   /** The slots picked other than the spell they already hold, as the command carries them. */
-  readonly #picks = computed((): PreparedPick[] => preparedPicks(this.preparedEntries(), this.staged()));
+  readonly #picks = computed((): Array<PreparedPick> => preparedPicks(this.preparedEntries(), this.staged()));
 
   /** The command the chosen action runs: daily preparations carry the staff and the slot picked, and the spells changed. */
   readonly #command = computed((): RestCommand | undefined => {
@@ -208,7 +208,7 @@ export class SheetRest {
   });
 
   /** What each spell changed would do, worded. */
-  readonly #preparedLines = computed((): readonly RestLine[] => {
+  readonly #preparedLines = computed((): ReadonlyArray<RestLine> => {
     const registry = this.#spells.data();
 
     return preparedLines(this.preparedEntries(), this.#picks(), {

@@ -46,14 +46,14 @@ export interface SlotPick {
  * What `slot` offers at the level `resolution` was read at; undefined when the character hasn't the slot there. The
  * slot's own pick is left out of the picks, so it is never answered: a `ChoiceSet` slot is among the open ones.
  */
-function offerAt(resolution: GrantResolution, slot: SlotKey): readonly OfferedOption[] | undefined {
+function offerAt(resolution: GrantResolution, slot: SlotKey): ReadonlyArray<OfferedOption> | undefined {
   const slots = [...resolution.rootSlots, ...resolution.open];
 
   return slots.find((each) => each.key === slot)?.options;
 }
 
 /** Every character level, highest first: most slots are open at 20th, so a valid pick is usually found at once. */
-function levelsDown(): Level[] {
+function levelsDown(): Array<Level> {
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + 1;
 
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MAX - index));
@@ -156,7 +156,7 @@ function featRefusal(document: CharacterDocument, content: SlotContent, pick: Sl
 }
 
 /** What a slot offers at each level over the other picks, by content, document and slot: read once, however many candidates ask. */
-type OfferedByLevelValue = readonly OfferedOption[] | undefined;
+type OfferedByLevelValue = ReadonlyArray<OfferedOption> | undefined;
 
 type OfferedByLevel = Map<Level, OfferedByLevelValue>;
 
@@ -168,12 +168,12 @@ function offeredLevels(
   document: CharacterDocument,
   content: SlotContent,
   slot: SlotKey,
-): Map<Level, readonly OfferedOption[] | undefined> {
+): Map<Level, ReadonlyArray<OfferedOption> | undefined> {
   const byDocument = OFFERED.get(content) ?? new WeakMap<CharacterDocument, OfferedBySlot>();
   OFFERED.set(content, byDocument);
   const bySlot = byDocument.get(document) ?? new Map<SlotKey, OfferedByLevel>();
   byDocument.set(document, bySlot);
-  const levels = bySlot.get(slot) ?? new Map<Level, readonly OfferedOption[] | undefined>();
+  const levels = bySlot.get(slot) ?? new Map<Level, ReadonlyArray<OfferedOption> | undefined>();
   bySlot.set(slot, levels);
 
   return levels;
@@ -286,7 +286,7 @@ export function rootSlotOptions(
   document: CharacterDocument,
   content: SlotContent,
   slot: SlotKey,
-): readonly OfferedOption[] {
+): ReadonlyArray<OfferedOption> {
   const picks = picksOf(document);
   const { rootSlots } = resolveSlotsAt(Level.parse(document.level), slotContextOf(document, content, picks));
 

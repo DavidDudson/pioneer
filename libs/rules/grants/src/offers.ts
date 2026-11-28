@@ -24,8 +24,8 @@ export interface OfferedOption {
 }
 
 /** The listed options whose predicate is not false; one that is unknown carries when it would hold. */
-function listedOptions(choices: readonly ChoiceOption[], facts: PredicateFacts): OfferedOption[] {
-  return choices.flatMap(({ value, label, predicate }): OfferedOption[] => {
+function listedOptions(choices: ReadonlyArray<ChoiceOption>, facts: PredicateFacts): Array<OfferedOption> {
+  return choices.flatMap(({ value, label, predicate }): Array<OfferedOption> => {
     if (predicate === undefined) {
       return [{ value, label, summary: undefined }];
     }
@@ -73,11 +73,15 @@ function sharesOwnTrait({ ownTrait }: ChoiceQuery, candidateFacts: PredicateFact
  * of an unsupported pack is left out unless it is the `held` pick: a character keeps what it has from such a pack but
  * takes nothing new from it.
  */
-function queriedOptions(query: ChoiceQuery, context: ChoiceContext, held: ChoiceValue | undefined): OfferedOption[] {
+function queriedOptions(
+  query: ChoiceQuery,
+  context: ChoiceContext,
+  held: ChoiceValue | undefined,
+): Array<OfferedOption> {
   const { facts, lookup } = context;
   const { kind, filter } = query;
 
-  const offered = lookup.ofKind(kind).flatMap((candidate): OfferedOption[] => {
+  const offered = lookup.ofKind(kind).flatMap((candidate): Array<OfferedOption> => {
     if (candidate.facts?.unsupported === true && candidate.id !== held) {
       return [];
     }
@@ -133,8 +137,8 @@ function ownedOption(query: OwnedQuery, item: OwnedItem, context: ChoiceContext)
 }
 
 /** Every owned item of the query's kinds whose filter is not false, sorted by name, then slug. */
-function ownedOptions(query: OwnedQuery, context: ChoiceContext): OfferedOption[] {
-  const offered = context.owned.flatMap((item): OfferedOption[] => {
+function ownedOptions(query: OwnedQuery, context: ChoiceContext): Array<OfferedOption> {
+  const offered = context.owned.flatMap((item): Array<OfferedOption> => {
     const option = ownedOption(query, item, context);
 
     return option === undefined ? [] : [option];
@@ -147,7 +151,7 @@ export function offeredOptions(
   { choices }: ChoiceSetElement,
   context: ChoiceContext,
   held?: ChoiceValue,
-): OfferedOption[] {
+): Array<OfferedOption> {
   if (Array.isArray(choices)) {
     return listedOptions(choices, context.facts);
   }
@@ -156,7 +160,7 @@ export function offeredOptions(
 }
 
 /** Whether `value` is a listed option whose predicate is not false. */
-function isListed(choices: readonly ChoiceOption[], value: ChoiceValue, facts: PredicateFacts): boolean {
+function isListed(choices: ReadonlyArray<ChoiceOption>, value: ChoiceValue, facts: PredicateFacts): boolean {
   return choices.some(
     (choice) =>
       choice.value === value &&
@@ -198,14 +202,14 @@ export function isOffered({ choices }: ChoiceSetElement, value: ChoiceValue, con
 
 /** A slot's offer, worked out the first time it is read and kept. */
 export class Offer {
-  readonly #make: () => readonly OfferedOption[];
-  #options: readonly OfferedOption[] | undefined = undefined;
+  readonly #make: () => ReadonlyArray<OfferedOption>;
+  #options: ReadonlyArray<OfferedOption> | undefined = undefined;
 
-  public constructor(make: () => readonly OfferedOption[]) {
+  public constructor(make: () => ReadonlyArray<OfferedOption>) {
     this.#make = make;
   }
 
-  public get options(): readonly OfferedOption[] {
+  public get options(): ReadonlyArray<OfferedOption> {
     this.#options ??= this.#make();
 
     return this.#options;

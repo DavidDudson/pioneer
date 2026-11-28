@@ -28,17 +28,17 @@ export type PredicateComparison =
   | { readonly lte: ComparisonOperands };
 
 export type PredicateCompound =
-  | { readonly and: readonly PredicateStatement[] }
-  | { readonly or: readonly PredicateStatement[] }
-  | { readonly xor: readonly PredicateStatement[] }
-  | { readonly nand: readonly PredicateStatement[] }
-  | { readonly nor: readonly PredicateStatement[] }
-  | { readonly iff: readonly PredicateStatement[] }
+  | { readonly and: ReadonlyArray<PredicateStatement> }
+  | { readonly or: ReadonlyArray<PredicateStatement> }
+  | { readonly xor: ReadonlyArray<PredicateStatement> }
+  | { readonly nand: ReadonlyArray<PredicateStatement> }
+  | { readonly nor: ReadonlyArray<PredicateStatement> }
+  | { readonly iff: ReadonlyArray<PredicateStatement> }
   | { readonly not: PredicateStatement }
   | { readonly if: PredicateStatement; readonly then: PredicateStatement };
 
 /** Every statement in an array must hold; an empty array always holds. */
-export type Predicate = readonly PredicateStatement[];
+export type Predicate = ReadonlyArray<PredicateStatement>;
 
 /** Deepest JSON nesting a predicate may have (arrays and objects both count), so a parse can't exhaust the stack. */
 export const PREDICATE_DEPTH_MAX = 32;

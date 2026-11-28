@@ -18,7 +18,7 @@ function render(value: string | undefined): ComponentFixture<Segmented<string>> 
   return fixture;
 }
 
-function buttons(fixture: ComponentFixture<Segmented<string>>): HTMLButtonElement[] {
+function buttons(fixture: ComponentFixture<Segmented<string>>): Array<HTMLButtonElement> {
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll('button')];
 }

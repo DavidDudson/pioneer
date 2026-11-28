@@ -73,7 +73,7 @@ export class CampaignPartyStashService {
   }
 
   /** The stash with the viewer's own live characters of the party, the ones that may put into it and take from it. */
-  async #seenBy(actor: UserId, contents: PartyStashContents, party: readonly CharacterId[]): Promise<PartyStash> {
+  async #seenBy(actor: UserId, contents: PartyStashContents, party: ReadonlyArray<CharacterId>): Promise<PartyStash> {
     const named = await this.#characters.byIds(party);
 
     const characters = party.flatMap((characterId) => {
@@ -87,14 +87,14 @@ export class CampaignPartyStashService {
     return { ...contents, characters };
   }
 
-  async #partyCharacters(id: CampaignId): Promise<readonly CharacterId[]> {
+  async #partyCharacters(id: CampaignId): Promise<ReadonlyArray<CharacterId>> {
     const party = await this.#party.listForCampaign(id);
 
     return party.map((each) => each.characterId);
   }
 
   /** The character is in the campaign's party and is the actor's own live one; anything else is a 404 (ADR-0007, ADR-0062). */
-  async #owned(actor: UserId, id: CampaignId, character: CharacterId): Promise<readonly CharacterId[]> {
+  async #owned(actor: UserId, id: CampaignId, character: CharacterId): Promise<ReadonlyArray<CharacterId>> {
     const party = await this.#partyCharacters(id);
     const named = await this.#characters.byIds([character]);
     const found = named.get(character);

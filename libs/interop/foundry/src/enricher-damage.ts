@@ -50,8 +50,8 @@ interface Instance {
 }
 
 /** `text` split at top-level commas, outside brackets and parentheses. */
-function topLevel(text: string, separator: string): string[] {
-  const parts: string[] = [];
+function topLevel(text: string, separator: string): Array<string> {
+  const parts: Array<string> = [];
   let depth = 0;
   let from = 0;
 
@@ -94,7 +94,7 @@ function trailingOpen(text: string, [opener, closer]: readonly [string, string])
 
 interface Split {
   readonly body: string;
-  readonly flavour: readonly string[];
+  readonly flavour: ReadonlyArray<string>;
 }
 
 /** `2d6[persistent,fire]` to `2d6` and `persistent`, `fire`; a bare formula has no flavour. */
@@ -127,7 +127,7 @@ function isWholeSplash(body: string): boolean {
  * flavour is left inside it.
  */
 function pioneerFormula(body: string): string | undefined {
-  const untranslated: string[] = [];
+  const untranslated: Array<string> = [];
   const bare = isWholeSplash(body) ? unwrapped(body).slice(0, -SPLASH_MARKER.length) : body;
 
   const text = unwrapped(bare).replaceAll(REFERENCE, (whole, path: string) => {
@@ -169,7 +169,7 @@ function addWord(flavour: Flavour, word: string): boolean {
 }
 
 /** The damage type, category and healing a flavour names; undefined, and reported, for any word it does not know. */
-function flavourOf(words: readonly string[], context: EnricherContext): Flavour | undefined {
+function flavourOf(words: ReadonlyArray<string>, context: EnricherContext): Flavour | undefined {
   const flavour: Flavour = { healing: false };
 
   for (const word of words) {
@@ -207,7 +207,7 @@ function instanceOf(text: string, context: EnricherContext): Instance | undefine
 }
 
 /** The roll's instances, or undefined when one fails, healing is mixed with damage, or there are too many. */
-function instancesOf(formula: string, context: EnricherContext): readonly Instance[] | undefined {
+function instancesOf(formula: string, context: EnricherContext): ReadonlyArray<Instance> | undefined {
   const instances = topLevel(formula, INSTANCE_SEPARATOR).map((text) => instanceOf(text, context));
   const read = instances.filter((instance) => instance !== undefined);
 
@@ -227,7 +227,7 @@ function instancesOf(formula: string, context: EnricherContext): readonly Instan
 }
 
 /** A damage roll's formula as a `Damage` node, or its label (else the formula) as text when it does not translate. */
-export function damageRun(formula: string, label: string | undefined, context: EnricherContext): RunNode[] {
+export function damageRun(formula: string, label: string | undefined, context: EnricherContext): Array<RunNode> {
   const instances = instancesOf(formula, context);
   const [first, ...rest] = instances ?? [];
 
@@ -248,7 +248,7 @@ export function damageRun(formula: string, label: string | undefined, context: E
 }
 
 /** `@Damage[formula|options:...]{label}`; parameters past the formula are reported, bar presentation ones. */
-export function damageEnricherRun(params: string, label: string | undefined, context: EnricherContext): RunNode[] {
+export function damageEnricherRun(params: string, label: string | undefined, context: EnricherContext): Array<RunNode> {
   const parsed = enricherParams(params, FORMULA);
   reportParams(parsed, { enricher: ENRICHER, handled: HANDLED }, context);
 

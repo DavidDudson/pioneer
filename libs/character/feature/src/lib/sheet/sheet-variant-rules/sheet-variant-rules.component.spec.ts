@@ -26,14 +26,14 @@ interface VariantRulesJson extends JsonObject {
   readonly decidedBy: 'character' | 'campaign';
   readonly campaign?: string;
   readonly manageable: boolean;
-  readonly enabled: readonly JsonObject[];
-  readonly available: readonly JsonObject[];
+  readonly enabled: ReadonlyArray<JsonObject>;
+  readonly available: ReadonlyArray<JsonObject>;
 }
 
 const VARIANT_RULES_URL = `/api/characters/${id}/variant-rules`;
 
 /** Every button whose text starts with `label`, in document order. */
-function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
+function buttons(root: HTMLElement, label: string): Array<HTMLButtonElement> {
   return [...root.querySelectorAll('button')].filter((candidate) => textOf(candidate).startsWith(label));
 }
 
@@ -41,7 +41,7 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
 const ROWED = ['Fortitude', 'Reflex', 'Will', 'Perception'] as const;
 
 /** The Armor Class block's heading, then the totals of the saves' and Perception's rows, and the land Speed last. */
-function vitalsOf(root: HTMLElement): readonly string[] {
+function vitalsOf(root: HTMLElement): ReadonlyArray<string> {
   const armor = present(root.querySelector('pio-armor-class'));
   const speeds = textOf(present(root.querySelector('pio-sheet-speed-block')));
   const speed = /Walk\s*(?<feet>\d+) ft/u.exec(speeds)?.groups?.['feet'];

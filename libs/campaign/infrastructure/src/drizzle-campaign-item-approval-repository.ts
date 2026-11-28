@@ -40,7 +40,7 @@ export class DrizzleCampaignItemApprovalRepository extends CampaignItemApprovalR
     this.#db = db;
   }
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignItemApproval[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignItemApproval>> {
     const rows = await this.#db
       .select()
       .from(campaignItemApprovals)

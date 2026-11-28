@@ -33,12 +33,12 @@ const rowId = (row: BrowseRow): string => row.id;
 })
 export class BrowserRows {
   public readonly list = input.required<ContentBrowserList>();
-  public readonly columns = input.required<readonly TableColumn<BrowseRow>[]>();
+  public readonly columns = input.required<ReadonlyArray<TableColumn<BrowseRow>>>();
   /** A table with its column chooser, rather than the compact list. */
   public readonly table = input.required<boolean>();
-  public readonly sorting = model<readonly TableViewSort[]>([]);
+  public readonly sorting = model<ReadonlyArray<TableViewSort>>([]);
   /** The hidden column ids; `undefined` is each column's default. */
-  public readonly hidden = model<readonly string[] | undefined>(undefined);
+  public readonly hidden = model<ReadonlyArray<string> | undefined>(undefined);
   /** More of the entries were asked for. */
   public readonly more = output();
   /** A name in the compact list was pressed. */

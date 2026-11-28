@@ -18,7 +18,7 @@ function werecreature(kind: string, form: string): FormView {
 }
 
 /** The slugs of the unarmed attacks the form gives the werecreature of `kind` in `form`. */
-function attacks(kind: string, form: string): readonly string[] {
+function attacks(kind: string, form: string): ReadonlyArray<string> {
   const facts = chosen(`werecreature:${kind}`, `change-shape:${form}`);
 
   return effectRulesOf(SLUG, RANK, HOWL_OF_THE_WILD_EFFECTS)

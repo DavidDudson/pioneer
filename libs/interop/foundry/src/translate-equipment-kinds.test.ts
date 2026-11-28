@@ -241,7 +241,7 @@ describe('translateKindData: equipment and treasure', () => {
   });
 });
 
-const taggedBlade = (otherTags: readonly string[]): ImportTranslation =>
+const taggedBlade = (otherTags: ReadonlyArray<string>): ImportTranslation =>
   translate([
     weapon('sTaRlItB1ade0000', 'Starlit Blade', {
       ...LONGSWORD.system,

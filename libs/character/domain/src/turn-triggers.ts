@@ -41,7 +41,7 @@ export interface TurnTrigger extends TriggerableAbility {
 
 /** What the turn cycle reads to apply triggered abilities by themselves. */
 export interface TurnTriggers {
-  readonly triggers: readonly TurnTrigger[];
+  readonly triggers: ReadonlyArray<TurnTrigger>;
   /** The roll options that hold for the character, which a trigger's predicate reads. */
   readonly facts: PredicateFacts;
 }
@@ -74,7 +74,7 @@ export function turnTriggers(document: CharacterDocument, sources: StatisticSour
   const { candidates, facts } = grantedActionCandidates(document, sources);
   const effects = effectEntries(sources.registry);
 
-  const triggers = candidates.flatMap(({ id, action }): TurnTrigger[] => {
+  const triggers = candidates.flatMap(({ id, action }): Array<TurnTrigger> => {
     const effect = action.selfEffect === undefined ? undefined : effects.get(action.selfEffect);
     const event = action.triggerEvent;
 
@@ -109,8 +109,8 @@ export function turnTriggers(document: CharacterDocument, sources: StatisticSour
 export function autoTriggers(
   event: TriggerEventType,
   { triggers, facts }: TurnTriggers,
-  active: readonly ActiveEffect[],
-): readonly TurnTrigger[] {
+  active: ReadonlyArray<ActiveEffect>,
+): ReadonlyArray<TurnTrigger> {
   return triggeredAbilities(event, facts, triggers).filter(
     (trigger) => appliesAutomatically(trigger) && !active.some(({ effect }) => effect === trigger.effect),
   );

@@ -6,7 +6,7 @@ import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing'
 import type { SpellFilterChange, SpellFilterGroup } from './spell-filter-line';
 import { SpellFilter } from './spell-filter.component';
 
-const GROUPS: readonly SpellFilterGroup[] = [
+const GROUPS: ReadonlyArray<SpellFilterGroup> = [
   {
     id: 'trait',
     label: 'Traits',
@@ -19,7 +19,7 @@ const GROUPS: readonly SpellFilterGroup[] = [
   { id: 'damage', label: 'Damage type', options: [], selected: new Set() },
 ];
 
-async function render(groups: readonly SpellFilterGroup[] = GROUPS): Promise<ComponentFixture<SpellFilter>> {
+async function render(groups: ReadonlyArray<SpellFilterGroup> = GROUPS): Promise<ComponentFixture<SpellFilter>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(SpellFilter);
   fixture.componentRef.setInput('groups', groups);
@@ -51,7 +51,7 @@ describe(SpellFilter, () => {
 
   it('says which group changed and what it now picks', async () => {
     const fixture = await render();
-    const changes: SpellFilterChange[] = [];
+    const changes: Array<SpellFilterChange> = [];
     fixture.componentInstance.changed.subscribe((change) => {
       changes.push(change);
     });

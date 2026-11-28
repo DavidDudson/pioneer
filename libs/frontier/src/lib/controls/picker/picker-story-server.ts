@@ -23,7 +23,7 @@ const LOCKED_EVERY = 7;
 const LOCKED_REMAINDER = 3;
 const KINDS = ['General', 'Skill', 'Ancestry', 'Class'] as const;
 
-export const FEATS: readonly Feat[] = Array.from({ length: FEAT_COUNT }, (_entry, index): Feat => {
+export const FEATS: ReadonlyArray<Feat> = Array.from({ length: FEAT_COUNT }, (_entry, index): Feat => {
   const feat: Feat = {
     id: `feat-${index + 1}`,
     name: `Feat ${index + 1}`,
@@ -58,7 +58,7 @@ function compare(left: Feat, right: Feat, column: string): number {
 }
 
 /** What the server would send for a query and an order: every match, ordered. */
-function matching(query: string, sort: PickerSort | undefined): readonly Feat[] {
+function matching(query: string, sort: PickerSort | undefined): ReadonlyArray<Feat> {
   const needle = query.trim().toLowerCase();
   const found = FEATS.filter((feat) => feat.name.toLowerCase().includes(needle));
 
@@ -73,7 +73,7 @@ function matching(query: string, sort: PickerSort | undefined): readonly Feat[] 
 
 /** Holds the rows the picker shows, and answers `searched`, `sorted` and `loadMore` slowly, like a request would. */
 export class FeatServer {
-  public readonly rows = signal<readonly Feat[]>([]);
+  public readonly rows = signal<ReadonlyArray<Feat>>([]);
   public readonly loading = signal(false);
   public readonly loadingMore = signal(false);
   public readonly hasMore = signal(false);

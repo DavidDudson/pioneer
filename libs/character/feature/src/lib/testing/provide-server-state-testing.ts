@@ -15,9 +15,9 @@ const STALE_TIME = 30_000;
  * content bundles served from memory (`base`, `TEST_PACKS` unless given), with `extraPacks` beside them.
  */
 export function provideServerStateTesting(
-  extraPacks: readonly PackContentsLoader[] = [],
-  base: readonly PackContentsLoader[] = TEST_PACKS,
-): (Provider | EnvironmentProviders)[] {
+  extraPacks: ReadonlyArray<PackContentsLoader> = [],
+  base: ReadonlyArray<PackContentsLoader> = TEST_PACKS,
+): Array<Provider | EnvironmentProviders> {
   return [
     provideHttpClient(),
     provideHttpClientTesting(),
@@ -28,8 +28,8 @@ export function provideServerStateTesting(
 
 /** Builds what `provideServerStateTesting(extraPacks, base)` serves, before a page opens and its test starts waiting. */
 export async function prebuildServerStateTesting(
-  extraPacks: readonly PackContentsLoader[] = [],
-  base: readonly PackContentsLoader[] = TEST_PACKS,
+  extraPacks: ReadonlyArray<PackContentsLoader> = [],
+  base: ReadonlyArray<PackContentsLoader> = TEST_PACKS,
 ): Promise<void> {
   await prebuildContentTesting([...base, ...extraPacks]);
 }

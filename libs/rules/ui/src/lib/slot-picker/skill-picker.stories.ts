@@ -8,7 +8,7 @@ import type { SkillPickerRow } from './slot-picker-row';
 
 type SkillPickerStory = StoryObj<SkillPicker>;
 
-const SKILLS: readonly SkillPickerRow[] = [
+const SKILLS: ReadonlyArray<SkillPickerRow> = [
   skillRow({
     id: 'acrobatics',
     name: 'Acrobatics',

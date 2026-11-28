@@ -228,7 +228,7 @@ export class CampaignKeyItemService {
 
   async #view(actor: UserId, campaign: Campaign): Promise<CampaignKeyItems> {
     const items = await this.#keyItems.listForCampaign(campaign.id);
-    const holders = items.flatMap((each): CharacterId[] => (each.holder === undefined ? [] : [each.holder]));
+    const holders = items.flatMap((each): Array<CharacterId> => (each.holder === undefined ? [] : [each.holder]));
     const named = await this.#characters.byIds(holders);
 
     const keyItems = items.map(({ id, name, base, runes, notes, holder }): KeyItemView => ({

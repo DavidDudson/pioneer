@@ -28,7 +28,7 @@ const ENERGY_RESISTANT_GREATER = physical(
   },
 );
 
-function armor(id: string, name: string, property: string[]): DocumentFixture {
+function armor(id: string, name: string, property: Array<string>): DocumentFixture {
   return physical(
     { id, name, type: 'armor' },
     {

@@ -23,7 +23,7 @@ export const DevUser = {
 } as const satisfies Record<string, DevUser>;
 
 /** Every dev user, GM first: the order the sign-in page lists them. */
-export const DEV_USERS: readonly DevUser[] = [DevUser.Gm, DevUser.PlayerOne, DevUser.PlayerTwo];
+export const DEV_USERS: ReadonlyArray<DevUser> = [DevUser.Gm, DevUser.PlayerOne, DevUser.PlayerTwo];
 
 /**
  * Browser navigation that signs in as a dev user and redirects to `returnTo`, like a provider callback.

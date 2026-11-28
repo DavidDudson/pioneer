@@ -11,7 +11,7 @@ const CLEAN = PathbuilderExportUrl.parse('https://pathbuilder2e.com/json.php?id=
 
 /** A fetcher that answers `answer` and keeps the URLs it was asked for. */
 class FakeFetcher extends PathbuilderExportFetcher {
-  public readonly asked: PathbuilderExportUrl[] = [];
+  public readonly asked: Array<PathbuilderExportUrl> = [];
   readonly #answer: FetchedExport;
 
   public constructor(answer: FetchedExport) {

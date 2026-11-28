@@ -8,7 +8,8 @@ const AUTHOR = UserId.parse('0b6f1c9e-4f8a-4d3b-9a51-6b0e8f2c7d14');
 const PACK = PackId.parse('lost-lands');
 const AON_HUMAN = 'https://2e.aonprd.com/Ancestries.aspx?ID=64';
 
-const sources = (...input: readonly unknown[]): readonly SourceRef[] => input.map((source) => SourceRef.parse(source));
+const sources = (...input: ReadonlyArray<unknown>): ReadonlyArray<SourceRef> =>
+  input.map((source) => SourceRef.parse(source));
 
 type SourceLineStory = StoryObj<SourceLineView>;
 

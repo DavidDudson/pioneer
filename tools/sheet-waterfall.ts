@@ -60,7 +60,7 @@ if (databaseUrl === undefined) {
 const db = new SQL(databaseUrl);
 
 interface Timed {
-  readonly rows: readonly WaterfallRow[];
+  readonly rows: ReadonlyArray<WaterfallRow>;
   readonly marks: Readonly<Record<string, number>>;
 }
 
@@ -96,8 +96,8 @@ const cookie = await signIn(api);
 const characterId = values.character ?? (await createCharacter({ api, cookie }, db, 'Sheet Waterfall'));
 const [cookieName, cookieValue] = cookie.split('=');
 const browser = await chromium.launch();
-const cold: SheetLoad[] = [];
-const warm: SheetLoad[] = [];
+const cold: Array<SheetLoad> = [];
+const warm: Array<SheetLoad> = [];
 
 for (let run = 0; run < runs; run += 1) {
   // A new context each run is what makes the load cold: it has no HTTP cache and no IndexedDB.

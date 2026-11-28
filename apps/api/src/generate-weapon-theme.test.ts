@@ -46,7 +46,7 @@ function featPick(name: string): ChoiceValue {
 }
 
 /** The weapons on sale of `theme`'s group. */
-function fittingOf(theme: WeaponTheme): readonly ItemEntry[] {
+function fittingOf(theme: WeaponTheme): ReadonlyArray<ItemEntry> {
   return [...items.values()].filter((entry) => entry.kind === ContentKind.Weapon && entry.data.group === theme.group);
 }
 
@@ -67,7 +67,7 @@ function generated(seed: number, weapon: WeaponTheme): Character {
 }
 
 /** The weapons the character holds, as their content. */
-function heldWeapons(character: Character): readonly WeaponGroup[] {
+function heldWeapons(character: Character): ReadonlyArray<WeaponGroup> {
   return character.document.inventory.items
     .filter((line) => line.carry.state === 'held')
     .flatMap((line) => {

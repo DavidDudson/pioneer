@@ -28,7 +28,7 @@ export function kitContent(registry: ContentRegistry): KitContent {
 }
 
 /** Every item content a kit names: what it holds, and what its containers hold. */
-function kitItemIds({ items }: KitData): readonly ContentId[] {
+function kitItemIds({ items }: KitData): ReadonlyArray<ContentId> {
   return items.flatMap(({ item, contents = [] }) => [item, ...contents.map((inner) => inner.item)]);
 }
 
@@ -41,7 +41,7 @@ export function kitItems(
   kit: KitData,
   container: InventoryItemId | undefined,
   newItemId: () => InventoryItemId,
-): readonly NewItem[] {
+): ReadonlyArray<NewItem> {
   return kit.items.flatMap(({ item, quantity, contents = [] }) => {
     const id = newItemId();
 

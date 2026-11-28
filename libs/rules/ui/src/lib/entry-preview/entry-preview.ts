@@ -32,7 +32,7 @@ export interface PreviewEffect {
   /** The sense's name ("Darkvision") on a sense line; the view shows the id when the caller has no name. */
   readonly sense?: string;
   /** The names of the traits a weakness or resistance makes exceptions for, in the line's order. */
-  readonly exceptions?: readonly string[];
+  readonly exceptions?: ReadonlyArray<string>;
 }
 
 /** An entry the character has that eases a condition: a spell it knows, a feat it took, a consumable it carries. */
@@ -58,7 +58,7 @@ export interface PreviewEnding {
   /** Set when the DC adds the condition's value to its base, so the card can work it out at a value a mention names. */
   readonly dcByValue?: true;
   /** The statistics the character may roll for the check, as it has them; empty for a flat check or no check. */
-  readonly against: readonly PreviewEndingStatistic[];
+  readonly against: ReadonlyArray<PreviewEndingStatistic>;
   /** The action that ends it, which anyone can take; absent where the ending names none. */
   readonly action?: PreviewEndingSource;
 }
@@ -96,7 +96,7 @@ export interface PreviewRanks {
    * What the spell would do to the character cast at `rank`; absent when the preview is not for a character, as
    * `effects` is.
    */
-  readonly effects?: (rank: SpellRank) => readonly PreviewEffect[];
+  readonly effects?: (rank: SpellRank) => ReadonlyArray<PreviewEffect>;
 }
 
 /** What a preview shows of an entry: enough to recognise it without leaving the page. */
@@ -105,10 +105,10 @@ export interface EntryPreview {
   /** An item's or feat's level; a creature's is a character-level brand. */
   readonly level: ContentLevel | Level | undefined;
   /** The slugs of the entry's traits; each chip names itself from the trait's own entry. */
-  readonly traits: readonly Trait[];
+  readonly traits: ReadonlyArray<Trait>;
   /** The start of the entry's description, clamped by the preview. */
   readonly summary: RichText;
-  readonly sources: readonly SourceRef[];
+  readonly sources: ReadonlyArray<SourceRef>;
   /** The value of a valued condition the character has (frightened 2), shown beside the name. */
   readonly value?: ConditionValue;
   /** Set for a condition that carries a value, so a mention that names one (frightened 2) can show the card at it. */
@@ -117,13 +117,13 @@ export interface EntryPreview {
    * What the entry would do to the character, or is doing, with its value applied. Absent when the preview is not
    * for a character (the public browser); empty when it changes nothing.
    */
-  readonly effects?: readonly PreviewEffect[];
+  readonly effects?: ReadonlyArray<PreviewEffect>;
   /** What each value of a valued condition means: its stages, or the rule that scales with the value. */
   readonly values?: ConditionValues;
   /** How a condition the character has ends or eases, with what the character has to do it. */
-  readonly endings?: readonly PreviewEnding[];
+  readonly endings?: ReadonlyArray<PreviewEnding>;
   /** What the character has that ends or eases a condition it holds, with whether it can use it now. */
-  readonly easeOptions?: readonly PreviewEaseOption[];
+  readonly easeOptions?: ReadonlyArray<PreviewEaseOption>;
   /** A spell's ranks, shown as a pick of the rank to cast it at in place of `effects`. */
   readonly ranks?: PreviewRanks;
   /** A creature's stat block, shown in place of the generic card. */

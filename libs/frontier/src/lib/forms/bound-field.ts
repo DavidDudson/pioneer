@@ -13,7 +13,7 @@ export abstract class BoundField {
   /** An explicit message; wins over validation errors. */
   public readonly error = input<string | undefined>(undefined);
   /** Bound by signal forms through `[formField]`. */
-  public readonly errors = input<readonly ValidationError.WithOptionalFieldTree[]>([]);
+  public readonly errors = input<ReadonlyArray<ValidationError.WithOptionalFieldTree>>([]);
   public readonly touched = input(false, { transform: booleanAttribute });
   public readonly disabled = input(false, { transform: booleanAttribute });
   public readonly hideLabel = input(false, { transform: booleanAttribute });

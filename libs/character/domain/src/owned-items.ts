@@ -35,7 +35,7 @@ export function itemSlugs(inventory: Inventory, content: ItemContent): ReadonlyM
 }
 
 /** What a predicate over `item:` can read of an owned item: its kind, slug, traits, weapon group, base and reach. */
-function optionsOf(entry: ItemEntry, equipped: boolean): readonly RollOptionTail[] {
+function optionsOf(entry: ItemEntry, equipped: boolean): ReadonlyArray<RollOptionTail> {
   const weapon =
     entry.kind === ContentKind.Weapon
       ? [
@@ -56,10 +56,10 @@ function optionsOf(entry: ItemEntry, equipped: boolean): readonly RollOptionTail
 }
 
 /** The items the character owns, as a `ChoiceSet` over them reads them: each line with the slug a pick names it by. */
-export function ownedItems(inventory: Inventory, content: ItemContent): readonly OwnedItem[] {
+export function ownedItems(inventory: Inventory, content: ItemContent): ReadonlyArray<OwnedItem> {
   const slugs = itemSlugs(inventory, content);
 
-  return inventory.items.flatMap((line): OwnedItem[] => {
+  return inventory.items.flatMap((line): Array<OwnedItem> => {
     const entry = content.get(line.item);
     const slug = slugs.get(line.id);
 
@@ -79,13 +79,13 @@ export function ownedItems(inventory: Inventory, content: ItemContent): readonly
 }
 
 /** The flags of the `ChoiceSet`s over owned items that picked each item, by the item's slug (ADR-0075). */
-export type PickedItems = ReadonlyMap<Slug, readonly RuleSlug[]>;
+export type PickedItems = ReadonlyMap<Slug, ReadonlyArray<RuleSlug>>;
 
 export const NO_PICKED_ITEMS: PickedItems = new Map();
 
 /** Which items the character's answered `ChoiceSet`s over owned items picked, and under which flags. */
 export function pickedItems(resolution: GrantResolution, lookup: ContentLookup): PickedItems {
-  const picked = new Map<Slug, RuleSlug[]>();
+  const picked = new Map<Slug, Array<RuleSlug>>();
 
   for (const { pick, flag, origin, rule } of resolution.answered) {
     const element = lookup.entry(origin.entry)?.rules[rule];

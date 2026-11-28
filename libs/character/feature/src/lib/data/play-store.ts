@@ -43,11 +43,11 @@ export class PlayStore {
   }
 
   /** A turn-cycle edit, as `send` makes it, answering with what the turn boundary did, in order. */
-  public async sendTurn(command: TurnCommand): Promise<readonly TurnEvent[]> {
+  public async sendTurn(command: TurnCommand): Promise<ReadonlyArray<TurnEvent>> {
     return this.#patch(command);
   }
 
-  async #patch(command: PlayEdit): Promise<readonly TurnEvent[]> {
+  async #patch(command: PlayEdit): Promise<ReadonlyArray<TurnEvent>> {
     const id = this.#id();
     // The cache, not the signal: the signal catches up a tick after an edit.
     // A second edit straight after the first must carry the revision the first one saved.

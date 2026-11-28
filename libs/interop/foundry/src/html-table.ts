@@ -11,14 +11,14 @@ import type { ChildNode, Element } from 'domhandler';
  * has no place for it, and a place to report attributes.
  */
 export interface TableContext {
-  readonly inline: (nodes: readonly ChildNode[]) => InlineContent;
-  readonly blocks: (nodes: readonly ChildNode[]) => BlockNode[];
+  readonly inline: (nodes: ReadonlyArray<ChildNode>) => InlineContent;
+  readonly blocks: (nodes: ReadonlyArray<ChildNode>) => Array<BlockNode>;
   readonly report: (element: Element) => void;
 }
 
 /** A table being read, and what was found in it outside its captions, rows and cells. */
 interface Reader extends TableContext {
-  readonly strays: ChildNode[];
+  readonly strays: Array<ChildNode>;
 }
 
 const LABEL_MAX = InlineLabel.maxLength ?? Number.POSITIVE_INFINITY;
@@ -32,7 +32,7 @@ const HEAD = 'thead';
 const HEADING_CELL = 'th';
 
 interface Row {
-  readonly cells: readonly InlineContent[];
+  readonly cells: ReadonlyArray<InlineContent>;
   /** In `thead`, or every cell a `th`. */
   readonly heading: boolean;
 }
@@ -45,7 +45,7 @@ interface Caption {
   readonly paragraph?: BlockNode;
 }
 
-function childElements(element: Element, names: ReadonlySet<string>, context: TableContext): Element[] {
+function childElements(element: Element, names: ReadonlySet<string>, context: TableContext): Array<Element> {
   const children = element.children.filter((child): child is Element => isTag(child) && names.has(child.name));
 
   for (const child of children) {
@@ -77,7 +77,7 @@ function rowOf(row: Element, group: string, context: Reader): Row {
 }
 
 /** Rows in document order, whether in a row group or directly in the table. */
-function rowsOf(table: Element, context: Reader): Row[] {
+function rowsOf(table: Element, context: Reader): Array<Row> {
   collectStrays(table, TABLE_PARTS, context);
 
   return childElements(table, ROW_PARTS, context)
@@ -94,7 +94,7 @@ function rowsOf(table: Element, context: Reader): Row[] {
 }
 
 function captionOf(table: Element, context: TableContext): Caption {
-  const content: InlineNode[] = [];
+  const content: Array<InlineNode> = [];
 
   for (const caption of childElements(table, CAPTION, context)) {
     const line = context.inline(caption.children);
@@ -122,7 +122,7 @@ function captionOf(table: Element, context: TableContext): Caption {
  * The first row is the header when it is in `thead` or all `th` and rows follow it; a table with no cells is dropped.
  * Content the table has no place for follows it, each piece a block of its own; a caption with no rows is a paragraph.
  */
-export function tableOf(table: Element, context: TableContext): BlockNode[] {
+export function tableOf(table: Element, context: TableContext): Array<BlockNode> {
   const reader: Reader = { ...context, strays: [] };
   const caption = captionOf(table, reader);
   const rows = rowsOf(table, reader);
@@ -131,7 +131,7 @@ export function tableOf(table: Element, context: TableContext): BlockNode[] {
   const [first, ...rest] = rows;
 
   if (first === undefined) {
-    const captionOnly: BlockNode[] =
+    const captionOnly: Array<BlockNode> =
       caption.content.length === 0 ? [] : [{ type: BlockKind.Paragraph, content: caption.content }];
 
     return [...captionOnly, ...after];

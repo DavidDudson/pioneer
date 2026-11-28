@@ -6,7 +6,7 @@ import type { RollResult } from './roll';
 import { scriptedRandom } from './testing';
 import { DiceExpressionText, DieFace, RollTotal } from './units';
 
-function roll(text: string, faces: readonly number[]): RollResult {
+function roll(text: string, faces: ReadonlyArray<number>): RollResult {
   const outcome = parseDiceExpression(DiceExpressionText.parse(text));
 
   if (!outcome.ok) {

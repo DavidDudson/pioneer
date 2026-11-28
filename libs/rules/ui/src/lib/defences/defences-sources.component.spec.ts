@@ -6,7 +6,10 @@ import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing'
 import { DefencesView } from './defences.component';
 
 /** The weakness and resistance lines as read, in page order. */
-async function lines(kind: 'weaknesses' | 'resistances', type: 'area-damage' | 'splash-damage'): Promise<string[]> {
+async function lines(
+  kind: 'weaknesses' | 'resistances',
+  type: 'area-damage' | 'splash-damage',
+): Promise<Array<string>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(DefencesView);
   fixture.componentRef.setInput('defences', { ...NO_DEFENCES, [kind]: [adjustment(GOLEM_FORM, type, { value: 5 })] });

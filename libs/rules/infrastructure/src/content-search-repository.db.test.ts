@@ -33,7 +33,7 @@ const at = '2026-10-10T10:00:00Z';
 
 /** A search result as plain text and numbers, so a test compares it with what it expects. */
 interface Found {
-  readonly ids: readonly string[];
+  readonly ids: ReadonlyArray<string>;
   readonly total: number;
 }
 
@@ -48,7 +48,7 @@ function language(slug: string, name: string, text?: string): Language {
 }
 
 /** The ids of the pack's entries at `indexes`, in that order; the tests only ask for entries they wrote. */
-function idsAt(contents: PackContents, ...indexes: readonly number[]): readonly string[] {
+function idsAt(contents: PackContents, ...indexes: ReadonlyArray<number>): ReadonlyArray<string> {
   return indexes.map((index) => {
     const entry = contents.entries[index];
 

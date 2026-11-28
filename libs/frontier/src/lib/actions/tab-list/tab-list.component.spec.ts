@@ -6,7 +6,7 @@ import { TabListHost } from '../../testing/tab-list-host';
 
 interface Rendered {
   readonly fixture: ComponentFixture<TabListHost>;
-  readonly tabs: readonly HTMLButtonElement[];
+  readonly tabs: ReadonlyArray<HTMLButtonElement>;
 }
 
 async function render(): Promise<Rendered> {

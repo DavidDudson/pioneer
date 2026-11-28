@@ -45,30 +45,32 @@ export class ItemAcknowledge {
   );
 
   /** The rules the item breaks that no acknowledgement covers. */
-  protected readonly open: Signal<readonly AcknowledgeItemBody[]> = computed((): readonly AcknowledgeItemBody[] => {
-    const registry = this.#items.data();
-    const character = this.#store.selected();
+  protected readonly open: Signal<ReadonlyArray<AcknowledgeItemBody>> = computed(
+    (): ReadonlyArray<AcknowledgeItemBody> => {
+      const registry = this.#items.data();
+      const character = this.#store.selected();
 
-    if (!this.acknowledgeable() || registry === undefined || character === undefined) {
-      return [];
-    }
+      if (!this.acknowledgeable() || registry === undefined || character === undefined) {
+        return [];
+      }
 
-    const { limits, approvals } = this.#rules.rules();
-    const content = { items: itemContent(registry), runes: runeContent(registry) };
-    const { open } = partitionApproved(inventoryViolations(character.document.inventory, content, limits), approvals);
+      const { limits, approvals } = this.#rules.rules();
+      const content = { items: itemContent(registry), runes: runeContent(registry) };
+      const { open } = partitionApproved(inventoryViolations(character.document.inventory, content, limits), approvals);
 
-    return open
-      .filter((violation) => violation.item === this.id())
-      .map((violation) => ({
-        item: violation.item,
-        rule: violation.rule,
-        rune: violation.rule === RuleBreak.RuneNotAllowed ? violation.rune : undefined,
-      }));
-  });
+      return open
+        .filter((violation) => violation.item === this.id())
+        .map((violation) => ({
+          item: violation.item,
+          rule: violation.rule,
+          rune: violation.rule === RuleBreak.RuneNotAllowed ? violation.rune : undefined,
+        }));
+    },
+  );
 
   /** The acknowledgements the owner made for the item. */
-  protected readonly acknowledged: Signal<readonly ItemAcknowledgementId[]> = computed(
-    (): readonly ItemAcknowledgementId[] =>
+  protected readonly acknowledged: Signal<ReadonlyArray<ItemAcknowledgementId>> = computed(
+    (): ReadonlyArray<ItemAcknowledgementId> =>
       this.acknowledgeable()
         ? this.#rules
             .rules()

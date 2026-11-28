@@ -7,13 +7,13 @@ import { renderProjected } from '../../testing/render-projected';
 import { Breadcrumbs } from './breadcrumbs.component';
 import type { BreadcrumbItem } from './breadcrumbs.component';
 
-const PATH: readonly BreadcrumbItem[] = [
+const PATH: ReadonlyArray<BreadcrumbItem> = [
   { label: 'Content Browser', to: '/content' },
   { label: 'Spells', to: '/content/spells' },
   { label: 'Fireball' },
 ];
 
-const render = async (items: readonly BreadcrumbItem[] = PATH): Promise<HTMLElement> =>
+const render = async (items: ReadonlyArray<BreadcrumbItem> = PATH): Promise<HTMLElement> =>
   renderProjected(Breadcrumbs, { label: 'Breadcrumb', items }, []);
 
 describe(Breadcrumbs, () => {

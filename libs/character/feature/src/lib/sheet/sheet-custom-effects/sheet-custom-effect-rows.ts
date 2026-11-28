@@ -21,14 +21,14 @@ interface CustomEffectToggleRow {
 /** A custom effect in the list: whether it is on, its lines, who added it, and the switches it has had. */
 export interface CustomEffectRow {
   readonly effect: CustomEffect;
-  readonly lines: readonly CustomEffectLineRow[];
+  readonly lines: ReadonlyArray<CustomEffectLineRow>;
   /** Who added it; undefined when the server could not name them. */
   readonly author: string | undefined;
   readonly at: Temporal.Instant;
   /** The GM of the character's campaign added it, so the player can switch it but not remove it. */
   readonly gm: boolean;
   /** The switches, newest first. */
-  readonly history: readonly CustomEffectToggleRow[];
+  readonly history: ReadonlyArray<CustomEffectToggleRow>;
 }
 
 /** What a row needs to word an effect; the caller owns the locale and the messages. */
@@ -38,7 +38,7 @@ export interface CustomEffectWords {
 }
 
 /** The character's custom effects in force, on or off, in the order they were added. */
-export function customEffectRows(character: Character, words: CustomEffectWords): readonly CustomEffectRow[] {
+export function customEffectRows(character: Character, words: CustomEffectWords): ReadonlyArray<CustomEffectRow> {
   return activeCustomEffects(character.document).map((effect) => ({
     effect,
     lines: effect.lines.map((line) => words.line(line)),

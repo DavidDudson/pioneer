@@ -108,7 +108,7 @@ export function economyConditions(registry: ContentRegistry): EconomyConditions 
 }
 
 /** What a condition of `id` adds up to among `conditions`: its highest value, 1 for one with no value, 0 for none. */
-function strongest(conditions: readonly ActiveCondition[], id: ContentId | undefined): ActionCount {
+function strongest(conditions: ReadonlyArray<ActiveCondition>, id: ContentId | undefined): ActionCount {
   const values = conditions
     .values()
     .filter(({ condition }) => condition === id)
@@ -121,19 +121,19 @@ function strongest(conditions: readonly ActiveCondition[], id: ContentId | undef
 /** The turn a Start turn leaves, the conditions it leaves, and what it did to them. */
 export interface Refill {
   readonly turn: TurnState;
-  readonly conditions: readonly ActiveCondition[];
-  readonly events: readonly TurnEvent[];
+  readonly conditions: ReadonlyArray<ActiveCondition>;
+  readonly events: ReadonlyArray<TurnEvent>;
 }
 
 /** Stunned `lost` lower, or end when nothing is left; a stunned condition with no value (a duration) only costs actions. */
 function stunnedAfter(
-  conditions: readonly ActiveCondition[],
+  conditions: ReadonlyArray<ActiveCondition>,
   stunned: ContentId | undefined,
   lost: ActionCount,
 ): Pick<Refill, 'conditions' | 'events'> {
-  const events: TurnEvent[] = [];
+  const events: Array<TurnEvent> = [];
 
-  const kept = conditions.flatMap((each): ActiveCondition[] => {
+  const kept = conditions.flatMap((each): Array<ActiveCondition> => {
     if (each.condition !== stunned || each.value === undefined || lost === NONE) {
       return [each];
     }
@@ -177,9 +177,9 @@ function restrictionOf(
  * (quickstrike), the first of which gives the extra action when no quickened condition does.
  */
 export function refilled(
-  conditions: readonly ActiveCondition[],
+  conditions: ReadonlyArray<ActiveCondition>,
   economy: EconomyConditions,
-  granted: readonly InventoryItemId[] = [],
+  granted: ReadonlyArray<InventoryItemId> = [],
 ): Refill {
   const quicker = conditions.find(({ condition }) => condition === economy.quickened);
   const slowed = strongest(conditions, economy.slowed);

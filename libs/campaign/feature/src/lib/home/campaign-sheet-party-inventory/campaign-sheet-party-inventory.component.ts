@@ -69,7 +69,7 @@ export class CampaignSheetPartyInventory {
   /** The character that takes from the stash and puts into it. */
   public readonly character = input.required<string>();
   /** The character's lines that may be put in the stash. */
-  public readonly lines = input.required<readonly DepositableLine[]>();
+  public readonly lines = input.required<ReadonlyArray<DepositableLine>>();
 
   readonly #api = inject(ApiClient);
   readonly #client = inject(QueryClient);
@@ -99,7 +99,7 @@ export class CampaignSheetPartyInventory {
   );
 
   /** The lines whose name holds the search typed. */
-  protected readonly rows = computed((): readonly DepositableLine[] => {
+  protected readonly rows = computed((): ReadonlyArray<DepositableLine> => {
     const needle = this.query().trim().toLocaleLowerCase();
 
     return this.lines().filter((each) => each.name.toLocaleLowerCase().includes(needle));

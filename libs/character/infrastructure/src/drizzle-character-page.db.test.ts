@@ -79,7 +79,7 @@ describe.skipIf(adminUrl === undefined)('a page of the character list (postgres)
     return found;
   }
 
-  async function namesOf(query: JsonObject): Promise<readonly string[]> {
+  async function namesOf(query: JsonObject): Promise<ReadonlyArray<string>> {
     const page = await repository.pageForOwner(pageOwnerId, CharacterPageQuery.parse({ sort: 'name', ...query }));
 
     return page.items.map((character) => character.name);

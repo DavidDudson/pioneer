@@ -4,7 +4,7 @@ import { DRUID, DRUID_ENTRY, focusChoice } from './focus-plan';
 import type { Grant, Planned } from './focus-plan';
 
 /** A druid's order by its feature's slug, its name and its order spell. */
-export const ORDERS: readonly (readonly [string, string, string])[] = [
+export const ORDERS: ReadonlyArray<readonly [string, string, string]> = [
   ['animal-order', 'Animal Order', 'heal-animal'],
   ['leaf-order', 'Leaf Order', 'cornucopia'],
   ['storm-order', 'Storm Order', 'tempest-surge'],

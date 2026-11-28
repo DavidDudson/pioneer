@@ -22,7 +22,7 @@ interface SectionEntry {
   readonly label: string;
 }
 
-const SECTIONS: readonly SectionEntry[] = [
+const SECTIONS: ReadonlyArray<SectionEntry> = [
   { anchor: 'story-identity', label: 'Identity' },
   { anchor: 'story-attributes', label: 'Attributes' },
   { anchor: 'story-defences', label: 'Defences' },

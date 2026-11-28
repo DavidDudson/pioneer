@@ -60,7 +60,7 @@ interface SignToken extends TokenBase {
 
 interface TagsToken extends TokenBase {
   readonly kind: typeof TokenKind.Tags;
-  readonly tags: readonly Tag[];
+  readonly tags: ReadonlyArray<Tag>;
 }
 
 export type Token = NumberToken | DieToken | KeepToken | SignToken | TagsToken;
@@ -79,7 +79,7 @@ const after = (position: TextPosition, characters: Lexeme): TextPosition =>
   TextPosition.parse(position + characters.length);
 
 /** `[persistent, fire]` at `position` → its tags with their own positions. */
-function tagsIn(bracketed: Lexeme, position: TextPosition): Tag[] {
+function tagsIn(bracketed: Lexeme, position: TextPosition): Array<Tag> {
   let next = after(position, TAG_OPEN);
 
   return bracketed
@@ -127,8 +127,8 @@ function tokenFrom(match: RegExpExecArray): Token {
 }
 
 /** Splits expression text into tokens, or throws a {@link DiceSyntaxError} at the first character that fits none. */
-export function tokenize(text: DiceExpressionText): Token[] {
-  const tokens: Token[] = [];
+export function tokenize(text: DiceExpressionText): Array<Token> {
+  const tokens: Array<Token> = [];
   // A failed sticky match resets `lastIndex` to 0, so track where the last token ended.
   let end = 0;
   TOKEN.lastIndex = end;

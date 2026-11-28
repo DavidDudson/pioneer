@@ -28,7 +28,7 @@ registry.register(DEDICATION_FIXTURES);
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 /** A character at `level` with each feat picked in the archetype slot of its position, the first at 1st level. */
-function taking(level: number, ...feats: readonly DedicationFixture[]): Character {
+function taking(level: number, ...feats: ReadonlyArray<DedicationFixture>): Character {
   let builder = new CharacterBuilder().picking('class', DEDICATION_CLASS).atLevel(level);
 
   for (const [index, feat] of feats.entries()) {

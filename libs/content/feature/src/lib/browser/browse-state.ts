@@ -7,7 +7,7 @@ import { BROWSE_KINDS, DEFAULT_KINDS, facetsOf } from './browse-kinds';
 import type { BrowseKind } from './browse-kinds';
 
 /** The kinds a state lists: the ones the browser has, in its order, or the default when it names none. */
-export function listedKinds(kinds: readonly ContentKind[]): readonly BrowseKind[] {
+export function listedKinds(kinds: ReadonlyArray<ContentKind>): ReadonlyArray<BrowseKind> {
   const named = BROWSE_KINDS.filter((kind) => kinds.includes(kind));
 
   return named.length === 0 ? DEFAULT_KINDS : named;
@@ -21,7 +21,7 @@ export function refOf(entry: ContentEntry): ContentEntryRef {
 /**
  * The kinds to load for a state: those listed, a picked entry's own and referenced kinds, and traits for chip names.
  */
-export function kindsToLoad(state: ContentBrowserState): readonly ContentKind[] {
+export function kindsToLoad(state: ContentBrowserState): ReadonlyArray<ContentKind> {
   const listed = listedKinds(state.kinds);
   const wanted = state.selected === undefined ? listed : [...listed, ...entryKinds(state.selected.kind)];
 

@@ -26,7 +26,7 @@ const LEVEL_PREFIX = 'self:level';
 /** Where each attribute modifier is written: `attribute:str:mod:2`. */
 const ATTRIBUTE_PREFIX = 'attribute';
 
-const ATTRIBUTES: readonly Attribute[] = Object.values(Attribute);
+const ATTRIBUTES: ReadonlyArray<Attribute> = Object.values(Attribute);
 
 /** Where each of the character's traits is written: `self:trait:humanoid`, `self:trait:holy`. */
 const TRAIT_PREFIX = 'self:trait';
@@ -77,16 +77,16 @@ const KIND_NAMESPACES: Readonly<Record<ContentKind, RollOptionNamespace | undefi
 /** What the facts of one round are built from, apart from the situation. */
 export interface FactState {
   /** Sorted, each once. */
-  readonly options: readonly RollOption[];
+  readonly options: ReadonlyArray<RollOption>;
   /** The namespaces the character's `ChoiceSet`s write their picks to, known rather than situational. Sorted. */
-  readonly known: readonly RollOptionNamespace[];
+  readonly known: ReadonlyArray<RollOptionNamespace>;
 }
 
 /** What one walk's set says of the character, and who said it. */
 export interface CharacterFacts extends FactState {
   /** The entries that set each option; none for the level. */
-  readonly setBy: ReadonlyMap<RollOption, readonly ContentId[]>;
-  readonly toggles: readonly ToggleSlot[];
+  readonly setBy: ReadonlyMap<RollOption, ReadonlyArray<ContentId>>;
+  readonly toggles: ReadonlyArray<ToggleSlot>;
 }
 
 /** What deriving a round's facts reads besides the walk. */
@@ -95,26 +95,26 @@ export interface FactSources {
   /** The character's attribute modifiers, an input; undefined for a set read without them. */
   readonly attributes?: AttributeModifiers | undefined;
   /** The kinds of companion the character has live (ADR-0079). */
-  readonly companions?: readonly CompanionKind[] | undefined;
+  readonly companions?: ReadonlyArray<CompanionKind> | undefined;
   /** The facts the walk was tested against, for `RollOption` predicates. */
   readonly facts: PredicateFacts;
   readonly toggles: ToggleStates;
 }
 
 /** `self:level:<level>`. A negative level (a creature's) cannot be written as a roll option, so it sets none. */
-function levelOptions(level: Level): RollOption[] {
+function levelOptions(level: Level): Array<RollOption> {
   const option = optionOf(LEVEL_PREFIX, String(level));
 
   return option === undefined ? [] : [option];
 }
 
 /** `self:companion:<kind>` for each kind of companion the character has live. */
-function companionOptions(companions: readonly CompanionKind[] | undefined): RollOption[] {
+function companionOptions(companions: ReadonlyArray<CompanionKind> | undefined): Array<RollOption> {
   return (companions ?? []).map((kind) => companionRollOption(kind));
 }
 
 /** The options the inputs alone set, before any rule does: level, attribute modifiers and live companions. */
-export function inputOptions(sources: Pick<FactSources, 'level' | 'attributes' | 'companions'>): RollOption[] {
+export function inputOptions(sources: Pick<FactSources, 'level' | 'attributes' | 'companions'>): Array<RollOption> {
   return [
     ...levelOptions(sources.level),
     ...attributeOptions(sources.attributes),
@@ -126,7 +126,7 @@ export function inputOptions(sources: Pick<FactSources, 'level' | 'attributes' |
  * `attribute:<attribute>:mod:<n>` for each modifier. A negative one can't be written as a roll option, and no
  * prerequisite asks for one, so it sets none: a minimum then reads as not met.
  */
-function attributeOptions(attributes: AttributeModifiers | undefined): RollOption[] {
+function attributeOptions(attributes: AttributeModifiers | undefined): Array<RollOption> {
   return ATTRIBUTES.flatMap((attribute) => {
     const modifier = attributes?.get(attribute);
 
@@ -150,7 +150,7 @@ export function kindOption(kind: ContentKind, slug: Slug): RollOption | undefine
 }
 
 /** The option `entry`'s kind sets for it, `feat:<slug>`; none for a kind that sets none. */
-function kindOptions(entry: GrantEntry): RollOption[] {
+function kindOptions(entry: GrantEntry): Array<RollOption> {
   const option = kindOption(entry.kind, entry.slug);
 
   return option === undefined ? [] : [option];
@@ -163,14 +163,14 @@ interface Valued {
 }
 
 /** The namespaces `entry`'s `ChoiceSet`s write their picks to. */
-function pickNamespaces(entry: GrantEntry): RollOptionNamespace[] {
-  return entry.rules.flatMap((element): RollOptionNamespace[] =>
+function pickNamespaces(entry: GrantEntry): Array<RollOptionNamespace> {
+  return entry.rules.flatMap((element): Array<RollOptionNamespace> =>
     element.key === RuleElementKey.ChoiceSet && element.rollOption !== undefined ? [element.rollOption] : [],
   );
 }
 
 /** Records that `by` (none for the level) sets `option`. */
-function tally(setBy: Map<RollOption, ContentId[]>, option: RollOption, by: ContentId | undefined): void {
+function tally(setBy: Map<RollOption, Array<ContentId>>, option: RollOption, by: ContentId | undefined): void {
   const setters = setBy.get(option) ?? [];
 
   if (by !== undefined && !setters.includes(by)) {
@@ -183,10 +183,10 @@ function tally(setBy: Map<RollOption, ContentId[]>, option: RollOption, by: Cont
 /** Gathers what the entries on the character say of it, each entry once. */
 class FactCollector {
   readonly #sources: FactSources;
-  readonly #setBy = new Map<RollOption, ContentId[]>();
+  readonly #setBy = new Map<RollOption, Array<ContentId>>();
   readonly #seen = new Set<ContentId>();
   readonly #known = new Set<RollOptionNamespace>();
-  readonly #toggles: ToggleSlot[] = [];
+  readonly #toggles: Array<ToggleSlot> = [];
   readonly #valued = new Map<RollOption, Valued>();
   /** The character's traits so far, each with the first entry that gave it; and those an `ActorTraits` removes. */
   readonly #traits = new Map<Trait, ContentId>();
@@ -233,7 +233,7 @@ class FactCollector {
 
   /** The traits an ancestry gives, and those the entry's `ActorTraits` elements add or remove while they hold. */
   #actorTraits(entry: GrantEntry): void {
-    const given = (traits: readonly Trait[], into: Map<Trait, ContentId>): void => {
+    const given = (traits: ReadonlyArray<Trait>, into: Map<Trait, ContentId>): void => {
       for (const trait of traits) {
         if (!into.has(trait)) {
           into.set(trait, entry.id);

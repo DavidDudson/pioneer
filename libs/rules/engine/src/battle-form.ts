@@ -44,7 +44,7 @@ const NO_SPEED = RuleNumber.parse(0);
  * Its brackets (heightened forms) join up to the spell rank of the item it sits on (`heightened`).
  */
 export function battleFormInPlay({ rules, facts }: ModifierInputs): FormInPlay | undefined {
-  const forms: FormInPlay[] = [];
+  const forms: Array<FormInPlay> = [];
 
   for (const rule of rules) {
     const { element } = rule;
@@ -118,7 +118,11 @@ function removedByForm({ modifier, status, value }: BreakdownLine, { checkPenalt
   return modifier.type === ModifierType.Item && value !== undefined && value > 0;
 }
 
-function withoutRemoved(lines: readonly BreakdownLine[], by: FormInPlay, replacement: Replacement): BreakdownLine[] {
+function withoutRemoved(
+  lines: ReadonlyArray<BreakdownLine>,
+  by: FormInPlay,
+  replacement: Replacement,
+): Array<BreakdownLine> {
   return lines.map((line) =>
     removedByForm(line, replacement)
       ? { ...line, status: { kind: LineStatusKind.Suppressed, by: by.id, reason: SuppressionReason.Form } }
@@ -179,7 +183,7 @@ function replaced(
 }
 
 /** The form's value plus the lines that still apply; undefined when it leaves the safe integer range. */
-function appliedTotal(base: FormulaValue, lines: readonly BreakdownLine[]): FormulaValue | undefined {
+function appliedTotal(base: FormulaValue, lines: ReadonlyArray<BreakdownLine>): FormulaValue | undefined {
   let sum = 0;
 
   for (const { status, value } of lines) {
@@ -194,7 +198,7 @@ function appliedTotal(base: FormulaValue, lines: readonly BreakdownLine[]): Form
 interface Worked {
   readonly form: FormInPlay;
   readonly replacement: Replacement;
-  readonly lines: readonly BreakdownLine[];
+  readonly lines: ReadonlyArray<BreakdownLine>;
   readonly base: FormReplacement['base'];
   readonly value: FormReplacement['value'];
 }

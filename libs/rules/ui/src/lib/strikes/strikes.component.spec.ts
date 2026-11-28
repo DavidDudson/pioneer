@@ -25,7 +25,7 @@ function textOf(element: Element): string {
   return element.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
-async function render(strikes: readonly NamedStrike[] | undefined): Promise<ComponentFixture<StrikesView>> {
+async function render(strikes: ReadonlyArray<NamedStrike> | undefined): Promise<ComponentFixture<StrikesView>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(StrikesView);
   fixture.componentRef.setInput('strikes', strikes);
@@ -41,12 +41,12 @@ function hostOf(fixture: ComponentFixture<StrikesView>): HTMLElement {
 }
 
 /** The Strikes' rows, without the breakdowns' own list items. */
-function rowsOf(fixture: ComponentFixture<StrikesView>): Element[] {
+function rowsOf(fixture: ComponentFixture<StrikesView>): Array<Element> {
   return [...hostOf(fixture).querySelectorAll('pio-strike-row')];
 }
 
 /** Each row's summary: the name and attack modifier. */
-function summariesOf(fixture: ComponentFixture<StrikesView>): string[] {
+function summariesOf(fixture: ComponentFixture<StrikesView>): Array<string> {
   return [...hostOf(fixture).querySelectorAll('summary')].map((summary) => textOf(summary));
 }
 
@@ -176,7 +176,7 @@ describe(StrikesView, () => {
   });
 
   it('rolls a Strike attack from a button beside it, only where the page provides a roller', async () => {
-    const rolled: RollableStatistic[] = [];
+    const rolled: Array<RollableStatistic> = [];
     TestBed.configureTestingModule({
       providers: [
         provideRulesUiI18nTesting(),
@@ -215,8 +215,8 @@ interface Claim {
 }
 
 async function renderClaiming(
-  strikes: readonly NamedStrike[],
-  claims: Claim[] | undefined,
+  strikes: ReadonlyArray<NamedStrike>,
+  claims: Array<Claim> | undefined,
 ): Promise<ComponentFixture<StrikesView>> {
   const roller: StatisticRoller = {
     roll: () => undefined,
@@ -247,7 +247,7 @@ function toggleOf(fixture: ComponentFixture<StrikesView>): HTMLButtonElement {
 
 describe('StrikesView situations', () => {
   it('offers an attack line as a toggle that claims its situation for that Strike', async () => {
-    const claims: Claim[] = [];
+    const claims: Array<Claim> = [];
     const fixture = await renderClaiming(claimableStrike(false), claims);
 
     const toggle = toggleOf(fixture);
@@ -274,7 +274,7 @@ describe('StrikesView situations', () => {
   });
 
   it('lets go of a claimed situation when its toggle is flipped back', async () => {
-    const claims: Claim[] = [];
+    const claims: Array<Claim> = [];
     const fixture = await renderClaiming(claimableStrike(true), claims);
 
     toggleOf(fixture).click();

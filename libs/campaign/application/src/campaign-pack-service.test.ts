@@ -50,12 +50,12 @@ class RacingPackRepository extends InMemoryCampaignPackRepository {
 }
 
 /** The enabled packs' titles, in order, as plain strings. */
-function enabledTitles(packs: CampaignPacks): readonly string[] {
+function enabledTitles(packs: CampaignPacks): ReadonlyArray<string> {
   return packs.enabled.map((pack) => String(pack.title));
 }
 
 /** The candidates' titles, in order, as plain strings. */
-function candidateTitles(packs: CampaignPacks): readonly string[] {
+function candidateTitles(packs: CampaignPacks): ReadonlyArray<string> {
   return packs.candidates.map((pack) => String(pack.title));
 }
 

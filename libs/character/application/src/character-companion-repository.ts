@@ -23,7 +23,7 @@ export interface CompanionArchival {
  */
 export abstract class CharacterCompanionRepository {
   /** The character's live companions, then its archived ones newest first. */
-  public abstract listForCharacter(characterId: CharacterId): Promise<readonly Companion[]>;
+  public abstract listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<Companion>>;
 
   /**
    * Insert `companion`. Throws `ConflictError` while the character holds a live companion of its kind, and

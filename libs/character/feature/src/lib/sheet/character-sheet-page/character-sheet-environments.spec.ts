@@ -22,7 +22,7 @@ const NO_SPEECH = "You can't speak underwater.";
 const openSheet = openerAt(SheetMode.Exploration, 'environments');
 
 /** The play state of a full-health character in `environments`, at `revision`. */
-function playIn(environments: readonly string[], revision = 1): JsonObject {
+function playIn(environments: ReadonlyArray<string>, revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, environments } };
 }
 

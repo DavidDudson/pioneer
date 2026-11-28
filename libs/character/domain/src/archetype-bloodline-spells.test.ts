@@ -39,7 +39,7 @@ for (const spell of [INITIAL, ADVANCED, CLAWS]) {
 
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
 
-const focusEntry = (tradition: string, predicate: readonly JsonValue[]): JsonObject => ({
+const focusEntry = (tradition: string, predicate: ReadonlyArray<JsonValue>): JsonObject => ({
   key: 'SpellcastingEntry',
   slug: 'sorcerer-focus',
   tradition,
@@ -48,7 +48,7 @@ const focusEntry = (tradition: string, predicate: readonly JsonValue[]): JsonObj
   predicate,
 });
 
-const focusSpells = (spell: string, predicate: readonly JsonValue[]): JsonObject => ({
+const focusSpells = (spell: string, predicate: ReadonlyArray<JsonValue>): JsonObject => ({
   key: 'FocusSpells',
   entry: 'sorcerer-focus',
   spells: [spellId(spell)],
@@ -119,7 +119,7 @@ function character(name: string, bloodline = 'demonic'): CharacterBuilder {
     .picking(`${DEDICATION}:0`, bloodline);
 }
 
-function spellsOf(builder: CharacterBuilder): string[] {
+function spellsOf(builder: CharacterBuilder): Array<string> {
   return focusOf(builder).entries.flatMap(({ spells }) => spells.map(({ id }) => String(id)));
 }
 

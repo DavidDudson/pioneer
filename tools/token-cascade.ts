@@ -10,7 +10,7 @@ import type { Rule } from 'postcss';
 
 /** Custom properties set by one `:root…` rule. */
 export interface TokenRule {
-  readonly conditions: readonly AttributeCondition[];
+  readonly conditions: ReadonlyArray<AttributeCondition>;
   readonly specificity: number;
   readonly declarations: ReadonlyMap<string, string>;
 }
@@ -27,7 +27,7 @@ const ROOT = ':root';
 const CONDITION = /(?<not>:not\()?\[(?<name>[\w-]+)=['"]?(?<value>[\w-]+)['"]?\]\)?/gu;
 
 /** The attribute conditions of `:root[…]:not([…])`, or undefined for any other selector. */
-function parseRootSelector(selector: string): readonly AttributeCondition[] | undefined {
+function parseRootSelector(selector: string): ReadonlyArray<AttributeCondition> | undefined {
   const compact = selector.trim();
 
   if (!compact.startsWith(ROOT)) {
@@ -64,7 +64,7 @@ function ownDeclarations(rule: Rule): Map<string, string> {
 }
 
 /** One rule's token rules, or none when it sets no custom properties. */
-function tokenRulesOf(rule: Rule): TokenRule[] {
+function tokenRulesOf(rule: Rule): Array<TokenRule> {
   const declarations = ownDeclarations(rule);
 
   if (declarations.size === 0) {
@@ -92,9 +92,9 @@ function tokenRulesOf(rule: Rule): TokenRule[] {
  * selector, a combinator, nesting, inside `@media` or `@layer`) throws: skipping it would let the check
  * measure tokens the browser never uses.
  */
-export function parseTokenRules(stylesheets: readonly string[]): TokenRule[] {
+export function parseTokenRules(stylesheets: ReadonlyArray<string>): Array<TokenRule> {
   return stylesheets.flatMap((css) => {
-    const rules: TokenRule[] = [];
+    const rules: Array<TokenRule> = [];
     parse(css).walkRules((rule) => {
       rules.push(...tokenRulesOf(rule));
     });
@@ -108,7 +108,7 @@ function matches(rule: TokenRule, attributes: Attributes): boolean {
 }
 
 /** The custom properties `<html>` ends up with for these attributes. */
-export function cascade(rules: readonly TokenRule[], attributes: Attributes): ReadonlyMap<string, string> {
+export function cascade(rules: ReadonlyArray<TokenRule>, attributes: Attributes): ReadonlyMap<string, string> {
   const applied = rules
     .values()
     .map((rule, order) => ({ rule, order }))
@@ -130,7 +130,11 @@ export function cascade(rules: readonly TokenRule[], attributes: Attributes): Re
 const VAR_OPEN = 'var(';
 
 /** A token's value with every `var()` substituted. Throws on an undefined token or a cycle. */
-export function resolveToken(tokens: ReadonlyMap<string, string>, name: string, seen: readonly string[] = []): string {
+export function resolveToken(
+  tokens: ReadonlyMap<string, string>,
+  name: string,
+  seen: ReadonlyArray<string> = [],
+): string {
   if (seen.includes(name)) {
     throw new Error(`${[...seen, name].join(' -> ')} is a cycle`);
   }
@@ -196,7 +200,7 @@ function scanArguments(value: string, from: number): ArgumentScan {
 }
 
 /** Substitutes each `var()`; a fallback is read only when its token is undefined, as in CSS. */
-function substituteReferences(tokens: ReadonlyMap<string, string>, value: string, seen: readonly string[]): string {
+function substituteReferences(tokens: ReadonlyMap<string, string>, value: string, seen: ReadonlyArray<string>): string {
   const reference = findVarReference(value);
 
   if (reference === undefined) {

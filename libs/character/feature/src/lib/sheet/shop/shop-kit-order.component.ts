@@ -22,8 +22,8 @@ const ONE_KIT = ItemQuantity.parse(1);
 
 /** What the bill shows: the kit's price, the character's coins, and whether they cover it. */
 interface Bill {
-  readonly cost: readonly CoinCount[];
-  readonly coins: readonly CoinCount[];
+  readonly cost: ReadonlyArray<CoinCount>;
+  readonly coins: ReadonlyArray<CoinCount>;
   readonly affordable: boolean;
 }
 
@@ -58,10 +58,10 @@ export class ShopKitOrder {
   protected readonly reasonId: Signal<string> = computed(() => `pio-shop-kit-order-reason-${this.kit().id}`);
 
   /** What the kit holds, by the names content gives its items. */
-  protected readonly lines: Signal<readonly KitLine[]> = computed(() => {
+  protected readonly lines: Signal<ReadonlyArray<KitLine>> = computed(() => {
     const content = this.content();
 
-    const named = (item: ContentId, quantity: number, contents: readonly KitLine[]): KitLine => ({
+    const named = (item: ContentId, quantity: number, contents: ReadonlyArray<KitLine>): KitLine => ({
       item,
       name: content.get(item)?.name ?? item,
       quantity,

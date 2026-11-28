@@ -19,17 +19,17 @@ export interface CatalogPack {
  */
 export abstract class PackCatalog {
   /** Every official pack, by title: the ones every campaign has on. */
-  public abstract official(): Promise<readonly CatalogPack[]>;
+  public abstract official(): Promise<ReadonlyArray<CatalogPack>>;
 
   /** Every pack the user may read, official ones included, by title then id. */
-  public abstract readableBy(viewer: UserId): Promise<readonly CatalogPack[]>;
+  public abstract readableBy(viewer: UserId): Promise<ReadonlyArray<CatalogPack>>;
 
   /** These packs, whoever may read them; one that does not exist is left out. */
-  public abstract byIds(ids: readonly EnabledPackId[]): Promise<ReadonlyMap<EnabledPackId, CatalogPack>>;
+  public abstract byIds(ids: ReadonlyArray<EnabledPackId>): Promise<ReadonlyMap<EnabledPackId, CatalogPack>>;
 
   /**
    * The pack and every pack it extends, transitively, the pack last and each after the packs it extends. An unknown
    * pack is only itself.
    */
-  public abstract closure(id: EnabledPackId): Promise<readonly EnabledPackId[]>;
+  public abstract closure(id: EnabledPackId): Promise<ReadonlyArray<EnabledPackId>>;
 }

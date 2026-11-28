@@ -7,7 +7,7 @@ const ITEM = 'list/list-item/list-item.component.ts';
 const LIST_SPEC = 'list/list/list.component.spec.ts';
 const LIST_STORY = 'list/list/list.stories.ts';
 
-function tree(...files: string[]): Set<string> {
+function tree(...files: Array<string>): Set<string> {
   return new Set(files);
 }
 

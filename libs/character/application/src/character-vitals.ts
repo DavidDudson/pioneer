@@ -27,7 +27,7 @@ export interface Vitals {
   /** The dying value, 0 when not dying; a dead character is at the highest. */
   readonly dying: Dying;
   /** Its conditions, the death track's first (`dying`, `wounded`, `doomed`), each once at its highest value. */
-  readonly conditions: readonly VitalCondition[];
+  readonly conditions: ReadonlyArray<VitalCondition>;
 }
 
 const DEAD = Dying.parse(DEATH_VALUE_MAX);
@@ -49,7 +49,7 @@ export class CharacterVitals {
     const max = await maxHitPointsOf(this.#content, { character, play, registry });
     const dying = play.dead ? DEAD : play.dying;
 
-    const track: readonly (VitalCondition | undefined)[] = [
+    const track: ReadonlyArray<VitalCondition | undefined> = [
       dying > 0 ? { name: 'dying', value: dying } : undefined,
       play.wounded > 0 ? { name: 'wounded', value: play.wounded } : undefined,
       play.doomed > 0 ? { name: 'doomed', value: play.doomed } : undefined,
@@ -64,7 +64,7 @@ export class CharacterVitals {
 }
 
 /** The conditions in `listed` in the order first seen, each once at its highest value; the unnamed are left out. */
-function onceEach(listed: readonly (VitalCondition | undefined)[]): readonly VitalCondition[] {
+function onceEach(listed: ReadonlyArray<VitalCondition | undefined>): ReadonlyArray<VitalCondition> {
   const byName = new Map<string, VitalCondition>();
 
   for (const each of listed) {
@@ -86,7 +86,7 @@ function highest(left: number | undefined, right: number | undefined): number | 
 function activeConditions(
   registry: ContentRegistry,
   active: PlayState['conditions'],
-): readonly (VitalCondition | undefined)[] {
+): ReadonlyArray<VitalCondition | undefined> {
   if (active.length === 0) {
     return [];
   }

@@ -13,7 +13,7 @@ export interface RolledCheck {
   readonly check?: CheckNode | undefined;
   readonly expression: DiceExpression;
   readonly roll: FortunedRoll;
-  readonly reasons: readonly string[];
+  readonly reasons: ReadonlyArray<string>;
   /** The DC a check in text asked for; it stands in for the typed one until a DC is typed. */
   readonly dc: Dc | undefined;
   /** The damage a basic save scaled, when this is damage rolled after one; unset for any other roll. */
@@ -24,7 +24,7 @@ export interface RolledCheck {
 export interface CheckRoll {
   readonly name: string;
   readonly statistic: StatisticValue;
-  readonly reasons: readonly string[];
+  readonly reasons: ReadonlyArray<string>;
   readonly dc: Dc | undefined;
   readonly check?: CheckNode | undefined;
 }

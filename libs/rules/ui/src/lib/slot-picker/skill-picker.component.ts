@@ -27,7 +27,7 @@ import { shownSkillRows, skillPickerColumns, typedLoreRow } from './slot-picker-
 })
 export class SkillPicker {
   /** Every skill the slot offers, with the character's standing in it. */
-  public readonly rows = input.required<readonly SkillPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<SkillPickerRow>>();
   /** The picked skill; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

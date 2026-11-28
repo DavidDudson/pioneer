@@ -22,7 +22,7 @@ import type { ShownOverride } from '../shown-breakdown';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OverrideLines {
-  public readonly lines = input.required<readonly ShownOverride[]>();
+  public readonly lines = input.required<ReadonlyArray<ShownOverride>>();
   /** Display names of the entries the lines' origins name. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly names = input<OriginNames>(NO_ORIGIN_NAMES);

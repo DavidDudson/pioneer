@@ -13,7 +13,7 @@ import type { SheetPanel, SheetSection } from '../sheet-sections';
 
 /** One section tab: the route below the open section's, and the message key naming it. */
 interface SectionLink {
-  readonly to: readonly string[];
+  readonly to: ReadonlyArray<string>;
   readonly headingKey: string;
 }
 
@@ -30,7 +30,7 @@ interface SectionLink {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetSectionTabs {
-  public readonly sections = input.required<readonly SheetSection[]>();
+  public readonly sections = input.required<ReadonlyArray<SheetSection>>();
   /** Whether the tabs also show from `lg` up; a tab with a side list of its own sets it false and keeps the dropdown. */
   public readonly wide = input(true, { transform: booleanAttribute });
 
@@ -41,10 +41,10 @@ export class SheetSectionTabs {
   readonly #path = toSignal(this.#route.paramMap.pipe(map((params) => params.get('section') ?? undefined)));
 
   protected readonly Appearance = TabsAppearance;
-  protected readonly links = computed((): readonly SectionLink[] =>
+  protected readonly links = computed((): ReadonlyArray<SectionLink> =>
     this.sections().map((section) => ({ to: ['..', sectionPath(section)], headingKey: section.headingKey })),
   );
-  protected readonly options = computed((): readonly SelectOption<string>[] => {
+  protected readonly options = computed((): ReadonlyArray<SelectOption<string>> => {
     this.#language();
 
     return [...this.sections(), ...SHEET_PANELS].map((section) => ({

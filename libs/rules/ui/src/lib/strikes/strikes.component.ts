@@ -26,7 +26,7 @@ import { NOTE_DEGREE_MESSAGES, StrikesMessage } from './strikes-messages';
 export type { NamedStrike, StrikeOffer, StrikeSituations, StrikesShield } from './named-strike';
 
 /** Slugs as words: `cold-iron` as "cold iron", joined by commas. */
-function wordsOf(slugs: readonly Slug[]): string {
+function wordsOf(slugs: ReadonlyArray<Slug>): string {
   return slugs.map((slug) => slug.replaceAll('-', ' ')).join(', ');
 }
 
@@ -54,15 +54,15 @@ const LOADING_ROWS = 2;
 })
 export class StrikesView {
   /** Undefined while loading: the list then shows placeholder rows. */
-  public readonly strikes = input.required<readonly NamedStrike[] | undefined>();
+  public readonly strikes = input.required<ReadonlyArray<NamedStrike> | undefined>();
   /** Display names of the entries the breakdown lines come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   /** Names for what the breakdown lines' origin chains refer to beyond entries. */
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
   /** The shields held, each listed with its Hardness, Hit Points and Broken Threshold. */
-  public readonly shields = input<readonly StrikesShield[]>([]);
+  public readonly shields = input<ReadonlyArray<StrikesShield>>([]);
   /** The names of the weapon Strikes a form replaces, said beneath the list; none out of form. */
-  public readonly suppressed = input<readonly string[]>([]);
+  public readonly suppressed = input<ReadonlyArray<string>>([]);
   /** The attacks made this turn, which mark the step of the multiple attack penalty the next one takes; undefined when no turn counts them. */
   public readonly attacksMade = input<number | undefined>(undefined);
 
@@ -76,7 +76,7 @@ export class StrikesView {
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
-  protected readonly shown = computed((): readonly ShownStrike[] | undefined => {
+  protected readonly shown = computed((): ReadonlyArray<ShownStrike> | undefined => {
     this.#messages();
     this.#format.locale();
 
@@ -127,7 +127,7 @@ export class StrikesView {
   });
 
   /** The rule elements that would change a Strike's damage, worded as toggles to claim for its next roll. */
-  #damageToggles(situations: StrikeSituations | undefined): readonly ConditionToggle[] {
+  #damageToggles(situations: StrikeSituations | undefined): ReadonlyArray<ConditionToggle> {
     return (situations?.offered ?? []).map(({ id, entry }): ConditionToggle => ({
       id,
       text: this.#i18n.translate(StrikesMessage.DamageCondition, { name: this.entryNames().get(entry) ?? entry }),
@@ -169,7 +169,7 @@ export class StrikesView {
    * The captions beneath the list: "Replaced by your form: Longsword, Dagger. The base sheet lists them." when a form
    * replaces weapon Strikes, then "Steel Shield: Hardness 5, HP 20, Broken Threshold 10" for each shield.
    */
-  protected readonly captions = computed((): readonly string[] => {
+  protected readonly captions = computed((): ReadonlyArray<string> => {
     this.#messages();
     const names = this.suppressed();
 
@@ -232,7 +232,7 @@ export class StrikesView {
   }
 
   /** "Made of cold iron" and "Property runes: flaming": what item alterations give the weapon; none when they give nothing. */
-  #made({ materials = [], propertyRunes = [] }: WeaponInputs): readonly (string | undefined)[] {
+  #made({ materials = [], propertyRunes = [] }: WeaponInputs): ReadonlyArray<string | undefined> {
     return [
       materials.length === 0
         ? undefined
@@ -244,7 +244,7 @@ export class StrikesView {
   }
 
   /** What a bomb or thrown consumable adds to its Strike: range increment, persistent and splash damage, stack size. */
-  #thrown({ weapon, damage }: Strike): readonly string[] {
+  #thrown({ weapon, damage }: Strike): ReadonlyArray<string> {
     const { range, quantity } = weapon;
 
     const lines = [
@@ -263,7 +263,7 @@ export class StrikesView {
   }
 
   /** "Plus 1d6 fire precision" for each die a rule element adds to the damage, and "3 bludgeoning splash" for splash it adds. */
-  #extras({ damage, weaknesses, criticalEffects, criticalRange, weapon }: Strike): readonly string[] {
+  #extras({ damage, weaknesses, criticalEffects, criticalRange, weapon }: Strike): ReadonlyArray<string> {
     const dice = (damage?.extra ?? []).map((extra) => extraDiceText(this.#i18n, extra));
     const splash = (damage?.ruleSplash ?? []).map((each) => this.#amountOfType(StrikesMessage.Splash, each));
     const weakness = weaknesses.map((each) => this.#amountOfType(StrikesMessage.CriticalWeakness, each));
@@ -297,7 +297,7 @@ export class StrikesView {
   }
 
   /** The notes on one of the Strike's rolls, each with the degrees of success it shows on. */
-  #notes({ notes }: Strike, roll: NoteRoll): readonly ShownNote[] {
+  #notes({ notes }: Strike, roll: NoteRoll): ReadonlyArray<ShownNote> {
     return notes
       .filter((note) => note.roll === roll)
       .map(({ title, text, outcome }): ShownNote => ({

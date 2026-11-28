@@ -34,7 +34,7 @@ export interface CharacterPackPorts {
 }
 
 /** For each enabled pack, the titles of the enabled packs that extend it, alphabetically. */
-type RequiredBy = ReadonlyMap<ContentPackId, readonly PackTitle[]>;
+type RequiredBy = ReadonlyMap<ContentPackId, ReadonlyArray<PackTitle>>;
 
 /**
  * The packs a character uses: the official packs, which are always on, and the homebrew ones in force. A character
@@ -65,7 +65,7 @@ export class CharacterPackService extends EffectivePacks {
    * The homebrew packs the character uses now, for the content its sheet is worked out over: the attached campaign's,
    * else the owner's own that they may still read. No access check; the caller has one.
    */
-  public override async of(character: Character): Promise<readonly ContentPackId[]> {
+  public override async of(character: Character): Promise<ReadonlyArray<ContentPackId>> {
     return this.#inForce(character, await this.#campaigns.of(character.id));
   }
 
@@ -73,16 +73,16 @@ export class CharacterPackService extends EffectivePacks {
    * The homebrew packs the owner has enabled for the character and may still read, whether or not a campaign decides
    * instead: what the character uses of its own. No access check; the caller has one.
    */
-  public async own(character: Character): Promise<readonly ContentPackId[]> {
+  public async own(character: Character): Promise<ReadonlyArray<ContentPackId>> {
     return this.#inForce(character, undefined);
   }
 
   /** The homebrew packs among `order`, in that order. */
   static #homebrewOf(
-    order: readonly ContentPackId[],
+    order: ReadonlyArray<ContentPackId>,
     known: ReadonlyMap<ContentPackId, CatalogPack>,
-  ): readonly CatalogPack[] {
-    return order.flatMap((id): CatalogPack[] => {
+  ): ReadonlyArray<CatalogPack> {
+    return order.flatMap((id): Array<CatalogPack> => {
       const pack = known.get(id);
 
       return pack === undefined || pack.official ? [] : [pack];
@@ -161,7 +161,7 @@ export class CharacterPackService extends EffectivePacks {
     }
   }
 
-  #rowsFor(actor: UserId, fresh: readonly CatalogPack[]): readonly CharacterPack[] {
+  #rowsFor(actor: UserId, fresh: ReadonlyArray<CatalogPack>): ReadonlyArray<CharacterPack> {
     const enabledAt = this.#clock.now();
 
     return fresh.map((pack): CharacterPack => ({
@@ -177,7 +177,7 @@ export class CharacterPackService extends EffectivePacks {
    * always on, so are left out. A private pack is fine: the owner reads their own, and a character is the one place a
    * pack can be tried before it is shared.
    */
-  async #plan(actor: UserId, packId: ContentPackId): Promise<readonly CatalogPack[]> {
+  async #plan(actor: UserId, packId: ContentPackId): Promise<ReadonlyArray<CatalogPack>> {
     const [readable, order] = await Promise.all([this.#catalog.readableBy(actor), this.#catalog.closure(packId)]);
     const mayRead = new Set(readable.map((pack) => pack.id));
     const known = await this.#catalog.byIds(order);
@@ -202,7 +202,7 @@ export class CharacterPackService extends EffectivePacks {
   }
 
   /** Whether an enabled pack still extends this one, which keeps it on: a 409 naming them. */
-  async #refuseIfRequired(enabled: readonly CharacterPack[], packId: ContentPackId): Promise<void> {
+  async #refuseIfRequired(enabled: ReadonlyArray<CharacterPack>, packId: ContentPackId): Promise<void> {
     const requiredBy = await this.#extending(enabled.map((row) => row.packId));
     const requirers = requiredBy.get(packId) ?? [];
 
@@ -215,10 +215,10 @@ export class CharacterPackService extends EffectivePacks {
   }
 
   /** For each pack, the packs among `ids` that extend it. */
-  async #extending(ids: readonly ContentPackId[]): Promise<RequiredBy> {
+  async #extending(ids: ReadonlyArray<ContentPackId>): Promise<RequiredBy> {
     const closures = await Promise.all(ids.map(async (root) => ({ root, closure: await this.#catalog.closure(root) })));
     const known = await this.#catalog.byIds(ids);
-    const extenders = new Map<ContentPackId, PackTitle[]>();
+    const extenders = new Map<ContentPackId, Array<PackTitle>>();
 
     for (const { root, closure } of closures) {
       const title = known.get(root)?.title;
@@ -231,7 +231,7 @@ export class CharacterPackService extends EffectivePacks {
     }
 
     return new Map(
-      [...extenders].map(([dependency, titles]): [ContentPackId, readonly PackTitle[]] => [
+      [...extenders].map(([dependency, titles]): [ContentPackId, ReadonlyArray<PackTitle>] => [
         dependency,
         titles.toSorted((left, right) => left.localeCompare(right)),
       ]),
@@ -242,8 +242,8 @@ export class CharacterPackService extends EffectivePacks {
   async #inForce(
     character: Character,
     campaign: AttachedCampaign | undefined,
-    loaded?: readonly CatalogPack[],
-  ): Promise<readonly ContentPackId[]> {
+    loaded?: ReadonlyArray<CatalogPack>,
+  ): Promise<ReadonlyArray<ContentPackId>> {
     if (campaign !== undefined) {
       return campaign.packs;
     }
@@ -268,7 +268,7 @@ export class CharacterPackService extends EffectivePacks {
     const [ids, official] = await Promise.all([this.#inForce(character, campaign, readable), this.#catalog.official()]);
     const [known, requiredBy] = await Promise.all([this.#catalog.byIds(ids), this.#extending(ids)]);
 
-    const homebrew = ids.flatMap((id): CatalogPack[] => {
+    const homebrew = ids.flatMap((id): Array<CatalogPack> => {
       const pack = known.get(id);
 
       return pack === undefined || pack.official ? [] : [pack];
@@ -294,7 +294,10 @@ export class CharacterPackService extends EffectivePacks {
   }
 
   /** The packs the character holds content from that are not in `inForce`, by title. */
-  async #unsupported(character: Character, inForce: readonly ContentPackId[]): Promise<readonly UnsupportedPack[]> {
+  async #unsupported(
+    character: Character,
+    inForce: ReadonlyArray<ContentPackId>,
+  ): Promise<ReadonlyArray<UnsupportedPack>> {
     const held = (await this.#held?.of(character)) ?? [];
     const using = new Set(inForce);
     const ids = held.filter((id) => !using.has(id));
@@ -311,7 +314,10 @@ export class CharacterPackService extends EffectivePacks {
   }
 
   /** The packs the owner may read that the character does not use yet. */
-  static #candidates(readable: readonly CatalogPack[], ids: readonly ContentPackId[]): readonly PackCandidate[] {
+  static #candidates(
+    readable: ReadonlyArray<CatalogPack>,
+    ids: ReadonlyArray<ContentPackId>,
+  ): ReadonlyArray<PackCandidate> {
     const used = new Set(ids);
 
     return readable

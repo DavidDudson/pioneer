@@ -18,7 +18,7 @@ const RESTORE_COMMAND = 'restore-companion';
 
 type CharacterCompanionRow = typeof characterCompanions.$inferSelect;
 
-// oxlint-disable-next-line anti-slop/no-unsafe-dictionary-type -- the schema-less handle every Drizzle repository here takes
+// oxlint-disable-next-line quality/no-unsafe-dictionary-type -- the schema-less handle every Drizzle repository here takes
 type Database = BunSQLDatabase<Record<string, unknown>>;
 
 /** What `bumpVersion` needs of a transaction. */
@@ -60,7 +60,7 @@ export class DrizzleCharacterCompanionRepository extends CharacterCompanionRepos
     this.#db = db;
   }
 
-  public override async listForCharacter(characterId: CharacterId): Promise<readonly Companion[]> {
+  public override async listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<Companion>> {
     const rows = await this.#db
       .select()
       .from(characterCompanions)

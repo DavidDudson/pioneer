@@ -28,7 +28,7 @@ interface EnableModel {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CampaignPackPicker {
-  public readonly candidates = input.required<readonly PackCandidate[]>();
+  public readonly candidates = input.required<ReadonlyArray<PackCandidate>>();
   /** A pack was enabled from here. */
   public readonly enabled = output<EnabledPackId>();
 
@@ -43,7 +43,7 @@ export class CampaignPackPicker {
   readonly #enabledHere = signal(false);
   protected readonly showForm = computed(() => this.candidates().length > 0 || this.#enabledHere());
 
-  protected readonly options = computed((): readonly SelectOption<string>[] =>
+  protected readonly options = computed((): ReadonlyArray<SelectOption<string>> =>
     this.candidates().map((pack) => ({
       value: pack.packId,
       label: pack.private ? this.#i18n.translate('campaign.packs.privateOption', { title: pack.title }) : pack.title,

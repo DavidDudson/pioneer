@@ -43,7 +43,7 @@ const ARMOR = InventoryItemId.parse('44444444-4444-4444-8444-444444444444');
 const CLOAK = InventoryItemId.parse('77777777-7777-4777-8777-777777777777');
 const WORN: Carry = { state: CarryState.Worn };
 
-function wearing(...items: readonly (readonly [InventoryItemId, ItemFixture])[]): Inventory {
+function wearing(...items: ReadonlyArray<readonly [InventoryItemId, ItemFixture]>): Inventory {
   let stock = EMPTY_INVENTORY;
 
   for (const [id, name] of items) {
@@ -83,7 +83,7 @@ function statisticOf(registry: ContentRegistry, character: Character, name: stri
 }
 
 /** `character` with exactly `conditions` active. */
-function afflicted(character: Character, conditions: readonly ActiveCondition[]): Character {
+function afflicted(character: Character, conditions: ReadonlyArray<ActiveCondition>): Character {
   return withPlay(character, { ...character.document.play, conditions: [...conditions] });
 }
 
@@ -103,7 +103,7 @@ async function equipmentRegistry(): Promise<ContentRegistry> {
 }
 
 /** The value of the statistic called `name`: its total and lines. Throws when it failed or is missing. */
-function valueOf(statistics: readonly NamedStatistic[], name: string): StatisticValue {
+function valueOf(statistics: ReadonlyArray<NamedStatistic>, name: string): StatisticValue {
   const result = statistics.find((each) => each.name === name)?.result;
 
   if (result?.ok !== true) {

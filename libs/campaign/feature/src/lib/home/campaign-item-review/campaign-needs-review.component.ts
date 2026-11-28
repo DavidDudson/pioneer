@@ -13,5 +13,5 @@ import { CampaignFlaggedItemRow } from '../campaign-flagged-item-row/campaign-fl
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CampaignNeedsReview {
-  public readonly items = input.required<readonly FlaggedItem[]>();
+  public readonly items = input.required<ReadonlyArray<FlaggedItem>>();
 }

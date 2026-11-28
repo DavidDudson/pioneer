@@ -29,7 +29,7 @@ export class ContentEntryView {
   /** The whole description rather than its opening, for a page that is about the entry. */
   public readonly full = input(false, { transform: booleanAttribute });
   /** Where the entry's books are sold, each a link. */
-  public readonly stores = input<readonly StoreLink[]>([]);
+  public readonly stores = input<ReadonlyArray<StoreLink>>([]);
   public readonly headingLevel = input<HeadingLevel>(HeadingLevel.Three);
 
   protected readonly Message = EntryViewMessage;

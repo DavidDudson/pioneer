@@ -39,7 +39,10 @@ function replacing(table: JsonObject, entry: string, fields: JsonObject = {}): R
   return inPlay({ key: 'ProficiencyBonus', table, ...fields }, entry);
 }
 
-function derived(rules: readonly RuleInPlay[], ...options: readonly string[]): ReadonlyMap<Selector, StatisticResult> {
+function derived(
+  rules: ReadonlyArray<RuleInPlay>,
+  ...options: ReadonlyArray<string>
+): ReadonlyMap<Selector, StatisticResult> {
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
@@ -58,7 +61,7 @@ function total(results: ReadonlyMap<Selector, StatisticResult>, selector: string
 function termOrigins(
   results: ReadonlyMap<Selector, StatisticResult>,
   selector: string,
-): readonly (Origin | undefined)[] {
+): ReadonlyArray<Origin | undefined> {
   const result = results.get(Selector.parse(selector));
   const terms = result?.ok === true ? result.base : [];
 

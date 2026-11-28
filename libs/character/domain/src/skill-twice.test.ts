@@ -42,10 +42,10 @@ function cleric(): CharacterBuilder {
 /** A skill trained twice, by id, with its sources. */
 interface TwiceRead {
   readonly skill: ChoiceValue;
-  readonly sources: readonly SkillTrainingSource[];
+  readonly sources: ReadonlyArray<SkillTrainingSource>;
 }
 
-function twice(builder: CharacterBuilder): TwiceRead[] {
+function twice(builder: CharacterBuilder): Array<TwiceRead> {
   return skillsTrainedTwice(builder.build().document, content).map(({ skill, sources }) => ({
     skill: skill.id,
     sources,

@@ -13,7 +13,7 @@ import { Space } from '../tokens';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VirtualListHost {
-  public readonly items = input.required<readonly string[]>();
+  public readonly items = input.required<ReadonlyArray<string>>();
   public readonly gap = input<Space>(Space.Md);
   public readonly estimate = input<VirtualEstimate>(VirtualEstimate.Md);
   public readonly itemKey = input<((item: string, index: number) => string) | undefined>(undefined);

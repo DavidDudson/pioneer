@@ -12,7 +12,7 @@ export interface Round {
 
 /** The rounds walked so far, and the round each state of the facts was first read in. */
 export class RoundLog {
-  readonly #rounds: Round[] = [];
+  readonly #rounds: Array<Round> = [];
   readonly #seen = new Map<string, number>();
 
   public get size(): number {
@@ -26,13 +26,13 @@ export class RoundLog {
   }
 
   /** The rounds from the one that read `fingerprint` on; undefined when no round has read it. */
-  public since(fingerprint: string): readonly Round[] | undefined {
+  public since(fingerprint: string): ReadonlyArray<Round> | undefined {
     const start = this.#seen.get(fingerprint);
 
     return start === undefined ? undefined : this.#rounds.slice(start);
   }
 
-  public latest(count: number): readonly Round[] {
+  public latest(count: number): ReadonlyArray<Round> {
     return this.#rounds.slice(-count);
   }
 }

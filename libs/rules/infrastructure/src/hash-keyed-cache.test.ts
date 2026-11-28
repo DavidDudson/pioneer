@@ -7,7 +7,7 @@ import { HashKeyedCache } from './hash-keyed-cache';
 
 const CORE = PackId.parse('core-rules');
 
-function hashes(hash: string): readonly StoredPackHash[] {
+function hashes(hash: string): ReadonlyArray<StoredPackHash> {
   return [{ pack: CORE, hash }];
 }
 

@@ -24,7 +24,7 @@ const FIRST_VALUE = 1;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetConditionAdd {
-  public readonly options = input.required<readonly ConditionOption[]>();
+  public readonly options = input.required<ReadonlyArray<ConditionOption>>();
   public readonly busy = input.required<boolean>();
   public readonly send = input.required<(command: PlayCommand) => Promise<void>>();
   public readonly describeError = input.required<(error: Error) => string>();
@@ -32,7 +32,7 @@ export class SheetConditionAdd {
   protected readonly valueMax = CONDITION_VALUE_MAX;
   protected readonly valueMin = FIRST_VALUE;
 
-  protected readonly choices = computed((): readonly SelectOption<string>[] =>
+  protected readonly choices = computed((): ReadonlyArray<SelectOption<string>> =>
     this.options().map(({ id, name }) => ({ value: id, label: name })),
   );
 

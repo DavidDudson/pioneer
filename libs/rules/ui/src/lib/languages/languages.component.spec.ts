@@ -10,7 +10,7 @@ import type { RemoveLanguage } from './languages.component';
 import { LanguagesView } from './languages.component';
 
 async function render(
-  lines: readonly LanguageLine[] | undefined,
+  lines: ReadonlyArray<LanguageLine> | undefined,
   remove: RemoveLanguage = async () => undefined,
 ): Promise<ComponentFixture<LanguagesView>> {
   TestBed.configureTestingModule({
@@ -30,7 +30,7 @@ function host(fixture: ComponentFixture<LanguagesView>): HTMLElement {
 }
 
 /** Each language's texts: its name, then where it came from. */
-function rows(fixture: ComponentFixture<LanguagesView>): string[][] {
+function rows(fixture: ComponentFixture<LanguagesView>): Array<Array<string>> {
   return [...host(fixture).querySelectorAll('fr-list-item')].map((item) =>
     [...item.querySelectorAll('fr-text')].map((text) => text.textContent.trim()),
   );
@@ -52,7 +52,7 @@ describe(LanguagesView, () => {
   });
 
   it('removes a pick by its slot; a granted language has no remove', async () => {
-    const removed: string[] = [];
+    const removed: Array<string> = [];
 
     const fixture = await render(DWARF_LANGUAGES, async (slot) => {
       removed.push(slot);

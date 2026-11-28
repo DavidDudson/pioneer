@@ -61,8 +61,8 @@ function inParty(character: typeof valeros, detachable: boolean): JsonObject {
 }
 
 interface PartyJson {
-  readonly characters: readonly JsonObject[];
-  readonly attachable: readonly (typeof valeros)[];
+  readonly characters: ReadonlyArray<JsonObject>;
+  readonly attachable: ReadonlyArray<typeof valeros>;
 }
 
 function present<TValue>(value: TValue | null | undefined): TValue {
@@ -74,7 +74,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
 }
 
 /** Every button whose text starts with `label`, in document order. */
-function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
+function buttons(root: HTMLElement, label: string): Array<HTMLButtonElement> {
   return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.trim().startsWith(label));
 }
 
@@ -114,7 +114,7 @@ function picker(harness: RouterTestingHarness): PickerField<string, AttachRowFie
 }
 
 /** The text of every badge, in document order. */
-function badges(root: HTMLElement): string[] {
+function badges(root: HTMLElement): Array<string> {
   return [...root.querySelectorAll('fr-badge')].map((badge) => badge.textContent.trim());
 }
 

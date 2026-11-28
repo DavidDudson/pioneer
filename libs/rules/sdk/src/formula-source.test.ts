@@ -11,10 +11,10 @@ const ANY_SCOPE = new Set(Object.values(ReferenceScope));
 const ACTOR_ONLY = new Set([ReferenceScope.Actor]);
 const RULE_ELEMENT = new Set([ReferenceScope.Actor, ReferenceScope.Item]);
 
-const problems = (text: string, scopes = ANY_SCOPE): readonly unknown[] =>
+const problems = (text: string, scopes = ANY_SCOPE): ReadonlyArray<unknown> =>
   formulaProblems(FormulaText.parse(text), scopes).map((problem) => problem.error);
 
-const scoped = (text: string): readonly unknown[] =>
+const scoped = (text: string): ReadonlyArray<unknown> =>
   scopeProblems(FormulaText.parse(text), ACTOR_ONLY).map((problem) => problem.error);
 
 describe('formula problems', () => {

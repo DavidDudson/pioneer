@@ -155,7 +155,7 @@ export function checkedLoader(id: string, load: () => Promise<PackContents>): Pa
  * Every official pack's files under `content/packs` (ADR-0003), as lazy loaders. The content seed upserts them into
  * Postgres; a new pack is one directory there plus one line here.
  */
-export const officialPacks: readonly PackContentsLoader[] = [
+export const officialPacks: ReadonlyArray<PackContentsLoader> = [
   checkedLoader('core-rules', coreRulesPack),
   checkedLoader('player-core', playerCorePack),
   checkedLoader('player-core-2', playerCore2Pack),
@@ -234,4 +234,4 @@ function packLoader({ id, load }: PackContentsLoader): ContentPackLoader {
  * Every installable content pack, as lazy loaders over the official packs' JSON. Packs are only fetched (browser) or
  * read (server) when `ContentRegistry.load` is called.
  */
-export const contentCatalog: readonly ContentPackLoader[] = officialPacks.map((loader) => packLoader(loader));
+export const contentCatalog: ReadonlyArray<ContentPackLoader> = officialPacks.map((loader) => packLoader(loader));

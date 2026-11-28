@@ -17,7 +17,7 @@ interface Fill {
 }
 
 /** The mapping's page and AoN URL that the entry's source for its book lacks; undefined if no source cites that book. */
-function fill(sources: readonly SourceRef[], { book, page, aon }: EnrichmentMapping): Fill | undefined {
+function fill(sources: ReadonlyArray<SourceRef>, { book, page, aon }: EnrichmentMapping): Fill | undefined {
   const index = sources.findIndex((source) => source.kind === SourceKind.Book && source.book === book);
   const source = sources[index];
 
@@ -82,16 +82,16 @@ function enrichEntry(
 
 /** What the pass did to a `<kind>.json` file. `json` is undefined when no entry changed. */
 export interface EnrichedFile {
-  readonly json: readonly RawEntry[] | undefined;
+  readonly json: ReadonlyArray<RawEntry> | undefined;
   readonly pages: number;
   readonly aons: number;
   /** Slugs whose mapping names a book the entry doesn't cite, so nothing was applied. */
-  readonly uncited: readonly EntrySlug[];
+  readonly uncited: ReadonlyArray<EntrySlug>;
 }
 
 /** A `<kind>.json` file with each mapped entry's page and AoN URL set. Entries the pass doesn't change are untouched. */
 export function enrichSourcesFile(
-  file: readonly RawEntry[],
+  file: ReadonlyArray<RawEntry>,
   mappings: ReadonlyMap<EntrySlug, EnrichmentMapping>,
 ): EnrichedFile {
   const entries = ContentEntryFile.parse(file);

@@ -15,13 +15,13 @@ export interface TriggerCoverage {
   /** How many actions, feats and class features have a trigger. */
   readonly triggered: number;
   /** Those with a trigger but no `triggerEvent`, used only by hand until one is set; sorted. */
-  readonly withoutEvent: readonly ContentKey[];
+  readonly withoutEvent: ReadonlyArray<ContentKey>;
   /** The wordings of `withoutEvent`, normalised, most common first (ties in alphabetical order). */
-  readonly unmatchedPhrasings: readonly UnmatchedPhrasing[];
+  readonly unmatchedPhrasings: ReadonlyArray<UnmatchedPhrasing>;
 }
 
 /** Wordings by how many entries use them, most common first. */
-function groupPhrasings(phrasings: readonly string[]): readonly UnmatchedPhrasing[] {
+function groupPhrasings(phrasings: ReadonlyArray<string>): ReadonlyArray<UnmatchedPhrasing> {
   const counts = new Map<string, number>();
 
   for (const phrasing of phrasings) {
@@ -37,7 +37,7 @@ function groupPhrasings(phrasings: readonly string[]): readonly UnmatchedPhrasin
  * Trigger event coverage (play-and-campaigns.md, "Triggered abilities"). Effects have no trigger wording, so only
  * actions count. `names` gives the text of links in a wording. A report, never a check.
  */
-export function triggerCoverage(entries: readonly ContentEntry[], names: RefNames = new Map()): TriggerCoverage {
+export function triggerCoverage(entries: ReadonlyArray<ContentEntry>, names: RefNames = new Map()): TriggerCoverage {
   const triggered = entries.filter((entry) => entryAction(entry)?.trigger !== undefined);
   const unmatched = triggered.filter((entry) => entryAction(entry)?.triggerEvent === undefined);
 

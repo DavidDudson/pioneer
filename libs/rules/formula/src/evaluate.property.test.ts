@@ -74,9 +74,9 @@ describe('evaluate (properties)', () => {
   test('is deterministic and only asks for references the formula has', () => {
     assert(
       property(evaluableFormula, bindings, (tree, values) => {
-        const asked: ReferencePath[][] = [[], []];
+        const asked: Array<Array<ReferencePath>> = [[], []];
 
-        const outcomes: EvaluateOutcome[] = asked.map((log) =>
+        const outcomes: Array<EvaluateOutcome> = asked.map((log) =>
           evaluate(tree, (path) => {
             log.push(path);
 

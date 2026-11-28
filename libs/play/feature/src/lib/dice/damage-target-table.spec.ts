@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { categoryOf, categoryOfGroup, shownTargets, TargetCategory, typesOf } from './damage-target-table';
 import type { DamageTargetRow } from './damage-target-table';
 
-const rows: readonly DamageTargetRow[] = [
+const rows: ReadonlyArray<DamageTargetRow> = [
   {
     value: DamageGroup.Physical,
     label: 'Physical',
@@ -15,7 +15,7 @@ const rows: readonly DamageTargetRow[] = [
   { value: DamageType.Slashing, label: 'Slashing', category: TargetCategory.Physical, includes: [] },
 ];
 
-const labels = (shown: readonly DamageTargetRow[]): readonly string[] => shown.map((row) => row.label);
+const labels = (shown: ReadonlyArray<DamageTargetRow>): ReadonlyArray<string> => shown.map((row) => row.label);
 
 describe('damage target categories', () => {
   it('puts a type in the group that lists it, and a group in the group category', () => {

@@ -24,7 +24,7 @@ export const SECOND_CLASS_SLOT = SlotKey.parse('second-class');
  * The slots a character has itself, before any entry grants more. The heritage slot is within the ancestry slot: it
  * offers that ancestry's heritages and the versatile ones.
  */
-export const CHARACTER_ROOT_SLOTS: readonly RootSlotDefinition[] = [
+export const CHARACTER_ROOT_SLOTS: ReadonlyArray<RootSlotDefinition> = [
   { key: ANCESTRY_SLOT, kind: ContentKind.Ancestry },
   { key: HERITAGE_SLOT, kind: ContentKind.Heritage, within: ANCESTRY_SLOT },
   { key: BACKGROUND_SLOT, kind: ContentKind.Background },
@@ -39,7 +39,7 @@ const SECOND_CLASS_ROOT_SLOT: RootSlotDefinition = { key: SECOND_CLASS_SLOT, kin
  * `secondClass`) adds the second class's, beside the first's. A pick for a slot it does not have is kept and read
  * again when the variant comes back.
  */
-export function characterRootSlots(variants: readonly VariantRuleEntry[]): readonly RootSlotDefinition[] {
+export function characterRootSlots(variants: ReadonlyArray<VariantRuleEntry>): ReadonlyArray<RootSlotDefinition> {
   const dualClass = variants.some(
     (variant) => variant.definition.structure?.includes(VariantStructure.SecondClass) === true,
   );
@@ -53,7 +53,7 @@ export function characterRootSlots(variants: readonly VariantRuleEntry[]): reado
  * rules count beside the character's. A pick for a slot it does not have is kept and read again when the variant
  * comes back.
  */
-export function variantGrantRoots(variants: readonly VariantRuleEntry[]): readonly GrantRoot[] {
+export function variantGrantRoots(variants: ReadonlyArray<VariantRuleEntry>): ReadonlyArray<GrantRoot> {
   return variants
     .values()
     .filter(
@@ -70,7 +70,7 @@ export function variantGrantRoots(variants: readonly VariantRuleEntry[]): readon
 }
 
 /** Whether `rootSlots` hold the second class's slot. */
-export function hasSecondClass(rootSlots: readonly RootSlotDefinition[]): boolean {
+export function hasSecondClass(rootSlots: ReadonlyArray<RootSlotDefinition>): boolean {
   return rootSlots.some((slot) => slot.key === SECOND_CLASS_SLOT);
 }
 
@@ -79,12 +79,12 @@ export function hasSecondClass(rootSlots: readonly RootSlotDefinition[]): boolea
  * a deity, and a cleric must (Player Core's Deity class feature). Empty, such a slot is listed only while one of
  * its options is set, as an empty voluntary flaw never is.
  */
-export const OPTIONAL_ROOT_SLOTS: ReadonlyMap<SlotKey, readonly RollOption[]> = new Map([
+export const OPTIONAL_ROOT_SLOTS: ReadonlyMap<SlotKey, ReadonlyArray<RollOption>> = new Map([
   [DEITY_SLOT, [RollOption.parse('feature:deity-cleric')]],
 ]);
 
 /** Whether one of the character's roll options makes it need a deity: a cleric's does. */
-export function needsDeity(rollOptions: readonly RollOption[]): boolean {
+export function needsDeity(rollOptions: ReadonlyArray<RollOption>): boolean {
   const neededBy = OPTIONAL_ROOT_SLOTS.get(DEITY_SLOT) ?? [];
 
   return neededBy.some((option) => rollOptions.includes(option));

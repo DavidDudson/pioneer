@@ -7,7 +7,7 @@ import { provideFrontierI18nTesting } from '../../../testing/provide-frontier-i1
 import { ColumnChooser } from './column-chooser.component';
 import type { ColumnChoice, ColumnToggle } from './column-chooser.component';
 
-const COLUMNS: readonly ColumnToggle[] = [
+const COLUMNS: ReadonlyArray<ColumnToggle> = [
   { id: 'name', label: 'Name', visible: true, locked: false },
   { id: 'level', label: 'Level', visible: false, locked: false },
 ];
@@ -15,7 +15,7 @@ const COLUMNS: readonly ColumnToggle[] = [
 interface Rendered {
   readonly fixture: ComponentFixture<ColumnChooser>;
   readonly host: HTMLElement;
-  readonly chosen: ColumnChoice[];
+  readonly chosen: Array<ColumnChoice>;
   readonly resets: () => number;
 }
 
@@ -28,7 +28,7 @@ async function render(inputs: ComponentInputs<ColumnChooser> = {}): Promise<Rend
     fixture.componentRef.setInput(name, value);
   }
 
-  const chosen: ColumnChoice[] = [];
+  const chosen: Array<ColumnChoice> = [];
   let resets = 0;
   fixture.componentInstance.chosen.subscribe((choice) => {
     chosen.push(choice);
@@ -42,7 +42,7 @@ async function render(inputs: ComponentInputs<ColumnChooser> = {}): Promise<Rend
   return { fixture, host: fixture.nativeElement as HTMLElement, chosen, resets: (): number => resets };
 }
 
-function toggles(host: HTMLElement): HTMLButtonElement[] {
+function toggles(host: HTMLElement): Array<HTMLButtonElement> {
   return [...host.querySelectorAll<HTMLButtonElement>('fr-toggle-button button')];
 }
 

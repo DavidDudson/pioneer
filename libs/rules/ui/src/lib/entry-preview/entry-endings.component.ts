@@ -12,7 +12,7 @@ import { ENDING_KIND_MESSAGES, EntryPreviewMessage } from './entry-preview-messa
 /** An ending with the text of the badges that go over its rule text. */
 interface EndingRow {
   readonly ending: PreviewEnding;
-  readonly badges: readonly string[];
+  readonly badges: ReadonlyArray<string>;
 }
 
 /**
@@ -32,7 +32,7 @@ interface EndingRow {
   host: { '[hidden]': 'none()' },
 })
 export class EntryEndingsView {
-  public readonly endings = input<readonly PreviewEnding[] | undefined>();
+  public readonly endings = input<ReadonlyArray<PreviewEnding> | undefined>();
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
@@ -40,20 +40,20 @@ export class EntryEndingsView {
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   /** The endings to list; none while the preview has none. */
-  protected readonly listed = computed((): readonly PreviewEnding[] => this.endings() ?? []);
+  protected readonly listed = computed((): ReadonlyArray<PreviewEnding> => this.endings() ?? []);
 
   /** Hides the heading too when there is nothing to list. */
   protected readonly none = computed((): boolean => this.listed().length === 0);
 
   /** Each ending with the badges over its text: its DC, then the modifier the character rolls at for each statistic. */
-  protected readonly rows = computed((): readonly EndingRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<EndingRow> => {
     this.#messages();
     this.#format.locale();
 
     return this.listed().map((ending) => ({ ending, badges: this.#badges(ending) }));
   });
 
-  #badges({ dc, against }: PreviewEnding): readonly string[] {
+  #badges({ dc, against }: PreviewEnding): ReadonlyArray<string> {
     const dcBadge = dc === undefined ? [] : [this.#i18n.translate(EntryPreviewMessage.EndingDc, { dc })];
 
     const rolls = against.map(({ name, modifier }) =>

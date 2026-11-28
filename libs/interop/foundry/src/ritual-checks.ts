@@ -169,7 +169,7 @@ interface RankedSkill {
 }
 
 /** The ranks the skills name, each as a proficiency; undefined when one is not a rank. */
-function rankedSkills(skills: readonly Skill[]): RankedSkill[] | undefined {
+function rankedSkills(skills: ReadonlyArray<Skill>): Array<RankedSkill> | undefined {
   const ranked = skills.flatMap(({ selector, rank }) => {
     const proficiency = rank === undefined ? undefined : ProficiencySchema.safeParse(rank.toLowerCase()).data;
 
@@ -180,7 +180,7 @@ function rankedSkills(skills: readonly Skill[]): RankedSkill[] | undefined {
 }
 
 /** The ranks of a check: one for all its skills when they agree, else one each, else undefined when they cannot. */
-function ranksOf(skills: readonly Skill[]): object | undefined {
+function ranksOf(skills: ReadonlyArray<Skill>): object | undefined {
   const named = skills.flatMap(({ rank }) => rank ?? []);
   const rank = new Set(named);
 
@@ -206,7 +206,7 @@ function ranksOf(skills: readonly Skill[]): object | undefined {
 }
 
 /** The one value the skills state, or none; undefined when they state more than one. */
-function single<TValue>(values: readonly TValue[]): TValue[] | undefined {
+function single<TValue>(values: ReadonlyArray<TValue>): Array<TValue> | undefined {
   const distinct = [...new Set(values)];
 
   return distinct.length > 1 ? undefined : distinct;
@@ -220,7 +220,7 @@ interface Stated {
 }
 
 /** The pick and Lore topic the skills state, `tradition` when the text says so; undefined when they conflict. */
-function statedOf(skills: readonly Skill[], tradition: boolean): Stated | undefined {
+function statedOf(skills: ReadonlyArray<Skill>, tradition: boolean): Stated | undefined {
   const picks = skills.flatMap(({ pick }) => pick ?? []);
   const picked = single(tradition ? [...picks, RitualCheckPick.Tradition] : picks);
   const topics = single(skills.flatMap(({ relatedTo }) => relatedTo ?? []));
@@ -273,7 +273,7 @@ function isBare(part: string): boolean {
 }
 
 /** Whether the comma parts are one choice of skills, "Diplomacy, Intimidation, or Society": none has an `or` but the last. */
-function isListOfAlternatives(parts: readonly string[]): boolean {
+function isListOfAlternatives(parts: ReadonlyArray<string>): boolean {
   const last = parts.at(-1) ?? '';
 
   return parts.length > 1 && last.startsWith('or ') && parts.slice(0, -1).every((part) => !part.includes(' or '));
@@ -284,7 +284,7 @@ function isListOfAlternatives(parts: readonly string[]): boolean {
  * (whichever is used for the primary check)") is one check, with every bare alternative before its "or". Where other
  * checks come before the group, its start is a guess, so the list is undefined.
  */
-function commaChecks(text: string): string[] | undefined {
+function commaChecks(text: string): Array<string> | undefined {
   const parts = splitOutsideNotes(text, CHECKS);
   const noted = parts.findIndex((part) => PICK_NOTE.test(part) && (part.includes(' or ') || part.includes(NOT_SAME)));
 
@@ -304,7 +304,7 @@ function commaChecks(text: string): string[] | undefined {
 }
 
 /** The secondary checks, each its own; blank text is none. */
-export function secondaryChecksOf(text: string): object[] | undefined {
+export function secondaryChecksOf(text: string): Array<object> | undefined {
   const value = text.trim();
 
   if (value === '') {
@@ -323,7 +323,7 @@ export function secondaryChecksOf(text: string): object[] | undefined {
 }
 
 /** The Lores a ritual's check text names ("Legal Lore"), by Foundry's name for each. */
-export function loresNamed(text: string): string[] {
+export function loresNamed(text: string): Array<string> {
   return text
     .split(CHECKS_SEMICOLON)
     .flatMap((part) => part.split(ALTERNATIVES))

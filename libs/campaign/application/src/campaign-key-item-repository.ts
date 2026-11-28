@@ -19,7 +19,7 @@ export interface KeyItemArchival {
  */
 export abstract class CampaignKeyItemRepository {
   /** The campaign's live key items, oldest first; id breaks ties. */
-  public abstract listForCampaign(campaignId: CampaignId): Promise<readonly CampaignKeyItem[]>;
+  public abstract listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignKeyItem>>;
 
   public abstract insert(actor: UserId, campaignId: CampaignId, keyItem: CampaignKeyItem): Promise<void>;
 

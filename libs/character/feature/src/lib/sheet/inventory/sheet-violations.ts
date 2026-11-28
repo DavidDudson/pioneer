@@ -33,10 +33,10 @@ function violationReason(violation: RuleViolation, runes: RuneContent): MessageD
 
 /** The reasons each item breaks a rule, by the item's id; an item that breaks none has no entry. */
 export function reasonsByItem(
-  violations: readonly RuleViolation[],
+  violations: ReadonlyArray<RuleViolation>,
   runes: RuneContent,
-): ReadonlyMap<InventoryItemId, readonly MessageDescriptor[]> {
-  const reasons = new Map<InventoryItemId, MessageDescriptor[]>();
+): ReadonlyMap<InventoryItemId, ReadonlyArray<MessageDescriptor>> {
+  const reasons = new Map<InventoryItemId, Array<MessageDescriptor>>();
 
   for (const violation of violations) {
     reasons.set(violation.item, [...(reasons.get(violation.item) ?? []), violationReason(violation, runes)]);
@@ -46,6 +46,6 @@ export function reasonsByItem(
 }
 
 /** How many items break at least one rule. */
-export function ruleBreakingCount(violations: readonly RuleViolation[]): number {
+export function ruleBreakingCount(violations: ReadonlyArray<RuleViolation>): number {
   return new Set(violations.map((each) => each.item)).size;
 }

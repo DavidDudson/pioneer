@@ -36,7 +36,7 @@ export function projectRootOf(file: string, hasProject: HasProject): string | un
 }
 
 /** The roots of the projects that own `files`, each once, in order. */
-export function projectRootsOf(files: readonly string[], hasProject: HasProject): readonly string[] {
+export function projectRootsOf(files: ReadonlyArray<string>, hasProject: HasProject): ReadonlyArray<string> {
   const roots = files.flatMap((file) => projectRootOf(file, hasProject) ?? []);
 
   return [...new Set(roots)].toSorted();
@@ -49,9 +49,9 @@ function nameOf(root: string): string {
   return project.name;
 }
 
-async function main(files: readonly string[]): Promise<number> {
+async function main(files: ReadonlyArray<string>): Promise<number> {
   const roots = projectRootsOf(files, (directory) => existsSync(path.join(directory, PROJECT_FILE)));
-  const commands: (readonly string[])[] = [];
+  const commands: Array<ReadonlyArray<string>> = [];
 
   if (roots.length > 0) {
     commands.push(['bunx', 'nx', 'run-many', '-t', 'typecheck', '-p', roots.map((root) => nameOf(root)).join(',')]);

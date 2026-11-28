@@ -18,7 +18,7 @@ const GO_INVISIBLE = Slug.parse('go-invisible');
 const TAKE_TO_THE_SKIES = Slug.parse('take-to-the-skies');
 
 /** The inventory line of a longsword with a +1 potency rune and `runes` etched onto it. */
-function sword(...runes: readonly RuneFixture[]): InventoryItem {
+function sword(...runes: ReadonlyArray<RuneFixture>): InventoryItem {
   let inventory: Inventory = addItem(EMPTY_INVENTORY, {
     id: SWORD,
     item: itemFixtureId(ItemFixture.Longsword),

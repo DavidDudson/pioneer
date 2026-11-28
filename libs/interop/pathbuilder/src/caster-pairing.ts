@@ -28,8 +28,8 @@ function sameName(caster: ImportedCaster, entry: CasterHome): boolean {
  * archetype the character lacks) is left out.
  */
 export function pairCasters<Entry extends CasterHome>(
-  casters: readonly ImportedCaster[],
-  entries: readonly Entry[],
+  casters: ReadonlyArray<ImportedCaster>,
+  entries: ReadonlyArray<Entry>,
 ): Map<ImportedCaster, Entry> {
   const paired = new Map<ImportedCaster, Entry>();
   const taken = new Set<Entry>();

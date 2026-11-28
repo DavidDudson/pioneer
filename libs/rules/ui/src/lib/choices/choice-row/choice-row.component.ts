@@ -18,9 +18,9 @@ interface ShownChoice {
   readonly selectionKey: string | undefined;
   readonly selectionName: string | undefined;
   /** Message keys of what the pick is flagged for: a pre-remaster book, a pack no longer in force. */
-  readonly flags: readonly string[];
+  readonly flags: ReadonlyArray<string>;
   /** The newer entries that replace the pick, for the mark that offers them. */
-  readonly replacements: readonly ChoiceReplacement[];
+  readonly replacements: ReadonlyArray<ChoiceReplacement>;
   readonly reason: MessageDescriptor | undefined;
   readonly source: MessageDescriptor | undefined;
 }
@@ -49,7 +49,7 @@ function badgeOf({ state, level }: ChoiceLine): MessageDescriptor {
 }
 
 /** The flags a pick carries, in the order they show. */
-function flagsOf(selection: ChoiceLine['selection']): readonly string[] {
+function flagsOf(selection: ChoiceLine['selection']): ReadonlyArray<string> {
   if (selection === undefined || !('name' in selection)) {
     return [];
   }
@@ -108,7 +108,7 @@ export class ChoiceRow {
   protected readonly explaining = signal(false);
   protected readonly shown = computed((): ShownChoice => shownOf(this.line()));
   /** The lines beneath the choice: its source in a muted tone, then why it is not settled. */
-  protected readonly notes = computed((): ShownNote[] => [
+  protected readonly notes = computed((): Array<ShownNote> => [
     ...[this.shown().source]
       .values()
       .filter((text) => text !== undefined)

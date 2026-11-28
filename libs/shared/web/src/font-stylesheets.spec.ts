@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import { FontStylesheets } from './font-stylesheets';
 
-function stylesheets(): string[] {
+function stylesheets(): Array<string> {
   return [...document.head.querySelectorAll<HTMLLinkElement>('link[rel="stylesheet"]')].map((link) => link.href);
 }
 

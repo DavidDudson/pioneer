@@ -61,8 +61,8 @@ function featureName(flag: string): string {
  * (Warpriest)` while the character has the warpriest feature. A doctrine whose feature the import does not know leaves
  * no grant.
  */
-export function withDoctrineGrants(raws: readonly unknown[], references: EntryReferences): unknown[] {
-  return raws.flatMap((raw): unknown[] => {
+export function withDoctrineGrants(raws: ReadonlyArray<unknown>, references: EntryReferences): Array<unknown> {
+  return raws.flatMap((raw): Array<unknown> => {
     const grant = DoctrineGrant.safeParse(raw);
 
     if (!grant.success) {
@@ -71,7 +71,7 @@ export function withDoctrineGrants(raws: readonly unknown[], references: EntryRe
 
     const flag = grant.data.uuid.slice(grant.data.uuid.lastIndexOf('.') + 1, -1);
 
-    return DOCTRINES.flatMap(({ name, option }): unknown[] => {
+    return DOCTRINES.flatMap(({ name, option }): Array<unknown> => {
       const uuid = `${CLASS_FEATURES}${featureName(flag)} (${name})`;
 
       return references.byUuid.has(uuid) ? [{ key: 'GrantItem', uuid, predicate: [option] }] : [];

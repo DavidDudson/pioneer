@@ -44,10 +44,10 @@ function skill(name: SkillFixture): ContentId {
 /** A skill a trained skill slot can't offer, by id, with its sources. */
 interface TrainedRead {
   readonly skill: ChoiceValue;
-  readonly sources: readonly SkillTrainingSource[];
+  readonly sources: ReadonlyArray<SkillTrainingSource>;
 }
 
-function trainedAt(builder: CharacterBuilder, slot: string): readonly TrainedRead[] {
+function trainedAt(builder: CharacterBuilder, slot: string): ReadonlyArray<TrainedRead> {
   const { document } = builder.build();
   const found = skillSlots(document, skillReads(document, content)).find((each) => each.key === slot);
 

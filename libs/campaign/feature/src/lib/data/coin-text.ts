@@ -12,7 +12,7 @@ const COIN_MESSAGES: Readonly<Record<keyof OfferedCoins, string>> = {
 };
 
 /** The denominations, largest first. */
-const DENOMINATIONS: readonly (keyof OfferedCoins)[] = ['pp', 'gp', 'sp', 'cp'];
+const DENOMINATIONS: ReadonlyArray<keyof OfferedCoins> = ['pp', 'gp', 'sp', 'cp'];
 
 /** Translates a message key with its params. */
 type SayWith = (key: string, params: Readonly<Record<string, number>>) => string;

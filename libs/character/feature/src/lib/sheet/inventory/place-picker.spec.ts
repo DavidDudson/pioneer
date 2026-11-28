@@ -12,7 +12,7 @@ const ROPE = '22222222-2222-4222-8222-222222222222';
 const ANVIL = '33333333-3333-4333-8333-333333333333';
 const LOOSE_NAME = 'Not in a container';
 
-function stock(items: readonly object[]): Inventory {
+function stock(items: ReadonlyArray<object>): Inventory {
   return InventorySchema.parse({ items, coins: {} });
 }
 

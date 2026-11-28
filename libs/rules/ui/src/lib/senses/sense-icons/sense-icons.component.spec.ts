@@ -10,7 +10,7 @@ function textOf(element: Element): string {
   return element.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
-async function render(senses: readonly SenseInPlay[] | undefined): Promise<HTMLElement> {
+async function render(senses: ReadonlyArray<SenseInPlay> | undefined): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(SenseIcons);
   fixture.componentRef.setInput('senses', senses);

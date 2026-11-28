@@ -8,7 +8,7 @@ const ASSISTED_FLAT_CHECK_DC = Dc.parse(10);
 
 /** A lower flat check DC against persistent damage of some types (a quenching rune); no `assisted` means assistance ends it. */
 export interface PersistentFlatCheckDc {
-  readonly damageTypes: readonly PersistentDamage['type'][];
+  readonly damageTypes: ReadonlyArray<PersistentDamage['type']>;
   readonly dc: Dc;
   readonly assisted: Dc | undefined;
 }
@@ -19,7 +19,7 @@ export interface PersistentFlatCheckDc {
  */
 export function flatCheckDc(
   { type, assisted }: PersistentDamage,
-  flatChecks: readonly PersistentFlatCheckDc[],
+  flatChecks: ReadonlyArray<PersistentFlatCheckDc>,
 ): Dc | undefined {
   const matching = flatChecks.filter(({ damageTypes }) => damageTypes.includes(type));
 

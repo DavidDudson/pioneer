@@ -22,7 +22,7 @@ const SUDDEN_CHARGE = featRow({
 });
 
 const REACTIVE_SHIELD = featRow({ id: 'reactive-shield', name: 'Reactive Shield', level: 2 });
-const FEATS: readonly FeatPickerRow[] = [POWER_ATTACK, SUDDEN_CHARGE, REACTIVE_SHIELD];
+const FEATS: ReadonlyArray<FeatPickerRow> = [POWER_ATTACK, SUDDEN_CHARGE, REACTIVE_SHIELD];
 
 interface Rendered {
   readonly fixture: ComponentFixture<FeatPicker>;
@@ -45,7 +45,7 @@ async function settle(fixture: ComponentFixture<FeatPicker>): Promise<void> {
   fixture.detectChanges();
 }
 
-async function render(rows: readonly FeatPickerRow[], value?: string): Promise<Rendered> {
+async function render(rows: ReadonlyArray<FeatPickerRow>, value?: string): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(FeatPicker);
   fixture.componentRef.setInput('rows', rows);
@@ -77,12 +77,12 @@ function textOf(element: Element): string {
   return element.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
-function headers(rendered: Rendered): string[] {
+function headers(rendered: Rendered): Array<string> {
   return [...rendered.host.querySelectorAll('[role="columnheader"]')].map((cell) => textOf(cell));
 }
 
 /** The first cell of each rendered row: a feat's name, and why it can't be picked when it can't. */
-function nameCells(rendered: Rendered): HTMLElement[] {
+function nameCells(rendered: Rendered): Array<HTMLElement> {
   return [...rendered.host.querySelectorAll<HTMLElement>('fr-picker-row')].flatMap((row) => {
     const cell = row.querySelector<HTMLElement>('[role="gridcell"]');
 

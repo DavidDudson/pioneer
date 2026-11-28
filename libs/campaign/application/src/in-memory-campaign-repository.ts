@@ -16,26 +16,26 @@ interface Joined {
 export class InMemoryCampaignRepository extends CampaignRepository {
   readonly #rows = new Map<CampaignId, Campaign>();
   readonly #archived = new Set<CampaignId>();
-  readonly #audits: CampaignAudit[] = [];
+  readonly #audits: Array<CampaignAudit> = [];
 
   /** What archive and restore were stamped with, in order. */
-  public get audits(): readonly CampaignAudit[] {
+  public get audits(): ReadonlyArray<CampaignAudit> {
     return this.#audits;
   }
 
-  public override async listForMember(userId: UserId): Promise<readonly Campaign[]> {
+  public override async listForMember(userId: UserId): Promise<ReadonlyArray<Campaign>> {
     return this.#joinedBy(userId, (campaign) => !this.#archived.has(campaign.id));
   }
 
-  public override async listArchivedForGm(gmId: UserId): Promise<readonly Campaign[]> {
+  public override async listArchivedForGm(gmId: UserId): Promise<ReadonlyArray<Campaign>> {
     return this.#joinedBy(gmId, (campaign) => this.#archived.has(campaign.id) && campaign.gmId === gmId);
   }
 
   /** The campaigns `userId` is a member of that `keep` accepts, in the order they joined; campaign id breaks ties. */
-  #joinedBy(userId: UserId, keep: (campaign: Campaign) => boolean): readonly Campaign[] {
+  #joinedBy(userId: UserId, keep: (campaign: Campaign) => boolean): ReadonlyArray<Campaign> {
     return [...this.#rows.values()]
       .filter((campaign) => keep(campaign))
-      .flatMap((campaign): Joined[] => {
+      .flatMap((campaign): Array<Joined> => {
         const member = campaign.members.find((candidate) => candidate.userId === userId);
 
         return member === undefined ? [] : [{ campaign, joinedAt: member.joinedAt }];

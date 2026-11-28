@@ -21,11 +21,11 @@ interface ActiveKind {
   readonly icon: IconGlyph;
   readonly label: string;
   /** The kind as the one-item list `pio-defences` takes. */
-  readonly kinds: readonly DefenceKind[];
+  readonly kinds: ReadonlyArray<DefenceKind>;
 }
 
 /** The kinds in the order they show, each with its icon and name. */
-const KINDS: readonly ActiveKind[] = [
+const KINDS: ReadonlyArray<ActiveKind> = [
   {
     kind: DefenceKind.Resistances,
     icon: ShieldHalf,
@@ -51,8 +51,8 @@ function isActive({ status }: ImmunityLine | AdjustmentLine): boolean {
   return status.kind === DefenceStatusKind.Applied || status.kind === DefenceStatusKind.Conditional;
 }
 
-function linesOf(defences: Defences, kind: DefenceKind): readonly (ImmunityLine | AdjustmentLine)[] {
-  const byKind: Readonly<Record<DefenceKind, readonly (ImmunityLine | AdjustmentLine)[]>> = {
+function linesOf(defences: Defences, kind: DefenceKind): ReadonlyArray<ImmunityLine | AdjustmentLine> {
+  const byKind: Readonly<Record<DefenceKind, ReadonlyArray<ImmunityLine | AdjustmentLine>>> = {
     [DefenceKind.Immunities]: defences.immunities,
     [DefenceKind.Weaknesses]: defences.weaknesses,
     [DefenceKind.Resistances]: defences.resistances,
@@ -93,7 +93,7 @@ export class DefenceIcons {
   protected readonly hasChecks = computed(
     (): boolean => this.defences()?.criticalHitChecks.some((check) => isActiveCheck(check)) ?? false,
   );
-  protected readonly active = computed((): readonly ActiveKind[] => {
+  protected readonly active = computed((): ReadonlyArray<ActiveKind> => {
     const defences = this.defences();
 
     if (defences === undefined) {

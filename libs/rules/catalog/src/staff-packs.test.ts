@@ -31,9 +31,9 @@ function staffOf(entry: ContentEntry | undefined): StaffSpells {
 
 const typed = entries.filter((entry) => staffOf(entry).length > 0);
 const FIRE_STAFF = ContentId.parse(contentId(PackId.parse('gm-core'), EntrySlug.parse('weapon:staff-of-fire-greater')));
-const ranks = (...listed: readonly number[]): StaffRank[] => listed.map((rank) => StaffRank.parse(rank));
+const ranks = (...listed: ReadonlyArray<number>): Array<StaffRank> => listed.map((rank) => StaffRank.parse(rank));
 
-function namesAt(ids: readonly ContentId[]): readonly (string | undefined)[] {
+function namesAt(ids: ReadonlyArray<ContentId>): ReadonlyArray<string | undefined> {
   return ids.map((id) => byId.get(id)?.name);
 }
 

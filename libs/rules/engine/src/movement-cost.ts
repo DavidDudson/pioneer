@@ -15,17 +15,17 @@ import type { MovementCostReduction, StatisticResult } from './statistic-result'
 const SQUARE = 5;
 
 /** The land Speed, which a cost reaches unless the element names others. */
-const LAND: readonly FormMovement[] = [FormMovement.Land];
+const LAND: ReadonlyArray<FormMovement> = [FormMovement.Land];
 
 /** A `MovementCost` element that holds: what each square costs beyond itself, the Speeds it reaches, and who named it. */
 export interface MovementCostInPlay {
   readonly id: RuleId;
   readonly label: ModifierLabel;
   readonly extra: Feet;
-  readonly movement: readonly FormMovement[];
+  readonly movement: ReadonlyArray<FormMovement>;
 }
 
-function costOf(rule: RuleInPlay): MovementCostInPlay[] {
+function costOf(rule: RuleInPlay): Array<MovementCostInPlay> {
   const { element } = rule;
 
   return element.key === RuleElementKey.MovementCost
@@ -34,7 +34,7 @@ function costOf(rule: RuleInPlay): MovementCostInPlay[] {
 }
 
 /** The `MovementCost` elements in play whose predicate holds; one that depends on the situation gives nothing. */
-export function movementCostsInPlay({ rules, facts }: ModifierInputs): readonly MovementCostInPlay[] {
+export function movementCostsInPlay({ rules, facts }: ModifierInputs): ReadonlyArray<MovementCostInPlay> {
   return rules
     .filter(
       ({ element }) => element.key === RuleElementKey.MovementCost && truthOf(element.predicate, facts) === Truth.True,
@@ -53,7 +53,7 @@ function covered(speed: FormulaValue, extra: Feet): FormulaValue | undefined {
  * element that reaches the Speed counts. A Speed a set override pinned, one that failed, and one the cost would not
  * lower stay as they are.
  */
-export function applyMovementCost(result: StatisticResult, costs: readonly MovementCostInPlay[]): StatisticResult {
+export function applyMovementCost(result: StatisticResult, costs: ReadonlyArray<MovementCostInPlay>): StatisticResult {
   const movement = movementOf(result.selector);
 
   if (!result.ok || movement === undefined || result.pinnedBy !== undefined) {

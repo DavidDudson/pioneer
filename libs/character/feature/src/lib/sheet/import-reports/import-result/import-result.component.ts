@@ -26,7 +26,7 @@ interface NameView {
 interface GroupView {
   readonly kind: ImportKind;
   readonly kindKey: string;
-  readonly names: readonly NameView[];
+  readonly names: ReadonlyArray<NameView>;
 }
 
 /** What a Pathbuilder import left behind, shown on the new character until the viewer dismisses it. */
@@ -63,7 +63,7 @@ export class ImportResult {
   /** The Exploration tab, beside this one, where the inventory and its flagged lines are. */
   protected readonly inventory = ['..', SheetMode.Exploration];
 
-  protected readonly groups = computed((): readonly GroupView[] =>
+  protected readonly groups = computed((): ReadonlyArray<GroupView> =>
     this.report().unmatched.map((group) => ({
       kind: group.kind,
       kindKey: KIND_KEYS[group.kind],

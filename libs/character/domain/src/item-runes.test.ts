@@ -52,7 +52,7 @@ function runesOf(inventory: Inventory, id: InventoryItemId): ItemRunes {
   return itemRunes(line, content.get(line.item));
 }
 
-function working(inventory: Inventory, id: InventoryItemId): readonly ContentId[] {
+function working(inventory: Inventory, id: InventoryItemId): ReadonlyArray<ContentId> {
   const line = lineOf(inventory, id);
 
   return workingPropertyRunes(line, content.get(line.item), () => undefined);

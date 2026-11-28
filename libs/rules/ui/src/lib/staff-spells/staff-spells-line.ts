@@ -34,7 +34,7 @@ export interface StaffSpellLine {
   /** Why the holder can't cast it, or undefined when they can. */
   readonly blocked: StaffSpellBlock | undefined;
   /** The ways to pay for casting it now; empty when the staff can't pay for it. */
-  readonly options: readonly StaffCastOptionLine[];
+  readonly options: ReadonlyArray<StaffCastOptionLine>;
   /** For a cantrip, the rank it is heightened to; undefined for any other spell. */
   readonly heightenedTo: SpellRank | undefined;
 }
@@ -52,7 +52,7 @@ export interface StaffLine {
   readonly name: string;
   /** The charges left, or undefined when it is not the staff prepared for the day. */
   readonly charges: StaffChargesLine | undefined;
-  readonly spells: readonly StaffSpellLine[];
+  readonly spells: ReadonlyArray<StaffSpellLine>;
 }
 
 /** A cast the player chose: the staff, its spell and the slot that pays with the charge, if any. */

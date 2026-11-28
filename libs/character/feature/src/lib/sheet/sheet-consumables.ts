@@ -91,11 +91,11 @@ export function consumableLines(
   registry: ContentRegistry,
   character: Character,
   { turn, inputs }: ConsumableScope,
-): readonly ConsumableLine[] {
+): ReadonlyArray<ConsumableLine> {
   const items = itemContent(registry);
   const names = new Map(registry.packs.flatMap((pack) => pack.otherEntries).map((entry) => [entry.id, entry.name]));
 
-  return character.document.inventory.items.flatMap((held): readonly ConsumableLine[] => {
+  return character.document.inventory.items.flatMap((held): ReadonlyArray<ConsumableLine> => {
     const entry = items.get(held.item);
 
     if (!isListed(entry) || held.carry.state === CarryState.Dropped) {

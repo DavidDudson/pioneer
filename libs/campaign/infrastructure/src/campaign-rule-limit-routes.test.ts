@@ -78,7 +78,7 @@ function request(method: string, path: string, { as, body }: RequestOptions): Re
 
 interface RuleLimitsJson {
   readonly manageable: boolean;
-  readonly limits: readonly { readonly limit: string; readonly value: number; readonly custom: boolean }[];
+  readonly limits: ReadonlyArray<{ readonly limit: string; readonly value: number; readonly custom: boolean }>;
 }
 
 /** The status `handler` answers `call` with. */

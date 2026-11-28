@@ -2,7 +2,7 @@
  * Pre-remaster item names and the remaster name that replaced them, from Archives of Nethys (`legacy_id` /
  * `remaster_id`). Pathbuilder still exports many items under the old name. Only renames whose target our packs load.
  */
-export const LEGACY_ITEM_NAMES: readonly (readonly [legacy: string, remaster: string])[] = [
+export const LEGACY_ITEM_NAMES: ReadonlyArray<readonly [legacy: string, remaster: string]> = [
   ["Alchemist's Tools", "Alchemist's Toolkit"],
   ['Alghollthu Lash', 'Alghollthu Whip'],
   ['Anklets of Alacrity', 'Cloak of Swiftness'],

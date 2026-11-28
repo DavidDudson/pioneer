@@ -51,7 +51,7 @@ interface ModifierSpec {
   readonly type: string;
   readonly value: number;
   readonly target: string;
-  readonly predicate: readonly string[] | undefined;
+  readonly predicate: ReadonlyArray<string> | undefined;
   readonly slug: string | undefined;
 }
 
@@ -69,7 +69,7 @@ function modifierSpec(types: Arbitrary<string>): Arbitrary<ModifierSpec> {
 
 /** The fields beside type, value and target: the predicate if any, and the attribute an attribute modifier names. */
 interface ExtraFields {
-  predicate?: readonly string[];
+  predicate?: ReadonlyArray<string>;
   slug?: string;
   attribute?: string;
 }
@@ -93,7 +93,7 @@ function extraFields({ type, predicate, slug }: ModifierSpec): ExtraFields {
 }
 
 /** Each spec as a rule in play on its own entry, so ids are distinct and independent of order. */
-function rules(specs: readonly ModifierSpec[]): RuleInPlay[] {
+function rules(specs: ReadonlyArray<ModifierSpec>): Array<RuleInPlay> {
   return specs.map((spec, index) =>
     inPlay({ ...flatModifier(spec.type, spec.value, [spec.target]), ...extraFields(spec) }, `modifier-${index}`),
   );
@@ -104,7 +104,7 @@ interface AdjustmentSpec {
   readonly slug: string | undefined;
   readonly suppress: boolean;
   readonly value: number;
-  readonly predicate: readonly string[] | undefined;
+  readonly predicate: ReadonlyArray<string> | undefined;
 }
 
 const adjustmentSpecs = array(
@@ -119,12 +119,12 @@ const adjustmentSpecs = array(
 
 interface AdjustmentFields extends RuleJson {
   key: string;
-  selectors: readonly string[];
+  selectors: ReadonlyArray<string>;
   slug?: string;
   suppress?: boolean;
   mode?: string;
   value?: number;
-  predicate?: readonly string[];
+  predicate?: ReadonlyArray<string>;
 }
 
 function adjustmentElement({ slug, suppress, value, predicate }: AdjustmentSpec): AdjustmentFields {
@@ -148,11 +148,11 @@ function adjustmentElement({ slug, suppress, value, predicate }: AdjustmentSpec)
   return element;
 }
 
-function adjustments(specs: readonly AdjustmentSpec[]): RuleInPlay[] {
+function adjustments(specs: ReadonlyArray<AdjustmentSpec>): Array<RuleInPlay> {
   return specs.map((spec, index) => inPlay(adjustmentElement(spec), `adjustment-${index}`));
 }
 
-function deriveIn(rulesInPlay: readonly RuleInPlay[], known: PredicateFacts): StatisticValue {
+function deriveIn(rulesInPlay: ReadonlyArray<RuleInPlay>, known: PredicateFacts): StatisticValue {
   const result: StatisticResult | undefined = deriveStatistics(
     { definitions: [ac], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
     inputs,
@@ -166,14 +166,14 @@ function deriveIn(rulesInPlay: readonly RuleInPlay[], known: PredicateFacts): St
   return result;
 }
 
-function derive(rulesInPlay: readonly RuleInPlay[]): StatisticValue {
+function derive(rulesInPlay: ReadonlyArray<RuleInPlay>): StatisticValue {
   return deriveIn(rulesInPlay, facts);
 }
 
 const specs = array(modifierSpec(typedOrNot), { maxLength: MODIFIERS_MAX });
 
 /** An applied typed line on AC and a conditional one of its type and sign no larger, which it beats. */
-const beatenPair: Arbitrary<ModifierSpec[]> = tuple(
+const beatenPair: Arbitrary<Array<ModifierSpec>> = tuple(
   constantFrom(...TYPED),
   integer({ min: 1, max: VALUE_MAX }),
   constantFrom(1, -1),
@@ -191,7 +191,7 @@ function beatenByOf({ status }: BreakdownLine): RuleId | undefined {
 }
 
 /** The applied lines of the line's type and direction that are at least as large as it. */
-function rivalsOf(line: BreakdownLine, lines: readonly BreakdownLine[]): BreakdownLine[] {
+function rivalsOf(line: BreakdownLine, lines: ReadonlyArray<BreakdownLine>): Array<BreakdownLine> {
   const value = line.value ?? 0;
 
   return lines.filter(

@@ -19,7 +19,7 @@ export function openPicks(
   document: CharacterDocument,
   content: SpellPlacementContent,
   accepts: (slot: ChoiceSlot) => boolean = () => true,
-): ChoicePick[] {
+): Array<ChoicePick> {
   return characterGrants(document, content.slots)
     .open.filter((slot) => accepts(slot))
     .flatMap((slot) => slot.options.map((option): ChoicePick => [slot.key, ChoiceValue.parse(option.value)]));

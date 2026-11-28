@@ -11,8 +11,8 @@ const FIRST_LEVEL = Level.parse(CHARACTER_LEVEL_MIN);
 /** What a character's key attribute options are read from. */
 interface KeyOptionSources {
   readonly registry: ContentRegistry;
-  readonly entries: readonly ContentEntry[];
-  readonly rootSlots: readonly RootSlotDefinition[];
+  readonly entries: ReadonlyArray<ContentEntry>;
+  readonly rootSlots: ReadonlyArray<RootSlotDefinition>;
   /** The grant lookup, read when the first document is, so a registry with no such feature never builds one. */
   readonly lookup: () => ContentLookup;
 }
@@ -26,7 +26,7 @@ export function grantedKeyOptions({
   entries,
   rootSlots,
   lookup,
-}: KeyOptionSources): (document: CharacterDocument) => readonly Attribute[] {
+}: KeyOptionSources): (document: CharacterDocument) => ReadonlyArray<Attribute> {
   const options = new Map(
     entries.flatMap((entry) =>
       entry.kind === ContentKind.ClassFeature && entry.data.keyAttributeOptions !== undefined
@@ -39,7 +39,7 @@ export function grantedKeyOptions({
     return () => [];
   }
 
-  const read = new WeakMap<CharacterDocument, readonly Attribute[]>();
+  const read = new WeakMap<CharacterDocument, ReadonlyArray<Attribute>>();
 
   return (document) => {
     const known = read.get(document);

@@ -88,7 +88,7 @@ const GRANTER_LEVEL = 'parent:granter:level';
 const GRANTER_LEVEL_OPTION = 'self:level';
 
 /** A predicate with each read of the item's level, or of its granter's, as Pioneer spells it; anything else is as it was. */
-function withItemLevel<Raw>(node: Raw): Raw | Fields | string | unknown[] {
+function withItemLevel<Raw>(node: Raw): Raw | Fields | string | Array<unknown> {
   if (node === ITEM_LEVEL) {
     return ITEM_LEVEL_OPTION;
   }
@@ -124,7 +124,7 @@ function choiceOf(choice: unknown, references: EntryReferences): unknown {
 }
 
 /** Foundry's `ranks` config: ranks one to ten, valued as their number. */
-const RANK_CHOICES: readonly unknown[] = Array.from({ length: 10 }, (_unused, index) => ({
+const RANK_CHOICES: ReadonlyArray<unknown> = Array.from({ length: 10 }, (_unused, index) => ({
   value: String(index + 1),
   label: `Rank ${index + 1}`,
 }));

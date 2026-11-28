@@ -75,7 +75,7 @@ describe('spell fields as text', () => {
   it('words damage at the cast rank, and healing apart from damage', () => {
     const translate = translator();
 
-    const damage = (rank: number): string[] =>
+    const damage = (rank: number): Array<string> =>
       lineOf({ slug: 'fireball', name: 'Fireball', data: FIREBALL, rank }, translate).effects.map(({ text }) => text);
 
     expect(damage(3)).toStrictEqual(['6d6 fire']);

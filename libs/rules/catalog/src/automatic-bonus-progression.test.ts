@@ -43,7 +43,7 @@ const VARIANT = VariantRuleId.parse(
 );
 
 /** The rule elements of Automatic Bonus Progression, in play as an enabled variant. */
-function automaticBonus(): readonly RuleInPlay[] {
+function automaticBonus(): ReadonlyArray<RuleInPlay> {
   const registry = new ContentRegistry();
   registry.register(coreRules);
   const variant = registry.variantRule(VARIANT);
@@ -58,7 +58,7 @@ function automaticBonus(): readonly RuleInPlay[] {
 const RULES = automaticBonus();
 
 /** What the table gives at `level`, for a bonus that starts at `levels`. */
-function bonusAt(level: number, levels: readonly number[]): number {
+function bonusAt(level: number, levels: ReadonlyArray<number>): number {
   return levels.filter((start) => level >= start).length;
 }
 
@@ -100,7 +100,7 @@ interface PotencyLine {
 }
 
 /** The potency lines that apply to AC at `level`. */
-function appliedAcPotency(level: number): readonly PotencyLine[] {
+function appliedAcPotency(level: number): ReadonlyArray<PotencyLine> {
   const ac = deriveStatistics(core, character(level), { rules: RULES, facts: factsAt(level) }).get(
     Selector.parse('ac'),
   );
@@ -130,7 +130,7 @@ describe('Automatic Bonus Progression potency bonuses, levels 1 to 20', () => {
 });
 
 /** An item's numbers: each property with the grade or bonus it has. */
-function held(...pairs: readonly (readonly [NumericItemProperty, number])[]): ItemNumbers {
+function held(...pairs: ReadonlyArray<readonly [NumericItemProperty, number]>): ItemNumbers {
   return new Map(pairs.map(([property, grade]) => [property, FormulaValue.parse(grade)]));
 }
 

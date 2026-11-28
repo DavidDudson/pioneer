@@ -117,17 +117,17 @@ interface PartyCharacterJson extends CharacterJson {
   readonly vitals: {
     readonly hp?: { readonly current: number; readonly max: number; readonly temp: number };
     readonly dying: number;
-    readonly conditions: readonly { readonly name: string; readonly value?: number }[];
+    readonly conditions: ReadonlyArray<{ readonly name: string; readonly value?: number }>;
   };
 }
 
 interface PartyJson {
-  readonly characters: readonly PartyCharacterJson[];
-  readonly attachable: readonly CharacterJson[];
+  readonly characters: ReadonlyArray<PartyCharacterJson>;
+  readonly attachable: ReadonlyArray<CharacterJson>;
 }
 
 interface RosterJson {
-  readonly members: readonly { readonly id: string; readonly userId: string }[];
+  readonly members: ReadonlyArray<{ readonly id: string; readonly userId: string }>;
 }
 
 async function json<TBody>(response: Response): Promise<TBody> {

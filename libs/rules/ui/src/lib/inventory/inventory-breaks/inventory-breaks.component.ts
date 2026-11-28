@@ -10,7 +10,7 @@ import { InventoryMessage } from '../inventory-messages';
 interface BreakGroup {
   readonly label: string;
   readonly tone: BadgeTone;
-  readonly reasons: readonly MessageDescriptor[];
+  readonly reasons: ReadonlyArray<MessageDescriptor>;
 }
 
 /**
@@ -24,14 +24,14 @@ interface BreakGroup {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InventoryBreaks {
-  public readonly reasons = input.required<readonly MessageDescriptor[]>();
+  public readonly reasons = input.required<ReadonlyArray<MessageDescriptor>>();
   /** The reasons the campaign's GM approved, which no longer warn. */
-  public readonly approved = input<readonly MessageDescriptor[]>([]);
+  public readonly approved = input<ReadonlyArray<MessageDescriptor>>([]);
   /** The reasons the owner acknowledged on a character outside a campaign, which no longer warn. */
-  public readonly acknowledged = input<readonly MessageDescriptor[]>([]);
+  public readonly acknowledged = input<ReadonlyArray<MessageDescriptor>>([]);
 
   /** The tags to show, each with its reasons, leaving out the ones with none. */
-  protected readonly groups: Signal<readonly BreakGroup[]> = computed((): readonly BreakGroup[] =>
+  protected readonly groups: Signal<ReadonlyArray<BreakGroup>> = computed((): ReadonlyArray<BreakGroup> =>
     [
       { label: InventoryMessage.RuleBreaking, tone: BadgeTone.Warning, reasons: this.reasons() },
       { label: InventoryMessage.ApprovedByGm, tone: BadgeTone.Info, reasons: this.approved() },

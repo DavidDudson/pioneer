@@ -23,8 +23,8 @@ const LIST_SEPARATOR = ', ';
 
 /** How an entry is reached: the hops to it, the entries above it, and what the granting element asked for. */
 export interface Visit {
-  readonly hops: readonly OriginHop[];
-  readonly chain: readonly GrantEntry[];
+  readonly hops: ReadonlyArray<OriginHop>;
+  readonly chain: ReadonlyArray<GrantEntry>;
   readonly flag: RuleSlug | undefined;
   readonly allowDuplicate: boolean;
   /** Whether a player's pick put it here: a root slot's, or a `ChoiceSet`'s granted by `GrantItem { choice }`. */
@@ -33,7 +33,7 @@ export interface Visit {
   readonly value: ConditionValue | undefined;
 }
 
-export function originOf(entry: GrantEntry, hops: readonly OriginHop[]): Origin {
+export function originOf(entry: GrantEntry, hops: ReadonlyArray<OriginHop>): Origin {
   return { hops: [...hops], entry: entry.id, sources: [...entry.sources] };
 }
 

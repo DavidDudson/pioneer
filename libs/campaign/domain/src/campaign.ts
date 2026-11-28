@@ -43,7 +43,7 @@ interface CampaignProps {
   readonly version: Version;
   readonly name: CampaignName;
   readonly gmId: UserId;
-  readonly members: readonly CampaignMember[];
+  readonly members: ReadonlyArray<CampaignMember>;
   readonly createdAt: Temporal.Instant;
 }
 
@@ -62,7 +62,7 @@ export class Campaign {
   public readonly version: Version;
   public readonly name: CampaignName;
   public readonly gmId: UserId;
-  public readonly members: readonly CampaignMember[];
+  public readonly members: ReadonlyArray<CampaignMember>;
   public readonly createdAt: Temporal.Instant;
 
   public constructor(props: CampaignProps) {

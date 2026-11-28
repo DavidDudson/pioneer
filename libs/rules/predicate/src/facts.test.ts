@@ -9,7 +9,7 @@ import { PredicateFacts } from './facts';
 import { namespaceTable } from './namespaces';
 import { Truth } from './truth';
 
-const options = (...given: readonly string[]): RollOption[] => given.map((option) => RollOption.parse(option));
+const options = (...given: ReadonlyArray<string>): Array<RollOption> => given.map((option) => RollOption.parse(option));
 
 const verdict = (predicate: JsonValue, given: PredicateFacts): Truth =>
   evaluatePredicate(Predicate.parse(predicate), given);

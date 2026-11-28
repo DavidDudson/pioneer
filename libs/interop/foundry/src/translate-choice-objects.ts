@@ -21,7 +21,7 @@ interface RolledField {
 /** The pick being split: its flag, its choices, and the roll option that names each choice. */
 interface Pick {
   readonly flag: string;
-  readonly choices: readonly Fields[];
+  readonly choices: ReadonlyArray<Fields>;
   readonly rolled: RolledField;
 }
 
@@ -48,8 +48,8 @@ function isRolledBy(raw: unknown, flag: string, rolled: RolledField): boolean {
 }
 
 /** The `ChoiceSet`s among `raws` whose choices all carry an object value, by flag. */
-function objectChoiceSets(raws: readonly unknown[]): ReadonlyMap<string, readonly Fields[]> {
-  const found = new Map<string, readonly Fields[]>();
+function objectChoiceSets(raws: ReadonlyArray<unknown>): ReadonlyMap<string, ReadonlyArray<Fields>> {
+  const found = new Map<string, ReadonlyArray<Fields>>();
 
   for (const raw of raws) {
     if (
@@ -58,7 +58,7 @@ function objectChoiceSets(raws: readonly unknown[]): ReadonlyMap<string, readonl
       typeof raw['flag'] === 'string' &&
       Array.isArray(raw['choices'])
     ) {
-      const choices: readonly unknown[] = raw['choices'];
+      const choices: ReadonlyArray<unknown> = raw['choices'];
       const objects = choices.filter((choice): choice is Fields => isFields(choice) && isFields(choice['value']));
 
       if (objects.length > 0 && objects.length === choices.length) {
@@ -88,7 +88,7 @@ interface Split {
 /** `statistic`, a list or a record, split an entry at a time; undefined when no entry reads the pick. */
 function splitStatistic(statistic: unknown, flag: string): Split | undefined {
   if (Array.isArray(statistic)) {
-    const items: readonly unknown[] = statistic;
+    const items: ReadonlyArray<unknown> = statistic;
     const dependent = items.filter((item) => reads(item, flag));
 
     return dependent.length === 0 ? undefined : { kept: items.filter((item) => !reads(item, flag)), dependent };
@@ -213,14 +213,14 @@ export const EXPANDED_KEYS: ReadonlySet<unknown> = new Set([
 ]);
 
 /** The predicate `raw` has already, which the test of the pick joins. */
-export function predicateOf(raw: Fields): readonly unknown[] {
+export function predicateOf(raw: Fields): ReadonlyArray<unknown> {
   const { predicate } = raw;
 
   return Array.isArray(predicate) ? predicate : [];
 }
 
 /** The test that one of the dragons with a value was picked: its roll option, or any of them. */
-export function pickedOneOf(namespace: string, slugs: readonly string[]): unknown {
+export function pickedOneOf(namespace: string, slugs: ReadonlyArray<string>): unknown {
   const options = slugs.map((slug) => `${namespace}:${slug}`);
   const [only] = options;
 
@@ -230,7 +230,7 @@ export function pickedOneOf(namespace: string, slugs: readonly string[]): unknow
 /** An element as some choices read it, and the roll option slugs of those choices. */
 interface Reading {
   readonly element: Fields;
-  readonly slugs: string[];
+  readonly slugs: Array<string>;
 }
 
 /** `raw` read for each choice, the choices that read it the same grouped; a choice that lacks a field it reads has none. */
@@ -257,8 +257,8 @@ function sharedReadings(raw: Fields, pick: Pick): Iterable<Reading> {
  * that read it the same share one element, switched on by their roll options. A choice that lacks a field it reads
  * has none.
  */
-function expanded(raw: Fields, pick: Pick): readonly Fields[] {
-  const made: Fields[] = [];
+function expanded(raw: Fields, pick: Pick): ReadonlyArray<Fields> {
+  const made: Array<Fields> = [];
 
   for (const { element, slugs } of sharedReadings(raw, pick)) {
     made.push({ ...element, predicate: [...predicateOf(raw), pickedOneOf(pick.rolled.namespace, slugs)] });
@@ -271,7 +271,7 @@ function expanded(raw: Fields, pick: Pick): readonly Fields[] {
  * `raw` made to fit the pick: its `ChoiceSet` a plain one that sets the roll option, its `BattleForm` split, and an
  * element that reads a field of the pick made for each value of it.
  */
-function fitted(raw: unknown, pick: Pick): readonly unknown[] {
+function fitted(raw: unknown, pick: Pick): ReadonlyArray<unknown> {
   if (!isFields(raw)) {
     return [raw];
   }
@@ -290,7 +290,7 @@ function fitted(raw: unknown, pick: Pick): readonly unknown[] {
 }
 
 /** `raws` made to fit the pick of `flag` when a `RollOption` of the item reads a field of it; as they were otherwise. */
-function withPick(raws: readonly unknown[], flag: string, choices: readonly Fields[]): readonly unknown[] {
+function withPick(raws: ReadonlyArray<unknown>, flag: string, choices: ReadonlyArray<Fields>): ReadonlyArray<unknown> {
   const rolled = raws.map((raw) => rolledField(raw, flag)).find((found) => found !== undefined);
 
   if (rolled === undefined) {
@@ -307,7 +307,7 @@ function withPick(raws: readonly unknown[], flag: string, choices: readonly Fiel
  * sets that roll option itself, the `RollOption` folded into it, and each `BattleForm` reading the pick's other fields
  * split into variants. A `ChoiceSet` no `RollOption` reads a field of, and any other rule, is as it was.
  */
-export function withChoiceObjects(raws: readonly unknown[]): readonly unknown[] {
+export function withChoiceObjects(raws: ReadonlyArray<unknown>): ReadonlyArray<unknown> {
   let current = raws;
 
   for (const [flag, choices] of objectChoiceSets(raws)) {

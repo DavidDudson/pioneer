@@ -8,17 +8,17 @@ import type { TransferAnswer } from './item-transfer-repository';
 
 /** Repository adapter for tests and local experiments. */
 export class InMemoryItemTransferRepository extends ItemTransferRepository {
-  readonly #transfers = new Map<CampaignId, ItemTransfer[]>();
-  readonly #actors: UserId[] = [];
-  readonly #coins = new Map<CampaignId, CoinTransfer[]>();
+  readonly #transfers = new Map<CampaignId, Array<ItemTransfer>>();
+  readonly #actors: Array<UserId> = [];
+  readonly #coins = new Map<CampaignId, Array<CoinTransfer>>();
 
   /** Every actor that wrote an offer or an answer, oldest first. */
-  public get actors(): readonly UserId[] {
+  public get actors(): ReadonlyArray<UserId> {
     return this.#actors;
   }
 
-  public override async listPending(campaignId: CampaignId): Promise<readonly Transfer[]> {
-    const all: readonly Transfer[] = [
+  public override async listPending(campaignId: CampaignId): Promise<ReadonlyArray<Transfer>> {
+    const all: ReadonlyArray<Transfer> = [
       ...(this.#transfers.get(campaignId) ?? []),
       ...(this.#coins.get(campaignId) ?? []),
     ];
@@ -31,12 +31,12 @@ export class InMemoryItemTransferRepository extends ItemTransferRepository {
   }
 
   /** Every coin offer stored, oldest first. */
-  public get coinOffers(): readonly CoinTransfer[] {
+  public get coinOffers(): ReadonlyArray<CoinTransfer> {
     return [...this.#coins.values()].flat();
   }
 
   public override async findById(campaignId: CampaignId, id: ItemTransferId): Promise<Transfer | undefined> {
-    const all: readonly Transfer[] = [
+    const all: ReadonlyArray<Transfer> = [
       ...(this.#transfers.get(campaignId) ?? []),
       ...(this.#coins.get(campaignId) ?? []),
     ];

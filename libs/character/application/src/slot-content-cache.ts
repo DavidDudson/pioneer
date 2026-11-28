@@ -10,7 +10,7 @@ import type { ContentRegistry, VariantRuleEntry } from '@pioneer/rules/sdk';
 export class SlotContentCache {
   readonly #built = new WeakMap<ContentRegistry, Map<string, SlotContent>>();
 
-  public of(registry: ContentRegistry, variants: readonly VariantRuleEntry[]): SlotContent {
+  public of(registry: ContentRegistry, variants: ReadonlyArray<VariantRuleEntry>): SlotContent {
     const variantKey = variants.map((variant) => variant.id).join(',');
     const forRegistry = this.#built.get(registry) ?? new Map<string, SlotContent>();
     const cached = forRegistry.get(variantKey);

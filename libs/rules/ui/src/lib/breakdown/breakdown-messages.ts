@@ -55,7 +55,7 @@ export const LINE_STATUS_TONES = {
 } as const satisfies Readonly<Record<MarkedLineStatus, string>>;
 
 /** The order lines are listed in: what counts first, then what might, then what does not. */
-export const LINE_STATUS_ORDER: readonly LineStatusKind[] = [
+export const LINE_STATUS_ORDER: ReadonlyArray<LineStatusKind> = [
   LineStatusKind.Applied,
   LineStatusKind.Conditional,
   LineStatusKind.Suppressed,

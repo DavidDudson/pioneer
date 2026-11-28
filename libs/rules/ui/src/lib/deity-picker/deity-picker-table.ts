@@ -14,7 +14,7 @@ export const deityRowValue = (row: DeityPickerRow): string => row.id;
 export const deityRowLabel = (row: DeityPickerRow): string => row.name;
 export const deityRowDisabled = (row: DeityPickerRow): string | undefined => row.disabledReason;
 
-const chips = (labels: readonly string[]): readonly Chip[] => labels.map((label): Chip => ({ label }));
+const chips = (labels: ReadonlyArray<string>): ReadonlyArray<Chip> => labels.map((label): Chip => ({ label }));
 
 /** What identifies the deity and what it grants a cleric: name, sanctification, divine font and domains. */
 function grantColumns(schema: DeityTableSchema<DeityPickerRow>, say: Say): DeityTableSchema<DeityPickerRow> {
@@ -81,16 +81,16 @@ function followerColumns(schema: DeityTableSchema<DeityPickerRow>, say: Say): De
 }
 
 /** The columns of a deity picker, each fact to choose by a rich cell. */
-export function deityPickerColumns(say: Say): readonly TableColumn<DeityPickerRow>[] {
+export function deityPickerColumns(say: Say): ReadonlyArray<TableColumn<DeityPickerRow>> {
   return followerColumns(grantColumns(new DeityTableSchema<DeityPickerRow>(), say), say).build();
 }
 
 /** The rows whose name holds `query`, by name when asked; unsorted, the row that picks no deity stays first. */
 export function shownDeityRows(
-  rows: readonly DeityPickerRow[],
+  rows: ReadonlyArray<DeityPickerRow>,
   query: string,
   sort: PickerSort | undefined,
-): readonly DeityPickerRow[] {
+): ReadonlyArray<DeityPickerRow> {
   const needle = query.trim().toLocaleLowerCase();
   const matching = rows.filter((row) => row.name.toLocaleLowerCase().includes(needle));
 

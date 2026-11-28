@@ -22,9 +22,9 @@ import {
  * variant rule set it; each modifier line as `<type> <value> <status> (<item>)`; each override line; and the total.
  */
 interface Checked {
-  readonly base: readonly string[];
-  readonly lines: readonly string[];
-  readonly overrides: readonly string[];
+  readonly base: ReadonlyArray<string>;
+  readonly lines: ReadonlyArray<string>;
+  readonly overrides: ReadonlyArray<string>;
   readonly total: number;
 }
 
@@ -129,7 +129,7 @@ function attribute(slug: AttributeSlug, formula = `@attr.${slug}`): Term {
 }
 
 /** A statistic with `terms` as its base and `lines` adding `added` to it. */
-function statistic(terms: readonly Term[], lines: readonly string[] = [], added = 0): Checked {
+function statistic(terms: ReadonlyArray<Term>, lines: ReadonlyArray<string> = [], added = 0): Checked {
   const base = terms.reduce((sum, { value }) => sum + value, 0);
 
   return { base: terms.map(({ text }) => text), lines, overrides: [], total: base + added };
@@ -182,7 +182,7 @@ function golden({ bonus, mark }: ProficiencyTable): ReadonlyMap<string, Checked>
     'strike-damage:javelin': statistic([attribute('str', '@weapon.damage')]),
     ...Object.fromEntries(
       // SAFETY: ATTRIBUTES is keyed by attribute slugs; Object.keys types keys as string.
-      (Object.keys(ATTRIBUTES) as AttributeSlug[]).map((key) => [`attribute:${key}`, statistic([attribute(key)])]),
+      (Object.keys(ATTRIBUTES) as Array<AttributeSlug>).map((key) => [`attribute:${key}`, statistic([attribute(key)])]),
     ),
     'skill:acrobatics': skill('acrobatics', 'dex', Trained),
     'skill:arcana': skill('arcana', 'int', Untrained),

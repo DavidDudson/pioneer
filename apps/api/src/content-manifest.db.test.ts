@@ -29,7 +29,7 @@ function ignore(): void {
   // Seed log lines are not under test.
 }
 
-function packIn(packs: readonly PackBundles[], id: string): PackBundles {
+function packIn(packs: ReadonlyArray<PackBundles>, id: string): PackBundles {
   const found = packs.find((pack) => pack.id === id);
 
   if (found === undefined) {
@@ -39,7 +39,7 @@ function packIn(packs: readonly PackBundles[], id: string): PackBundles {
   return found;
 }
 
-function sizeEntries(pack: PackBundles): readonly [string, unknown][] {
+function sizeEntries(pack: PackBundles): ReadonlyArray<[string, unknown]> {
   if (pack.sizes === undefined) {
     throw new Error(`Expected sizes for ${pack.id} in the manifest`);
   }
@@ -61,13 +61,13 @@ describe.skipIf(adminUrl === undefined)('content manifest sizes (postgres)', () 
     await database.drop();
   });
 
-  async function packs(): Promise<readonly PackBundles[]> {
+  async function packs(): Promise<ReadonlyArray<PackBundles>> {
     const response = await api.handle(get('/content/manifest'));
 
     return ContentManifest.parse(await response.json()).packs;
   }
 
-  async function servedSizes(pack: PackBundles): Promise<readonly number[]> {
+  async function servedSizes(pack: PackBundles): Promise<ReadonlyArray<number>> {
     const served = await Promise.all(
       sizeEntries(pack).map(async ([file]) => api.handle(get(`/content/bundles/${pack.id}/${file}`))),
     );

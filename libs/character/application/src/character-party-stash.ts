@@ -80,7 +80,7 @@ export class CharacterPartyStash {
   }
 
   /** The stash's lines named from the content of `via`, one of the campaign's characters; item ids when there is none. */
-  public async name(stash: Inventory, via: CharacterId | undefined): Promise<readonly StashLineName[]> {
+  public async name(stash: Inventory, via: CharacterId | undefined): Promise<ReadonlyArray<StashLineName>> {
     const character = via === undefined ? undefined : await this.#characters.findById(via);
 
     const items =

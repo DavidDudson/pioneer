@@ -16,7 +16,7 @@ export class DarkModeToggle {
   readonly #system = translateSignal('shell.appearance.modes.system');
   readonly #dark = translateSignal('shell.appearance.modes.dark');
   readonly #light = translateSignal('shell.appearance.modes.light');
-  protected readonly options = computed<readonly SelectOption<ModeChoice>[]>(() => [
+  protected readonly options = computed<ReadonlyArray<SelectOption<ModeChoice>>>(() => [
     { value: ModeChoice.System, label: this.#system(), icon: Monitor },
     { value: ModeChoice.Dark, label: this.#dark(), icon: Moon },
     { value: ModeChoice.Light, label: this.#light(), icon: Sun },

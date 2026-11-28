@@ -52,8 +52,8 @@ export interface RollPresentation {
   readonly label: string;
   readonly total: RollTotal;
   /** One line per damage type, in the order the types are first written; an untyped roll has one plain line. */
-  readonly lines: readonly DamageLine[];
-  readonly groups: readonly DiceGroup[];
+  readonly lines: ReadonlyArray<DamageLine>;
+  readonly groups: ReadonlyArray<DiceGroup>;
   /** The message key of the degree of success, when the roll was a check against a DC. */
   readonly degreeKey?: string | undefined;
   /** The natural 20 or natural 1 on the d20 that counted; unset for any other roll. */
@@ -73,7 +73,7 @@ function groupOf(term: DiceTermResult): DiceGroup {
 }
 
 /** Sums the terms per damage type, dice and flat alike; the terms without a type share one line. */
-function linesOf(terms: readonly TermResult[]): DamageLine[] {
+function linesOf(terms: ReadonlyArray<TermResult>): Array<DamageLine> {
   const sums = new Map<DamageType | undefined, number>();
 
   for (const { term, value } of terms) {
@@ -88,7 +88,7 @@ function linesOf(terms: readonly TermResult[]): DamageLine[] {
 }
 
 /** A natural 20 or natural 1 on the first d20 that counted (a kept die of a fortune or misfortune pair); unset otherwise. */
-function naturalOf(dice: readonly DiceTermResult[]): Natural | undefined {
+function naturalOf(dice: ReadonlyArray<DiceTermResult>): Natural | undefined {
   const face = dice.find(({ term }) => term.size === D20)?.dice.find(({ kept }) => kept)?.face;
 
   if (face === NATURAL_20) {

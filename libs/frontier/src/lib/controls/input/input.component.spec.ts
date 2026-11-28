@@ -10,7 +10,7 @@ interface Rendered {
   readonly input: HTMLInputElement;
   readonly commits: () => number;
   readonly cancels: () => number;
-  readonly typed: () => readonly string[];
+  readonly typed: () => ReadonlyArray<string>;
 }
 
 function render(inputs: ComponentInputs<Input> = {}): Rendered {
@@ -23,7 +23,7 @@ function render(inputs: ComponentInputs<Input> = {}): Rendered {
 
   let commits = 0;
   let cancels = 0;
-  const typed: string[] = [];
+  const typed: Array<string> = [];
   fixture.componentInstance.committed.subscribe(() => {
     commits += 1;
   });
@@ -46,7 +46,7 @@ function render(inputs: ComponentInputs<Input> = {}): Rendered {
     input,
     commits: (): number => commits,
     cancels: (): number => cancels,
-    typed: (): readonly string[] => typed,
+    typed: (): ReadonlyArray<string> => typed,
   };
 }
 
@@ -75,7 +75,7 @@ function press(rendered: Rendered, options: KeyOptions): KeyboardEvent {
 }
 
 /** The two signals of an IME at work, each as the init of a key press that would otherwise commit or cancel. */
-const IME_SIGNALS: readonly { readonly name: string; readonly options: (key: CommitKey) => KeyOptions }[] = [
+const IME_SIGNALS: ReadonlyArray<{ readonly name: string; readonly options: (key: CommitKey) => KeyOptions }> = [
   { name: 'isComposing', options: (key) => ({ key, isComposing: true }) },
   { name: 'keyCode 229, as Safari sends after a composition ends', options: (key) => ({ key, keyCode: 229 }) },
 ];

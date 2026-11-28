@@ -65,19 +65,19 @@ export class SheetEffectAdd {
   readonly #random = inject(RANDOM_SOURCE);
   readonly #i18n = inject(TranslocoService);
 
-  public readonly options = input.required<readonly EffectOption[]>();
+  public readonly options = input.required<ReadonlyArray<EffectOption>>();
   public readonly busy = input.required<boolean>();
   public readonly send = input.required<(command: PlayCommand) => Promise<void>>();
   public readonly describeError = input.required<(error: Error) => string>();
   /** The temporary Hit Points the character would get from `effect`, worked out by the engine; none when it gives none. */
   public readonly tempHpFor = input.required<(effect: ActiveEffect) => HitPoints | undefined>();
   /** The active spells an effect can be cast from, so sustaining one recreates a destroyed shield it gave. */
-  public readonly spells = input.required<readonly SelectOption<string>[]>();
+  public readonly spells = input.required<ReadonlyArray<SelectOption<string>>>();
 
-  protected readonly choices = computed((): readonly SelectOption<string>[] =>
+  protected readonly choices = computed((): ReadonlyArray<SelectOption<string>> =>
     this.options().map(({ id, name }) => ({ value: id, label: name })),
   );
-  protected readonly sources = computed((): readonly SelectOption<EffectSourceKind>[] =>
+  protected readonly sources = computed((): ReadonlyArray<SelectOption<EffectSourceKind>> =>
     Object.values(EffectSourceKind).map((kind) => ({ value: kind, label: this.#i18n.translate(SOURCE_LABELS[kind]) })),
   );
 
@@ -90,7 +90,7 @@ export class SheetEffectAdd {
   protected readonly isAlly = computed((): boolean => this.sourceKind() === EffectSourceKind.Ally);
   readonly #allies = injectCharacterAllies(() => this.isAlly());
   readonly #party = computed(() => this.#allies.data()?.allies ?? []);
-  protected readonly allyOptions = computed((): readonly SelectOption<string>[] => [
+  protected readonly allyOptions = computed((): ReadonlyArray<SelectOption<string>> => [
     ...this.#party().map(({ characterId, name }) => ({ value: characterId, label: name })),
     { value: ALLY_OTHER, label: this.#i18n.translate('character.sheet.effects.allyOther') },
   ]);
@@ -104,7 +104,7 @@ export class SheetEffectAdd {
     this.options().find(({ id }) => id === this.picked()),
   );
   /** The forms the picked effect offers at the rank chosen, as a select reads them. */
-  protected readonly forms = computed((): readonly SelectOption<string>[] => {
+  protected readonly forms = computed((): ReadonlyArray<SelectOption<string>> => {
     const rank = Number(this.rank() ?? this.pickedOption()?.rankFloor);
 
     return (this.pickedOption()?.forms ?? [])
@@ -112,7 +112,7 @@ export class SheetEffectAdd {
       .map(({ option, label }) => ({ value: option, label }));
   });
   /** The ranks the picked polymorph effect can be cast at, from its own up to the tenth. */
-  protected readonly ranks = computed((): readonly SelectOption<string>[] => {
+  protected readonly ranks = computed((): ReadonlyArray<SelectOption<string>> => {
     const option = this.pickedOption();
 
     if (option?.polymorph !== true) {
@@ -127,7 +127,7 @@ export class SheetEffectAdd {
     }));
   });
   /** The tradition of the spellcasting entry the picked polymorph effect is cast with; none until picked. */
-  protected readonly traditions = computed((): readonly SelectOption<string>[] =>
+  protected readonly traditions = computed((): ReadonlyArray<SelectOption<string>> =>
     this.pickedOption()?.polymorph === true
       ? Object.values(MagicTradition).map((each) => ({
           value: each,

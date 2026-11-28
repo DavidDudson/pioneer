@@ -39,7 +39,7 @@ function line(slug: string, name: string, source: string): SpellRowLine {
   return { key: `${slug}:${source}`, detail: detail(slug, name, source) };
 }
 
-function render(lines: readonly SpellRowLine[] | undefined): ComponentFixture<SpellRowList> {
+function render(lines: ReadonlyArray<SpellRowLine> | undefined): ComponentFixture<SpellRowList> {
   TestBed.configureTestingModule({
     providers: [
       provideRulesUiI18nTesting(),
@@ -55,7 +55,7 @@ function render(lines: readonly SpellRowLine[] | undefined): ComponentFixture<Sp
   return fixture;
 }
 
-function rows(fixture: ComponentFixture<SpellRowList>): HTMLElement[] {
+function rows(fixture: ComponentFixture<SpellRowList>): Array<HTMLElement> {
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
   return [...(fixture.nativeElement as HTMLElement).querySelectorAll<HTMLElement>('pio-spell-row')];
 }

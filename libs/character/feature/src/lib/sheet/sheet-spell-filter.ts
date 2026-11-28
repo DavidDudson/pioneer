@@ -57,9 +57,9 @@ const ACTION_MESSAGES = {
   [TIME]: 'rules.facet.castActions.time',
 };
 
-const ACTION_ORDER: readonly ActionCost[] = [ActionCost.One, ActionCost.Two, ActionCost.Three];
+const ACTION_ORDER: ReadonlyArray<ActionCost> = [ActionCost.One, ActionCost.Two, ActionCost.Three];
 
-function actionsOf(cost: SpellCostLine): readonly string[] {
+function actionsOf(cost: SpellCostLine): ReadonlyArray<string> {
   if (cost.kind === 'either') {
     return cost.options.flatMap((option) => actionsOf(option));
   }
@@ -75,14 +75,14 @@ function actionsOf(cost: SpellCostLine): readonly string[] {
 }
 
 /** The damage types a spell deals; healing and untyped damage have none. */
-function damageTypesOf({ detail }: SpellRowLine): readonly DamageType[] {
+function damageTypesOf({ detail }: SpellRowLine): ReadonlyArray<DamageType> {
   return detail.effects.flatMap(({ roll }) =>
     roll.healing === true ? [] : roll.instances.flatMap(({ damageType }) => damageType ?? []),
   );
 }
 
 /** What a spell has in each group. */
-type GroupValues = Readonly<Record<SpellFilterGroupId, readonly string[]>>;
+type GroupValues = Readonly<Record<SpellFilterGroupId, ReadonlyArray<string>>>;
 
 /** The values a spell has in each group, unique within the group. */
 function valuesOf({ line, source }: SourcedSpell): GroupValues {
@@ -97,19 +97,19 @@ function valuesOf({ line, source }: SourcedSpell): GroupValues {
   };
 }
 
-const GROUPS: readonly SpellFilterGroupId[] = Object.values(SpellFilterGroupId);
+const GROUPS: ReadonlyArray<SpellFilterGroupId> = Object.values(SpellFilterGroupId);
 
 /** The groups `filter` has picks in, apart from `skip`. */
-function pickedGroups(filter: SpellPicks, skip?: SpellFilterGroupId): readonly SpellFilterGroupId[] {
+function pickedGroups(filter: SpellPicks, skip?: SpellFilterGroupId): ReadonlyArray<SpellFilterGroupId> {
   return GROUPS.filter((group) => group !== skip && (filter.get(group)?.size ?? 0) > 0);
 }
 
-function passes(values: GroupValues, picked: readonly SpellFilterGroupId[], filter: SpellPicks): boolean {
+function passes(values: GroupValues, picked: ReadonlyArray<SpellFilterGroupId>, filter: SpellPicks): boolean {
   return picked.every((group) => values[group].some((value) => filter.get(group)?.has(value) === true));
 }
 
 /** The spells every group of `filter` keeps: OR within a group, AND across groups. */
-export function filterSpells(spells: readonly SourcedSpell[], filter: SpellPicks): readonly SourcedSpell[] {
+export function filterSpells(spells: ReadonlyArray<SourcedSpell>, filter: SpellPicks): ReadonlyArray<SourcedSpell> {
   const picked = pickedGroups(filter);
 
   if (picked.length === 0) {
@@ -146,10 +146,10 @@ export function wordValue(translate: (key: string) => string): ValueWords {
  * zero, so it can be cleared.
  */
 export function spellFilterGroups(
-  spells: readonly SourcedSpell[],
+  spells: ReadonlyArray<SourcedSpell>,
   filter: SpellPicks,
   words: { readonly label: (key: string) => string; readonly value: ValueWords },
-): readonly SpellFilterGroup[] {
+): ReadonlyArray<SpellFilterGroup> {
   // Worked out once, so the passes over the groups below do not repeat it for every spell.
   const valuesPerSpell = spells.map((spell) => valuesOf(spell));
 
@@ -190,7 +190,7 @@ const ParamValues = z.union([z.string().transform((value) => [value]), z.array(z
 /** The filters the URL holds; a param repeats once per value (`s.source=A&s.source=B`), so a name with a comma is safe. */
 export function spellFilterFromQuery(params: QueryParams): SpellPicks {
   return new Map(
-    GROUPS.flatMap((group): [SpellFilterGroupId, ReadonlySet<string>][] => {
+    GROUPS.flatMap((group): Array<[SpellFilterGroupId, ReadonlySet<string>]> => {
       const raw = ParamValues.safeParse(params[paramOf(group)]);
       const values = raw.success ? raw.data.filter((value) => value !== '') : [];
 
@@ -200,10 +200,10 @@ export function spellFilterFromQuery(params: QueryParams): SpellPicks {
 }
 
 /** The query params that put `filter` in the URL, with every group it leaves out cleared. */
-export function spellFilterToQuery(filter: SpellPicks): Readonly<Record<string, readonly string[] | undefined>> {
+export function spellFilterToQuery(filter: SpellPicks): Readonly<Record<string, ReadonlyArray<string> | undefined>> {
   return Object.fromEntries([
     ...Object.entries(SPELL_FILTER_CLEARED),
-    ...GROUPS.flatMap((group): [string, readonly string[]][] => {
+    ...GROUPS.flatMap((group): Array<[string, ReadonlyArray<string>]> => {
       const picked = filter.get(group);
 
       return picked === undefined || picked.size === 0 ? [] : [[paramOf(group), [...picked].toSorted()]];

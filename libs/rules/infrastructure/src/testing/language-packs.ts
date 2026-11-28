@@ -35,7 +35,7 @@ function languageEntry(pack: string, { slug, name, text, license }: Language): o
 /** A pack of languages, as its JSON files would hold it. */
 export function languagePack(
   pack: string,
-  languages: readonly Language[],
+  languages: ReadonlyArray<Language>,
   license: ContentLicense = ContentLicense.Homebrew,
 ): PackContents {
   const packFile = { id: pack, title: 'Test Pack', publisher: 'Pioneer', license };

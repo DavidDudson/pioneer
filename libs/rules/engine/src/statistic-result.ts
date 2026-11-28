@@ -57,18 +57,18 @@ export interface MovementCostReduction {
 export interface StatisticValue {
   readonly ok: true;
   readonly selector: Selector;
-  readonly base: readonly BaseTerm[];
+  readonly base: ReadonlyArray<BaseTerm>;
   /** What the base formula's terms add up to. */
   readonly formulaValue: FormulaValue;
   /** The base after its `Change`s: what modifiers add to, and what `@stat.<selector>` reads. */
   readonly baseValue: FormulaValue;
-  readonly lines: readonly BreakdownLine[];
+  readonly lines: ReadonlyArray<BreakdownLine>;
   /** The base plus the applied lines. */
   readonly computed: FormulaValue;
   /** The computed total, or the value a set override pinned it to. */
   readonly total: FormulaValue;
   /** Base-phase `Change`s in the order they ran, then set overrides. */
-  readonly overrides: readonly OverrideLine[];
+  readonly overrides: ReadonlyArray<OverrideLine>;
   /** The set override that pinned the total, if one did; the sheet flags the statistic wherever it appears. */
   readonly pinnedBy: RuleId | undefined;
   /** Set when a battle form replaces this statistic; absent otherwise. */
@@ -105,7 +105,7 @@ export function totalOutOfRange(selector: Selector): StatisticFailure {
 }
 
 /** A statistic in a cycle, failing at `edge`, its reference into the cycle; `members` are named in selector order. */
-export function cycle(selector: Selector, edge: StatisticEdge, members: readonly Selector[]): StatisticFailure {
+export function cycle(selector: Selector, edge: StatisticEdge, members: ReadonlyArray<Selector>): StatisticFailure {
   const statistics = members.join(LIST_SEPARATOR);
   const params = { found: `${SIGIL}${edge.path}`, position: edge.position, statistics, count: members.length };
 

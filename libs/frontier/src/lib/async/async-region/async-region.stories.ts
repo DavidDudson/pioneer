@@ -15,7 +15,7 @@ import { AsyncPending } from './async-pending.directive';
 import type { AsyncQuery } from './async-query';
 import { AsyncRegion } from './async-region.component';
 
-type Party = readonly string[];
+type Party = ReadonlyArray<string>;
 
 type AsyncRegionStory = StoryObj<AsyncRegion<Party>>;
 

@@ -66,7 +66,7 @@ function transfer(
   return { action: RuneAction.Transfer, id: from, rune, to };
 }
 
-function etched(inventory: Inventory, id: InventoryItemId, ...etchings: readonly RuneEtching[]): Inventory {
+function etched(inventory: Inventory, id: InventoryItemId, ...etchings: ReadonlyArray<RuneEtching>): Inventory {
   let stock = inventory;
 
   for (const etching of etchings) {

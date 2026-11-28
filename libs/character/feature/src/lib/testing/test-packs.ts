@@ -32,13 +32,13 @@ function cutDown(pack: PackContentsLoader, kept: ReadonlySet<ContentKind>): Pack
  * feats, spells, deities and items. Cut from the committed pack at load, so it never drifts from it. A spec that
  * needs all of Player Core (matching an export's names) passes `officialPacks` instead.
  */
-export const TEST_PACKS: readonly PackContentsLoader[] = cutTo(CHARACTER_CONTENT_KINDS);
+export const TEST_PACKS: ReadonlyArray<PackContentsLoader> = cutTo(CHARACTER_CONTENT_KINDS);
 
 /**
  * The official packs with each Foundry import cut down to `kinds`: the character kinds and the spells, for the spell
  * pickers.
  */
-export function cutTo(kinds: readonly ContentKind[]): readonly PackContentsLoader[] {
+export function cutTo(kinds: ReadonlyArray<ContentKind>): ReadonlyArray<PackContentsLoader> {
   const kept = new Set(kinds);
 
   return officialPacks.map((pack) => (IMPORTED.has(pack.id) ? cutDown(pack, kept) : pack));

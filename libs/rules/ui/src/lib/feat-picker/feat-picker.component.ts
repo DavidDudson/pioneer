@@ -19,7 +19,7 @@ const rowLabel = (row: FeatPickerRow): string => row.name;
 const rowDisabled = (row: FeatPickerRow): string | undefined => row.disabledReason;
 
 /** The traits as chips, a feat above common rarity first and toned by it. */
-function chipsOf(row: FeatPickerRow, say: (key: string) => string): readonly Chip[] {
+function chipsOf(row: FeatPickerRow, say: (key: string) => string): ReadonlyArray<Chip> {
   if (row.rarity === Rarity.Common) {
     return row.traits;
   }
@@ -55,7 +55,7 @@ function compare(left: FeatPickerRow, right: FeatPickerRow, sort: PickerSort): n
 })
 export class FeatPicker {
   /** Every feat the slot offers, with the facts of each. */
-  public readonly rows = input.required<readonly FeatPickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<FeatPickerRow>>();
   /** The picked feat's id; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);
@@ -126,7 +126,7 @@ export class FeatPicker {
   });
 
   /** The rows whose name holds what was typed, in the order asked for. */
-  protected readonly shown = computed((): readonly FeatPickerRow[] => {
+  protected readonly shown = computed((): ReadonlyArray<FeatPickerRow> => {
     const needle = this.query().trim().toLocaleLowerCase();
     const sort = this.sorting();
     const matching = this.rows().filter((row) => row.name.toLocaleLowerCase().includes(needle));

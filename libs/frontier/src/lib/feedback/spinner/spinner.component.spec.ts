@@ -18,7 +18,7 @@ async function render(inputs: ComponentInputs<Spinner>): Promise<HTMLElement> {
   return fixture.nativeElement as HTMLElement;
 }
 
-function iconClasses(host: HTMLElement): string[] {
+function iconClasses(host: HTMLElement): Array<string> {
   const svg = host.querySelector('svg');
 
   if (svg === null) {

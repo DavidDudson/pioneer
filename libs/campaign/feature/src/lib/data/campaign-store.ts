@@ -54,7 +54,8 @@ export class CampaignStore {
   /** Every campaign the user is in, as GM or player. */
   public readonly list = injectQuery(() => ({
     queryKey: campaignKeys.list(),
-    queryFn: async (): Promise<Campaign[]> => this.#api.call(CampaignContract.list, { params: {}, body: undefined }),
+    queryFn: async (): Promise<Array<Campaign>> =>
+      this.#api.call(CampaignContract.list, { params: {}, body: undefined }),
   }));
 
   /** The open campaign. */
@@ -90,7 +91,7 @@ export class CampaignStore {
 
     return {
       queryKey: campaignKeys.invites(id),
-      queryFn: async (): Promise<InviteSummary[]> =>
+      queryFn: async (): Promise<Array<InviteSummary>> =>
         this.#api.call(CampaignContract.invites, { params: { id: parsedId(id) }, body: undefined }),
       enabled: id !== undefined && this.isGm(),
     };
@@ -150,7 +151,7 @@ export class CampaignStore {
     const issued = await this.#api.call(CampaignContract.createInvite, { params: { id }, body: undefined });
     // A list fetch already in flight predates this invite and would overwrite it.
     await this.#client.cancelQueries({ queryKey: campaignKeys.invites(id) });
-    this.#client.setQueryData(campaignKeys.invites(id), (invites: InviteSummary[] | undefined) => [
+    this.#client.setQueryData(campaignKeys.invites(id), (invites: Array<InviteSummary> | undefined) => [
       issued.invite,
       ...(invites ?? []),
     ]);
@@ -165,7 +166,7 @@ export class CampaignStore {
   public async revokeInvite(id: CampaignId, inviteId: CampaignInviteId): Promise<void> {
     const revoked = await this.#api.call(CampaignContract.revokeInvite, { params: { id, inviteId }, body: undefined });
     await this.#client.cancelQueries({ queryKey: campaignKeys.invites(id) });
-    this.#client.setQueryData(campaignKeys.invites(id), (invites: InviteSummary[] | undefined) =>
+    this.#client.setQueryData(campaignKeys.invites(id), (invites: Array<InviteSummary> | undefined) =>
       (invites ?? []).map((invite) => (invite.id === inviteId ? revoked : invite)),
     );
   }

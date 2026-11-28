@@ -23,12 +23,12 @@ export interface Inputs {
 
 /** The breakdown as read: its captions and empty line, its terms, and its lines, each list item's parts joined. */
 export interface Rendered {
-  readonly captions: readonly string[];
-  readonly terms: readonly string[];
-  readonly lines: readonly string[];
-  readonly overrides: readonly string[];
+  readonly captions: ReadonlyArray<string>;
+  readonly terms: ReadonlyArray<string>;
+  readonly lines: ReadonlyArray<string>;
+  readonly overrides: ReadonlyArray<string>;
   /** Each line's origin chain as a sentence, modifiers then overrides. */
-  readonly chains: readonly string[];
+  readonly chains: ReadonlyArray<string>;
 }
 
 function textOf(element: Element): string {
@@ -82,7 +82,7 @@ export async function render(value: StatisticValue, inputs: Inputs = {}): Promis
 
 /** What the rendered breakdown shows. */
 function read(host: HTMLElement): Rendered {
-  const items = (selector: string): string[] =>
+  const items = (selector: string): Array<string> =>
     [...host.querySelectorAll(`${selector} [role="listitem"]`)].map((item) => partsOf(item));
 
   return {

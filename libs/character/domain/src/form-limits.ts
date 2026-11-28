@@ -26,6 +26,10 @@ export function formLimits(
 }
 
 /** The traits the battle form the character is in gives it, as `self:trait:` roll options; none out of a form. */
-export function formTraits(document: CharacterDocument, content: ItemContent, slots: SlotContent): readonly Trait[] {
+export function formTraits(
+  document: CharacterDocument,
+  content: ItemContent,
+  slots: SlotContent,
+): ReadonlyArray<Trait> {
   return equippedGrants(document, content, slots).form?.form.traits ?? [];
 }

@@ -54,7 +54,7 @@ type Feat = z.infer<typeof Feat>;
 const Source = z.record(z.string(), Feat);
 const FEATS: ReadonlyMap<string, Feat> = new Map(Object.entries(Source.parse(source)));
 
-function withPredicate(predicate: readonly unknown[] | undefined): object {
+function withPredicate(predicate: ReadonlyArray<unknown> | undefined): object {
   return predicate === undefined ? {} : { predicate };
 }
 
@@ -71,7 +71,7 @@ function entryRule({ entry }: Feat): Fields {
   };
 }
 
-function choiceRule({ choice }: Feat): object[] {
+function choiceRule({ choice }: Feat): Array<object> {
   return choice === undefined
     ? []
     : [
@@ -86,7 +86,7 @@ function choiceRule({ choice }: Feat): object[] {
 }
 
 /** The elements that give `spells` while `when` holds. */
-function granting(entry: string, spells: readonly z.infer<typeof Spell>[], when: readonly unknown[]): Fields {
+function granting(entry: string, spells: ReadonlyArray<z.infer<typeof Spell>>, when: ReadonlyArray<unknown>): Fields {
   return {
     key: RuleElementKey.InnateSpells,
     entry,
@@ -96,7 +96,7 @@ function granting(entry: string, spells: readonly z.infer<typeof Spell>[], when:
 }
 
 /** One element per range of levels: from its level to the level before the next range's, the last holding on. */
-function byLevel(entry: string, { spell, levels, when = [] }: Grant): object[] {
+function byLevel(entry: string, { spell, levels, when = [] }: Grant): Array<object> {
   return (levels ?? []).map(([from, rank], index) => {
     const next = levels?.[index + 1];
     const atLeast = { gte: [SELF_LEVEL, from] };
@@ -106,12 +106,12 @@ function byLevel(entry: string, { spell, levels, when = [] }: Grant): object[] {
   });
 }
 
-function grantRules(entry: string, grant: Grant): object[] {
+function grantRules(entry: string, grant: Grant): Array<object> {
   return grant.levels === undefined ? [granting(entry, grant.spells ?? [], grant.when ?? [])] : byLevel(entry, grant);
 }
 
 /** The innate entry, choices and `InnateSpells` elements the entry with `slug` gains, if any. */
-export function innateSpellRules(slug: string): readonly object[] {
+export function innateSpellRules(slug: string): ReadonlyArray<object> {
   const feat = FEATS.get(slug);
 
   return feat === undefined

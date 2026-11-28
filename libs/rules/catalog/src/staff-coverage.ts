@@ -8,7 +8,7 @@ export interface StaffCoverage {
   /** How many weapons and items have the staff trait. */
   readonly staves: number;
   /** Those with no typed `staff` spells, used only as text until one is set; sorted. */
-  readonly withoutSpells: readonly ContentKey[];
+  readonly withoutSpells: ReadonlyArray<ContentKey>;
 }
 
 /** Whether a staff entry carries typed spells. */
@@ -17,7 +17,7 @@ function hasSpells(entry: ContentEntry): boolean {
 }
 
 /** Staff coverage (play-and-campaigns.md, "Staves and charged items"). A report, never a check. */
-export function staffCoverage(entries: readonly ContentEntry[]): StaffCoverage {
+export function staffCoverage(entries: ReadonlyArray<ContentEntry>): StaffCoverage {
   const staves = entries.filter((entry) => isStaffEntry(entry));
 
   return {

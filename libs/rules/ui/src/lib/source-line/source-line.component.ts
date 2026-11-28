@@ -83,13 +83,13 @@ function link(url: string, content: TextSegment | MessageSegment, label?: LinkLa
 }
 
 /** "Player Core p. 46 · AoN": the registry's title (or the id, flagged), the page and the AoN entry. */
-function bookSegments(source: BookSource, page: string | undefined): readonly Segment[] {
+function bookSegments(source: BookSource, page: string | undefined): ReadonlyArray<Segment> {
   const titleKey = BOOK_TITLES.get(source.book);
 
   const title =
     titleKey === undefined ? message(SourceLineMessage.UnregisteredBook, { book: source.book }) : message(titleKey);
 
-  const segments: Segment[] = [page === undefined ? title : { kind: SegmentKind.BookPage, title, page }];
+  const segments: Array<Segment> = [page === undefined ? title : { kind: SegmentKind.BookPage, title, page }];
 
   if (source.aon !== undefined) {
     const key = page === undefined ? SourceLineMessage.AonLabelNoPage : SourceLineMessage.AonLabel;
@@ -103,7 +103,7 @@ function bookSegments(source: BookSource, page: string | undefined): readonly Se
 }
 
 /** The page's title, or its host when it has none, linked. */
-function webSegments(source: WebSource): readonly Segment[] {
+function webSegments(source: WebSource): ReadonlyArray<Segment> {
   return [link(source.url, text(source.title ?? new URL(source.url).host))];
 }
 
@@ -111,7 +111,7 @@ function webSegments(source: WebSource): readonly Segment[] {
  * "The Lost Lands by Ezren": the pack's name (or id) and its author, as one phrase; with a URL, the pack name is a
  * link and the author follows it.
  */
-function homebrewSegments(source: HomebrewSource, names: HomebrewNames): readonly Segment[] {
+function homebrewSegments(source: HomebrewSource, names: HomebrewNames): ReadonlyArray<Segment> {
   const listed = names.listed.get(contentPackId(source.pack));
   const pack = names.packs.get(source.pack) ?? listed?.title ?? source.pack;
   const author = names.authors.get(source.author) ?? listed?.publisher;
@@ -147,7 +147,7 @@ function homebrewSegments(source: HomebrewSource, names: HomebrewNames): readonl
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SourceLineView {
-  public readonly sources = input.required<readonly SourceRef[]>();
+  public readonly sources = input.required<ReadonlyArray<SourceRef>>();
   /** Display names of homebrew authors. */
   public readonly authorNames = input<ReadonlyMap<UserId, string>>(new Map());
   /** Display names of homebrew packs. */
@@ -159,14 +159,14 @@ export class SourceLineView {
   protected readonly Message = SourceLineMessage;
 
   /** The line as flat segments, separators included, so the template adds no whitespace of its own. */
-  protected readonly segments = computed((): readonly Segment[] => {
+  protected readonly segments = computed((): ReadonlyArray<Segment> => {
     const names: HomebrewNames = {
       authors: this.authorNames(),
       packs: this.packNames(),
       listed: this.#listed(),
     };
 
-    const segments: Segment[] = [];
+    const segments: Array<Segment> = [];
 
     for (const [index, source] of this.sources().entries()) {
       if (index > 0) {
@@ -179,7 +179,7 @@ export class SourceLineView {
     return segments;
   });
 
-  #segments(source: SourceRef, names: HomebrewNames): readonly Segment[] {
+  #segments(source: SourceRef, names: HomebrewNames): ReadonlyArray<Segment> {
     if (source.kind === SourceKind.Book) {
       return bookSegments(source, source.page === undefined ? undefined : this.#format.number(source.page));
     }

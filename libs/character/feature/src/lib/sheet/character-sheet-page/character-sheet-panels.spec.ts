@@ -6,7 +6,7 @@ import { MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 const MODES = [SheetMode.Plan, SheetMode.Encounter, SheetMode.Exploration, SheetMode.Downtime] as const;
 
 /** The side panels' disclosures, in order. */
-function panelsOf(root: HTMLElement): HTMLElement[] {
+function panelsOf(root: HTMLElement): Array<HTMLElement> {
   return [...root.querySelectorAll<HTMLElement>('pio-sheet-panels fr-disclosure')].filter(
     (panel) => panel.parentElement?.closest('fr-disclosure') === null,
   );

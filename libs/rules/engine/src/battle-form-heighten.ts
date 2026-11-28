@@ -10,10 +10,10 @@ type Strike = NonNullable<Form['strikes']>[number];
 
 /** `base` with each change laid over the item it names (by `keyOf`), and the ones it adds after; undefined for neither. */
 function overlaid<Item extends object>(
-  base: readonly Item[] | undefined,
-  changes: readonly Item[] | undefined,
+  base: ReadonlyArray<Item> | undefined,
+  changes: ReadonlyArray<Item> | undefined,
   keyOf: (item: Item) => Item[keyof Item],
-): readonly Item[] | undefined {
+): ReadonlyArray<Item> | undefined {
   if (changes === undefined) {
     return base;
   }

@@ -88,7 +88,7 @@ export function hasShiftingRune(line: InventoryItem, base: ItemEntry | undefined
 }
 
 /** The shapes the item can take: the melee weapons of the content that fit it, by name. */
-export function shiftsFor(line: InventoryItem, { items, runes }: ShiftReads): readonly ItemEntry[] {
+export function shiftsFor(line: InventoryItem, { items, runes }: ShiftReads): ReadonlyArray<ItemEntry> {
   const base = items.get(line.item);
 
   if (!hasShiftingRune(line, base, runes)) {

@@ -8,7 +8,7 @@ import { contentCatalog } from './index';
 const POLYMORPH = Trait.parse('polymorph');
 
 /** The name prefix of an effect, by the kinds of entry it is the effect of. */
-const EFFECT_PREFIXES: readonly (readonly [string, readonly ContentKind[]])[] = [
+const EFFECT_PREFIXES: ReadonlyArray<readonly [string, ReadonlyArray<ContentKind>]> = [
   ['Spell Effect: ', [ContentKind.Spell]],
   ['Effect: ', [ContentKind.Feat, ContentKind.Action]],
 ];
@@ -16,7 +16,7 @@ const EFFECT_PREFIXES: readonly (readonly [string, readonly ContentKind[]])[] = 
 const VARIANT_SUFFIX = / \([^)]*\)$/u;
 
 /** The effects in `entries` of a polymorph spell, feat or action of the same pack that lack the trait, as keys. */
-function untraited(entries: readonly ContentEntry[]): readonly string[] {
+function untraited(entries: ReadonlyArray<ContentEntry>): ReadonlyArray<string> {
   const polymorph = new Set<string>(
     entries
       .values()
@@ -52,7 +52,7 @@ describe('polymorph effects', () => {
 });
 
 /** The rule elements of a player-core effect, by slug. */
-async function effectRules(slug: string): Promise<readonly RuleElement[]> {
+async function effectRules(slug: string): Promise<ReadonlyArray<RuleElement>> {
   const file = await import('@pioneer/content/packs/player-core/effect.json');
 
   const effect = ContentEntryFile.parse(file.default).find(
@@ -63,21 +63,21 @@ async function effectRules(slug: string): Promise<readonly RuleElement[]> {
 }
 
 /** The rules of `slug` with `key`, ignoring battle forms and other keys. */
-async function rulesOf(slug: string, key: RuleElementKey): Promise<readonly RuleElement[]> {
+async function rulesOf(slug: string, key: RuleElementKey): Promise<ReadonlyArray<RuleElement>> {
   const rules = await effectRules(slug);
 
   return rules.filter((rule) => rule.key === key);
 }
 
 /** The immunities `slug` gives, flattened. */
-async function immunitiesOf(slug: string): Promise<readonly string[]> {
+async function immunitiesOf(slug: string): Promise<ReadonlyArray<string>> {
   const rules = await rulesOf(slug, RuleElementKey.Immunity);
 
   return rules.flatMap((rule) => (rule.key === RuleElementKey.Immunity ? rule.type : []));
 }
 
 /** The movement cost a player-core environment puts on the Speed: what each square costs more, and when it applies. */
-async function movementCostOf(slug: string): Promise<readonly unknown[]> {
+async function movementCostOf(slug: string): Promise<ReadonlyArray<unknown>> {
   const file = await import('@pioneer/content/packs/player-core/environment.json');
 
   const environment = ContentEntryFile.parse(file.default).find(
@@ -161,7 +161,7 @@ describe('polymorph effect gaps in Player Core', () => {
 });
 
 /** The traits of a player-core effect, by slug; empty when the pack has no such effect. */
-async function traitsOf(slug: string): Promise<readonly string[]> {
+async function traitsOf(slug: string): Promise<ReadonlyArray<string>> {
   const file = await import('@pioneer/content/packs/player-core/effect.json');
 
   const effect = ContentEntryFile.parse(file.default).find(

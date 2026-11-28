@@ -47,7 +47,7 @@ export function choiceOf(carry: Carry): CarryChoice {
  * The ways `entry` can be carried, in sheet order: worn only if it is armour or worn, in one hand only if one hand
  * holds it; in two hands, stowed and dropped always. Content that is gone can't be worn.
  */
-export function carryChoices(entry: ItemEntry | undefined): readonly CarryChoice[] {
+export function carryChoices(entry: ItemEntry | undefined): ReadonlyArray<CarryChoice> {
   const wearable = entry !== undefined && isWearable(entry);
   const oneHand = handsNeeded(entry) === ONE_HAND;
 

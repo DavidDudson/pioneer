@@ -9,7 +9,7 @@ import type { ReadablePack } from './pack-directory';
  */
 export abstract class PackEnablementDirectory {
   /** The names of the campaigns that enable the pack, alphabetically. */
-  public abstract campaignsEnabling(pack: ReadablePack): Promise<readonly EnablingCampaignName[]>;
+  public abstract campaignsEnabling(pack: ReadablePack): Promise<ReadonlyArray<EnablingCampaignName>>;
 
   /** Whether the user belongs to at least one campaign that enables the pack. */
   public abstract belongsToCampaignEnabling(user: UserId, pack: ReadablePack): Promise<boolean>;

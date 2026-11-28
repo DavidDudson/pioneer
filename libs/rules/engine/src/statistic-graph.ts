@@ -27,10 +27,10 @@ export interface StatisticNode {
   /** The parsed base, or why it does not parse (a definition built without its schema). */
   readonly formula: FormulaNode | ParseFailure;
   /** Every `@stat.<selector>` reference in the order written. Proficiency and rank references read inputs. */
-  readonly edges: readonly StatisticEdge[];
+  readonly edges: ReadonlyArray<StatisticEdge>;
 }
 
-function edgesOf(formula: FormulaNode, reads: (selector: Selector) => Selector): StatisticEdge[] {
+function edgesOf(formula: FormulaNode, reads: (selector: Selector) => Selector): Array<StatisticEdge> {
   return references(formula).flatMap(({ path, position }) => {
     const reference = knownReference(path);
 
@@ -51,7 +51,7 @@ function nodeOf({ definition, source, reads }: StatisticInstance): StatisticNode
  * later (homebrew after core) restates a statistic. Iteration follows selector order, so nothing downstream
  * depends on the order the definitions came in.
  */
-export function statisticGraph(instances: readonly StatisticInstance[]): ReadonlyMap<Selector, StatisticNode> {
+export function statisticGraph(instances: ReadonlyArray<StatisticInstance>): ReadonlyMap<Selector, StatisticNode> {
   const latest = new Map(instances.map((instance) => [instance.definition.selector, instance]));
   const selectors = [...latest.keys()].toSorted();
 
@@ -84,8 +84,8 @@ interface Visit {
 export class Components {
   readonly #graph: ReadonlyMap<Selector, StatisticNode>;
   readonly #visits = new Map<Selector, Visit>();
-  readonly #stack: Selector[] = [];
-  readonly #found: (readonly Selector[])[] = [];
+  readonly #stack: Array<Selector> = [];
+  readonly #found: Array<ReadonlyArray<Selector>> = [];
 
   public constructor(graph: ReadonlyMap<Selector, StatisticNode>) {
     this.#graph = graph;
@@ -98,7 +98,7 @@ export class Components {
   }
 
   /** Each component's statistics in selector order, components in evaluation order. */
-  public get inOrder(): readonly (readonly Selector[])[] {
+  public get inOrder(): ReadonlyArray<ReadonlyArray<Selector>> {
     return this.#found;
   }
 

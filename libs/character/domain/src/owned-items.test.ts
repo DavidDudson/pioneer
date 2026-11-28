@@ -19,7 +19,7 @@ function idAt(index: number): InventoryItemId {
 }
 
 /** An inventory of `items`, the nth with id `idAt(n)`, the first held in one hand. */
-function carrying(...items: readonly ItemFixture[]): Inventory {
+function carrying(...items: ReadonlyArray<ItemFixture>): Inventory {
   let stock = EMPTY_INVENTORY;
 
   for (const [index, name] of items.entries()) {

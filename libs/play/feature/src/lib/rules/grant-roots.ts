@@ -20,9 +20,9 @@ export interface EntrySlugs {
 }
 
 export interface RootsParse {
-  readonly roots: readonly GrantRoot[];
+  readonly roots: ReadonlyArray<GrantRoot>;
   /** The 1-based lines that are not slugs, or give a value to anything but a condition. */
-  readonly bad: readonly number[];
+  readonly bad: ReadonlyArray<number>;
 }
 
 /** A condition on the character, at `value` if one is given; undefined when `value` is not a condition's value. */
@@ -64,8 +64,8 @@ function rootOf(text: string, { table, conditions }: EntrySlugs): GrantRoot | un
 
 /** Each filled line as a root. */
 export function parseRoots(text: string, slugs: EntrySlugs): RootsParse {
-  const roots: GrantRoot[] = [];
-  const bad: number[] = [];
+  const roots: Array<GrantRoot> = [];
+  const bad: Array<number> = [];
 
   for (const [index, line] of text.split(LINE).entries()) {
     const trimmed = line.trim();

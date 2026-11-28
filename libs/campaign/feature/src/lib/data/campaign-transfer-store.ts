@@ -12,7 +12,7 @@ import { ApiClient, injectScopedQuery } from '@pioneer/shared/web';
 import { CampaignStore } from './campaign-store';
 
 /** TanStack Query key for a campaign's pending offers. */
-function transfersKey(id: CampaignId | undefined): readonly unknown[] {
+function transfersKey(id: CampaignId | undefined): ReadonlyArray<unknown> {
   return ['campaigns', 'transfers', id];
 }
 

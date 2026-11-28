@@ -45,7 +45,7 @@ export interface EntryNameColumn<TRow> extends ColumnOptions {
 }
 
 /** Cheapest first: a free action, a reaction, then one to three actions, a cost that varies, none at all. */
-const ACTION_ORDER: readonly ActionKind[] = [
+const ACTION_ORDER: ReadonlyArray<ActionKind> = [
   ActionKind.Free,
   ActionKind.Reaction,
   ActionKind.One,
@@ -59,7 +59,7 @@ const ACTION_ORDER: readonly ActionKind[] = [
 /** How a row with nothing to compare sorts: before everything else. */
 export const NOTHING = -1;
 
-function sortedLabels(chips: readonly Chip[]): string {
+function sortedLabels(chips: ReadonlyArray<Chip>): string {
   return chips.map(({ label }) => label).join(' ');
 }
 
@@ -108,12 +108,12 @@ export class RulesTableSchema<TRow extends RowData> extends TableSchema<TRow> {
   }
 
   /** Trait chips, toned by rarity, sorted by their names. */
-  public addTraits(options: CellColumn<TRow, readonly Chip[]>): this {
+  public addTraits(options: CellColumn<TRow, ReadonlyArray<Chip>>): this {
     return this.addChips(options);
   }
 
   /** Where an entry comes from: "Player Core p. 46 · AoN". */
-  public addSource(options: CellColumn<TRow, readonly SourceRef[]>): this {
+  public addSource(options: CellColumn<TRow, ReadonlyArray<SourceRef>>): this {
     return this.addComponent({
       ...options,
       sortValue: (row) => options.value(row).length,
@@ -143,7 +143,7 @@ export class RulesTableSchema<TRow extends RowData> extends TableSchema<TRow> {
     });
   }
 
-  protected addChips(options: CellColumn<TRow, readonly Chip[]>): this {
+  protected addChips(options: CellColumn<TRow, ReadonlyArray<Chip>>): this {
     return this.addComponent({
       ...options,
       sortValue: (row) => sortedLabels(options.value(row)),

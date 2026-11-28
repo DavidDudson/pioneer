@@ -25,7 +25,7 @@ const amiri = UserId.parse(newId());
 const clock = fixedClock('2026-10-07T10:00:00Z');
 
 /** Free Archetype's feat slot at `level`, as the core rules pack writes it. */
-function freeArchetypeSlot(level: number): JsonObject[] {
+function freeArchetypeSlot(level: number): Array<JsonObject> {
   const flag = `free-archetype-${level}`;
   const predicate = [{ gte: ['self:level', level] }];
 
@@ -69,7 +69,7 @@ function mordredPack(variant: boolean): ContentPackBuilder {
 interface MordredImport {
   readonly character: Character;
   readonly report: CharacterImportReport;
-  readonly enabled: readonly CharacterVariantRule[];
+  readonly enabled: ReadonlyArray<CharacterVariantRule>;
 }
 
 async function importMordred(pack: ContentPackBuilder): Promise<MordredImport> {
@@ -82,7 +82,7 @@ async function importMordred(pack: ContentPackBuilder): Promise<MordredImport> {
 }
 
 /** The feat names an import left behind, by reason. */
-function leftBehind(report: CharacterImportReport, reason: UnmatchedReason): string[] {
+function leftBehind(report: CharacterImportReport, reason: UnmatchedReason): Array<string> {
   const feats = report.unmatched.find((group) => group.kind === ImportKind.Feat)?.names ?? [];
 
   return feats.filter((feat) => feat.reason === reason).map((feat) => feat.name);

@@ -47,7 +47,7 @@ function grantsOf(picks: Readonly<Record<string, string>>): GrantResolution {
   });
 }
 
-function grantedNames(resolution: GrantResolution): readonly string[] {
+function grantedNames(resolution: GrantResolution): ReadonlyArray<string> {
   return resolution.items
     .map(({ entry }) => `${entry.kind}: ${entry.name}`)
     .toSorted((left, right) => left.localeCompare(right));
@@ -62,7 +62,7 @@ const inputs = StatisticInputsJson.parse({
 });
 
 /** The character's Perception with `situation` as the roll options of the check. */
-function perception(resolution: GrantResolution, situation: readonly string[]): StatisticResult | undefined {
+function perception(resolution: GrantResolution, situation: ReadonlyArray<string>): StatisticResult | undefined {
   const facts = new PredicateFacts(
     situation.map((option) => RollOption.parse(option)),
     new Map(),

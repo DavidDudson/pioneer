@@ -31,7 +31,7 @@ const FACT_ROWS = 4;
 interface OpenSlot {
   readonly slot: string;
   readonly title: string;
-  readonly rows: readonly SlotPickerRow[];
+  readonly rows: ReadonlyArray<SlotPickerRow>;
 }
 
 /**
@@ -70,19 +70,19 @@ export class GrantsFields {
     return result.status === GrantsStatus.Problems ? result.entries : undefined;
   });
 
-  protected readonly badRoots = computed((): readonly number[] => {
+  protected readonly badRoots = computed((): ReadonlyArray<number> => {
     const result = this.check();
 
     return result.status === GrantsStatus.Problems ? result.rootLines : [];
   });
 
-  protected readonly badPicks = computed((): readonly number[] => {
+  protected readonly badPicks = computed((): ReadonlyArray<number> => {
     const result = this.check();
 
     return result.status === GrantsStatus.Problems ? result.pickLines : [];
   });
 
-  protected readonly badToggles = computed((): readonly number[] => {
+  protected readonly badToggles = computed((): ReadonlyArray<number> => {
     const result = this.check();
 
     return result.status === GrantsStatus.Problems ? result.toggleLines : [];
@@ -94,7 +94,7 @@ export class GrantsFields {
     return result.status === GrantsStatus.Problems && result.badLevel;
   });
 
-  protected readonly openSlots = computed((): readonly OpenSlot[] => {
+  protected readonly openSlots = computed((): ReadonlyArray<OpenSlot> => {
     const result = this.check();
 
     return result.status === GrantsStatus.Valid
@@ -114,7 +114,7 @@ export class GrantsFields {
       : [];
   });
 
-  protected readonly badFacts = computed((): readonly number[] => {
+  protected readonly badFacts = computed((): ReadonlyArray<number> => {
     const result = this.check();
 
     return result.status === GrantsStatus.Problems ? result.factLines : [];

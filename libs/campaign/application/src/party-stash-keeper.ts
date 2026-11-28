@@ -15,7 +15,7 @@ export interface StashLineMove {
  */
 export abstract class PartyStashKeeper {
   /** The stash, its lines named from the content of `party`, the campaign's characters. */
-  public abstract view(campaign: CampaignId, party: readonly CharacterId[]): Promise<PartyStashContents>;
+  public abstract view(campaign: CampaignId, party: ReadonlyArray<CharacterId>): Promise<PartyStashContents>;
 
   /**
    * Moves the character's line and what it holds into the stash. Throws `NotFoundError` when the character lacks the

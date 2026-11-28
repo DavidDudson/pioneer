@@ -36,7 +36,7 @@ describe('ChoiceSet from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         key: RuleElementKey.ChoiceSet,
         choices: [
@@ -201,7 +201,7 @@ describe('ChoiceSet from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: the input is the rule under test, so rules[0] is its translation.
     // The cast names only the fields the test reads from that element.
-    const { choices } = rules[0] as { choices: { value: string; label: string }[] };
+    const { choices } = rules[0] as { choices: Array<{ value: string; label: string }> };
     expect(choices).toHaveLength(16);
     expect(choices[0]).toEqual({ value: 'acrobatics', label: 'Acrobatics' });
   });
@@ -262,7 +262,7 @@ describe('ChoiceSet from Foundry: choices that name entries by compendium UUID',
 
   const grant = { key: RuleElementKey.GrantItem, uuid: '{item|flags.system.rulesSelections.armor}' };
 
-  function withReferences(choices: readonly object[]): RuleTranslation {
+  function withReferences(choices: ReadonlyArray<object>): RuleTranslation {
     const pick = { choices, flag: 'armor', key: RuleElementKey.ChoiceSet };
 
     return translateRules(ENTRY, [pick, grant], { lang: {}, values: { item: 'Armor' }, references });

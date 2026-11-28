@@ -7,7 +7,7 @@ import type { CellColumn } from './rules-table-schema';
 /** Picker rows that are deities. */
 export class DeityTableSchema<TRow extends RowData> extends RulesTableSchema<TRow> {
   /** Short facts of a deity as chips: sanctification, divine font, domains, favoured weapons and divine skills. */
-  public addFacts(options: CellColumn<TRow, readonly Chip[]>): this {
+  public addFacts(options: CellColumn<TRow, ReadonlyArray<Chip>>): this {
     return this.addChips(options);
   }
 }

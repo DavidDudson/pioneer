@@ -104,12 +104,12 @@ export const SKILL_SELECTORS = Object.keys(SKILLS).map((slug) => `skill:${slug}`
 const LORE = Domain.parse('lore');
 
 /** The Lores Player Core's backgrounds train, which its import adds to the core rules pack (rules-engine.md). */
-export const LORE_SELECTORS: readonly string[] = coreRules.statistics
+export const LORE_SELECTORS: ReadonlyArray<string> = coreRules.statistics
   .flatMap(({ selector, domains }) => (domains.includes(LORE) ? [String(selector)] : []))
   .toSorted();
 
 /** The six attribute checks: a flat d20 plus the modifier, with no proficiency. */
-const ATTRIBUTE_SELECTORS: readonly string[] = ['str', 'dex', 'con', 'int', 'wis', 'cha'].map(
+const ATTRIBUTE_SELECTORS: ReadonlyArray<string> = ['str', 'dex', 'con', 'int', 'wis', 'cha'].map(
   (key) => `attribute:${key}`,
 );
 
@@ -131,7 +131,7 @@ export const STRIKES = ['strike:longsword', 'strike:dagger'];
 export const STRIKE_DAMAGES = ['strike-damage:longsword', 'strike-damage:dagger'];
 
 /** What a derivation reads from a registry holding `packs`, as an app would load them. */
-export function contentOf(...packs: readonly ContentPack[]): StatisticContent {
+export function contentOf(...packs: ReadonlyArray<ContentPack>): StatisticContent {
   const registry = new ContentRegistry();
 
   for (const pack of packs) {
@@ -241,7 +241,7 @@ export const PWL = VariantRuleId.parse(
 );
 
 /** The rule elements of Proficiency Without Level, in play as an enabled variant. */
-export function withoutLevel(): readonly RuleInPlay[] {
+export function withoutLevel(): ReadonlyArray<RuleInPlay> {
   const registry = new ContentRegistry();
   registry.register(coreRules);
   const variant = registry.variantRule(PWL);

@@ -104,9 +104,9 @@ export class RulesPlaygroundPage {
   /** Ticks when the locale changes or a message scope (`play`) finishes loading. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
   /** Every schema and tool; the list is short, so the page searches and sorts it. */
-  readonly #schemas = computed((): readonly RulesPickerRow<RulesTool>[] => {
+  readonly #schemas = computed((): ReadonlyArray<RulesPickerRow<RulesTool>> => {
     this.#messages();
-    const schemas: readonly string[] = Object.values(RulesSchema);
+    const schemas: ReadonlyArray<string> = Object.values(RulesSchema);
 
     return Object.values(RulesTool).map((tool) => ({
       value: tool,
@@ -127,7 +127,7 @@ export class RulesPlaygroundPage {
   });
 
   /** Example entries for the content entry mode, one per kind with a schema. */
-  readonly #entryKinds = computed((): readonly RulesPickerRow<RegisteredKind>[] => {
+  readonly #entryKinds = computed((): ReadonlyArray<RulesPickerRow<RegisteredKind>> => {
     this.#messages();
 
     return REGISTERED_KINDS.map((kind) => ({

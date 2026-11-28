@@ -13,7 +13,7 @@ export interface AttemptDisplay {
   readonly heading: MessageDescriptor | undefined;
   readonly tone: Tone;
   readonly weight: FontWeight | undefined;
-  readonly terms: readonly TermDisplay[];
+  readonly terms: ReadonlyArray<TermDisplay>;
 }
 
 /** One roll of the expression: which it was and whether kept, when there were two, then each term. */

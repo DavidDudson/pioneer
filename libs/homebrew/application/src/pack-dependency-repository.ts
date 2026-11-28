@@ -7,7 +7,7 @@ import type { UserId } from '@pioneer/shared/kernel';
  */
 export abstract class PackDependencyRepository {
   /** Every dependency of every pack. The graph is small, and cycles are found over all of it. */
-  public abstract edges(): Promise<readonly PackDependencyEdge[]>;
+  public abstract edges(): Promise<ReadonlyArray<PackDependencyEdge>>;
 
   /**
    * Store the dependency unless the pair is stored already. `whileLocked` runs first, with the dependency graph held
@@ -20,5 +20,5 @@ export abstract class PackDependencyRepository {
   public abstract remove(actor: UserId, edge: PackDependencyEdge): Promise<void>;
 
   /** The packs that extend `pack` directly. */
-  public abstract dependentsOf(pack: ContentPackId): Promise<readonly ContentPackId[]>;
+  public abstract dependentsOf(pack: ContentPackId): Promise<ReadonlyArray<ContentPackId>>;
 }

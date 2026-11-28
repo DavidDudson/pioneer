@@ -6,7 +6,7 @@ import { vi } from 'vitest';
 import { present } from './sheet-page-harness';
 
 /** The pickers inside `scope`, in page order. */
-function pickersIn(harness: RouterTestingHarness, scope: HTMLElement): readonly Picker<string, object>[] {
+function pickersIn(harness: RouterTestingHarness, scope: HTMLElement): ReadonlyArray<Picker<string, object>> {
   return harness.fixture.debugElement
     .queryAll(By.directive(Picker))
     .filter((each) => each.nativeElement instanceof Node && scope.contains(each.nativeElement))
@@ -36,7 +36,7 @@ export function pickRow(harness: RouterTestingHarness, scope: HTMLElement, targe
 }
 
 /** The labels the `index`th picker of `scope` offers, in the order it lists them. */
-export function offeredLabels(harness: RouterTestingHarness, scope: HTMLElement, index = 0): readonly string[] {
+export function offeredLabels(harness: RouterTestingHarness, scope: HTMLElement, index = 0): ReadonlyArray<string> {
   const picker = present(pickersIn(harness, scope)[index]);
 
   return picker.rows().map((each) => picker.rowLabel()(each));

@@ -11,7 +11,7 @@ import type { ButtonSize } from './button.component';
 interface Rendered {
   readonly button: HTMLButtonElement;
   readonly ref: ComponentRef<Button>;
-  readonly presses: MouseEvent[];
+  readonly presses: Array<MouseEvent>;
 }
 
 /** Renders `fr-button` with "Save" projected and returns its native button and the presses it emits. */
@@ -29,7 +29,7 @@ async function render(inputs: ComponentInputs<Button>): Promise<Rendered> {
     ref.setInput(name, value);
   }
 
-  const presses: MouseEvent[] = [];
+  const presses: Array<MouseEvent> = [];
   ref.instance.pressed.subscribe((event) => {
     presses.push(event);
   });
@@ -47,9 +47,9 @@ async function render(inputs: ComponentInputs<Button>): Promise<Rendered> {
 }
 
 interface VariantClasses {
-  readonly has: readonly string[];
+  readonly has: ReadonlyArray<string>;
   /** Classes of look-alike variants, so one variant rendering as another fails. */
-  readonly lacks: readonly string[];
+  readonly lacks: ReadonlyArray<string>;
 }
 
 const VARIANT_CLASSES: Record<ButtonVariant, VariantClasses> = {

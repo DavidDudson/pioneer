@@ -21,9 +21,9 @@ export interface SpellcastingEntryLine {
   /** The name of the entry that gave it: "Wizard Spellcasting", a patron, a dedication. */
   readonly source: string;
   /** Its spell attack, then its spell DC. */
-  readonly statistics: readonly NamedStatistic[];
+  readonly statistics: ReadonlyArray<NamedStatistic>;
   /** Its cantrips and slots per rank at the character's level. */
   readonly slots: SpellSlots;
   /** Its other pools of slots. */
-  readonly pools: readonly SlotPoolLine[];
+  readonly pools: ReadonlyArray<SlotPoolLine>;
 }

@@ -10,7 +10,7 @@ import { formRows } from './sheet-form-preview-rows';
 import { sheetDerivation, sheetFormTempHp } from './sheet-statistics';
 
 /** The statistics a form is previewed against: Armor Class, then every Speed it can give or take away. */
-const PREVIEWED: readonly Selector[] = [
+const PREVIEWED: ReadonlyArray<Selector> = [
   'ac',
   'speed:land',
   'speed:fly',
@@ -41,7 +41,7 @@ function wordedValue(selector: Selector, total: number, translate: Translate): s
 }
 
 /** The row for `selector` when the form changes its total, else none. */
-function rowOf(selector: Selector, { own, form, registry, translate }: Comparison): readonly FormPreviewRow[] {
+function rowOf(selector: Selector, { own, form, registry, translate }: Comparison): ReadonlyArray<FormPreviewRow> {
   const before = totalOf(own.get(selector));
   const after = totalOf(form.get(selector));
   const name = registry.statisticsFor(selector).at(-1)?.definition.name;
@@ -96,7 +96,7 @@ export function sheetFormPreview({ registry, character, candidate, translate }: 
 
   const tempHp = sheetFormTempHp(registry, character, candidate);
 
-  const temp: readonly FormPreviewRow[] =
+  const temp: ReadonlyArray<FormPreviewRow> =
     tempHp === undefined || tempHp === 0
       ? []
       : [{ name: translate(FormPreviewMessage.TempHp), own: String(play.hp.temp), form: String(tempHp) }];

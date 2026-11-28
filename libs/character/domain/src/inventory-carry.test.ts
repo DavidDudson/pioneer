@@ -72,7 +72,7 @@ function ropeIdAt(index: number): InventoryItemId {
 
 /** `count` loose ropes, the nth with id `ropeIdAt(n)`, each changed by `change` when given. */
 function ropes(count: number, change: (item: InventoryItem) => InventoryItem = (item) => item): Inventory {
-  const items: InventoryItem[] = [];
+  const items: Array<InventoryItem> = [];
 
   for (let index = 0; index < count; index += 1) {
     items.push(change({ id: ropeIdAt(index), item: itemFixtureId(ItemFixture.Rope), quantity: one, carry: STOWED }));

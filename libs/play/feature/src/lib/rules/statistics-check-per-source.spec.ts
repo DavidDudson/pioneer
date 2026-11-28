@@ -19,7 +19,7 @@ const perSource = (selector: string, per: string, base: string): JsonObject => (
 });
 
 /** The statistics tool on `definitions`, the example inputs and no rule elements. */
-function check(definitions: readonly JsonObject[]): StatisticsCheck {
+function check(definitions: ReadonlyArray<JsonObject>): StatisticsCheck {
   const texts = { inputs: EXAMPLE_STATISTIC_INPUTS, rules: '[]', overrides: '[]', facts: '' };
 
   return checkStatistics(
@@ -118,7 +118,7 @@ const RULES_ENTRY = contentId(PackId.parse('playground'), EntrySlug.parse('effec
 /** The example inputs with the longsword's potency set to `grade`. */
 function withPotency(grade: number): string {
   // SAFETY: EXAMPLE_STATISTIC_INPUTS is a JSON object with a weapons array of JSON objects.
-  const inputs = JSON.parse(EXAMPLE_STATISTIC_INPUTS) as { weapons: JsonObject[] };
+  const inputs = JSON.parse(EXAMPLE_STATISTIC_INPUTS) as { weapons: Array<JsonObject> };
   const [first, ...rest] = inputs.weapons;
 
   return JSON.stringify({ ...inputs, weapons: [{ ...first, potency: grade }, ...rest] });
@@ -130,7 +130,7 @@ function itemBonus(value: number): JsonObject {
 }
 
 /** The longsword's Strike row with `rules` in play. */
-function longsword(rules: readonly JsonObject[], inputs = EXAMPLE_STATISTIC_INPUTS): StatisticRow | undefined {
+function longsword(rules: ReadonlyArray<JsonObject>, inputs = EXAMPLE_STATISTIC_INPUTS): StatisticRow | undefined {
   const texts = { inputs, rules: JSON.stringify(rules), overrides: '[]', facts: '' };
   const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof');
 

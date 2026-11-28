@@ -41,7 +41,7 @@ function host(fixture: ComponentFixture<CharacterAvatar>): HTMLElement {
   return fixture.nativeElement as HTMLElement;
 }
 
-function paths(fixture: ComponentFixture<CharacterAvatar>): readonly SVGPathElement[] {
+function paths(fixture: ComponentFixture<CharacterAvatar>): ReadonlyArray<SVGPathElement> {
   return [...host(fixture).querySelectorAll<SVGPathElement>('svg[viewBox="0 0 100 100"] path')];
 }
 

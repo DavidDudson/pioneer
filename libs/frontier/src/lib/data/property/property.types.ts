@@ -35,7 +35,7 @@ export interface PropertyKind<TValue = unknown> {
   readonly id: string;
   readonly align: PropertyAlign;
   /** The filter operators a property of this kind offers, the default first. */
-  readonly operators: readonly FilterOperator[];
+  readonly operators: ReadonlyArray<FilterOperator>;
   /** The component that renders a value of this kind. Without one the cell is `text`. */
   readonly cell?: Type<unknown>;
   /** The component that edits a value of this kind. */

@@ -119,7 +119,7 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
 interface PickFlags {
   readonly legacy?: true;
   readonly unsupported?: true;
-  readonly replacedBy?: readonly ChoiceReplacement[];
+  readonly replacedBy?: ReadonlyArray<ChoiceReplacement>;
 }
 
 /** The flags of the pick's entry: from a pre-remaster book, from a pack no longer in force. */
@@ -192,7 +192,7 @@ function isShown(slot: CharacterSlot): boolean {
  * planned pick and an invalid one stay, with the level and reason (#419); spell slots are left to the Spellcasting
  * section.
  */
-export function sheetChoices(slots: readonly CharacterSlot[], lookup?: ContentLookup): readonly ChoiceLine[] {
+export function sheetChoices(slots: ReadonlyArray<CharacterSlot>, lookup?: ContentLookup): ReadonlyArray<ChoiceLine> {
   return slots
     .values()
     .filter((slot) => isShown(slot))

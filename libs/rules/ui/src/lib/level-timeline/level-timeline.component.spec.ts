@@ -16,7 +16,7 @@ import {
 import type { LevelTimelineRow } from './level-timeline-row';
 import { LevelTimeline } from './level-timeline.component';
 
-async function render(rows: readonly LevelTimelineRow[] | undefined): Promise<HTMLElement> {
+async function render(rows: ReadonlyArray<LevelTimelineRow> | undefined): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture: ComponentFixture<LevelTimeline> = TestBed.createComponent(LevelTimeline);
   fixture.componentRef.setInput('rows', rows);
@@ -27,14 +27,14 @@ async function render(rows: readonly LevelTimelineRow[] | undefined): Promise<HT
 }
 
 /** Each level as its texts: heading, current marker, then each slot's label, pick and badge. */
-function levels(host: HTMLElement): string[][] {
+function levels(host: HTMLElement): Array<Array<string>> {
   return [...host.querySelectorAll('pio-level-timeline-level')].map((item) =>
     [...item.querySelectorAll('fr-heading, fr-text, fr-badge')].map((part) => part.textContent.trim()),
   );
 }
 
 /** Every line of `rows` read as coming from `source`. */
-function withSource(rows: readonly LevelTimelineRow[], source: ChoiceLine['source']): LevelTimelineRow[] {
+function withSource(rows: ReadonlyArray<LevelTimelineRow>, source: ChoiceLine['source']): Array<LevelTimelineRow> {
   return rows.map((row) => ({ ...row, lines: row.lines.map((line) => ({ ...line, source })) }));
 }
 

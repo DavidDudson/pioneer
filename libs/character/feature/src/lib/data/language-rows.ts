@@ -15,14 +15,14 @@ export interface LanguageRowReads {
 }
 
 /** The sources of each language entry, by registry: a registry's packs never change once loaded. */
-const SOURCES = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, readonly SourceRef[]>>();
+const SOURCES = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, ReadonlyArray<SourceRef>>>();
 
-function sourcesOf(registry: ContentRegistry): ReadonlyMap<ContentId, readonly SourceRef[]> {
+function sourcesOf(registry: ContentRegistry): ReadonlyMap<ContentId, ReadonlyArray<SourceRef>> {
   const read =
     SOURCES.get(registry) ??
     new Map(
       registry.packs.flatMap((pack) =>
-        pack.otherEntries.flatMap((entry): [ContentId, readonly SourceRef[]][] =>
+        pack.otherEntries.flatMap((entry): Array<[ContentId, ReadonlyArray<SourceRef>]> =>
           entry.kind === ContentKind.Language ? [[entry.id, entry.sources]] : [],
         ),
       ),
@@ -39,9 +39,9 @@ function sourcesOf(registry: ContentRegistry): ReadonlyMap<ContentId, readonly S
  */
 export function languageRows(
   registry: ContentRegistry,
-  offered: readonly OfferedLanguage[],
+  offered: ReadonlyArray<OfferedLanguage>,
   { known }: LanguageRowReads,
-): readonly LanguagePickerRow[] {
+): ReadonlyArray<LanguagePickerRow> {
   const defined = new Map(languageContent(registry).languages.map((each) => [String(each.id), each]));
   const sources = sourcesOf(registry);
 

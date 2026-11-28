@@ -18,8 +18,8 @@ import type { Translate } from './spell-text';
 export interface SpellIdentity {
   readonly id: ContentId;
   readonly name: string;
-  readonly tags: readonly string[];
-  readonly traits?: readonly Chip[] | undefined;
+  readonly tags: ReadonlyArray<string>;
+  readonly traits?: ReadonlyArray<Chip> | undefined;
   readonly source?: string | undefined;
 }
 
@@ -49,7 +49,7 @@ function fieldsOf(cast: SpellCast, translate: Translate): SpellFieldsLine {
 
 /** A spell's fields at the rank it is cast, and each variant's under its name. */
 export interface SpellCastLine extends SpellFieldsLine {
-  readonly variants: readonly SpellVariantLine[];
+  readonly variants: ReadonlyArray<SpellVariantLine>;
 }
 
 /** `cast` worded: its fields, and each variant the same way under its name (`name` where it has none). */

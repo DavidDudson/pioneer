@@ -48,12 +48,12 @@ function line(item: ItemFixture, fields: LineFields = {}): JsonObject {
   return { id, item: itemFixtureId(item), quantity, ...rest };
 }
 
-function stock(items: readonly JsonObject[], coins: JsonObject = {}): Inventory {
+function stock(items: ReadonlyArray<JsonObject>, coins: JsonObject = {}): Inventory {
   return InventorySchema.parse({ items, coins });
 }
 
 /** The Bulk of `items`, in tenths. */
-function bulkOf(items: readonly JsonObject[], coins: JsonObject = {}): LightBulk {
+function bulkOf(items: ReadonlyArray<JsonObject>, coins: JsonObject = {}): LightBulk {
   return carriedBulk(stock(items, coins), content);
 }
 
@@ -66,7 +66,7 @@ const DROPPED = { state: 'dropped' };
 const ONE_HAND = { state: 'held', hands: 1 };
 
 /** A backpack carried as `carry`, holding an anvil and a rope. */
-function packed(carry: JsonObject): readonly JsonObject[] {
+function packed(carry: JsonObject): ReadonlyArray<JsonObject> {
   return [
     line(ItemFixture.Backpack, { id: PACK, carry }),
     line(ItemFixture.Anvil, { container: PACK }),
@@ -75,7 +75,7 @@ function packed(carry: JsonObject): readonly JsonObject[] {
 }
 
 /** A worn backpack holding `items`, each moved into it. */
-function inWornPack(items: readonly JsonObject[]): readonly JsonObject[] {
+function inWornPack(items: ReadonlyArray<JsonObject>): ReadonlyArray<JsonObject> {
   return [
     line(ItemFixture.Backpack, { id: PACK, carry: WORN }),
     ...items.map((each) => ({ ...each, container: PACK })),
@@ -83,7 +83,7 @@ function inWornPack(items: readonly JsonObject[]): readonly JsonObject[] {
 }
 
 /** The Bulk against Strength `modifier`, carrying `items`. */
-function against(modifier: number, items: readonly JsonObject[]): InventoryBulk {
+function against(modifier: number, items: ReadonlyArray<JsonObject>): InventoryBulk {
   return inventoryBulk(stock(items), content, AttributeModifier.parse(modifier));
 }
 

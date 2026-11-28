@@ -55,7 +55,7 @@ export type PreparedRank = SpellRank | typeof SlotRank.Cantrip;
 export interface PreparedPool {
   readonly slug: RuleSlug;
   readonly origin: Origin;
-  readonly spells: readonly ContentId[];
+  readonly spells: ReadonlyArray<ContentId>;
 }
 
 /**
@@ -77,7 +77,7 @@ export interface PreparedSlot {
    * Every spell that fits, by name: common ones, and uncommon or rare ones the build lists access to; in a pool's slot,
    * the spells the pool takes, rarity aside.
    */
-  readonly options: readonly SpellOption[];
+  readonly options: ReadonlyArray<SpellOption>;
   readonly stored: ChoiceValue | undefined;
   /** Undefined while the slot is empty, or holds something it doesn't offer. */
   readonly pick: SpellOption | undefined;
@@ -122,7 +122,7 @@ export interface SlotHome {
    */
   readonly deity: DeityRanks;
   /** The spells a spontaneous entry must know, `RepertoireSpells` gives, in order; empty for any other. */
-  readonly gifts: readonly GrantedSpell[];
+  readonly gifts: ReadonlyArray<GrantedSpell>;
   /** Whether a `RepertoireDeitySpells` element gave the slot: it takes a deity's spell of any rank it can, read at that rank (ADR-0063). */
   readonly floating: boolean;
 }
@@ -174,11 +174,11 @@ function fitsAsDeitySpell(spell: SpellOption, { rank, deity }: SlotPlace): boole
  * The places of `slots` at `home`, cantrips first, then each rank lowest first, keyed `prepared:<entry>:<rank>:<n>`, or
  * `prepared:<entry>:<pool>:<rank>:<n>` in a pool; `repertoire:` for a spontaneous entry's.
  */
-function placesOf(slots: SpellSlots, home: SlotHome): SlotPlace[] {
+function placesOf(slots: SpellSlots, home: SlotHome): Array<SlotPlace> {
   const start = PREFIXES[home.preparation];
   const prefix = home.pool === undefined ? `${start}${home.entry}` : `${start}${home.entry}:${home.pool.slug}`;
 
-  const counts: RankCount[] = [
+  const counts: Array<RankCount> = [
     ...(slots.cantrips === undefined ? [] : [{ rank: SlotRank.Cantrip, count: slots.cantrips }]),
     ...slots.ranks,
   ];
@@ -194,7 +194,7 @@ function placesOf(slots: SpellSlots, home: SlotHome): SlotPlace[] {
 }
 
 /** The slots of one of an entry's pools, each taking the pool's spells. */
-function poolPlaces(own: SlotHome, slotPool: SlotPool): SlotPlace[] {
+function poolPlaces(own: SlotHome, slotPool: SlotPool): Array<SlotPlace> {
   const pool = { slug: slotPool.pool, origin: slotPool.origin, spells: slotPool.spells };
 
   return placesOf(slotPool, {
@@ -211,7 +211,11 @@ function poolPlaces(own: SlotHome, slotPool: SlotPool): SlotPlace[] {
  * The slots of one prepared or spontaneous entry: its own, cantrips first, then each rank lowest first; then each of
  * its pools' (#581) in pool order, the same way.
  */
-function entryPlaces(entry: SpellcastingInPlay, preparation: PickedPreparation, reads: PreparedReads): SlotPlace[] {
+function entryPlaces(
+  entry: SpellcastingInPlay,
+  preparation: PickedPreparation,
+  reads: PreparedReads,
+): Array<SlotPlace> {
   const { slug, tradition, slots, pools, deitySpells, grantedSpells: gifts, repertoireCounts } = entry;
   const own = deitySpells ? deityRanks(reads.resolution) : NO_DEITY_SPELLS;
 
@@ -248,7 +252,7 @@ function entryPlaces(entry: SpellcastingInPlay, preparation: PickedPreparation, 
  * in its own slots of the rank the deity grants each at or higher, whatever their tradition or rarity (ADR-0048). Focus
  * spells never go in a slot.
  */
-export function preparedSlots(document: CharacterDocument, reads: PreparedReads): PreparedSlot[] {
+export function preparedSlots(document: CharacterDocument, reads: PreparedReads): Array<PreparedSlot> {
   const { spells, resolution } = reads;
   const access = new Set<ContentId>(document.build.spellAccess);
 

@@ -18,7 +18,7 @@ function counts({ id, status }: ImmunityLine | AdjustmentLine, on: ReadonlySet<R
   return status.kind === DefenceStatusKind.Conditional && on.has(id);
 }
 
-function adjustments(lines: readonly AdjustmentLine[], on: ReadonlySet<RuleId>): readonly DamageAdjustment[] {
+function adjustments(lines: ReadonlyArray<AdjustmentLine>, on: ReadonlySet<RuleId>): ReadonlyArray<DamageAdjustment> {
   return lines.flatMap((line) => {
     if (line.value === undefined || !counts(line, on)) {
       return [];

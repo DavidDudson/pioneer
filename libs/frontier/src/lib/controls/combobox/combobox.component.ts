@@ -49,7 +49,7 @@ export interface ComboboxTag {
  */
 export interface ComboboxOption<TValue extends string> extends SelectOption<TValue> {
   readonly disabled?: boolean;
-  readonly tags?: readonly ComboboxTag[];
+  readonly tags?: ReadonlyArray<ComboboxTag>;
 }
 
 /**
@@ -85,7 +85,7 @@ export class Combobox<TValue extends string> extends Control {
   /** The picked value; `undefined` until the user picks. */
   public readonly value = model<TValue | undefined>(undefined);
   /** The matches for the last `searched` query. */
-  public readonly options = input.required<readonly ComboboxOption<TValue>[]>();
+  public readonly options = input.required<ReadonlyArray<ComboboxOption<TValue>>>();
   /** The text the input shows while nothing is picked. Setting it again replaces whatever was typed. */
   public readonly query = input('');
   /** Options are loading: the listbox shows skeleton rows. */
@@ -132,7 +132,7 @@ export class Combobox<TValue extends string> extends Control {
     computation: (source, previous) => textOf(source, previous?.value, untracked(this.expanded)),
   });
   /** The picked value while it is among the options; the listbox drops values it has no option for. */
-  protected readonly selected = computed<TValue[]>(() => {
+  protected readonly selected = computed<Array<TValue>>(() => {
     const value = this.value();
 
     return value !== undefined && this.pickedIndex() !== undefined ? [value] : [];
@@ -215,7 +215,7 @@ export class Combobox<TValue extends string> extends Control {
     this.#query.type(query);
   }
 
-  protected choose(values: readonly TValue[]): void {
+  protected choose(values: ReadonlyArray<TValue>): void {
     if (this.#syncing) {
       return;
     }

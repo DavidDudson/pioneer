@@ -30,7 +30,7 @@ export class ImportReportGroup {
   protected readonly matched = computed(
     () => this.group().rows.filter((row) => row.status === MatchStatus.Matched).length,
   );
-  protected readonly rows = computed((): readonly RowView[] =>
+  protected readonly rows = computed((): ReadonlyArray<RowView> =>
     this.group().rows.map((row) => ({
       name: row.name,
       occurrences: row.occurrences,

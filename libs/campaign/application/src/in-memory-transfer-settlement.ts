@@ -8,7 +8,7 @@ import { TransferSettlement } from './transfer-settlement';
 /** Adapter for tests: marks the offer accepted, or fails as set, and keeps what it was asked to settle. */
 export class InMemoryTransferSettlement extends TransferSettlement {
   readonly #transfers: ItemTransferRepository;
-  readonly #settled: Transfer[] = [];
+  readonly #settled: Array<Transfer> = [];
   #failure: Error | undefined;
 
   public constructor(transfers: ItemTransferRepository) {
@@ -17,7 +17,7 @@ export class InMemoryTransferSettlement extends TransferSettlement {
   }
 
   /** Every offer accepted, oldest first. */
-  public get settled(): readonly Transfer[] {
+  public get settled(): ReadonlyArray<Transfer> {
     return this.#settled;
   }
 

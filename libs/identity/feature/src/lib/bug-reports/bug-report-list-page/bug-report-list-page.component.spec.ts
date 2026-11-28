@@ -33,8 +33,8 @@ const OLDER = BugReportListItem.parse({
   hasSnapshot: false,
 });
 
-async function render(reports: readonly BugReportListItem[] | Error): Promise<HTMLElement> {
-  const call = vi.fn<(endpoint: Endpoint) => Promise<readonly BugReportListItem[]>>(async (endpoint) => {
+async function render(reports: ReadonlyArray<BugReportListItem> | Error): Promise<HTMLElement> {
+  const call = vi.fn<(endpoint: Endpoint) => Promise<ReadonlyArray<BugReportListItem>>>(async (endpoint) => {
     if (endpoint !== IdentityContract.listBugReports) {
       throw new Error('Unexpected call');
     }

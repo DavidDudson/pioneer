@@ -8,10 +8,10 @@ import type { ItemRevocation } from './campaign-item-approval-repository';
 
 /** Repository adapter for tests and local experiments. */
 export class InMemoryCampaignItemApprovalRepository extends CampaignItemApprovalRepository {
-  readonly #live = new Map<CampaignId, CampaignItemApproval[]>();
-  readonly #archived = new Map<CampaignId, CampaignItemApproval[]>();
+  readonly #live = new Map<CampaignId, Array<CampaignItemApproval>>();
+  readonly #archived = new Map<CampaignId, Array<CampaignItemApproval>>();
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignItemApproval[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignItemApproval>> {
     return (this.#live.get(campaignId) ?? []).toSorted(
       (left, right) => Temporal.Instant.compare(left.approvedAt, right.approvedAt) || left.id.localeCompare(right.id),
     );

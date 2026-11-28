@@ -55,8 +55,8 @@ interface Linked extends Mention {
 }
 
 /** The names of the list that ends with the name `last`, in order, or none when a word of it names no trait. */
-function listEndingAt(run: string, last: Mention): readonly Mention[] {
-  const names: Mention[] = [last];
+function listEndingAt(run: string, last: Mention): ReadonlyArray<Mention> {
+  const names: Array<Mention> = [last];
   let earlier = EARLIER_NAME.exec(run.slice(0, last.at));
 
   while (earlier !== null) {
@@ -69,7 +69,7 @@ function listEndingAt(run: string, last: Mention): readonly Mention[] {
 }
 
 /** Every trait `run` names before the word trait, in order. */
-function mentions(run: string): readonly Mention[] {
+function mentions(run: string): ReadonlyArray<Mention> {
   const lasts = [...run.matchAll(LAST_NAME)].map((match): Mention => ({
     name: match.groups?.['name'] ?? '',
     at: match.index,
@@ -104,7 +104,7 @@ export function linkTraitNames(content: InlineContent, linkable: (id: ContentId)
       return [node];
     }
 
-    const linked = mentions(node.text).flatMap((each): readonly Linked[] => {
+    const linked = mentions(node.text).flatMap((each): ReadonlyArray<Linked> => {
       const id = idOf(each.name);
 
       return id !== undefined && linkable(id) ? [{ ...each, id }] : [];
@@ -114,7 +114,7 @@ export function linkTraitNames(content: InlineContent, linkable: (id: ContentId)
       return [node];
     }
 
-    const out: InlineContent[number][] = [];
+    const out: Array<InlineContent[number]> = [];
     let cursor = 0;
 
     for (const { name, at, id } of linked) {

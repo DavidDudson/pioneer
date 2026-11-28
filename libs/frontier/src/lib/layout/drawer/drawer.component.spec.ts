@@ -75,7 +75,7 @@ function fakeBrowser(): void {
         observed.target = target;
       });
       public readonly disconnect = vi.fn<() => void>();
-      public constructor(notify: (entries: unknown[]) => void) {
+      public constructor(notify: (entries: Array<unknown>) => void) {
         observed.resize = (width: number): void => {
           notify([{ contentRect: { width } }]);
         };
@@ -245,7 +245,7 @@ describe(Drawer, () => {
 
     it('widens on ArrowLeft, narrows on ArrowRight and stops at the ends', async () => {
       const root = await render('/spells?drawer=open');
-      const steps: (string | null)[] = [];
+      const steps: Array<string | null> = [];
       await keydown(handle(root), 'ArrowLeft');
       steps.push(step(root));
       await keydown(handle(root), 'ArrowLeft');

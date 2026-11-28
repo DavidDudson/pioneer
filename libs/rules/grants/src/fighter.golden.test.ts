@@ -8,14 +8,14 @@ import type { GrantResolution } from './resolve-grants';
 import { idOf, inputsOf, picked, picksOf } from './testing/builders';
 import { classFeatSlotAt, FIGHTER_CONTENT, LEVEL_20_PICKS, SKILL_SLOT } from './testing/fighter';
 
-function fighterAt(level: number, picks: readonly (readonly [SlotKey, string])[] = []): GrantResolution {
+function fighterAt(level: number, picks: ReadonlyArray<readonly [SlotKey, string]> = []): GrantResolution {
   const roots = [picked('fighter', 'class')];
 
   return resolveGrants(inputsOf({ entries: FIGHTER_CONTENT, roots, level, picks: picksOf(picks) }));
 }
 
-const names = (result: GrantResolution): string[] => result.items.map((item) => item.entry.name);
-const options = (result: GrantResolution): string[] => result.rollOptions.map(String);
+const names = (result: GrantResolution): Array<string> => result.items.map((item) => item.entry.name);
+const options = (result: GrantResolution): Array<string> => result.rollOptions.map(String);
 
 describe('Level 1 Fighter (golden)', () => {
   test('resolves the class, its 1st-level features and Shield Block, with the class feat and skill open', () => {

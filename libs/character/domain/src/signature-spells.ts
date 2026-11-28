@@ -31,13 +31,13 @@ export interface SignatureSlot {
   readonly entry: Slug;
   readonly rank: SpellRank;
   /** The repertoire's spells of this rank, by name, each once. */
-  readonly options: readonly SpellOption[];
+  readonly options: ReadonlyArray<SpellOption>;
   readonly stored: ChoiceValue | undefined;
   /** Undefined while the slot is empty, or holds something it doesn't offer. */
   readonly pick: SpellOption | undefined;
   readonly problem: SignaturePickProblem | undefined;
   /** The ranks the pick is cast at; empty without one. */
-  readonly castRanks: readonly SpellRank[];
+  readonly castRanks: ReadonlyArray<SpellRank>;
 }
 
 /** A repertoire spell as `castRanks` reads it. */
@@ -56,7 +56,7 @@ export interface KnownSpell {
  * is a signature spell, which is cast heightened to any rank up to the entry's highest below 10th and at any lower one
  * down to its own, without learning each apart.
  */
-export function castRanks({ own, learned, signature, highest }: KnownSpell): readonly SpellRank[] {
+export function castRanks({ own, learned, signature, highest }: KnownSpell): ReadonlyArray<SpellRank> {
   if (!signature) {
     return [learned];
   }
@@ -67,7 +67,7 @@ export function castRanks({ own, learned, signature, highest }: KnownSpell): rea
 }
 
 /** Each spell once, in the order first met. */
-function distinct(spells: readonly SpellOption[]): SpellOption[] {
+function distinct(spells: ReadonlyArray<SpellOption>): Array<SpellOption> {
   const seen = new Set<ContentId>();
 
   return spells.filter((spell) => {
@@ -79,7 +79,7 @@ function distinct(spells: readonly SpellOption[]): SpellOption[] {
 }
 
 /** The spells a repertoire knows at `rank`: the picks its own slots of that rank hold and offer. */
-function knownAt(repertoire: readonly PreparedSlot[], rank: SpellRank): SpellOption[] {
+function knownAt(repertoire: ReadonlyArray<PreparedSlot>, rank: SpellRank): Array<SpellOption> {
   return distinct(
     repertoire.flatMap((slot) =>
       slot.rank === rank && slot.pool === undefined && slot.pick !== undefined ? [slot.pick] : [],
@@ -92,7 +92,7 @@ function knownAt(repertoire: readonly PreparedSlot[], rank: SpellRank): SpellOpt
  * gives signature spells, one per rank of its own slots, 1st and up, keyed `signature:<entry>:<rank>`. Each offers the
  * spells the entry's repertoire knows at that rank. Like a repertoire's, they open at the character's level only.
  */
-export function signatureSlots(document: CharacterDocument, reads: PreparedReads): SignatureSlot[] {
+export function signatureSlots(document: CharacterDocument, reads: PreparedReads): Array<SignatureSlot> {
   const { spells, resolution } = reads;
   const repertoires = preparedSlots(document, reads);
 

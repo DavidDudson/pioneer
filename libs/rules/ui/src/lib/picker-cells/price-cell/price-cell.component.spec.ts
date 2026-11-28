@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { renderCell } from '../../testing/render-cell';
 import { PriceCell } from './price-cell.component';
 
-function parts(host: HTMLElement): readonly string[] {
+function parts(host: HTMLElement): ReadonlyArray<string> {
   return [...host.querySelectorAll('fr-text')].map((part) => part.textContent.trim());
 }
 

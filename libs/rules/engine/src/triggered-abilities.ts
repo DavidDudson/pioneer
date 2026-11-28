@@ -22,7 +22,7 @@ export interface TriggerableAbility {
   /** Whether using it asks for a choice or makes a roll. */
   readonly needsChoice?: boolean | undefined;
   /** What it does, as rule elements. */
-  readonly rules: readonly RuleElement[];
+  readonly rules: ReadonlyArray<RuleElement>;
 }
 
 /**
@@ -33,8 +33,8 @@ export interface TriggerableAbility {
 export function triggeredAbilities<Ability extends TriggerableAbility>(
   event: TriggerEventType,
   facts: PredicateFacts,
-  abilities: readonly Ability[],
-): readonly Ability[] {
+  abilities: ReadonlyArray<Ability>,
+): ReadonlyArray<Ability> {
   return abilities.filter(({ triggerEvent }) => {
     if (triggerEvent?.event !== event) {
       return false;

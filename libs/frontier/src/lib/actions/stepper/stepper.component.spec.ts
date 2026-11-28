@@ -19,7 +19,7 @@ class StepperHost {
   public finishes = 0;
 }
 
-const buttons = (root: HTMLElement): HTMLButtonElement[] => [...root.querySelectorAll('button')];
+const buttons = (root: HTMLElement): Array<HTMLButtonElement> => [...root.querySelectorAll('button')];
 
 const named = (root: HTMLElement, text: string): HTMLButtonElement => {
   const found = buttons(root).find((button) => button.textContent.trim() === text);

@@ -7,7 +7,7 @@ import type { FilterCondition, FilterField } from './filter-bar.types';
 
 type FilterBarStory = StoryObj<FilterBar>;
 
-const FIELDS: readonly FilterField[] = [
+const FIELDS: ReadonlyArray<FilterField> = [
   {
     id: 'rarity',
     label: 'Rarity',
@@ -40,7 +40,7 @@ const FIELDS: readonly FilterField[] = [
   },
 ];
 
-const APPLIED: readonly FilterCondition[] = [
+const APPLIED: ReadonlyArray<FilterCondition> = [
   { field: 'rarity', operator: FilterOperator.IsAnyOf, values: ['uncommon', 'rare'] },
   { field: 'level', operator: FilterOperator.Between, values: ['3', '5'] },
   { field: 'traits', operator: FilterOperator.IsNot, values: ['fire'] },

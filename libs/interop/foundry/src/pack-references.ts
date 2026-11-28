@@ -28,7 +28,7 @@ export interface EntryGap {
 export interface CheckedOutput {
   readonly entries: Map<ContentId, ContentEntry>;
   readonly leftOut: Map<ContentId, LeftOut>;
-  readonly dropped: EntryGap[];
+  readonly dropped: Array<EntryGap>;
 }
 
 export interface Resolution {
@@ -116,7 +116,7 @@ function textOf(node: RefLike, check: Check): UnlinkedText {
 }
 
 /** `value` with each `Ref` node to a missing entry as text, each reported in `gaps`. */
-function unlink(value: unknown, check: Check, gaps: BacklogGap[]): unknown {
+function unlink(value: unknown, check: Check, gaps: Array<BacklogGap>): unknown {
   if (Array.isArray(value)) {
     return value.map((each) => unlink(each, check, gaps));
   }
@@ -141,7 +141,7 @@ function leaveOut(entry: ContentEntry, leftOut: LeftOut, { output }: Check): voi
 
 /** `entry` with what references a missing entry dropped or unlinked, or left out when that is not enough. */
 function degrade(entry: ContentEntry, check: Check): void {
-  const gaps: BacklogGap[] = [];
+  const gaps: Array<BacklogGap> = [];
   const { rules, ...rest } = entry;
 
   const kept = rules.filter((rule) => {

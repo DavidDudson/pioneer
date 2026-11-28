@@ -97,7 +97,7 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
     };
   }
 
-  public override async alliesOf(characterId: CharacterId): Promise<readonly CampaignAlly[]> {
+  public override async alliesOf(characterId: CharacterId): Promise<ReadonlyArray<CampaignAlly>> {
     const [attached] = await this.#db
       .select({ campaignId: campaignCharacters.campaignId })
       .from(campaignCharacters)

@@ -9,7 +9,7 @@ export const SAMPLE_IMPORT_SELECTOR = 'pio-sample-character-import';
  * Strings only dev code contains: the seeded users' ids and names, the dev sign-in route, and the web
  * component's selector and message scope. Any of them in a production build means dev code shipped.
  */
-export const DEV_MARKERS: readonly string[] = [
+export const DEV_MARKERS: ReadonlyArray<string> = [
   ...DEV_USERS.flatMap(({ id, displayName }) => [id, displayName]),
   DevSignInPath.route.slice(0, DevSignInPath.route.indexOf(':')),
   DEV_SIGN_IN_SELECTOR,
@@ -18,7 +18,7 @@ export const DEV_MARKERS: readonly string[] = [
 ];
 
 /** The markers that occur in `contents`, in marker order. */
-export function findMarkers(contents: Uint8Array, markers: readonly string[] = DEV_MARKERS): string[] {
+export function findMarkers(contents: Uint8Array, markers: ReadonlyArray<string> = DEV_MARKERS): Array<string> {
   const buffer = Buffer.from(contents.buffer, contents.byteOffset, contents.byteLength);
 
   return markers.filter((marker) => buffer.includes(marker));

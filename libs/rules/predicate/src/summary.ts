@@ -42,10 +42,10 @@ export type Negated = ValueOf<typeof Negated>;
 export type PredicateSummary =
   | { readonly kind: typeof SummaryKind.Phrase; readonly message: MessageDescriptor }
   | { readonly kind: typeof SummaryKind.Authored; readonly text: ContentText }
-  | { readonly kind: typeof SummaryKind.All | typeof SummaryKind.Any; readonly parts: readonly PredicateSummary[] }
+  | { readonly kind: typeof SummaryKind.All | typeof SummaryKind.Any; readonly parts: ReadonlyArray<PredicateSummary> }
   | {
       readonly kind: typeof SummaryKind.ExactlyOne | typeof SummaryKind.AllOrNone;
-      readonly parts: readonly PredicateSummary[];
+      readonly parts: ReadonlyArray<PredicateSummary>;
       readonly negated: Negated;
     };
 
@@ -114,7 +114,7 @@ function comparisonPhrase(statement: PredicateComparison): PredicateSummary {
 }
 
 /** One part, or several joined by `kind`, with nested lists of the same kind flattened. Never called empty. */
-function join(kind: ListKind, parts: readonly PredicateSummary[]): PredicateSummary {
+function join(kind: ListKind, parts: ReadonlyArray<PredicateSummary>): PredicateSummary {
   const flat = parts.flatMap((part) => (part.kind === kind ? part.parts : [part]));
   const [only] = flat;
 
@@ -153,12 +153,12 @@ function negate(summary: PredicateSummary): PredicateSummary {
 }
 
 interface Verdicts {
-  readonly truths: readonly Truth[];
+  readonly truths: ReadonlyArray<Truth>;
   /** Summaries of the children that are unknown, in order. */
-  readonly unknown: readonly PredicateSummary[];
+  readonly unknown: ReadonlyArray<PredicateSummary>;
 }
 
-function verdicts(children: readonly PredicateStatement[], facts: PredicateFacts): Verdicts {
+function verdicts(children: ReadonlyArray<PredicateStatement>, facts: PredicateFacts): Verdicts {
   const truths = children.map((child) => evaluateStatement(child, facts));
 
   const unknown = children.flatMap((child, index) =>

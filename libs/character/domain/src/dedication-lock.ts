@@ -8,7 +8,7 @@ import type { FeatContent } from './feat-content';
 export const NO_DEDICATION_LOCK = RollOption.parse('self:dedication-lock:off');
 
 /** The feat slots in the order they are taken: lowest level first, and in the order they are found within a level. */
-export function slotsInOrder(levels: ReadonlyMap<SlotKey, Level>): SlotKey[] {
+export function slotsInOrder(levels: ReadonlyMap<SlotKey, Level>): Array<SlotKey> {
   return [...levels].toSorted(([, left], [, right]) => left - right).map(([key]) => key);
 }
 
@@ -22,9 +22,9 @@ export interface DedicationWait {
 function featsPicked(
   choices: Readonly<Record<string, ChoiceValue>>,
   feats: FeatContent,
-  earlier: readonly SlotKey[],
-): ContentId[] {
-  return earlier.flatMap((key): ContentId[] => {
+  earlier: ReadonlyArray<SlotKey>,
+): Array<ContentId> {
+  return earlier.flatMap((key): Array<ContentId> => {
     const id = ContentId.safeParse(choices[key]);
 
     return id.success && feats.feat(id.data) !== undefined ? [id.data] : [];
@@ -33,7 +33,7 @@ function featsPicked(
 
 /** What a character's features grant, and the keys of its feat slots, to tell a grant from a pick. */
 export interface GrantedFeats {
-  readonly items: readonly GrantedItem[];
+  readonly items: ReadonlyArray<GrantedItem>;
   readonly featSlots: ReadonlySet<SlotKey>;
 }
 
@@ -45,11 +45,11 @@ export interface GrantedFeats {
 export function featsGranted(
   { items, featSlots }: GrantedFeats,
   feats: FeatContent,
-  taken: readonly ContentId[],
-): ContentId[] {
+  taken: ReadonlyArray<ContentId>,
+): Array<ContentId> {
   const seen = new Set<ContentId>(taken);
 
-  return items.flatMap(({ entry, origin }): ContentId[] => {
+  return items.flatMap(({ entry, origin }): Array<ContentId> => {
     const viaPick = origin.hops.some((hop) => hop.kind === OriginHopKind.Choice && featSlots.has(hop.slot));
     const id = ContentId.safeParse(entry.id);
 
@@ -67,8 +67,8 @@ export function featsGranted(
 export function featsTaken(
   choices: Readonly<Record<string, ChoiceValue>>,
   feats: FeatContent,
-  { earlier, granted }: { readonly earlier: readonly SlotKey[]; readonly granted: GrantedFeats },
-): ContentId[] {
+  { earlier, granted }: { readonly earlier: ReadonlyArray<SlotKey>; readonly granted: GrantedFeats },
+): Array<ContentId> {
   const picked = featsPicked(choices, feats, earlier);
 
   return [...picked, ...featsGranted(granted, feats, picked)];
@@ -78,14 +78,14 @@ export function featsTaken(
  * The dedications among `taken` whose archetype has fewer of its other feats in `taken` than its lock asks for
  * (#467): Player Core's two unless the archetype says otherwise. The dedication itself is not one of the others.
  */
-export function dedicationWaits(feats: FeatContent, taken: readonly ContentId[]): DedicationWait[] {
+export function dedicationWaits(feats: FeatContent, taken: ReadonlyArray<ContentId>): Array<DedicationWait> {
   const archetypes = taken.flatMap((id) => {
     const archetype = feats.feat(id)?.archetype;
 
     return archetype === undefined || feats.archetype(archetype)?.dedication !== id ? [] : [archetype];
   });
 
-  return archetypes.flatMap((archetype): DedicationWait[] => {
+  return archetypes.flatMap((archetype): Array<DedicationWait> => {
     const read = feats.archetype(archetype);
 
     const others = taken.filter(
@@ -101,7 +101,7 @@ export function dedicationWaits(feats: FeatContent, taken: readonly ContentId[])
 /** The wait that keeps `feat` out of reach, if it is the dedication of an archetype other than the ones waiting. */
 export function dedicationWait(
   feats: FeatContent,
-  waits: readonly DedicationWait[],
+  waits: ReadonlyArray<DedicationWait>,
   feat: ContentId,
 ): DedicationWait | undefined {
   const archetype = feats.feat(feat)?.archetype;

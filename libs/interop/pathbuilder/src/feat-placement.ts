@@ -14,7 +14,7 @@ export type FeatPicks = Readonly<Record<SlotKey, ChoiceValue>>;
 /** The picks for the character's feat slots (and the feats' own choices), and the feats no slot took. */
 export interface FeatPlacement {
   readonly choices: FeatPicks;
-  readonly unplaced: readonly ImportedFeat[];
+  readonly unplaced: ReadonlyArray<ImportedFeat>;
 }
 
 /** A feat the export lists that matched content, and the content it matched. */
@@ -58,7 +58,7 @@ function labelled(slot: FeatSlot, feat: ImportedFeat): boolean {
  * The open slots at `wanted`'s level that offer it: the one Pathbuilder labels first (a class feat slot also offers
  * archetype feats, so a dedication fits it and a Free Archetype slot alike), then those named for its type.
  */
-function candidates(slots: readonly FeatSlot[], { feat, id }: Wanted): FeatSlot[] {
+function candidates(slots: ReadonlyArray<FeatSlot>, { feat, id }: Wanted): Array<FeatSlot> {
   const fits = slots.filter((slot) => slot.level === feat.level && slot.options.some((option) => option.value === id));
   const named = new Set(fits.filter((slot) => kindWord(slot.prompt) === kindWord(feat.type)));
 
@@ -74,7 +74,7 @@ function candidates(slots: readonly FeatSlot[], { feat, id }: Wanted): FeatSlot[
 }
 
 /** Each wanted feat in the first open slot it fits that no other took, the most constrained feats choosing first. */
-function claim(slots: readonly FeatSlot[], wanted: readonly Wanted[]): Map<SlotKey, Wanted> {
+function claim(slots: ReadonlyArray<FeatSlot>, wanted: ReadonlyArray<Wanted>): Map<SlotKey, Wanted> {
   const fitting = wanted.map((each) => ({ each, fits: candidates(slots, each) }));
   const claimed = new Map<SlotKey, Wanted>();
 
@@ -109,7 +109,7 @@ function answers(
   );
 }
 
-function matched(feats: readonly ImportedFeat[], lookup: ContentLookup): Wanted[] {
+function matched(feats: ReadonlyArray<ImportedFeat>, lookup: ContentLookup): Array<Wanted> {
   return feats
     .filter((feat) => feat.slotted)
     .flatMap((feat) => {
@@ -122,7 +122,7 @@ function matched(feats: readonly ImportedFeat[], lookup: ContentLookup): Wanted[
 /** Where placing stands: the picks so far, the feats still wanting a slot and the choices the placed ones made. */
 interface Round {
   readonly picks: FeatPicks;
-  readonly left: readonly Wanted[];
+  readonly left: ReadonlyArray<Wanted>;
   readonly chosen: ReadonlyMap<ContentId, PathbuilderName>;
 }
 
@@ -146,7 +146,7 @@ function advance(document: CharacterDocument, { slots }: FeatPlacementContent, r
 
   const chosen = new Map([
     ...round.chosen,
-    ...[...placed].flatMap(({ feat, id }): [ContentId, PathbuilderName][] =>
+    ...[...placed].flatMap(({ feat, id }): Array<[ContentId, PathbuilderName]> =>
       feat.choice === undefined ? [] : [[id, feat.choice]],
     ),
   ]);
@@ -170,7 +170,7 @@ function advance(document: CharacterDocument, { slots }: FeatPlacementContent, r
 export function placeFeats(
   document: CharacterDocument,
   content: FeatPlacementContent,
-  feats: readonly ImportedFeat[],
+  feats: ReadonlyArray<ImportedFeat>,
 ): FeatPlacement {
   let round: Round = { picks: {}, left: matched(feats, content.lookup), chosen: new Map() };
 

@@ -7,8 +7,8 @@ import type { CharacterListExtraLoader } from '@pioneer/character/feature';
  * production's; the `development` build configuration swaps in `environment.development.ts`.
  */
 export interface AppEnvironment {
-  readonly providers: readonly Provider[];
+  readonly providers: ReadonlyArray<Provider>;
   readonly messages: Translation;
   /** Extra actions on the character list; the character feature is lazy, so each one is loaded on demand. */
-  readonly characterListExtras: readonly CharacterListExtraLoader[];
+  readonly characterListExtras: ReadonlyArray<CharacterListExtraLoader>;
 }

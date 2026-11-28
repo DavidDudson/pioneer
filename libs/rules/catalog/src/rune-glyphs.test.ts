@@ -9,8 +9,8 @@ import { loadRunes } from './rune-fixtures';
 const RUNES = await loadRunes();
 
 /** The pair each property rune shows, with the runes that share it. */
-function runesByPair(): ReadonlyMap<string, readonly string[]> {
-  const byPair = new Map<string, string[]>();
+function runesByPair(): ReadonlyMap<string, ReadonlyArray<string>> {
+  const byPair = new Map<string, Array<string>>();
 
   for (const rune of RUNES.filter(
     (entry) => entry.kind === ContentKind.Rune && entry.data.type === RuneType.Property,

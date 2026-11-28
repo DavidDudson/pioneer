@@ -21,9 +21,9 @@ export interface SpellRowReads {
  * picked again, and says why.
  */
 export function spellRows(
-  spells: readonly SpellOption[],
+  spells: ReadonlyArray<SpellOption>,
   { translate, castRank, taken, registry }: SpellRowReads,
-): readonly SpellPickerRow[] {
+): ReadonlyArray<SpellPickerRow> {
   return spells.map((spell): SpellPickerRow => ({
     id: spell.id,
     name: spell.name,

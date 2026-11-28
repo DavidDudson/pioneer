@@ -133,7 +133,7 @@ function deityFields(entry: ContentEntry): Pick<GrantEntry, 'characterOptions' |
  * A deity's domains as a query reads its candidate: `domain:fire` for a primary one and `alternate-domain:sun` for an
  * alternate, under `item:`, so a `ChoiceSet` can offer the deities that grant a domain (Divine Access).
  */
-function domainOptions(entry: ContentEntry): RollOption[] {
+function domainOptions(entry: ContentEntry): Array<RollOption> {
   if (entry.kind !== ContentKind.Deity) {
     return [];
   }
@@ -146,19 +146,19 @@ function domainOptions(entry: ContentEntry): RollOption[] {
   ];
 }
 
-function traitOptions(traits: readonly Trait[]): RollOption[] {
+function traitOptions(traits: ReadonlyArray<Trait>): Array<RollOption> {
   return traits.map((trait) => RollOption.parse(`trait:${trait}`));
 }
 
 /** A class feature's tags, `tag:cleric-doctrine`, which a subclass's `ChoiceSet` filters on; none for another kind. */
-function tagOptions(entry: ContentEntry): RollOption[] {
+function tagOptions(entry: ContentEntry): Array<RollOption> {
   const tags = entry.kind === ContentKind.ClassFeature ? (entry.data.tags ?? []) : [];
 
   return tags.map((tag) => RollOption.parse(`tag:${tag}`));
 }
 
 /** A feat's category, `category:class`, which a feat slot's query filters on (`item:category:class`); none for another kind. */
-function categoryOptions(entry: ContentEntry): RollOption[] {
+function categoryOptions(entry: ContentEntry): Array<RollOption> {
   return entry.kind === ContentKind.Feat ? [RollOption.parse(`category:${entry.data.category}`)] : [];
 }
 
@@ -166,7 +166,7 @@ function categoryOptions(entry: ContentEntry): RollOption[] {
  * `level:<n>` for an entry with a level, which a feat slot's query reads as `item:level` (`{ "lte": ["item:level",
  * "self:level"] }`), as Foundry pf2e sets it; none for an entry without one.
  */
-function levelOptions(entry: ContentEntry): RollOption[] {
+function levelOptions(entry: ContentEntry): Array<RollOption> {
   const level = 'level' in entry ? entry.level : undefined;
 
   return level === undefined ? [] : [RollOption.parse(`level:${level}`)];
@@ -294,7 +294,7 @@ function heldEnvelope(entry: ContentEntry, pack: ContentPack, state: LookupState
   return read ? lazyEntry(entry.id, entry.kind, () => envelopeEntry(entry, pack, state)) : undefined;
 }
 
-function packEntries(pack: ContentPack, state: LookupState): HeldEntry[] {
+function packEntries(pack: ContentPack, state: LookupState): Array<HeldEntry> {
   return [
     ...pack.ancestries.flatMap((each) => ancestryEntry(pack, each, state) ?? []).map((each) => heldEntry(each)),
     ...pack.variantRules.flatMap((each) => variantEntry(pack, each) ?? []).map((each) => heldEntry(each)),

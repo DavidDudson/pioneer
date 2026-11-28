@@ -236,7 +236,7 @@ const Inline: z.ZodType<InlineNode> = z.discriminatedUnion('type', [
 ]);
 
 /** A run of inline nodes: a paragraph's content or one table cell. */
-export type InlineContent = readonly InlineNode[];
+export type InlineContent = ReadonlyArray<InlineNode>;
 
 export interface ParagraphNode {
   readonly type: typeof BlockKind.Paragraph;
@@ -253,15 +253,15 @@ export interface HeadingNode {
 export interface ListNode {
   readonly type: typeof BlockKind.List;
   readonly ordered: boolean;
-  readonly items: readonly (readonly BlockNode[])[];
+  readonly items: ReadonlyArray<ReadonlyArray<BlockNode>>;
 }
 
 /** A grid of inline cells; `header` is the optional first row of column headings, `caption` names the table. */
 export interface TableNode {
   readonly type: typeof BlockKind.Table;
   readonly caption?: InlineLabel | undefined;
-  readonly header?: readonly InlineContent[] | undefined;
-  readonly rows: readonly (readonly InlineContent[])[];
+  readonly header?: ReadonlyArray<InlineContent> | undefined;
+  readonly rows: ReadonlyArray<ReadonlyArray<InlineContent>>;
 }
 
 /** A thematic break, as Foundry puts before a spell's heightened entries. */
@@ -272,7 +272,7 @@ export interface RuleNode {
 export type BlockNode = ParagraphNode | HeadingNode | ListNode | TableNode | RuleNode;
 
 /** A whole description: blocks in reading order. */
-export type RichText = readonly BlockNode[];
+export type RichText = ReadonlyArray<BlockNode>;
 
 const content = z.array(Inline).min(1).readonly();
 const cell = z.array(Inline).readonly();

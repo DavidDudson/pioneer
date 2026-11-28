@@ -28,7 +28,7 @@ import type { SpellRowLine } from './spell-row-line';
 })
 export class SpellRowList {
   /** The spells to list, or undefined while they load. */
-  public readonly lines = input<readonly SpellRowLine[] | undefined>();
+  public readonly lines = input<ReadonlyArray<SpellRowLine> | undefined>();
   /** Whether an edit is in flight, so no second one is started. */
   public readonly busy = input(false);
   /** Why the last edit failed, shown until the next one; undefined when none did. */

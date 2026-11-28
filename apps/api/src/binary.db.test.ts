@@ -70,7 +70,7 @@ async function appliedMigrations(databaseUrl: string): Promise<number> {
 }
 
 /** The slugs of the content packs seeded so far, in order. */
-async function seededPacks(databaseUrl: string): Promise<readonly string[]> {
+async function seededPacks(databaseUrl: string): Promise<ReadonlyArray<string>> {
   const db = new Bun.SQL(databaseUrl);
   const rows = SlugRows.parse(await db`select slug from content_packs order by slug`);
   await db.close();
@@ -81,7 +81,7 @@ async function seededPacks(databaseUrl: string): Promise<readonly string[]> {
 
 describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => {
   const admin = new Bun.SQL(adminUrl ?? '');
-  const databases: string[] = [];
+  const databases: Array<string> = [];
   let workspace: Workspace = { folder: '', binary: '', migrations: '' };
   let migrationCount = 0;
 
@@ -110,7 +110,7 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
     };
   }
 
-  async function run(args: readonly string[], env: Record<string, string>): Promise<Exit> {
+  async function run(args: ReadonlyArray<string>, env: Record<string, string>): Promise<Exit> {
     const child = Bun.spawn([workspace.binary, ...args], {
       cwd: workspace.folder,
       env,

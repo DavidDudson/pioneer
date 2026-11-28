@@ -5,7 +5,7 @@ import type { MessageParams } from '@pioneer/shared/kernel';
 export interface StatBlockWords {
   readonly translate: (key: string, params?: MessageParams) => string;
   readonly number: (value: number, options?: Intl.NumberFormatOptions) => string;
-  readonly list: (items: readonly string[], type?: Intl.ListFormatType) => string;
-  readonly listParts: (items: readonly string[], type?: Intl.ListFormatType) => readonly ListPart[];
+  readonly list: (items: ReadonlyArray<string>, type?: Intl.ListFormatType) => string;
+  readonly listParts: (items: ReadonlyArray<string>, type?: Intl.ListFormatType) => ReadonlyArray<ListPart>;
   readonly distance: (feet: number) => string;
 }

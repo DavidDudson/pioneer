@@ -10,13 +10,13 @@ import type { Truth } from './truth';
 export interface StatementTrace {
   readonly statement: PredicateStatement;
   readonly truth: Truth;
-  readonly children: readonly StatementTrace[];
+  readonly children: ReadonlyArray<StatementTrace>;
 }
 
 /** A whole predicate's verdict with every statement's, for showing why it came out the way it did. */
 export interface PredicateTrace {
   readonly truth: Truth;
-  readonly statements: readonly StatementTrace[];
+  readonly statements: ReadonlyArray<StatementTrace>;
 }
 
 function traceStatement(statement: PredicateStatement, facts: PredicateFacts): StatementTrace {

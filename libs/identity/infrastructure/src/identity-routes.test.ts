@@ -96,7 +96,7 @@ async function meAs(api: AnyElysia, session: string): Promise<Response> {
   return api.handle(new Request('http://localhost/me', { headers: { cookie: `pioneer_session=${session}` } }));
 }
 
-async function sessionsOf(api: AnyElysia, session: string): Promise<ListedSession[]> {
+async function sessionsOf(api: AnyElysia, session: string): Promise<Array<ListedSession>> {
   const response = await api.handle(
     new Request('http://localhost/me/sessions', { headers: { cookie: `pioneer_session=${session}` } }),
   );
@@ -104,7 +104,7 @@ async function sessionsOf(api: AnyElysia, session: string): Promise<ListedSessio
   expect(response.status).toBe(200);
 
   // SAFETY: the sessions route answers with the signed-in user's sessions as a JSON array of `ListedSession`; the status is asserted above.
-  return (await response.json()) as ListedSession[];
+  return (await response.json()) as Array<ListedSession>;
 }
 
 async function revoke(api: AnyElysia, session: string, id: string): Promise<Response> {

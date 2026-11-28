@@ -15,15 +15,15 @@ export class PackSetCache<TValue> {
 
   /** The value for `packs` under `hashes` of all of them, built with `build` unless it is already cached for them. */
   public async current(
-    packs: readonly ContentPackId[],
-    hashes: readonly StoredPackHash[],
+    packs: ReadonlyArray<ContentPackId>,
+    hashes: ReadonlyArray<StoredPackHash>,
     build: () => Promise<TValue>,
   ): Promise<TValue> {
     return this.#cacheFor(packs).current(hashes, build);
   }
 
   /** The cache for this set of packs, now the most recently asked for. */
-  #cacheFor(packs: readonly ContentPackId[]): HashKeyedCache<TValue> {
+  #cacheFor(packs: ReadonlyArray<ContentPackId>): HashKeyedCache<TValue> {
     const key = [...new Set(packs)].toSorted().join(',');
     const kept = this.#sets.get(key) ?? new HashKeyedCache<TValue>();
     this.#sets.delete(key);

@@ -15,7 +15,7 @@ function words(): ActionWords {
   return TestBed.inject(ActionWords);
 }
 
-function named(lines: readonly ActionLine[], name: string): ActionLine {
+function named(lines: ReadonlyArray<ActionLine>, name: string): ActionLine {
   const found = lines.find((candidate) => candidate.name === name);
 
   if (found === undefined) {

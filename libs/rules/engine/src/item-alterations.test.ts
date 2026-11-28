@@ -12,7 +12,7 @@ import { inPlay } from './testing';
 
 const facts = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NAMESPACES);
 
-function itemNumbers(pairs: readonly (readonly [NumericItemProperty, number])[]): AlterableItem['numbers'] {
+function itemNumbers(pairs: ReadonlyArray<readonly [NumericItemProperty, number]>): AlterableItem['numbers'] {
   return new Map(pairs.map(([property, value]) => [property, FormulaValue.parse(value)]));
 }
 
@@ -65,7 +65,7 @@ function hardnessWhen(predicate: string): RuleJson {
 }
 
 /** `item` after elements, each `[element, entry]`, in that order. */
-function altered(item: AlterableItem, placed: readonly (readonly [RuleJson, string])[]): AlteredItem {
+function altered(item: AlterableItem, placed: ReadonlyArray<readonly [RuleJson, string]>): AlteredItem {
   const rules = placed.map(([element, entry], rule) => inPlay(element, entry, { rule }));
 
   return alterItem({ rules, facts }, item);

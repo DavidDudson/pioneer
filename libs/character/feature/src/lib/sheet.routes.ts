@@ -21,7 +21,7 @@ function provideCharacterMessages(): EnvironmentProviders {
   return provideMessageScope('character', { [Locale.English]: async () => import('../i18n/en.json') });
 }
 
-type RouteProviders = (Provider | EnvironmentProviders)[];
+type RouteProviders = Array<Provider | EnvironmentProviders>;
 
 /**
  * What the sheet and the flows around it need from their parent route: the character stores and the message scopes

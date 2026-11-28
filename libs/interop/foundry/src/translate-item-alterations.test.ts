@@ -26,7 +26,7 @@ describe('ItemAlteration from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         items: ['item:type:spell', 'item:slug:lay-on-hands'],
         key: RuleElementKey.ItemAlteration,
@@ -60,7 +60,7 @@ describe('ItemAlteration from Foundry', () => {
     expect(hardness.untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(hardness.rules as readonly unknown[]).toEqual([
+    expect(hardness.rules as ReadonlyArray<unknown>).toEqual([
       {
         items: ['item:type:shield', 'item:equipped'],
         key: RuleElementKey.ItemAlteration,
@@ -115,7 +115,7 @@ describe('ItemAlteration of other-tags from Foundry', () => {
     expect(untranslated).toEqual([]);
     // SAFETY: widening only: an array of rule elements is assignable to readonly unknown[].
     // The wider type lets toEqual take the partial expected literals.
-    expect(rules as readonly unknown[]).toEqual([
+    expect(rules as ReadonlyArray<unknown>).toEqual([
       {
         items: ['item:type:weapon', 'item:slug:longsword'],
         key: RuleElementKey.ItemAlteration,

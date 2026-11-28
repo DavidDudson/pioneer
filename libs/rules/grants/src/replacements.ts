@@ -10,8 +10,8 @@ import type { Replacement } from './grant-entry';
 function replacementsOf(
   registry: ContentRegistry,
   unsupported: ReadonlySet<ContentPackId>,
-): ReadonlyMap<ContentId, readonly Replacement[]> {
-  const replacements = new Map<ContentId, Replacement[]>();
+): ReadonlyMap<ContentId, ReadonlyArray<Replacement>> {
+  const replacements = new Map<ContentId, Array<Replacement>>();
 
   for (const pack of registry.packs) {
     const inForce = !unsupported.has(contentPackId(pack.id));
@@ -30,14 +30,14 @@ function replacementsOf(
 
 /** Where the lazy replacements keep what they worked out. */
 interface LazyHolder {
-  value?: ReadonlyMap<ContentId, readonly Replacement[]>;
+  value?: ReadonlyMap<ContentId, ReadonlyArray<Replacement>>;
 }
 
 /** `replacementsOf` worked out on the first read, not up front: most lookups never convert a legacy entry. */
 export function lazyReplacements(
   registry: ContentRegistry,
   unsupported: ReadonlySet<ContentPackId>,
-): () => ReadonlyMap<ContentId, readonly Replacement[]> {
+): () => ReadonlyMap<ContentId, ReadonlyArray<Replacement>> {
   const held: LazyHolder = {};
 
   return () => (held.value ??= replacementsOf(registry, unsupported));

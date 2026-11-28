@@ -39,7 +39,7 @@ const HOLDING = {
 };
 
 /** The play state with the shield having taken `damage`, raised or not. */
-function playWith(damage: number, effects: readonly JsonObject[] = [], revision = 1): JsonObject {
+function playWith(damage: number, effects: ReadonlyArray<JsonObject> = [], revision = 1): JsonObject {
   return { revision, play: { hp: { damage: 0, temp: 0 }, turn: TURN, shields: { [SHIELD]: damage }, effects } };
 }
 

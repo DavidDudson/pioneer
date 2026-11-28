@@ -147,7 +147,7 @@ export interface StatisticsTexts {
 export type StatisticsCheck =
   /** The core rules have not loaded yet, so nothing derives. */
   | { readonly status: typeof StatisticsStatus.Pending }
-  | { readonly status: typeof StatisticsStatus.Valid; readonly rows: readonly StatisticRow[] }
+  | { readonly status: typeof StatisticsStatus.Valid; readonly rows: ReadonlyArray<StatisticRow> }
   /** Some text does not read; each problem is undefined when its text is fine. */
   | {
       readonly status: typeof StatisticsStatus.Problems;
@@ -156,7 +156,7 @@ export type StatisticsCheck =
       readonly rules: JsonProblem | undefined;
       readonly overrides: JsonProblem | undefined;
       /** The 1-based roll option lines that are not roll options; empty when they all are. */
-      readonly factLines: readonly number[];
+      readonly factLines: ReadonlyArray<number>;
     };
 
 /** How a row names things: rule elements by box and number, and the variant rule's name. */
@@ -196,9 +196,9 @@ function problemOf<Value>(read: JsonRead<Value>): JsonProblem | undefined {
 type TextsRead =
   | {
       readonly ok: true;
-      readonly definitions: readonly StatisticDefinition[];
+      readonly definitions: ReadonlyArray<StatisticDefinition>;
       readonly inputs: StatisticInputs;
-      readonly rules: readonly RuleInPlay[];
+      readonly rules: ReadonlyArray<RuleInPlay>;
       readonly facts: PredicateFacts;
     }
   | { readonly ok: false; readonly problems: Extract<StatisticsCheck, { status: typeof StatisticsStatus.Problems }> };

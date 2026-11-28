@@ -37,7 +37,7 @@ const CLIMBER_ATHLETICS: StatisticValue = statistic('skill:athletics', {
 });
 
 /** A skill with a conditional line an applied one of its type already beats. */
-export const BEATEN_STATISTICS: readonly NamedStatistic[] = [
+export const BEATEN_STATISTICS: ReadonlyArray<NamedStatistic> = [
   { name: 'Athletics', kind: StatisticKind.Check, result: CLIMBER_ATHLETICS },
 ];
 
@@ -52,7 +52,7 @@ const FOOTING_LINE = line(SURE_FOOTING, {
 export const FOOTING_RULE: RuleId = ruleId(SURE_FOOTING);
 
 /** Athletics with Sure Footing's situation up for claiming, as the sheet offers it, and `claimed` of it claimed. */
-export function claimable(claimed: boolean): readonly NamedStatistic[] {
+export function claimable(claimed: boolean): ReadonlyArray<NamedStatistic> {
   return [
     {
       name: 'Athletics',
@@ -64,4 +64,4 @@ export function claimable(claimed: boolean): readonly NamedStatistic[] {
 }
 
 /** Athletics with Sure Footing's situation up for claiming and not claimed. */
-export const CLAIMABLE_STATISTICS: readonly NamedStatistic[] = claimable(false);
+export const CLAIMABLE_STATISTICS: ReadonlyArray<NamedStatistic> = claimable(false);

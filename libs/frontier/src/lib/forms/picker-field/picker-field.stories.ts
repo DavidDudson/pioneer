@@ -12,14 +12,14 @@ interface Spell {
 
 type PickerFieldStory = StoryObj<PickerField<string, Spell>>;
 
-const SPELLS: readonly Spell[] = [
+const SPELLS: ReadonlyArray<Spell> = [
   { id: 'force-barrage', name: 'Force Barrage', rank: 1 },
   { id: 'heal', name: 'Heal', rank: 1 },
   { id: 'runic-weapon', name: 'Runic Weapon', rank: 1 },
   { id: 'sure-strike', name: 'Sure Strike', rank: 1 },
 ];
 
-const FUNCTION_INPUTS: (keyof PickerField<string, Spell>)[] = ['rowValue', 'rowLabel', 'rowDisabled'];
+const FUNCTION_INPUTS: Array<keyof PickerField<string, Spell>> = ['rowValue', 'rowLabel', 'rowDisabled'];
 
 const COLUMNS = tableSchema<Spell>()
   .addText({ id: 'name', header: 'Spell', value: (spell) => spell.name })

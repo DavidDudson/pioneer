@@ -32,8 +32,8 @@ const RULES_MAX = 1;
 const contentTextJson: Arbitrary<string> = stringMatching(/^[A-Za-z][A-Za-z ]{0,19}$/u);
 const modifier: Arbitrary<number> = integer({ min: -MODIFIER_MAX, max: MODIFIER_MAX });
 const uses: Arbitrary<number> = integer({ min: 1, max: USES_MAX });
-const slugs: Arbitrary<string[]> = uniqueArray(slugText, { maxLength: LIST_MAX });
-const rules: Arbitrary<JsonObject[]> = array(ruleElementJson, { maxLength: RULES_MAX });
+const slugs: Arbitrary<Array<string>> = uniqueArray(slugText, { maxLength: LIST_MAX });
+const rules: Arbitrary<Array<JsonObject>> = array(ruleElementJson, { maxLength: RULES_MAX });
 
 const acuity: Arbitrary<string> = constantFrom(...Object.values(SenseAcuity));
 const movement: Arbitrary<string> = constantFrom(...Object.values(MovementType));
@@ -100,7 +100,7 @@ const item = withOptional(record({ item: contentIdJson }), { quantity: positive 
 
 const attributeModifier: Arbitrary<number> = integer({ min: ATTRIBUTE_MODIFIER_MIN, max: ATTRIBUTE_MODIFIER_MAX });
 
-const adjustments: Arbitrary<JsonObject[]> = array(record({ type: damageType, value: positive }), {
+const adjustments: Arbitrary<Array<JsonObject>> = array(record({ type: damageType, value: positive }), {
   maxLength: LIST_MAX,
 });
 

@@ -68,7 +68,7 @@ const entry: SummarisedEntry = {
 
 const { document } = new CharacterBuilder().build();
 
-function sources(variants: readonly VariantRuleEntry[]): StatisticSources {
+function sources(variants: ReadonlyArray<VariantRuleEntry>): StatisticSources {
   return { registry, slots: slotContent(registry), inputs, variants };
 }
 

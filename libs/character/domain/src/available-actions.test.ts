@@ -59,7 +59,7 @@ const grabbed = ContentId.parse(builder.idOf(ContentKind.Condition, 'grabbed'));
 const spidery = ContentId.parse(builder.idOf(ContentKind.Condition, 'spidery'));
 const id = (name: string): ContentId => ContentId.parse(builder.idOf(ContentKind.Action, name));
 
-function actionsOf(document: CharacterDocument): readonly AvailableAction[] {
+function actionsOf(document: CharacterDocument): ReadonlyArray<AvailableAction> {
   const slots = slotContent(registry);
 
   return characterActions(
@@ -69,7 +69,7 @@ function actionsOf(document: CharacterDocument): readonly AvailableAction[] {
   );
 }
 
-function find(actions: readonly AvailableAction[], name: string): AvailableAction | undefined {
+function find(actions: ReadonlyArray<AvailableAction>, name: string): AvailableAction | undefined {
   return actions.find(({ action }) => action === id(name));
 }
 

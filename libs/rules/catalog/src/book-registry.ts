@@ -9,7 +9,7 @@ import registry from './books.json';
  * book once, each with a title key. Source references name books by id; this resolves them.
  */
 export class BookRegistry {
-  public readonly books: readonly Book[];
+  public readonly books: ReadonlyArray<Book>;
   readonly #byId: ReadonlyMap<BookId, Book>;
 
   public constructor(books: Books) {

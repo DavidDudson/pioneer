@@ -4,14 +4,14 @@ import type { ConditionValue, ContentEntry, ContentId, ContentRegistry } from '@
 
 /** Whether two reads of the conditions hold the same ones, so a play edit that leaves them alone derives nothing again. */
 export function sameConditions(
-  left: readonly ActiveCondition[] | undefined,
-  right: readonly ActiveCondition[] | undefined,
+  left: ReadonlyArray<ActiveCondition> | undefined,
+  right: ReadonlyArray<ActiveCondition> | undefined,
 ): boolean {
   return JSON.stringify(left) === JSON.stringify(right);
 }
 
 /** The registry kind the conditions picker and the header read. */
-export const CONDITION_CONTENT_KINDS: readonly ContentKind[] = [ContentKind.Condition];
+export const CONDITION_CONTENT_KINDS: ReadonlyArray<ContentKind> = [ContentKind.Condition];
 
 /** The highest value the sheet raises a valued condition to; the content sets no limit of its own. */
 export const CONDITION_VALUE_MAX = 9;
@@ -37,7 +37,7 @@ export interface ConditionView {
   readonly name: string;
   readonly valued: boolean;
   readonly value: ConditionValue | undefined;
-  readonly implied: readonly ImpliedView[];
+  readonly implied: ReadonlyArray<ImpliedView>;
   /** The name of the active condition that overrides this one, if one does: it is suppressed while that lasts. */
   readonly overriddenBy: string | undefined;
 }
@@ -61,7 +61,7 @@ export function conditionName(registry: ContentRegistry, id: ContentId): string 
 }
 
 /** Every condition the content has, by name, for the add picker. */
-export function conditionOptions(registry: ContentRegistry): readonly ConditionOption[] {
+export function conditionOptions(registry: ContentRegistry): ReadonlyArray<ConditionOption> {
   return [...conditionEntries(registry).values()]
     .map((entry) => ({ id: entry.id, name: entry.name, valued: entry.data.valued }))
     .toSorted((left, right) => left.name.localeCompare(right.name));
@@ -73,8 +73,8 @@ export function conditionOptions(registry: ContentRegistry): readonly ConditionO
  */
 export function conditionViews(
   registry: ContentRegistry,
-  active: readonly ActiveCondition[],
-): readonly ConditionView[] {
+  active: ReadonlyArray<ActiveCondition>,
+): ReadonlyArray<ConditionView> {
   const entries = conditionEntries(registry);
 
   const overriders = active.flatMap(({ condition }) => {
@@ -83,14 +83,14 @@ export function conditionViews(
     return entry === undefined ? [] : entry.data.overrides.map((overridden) => ({ overridden, by: entry.name }));
   });
 
-  return active.flatMap((each): ConditionView[] => {
+  return active.flatMap((each): Array<ConditionView> => {
     const entry = entries.get(each.condition);
 
     if (entry === undefined) {
       return [];
     }
 
-    const implied = entry.data.implies.flatMap((id): ImpliedView[] => {
+    const implied = entry.data.implies.flatMap((id): Array<ImpliedView> => {
       const named = entries.get(id);
 
       return named === undefined ? [] : [{ id, name: named.name }];
@@ -117,7 +117,7 @@ export function conditionViews(
 export function conditionSlugs(
   registry: ContentRegistry,
   play: Pick<PlayState, 'conditions' | 'dying' | 'wounded' | 'doomed' | 'dead'>,
-): readonly string[] {
+): ReadonlyArray<string> {
   const slugs = new Map(registry.packs.flatMap((pack) => pack.otherEntries.map((entry) => [entry.id, entry.slug])));
 
   const track = [

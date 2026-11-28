@@ -10,9 +10,9 @@ export interface MessageTree {
 
 export interface KeyReport {
   /** Used in code, absent from `en`: the UI would show the raw key. */
-  readonly missing: readonly string[];
+  readonly missing: ReadonlyArray<string>;
   /** In `en`, used nowhere: dead text for translators to maintain. */
-  readonly unused: readonly string[];
+  readonly unused: ReadonlyArray<string>;
 }
 
 function isGroup(value: MessageTree | string): value is MessageTree {
@@ -20,7 +20,7 @@ function isGroup(value: MessageTree | string): value is MessageTree {
 }
 
 /** `{ list: { title: 'x' } }` with prefix `character` → `['character.list.title']`. */
-export function flattenMessages(tree: MessageTree, prefix = ''): string[] {
+export function flattenMessages(tree: MessageTree, prefix = ''): Array<string> {
   return Object.entries(tree).flatMap(([name, value]) => {
     const key = prefix === '' ? name : `${prefix}.${name}`;
 
@@ -49,7 +49,7 @@ export const SourceKind = {
 export type SourceKind = (typeof SourceKind)[keyof typeof SourceKind];
 
 /** Key-shaped string literals whose first segment is a known message namespace. */
-export function findKeyLiterals(source: string, kind: SourceKind, namespaces: ReadonlySet<string>): string[] {
+export function findKeyLiterals(source: string, kind: SourceKind, namespaces: ReadonlySet<string>): Array<string> {
   const pattern = kind === SourceKind.Template ? HTML_LITERAL : TS_LITERAL;
 
   return [...source.matchAll(pattern)]
@@ -69,6 +69,6 @@ export function compareKeys(defined: ReadonlySet<string>, used: ReadonlySet<stri
 const SCOPE_CALL = /provideMessageScope\(\s*['"](?<scope>[\w-]+)['"]/u;
 
 /** The scope a lib's messages load under, from its `provideMessageScope('<scope>', …)` call. */
-export function scopeOf(sources: readonly string[]): string | undefined {
+export function scopeOf(sources: ReadonlyArray<string>): string | undefined {
   return sources.map((source) => SCOPE_CALL.exec(source)?.groups?.['scope']).find((scope) => scope !== undefined);
 }

@@ -64,7 +64,7 @@ registry.register(pack.build());
 
 const content: SlotContent = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
-function slotsOf(level: number): PreparedSlot[] {
+function slotsOf(level: number): Array<PreparedSlot> {
   const document: CharacterDocument = new CharacterBuilder()
     .atLevel(level)
     .picking('class', pack.idOf(ContentKind.Class, 'sorcerer'))
@@ -74,7 +74,7 @@ function slotsOf(level: number): PreparedSlot[] {
   return preparedSlots(document, preparedReads(document, content));
 }
 
-function keysOf(level: number, prefix: string): string[] {
+function keysOf(level: number, prefix: string): Array<string> {
   return slotsOf(level)
     .map((slot) => String(slot.key))
     .filter((key) => key.startsWith(prefix));

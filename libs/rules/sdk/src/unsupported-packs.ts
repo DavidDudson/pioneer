@@ -9,7 +9,7 @@ import type { ContentRegistry } from './content-registry';
 const UNSUPPORTED = new WeakMap<ContentRegistry, ReadonlySet<ContentPackId>>();
 
 /** Records which of the registry's packs are unsupported. */
-export function putUnsupportedPacks(registry: ContentRegistry, packs: readonly ContentPackId[]): void {
+export function putUnsupportedPacks(registry: ContentRegistry, packs: ReadonlyArray<ContentPackId>): void {
   UNSUPPORTED.set(registry, new Set(packs));
 }
 

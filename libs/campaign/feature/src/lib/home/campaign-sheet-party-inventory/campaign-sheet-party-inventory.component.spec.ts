@@ -35,12 +35,12 @@ interface Opened {
 }
 
 /** Every button whose text starts with `label`. */
-function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
+function buttons(root: HTMLElement, label: string): Array<HTMLButtonElement> {
   return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.trim().startsWith(label));
 }
 
 /** Opens Kyra's container, answering the party stash with `answer` and offering `lines` to put in. */
-async function open(answer: JsonObject, lines: readonly JsonObject[] = []): Promise<Opened> {
+async function open(answer: JsonObject, lines: ReadonlyArray<JsonObject> = []): Promise<Opened> {
   TestBed.configureTestingModule({
     providers: [
       ...provideServerStateTesting(),

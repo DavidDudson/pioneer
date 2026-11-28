@@ -19,7 +19,7 @@ export function element(tag: string, text: string, attribute = 'data-part'): HTM
 export async function renderProjected<Part>(
   type: Type<Part>,
   inputs: ComponentInputs<Part>,
-  projected: readonly Element[],
+  projected: ReadonlyArray<Element>,
 ): Promise<HTMLElement> {
   const component: ComponentRef<Part> = createComponent(type, {
     environmentInjector: TestBed.inject(EnvironmentInjector),

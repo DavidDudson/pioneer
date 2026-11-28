@@ -6,10 +6,10 @@ import type { CampaignCharacter, CampaignId, CharacterId } from '@pioneer/campai
  */
 export abstract class CampaignPartyRepository {
   /** The campaign's characters, oldest attachment first; id breaks ties. */
-  public abstract listForCampaign(campaignId: CampaignId): Promise<readonly CampaignCharacter[]>;
+  public abstract listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignCharacter>>;
 
   /** The campaign each of these characters is in; characters in none are left out. */
-  public abstract campaignsOf(characterIds: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, CampaignId>>;
+  public abstract campaignsOf(characterIds: ReadonlyArray<CharacterId>): Promise<ReadonlyMap<CharacterId, CampaignId>>;
 
   /**
    * Attach the character to the campaign unless it is already in one, as one step with checking its

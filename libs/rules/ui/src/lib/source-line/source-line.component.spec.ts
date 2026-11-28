@@ -15,11 +15,11 @@ const AON_HUMAN = 'https://2e.aonprd.com/Ancestries.aspx?ID=64';
 
 interface Rendered {
   readonly line: HTMLElement;
-  readonly links: readonly HTMLAnchorElement[];
+  readonly links: ReadonlyArray<HTMLAnchorElement>;
 }
 
 async function render(
-  sources: readonly unknown[],
+  sources: ReadonlyArray<unknown>,
   names: { readonly authors?: ReadonlyMap<UserIdType, string>; readonly packs?: ReadonlyMap<PackId, string> } = {},
 ): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });

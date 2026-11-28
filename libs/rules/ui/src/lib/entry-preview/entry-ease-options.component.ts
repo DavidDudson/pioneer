@@ -32,7 +32,7 @@ interface EaseRow {
   host: { '[hidden]': 'none()' },
 })
 export class EntryEaseOptionsView {
-  public readonly options = input<readonly PreviewEaseOption[] | undefined>();
+  public readonly options = input<ReadonlyArray<PreviewEaseOption> | undefined>();
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
@@ -40,12 +40,12 @@ export class EntryEaseOptionsView {
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   /** The options to list; none while the preview has none. */
-  protected readonly listed = computed((): readonly PreviewEaseOption[] => this.options() ?? []);
+  protected readonly listed = computed((): ReadonlyArray<PreviewEaseOption> => this.options() ?? []);
 
   /** Hides the heading too when there is nothing to list. */
   protected readonly none = computed((): boolean => this.listed().length === 0);
 
-  protected readonly rows = computed((): readonly EaseRow[] => {
+  protected readonly rows = computed((): ReadonlyArray<EaseRow> => {
     this.#messages();
     this.#format.locale();
 

@@ -128,7 +128,7 @@ export class Shop {
    * item (`track` by id) rather than carrying the last item's quantity or error over. The form stays after a gift,
    * so its tick shows and focus stays on its button.
    */
-  protected readonly pickedItems: Signal<readonly ItemEntry[]> = computed(() => {
+  protected readonly pickedItems: Signal<ReadonlyArray<ItemEntry>> = computed(() => {
     const id = this.picked();
     const offered = this.list()?.offers.some((offer) => offer.id === id) === true;
     const item = id === undefined || !offered ? undefined : this.content()?.get(id);

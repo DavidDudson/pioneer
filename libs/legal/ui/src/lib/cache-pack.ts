@@ -16,5 +16,5 @@ export interface CachePack {
   /** The Foundry release the pack was imported from, when it was. */
   readonly release: string | undefined;
   readonly bytes: number;
-  readonly files: readonly CacheFile[];
+  readonly files: ReadonlyArray<CacheFile>;
 }

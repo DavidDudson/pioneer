@@ -34,7 +34,7 @@ interface GmCoreBacklog {
   readonly count: number;
   readonly leftOut: number;
   /** The entries whose `effect` field names an effect no pack has. */
-  readonly effectGaps: readonly string[];
+  readonly effectGaps: ReadonlyArray<string>;
 }
 
 async function gmCoreBacklog(): Promise<GmCoreBacklog> {

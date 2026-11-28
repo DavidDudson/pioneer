@@ -11,8 +11,8 @@ interface DieDisplay {
 /** A term ready to show: numbers already formatted in the viewer's locale. */
 export interface TermDisplay {
   readonly notation: DiceExpressionText;
-  readonly damageKeys: readonly string[];
-  readonly dice: readonly DieDisplay[];
+  readonly damageKeys: ReadonlyArray<string>;
+  readonly dice: ReadonlyArray<DieDisplay>;
   readonly value: string;
 }
 

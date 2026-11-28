@@ -18,8 +18,8 @@ const AVATAR_ABADAR = 'effect:spell-effect-avatar-abadar';
 async function rulesOf(
   kind: ContentKind,
   slug: string,
-  keys: readonly RuleElementKey[],
-): Promise<readonly RuleInPlay[]> {
+  keys: ReadonlyArray<RuleElementKey>,
+): Promise<ReadonlyArray<RuleInPlay>> {
   const file =
     kind === ContentKind.Environment
       ? await import('@pioneer/content/packs/player-core/environment.json')
@@ -32,7 +32,7 @@ async function rulesOf(
 }
 
 /** The land Speed the fighter has with `rules` in play, the facts read through the immunities among them. */
-function landSpeed(rules: readonly RuleInPlay[]): number | undefined {
+function landSpeed(rules: ReadonlyArray<RuleInPlay>): number | undefined {
   const facts = factsUnderForm({ rules, facts: noFacts() });
 
   return totals(deriveStatistics(core, fighter, { rules, facts }))[LAND];

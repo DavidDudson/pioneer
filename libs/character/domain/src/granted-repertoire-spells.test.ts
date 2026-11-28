@@ -93,7 +93,7 @@ function sorcerer(level: number, picks: Readonly<Record<string, string>> = {}): 
   return builder.build().document;
 }
 
-function slotsOf(level: number, picks?: Readonly<Record<string, string>>): PreparedSlot[] {
+function slotsOf(level: number, picks?: Readonly<Record<string, string>>): Array<PreparedSlot> {
   const document = sorcerer(level, picks);
 
   return preparedSlots(document, preparedReads(document, content));

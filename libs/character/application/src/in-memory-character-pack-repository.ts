@@ -7,9 +7,9 @@ import { CharacterPackRepository } from './character-pack-repository';
 
 /** Repository adapter for tests and local experiments. */
 export class InMemoryCharacterPackRepository extends CharacterPackRepository {
-  readonly #rows = new Map<CharacterId, CharacterPack[]>();
+  readonly #rows = new Map<CharacterId, Array<CharacterPack>>();
 
-  public override async listForCharacter(characterId: CharacterId): Promise<readonly CharacterPack[]> {
+  public override async listForCharacter(characterId: CharacterId): Promise<ReadonlyArray<CharacterPack>> {
     return (this.#rows.get(characterId) ?? []).toSorted(
       (left, right) => Temporal.Instant.compare(left.enabledAt, right.enabledAt) || left.id.localeCompare(right.id),
     );
@@ -18,7 +18,7 @@ export class InMemoryCharacterPackRepository extends CharacterPackRepository {
   public override async enable(
     _actor: UserId,
     characterId: CharacterId,
-    packs: readonly CharacterPack[],
+    packs: ReadonlyArray<CharacterPack>,
   ): Promise<void> {
     const rows = this.#rows.get(characterId) ?? [];
     const fresh = packs.filter((pack) => !rows.some((row) => row.packId === pack.packId));

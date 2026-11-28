@@ -19,16 +19,16 @@ export interface Themed {
   readonly theme: GenerationTheme;
   readonly content: SlotContent;
   /** The weapons on sale that fit the theme's weapon, whose traits a proficiency may be gated on. */
-  readonly fitting: readonly ItemEntry[];
+  readonly fitting: ReadonlyArray<ItemEntry>;
 }
 
-const ATTRIBUTES: readonly Attribute[] = Object.values(Attribute);
+const ATTRIBUTES: ReadonlyArray<Attribute> = Object.values(Attribute);
 
 /** An attribute a feat's prerequisite predicate reads: `attribute:str:mod`. */
 const ATTRIBUTE_READ = /attribute:(?<key>str|dex|con|int|wis|cha):/gu;
 
 /** The attributes a feat's prerequisites read, as its predicate names them. */
-function featAttributes(content: SlotContent, pick: ChoiceValue): readonly Attribute[] {
+function featAttributes(content: SlotContent, pick: ChoiceValue): ReadonlyArray<Attribute> {
   const id = ContentId.safeParse(pick);
   const predicate = id.success ? content.feats.feat(id.data)?.predicate : undefined;
   const named = JSON.stringify(predicate ?? []).matchAll(ATTRIBUTE_READ);
@@ -37,7 +37,7 @@ function featAttributes(content: SlotContent, pick: ChoiceValue): readonly Attri
 }
 
 /** The attributes `pick` raises or uses in `slot`: a boost's own, a class's key attributes, a feat's prerequisites. */
-function attributesOf(slot: OpenSlot, pick: ChoiceValue, content: SlotContent): readonly Attribute[] {
+function attributesOf(slot: OpenSlot, pick: ChoiceValue, content: SlotContent): ReadonlyArray<Attribute> {
   if (slot.subject.kind === SlotSubjectKind.Boost) {
     return ATTRIBUTES.filter((attribute) => attribute === pick);
   }
@@ -54,9 +54,9 @@ function attributesOf(slot: OpenSlot, pick: ChoiceValue, content: SlotContent): 
 /** `picks`, each weighed by the attributes it raises or uses under `theme`, and by the weapon it trains or names. */
 export function weighCandidates(
   slot: OpenSlot,
-  picks: readonly ChoiceValue[],
+  picks: ReadonlyArray<ChoiceValue>,
   { theme, content, fitting }: Themed,
-): readonly Weighted<ChoiceValue>[] {
+): ReadonlyArray<Weighted<ChoiceValue>> {
   const { weapon } = theme;
 
   return picks.map((item): Weighted<ChoiceValue> => {

@@ -12,7 +12,7 @@ import { BreakdownView } from './breakdown.component';
 const SWORD = InventoryItemId.parse('7b1d4c1e-52c9-4b0a-9a39-0d1c1f6c2f10');
 
 /** A weapon's potency line as the engine adds it: the slug in the message, the weapon's origin to name it by. */
-function potency(entry: ContentId, hops: readonly OriginHop[] = []): BreakdownLine {
+function potency(entry: ContentId, hops: ReadonlyArray<OriginHop> = []): BreakdownLine {
   return line(entry, {
     type: ModifierType.Item,
     value: 1,

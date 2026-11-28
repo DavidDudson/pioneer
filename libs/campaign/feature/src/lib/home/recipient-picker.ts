@@ -6,7 +6,7 @@ import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
 type Say = (key: string) => string;
 
 /** The picker's columns: who, and how far along. */
-export function recipientColumns(say: Say): readonly TableColumn<PartyCharacter>[] {
+export function recipientColumns(say: Say): ReadonlyArray<TableColumn<PartyCharacter>> {
   return tableSchema<PartyCharacter>()
     .addText({ id: 'name', header: say('campaign.transfers.recipientName'), value: (row) => row.name })
     .addText({ id: 'level', header: say('campaign.transfers.recipientLevel'), value: (row) => row.level })
@@ -23,14 +23,14 @@ export const recipientLabel = (row: PartyCharacter): string => row.name;
 
 /** Who may receive an offer: the party, the giver left out, the search typed and the order asked for. */
 interface RecipientSearch {
-  readonly party: readonly PartyCharacter[];
+  readonly party: ReadonlyArray<PartyCharacter>;
   readonly giver: string;
   readonly search: string;
   readonly sort: PickerSort | undefined;
 }
 
 /** The other live characters of the party whose name holds the search, in the order asked for. */
-export function otherRecipients({ party, giver, search, sort }: RecipientSearch): readonly PartyCharacter[] {
+export function otherRecipients({ party, giver, search, sort }: RecipientSearch): ReadonlyArray<PartyCharacter> {
   const needle = search.trim().toLocaleLowerCase();
 
   const others = party.filter(

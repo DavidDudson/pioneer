@@ -54,7 +54,7 @@ function unexpected(token: Token): never {
  * stays inside the limits however it is written.
  */
 class Parser {
-  readonly #tokens: readonly Token[];
+  readonly #tokens: ReadonlyArray<Token>;
   /** Just past the last character, trailing whitespace included: where "ends too early" points. */
   readonly #end: TextPosition;
   #next = 0;
@@ -230,7 +230,7 @@ class Parser {
   }
 
   /** After a call's `(`: its arguments up to and including the `)`. */
-  #arguments(position: TextPosition): FormulaNode[] {
+  #arguments(position: TextPosition): Array<FormulaNode> {
     if (this.#peek()?.kind === TokenKind.Close) {
       this.#take();
 

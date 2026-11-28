@@ -84,7 +84,7 @@ export const contentEntries = pgTable(
     // A creature's level runs from -1; every other kind's from 0.
     level: smallint().$type<ContentLevel | Level>(),
     rarity: text().$type<Rarity>().notNull(),
-    traits: text().array().$type<Trait[]>().notNull(),
+    traits: text().array().$type<Array<Trait>>().notNull(),
     data: jsonb().$type<ContentEntry>().notNull(),
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
   },

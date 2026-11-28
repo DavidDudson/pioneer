@@ -30,9 +30,9 @@ export interface ShownAction {
   /** What an item action spends and has left ("2/3 uses"); absent for any other action. */
   readonly resource?: string | undefined;
   /** Why it is not plainly available, worded. */
-  readonly reasons: readonly string[];
+  readonly reasons: ReadonlyArray<string>;
   /** "+2 circumstance when your shield is raised (Steel Shield)": the roll's lines that apply only in some situations. */
-  readonly conditions: readonly string[];
+  readonly conditions: ReadonlyArray<string>;
 }
 
 const STATUS_TONES: Readonly<Record<ActionStatus, BadgeTone>> = {

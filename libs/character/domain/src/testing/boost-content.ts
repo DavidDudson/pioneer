@@ -16,7 +16,7 @@ const ANCESTRIES = new Map<ContentId, AncestryBoosts>([
 ]);
 
 /** A farmhand: Constitution or Wisdom, then a free boost. */
-const BACKGROUNDS = new Map<ContentId, readonly Boost[]>([
+const BACKGROUNDS = new Map<ContentId, ReadonlyArray<Boost>>([
   [boostFixtureId('background:farmhand'), [['con', 'wis'], ALL]],
 ]);
 

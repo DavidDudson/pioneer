@@ -33,7 +33,7 @@ import { CONTENT_ENTRY_CACHE, CONTENT_PACK_CACHE } from './content-pack-cache';
  * Kinds a page is likely to need after one it loaded: the next steps of building a character. Prefetched when idle,
  * so the next step is already in the store.
  */
-const LIKELY_NEXT: Readonly<Partial<Record<ContentKind, readonly ContentKind[]>>> = {
+const LIKELY_NEXT: Readonly<Partial<Record<ContentKind, ReadonlyArray<ContentKind>>>> = {
   [ContentKind.Ancestry]: [ContentKind.AncestryFeature, ContentKind.Heritage, ContentKind.Language],
   [ContentKind.Heritage]: [ContentKind.Background],
   [ContentKind.Background]: [ContentKind.Class],
@@ -41,7 +41,7 @@ const LIKELY_NEXT: Readonly<Partial<Record<ContentKind, readonly ContentKind[]>>
 };
 
 /** The kinds likely next after `kinds`, less those. */
-function likelyNext(kinds: readonly ContentKind[]): readonly ContentKind[] {
+function likelyNext(kinds: ReadonlyArray<ContentKind>): ReadonlyArray<ContentKind> {
   const next = new Set(kinds.flatMap((kind) => LIKELY_NEXT[kind] ?? []));
 
   return [...next].filter((kind) => !kinds.includes(kind));
@@ -68,12 +68,12 @@ function shardFile(manifest: ContentManifest, entry: ContentEntry): BundleFile |
 }
 
 /** A pack's bundles for `kinds`, of the kinds it has. */
-function kindsIn(pack: PackBundles, kinds: readonly ContentKind[]): readonly KindBundles[] {
+function kindsIn(pack: PackBundles, kinds: ReadonlyArray<ContentKind>): ReadonlyArray<KindBundles> {
   return pack.kinds.filter((bundles) => kinds.includes(bundles.kind));
 }
 
 /** The files of the bundles of `kinds`: each one's mechanics and names. */
-function bundlesOf(kinds: readonly KindBundles[]): readonly BundleFile[] {
+function bundlesOf(kinds: ReadonlyArray<KindBundles>): ReadonlyArray<BundleFile> {
   return kinds.flatMap(({ mechanics, names }) => [mechanics, names]);
 }
 
@@ -83,7 +83,7 @@ function entryKey(pack: PackId, bundles: KindBundles): string {
   return [bundles.mechanics, bundles.names].map((each) => bundlePath(pack, each)).join('\n');
 }
 
-function packKey(pack: PackBundles, kinds: readonly KindBundles[]): string {
+function packKey(pack: PackBundles, kinds: ReadonlyArray<KindBundles>): string {
   return [pack.file, ...bundlesOf(kinds)].map((each) => bundlePath(pack.id, each)).join('\n');
 }
 
@@ -109,8 +109,8 @@ export class ContentLoader {
    * they name a 404.
    */
   public async registry(
-    kinds: readonly ContentKind[],
-    homebrew: readonly ContentPackId[] = [],
+    kinds: ReadonlyArray<ContentKind>,
+    homebrew: ReadonlyArray<ContentPackId> = [],
   ): Promise<ContentRegistry> {
     try {
       return await this.#build(kinds, homebrew);
@@ -127,7 +127,7 @@ export class ContentLoader {
    * finds them held. For a page that knows what it will need before it knows everything its registry is built over
    * (the sheet's waits for the character's packs). Never rejects: a failed fetch is only fetched again by `registry`.
    */
-  public async warm(kinds: readonly ContentKind[]): Promise<void> {
+  public async warm(kinds: ReadonlyArray<ContentKind>): Promise<void> {
     try {
       const manifest = await this.#cache.manifest();
       await Promise.all(
@@ -159,7 +159,7 @@ export class ContentLoader {
    */
   public async description(
     entry: ContentEntry,
-    homebrew: readonly ContentPackId[] = [],
+    homebrew: ReadonlyArray<ContentPackId> = [],
   ): Promise<RichText | undefined> {
     try {
       return await this.#description(entry, homebrew);
@@ -171,7 +171,7 @@ export class ContentLoader {
     }
   }
 
-  async #description(entry: ContentEntry, homebrew: readonly ContentPackId[]): Promise<RichText | undefined> {
+  async #description(entry: ContentEntry, homebrew: ReadonlyArray<ContentPackId>): Promise<RichText | undefined> {
     const [manifest, brewed] = await Promise.all([this.#cache.manifest(), this.#cache.homebrewManifest(homebrew)]);
     const official = manifest.packs.some((pack) => pack.id === entry.pack);
     const file = shardFile(official ? manifest : brewed, entry);
@@ -191,7 +191,7 @@ export class ContentLoader {
     }
   }
 
-  async #build(kinds: readonly ContentKind[], homebrew: readonly ContentPackId[]): Promise<ContentRegistry> {
+  async #build(kinds: ReadonlyArray<ContentKind>, homebrew: ReadonlyArray<ContentPackId>): Promise<ContentRegistry> {
     const [manifest, brewed] = await Promise.all([this.#cache.manifest(), this.#cache.homebrewManifest(homebrew)]);
 
     const packs = await Promise.all([
@@ -210,7 +210,7 @@ export class ContentLoader {
     return registry;
   }
 
-  async #pack(pack: PackBundles, kinds: readonly ContentKind[], fetch: BundleFetch): Promise<ContentPack> {
+  async #pack(pack: PackBundles, kinds: ReadonlyArray<ContentKind>, fetch: BundleFetch): Promise<ContentPack> {
     const wanted = kindsIn(pack, kinds);
 
     const [file, ...kindBodies] = await Promise.all([
@@ -242,7 +242,7 @@ export class ContentLoader {
   }
 
   /** Drops what was kept of `kinds`, bodies and the entries read from them, so the next try starts from the fetch. */
-  async #forget(pack: PackBundles, kinds: readonly KindBundles[]): Promise<void> {
+  async #forget(pack: PackBundles, kinds: ReadonlyArray<KindBundles>): Promise<void> {
     for (const bundles of kinds) {
       this.#entries.delete(entryKey(pack.id, bundles));
     }
@@ -251,7 +251,7 @@ export class ContentLoader {
   }
 
   /** A kind's entries, read once whichever set of kinds asks for them: the same bundles give the same entry objects. */
-  #kindEntries(pack: PackId, bundles: KindBundles, fetched: FetchedKind): readonly ContentEntry[] {
+  #kindEntries(pack: PackId, bundles: KindBundles, fetched: FetchedKind): ReadonlyArray<ContentEntry> {
     const key = entryKey(pack, bundles);
     const kept = this.#entries.get(key);
 
@@ -266,7 +266,7 @@ export class ContentLoader {
   }
 
   /** Fetches `kinds` into the store when the browser is idle. A failure only means they are fetched when needed. */
-  #prefetch(manifest: ContentManifest, kinds: readonly ContentKind[]): void {
+  #prefetch(manifest: ContentManifest, kinds: ReadonlyArray<ContentKind>): void {
     if (kinds.length === 0) {
       return;
     }
@@ -277,7 +277,7 @@ export class ContentLoader {
     });
   }
 
-  async #fetchKinds(manifest: ContentManifest, kinds: readonly ContentKind[]): Promise<void> {
+  async #fetchKinds(manifest: ContentManifest, kinds: ReadonlyArray<ContentKind>): Promise<void> {
     const fetches = manifest.packs.flatMap((pack) =>
       kindsIn(pack, kinds).map(async (bundles) => fetchKind(pack.id, bundles, this.#official)),
     );

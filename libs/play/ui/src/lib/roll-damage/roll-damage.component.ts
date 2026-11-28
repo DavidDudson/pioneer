@@ -10,14 +10,14 @@ interface InstanceDisplay {
   readonly typeKey: string;
   readonly dealt: string;
   readonly taken: string;
-  readonly lines: readonly MessageDescriptor[];
+  readonly lines: ReadonlyArray<MessageDescriptor>;
 }
 
 /** Immediate or persistent damage: a heading with what the target takes, then each instance. */
 interface SectionDisplay {
   readonly headingKey: string;
   readonly taken: string;
-  readonly instances: readonly InstanceDisplay[];
+  readonly instances: ReadonlyArray<InstanceDisplay>;
 }
 
 /**
@@ -34,7 +34,7 @@ export class RollDamage {
   readonly #format = inject(LocaleFormat);
   public readonly damage = input.required<DamageView>();
 
-  protected readonly sections = computed((): readonly SectionDisplay[] => {
+  protected readonly sections = computed((): ReadonlyArray<SectionDisplay> => {
     const damage = this.damage();
 
     const immediate: SectionDisplay = {

@@ -23,7 +23,7 @@ export class CustomItems {
 
   protected readonly Tone = BadgeTone;
 
-  protected readonly items: Signal<readonly CustomItem[]> = computed(
+  protected readonly items: Signal<ReadonlyArray<CustomItem>> = computed(
     () => this.#store.selected()?.document.inventory.customItems ?? [],
   );
 }

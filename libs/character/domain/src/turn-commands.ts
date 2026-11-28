@@ -40,17 +40,17 @@ import type { TurnTriggers } from './turn-triggers';
 export interface TurnCommandInputs {
   readonly limits: PlayLimits;
   /** The character's fast healing and regeneration (`vitalsInPlay`). */
-  readonly recovery: readonly RecoveryInPlay[];
+  readonly recovery: ReadonlyArray<RecoveryInPlay>;
   /** The character's immunities, weaknesses and resistances, which persistent damage goes through. */
   readonly defences: DamageTarget;
   /** The flat check DCs of the character's rules for persistent damage (quenching runes). */
-  readonly flatChecks: readonly PersistentFlatCheckDc[];
+  readonly flatChecks: ReadonlyArray<PersistentFlatCheckDc>;
   /** What the end of a turn does to each condition the content eases (Frightened is lowered). */
   readonly easing: RecoveryConditions;
   /** The conditions that change the actions a turn starts with. */
   readonly economy: EconomyConditions;
   /** The inventory items of the wielded runes that give quickened (quickstrike), which add the extra action to a turn. */
-  readonly grantedQuickened: readonly InventoryItemId[];
+  readonly grantedQuickened: ReadonlyArray<InventoryItemId>;
   /** The Unconscious condition of the content, which running out of air puts on the character. */
   readonly unconscious: ContentId | undefined;
   /** The character's Fortitude modifier, worked out only when a save against suffocation needs it. */
@@ -172,7 +172,7 @@ function quickenedByItems(
   { registry, slots }: StatisticSources,
   document: CharacterDocument,
   { quickened }: EconomyConditions,
-): readonly InventoryItemId[] {
+): ReadonlyArray<InventoryItemId> {
   const granted = equippedGrants(document, itemContent(registry), slots).items.flatMap(({ entry, origin }) => {
     const item = entry.id === quickened ? inventoryItemOf(origin) : undefined;
 
@@ -183,7 +183,7 @@ function quickenedByItems(
 }
 
 /** The persistent damage flat check DCs of the lines that apply. */
-function flatCheckDcsOf({ persistentFlatChecks }: Defences): readonly PersistentFlatCheckDc[] {
+function flatCheckDcsOf({ persistentFlatChecks }: Defences): ReadonlyArray<PersistentFlatCheckDc> {
   return persistentFlatChecks
     .filter(({ status }) => status.kind === DefenceStatusKind.Applied)
     .map(({ damageTypes, dc, assistedDc }) => ({ damageTypes, dc, assisted: assistedDc }));

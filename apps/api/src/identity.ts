@@ -58,7 +58,7 @@ function credentials(
 }
 
 /** The sign-in providers whose credentials are configured, in the order the sign-in page lists them. */
-function providers(env: Env): OAuthProviderPort[] {
+function providers(env: Env): Array<OAuthProviderPort> {
   const github = credentials(env, OAuthProvider.GitHub, {
     clientId: env.GITHUB_CLIENT_ID,
     clientSecret: env.GITHUB_CLIENT_SECRET,

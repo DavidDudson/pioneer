@@ -10,7 +10,7 @@ import { turnFit } from './sheet-actions';
 import { sheetSlotContent } from './sheet-slot-content';
 
 /** Casting is for a fight and for the time between; downtime casts are rituals and the like, not the turn's. */
-const CAST_MODES: readonly ActionMode[] = [ActionMode.Encounter, ActionMode.Exploration];
+const CAST_MODES: ReadonlyArray<ActionMode> = [ActionMode.Encounter, ActionMode.Exploration];
 
 /**
  * The character's innate spells as lines of the action list (#1778), each cast for what the spell takes, at the rank
@@ -20,7 +20,7 @@ export function sheetInnateActions(
   registry: ContentRegistry,
   character: Character,
   turn: TurnState | undefined,
-): readonly ActionLine[] {
+): ReadonlyArray<ActionLine> {
   const content = sheetSlotContent(registry);
   const entries = characterSpellcasting(characterGrants(character.document, content));
 

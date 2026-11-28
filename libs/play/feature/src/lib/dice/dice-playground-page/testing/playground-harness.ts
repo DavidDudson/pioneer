@@ -20,7 +20,7 @@ export function present<TValue>(value: TValue | null | undefined): TValue {
   return value;
 }
 
-export async function openPlayground(faces: readonly number[]): Promise<RouterTestingHarness> {
+export async function openPlayground(faces: ReadonlyArray<number>): Promise<RouterTestingHarness> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'play', children: playRoutes }]),

@@ -53,13 +53,13 @@ export class AttributesView {
   /** The modifiers the boosts give, or undefined while they load. */
   public readonly modifiers = input<AttributeModifiers | undefined>();
   /** The boost slots still to fill, in level order. */
-  public readonly open = input<readonly OpenBoostLine[]>([]);
+  public readonly open = input<ReadonlyArray<OpenBoostLine>>([]);
 
   readonly #format = inject(LocaleFormat);
   protected readonly Message = AttributesMessage;
   /** The six names, shown with a placeholder each while the modifiers load. */
   protected readonly loadingTerms = Object.values(ATTRIBUTE_MESSAGES);
-  protected readonly shown = computed((): readonly ShownModifier[] | undefined => {
+  protected readonly shown = computed((): ReadonlyArray<ShownModifier> | undefined => {
     const modifiers = this.modifiers();
 
     return modifiers === undefined

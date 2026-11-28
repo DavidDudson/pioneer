@@ -46,12 +46,12 @@ const caretClasses = cva('text-fg-subtle')();
 export class Select<TValue extends string> extends Control {
   /** Selected value; `undefined` or `''` shows the placeholder. */
   public readonly value = model<TValue | undefined>(undefined);
-  public readonly options = input.required<readonly SelectOption<TValue>[]>();
+  public readonly options = input.required<ReadonlyArray<SelectOption<TValue>>>();
   /** Defaults to "Select…" in the viewer's locale. */
   public readonly placeholder = input<string | undefined>(undefined);
 
   protected readonly expanded = signal(false);
-  protected readonly selected = computed<TValue[]>(() => {
+  protected readonly selected = computed<Array<TValue>>(() => {
     const value = this.value();
 
     return value === undefined || value === '' ? [] : [value];
@@ -71,7 +71,7 @@ export class Select<TValue extends string> extends Control {
   protected readonly descriptionClasses = comboboxOptionDescriptionClasses;
   protected readonly labelClasses = computed(() => placeholderVariants({ empty: this.selected().length === 0 }));
 
-  protected choose(values: readonly TValue[]): void {
+  protected choose(values: ReadonlyArray<TValue>): void {
     const [value] = values;
     this.expanded.set(false);
 

@@ -25,7 +25,7 @@ export function sameEtchedRune(left: EtchedRune, right: EtchedRune): boolean {
 }
 
 /** A line holds each rune once per choice: two Energy Resistant runes may be etched for different energies. */
-function uniqueEtchedRunes(context: z.core.ParsePayload<readonly EtchedRune[]>): void {
+function uniqueEtchedRunes(context: z.core.ParsePayload<ReadonlyArray<EtchedRune>>): void {
   for (const [index, each] of context.value.entries()) {
     if (context.value.findIndex((other) => sameEtchedRune(each, other)) !== index) {
       context.issues.push({ code: 'custom', input: context.value, path: [index], message: 'Duplicate rune' });

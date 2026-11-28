@@ -32,7 +32,7 @@ import {
 })
 export class HeritagePicker {
   /** Every heritage the slot offers, with the facts of each. */
-  public readonly rows = input.required<readonly HeritagePickerRow[]>();
+  public readonly rows = input.required<ReadonlyArray<HeritagePickerRow>>();
   /** The picked heritage's id; undefined until picked. */
   public readonly value = model<string | undefined>(undefined);
   public readonly ariaLabel = input<string | undefined>(undefined);

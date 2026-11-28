@@ -25,7 +25,7 @@ export class DrizzleCampaignPartyRepository extends CampaignPartyRepository {
     this.#db = db;
   }
 
-  public override async listForCampaign(campaignId: CampaignId): Promise<readonly CampaignCharacter[]> {
+  public override async listForCampaign(campaignId: CampaignId): Promise<ReadonlyArray<CampaignCharacter>> {
     const rows = await this.#db
       .select()
       .from(campaignCharacters)
@@ -36,7 +36,7 @@ export class DrizzleCampaignPartyRepository extends CampaignPartyRepository {
   }
 
   public override async campaignsOf(
-    characterIds: readonly CharacterId[],
+    characterIds: ReadonlyArray<CharacterId>,
   ): Promise<ReadonlyMap<CharacterId, CampaignId>> {
     if (characterIds.length === 0) {
       return new Map();

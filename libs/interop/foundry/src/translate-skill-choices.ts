@@ -3,7 +3,7 @@ import { capitalise } from '@pioneer/shared/utils';
 import { SKILLS } from './foundry-skills';
 
 /** The skills Foundry's `skills` config lists, as choices. */
-export const SKILL_CHOICES: readonly unknown[] = [...SKILLS].map((skill) => ({
+export const SKILL_CHOICES: ReadonlyArray<unknown> = [...SKILLS].map((skill) => ({
   value: skill,
   label: capitalise(skill),
 }));
@@ -29,7 +29,7 @@ function withChoiceValue(node: unknown, value: string): unknown {
 }
 
 /** Each skill as a choice shown only while the config's predicate holds for it (`skill:{choice|value}:rank:0`). */
-export function skillChoicesWhere(predicate: unknown): readonly unknown[] {
+export function skillChoicesWhere(predicate: unknown): ReadonlyArray<unknown> {
   return [...SKILLS].map((skill) => ({
     value: skill,
     label: capitalise(skill),

@@ -10,13 +10,13 @@ const LAST = Level.parse(20);
 const RANGE = { first: FIRST, last: LAST };
 
 /** A value that grows at the given levels: how many of `steps` are at or below the level. */
-function stepsAt(steps: readonly number[]): (level: Level) => number {
+function stepsAt(steps: ReadonlyArray<number>): (level: Level) => number {
   return (level) => steps.filter((step) => step <= level).length;
 }
 
 describe('bisected', () => {
   test('reads a few levels of a value that grows at two, and gets every level right', () => {
-    const reads: number[] = [];
+    const reads: Array<number> = [];
     const exact = stepsAt([7, 13]);
 
     const read = bisected(
@@ -38,7 +38,7 @@ describe('bisected', () => {
   });
 
   test('reads only the two ends of a value that never changes', () => {
-    const reads: number[] = [];
+    const reads: Array<number> = [];
 
     const read = bisected(
       (level) => {

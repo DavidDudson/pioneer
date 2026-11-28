@@ -35,7 +35,7 @@ const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 
 /** Rich text of one plain paragraph per argument. */
-function paragraphs(...texts: readonly string[]): RichText {
+function paragraphs(...texts: ReadonlyArray<string>): RichText {
   return texts.map((text) => ({
     type: BlockKind.Paragraph,
     content: [{ type: InlineKind.Text, text: RichTextString.parse(text) }],
@@ -88,7 +88,7 @@ describe('CharacterService', () => {
   test('every write names its actor and command for the audit log', async () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
 
-    const edits: readonly CharacterPatch[] = [
+    const edits: ReadonlyArray<CharacterPatch> = [
       { field: CharacterPatchField.Name, value: CharacterName.parse('Kyra the Bold') },
       { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: human },
       { field: CharacterPatchField.ClearSlot, slot: ANCESTRY_SLOT },

@@ -22,7 +22,7 @@ const { SpellcastingEntry: Entry, Proficiency, SpellSlots, ChoiceSet, FocusSpell
 const ELSEWHERE: ReadonlySet<string> = new Set([SpellSlots, ChoiceSet, FocusSpells]);
 
 /** The rules an entry gains, less its spell slots and focus spells (`translate-spell-slots.test.ts`, `translate-focus-spells.test.ts`). */
-function castingRules(translation: ImportTranslation, name: string): unknown[] {
+function castingRules(translation: ImportTranslation, name: string): Array<unknown> {
   return rulesIn(translation, name).filter(
     (rule) => !(typeof rule === 'object' && rule !== null && 'key' in rule && ELSEWHERE.has(String(rule.key))),
   );

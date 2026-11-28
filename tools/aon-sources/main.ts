@@ -36,7 +36,7 @@ async function storedEtag(file: string): Promise<string | undefined> {
   return AonListingFile.parse(json).etag;
 }
 
-async function save(file: string, etag: string | undefined, entries: readonly ListedEntry[]): Promise<void> {
+async function save(file: string, etag: string | undefined, entries: ReadonlyArray<ListedEntry>): Promise<void> {
   await Bun.write(file, `${JSON.stringify({ etag, entries }, undefined, 2)}\n`);
 }
 

@@ -43,7 +43,7 @@ const MAX = HitPoints.parse(30);
 const fortitude = (): RollTotal => RollTotal.parse(5);
 const air = (rounds: number): AirRounds => AirRounds.parse(rounds);
 const checks = (count: number): SuffocationChecks => SuffocationChecks.parse(count);
-const faces = (...each: readonly number[]): RandomSource => scriptedRandom(each.map((face) => DieFace.parse(face)));
+const faces = (...each: ReadonlyArray<number>): RandomSource => scriptedRandom(each.map((face) => DieFace.parse(face)));
 
 const UNCONSCIOUS = ContentId.parse('00000000-0000-4000-8000-0000000000d1');
 const INSTANCE = ConditionInstanceId.parse('00000000-0000-4000-8000-0000000003d1');
@@ -190,7 +190,7 @@ describe('endTurn while holding a breath', () => {
 });
 
 /** The events that say the character fell unconscious. */
-function fell(events: readonly { readonly kind: string }[]): readonly unknown[] {
+function fell(events: ReadonlyArray<{ readonly kind: string }>): ReadonlyArray<unknown> {
   return events.filter(({ kind }) => kind === TurnEventKind.FellUnconscious);
 }
 
@@ -201,7 +201,7 @@ describe('falling unconscious out of air', () => {
     unconscious: UNCONSCIOUS,
   };
 
-  const unconsciousOf = (play: PlayState): readonly ConditionInstanceId[] =>
+  const unconsciousOf = (play: PlayState): ReadonlyArray<ConditionInstanceId> =>
     play.conditions.filter(({ condition }) => condition === UNCONSCIOUS).map(({ id }) => id);
 
   test('the turn end that takes the last air puts Unconscious on the character and remembers which one', () => {

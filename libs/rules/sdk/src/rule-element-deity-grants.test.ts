@@ -8,14 +8,14 @@ import type { JsonValue } from './json-bounds';
 import { RulesMessage } from './messages';
 import { RuleElement } from './rule-element';
 
-function issues(value: JsonValue): readonly FieldIssue[] {
+function issues(value: JsonValue): ReadonlyArray<FieldIssue> {
   const result = RuleElement.safeParse(value);
 
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
 /** Deity (Cleric)'s holy trait and fist, a plant heritage's traits, and the cleric's deity spells. */
-const examples: object[] = [
+const examples: Array<object> = [
   { key: 'ActorTraits', add: ['holy'], predicate: ['sanctification:holy'] },
   { key: 'ActorTraits', add: ['plant'], remove: ['animal', 'beast', 'humanoid', 'construct'] },
   { key: 'Strike', fist: true, predicate: ['deity:primary:favored-weapon:fist'] },

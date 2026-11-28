@@ -58,7 +58,7 @@ const linkVariants = cva('focus-visible:focus-ring', {
 });
 
 /** Router commands, as `routerLink` takes them. */
-export type LinkTarget = string | readonly unknown[];
+export type LinkTarget = string | ReadonlyArray<unknown>;
 
 /** History state a link's navigation carries: plain values the page it opens reads back. */
 export type LinkState = Readonly<Record<string, boolean | number | string | null>>;

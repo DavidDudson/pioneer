@@ -6,7 +6,7 @@ import { CharacterBuilder } from './testing/character-builder';
 import { dismissedPick } from './unplaced-picks';
 
 /** The brand of each name, to compare with what `customLanguagesOf` returns. */
-function named(...values: readonly string[]): LanguageName[] {
+function named(...values: ReadonlyArray<string>): Array<LanguageName> {
   return values.map((value) => LanguageName.parse(value));
 }
 

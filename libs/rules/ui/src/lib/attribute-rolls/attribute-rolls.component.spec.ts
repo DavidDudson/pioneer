@@ -12,11 +12,11 @@ import { AttributeRolls } from './attribute-rolls.component';
 
 interface Rendered {
   readonly host: HTMLElement;
-  readonly rolls: RollableStatistic[];
+  readonly rolls: Array<RollableStatistic>;
 }
 
 async function render(statistics: ReadonlyMap<Attribute, StatisticValue> | undefined): Promise<Rendered> {
-  const rolls: RollableStatistic[] = [];
+  const rolls: Array<RollableStatistic> = [];
   TestBed.configureTestingModule({
     providers: [
       provideRulesUiI18nTesting(),

@@ -50,7 +50,7 @@ function beats(challenger: Competing, holder: Competing): boolean {
 }
 
 /** The winning line of each type and direction. */
-function winners(lines: readonly BreakdownLine[]): ReadonlyMap<StackKey, Competing> {
+function winners(lines: ReadonlyArray<BreakdownLine>): ReadonlyMap<StackKey, Competing> {
   const best = new Map<StackKey, Competing>();
 
   for (const challenger of lines.map((line) => competing(line))) {
@@ -78,7 +78,7 @@ function suppressed(line: BreakdownLine, best: ReadonlyMap<StackKey, Competing>)
 }
 
 /** Whether an adjustment that waits on the situation could change the line: it names its slug, or names none. */
-function unsettled(line: BreakdownLine, pending: readonly Adjustment[]): boolean {
+function unsettled(line: BreakdownLine, pending: ReadonlyArray<Adjustment>): boolean {
   return pending.some(({ slug }) => slug === undefined || slug === line.modifier.slug);
 }
 
@@ -90,7 +90,7 @@ function unsettled(line: BreakdownLine, pending: readonly Adjustment[]): boolean
 function outmatched(
   line: BreakdownLine,
   best: ReadonlyMap<StackKey, Competing>,
-  pending: readonly Adjustment[],
+  pending: ReadonlyArray<Adjustment>,
 ): BreakdownLine {
   const { status } = line;
   const candidate = typed(line);
@@ -118,7 +118,7 @@ function outmatched(
  * by it, unless one of the `pending` adjustments (those waiting on the situation) could change either, and the
  * others pass through.
  */
-export function stack(lines: readonly BreakdownLine[], pending: readonly Adjustment[]): BreakdownLine[] {
+export function stack(lines: ReadonlyArray<BreakdownLine>, pending: ReadonlyArray<Adjustment>): Array<BreakdownLine> {
   const best = winners(lines);
 
   return lines.map((line) =>

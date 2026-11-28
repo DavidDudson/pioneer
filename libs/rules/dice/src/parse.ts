@@ -45,10 +45,10 @@ function fail(descriptor: MessageDescriptor, position: TextPosition): never {
 
 /** Tokens read front to back. Running out where something is required is "ends too early". */
 class TokenStream {
-  readonly #tokens: readonly Token[];
+  readonly #tokens: ReadonlyArray<Token>;
   #next = 0;
 
-  public constructor(tokens: readonly Token[]) {
+  public constructor(tokens: ReadonlyArray<Token>) {
     this.#tokens = tokens;
   }
 

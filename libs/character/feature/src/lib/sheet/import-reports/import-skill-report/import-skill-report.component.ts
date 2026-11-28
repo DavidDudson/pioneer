@@ -20,11 +20,11 @@ interface GapView {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImportSkillReport {
-  public readonly skillGaps = input.required<readonly SkillGap[]>();
+  public readonly skillGaps = input.required<ReadonlyArray<SkillGap>>();
 
   protected readonly anyGaps = computed(() => this.skillGaps().length > 0);
 
-  protected readonly gaps = computed((): readonly GapView[] =>
+  protected readonly gaps = computed((): ReadonlyArray<GapView> =>
     this.skillGaps().map(({ name, wanted, reached }) => ({
       name,
       wantedKey: PROFICIENCY_NAMES[wanted],
