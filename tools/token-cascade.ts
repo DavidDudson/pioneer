@@ -50,6 +50,9 @@ function parseRootSelector(selector: string): ReadonlyArray<AttributeCondition> 
 
 const TOKEN_PREFIX = '--fr-';
 
+/** Token families that no contrast pair reads (sizes, the status arc's animated angle), so a nested rule may set them: the check can skip it safely. */
+const NON_COLOUR_PREFIXES: ReadonlyArray<string> = ['--fr-size-', '--fr-status-angle'];
+
 /** The custom properties a rule sets itself, not those of rules nested in it. */
 function ownDeclarations(rule: Rule): Map<string, string> {
   const declarations = new Map<string, string>();
@@ -75,6 +78,14 @@ function tokenRulesOf(rule: Rule): Array<TokenRule> {
   const conditionSets = rule.selectors.map(parseRootSelector);
   const setsTokens = [...declarations.keys()].some((name) => name.startsWith(TOKEN_PREFIX));
 
+  const setsOnlyNonColour = [...declarations.keys()].every((name) =>
+    NON_COLOUR_PREFIXES.some((prefix) => name.startsWith(prefix)),
+  );
+
+  if (nested && setsOnlyNonColour) {
+    return [];
+  }
+
   if (setsTokens && (nested || conditionSets.includes(undefined))) {
     throw new Error(
       `${rule.selector} sets ${TOKEN_PREFIX}* tokens, but tokens may only be set in top-level ` +
@@ -90,7 +101,7 @@ function tokenRulesOf(rule: Rule): Array<TokenRule> {
 /**
  * The `:root…` rules of each stylesheet, in order. A rule that sets `--fr-*` tokens anywhere else (another
  * selector, a combinator, nesting, inside `@media` or `@layer`) throws: skipping it would let the check
- * measure tokens the browser never uses.
+ * measure tokens the browser never uses. Nested rules that set only non-colour tokens (`--fr-size-*`, `--fr-status-angle`) are skipped.
  */
 export function parseTokenRules(stylesheets: ReadonlyArray<string>): Array<TokenRule> {
   return stylesheets.flatMap((css) => {
