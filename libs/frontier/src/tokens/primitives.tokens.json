@@ -1,0 +1,887 @@
+{
+  "$description": "Frontier tier 1: raw scales and colour ramps (DTCG 2025.10). Generated to src/styles/primitives.*.css by Terrazzo. A ramp token holds the default theme's colour; the CSS keeps hue and chroma as theme variables.",
+  "ramp": {
+    "$type": "color",
+    "neutral": {
+      "50": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.985, 0.0014, 70]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.08
+          }
+        }
+      },
+      "100": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.962, 0.0032, 70]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.18
+          }
+        }
+      },
+      "200": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.922, 0.0065, 70]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.36
+          }
+        }
+      },
+      "300": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.87, 0.0104, 70]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.58
+          }
+        }
+      },
+      "400": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.8, 0.0144, 70]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.8
+          }
+        }
+      },
+      "500": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.705, 0.018, 70]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "600": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.6, 0.018, 70]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "700": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.51, 0.0162, 70]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.9
+          }
+        }
+      },
+      "800": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.43, 0.0133, 70]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.74
+          }
+        }
+      },
+      "900": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.37, 0.0108, 70]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.6
+          }
+        }
+      },
+      "950": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.27, 0.0079, 70]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.44
+          }
+        }
+      }
+    },
+    "accent": {
+      "50": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.985, 0.0128, 52]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.08
+          }
+        }
+      },
+      "100": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.962, 0.0288, 52]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.18
+          }
+        }
+      },
+      "200": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.922, 0.0576, 52]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.36
+          }
+        }
+      },
+      "300": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.87, 0.0928, 52]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.58
+          }
+        }
+      },
+      "400": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.8, 0.128, 52]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.8
+          }
+        }
+      },
+      "500": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.705, 0.16, 52]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "600": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.6, 0.16, 52]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "700": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.51, 0.144, 52]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.9
+          }
+        }
+      },
+      "800": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.43, 0.1184, 52]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.74
+          }
+        }
+      },
+      "900": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.37, 0.096, 52]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.6
+          }
+        }
+      },
+      "950": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.27, 0.0704, 52]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.44
+          }
+        }
+      }
+    },
+    "danger": {
+      "50": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.985, 0.0152, 25]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.08
+          }
+        }
+      },
+      "100": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.962, 0.0342, 25]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.18
+          }
+        }
+      },
+      "200": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.922, 0.0684, 25]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.36
+          }
+        }
+      },
+      "300": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.87, 0.1102, 25]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.58
+          }
+        }
+      },
+      "400": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.8, 0.152, 25]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.8
+          }
+        }
+      },
+      "500": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.705, 0.19, 25]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "600": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.6, 0.19, 25]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "700": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.51, 0.171, 25]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.9
+          }
+        }
+      },
+      "800": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.43, 0.1406, 25]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.74
+          }
+        }
+      },
+      "900": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.37, 0.114, 25]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.6
+          }
+        }
+      },
+      "950": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.27, 0.0836, 25]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.44
+          }
+        }
+      }
+    },
+    "success": {
+      "50": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.985, 0.0112, 145]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.08
+          }
+        }
+      },
+      "100": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.962, 0.0252, 145]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.18
+          }
+        }
+      },
+      "200": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.922, 0.0504, 145]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.36
+          }
+        }
+      },
+      "300": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.87, 0.0812, 145]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.58
+          }
+        }
+      },
+      "400": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.8, 0.112, 145]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.8
+          }
+        }
+      },
+      "500": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.705, 0.14, 145]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "600": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.6, 0.14, 145]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "700": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.51, 0.126, 145]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.9
+          }
+        }
+      },
+      "800": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.43, 0.1036, 145]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.74
+          }
+        }
+      },
+      "900": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.37, 0.084, 145]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.6
+          }
+        }
+      },
+      "950": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.27, 0.0616, 145]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.44
+          }
+        }
+      }
+    },
+    "warning": {
+      "50": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.985, 0.012, 85]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.08
+          }
+        }
+      },
+      "100": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.962, 0.027, 85]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.18
+          }
+        }
+      },
+      "200": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.922, 0.054, 85]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.36
+          }
+        }
+      },
+      "300": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.87, 0.087, 85]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.58
+          }
+        }
+      },
+      "400": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.8, 0.12, 85]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.8
+          }
+        }
+      },
+      "500": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.705, 0.15, 85]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "600": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.6, 0.15, 85]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "700": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.51, 0.135, 85]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.9
+          }
+        }
+      },
+      "800": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.43, 0.111, 85]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.74
+          }
+        }
+      },
+      "900": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.37, 0.09, 85]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.6
+          }
+        }
+      },
+      "950": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.27, 0.066, 85]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.44
+          }
+        }
+      }
+    },
+    "info": {
+      "50": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.985, 0.0112, 245]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.08
+          }
+        }
+      },
+      "100": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.962, 0.0252, 245]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.18
+          }
+        }
+      },
+      "200": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.922, 0.0504, 245]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.36
+          }
+        }
+      },
+      "300": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.87, 0.0812, 245]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.58
+          }
+        }
+      },
+      "400": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.8, 0.112, 245]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.8
+          }
+        }
+      },
+      "500": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.705, 0.14, 245]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "600": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.6, 0.14, 245]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 1
+          }
+        }
+      },
+      "700": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.51, 0.126, 245]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.9
+          }
+        }
+      },
+      "800": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.43, 0.1036, 245]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.74
+          }
+        }
+      },
+      "900": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.37, 0.084, 245]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.6
+          }
+        }
+      },
+      "950": {
+        "$value": {
+          "colorSpace": "oklch",
+          "components": [0.27, 0.0616, 245]
+        },
+        "$extensions": {
+          "pioneer.ramp": {
+            "chromaShare": 0.44
+          }
+        }
+      }
+    }
+  },
+  "scale": {
+    "space": {
+      "0": {
+        "$value": {
+          "value": 0,
+          "unit": "rem"
+        }
+      },
+      "1": {
+        "$value": {
+          "value": 0.125,
+          "unit": "rem"
+        }
+      },
+      "2": {
+        "$value": {
+          "value": 0.25,
+          "unit": "rem"
+        }
+      },
+      "3": {
+        "$value": {
+          "value": 0.5,
+          "unit": "rem"
+        }
+      },
+      "4": {
+        "$value": {
+          "value": 0.75,
+          "unit": "rem"
+        }
+      },
+      "5": {
+        "$value": {
+          "value": 1,
+          "unit": "rem"
+        }
+      },
+      "6": {
+        "$value": {
+          "value": 1.5,
+          "unit": "rem"
+        }
+      },
+      "7": {
+        "$value": {
+          "value": 2,
+          "unit": "rem"
+        }
+      },
+      "8": {
+        "$value": {
+          "value": 3,
+          "unit": "rem"
+        }
+      },
+      "9": {
+        "$value": {
+          "value": 4,
+          "unit": "rem"
+        }
+      },
+      "$type": "dimension"
+    },
+    "font": {
+      "1": {
+        "$value": {
+          "value": 0.75,
+          "unit": "rem"
+        }
+      },
+      "2": {
+        "$value": {
+          "value": 0.875,
+          "unit": "rem"
+        }
+      },
+      "3": {
+        "$value": {
+          "value": 1,
+          "unit": "rem"
+        }
+      },
+      "4": {
+        "$value": {
+          "value": 1.125,
+          "unit": "rem"
+        }
+      },
+      "5": {
+        "$value": {
+          "value": 1.25,
+          "unit": "rem"
+        }
+      },
+      "6": {
+        "$value": {
+          "value": 1.5,
+          "unit": "rem"
+        }
+      },
+      "7": {
+        "$value": {
+          "value": 1.875,
+          "unit": "rem"
+        }
+      },
+      "8": {
+        "$value": {
+          "value": 2.25,
+          "unit": "rem"
+        }
+      },
+      "9": {
+        "$value": {
+          "value": 3,
+          "unit": "rem"
+        }
+      },
+      "$type": "dimension"
+    },
+    "duration": {
+      "1": {
+        "$value": {
+          "value": 120,
+          "unit": "ms"
+        }
+      },
+      "2": {
+        "$value": {
+          "value": 200,
+          "unit": "ms"
+        }
+      },
+      "3": {
+        "$value": {
+          "value": 320,
+          "unit": "ms"
+        }
+      },
+      "$type": "duration"
+    }
+  }
+}
