@@ -219,7 +219,7 @@ export { Shell } from './lib/layout/shell/shell.component';
 
 export { Stack, StackAlign, StackDirection, StackJustify } from './lib/layout/stack/stack.component';
 
-export { Surface, SurfaceVariant } from './lib/layout/surface/surface.component';
+export { DEFAULT_SURFACE_PADDING, Surface } from './lib/layout/surface/surface.component';
 
 // Lists
 export { DescriptionItem } from './lib/list/description-item/description-item.component';
@@ -267,7 +267,9 @@ export { ColorMode, ModeChoice, Theme, ThemeChoice } from './lib/theme/theme';
 
 export { ThemeStore } from './lib/theme/theme-store';
 
-export { Container, DamageTone, Size, Space, Tone } from './lib/tokens';
+export { Container, DamageTone, Inset, Size, Space, Tone } from './lib/tokens';
+
+export type { Padding } from './lib/tokens';
 
 export { default as frontierMessages } from './i18n/en.json';
 

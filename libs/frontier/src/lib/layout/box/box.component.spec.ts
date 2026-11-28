@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
 import type { ComponentInputs } from '../../testing/component-inputs';
-import { Space } from '../../tokens';
+import { Inset, Space } from '../../tokens';
 import { Box, BoxWidth } from './box.component';
 
 interface Rendered {
@@ -45,7 +45,7 @@ describe(Box, () => {
     const { host, inner } = await render({});
     expect([...host.classList]).toStrictEqual(expect.arrayContaining(['@container', 'w-full']));
     expect([...host.classList]).not.toContain('mx-auto');
-    expect([...inner.classList]).toStrictEqual(['p-none']);
+    expect([...inner.classList].toSorted()).toStrictEqual(['px-none', 'py-none']);
   });
 
   it.each([
@@ -56,15 +56,21 @@ describe(Box, () => {
     expect([...host.classList]).toStrictEqual(expect.arrayContaining(['mx-auto', 'w-full', maxWidth]));
   });
 
-  it('pads the inner element from the space token', async () => {
-    const { host, inner } = await render({ padding: Space.Lg });
-    expect([...inner.classList]).toContain('p-lg');
-    expect([...host.classList]).not.toContain('p-lg');
+  it('pads the block axis alone from a token', async () => {
+    const { host, inner } = await render({ paddingBlock: Space.Lg });
+    expect([...inner.classList].toSorted()).toStrictEqual(['px-none', 'py-lg']);
+    expect([...host.classList]).not.toContain('py-lg');
   });
 
-  it('adds a side gutter that widens from the lg container size', async () => {
-    const { inner } = await render({ gutter: '' });
-    expect([...inner.classList]).toStrictEqual(expect.arrayContaining(['px-md', '@lg:px-xl']));
+  it('pads the inline axis alone from a token', async () => {
+    const { inner } = await render({ paddingInline: Inset.Panel });
+    expect([...inner.classList].toSorted()).toStrictEqual(['px-inset-panel', 'py-none']);
+  });
+
+  it('adds a side gutter that widens from the lg container size, beside block padding', async () => {
+    const { inner } = await render({ paddingBlock: Space.Lg, paddingInline: 'gutter' });
+    expect([...inner.classList].toSorted()).toStrictEqual(['@lg:px-xl', 'px-md', 'py-lg']);
+    expect([...inner.classList].filter((name) => name.startsWith('p-'))).toStrictEqual([]);
   });
 
   it('shows the box only from a container size, unless revealed', async () => {
@@ -83,7 +89,7 @@ describe(Box, () => {
 
   it('keeps the visibility off the inner element, which sits inside the box own container', async () => {
     const { inner } = await render({ shownFrom: 'md', hiddenFrom: 'lg' });
-    expect([...inner.classList]).toStrictEqual(['p-none']);
+    expect([...inner.classList].toSorted()).toStrictEqual(['px-none', 'py-none']);
   });
 
   it('projects its content into the inner element', async () => {

@@ -5,6 +5,7 @@ import type { Signal } from '@angular/core';
 import { CardContent } from '../card/card-content.component';
 import { Card } from '../card/card.component';
 import { Stack } from '../stack/stack.component';
+import { DEFAULT_SURFACE_PADDING } from '../surface/surface.component';
 import { SectionBody } from './section-body.directive';
 
 /**
@@ -39,6 +40,8 @@ export class Section {
   /** Keeps the section, with its state, out of sight and the accessibility tree; for the closed ones of a set shown one at a time. */
   public readonly concealed = input(false, { transform: booleanAttribute });
 
+  /** A section pads like a bare `fr-surface`. */
+  protected readonly padding = DEFAULT_SURFACE_PADDING;
   protected readonly body = contentChild(SectionBody);
   /** Whether the section has been shown: its body is built from then on. */
   protected readonly opened: Signal<boolean> = linkedSignal<boolean, boolean>({

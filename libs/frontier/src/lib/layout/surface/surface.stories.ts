@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 
 import { Heading } from '../../text/heading/heading.component';
 import { Text } from '../../text/text/text.component';
-import { Space } from '../../tokens';
+import { Inset, Space } from '../../tokens';
 import { Stack } from '../stack/stack.component';
-import { Surface, SurfaceVariant } from './surface.component';
+import { DEFAULT_SURFACE_PADDING, Surface } from './surface.component';
 
 type SurfaceStory = StoryObj<Surface>;
 
@@ -14,10 +14,9 @@ const meta: Meta<Surface> = {
   component: Surface,
   decorators: [moduleMetadata({ imports: [Heading, Stack, Text] })],
   argTypes: {
-    variant: { control: 'inline-radio', options: Object.values(SurfaceVariant) },
-    padding: { control: 'select', options: Object.values(Space) },
+    padding: { control: 'select', options: [...Object.values(Inset), ...Object.values(Space)] },
   },
-  args: { variant: SurfaceVariant.Raised, padding: Space.Lg },
+  args: { padding: DEFAULT_SURFACE_PADDING },
   render: (args) => ({
     props: args,
     template: `
@@ -33,10 +32,6 @@ const meta: Meta<Surface> = {
 
 export default meta;
 
-export const Raised: SurfaceStory = {};
+export const Default: SurfaceStory = {};
 
-export const Base: SurfaceStory = { args: { variant: SurfaceVariant.Base } };
-
-export const Sunken: SurfaceStory = { args: { variant: SurfaceVariant.Sunken } };
-
-export const Outline: SurfaceStory = { args: { variant: SurfaceVariant.Outline } };
+export const Roomy: SurfaceStory = { args: { padding: Space.Lg } };

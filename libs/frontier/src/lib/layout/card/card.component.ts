@@ -11,8 +11,9 @@ import {
 import { HeadingLevel } from '../../text/heading/heading.component';
 import type { TextVariant } from '../../text/text.variants';
 import { Space } from '../../tokens';
+import type { Padding } from '../../tokens';
 import { Divider } from '../divider/divider.component';
-import { SurfaceVariant, surfaceVariants } from '../surface/surface.component';
+import { surfaceVariants } from '../surface/surface.component';
 import { CardFooter } from './card-footer.component';
 import { CardHeader } from './card-header.component';
 import { CardContext } from './card-padding';
@@ -38,8 +39,7 @@ import { CardContext } from './card-padding';
   host: { '[class]': 'classes()' },
 })
 export class Card {
-  public readonly variant = input<SurfaceVariant>(SurfaceVariant.Raised);
-  public readonly padding = input<Space>(Space.Lg);
+  public readonly padding = input<Padding>(Space.Lg);
   public readonly heading = input<string | undefined>(undefined);
   /** Shows the header, with a skeleton heading while `heading` is `undefined`; without `heading` or `loading` there is no header. */
   public readonly loading = input(false, { transform: booleanAttribute });
@@ -50,7 +50,7 @@ export class Card {
 
   protected readonly showHeader = computed(() => this.heading() !== undefined || this.loading());
   protected readonly footerPart = contentChild(CardFooter, { descendants: false });
-  protected readonly classes = computed(() => surfaceVariants({ variant: this.variant(), padding: Space.None }));
+  protected readonly classes = computed(() => surfaceVariants({ padding: Space.None }));
 
   public constructor() {
     inject(CardContext).attach(this.padding);

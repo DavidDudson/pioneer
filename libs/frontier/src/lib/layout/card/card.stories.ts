@@ -6,7 +6,6 @@ import { Button } from '../../actions/button/button.component';
 import { Text } from '../../text/text/text.component';
 import { Space } from '../../tokens';
 import { Divider } from '../divider/divider.component';
-import { SurfaceVariant } from '../surface/surface.component';
 import { CardContent } from './card-content.component';
 import { CardFooter } from './card-footer.component';
 import { Card } from './card.component';
@@ -20,7 +19,6 @@ const meta: Meta<Card> = {
   decorators: [moduleMetadata({ imports: [Button, CardContent, CardFooter, Divider, Text] })],
   parameters: { layout: 'padded' },
   argTypes: {
-    variant: { control: 'inline-radio', options: Object.values(SurfaceVariant) },
     padding: { control: 'select', options: Object.values(Space) },
   },
   args: { heading: 'Valeros', description: 'Human fighter, level 3', padding: Space.Lg },

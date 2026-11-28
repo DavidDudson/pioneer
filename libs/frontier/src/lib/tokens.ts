@@ -16,6 +16,18 @@ export const Space = {
 
 export type Space = ValueOf<typeof Space>;
 
+/** Semantic insets (`semantic.css`): what a control, a panel and a page pad themselves with. */
+export const Inset = {
+  Control: 'inset-control',
+  Panel: 'inset-panel',
+  Page: 'inset-page',
+} as const;
+
+export type Inset = ValueOf<typeof Inset>;
+
+/** A padding a component takes: a spacing step, or an inset by role. */
+export type Padding = Space | Inset;
+
 /** Semantic intent, shared by text, buttons and feedback. */
 export const Tone = {
   Default: 'default',
@@ -79,7 +91,42 @@ export const paddingVariants = {
   xl: 'p-xl',
   '2xl': 'p-2xl',
   '3xl': 'p-3xl',
-} as const satisfies Record<Space, string>;
+  'inset-control': 'p-inset-control',
+  'inset-panel': 'p-inset-panel',
+  'inset-page': 'p-inset-page',
+} as const satisfies Record<Padding, string>;
+
+export const paddingBlockVariants = {
+  none: 'py-none',
+  '3xs': 'py-3xs',
+  '2xs': 'py-2xs',
+  xs: 'py-xs',
+  sm: 'py-sm',
+  md: 'py-md',
+  lg: 'py-lg',
+  xl: 'py-xl',
+  '2xl': 'py-2xl',
+  '3xl': 'py-3xl',
+  'inset-control': 'py-inset-control',
+  'inset-panel': 'py-inset-panel',
+  'inset-page': 'py-inset-page',
+} as const satisfies Record<Padding, string>;
+
+export const paddingInlineVariants = {
+  none: 'px-none',
+  '3xs': 'px-3xs',
+  '2xs': 'px-2xs',
+  xs: 'px-xs',
+  sm: 'px-sm',
+  md: 'px-md',
+  lg: 'px-lg',
+  xl: 'px-xl',
+  '2xl': 'px-2xl',
+  '3xl': 'px-3xl',
+  'inset-control': 'px-inset-control',
+  'inset-panel': 'px-inset-panel',
+  'inset-page': 'px-inset-page',
+} as const satisfies Record<Padding, string>;
 
 /**
  * Elevation: how far a surface sits above the page. A level is a surface and its line, so a component takes both
