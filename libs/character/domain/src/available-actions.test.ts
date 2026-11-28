@@ -64,7 +64,7 @@ function actionsOf(document: CharacterDocument): readonly AvailableAction[] {
 
   return characterActions(
     document,
-    { registry, slots, inputs: characterStatisticInputs(registry, document, slots), variants: [] },
+    { registry, slots, inputs: characterStatisticInputs(registry, document, { slots }), variants: [] },
     NO_SPENT,
   );
 }

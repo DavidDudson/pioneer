@@ -81,7 +81,7 @@ function spellSlots(entries: readonly SpellcastingInPlay[]): PioneerSpellSlots[]
 /** What the engine derives for `character`, for the statistics it could derive: a failed or missing one is left out. */
 function pioneerValues(character: Character, { registry, slots, variants }: DerivationContent): PioneerValues {
   const { document } = character;
-  const inputs = characterStatisticInputs(registry, document, slots, variants);
+  const inputs = characterStatisticInputs(registry, document, { slots, variants });
 
   const statistics = characterStatistics(document, {
     registry,

@@ -55,7 +55,14 @@ describe('turn cycle: the Fortitude a suffocation save rolls', () => {
   test('is the total the sheet derives for the Fortitude save', async () => {
     const registry = await content.registry();
     const slots = slotContent(registry);
-    const sources = { registry, slots, inputs: characterStatisticInputs(registry, kyra.document, slots), variants: [] };
+
+    const sources = {
+      registry,
+      slots,
+      inputs: characterStatisticInputs(registry, kyra.document, { slots }),
+      variants: [],
+    };
+
     const sheet = characterStatistics(kyra.document, sources).get(SAVE);
     const limits = turnLimits(HitPoints.parse(10), NO_EFFECTS, NO_VALUED);
 
