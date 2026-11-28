@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795843245451,
+  "lastUpdate": 1795843317102,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -2158,6 +2158,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 216,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3a82d50912851e3f10ab699c0ec103f34ec7de1b",
+          "message": "refactor(frontier): box, surface and section own their padding once (#2477)\n\n* refactor(frontier): box, surface and section own their padding once\n\nBox takes paddingBlock and paddingInline (a token or the gutter), one\nclass per axis, so a gutter no longer collides with padding. Surface\ndefaults to the inset-panel token and drops its unused variants; card\nloses its variant input with them. Section pads like a bare surface.\n\nRefs #2281\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): act on review of the padding change\n\nDrop two redundant comments, offer the inset tokens in the card story,\nand cover block insets on box and header padding on section.\n\nRefs #2281\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* test(frontier): drop the sunken panel from the forced-colours story\n\nThe sunken and base surfaces are gone, so the story no longer renders\nthem and its play function must not look for them.\n\nRefs #2281\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* docs(frontier): restore the components table after the rebase\n\nThe rebase onto main left a second copy of the table header in\nAGENTS.md. Rebuild the file from main and reapply the padding wording.\n\nRefs #2281\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* test(frontier): expect the elevation classes on a surface\n\nMain moved a raised surface onto the elevation tokens, so the default\npadding spec reads those classes.\n\nRefs #2281\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T15:14:35+10:00",
+          "tree_id": "154f2b51d9840552786ce743d028b1b28ae8bd62",
+          "url": "https://github.com/DavidDudson/pioneer/commit/3a82d50912851e3f10ab699c0ec103f34ec7de1b"
+        },
+        "date": 1795843313856,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 467,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4400,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 213,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1237,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6510,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 210,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
