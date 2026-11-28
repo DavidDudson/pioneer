@@ -55,6 +55,11 @@ describe(AsyncIndicator, () => {
     expect(status?.classList).not.toContain('sr-only');
   });
 
+  it('keeps the pending label for screen readers only with announceOnly', async () => {
+    const { host } = await render(AsyncStatus.Pending, { announceOnly: true, showLabel: true });
+    expect(announced(host)?.classList).toContain('sr-only');
+  });
+
   it('shows no tick and no visible label with announceOnly', async () => {
     const { host } = await render(AsyncStatus.Success, { announceOnly: true, showLabel: true });
     const status = announced(host);

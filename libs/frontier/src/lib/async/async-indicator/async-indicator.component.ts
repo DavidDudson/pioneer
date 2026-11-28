@@ -45,7 +45,4 @@ export class AsyncIndicator {
   protected readonly labelClasses = computed(() =>
     labelVariants({ visible: this.showLabel() && !this.announceOnly() }),
   );
-  protected readonly pendingClasses = computed(() =>
-    labelVariants({ visible: this.showLabel() && !this.announceOnly() }),
-  );
 }

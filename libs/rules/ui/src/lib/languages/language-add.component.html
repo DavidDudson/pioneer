@@ -10,7 +10,7 @@
         (valueChange)="pick($event)"
         (cancelled)="cancel()"
       />
-      <fr-async-indicator [status]="saving.status()" />
+      <fr-async-indicator showLabel [status]="saving.status()" />
       @if (saving.errorMessage(); as error) {
         <fr-message>{{ error }}</fr-message>
       }

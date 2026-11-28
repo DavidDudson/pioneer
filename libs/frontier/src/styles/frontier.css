@@ -375,7 +375,6 @@
     content: '';
     position: absolute;
     inset: -1px;
-    border-radius: inherit;
     padding: 2px;
     pointer-events: none;
     opacity: 0;

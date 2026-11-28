@@ -49,6 +49,18 @@ describe(RefreshableInput, () => {
     expect(element(fixture, 'fr-text-input').dataset['status']).toBeUndefined();
   });
 
+  it('flashes the border red when a load fails, and clears it on the next load', async () => {
+    const failure = Promise.reject(new Error('load failed'));
+    const fixture = render(loadingFrom([failure, Promise.resolve('Seelah')]));
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(element(fixture, 'fr-text-input').dataset['status']).toBe('error');
+    });
+    await fixture.componentInstance.refresh();
+    fixture.detectChanges();
+    expect(element(fixture, 'fr-text-input').dataset['status']).toBeUndefined();
+  });
+
   it('loads again when refresh is pressed', async () => {
     const fixture = render(loadingFrom([Promise.resolve('Seelah'), Promise.resolve('Amiri')]));
     await vi.waitFor(() => {
