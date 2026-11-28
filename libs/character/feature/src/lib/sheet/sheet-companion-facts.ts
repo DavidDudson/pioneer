@@ -87,9 +87,11 @@ function signed(value: number): string {
 /** A name's message key and the number that goes with it, when there is one. */
 type Named = readonly [string, number | undefined];
 
-function listed(pairs: readonly Named[], translate: Translate, show: (value: number) => string): string {
+function listed(pairs: ReadonlyArray<Named>, translate: Translate, show: (value: number) => string): string {
   return pairs
-    .flatMap(([name, value]): readonly string[] => (value === undefined ? [] : [`${translate(name)} ${show(value)}`]))
+    .flatMap(([name, value]): ReadonlyArray<string> =>
+      value === undefined ? [] : [`${translate(name)} ${show(value)}`],
+    )
     .join(', ');
 }
 
@@ -98,7 +100,11 @@ function fact(key: string, translate: Translate, params: FactParams = {}): Compa
 }
 
 /** The size, Hit Points and defences, and Speed. */
-function bodyFacts(species: string, statistics: CompanionStatistics, translate: Translate): readonly CompanionFact[] {
+function bodyFacts(
+  species: string,
+  statistics: CompanionStatistics,
+  translate: Translate,
+): ReadonlyArray<CompanionFact> {
   return [
     fact(CompanionFactMessage.Species, translate, { species }),
     fact(CompanionFactMessage.Size, translate, { size: translate(SIZE_KEYS[statistics.size]) }),
@@ -115,10 +121,10 @@ function bodyFacts(species: string, statistics: CompanionStatistics, translate: 
 }
 
 /** The lists: other movement, attributes, skills and senses, each left out when empty. */
-function listFacts(statistics: CompanionStatistics, translate: Translate): readonly CompanionFact[] {
+function listFacts(statistics: CompanionStatistics, translate: Translate): ReadonlyArray<CompanionFact> {
   const { attributes, movement, skills } = statistics;
 
-  const lists: readonly (readonly [string, string])[] = [
+  const lists: ReadonlyArray<readonly [string, string]> = [
     [
       CompanionFactMessage.Movement,
       listed(
@@ -146,13 +152,13 @@ function listFacts(statistics: CompanionStatistics, translate: Translate): reado
     [CompanionFactMessage.Senses, statistics.senses.join(', ')],
   ];
 
-  return lists.flatMap(([key, list]): readonly CompanionFact[] =>
+  return lists.flatMap(([key, list]): ReadonlyArray<CompanionFact> =>
     list === '' ? [] : [fact(key, translate, { list })],
   );
 }
 
 /** What the species says under Special, and a line per strike. */
-function attackFacts(statistics: CompanionStatistics, translate: Translate): readonly CompanionFact[] {
+function attackFacts(statistics: CompanionStatistics, translate: Translate): ReadonlyArray<CompanionFact> {
   const special = statistics.special.map((line): CompanionFact => ({
     key: `${CompanionFactMessage.Special}:${line}`,
     text: translate(CompanionFactMessage.Special, { line }),
@@ -177,7 +183,7 @@ export function companionFacts(
   species: string,
   statistics: CompanionStatistics,
   translate: Translate,
-): readonly CompanionFact[] {
+): ReadonlyArray<CompanionFact> {
   return [
     ...bodyFacts(species, statistics, translate),
     ...listFacts(statistics, translate),

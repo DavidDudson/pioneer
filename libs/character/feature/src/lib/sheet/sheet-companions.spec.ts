@@ -13,7 +13,7 @@ const key = SlotKey.parse('class-feat-1:0');
 
 // SAFETY: the helpers under test read only a species' id and name, never its block.
 const block = {} as SpeciesOption['block'];
-const species: readonly SpeciesOption[] = [{ id: wolf, name: ContentText.parse('Wolf'), block }];
+const species: ReadonlyArray<SpeciesOption> = [{ id: wolf, name: ContentText.parse('Wolf'), block }];
 
 function slot(selection: ContentId | undefined): CharacterSlot {
   const subject = {
@@ -28,7 +28,7 @@ function slot(selection: ContentId | undefined): CharacterSlot {
     : { status: SlotStatus.Filled, key, subject, selection };
 }
 
-const none: readonly Companion[] = [];
+const none: ReadonlyArray<Companion> = [];
 
 describe(companionSlots, () => {
   it('lists the species choice of an Animal Companion feat, open while nothing is picked', () => {
