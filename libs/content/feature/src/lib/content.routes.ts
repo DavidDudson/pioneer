@@ -1,7 +1,7 @@
 import type { Routes } from '@angular/router';
 import { contentBrowserMessages } from '@pioneer/content/ui';
 import { CRUMB } from '@pioneer/frontier';
-import { rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, provideMessageScope } from '@pioneer/shared/web';
 

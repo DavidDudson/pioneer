@@ -20,6 +20,22 @@
     ]
   },
   "targetDefaults": {
+    "build": {
+      "cache": true,
+      "inputs": ["production", "^production"],
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"]
+    },
+    "verify-dev-free": {
+      "cache": true,
+      "dependsOn": ["build"],
+      "inputs": [
+        "production",
+        "^production",
+        "{workspaceRoot}/tools/check-dev-free.ts",
+        "{workspaceRoot}/tools/dev-markers.ts",
+        "{workspaceRoot}/libs/identity/dev-users/src/**/*"
+      ]
+    },
     "lint": {
       "inputs": ["...", "oxlintRules", "sharedGlobals"]
     },

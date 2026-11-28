@@ -12,7 +12,6 @@ import {
 import type { Character, CharacterDocument, SlotContent, UnplacedPicks } from '@pioneer/character/domain';
 import {
   ImportKind,
-  matchKey,
   PathbuilderProblem,
   placeBoosts,
   placeFeats,
@@ -39,6 +38,7 @@ import { AncestryId, ChoiceValue, ContentId, VariantStructure } from '@pioneer/r
 import type { ContentRegistry, SlotKey, VariantRuleEntry } from '@pioneer/rules/sdk';
 import { fieldIssues, message, ValidationError } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
+import { foldName } from '@pioneer/shared/utils';
 
 import { keptPicks } from './pathbuilder-unplaced';
 
@@ -107,7 +107,7 @@ export function freeArchetypeVariant(
   value: PathbuilderImport,
   registry: ContentRegistry,
 ): VariantRuleEntry | undefined {
-  const free = value.feats.some(({ slot }) => slot !== undefined && matchKey(slot).startsWith(FREE_ARCHETYPE_LABEL));
+  const free = value.feats.some(({ slot }) => slot !== undefined && foldName(slot).startsWith(FREE_ARCHETYPE_LABEL));
 
   return free ? registry.variantRules().find((entry) => entry.definition.slug === FREE_ARCHETYPE_SLUG) : undefined;
 }

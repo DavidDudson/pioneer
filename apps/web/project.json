@@ -73,14 +73,6 @@
       },
       "defaultConfiguration": "development"
     },
-    "test": {
-      "executor": "@angular/build:unit-test",
-      "options": {
-        "buildTarget": "web:build:development",
-        "tsConfig": "apps/web/tsconfig.spec.json",
-        "runner": "vitest"
-      }
-    },
     "verify-styles": {
       "dependsOn": ["build"],
       "cache": true,
@@ -88,15 +80,6 @@
       "command": "bun tools/check-built-css.ts"
     },
     "verify-dev-free": {
-      "dependsOn": ["build"],
-      "cache": true,
-      "inputs": [
-        "production",
-        "^production",
-        "{workspaceRoot}/tools/check-dev-free.ts",
-        "{workspaceRoot}/tools/dev-markers.ts",
-        "{workspaceRoot}/libs/identity/dev-users/src/**/*"
-      ],
       "command": "bun tools/check-dev-free.ts dist/apps/web/browser"
     }
   }

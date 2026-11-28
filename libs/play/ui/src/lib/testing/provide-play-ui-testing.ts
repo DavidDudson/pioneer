@@ -4,7 +4,7 @@ import { TranslocoTestingModule } from '@jsverse/transloco';
 import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat';
 import { frontierMessages } from '@pioneer/frontier';
 import { diceMessages } from '@pioneer/rules/dice';
-import { rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { kernelMessages } from '@pioneer/shared/kernel';
 
 import rollMessages from '../../i18n/en.json';

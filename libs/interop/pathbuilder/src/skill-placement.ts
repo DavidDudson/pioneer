@@ -10,9 +10,9 @@ import {
 import type { CharacterDocument, LoreNames, SkillOption, SkillSlot, SlotContent } from '@pioneer/character/domain';
 import { ChoiceValue, Level, Proficiency, ProficiencySchema } from '@pioneer/rules/sdk';
 import type { Selector, SlotKey, Slug } from '@pioneer/rules/sdk';
+import { foldName } from '@pioneer/shared/utils';
 import * as z from 'zod';
 
-import { matchKey } from './content-lookup';
 import { PathbuilderName } from './import-kind';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 
@@ -58,13 +58,13 @@ export type SkillRanks = Pick<PathbuilderImport, 'lores' | 'skills'>;
  * a custom Lore (#572). A Lore whose name makes no topic is left out, and so comes back as a gap.
  */
 function undefinedLores(skills: readonly SkillOption[], { lores }: SkillRanks): LoreNames {
-  const known = new Set(skills.map(({ name }) => matchKey(name)));
+  const known = new Set(skills.map(({ name }) => foldName(name)));
 
   const entries = lores.flatMap(({ name }): [Slug, LoreName][] => {
     const lore = LoreName.safeParse(name);
     const topic = lore.success ? loreTopicOf(lore.data) : undefined;
 
-    return lore.success && topic !== undefined && !known.has(matchKey(`${name} Lore`)) ? [[topic, lore.data]] : [];
+    return lore.success && topic !== undefined && !known.has(foldName(`${name} Lore`)) ? [[topic, lore.data]] : [];
   });
 
   return Object.fromEntries(entries);
@@ -72,7 +72,7 @@ function undefinedLores(skills: readonly SkillOption[], { lores }: SkillRanks): 
 
 function targets(skills: readonly SkillOption[], { skills: ranked, lores }: SkillRanks): Target[] {
   const find = (name: string): SkillOption | undefined =>
-    skills.find((skill) => matchKey(skill.name) === matchKey(name));
+    skills.find((skill) => foldName(skill.name) === foldName(name));
 
   const named = Object.entries(ranked).flatMap(([key, rank]): Target[] => {
     const skill = find(key);

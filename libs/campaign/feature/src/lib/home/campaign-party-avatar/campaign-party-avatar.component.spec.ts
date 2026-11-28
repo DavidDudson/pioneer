@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
-import { rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 

@@ -99,14 +99,18 @@ export const PredicateStatement: z.ZodType<PredicateStatement> = depthGuarded(St
 /** A whole predicate: the statements that must all hold. */
 export const Predicate: z.ZodType<Predicate> = depthGuarded(z.array(Statement));
 
+/** `RollOption` and `PredicateNumber` compiled to fast paths: the guards below run for every statement evaluated. */
+const CompiledRollOption = z.compile(RollOption);
+const CompiledPredicateNumber = z.compile(PredicateNumber);
+
 /** Whether a statement is a bare roll option rather than a comparison or compound. */
 export function isRollOptionStatement(statement: PredicateStatement): statement is RollOption {
-  return RollOption.safeParse(statement).success;
+  return CompiledRollOption.validate(statement);
 }
 
 /** Whether a comparison's right operand is another roll option rather than a number. */
 export function isRollOptionOperand(operand: RollOption | PredicateNumber): operand is RollOption {
-  return !PredicateNumber.safeParse(operand).success;
+  return !CompiledPredicateNumber.validate(operand);
 }
 
 /** Whether a statement is a numeric or text comparison (`eq`, `gt`, `gte`, `lt`, `lte`) rather than an option or compound. */

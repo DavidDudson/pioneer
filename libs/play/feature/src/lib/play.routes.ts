@@ -4,8 +4,8 @@ import { diceMessages } from '@pioneer/rules/dice';
 import { engineMessages } from '@pioneer/rules/engine';
 import { formulaMessages } from '@pioneer/rules/formula';
 import { grantsMessages } from '@pioneer/rules/grants';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { predicateMessages } from '@pioneer/rules/predicate';
-import { rulesMessages } from '@pioneer/rules/sdk';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, provideMessageScope } from '@pioneer/shared/web';
 

@@ -4,6 +4,7 @@ import type {
   CompanionSkill as CompanionSkillName,
   CompanionStatBlock,
   CompanionTier,
+  ContentText,
   DamageType,
   DiceCount,
   DieSize,
@@ -65,6 +66,8 @@ export interface CompanionStatistics {
   readonly size: Size;
   readonly speed: Feet;
   readonly movement: CompanionMovements;
+  readonly senses: readonly ContentText[];
+  readonly special: readonly ContentText[];
   readonly attributes: Readonly<Record<Attribute, CompanionStatistic>>;
   readonly hitPoints: { readonly total: HitPoints; readonly lines: readonly CompanionLine[] };
   readonly armorClass: CompanionStatistic;

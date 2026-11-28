@@ -95,6 +95,22 @@ describe('durationOf', () => {
       { type: 'time', count: 10, unit: 'minute', upTo: true },
     ],
     [
+      { value: '1d4 rounds', sustained: false },
+      { type: 'rolled', dice: 1, die: 'd4', unit: 'round' },
+    ],
+    [
+      { value: '2d6 hours', sustained: false },
+      { type: 'rolled', dice: 2, die: 'd6', unit: 'hour' },
+    ],
+    [
+      { value: '1d8 days', sustained: false },
+      { type: 'rolled', dice: 1, die: 'd8', unit: 'day' },
+    ],
+    [
+      { value: '1d10 minutes', sustained: false },
+      { type: 'rolled', dice: 1, die: 'd10', unit: 'minute' },
+    ],
+    [
       { value: '4d12 hours', sustained: false },
       { type: 'rolled', dice: 4, die: 'd12', unit: 'hour' },
     ],

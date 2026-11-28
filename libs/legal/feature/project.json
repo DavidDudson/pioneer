@@ -4,14 +4,5 @@
   "projectType": "library",
   "sourceRoot": "libs/legal/feature/src",
   "tags": ["scope:legal", "type:feature", "platform:web"],
-  "targets": {
-    "test": {
-      "executor": "@angular/build:unit-test",
-      "options": {
-        "buildTarget": "web:build:development",
-        "tsConfig": "libs/legal/feature/tsconfig.spec.json",
-        "runner": "vitest"
-      }
-    }
-  }
+  "targets": {}
 }

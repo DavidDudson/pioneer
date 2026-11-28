@@ -618,7 +618,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "companion-species",
+        "choices": {
+          "kind": "companion-species",
+          "filter": []
+        },
+        "prompt": "Select your animal companion's species."
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.zBLrZE5aCkpaTK2N"
     },
@@ -4406,6 +4416,15 @@
       {
         "key": "GrantItem",
         "item": "2b6cf5fe-630b-5a54-b263-baaf009f2f04"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "companion-species",
+        "choices": {
+          "kind": "companion-species",
+          "filter": []
+        },
+        "prompt": "Select your animal companion's species."
       }
     ],
     "externalIds": {
@@ -7148,7 +7167,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "companion-species",
+        "choices": {
+          "kind": "companion-species",
+          "filter": []
+        },
+        "prompt": "Select your animal companion's species."
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.5Q69PI8jdQVkb1ZT"
     },

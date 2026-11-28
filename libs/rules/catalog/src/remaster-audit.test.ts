@@ -1,9 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
-import { classifyRemasterCandidate, normaliseName } from './remaster-audit';
+import { foldName } from '@pioneer/shared/utils';
+
+import { classifyRemasterCandidate } from './remaster-audit';
 
 const PACK_NAMES: ReadonlySet<string> = new Set(
-  ['Eagle-Eye Elixir', 'Alacritous Horseshoes', 'Eagle Eye Lens', 'Birchstaff'].map((name) => normaliseName(name)),
+  ['Eagle-Eye Elixir', 'Alacritous Horseshoes', 'Eagle Eye Lens', 'Birchstaff'].map((name) => foldName(name)),
 );
 
 function classify(type: string, name: string): string {

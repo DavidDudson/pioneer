@@ -1,6 +1,6 @@
 import type { Routes } from '@angular/router';
 import { legalCachesMessages } from '@pioneer/legal/ui';
-import { rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, provideMessageScope } from '@pioneer/shared/web';
 

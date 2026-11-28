@@ -1,9 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, input, model, viewChild } from '@angular/core';
-import type { ElementRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 
-import { injectCommitKeys } from '../commit-keys';
 import { Control } from '../control';
-import { controlVariants } from '../control.variants';
+import { Input } from '../input/input.component';
 
 /**
  * Plain number control that may be left empty: `value` is undefined while the box is empty, as for an open bound
@@ -12,6 +10,7 @@ import { controlVariants } from '../control.variants';
  */
 @Component({
   selector: 'fr-optional-number-input',
+  imports: [Input],
   templateUrl: './optional-number-input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
@@ -25,22 +24,9 @@ export class OptionalNumberInput extends Control {
   /** The smallest change: 1 takes whole numbers only; 0.1 takes tenths too (a tenth of a Bulk is light). */
   public readonly step = input(1);
 
-  protected readonly classes = controlVariants({ numeric: true });
   /** A whole-number box shows the numeric keypad; one with fractions needs the decimal point. */
   protected readonly inputMode = computed(() => (Number.isInteger(this.step()) ? 'numeric' : 'decimal'));
-  protected readonly control = viewChild<ElementRef<HTMLInputElement>>('control');
-
-  public constructor() {
-    super();
-    injectCommitKeys(this.control, {
-      commit: () => {
-        this.committed.emit();
-      },
-      cancel: () => {
-        this.cancelled.emit();
-      },
-    });
-  }
+  protected readonly text = computed(() => this.value()?.toString() ?? '');
 
   protected onInput(raw: string): void {
     if (raw === '') {

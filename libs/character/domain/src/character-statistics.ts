@@ -74,6 +74,12 @@ function withVariants(equipped: EquippedRules, variants: readonly VariantRuleEnt
     : { ...equipped, rules: [...variantRulesInPlay(variants), ...equipped.rules] };
 }
 
+/** The content `characterStatisticInputs` reads a character against: its slots, and the variant rules in force. */
+export interface StatisticInputContent {
+  readonly slots: SlotContent;
+  readonly variants?: readonly VariantRuleEntry[];
+}
+
 /**
  * What the engine reads of a character so far: level, its boosts, ranks, ancestry and class, the spellcasting entries
  * its spell attacks and DCs are derived for, its worn armour and held weapons (a shifted weapon as its new shape) when
@@ -83,8 +89,7 @@ function withVariants(equipped: EquippedRules, variants: readonly VariantRuleEnt
 export function characterStatisticInputs(
   registry: ContentRegistry,
   document: CharacterDocument,
-  slots: SlotContent,
-  variants: readonly VariantRuleEntry[] = [],
+  { slots, variants = [] }: StatisticInputContent,
 ): StatisticInputs {
   const grants = characterGrants(document, slots);
   const favored = favoredWeapons(grants);

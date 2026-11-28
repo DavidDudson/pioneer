@@ -13,12 +13,12 @@ import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { expect, onTestFinished, vi } from 'vitest';
 
-import { characterRoutes } from '../character.routes';
 import type { JsonObject } from './json-fixture';
 import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
 import { ruleLimitSettingsOf } from './rule-limit-settings-testing';
 import { answerItemApprovalsRead, answerSheetBundle } from './sheet-page-harness';
 import { NO_CHARACTER_PACKS, NO_VARIANT_RULES, playOf } from './sheet-reads-testing';
+import { SHEET_TEST_ROUTES } from './sheet-routes-testing';
 
 export const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 const BACKPACK = '11111111-1111-4111-8111-111111111111';
@@ -103,7 +103,7 @@ async function openSheet(url: string, character: JsonObject, reads: SheetReads =
   await prebuildServerStateTesting(SHEET_PACKS);
   TestBed.configureTestingModule({
     providers: [
-      provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
+      provideRouter([{ path: 'characters', children: SHEET_TEST_ROUTES }], withComponentInputBinding()),
       ...provideServerStateTesting(SHEET_PACKS),
       provideI18n({ en: async () => frontierMessages }),
     ],

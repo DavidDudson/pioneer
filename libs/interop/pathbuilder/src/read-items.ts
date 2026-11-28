@@ -1,4 +1,5 @@
-import { matchKey } from './content-lookup';
+import { foldName } from '@pioneer/shared/utils';
+
 import { PathbuilderContainerKey, PathbuilderName } from './import-kind';
 import type { EquipmentFlag, PathbuilderBuild } from './pathbuilder-export';
 
@@ -104,7 +105,7 @@ function runesOf(row: RuneRow): ImportedRunes | undefined {
 function displayName(base: string, display: string | undefined): PathbuilderName | undefined {
   const shown = chosen(display);
 
-  return shown === undefined || matchKey(shown).includes(matchKey(base)) ? undefined : shown;
+  return shown === undefined || foldName(shown).includes(foldName(base)) ? undefined : shown;
 }
 
 type Carried = Pick<ImportedItem, 'worn' | 'invested' | 'runes' | 'displayName' | 'container'>;

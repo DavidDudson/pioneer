@@ -18,7 +18,7 @@ const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
   ],
   [
     'rune:aim-aiding',
-    'stops the wearer giving cover to allies, which needs creatures and cover the app does not model (creature model sub-task of the armour runes)',
+    'stops the wearer giving cover to allies: Foundry owns cover and other creatures, and the app does not model them (ADR-0018)',
   ],
   ['rune:assisting', 'supports and prostheses chosen on investing: a choice with no statistic to change'],
   ['rune:energy-resistant', 'the engine builds its resistance from the etched energy (`chosenRuneRules`)'],
@@ -45,7 +45,7 @@ const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
   ],
   [
     'rune:unnerving',
-    'a penalty on the attacker: the attacker is not a creature the app models, so no rule reaches it (creature model sub-task of the armour runes)',
+    'a penalty on the attacker: Foundry owns other creatures and the app does not model them, so no rule reaches it (ADR-0018)',
   ],
 ]);
 

@@ -1,16 +1,13 @@
-<input
-  #control
+<fr-input
   type="text"
-  [class]="classes()"
-  [attr.spellcheck]="monospace() ? false : null"
-  [attr.autocapitalize]="monospace() ? 'off' : null"
-  [attr.autocorrect]="monospace() ? 'off' : null"
-  [attr.id]="id() ?? null"
+  [monospace]="monospace()"
+  [adornment]="trailing() ? 'pair' : 'none'"
   [value]="value()"
   [placeholder]="placeholder()"
   [disabled]="disabled()"
-  [attr.aria-label]="ariaLabel() ?? null"
-  [attr.aria-describedby]="describedBy() ?? null"
-  [attr.aria-invalid]="ariaInvalid() || null"
-  (input)="value.set(control.value)"
+  [invalid]="invalid()"
+  [ariaLabel]="ariaLabel()"
+  (typed)="value.set($event)"
+  (committed)="committed.emit()"
+  (cancelled)="cancelled.emit()"
 />
