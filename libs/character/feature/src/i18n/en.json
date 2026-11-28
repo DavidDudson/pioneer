@@ -633,7 +633,11 @@
       "signatureCastFrom": "{spell}, the signature spell, is cast at any rank from {low, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} to {high, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}."
     },
     "familiar": {
-      "heading": "Familiar"
+      "heading": "Familiar",
+      "amount": "Hit Points for the familiar",
+      "command": "Command",
+      "commanded": "Commanded: 2 actions this turn",
+      "noConditions": "No conditions on the familiar"
     },
     "companions": {
       "heading": "Companions",

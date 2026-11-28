@@ -4,11 +4,12 @@ import {
   CompanionName,
   CompanionStatus,
   FamiliarForm,
+  FRESH_COMPANION,
 } from '@pioneer/character/domain';
 import type { Companion } from '@pioneer/character/domain';
 import { deriveFamiliarStatistics } from '@pioneer/rules/engine';
 import type { FamiliarInputs } from '@pioneer/rules/engine';
-import { CompanionKind, Level, Modifier, SlotKey } from '@pioneer/rules/sdk';
+import { CompanionKind, HitPoints, Level, Modifier, SlotKey } from '@pioneer/rules/sdk';
 import { FamiliarCardMovement, FamiliarCardSense, FamiliarCardStatus } from '@pioneer/rules/ui';
 import { fixedClock, newId } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
@@ -86,10 +87,28 @@ describe(familiarCardView, () => {
     const view = familiarCardView({
       companion: pip,
       statistics,
-      play: { [PIP]: { status: CompanionStatus.Dead } },
+      play: { [PIP]: { ...FRESH_COMPANION, status: CompanionStatus.Dead } },
       translate,
     });
 
     expect(view.status).toBe(FamiliarCardStatus.Dead);
+  });
+
+  it('shows the Hit Points it has left after damage, and its temporary ones', () => {
+    const hurt = { ...FRESH_COMPANION, damage: HitPoints.parse(7), temp: HitPoints.parse(3) };
+    const view = familiarCardView({ companion: pip, statistics, play: { [PIP]: hurt }, translate });
+
+    expect(view.hitPoints).toStrictEqual({
+      current: statistics.hitPoints.total - 7,
+      max: statistics.hitPoints.total,
+      temp: 3,
+    });
+  });
+
+  it('never shows fewer than 0 Hit Points', () => {
+    const wrecked = { ...FRESH_COMPANION, damage: HitPoints.parse(999) };
+    const view = familiarCardView({ companion: pip, statistics, play: { [PIP]: wrecked }, translate });
+
+    expect(view.hitPoints.current).toBe(0);
   });
 });

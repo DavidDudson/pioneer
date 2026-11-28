@@ -11,7 +11,10 @@ import {
   FastHealingType,
   HitPoints,
 } from '@pioneer/rules/sdk';
+import { newId } from '@pioneer/shared/kernel';
 
+import { CompanionId } from './companion';
+import { FRESH_COMPANION } from './companion-status';
 import { ConditionDurationKind, ConditionInstanceId } from './conditions';
 import type { ActiveCondition } from './conditions';
 import { Doomed, Dying, Wounded } from './death-track';
@@ -116,6 +119,14 @@ describe('startTurn', () => {
   test('a dead character is not healed', () => {
     const dead = hurt(30, { dying: Dying.parse(4), dead: true, doomed: Doomed.parse(0) });
     expect(start(dead, [FAST]).play.hp.damage).toBe(HitPoints.parse(30));
+  });
+
+  test('a companion commanded last turn starts the new turn uncommanded', () => {
+    const familiar = CompanionId.parse(newId());
+    const commanded = { ...FRESH_COMPANION, commanded: true };
+    const { play } = start({ ...FRESH_PLAY, companions: { [familiar]: commanded } });
+
+    expect(play.companions[familiar]?.commanded).toBe(false);
   });
 
   test('a timed effect counts down a round, including one from another creature', () => {

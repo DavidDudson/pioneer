@@ -182,5 +182,16 @@ export function startTurn(play: PlayState, inputs: TurnInputs, random: RandomSou
     random,
   };
 
-  return reevaluateBadges(settled, reevaluation);
+  const outcome = reevaluateBadges(settled, reevaluation);
+
+  return { ...outcome, play: uncommanded(outcome.play) };
+}
+
+/** `play` with no companion commanded: a Command lasts the turn it was given in, so a new turn starts without one. */
+function uncommanded(play: PlayState): PlayState {
+  const companions = Object.fromEntries(
+    Object.entries(play.companions).map(([id, entry]) => [id, { ...entry, commanded: false }]),
+  );
+
+  return { ...play, companions };
 }

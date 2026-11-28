@@ -1,11 +1,11 @@
-import { characterGrants, characterSpellcasting, CompanionStatus, companionStatus } from '@pioneer/character/domain';
-import type { Character, Companion, CompanionsPlay } from '@pioneer/character/domain';
+import { characterGrants, characterSpellcasting, companionPlay, CompanionStatus } from '@pioneer/character/domain';
+import type { Character, Companion, CompanionPlay, CompanionsPlay } from '@pioneer/character/domain';
 import { FamiliarSense } from '@pioneer/rules/engine';
 import type { FamiliarInputs, FamiliarStatistics, StatisticResult } from '@pioneer/rules/engine';
-import { CompanionKind, CompanionMovement, Level, Modifier, Selector, Trait } from '@pioneer/rules/sdk';
-import type { ContentRegistry } from '@pioneer/rules/sdk';
+import { CompanionKind, CompanionMovement, EntrySlug, Level, Modifier, Selector, Trait } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { FamiliarCardMovement, FamiliarCardSense, FamiliarCardStatus } from '@pioneer/rules/ui';
-import type { FamiliarCardSpeed, FamiliarCardView } from '@pioneer/rules/ui';
+import type { FamiliarCardHitPoints, FamiliarCardSpeed, FamiliarCardView } from '@pioneer/rules/ui';
 
 import { sheetAttributes } from './sheet-attributes';
 import type { Translate } from './sheet-companion-facts';
@@ -113,17 +113,32 @@ export interface FamiliarCardSource {
   readonly translate: Translate;
 }
 
+/** The Hit Points the familiar has left of the most its master's level gives it, and its temporary ones. */
+function hitPointsOf(statistics: FamiliarStatistics, entry: CompanionPlay): FamiliarCardHitPoints {
+  const max = statistics.hitPoints.total;
+
+  return { current: Math.max(0, max - entry.damage), max, temp: entry.temp };
+}
+
+const COMMAND_AN_ANIMAL = EntrySlug.parse('action:command-an-animal');
+
+/** The Command an Animal action of the content, which a master spends an action on to give its familiar 2 actions; undefined when the content lacks it. */
+export function commandActionId(registry: ContentRegistry): ContentId | undefined {
+  return registry.packs.flatMap((pack) => pack.otherEntries).find((entry) => entry.slug === COMMAND_AN_ANIMAL)?.id;
+}
+
 /**
- * What the card shows of the character's familiar: the engine's statistics for its master, its status in play, and its
- * name. Its Hit Points are all there (nothing damages it until the play edits of the familiar land) and its species is
- * not yet chosen on the form, so the card names it as a familiar.
+ * What the card shows of the character's familiar: the engine's statistics for its master, its status and damage in
+ * play, and its name. Its species is not yet chosen on the form, so the card names it as a familiar.
  */
 export function familiarCardView({ companion, statistics, play, translate }: FamiliarCardSource): FamiliarCardView {
+  const entry = companionPlay(play, companion.id);
+
   return {
     name: companion.name,
     species: translate('rules.familiar.species'),
-    status: STATUSES[companionStatus(play, companion.id)],
-    hitPoints: { current: statistics.hitPoints.total, max: statistics.hitPoints.total, temp: 0 },
+    status: STATUSES[entry.status],
+    hitPoints: hitPointsOf(statistics, entry),
     armorClass: statistics.armorClass.total,
     saves: { fortitude: statistics.fortitude.total, reflex: statistics.reflex.total, will: statistics.will.total },
     perception: statistics.perception.total,

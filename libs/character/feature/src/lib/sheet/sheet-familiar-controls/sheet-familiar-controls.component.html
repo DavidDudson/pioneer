@@ -1,0 +1,50 @@
+<fr-stack gap="sm">
+  <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+    <fr-number-input
+      [ariaLabel]="'character.sheet.familiar.amount' | transloco"
+      [min]="0"
+      [max]="amountMax"
+      [value]="amount()"
+      (entered)="amount.set($event)"
+      (completeChange)="complete.set($event)"
+    />
+    <fr-async-button size="sm" [action]="damage" [disabled]="!ready()" [describeError]="describeError">
+      {{ 'character.sheet.hp.damage' | transloco }}
+    </fr-async-button>
+    <fr-async-button size="sm" [action]="heal" [disabled]="!ready()" [describeError]="describeError">
+      {{ 'character.sheet.hp.heal' | transloco }}
+    </fr-async-button>
+    <fr-async-button size="sm" [action]="setTemp" [disabled]="!ready()" [describeError]="describeError">
+      {{ 'character.sheet.hp.setTemp' | transloco }}
+    </fr-async-button>
+  </fr-stack>
+  <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+    <fr-async-button size="sm" [action]="command" [disabled]="!canCommand()" [describeError]="describeError">
+      {{ 'character.sheet.familiar.command' | transloco }}
+    </fr-async-button>
+    @if (commanded()) {
+      <fr-text tone="muted">{{ 'character.sheet.familiar.commanded' | transloco }}</fr-text>
+    }
+  </fr-stack>
+  <fr-stack gap="xs">
+    @for (view of conditions(); track view.id) {
+      <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+        <fr-text weight="semibold">{{ view.name }}</fr-text>
+        @if (view.value !== undefined) {
+          <fr-text numeric>{{ view.value }}</fr-text>
+        }
+        <fr-async-button size="sm" [action]="remove(view.id)" [disabled]="busy()" [describeError]="describeError">
+          {{ 'character.sheet.conditions.remove' | transloco }}
+        </fr-async-button>
+      </fr-stack>
+    } @empty {
+      <fr-text tone="muted">{{ 'character.sheet.familiar.noConditions' | transloco }}</fr-text>
+    }
+    <pio-sheet-condition-add
+      [options]="options()"
+      [busy]="busy()"
+      [send]="sendCondition"
+      [describeError]="describeError"
+    />
+  </fr-stack>
+</fr-stack>
