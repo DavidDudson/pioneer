@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795842793951,
+  "lastUpdate": 1795842845467,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -2038,6 +2038,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 215,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "519a541153178fe8aceee27dafadc5e8a6d46b20",
+          "message": "feat(i18n): catalog tooling, per-locale checks, pseudo-locale (#2489)\n\n* feat(i18n): catalog tooling, per-locale checks and pseudo-locale\n\n- i18n:extract keeps <locale>.json beside each en.json in step with en:\n  new keys untranslated (\"\"), removed keys dropped, idempotent.\n- check:messages reports per locale: stale keys, invalid ICU and\n  parameter mismatches fail; coverage over the fallback chain is\n  printed; a shipped locale below 100% in the shell, identity or\n  character scope fails (ADR-0084).\n- LOCALE_STATUS registry (source, machine-draft, reviewed).\n- Dev-only en-XA pseudo-locale (accented, ~40% longer, ICU kept),\n  switched on with ?pseudo-locale.\n- withoutUntranslated drops \"\" so Transloco falls back to en per key.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(i18n): act on mob-review findings\n\n- Loaders drop untranslated messages for every non-source locale, so\n  an extracted \"\" falls back to en instead of rendering blank.\n- Share one MessageTree type; rename messagesFor to loaderFor.\n- Name the file in a malformed catalog error; validate extract\n  locale arguments; fix header order and two stale doc comments.\n- Test selectordinal, offset, function params and quoted # in a\n  nested select, plus the untranslated filter through the loader.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T14:55:24+10:00",
+          "tree_id": "d4087d20e67cf198af0a95da1c60d2cb3e1b4969",
+          "url": "https://github.com/DavidDudson/pioneer/commit/519a541153178fe8aceee27dafadc5e8a6d46b20"
+        },
+        "date": 1795842840077,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 466,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4299,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 209,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1236,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6409,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 212,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
