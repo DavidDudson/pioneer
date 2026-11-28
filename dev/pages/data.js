@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795840456252,
+  "lastUpdate": 1795842459428,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -1798,6 +1798,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 215,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8079d7c2405c30bb18cd9ab85f172dd8f7539afc",
+          "message": "feat(api): add searchable, paginated facet counts per property (#2491)\n\n* feat(api): add searchable, paginated facet counts per property\n\nGET /characters/facets?property=&filters=&search=&page= answers the values\none property takes among the caller's characters with how many have each,\nmost common first, 50 to a page. The counts apply every condition except the\nproperty's own, so choosing a value does not hide the others. A text\nproperty has no values to count and is a 422.\n\nfacetCounts in shared/server groups one column through the same applyFilters\nconditions; CharacterListState moves to its own file to keep the contract\nunder the file-size limit.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(api): tighten facet counts and cover owner scoping\n\nDrop the unused FacetRequest, name the paging and search-match values for\nwhat they are, share escapeLike with applyFilters, and build the property\nlookup maps once. A facet read for another owner counts nothing, and equal\ncounts list in value order; both are now tested.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T14:52:25+10:00",
+          "tree_id": "3764649f0a5118e506d38626e70b5848dbff9123",
+          "url": "https://github.com/DavidDudson/pioneer/commit/8079d7c2405c30bb18cd9ab85f172dd8f7539afc"
+        },
+        "date": 1795842455482,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4292,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 216,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1236,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6402,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 216,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
