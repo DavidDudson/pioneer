@@ -1,8 +1,8 @@
 import type { PropertyDescriptor } from '@pioneer/frontier/data';
 
 /**
- * The same properties read from another row: `select` finds the entity a row holds, so a table of `BrowseRow`s can
- * show `FEAT_PROPERTIES` without a second list. Only the value is adapted; a cell that reads the whole entity gets the
+ * The same properties read from another row: `select` finds the entity a row holds, so a table of another kind of
+ * row shows them without a second list. Only the value is adapted; a cell that reads the whole entity gets the
  * row, so it must ask for no more than the row has.
  */
 export function viewProperties<TEntity, TRow>(

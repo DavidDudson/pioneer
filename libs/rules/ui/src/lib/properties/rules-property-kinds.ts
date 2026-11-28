@@ -12,7 +12,7 @@ import { ACTION_KIND_MESSAGES } from '../picker-cells/picker-cell-messages';
 import type { ActionKind } from '../picker-cells/picker-cell-messages';
 import { PrerequisiteList, PrerequisiteState } from '../picker-cells/prerequisite-list/prerequisite-list.component';
 import type { PrerequisiteLine } from '../picker-cells/prerequisite-list/prerequisite-list.component';
-import { ACTION_ORDER, NOTHING } from '../picker-cells/rules-table-schema';
+import { ACTION_ORDER } from '../picker-cells/rules-table-schema';
 import { SourcesCell } from './cells/sources-cell.component';
 
 /** The ids of the kinds rules properties use, besides the four frontier ships. */
@@ -32,12 +32,15 @@ function compareNumbers(left: number, right: number): number {
   return left > right ? 1 : 0;
 }
 
+/** What a level-less entry sorts by: before every level, creatures' -1 included. */
+const NO_LEVEL = Number.NEGATIVE_INFINITY;
+
 const LEVEL_KIND: PropertyKind<number | undefined> = {
   id: RulesPropertyKindId.Level,
   align: PropertyAlign.End,
   operators: [FilterOperator.Is, FilterOperator.Between],
   cell: LevelCell,
-  compare: (left, right) => compareNumbers(left ?? NOTHING, right ?? NOTHING),
+  compare: (left, right) => compareNumbers(left ?? NO_LEVEL, right ?? NO_LEVEL),
   text: (value, context: PropertyContext) => (value === undefined ? '' : context.formatNumber(value)),
 };
 

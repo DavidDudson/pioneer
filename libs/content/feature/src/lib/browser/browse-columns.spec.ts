@@ -45,7 +45,7 @@ describe(featBrowseColumns, () => {
     const hideable = columns.map((column) => [column.id, column.meta?.hideable]);
 
     expect(hideable).toStrictEqual([
-      ['name', undefined],
+      ['name', false],
       ['kind', true],
       ['level', true],
       ['category', true],

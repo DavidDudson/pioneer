@@ -65,7 +65,7 @@ const NOTES_PROPERTY: PropertyDescriptor<FeatFacts> = {
 
 /**
  * What a feat has, in the order a table lists it: the common properties and the ones a feat adds. A table picks the
- * ids it shows (`FEAT_PICKER_COLUMNS`, the browser's feat view), so a new property is one entry here.
+ * ids it shows, so a new property is one entry here.
  */
 export const FEAT_PROPERTIES: ReadonlyArray<PropertyDescriptor<FeatFacts>> = [
   NAME_PROPERTY,

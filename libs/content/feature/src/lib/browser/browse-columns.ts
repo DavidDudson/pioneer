@@ -84,7 +84,7 @@ function withCreatureColumns(schema: RulesTableSchema<BrowseRow>): RulesTableSch
 }
 
 /** Source and whether the entry is legacy, which close every list. */
-function withSourceColumns<TSchema extends TableSchema<BrowseRow>>(schema: TSchema): TSchema {
+function withSourceAndLegacyColumns<TSchema extends TableSchema<BrowseRow>>(schema: TSchema): TSchema {
   return schema
     .addComponent({
       id: BrowseColumn.Source,
@@ -108,7 +108,7 @@ function withSourceColumns<TSchema extends TableSchema<BrowseRow>>(schema: TSche
 
 /** Traits, source and whether the entry is legacy, which close the table. */
 function withClosingColumns(schema: RulesTableSchema<BrowseRow>): RulesTableSchema<BrowseRow> {
-  return withSourceColumns(
+  return withSourceAndLegacyColumns(
     schema.addTraits({
       id: BrowseColumn.Traits,
       code: BrowseColumnCode.Traits,
@@ -216,5 +216,5 @@ export function featBrowseColumns(
 ): ReadonlyArray<TableColumn<BrowseRow>> {
   const ids = [FeatPropertyId.Name, BrowseColumn.Kind, ...FEAT_BROWSE_IDS];
 
-  return withSourceColumns(tableFromProperties(featProperties(kindHidden), ids, options)).build();
+  return withSourceAndLegacyColumns(tableFromProperties(featProperties(kindHidden), ids, options)).build();
 }

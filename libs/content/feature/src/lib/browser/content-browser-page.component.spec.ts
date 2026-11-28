@@ -171,6 +171,14 @@ describe('ContentBrowserPage', () => {
     expect(headers(root)).not.toContain('Prerequisites');
   });
 
+  it('keeps the generic columns for a list of feats and another kind', async () => {
+    const { root } = await open('/content?kind=feat,spell');
+    await loaded(root, 6);
+    expect(headers(root)).toContain('Kind');
+    expect(headers(root)).not.toContain('Category');
+    expect(headers(root)).not.toContain('Prerequisites');
+  });
+
   it('filters creatures by role and size from the link', async () => {
     const { root } = await open('/content?kind=creature&f=role:monster~size:small');
     await expect(loaded(root, 1)).resolves.toStrictEqual(['Giant Rat']);
