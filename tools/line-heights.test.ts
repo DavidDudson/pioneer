@@ -1,13 +1,19 @@
 import { describe, expect, test } from 'bun:test';
 import { readFileSync } from 'node:fs';
+import path from 'node:path';
 
-const FRONTIER_CSS = readFileSync('libs/frontier/src/styles/frontier.css', 'utf8');
-const SCALE_CSS = readFileSync('libs/frontier/src/styles/primitives.scale.css', 'utf8');
+const STYLES = path.join(import.meta.dir, '../libs/frontier/src/styles');
+const COMMENT = /\/\*[\s\S]*?\*\//gu;
+
+function readStyles(file: string): string {
+  return readFileSync(path.join(STYLES, file), 'utf8').replaceAll(COMMENT, '');
+}
+
+const FRONTIER_CSS = readStyles('frontier.css');
+const SCALE_CSS = readStyles('primitives.scale.css');
 
 const PX_PER_REM = 16;
 const GRID_PX = 4;
-
-const ROLES = ['caption', 'label', 'body', 'lead', 'subheading', 'heading', 'title', 'display'] as const;
 
 const DECLARATION = /(?<name>--[\w-]+):\s*(?<value>[^;]+);/gu;
 
@@ -19,12 +25,18 @@ function declarations(css: string): ReadonlyMap<string, string> {
     const { name, value } = match.groups ?? {};
 
     if (name !== undefined && value !== undefined) {
+      if (found.has(name)) {
+        throw new Error(`${name} is declared more than once`);
+      }
+
       found.set(name, value.trim());
     }
   }
 
   return found;
 }
+
+const LINE_HEIGHT = /^--text-(?<role>[\w-]+?)--line-height$/u;
 
 const FRONTIER = declarations(FRONTIER_CSS);
 const SCALE = declarations(SCALE_CSS);
@@ -53,12 +65,22 @@ function lineHeightRem(role: string): number {
 
 function fontRem(role: string): number {
   const reference = lookup(FRONTIER, `--text-${role}`);
-  const scaleName = reference.slice('var('.length, -1);
+  const scaleName = /^var\((?<name>--[\w-]+)\)$/u.exec(reference)?.groups?.['name'];
+
+  if (scaleName === undefined) {
+    throw new Error(`--text-${role} is ${reference}, not a plain var() of a scale step`);
+  }
 
   return rem(lookup(SCALE, scaleName));
 }
 
+const ROLES = [...FRONTIER.keys()].flatMap((name) => LINE_HEIGHT.exec(name)?.groups?.['role'] ?? []);
+
 describe('text line-heights', () => {
+  test('covers every text role', () => {
+    expect(ROLES.length).toBeGreaterThanOrEqual(8);
+  });
+
   test.each(ROLES)('%s is a rem value on the 4px grid, not a ratio', (role) => {
     expect((lineHeightRem(role) * PX_PER_REM) % GRID_PX).toBe(0);
   });
