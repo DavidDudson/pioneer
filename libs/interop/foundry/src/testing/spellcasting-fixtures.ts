@@ -323,3 +323,17 @@ export const BLESSED_SACRIFICE = archetypeFeat({
   level: 4,
   traits: [],
 });
+
+export const SORCERER_DEDICATION = archetypeFeat({
+  id: 'sPeLlCaStInG0050',
+  name: 'Sorcerer Dedication',
+  level: 2,
+  traits: DEDICATION,
+});
+
+export const BASIC_SORCERER_SPELLCASTING = archetypeFeat({
+  id: 'sPeLlCaStInG0051',
+  name: 'Basic Sorcerer Spellcasting',
+  level: 4,
+  traits: [],
+});

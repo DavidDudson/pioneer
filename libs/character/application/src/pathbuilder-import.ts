@@ -224,7 +224,8 @@ function namesOf({ names }: PathbuilderImport, kind: ImportKind): Array<Pathbuil
 
 /** The feats, then the skills and Lores, the languages and the spells in the slots `build` opens, each read after the last. */
 function slotFills(value: PathbuilderImport, content: ImportContent, { create, choices: built }: Build): SlotFills {
-  const feats = placeFeats(create(built).document, content, value.feats);
+  const features = namesOf(value, ImportKind.ClassFeature);
+  const feats = placeFeats(create(built).document, { ...content, features }, value.feats);
   const withFeats = { ...built, ...feats.choices };
   const skills = placeSkills(create(withFeats).document, content.slots, value);
   const withSkills = { ...withFeats, ...skills.choices };
@@ -244,7 +245,7 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
           languages: languages.unplaced,
           customLanguages: languages.custom,
           rituals: namesOf(value, ImportKind.Ritual),
-          classFeatures: namesOf(value, ImportKind.ClassFeature),
+          classFeatures: features,
           deity: namesOf(value, ImportKind.Deity)[0],
           spells: gaps.map(({ name }) => name),
         },

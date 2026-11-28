@@ -6,12 +6,14 @@ import { rulesIn } from './testing/build-helpers';
 import { translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import {
+  BASIC_SORCERER_SPELLCASTING,
   BASIC_WIZARD_SPELLCASTING,
   DIVINE_FONT,
   EXPERT_WIZARD_SPELLCASTING,
   MASTER_WIZARD_SPELLCASTING,
   SCHOOL_OF_BATTLE_MAGIC,
   SCHOOL_OF_UNIFIED_MAGICAL_THEORY,
+  SORCERER_DEDICATION,
   WITCH_SPELLCASTING,
   WIZARD_DEDICATION,
   WIZARD_SPELLCASTING,
@@ -101,6 +103,17 @@ describe('translateKindData: spell slots', () => {
     expect(slotsIn('master-wizard-spellcasting', MASTER_WIZARD_SPELLCASTING)).toEqual([
       { ...slot, rank: 7, ...from(18) },
       { ...slot, rank: 8, ...from(20) },
+    ]);
+  });
+
+  test("a sorcerer dedication's cantrips and Basic Sorcerer Spellcasting's slots go on the entry its bloodline gives", () => {
+    expect(slotsIn('sorcerer-dedication', SORCERER_DEDICATION)).toEqual([
+      { key: SpellSlots, entry: 'sorcerer', rank: 'cantrip', value: 2 },
+    ]);
+    expect(slotsIn('basic-sorcerer-spellcasting', BASIC_SORCERER_SPELLCASTING)).toEqual([
+      { key: SpellSlots, entry: 'sorcerer', rank: 1, value: 1, ...from(4) },
+      { key: SpellSlots, entry: 'sorcerer', rank: 2, value: 1, ...from(6) },
+      { key: SpellSlots, entry: 'sorcerer', rank: 3, value: 1, ...from(8) },
     ]);
   });
 });

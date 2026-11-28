@@ -7398,7 +7398,41 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.AvfswILmh3BwNbyR"
     },
@@ -25932,6 +25966,39 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "expert"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -43228,6 +43295,28 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "master"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -61217,6 +61306,12 @@
         "item": {
           "choice": "bloodline"
         }
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": "cantrip",
+        "value": 2
       }
     ],
     "externalIds": {

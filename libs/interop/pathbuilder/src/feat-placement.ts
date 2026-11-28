@@ -89,11 +89,28 @@ function claim(slots: ReadonlyArray<FeatSlot>, wanted: ReadonlyArray<Wanted>): M
   return claimed;
 }
 
-/** The picks that answer the `ChoiceSet`s the placed feats ask, by the option whose label or value is their choice. */
+/** What answers a placed feat's `ChoiceSet`: the choice the export gives it, and the class features it lists. */
+interface Answering {
+  readonly chosen: ReadonlyMap<ContentId, PathbuilderName>;
+  readonly features: ReadonlyArray<PathbuilderName>;
+  /** The feats placed so far, whose choices a listed class feature may answer. */
+  readonly placed: ReadonlySet<string>;
+}
+
+/** Whether `text` is the name of one of `names`. */
+function listed(text: string, names: ReadonlyArray<PathbuilderName>): boolean {
+  return names.some((name) => foldName(name) === foldName(text));
+}
+
+/**
+ * The picks that answer the `ChoiceSet`s the placed feats ask, by the option whose label or value is their choice. A
+ * placed feat with no choice of its own is answered by the option an export's class feature names: the "Bloodline: Hag"
+ * a Sorcerer Dedication's bloodline grants.
+ */
 function answers(
   document: CharacterDocument,
   content: SlotContent,
-  chosen: ReadonlyMap<ContentId, PathbuilderName>,
+  { chosen, features, placed }: Answering,
 ): FeatPicks {
   return Object.fromEntries(
     characterGrants(document, content).open.flatMap((slot) => {
@@ -101,7 +118,7 @@ function answers(
 
       const option =
         choice === undefined
-          ? undefined
+          ? slot.options.find((each) => placed.has(slot.origin.entry) && listed(each.label, features))
           : slot.options.find((each) => [each.label, each.value].some((text) => foldName(text) === foldName(choice)));
 
       return option === undefined ? [] : [[slot.key, ChoiceValue.parse(option.value)]];
@@ -130,10 +147,16 @@ interface Round {
 export interface FeatPlacementContent {
   readonly slots: SlotContent;
   readonly lookup: ContentLookup;
+  /** The class features the export lists, those that match content answering the choice of a placed feat that has none of its own. */
+  readonly features?: ReadonlyArray<PathbuilderName>;
 }
 
 /** `round` after one more pass over the open slots, or undefined when no wanted feat fits one. */
-function advance(document: CharacterDocument, { slots }: FeatPlacementContent, round: Round): Round | undefined {
+function advance(
+  document: CharacterDocument,
+  { slots, lookup, features = [] }: FeatPlacementContent,
+  round: Round,
+): Round | undefined {
   const current = documentWith(document, round.picks);
   const open = featSlots(current, slots).filter((slot) => !(slot.key in current.build.choices));
   const claimed = claim(open, round.left);
@@ -156,7 +179,13 @@ function advance(document: CharacterDocument, { slots }: FeatPlacementContent, r
     ...Object.fromEntries([...claimed].map(([key, { id }]) => [key, ChoiceValue.parse(id)])),
   };
 
-  const picks = { ...placedPicks, ...answers(documentWith(document, placedPicks), slots, chosen) };
+  const known = features.filter((name) => lookup.resolve(ImportKind.ClassFeature, name) !== undefined);
+  const placedIds = new Set<string>(Object.values(placedPicks));
+
+  const picks = {
+    ...placedPicks,
+    ...answers(documentWith(document, placedPicks), slots, { chosen, features: known, placed: placedIds }),
+  };
 
   return { picks, chosen, left: round.left.filter((each) => !placed.has(each)) };
 }

@@ -150,4 +150,20 @@ describe('placeFeats where two slots of a level offer the same feat', () => {
     expect(freeSlot).toBeDefined();
     expect(classSlot).not.toBe(freeSlot);
   });
+
+  test("answers a feat's choice with the class feature the export lists, when content defines it", () => {
+    const athletics = [PathbuilderName.parse('Athletics')];
+    const wanted = [feat('Skill Training', 1)];
+
+    const withFeature = entryLookup({
+      [ImportKind.Feat]: NAMES.map((name) => ({ id: featSlotFixtureId(name), name: ContentText.parse(name) })),
+      [ImportKind.ClassFeature]: [{ id: featSlotFixtureId('assurance'), name: ContentText.parse('Athletics') }],
+    });
+
+    const answered = placeFeats(fighter(1), { slots, lookup: withFeature, features: athletics }, wanted);
+    const unmatched = placeFeats(fighter(1), { slots, lookup, features: athletics }, wanted);
+
+    expect(Object.values(answered.choices)).toContain(Slug.parse('athletics'));
+    expect(Object.values(unmatched.choices)).not.toContain(Slug.parse('athletics'));
+  });
 });

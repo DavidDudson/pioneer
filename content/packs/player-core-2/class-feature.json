@@ -4364,6 +4364,11 @@
             "rank": 9,
             "spell": "3997d8f7-14a9-5f54-869a-920fa859cd44"
           }
+        ],
+        "predicate": [
+          {
+            "not": "feat:sorcerer-dedication"
+          }
         ]
       },
       {
@@ -4740,6 +4745,11 @@
           {
             "rank": 9,
             "spell": "fb2cc36e-8e1c-5149-a202-43938814f46a"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "feat:sorcerer-dedication"
           }
         ]
       },
@@ -5118,6 +5128,11 @@
             "rank": 9,
             "spell": "c59f4c18-32ac-5cd1-b3d2-7215c3e00868"
           }
+        ],
+        "predicate": [
+          {
+            "not": "feat:sorcerer-dedication"
+          }
         ]
       },
       {
@@ -5494,6 +5509,11 @@
           {
             "rank": 9,
             "spell": "6096b768-43d9-56ca-a7f1-8317781601df"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "feat:sorcerer-dedication"
           }
         ]
       },
@@ -6191,6 +6211,11 @@
             "rank": 9,
             "spell": "b6dff26a-ff68-54a5-bdeb-8ac98bea8879"
           }
+        ],
+        "predicate": [
+          {
+            "not": "feat:sorcerer-dedication"
+          }
         ]
       },
       {
@@ -6210,7 +6235,12 @@
             "spell": "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
           }
         ],
-        "predicate": ["draconic-exemplar:arcane"]
+        "predicate": [
+          "draconic-exemplar:arcane",
+          {
+            "not": "feat:sorcerer-dedication"
+          }
+        ]
       },
       {
         "key": "RepertoireSpells",
@@ -6229,7 +6259,12 @@
             "spell": "35abf662-f81d-5277-8d0b-c80d65dc8538"
           }
         ],
-        "predicate": ["draconic-exemplar:divine"]
+        "predicate": [
+          "draconic-exemplar:divine",
+          {
+            "not": "feat:sorcerer-dedication"
+          }
+        ]
       },
       {
         "key": "RepertoireSpells",
@@ -6248,7 +6283,12 @@
             "spell": "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e"
           }
         ],
-        "predicate": ["draconic-exemplar:occult"]
+        "predicate": [
+          "draconic-exemplar:occult",
+          {
+            "not": "feat:sorcerer-dedication"
+          }
+        ]
       },
       {
         "key": "RepertoireSpells",
@@ -6267,7 +6307,12 @@
             "spell": "1001faa9-fabc-5445-b281-5716b5ccab6d"
           }
         ],
-        "predicate": ["draconic-exemplar:primal"]
+        "predicate": [
+          "draconic-exemplar:primal",
+          {
+            "not": "feat:sorcerer-dedication"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -6946,6 +6991,11 @@
             "rank": 9,
             "spell": "05d5f598-dca0-5144-b846-56f387c85245"
           }
+        ],
+        "predicate": [
+          {
+            "not": "feat:sorcerer-dedication"
+          }
         ]
       },
       {
@@ -6969,7 +7019,12 @@
             "spell": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
           }
         ],
-        "predicate": ["elemental-influence:air"]
+        "predicate": [
+          "elemental-influence:air",
+          {
+            "not": "feat:sorcerer-dedication"
+          }
+        ]
       },
       {
         "key": "RepertoireSpells",
@@ -6992,7 +7047,12 @@
             "spell": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
           }
         ],
-        "predicate": ["elemental-influence:earth"]
+        "predicate": [
+          "elemental-influence:earth",
+          {
+            "not": "feat:sorcerer-dedication"
+          }
+        ]
       },
       {
         "key": "RepertoireSpells",
@@ -7015,7 +7075,12 @@
             "spell": "ef82adde-90cc-5a59-9424-8690ccf303e7"
           }
         ],
-        "predicate": ["elemental-influence:fire"]
+        "predicate": [
+          "elemental-influence:fire",
+          {
+            "not": "feat:sorcerer-dedication"
+          }
+        ]
       },
       {
         "key": "RepertoireSpells",
@@ -7038,7 +7103,12 @@
             "spell": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
           }
         ],
-        "predicate": ["elemental-influence:metal"]
+        "predicate": [
+          "elemental-influence:metal",
+          {
+            "not": "feat:sorcerer-dedication"
+          }
+        ]
       },
       {
         "key": "RepertoireSpells",
@@ -7061,7 +7131,12 @@
             "spell": "abeac3de-816d-5bf4-b439-cdf69d369efd"
           }
         ],
-        "predicate": ["elemental-influence:water"]
+        "predicate": [
+          "elemental-influence:water",
+          {
+            "not": "feat:sorcerer-dedication"
+          }
+        ]
       },
       {
         "key": "RepertoireSpells",
@@ -7084,7 +7159,12 @@
             "spell": "3dcf91db-01f1-596c-96b5-d635c0248044"
           }
         ],
-        "predicate": ["elemental-influence:wood"]
+        "predicate": [
+          "elemental-influence:wood",
+          {
+            "not": "feat:sorcerer-dedication"
+          }
+        ]
       },
       {
         "key": "ItemAlteration",
@@ -7526,6 +7606,11 @@
             "rank": 9,
             "spell": "a38c5303-30ba-573f-ba85-624c5dc04dc1"
           }
+        ],
+        "predicate": [
+          {
+            "not": "feat:sorcerer-dedication"
+          }
         ]
       },
       {
@@ -7893,6 +7978,11 @@
           {
             "rank": 9,
             "spell": "e551a4eb-8b73-5a89-979e-a15f470a28ce"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "feat:sorcerer-dedication"
           }
         ]
       },
@@ -8270,6 +8360,11 @@
           {
             "rank": 9,
             "spell": "c59f4c18-32ac-5cd1-b3d2-7215c3e00868"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "feat:sorcerer-dedication"
           }
         ]
       },
@@ -8826,6 +8921,11 @@
           {
             "rank": 9,
             "spell": "c23eeb10-88b1-58d0-9b0e-326d9538d589"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "feat:sorcerer-dedication"
           }
         ]
       },

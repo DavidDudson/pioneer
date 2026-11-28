@@ -905,6 +905,23 @@
         "mode": "add",
         "value": "ancestral-spell",
         "predicate": ["spellcasting:innate"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "vigilant-goloma",
+        "tradition": "arcane",
+        "attribute": "cha",
+        "preparation": "innate"
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "vigilant-goloma",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          }
+        ]
       }
     ],
     "externalIds": {

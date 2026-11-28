@@ -149,7 +149,8 @@ const CURRICULUM_SCHOOLS = [
 ];
 
 /**
- * The `SpellSlots` elements each entry gains, by its entry slug. A witch's slots are on Witch Spellcasting, though the
+ * The `SpellSlots` elements each entry gains, by its entry slug. A sorcerer dedication takes its entry from the bloodline
+ * it grants. A witch's slots are on Witch Spellcasting, though the
  * patron gives the entry, since every patron's witch casts from the same table. The witch dedication has no entry yet
  * (its tradition is unknown), so its feats add no slots.
  */
@@ -181,5 +182,5 @@ export const SPELL_SLOTS: ReadonlyMap<string, ReadonlyArray<object>> = new Map([
   ['feat:oracular-providence', secondTenthRankSlot('oracle')],
   ['class-feature:divine-font', DIVINE_FONT_SLOTS],
   ...CURRICULUM_SCHOOLS.map((school): [string, ReadonlyArray<object>] => [`class-feature:${school}`, CURRICULUM_SLOTS]),
-  ...['bard', 'cleric', 'druid', 'wizard'].flatMap((entry) => archetype(entry)),
+  ...['bard', 'cleric', 'druid', 'sorcerer', 'wizard'].flatMap((entry) => archetype(entry)),
 ]);
