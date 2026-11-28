@@ -1,6 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { EmptyState, EmptyStateTitle, injectTranslate, List, ListItem, LocaleFormat, Skeleton, Text } from '@pioneer/frontier';
+import {
+  EmptyState,
+  EmptyStateTitle,
+  injectTranslate,
+  List,
+  ListItem,
+  LocaleFormat,
+  Skeleton,
+  Text,
+} from '@pioneer/frontier';
 import { NoteRoll } from '@pioneer/rules/engine';
 import type { CriticalWeakness, StatisticResult, Strike, StrikeDamage, WeaponInputs } from '@pioneer/rules/engine';
 import { OriginHopKind, StatisticKind } from '@pioneer/rules/sdk';

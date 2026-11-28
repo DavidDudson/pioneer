@@ -1,6 +1,14 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { EmptyState, EmptyStateTitle, Heading, injectTranslate, LocaleFormat, Skeleton, Stack } from '@pioneer/frontier';
+import {
+  EmptyState,
+  EmptyStateTitle,
+  Heading,
+  injectTranslate,
+  LocaleFormat,
+  Skeleton,
+  Stack,
+} from '@pioneer/frontier';
 import { formatSummary } from '@pioneer/rules/predicate';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';

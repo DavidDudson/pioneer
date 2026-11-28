@@ -1,6 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Disclosure, EmptyState, EmptyStateTitle, injectTranslate, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
+import {
+  Disclosure,
+  EmptyState,
+  EmptyStateTitle,
+  injectTranslate,
+  LocaleFormat,
+  Skeleton,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import type { SenseInPlay } from '@pioneer/rules/engine';
 import type { ContentId } from '@pioneer/rules/sdk';
 
