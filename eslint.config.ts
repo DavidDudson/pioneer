@@ -12,7 +12,7 @@ import { noLiteralText } from './tools/eslint/no-literal-text';
 import { noNativeElements } from './tools/eslint/no-native-elements';
 import { noTemplateStyling } from './tools/eslint/no-template-styling';
 
-const config: Linter.Config[] = defineConfig([
+const config: Array<Linter.Config> = defineConfig([
   { ignores: ['dist/**', 'coverage/**', '.angular/**', '.nx/**', '**/storybook-static/**', 'apps/web/src/index.html'] },
   { files: ['**/*.html'], extends: [...angular.configs.templateAll, ...angular.configs.templateAccessibility] },
   {
