@@ -33,10 +33,12 @@ export const SpellGap = z.object({
 
 export type SpellGap = z.infer<typeof SpellGap>;
 
-/** The picks for the character's prepared and repertoire slots, and the matched spells no slot took. */
+/** The picks for the character's prepared and repertoire slots, the matched spells no slot took, and the access they need. */
 export interface SpellPlacement {
   readonly choices: SpellPicks;
   readonly gaps: ReadonlyArray<SpellGap>;
+  /** The uncommon and rare spells the export lists, which the build is given access to so its slots offer them. */
+  readonly access: ReadonlyArray<ContentId>;
 }
 
 /** What placing needs beside the document: the slots' content and the spells' names. */

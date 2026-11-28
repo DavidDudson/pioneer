@@ -145,6 +145,16 @@ describe('placeSpells', () => {
     expect(gapLines(gaps)).toStrictEqual([`Wizard 1 Heal ${SpellGapReason.NotOffered}`]);
   });
 
+  test('an uncommon or rare spell the export lists is given access and placed', () => {
+    const { choices, gaps, access } = placeSpells(wizard, content, [
+      caster('Wizard', 'arcane', SpellPreparation.Prepared, ranked(1, 'Ring of Truth', 'Force Barrage')),
+    ]);
+
+    expect(gaps).toStrictEqual([]);
+    expect(Object.values(choices)).toContain(spellFixtureId('ring-of-truth'));
+    expect(access).toStrictEqual([spellFixtureId('ring-of-truth')]);
+  });
+
   test('a caster the character has no spellcasting for leaves its spells as gaps', () => {
     const { choices, gaps } = placeSpells(wizard, content, [
       caster('Archetype Sorcerer', 'occult', SpellPreparation.Spontaneous, ranked(1, 'Force Barrage')),
