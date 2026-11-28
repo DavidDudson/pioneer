@@ -50,6 +50,8 @@ export const SlotSubjectKind = {
   Choice: 'choice',
   Spell: 'spell',
   Signature: 'signature',
+  /** A spell the witch's familiar knows (ADR-0044). */
+  FamiliarSpell: 'familiar-spell',
 } as const;
 
 export type SlotSubjectKind = ValueOf<typeof SlotSubjectKind>;
@@ -96,6 +98,8 @@ export const SlotSubject = z.discriminatedUnion('kind', [
   }),
   /** The signature spell of `rank` on the spontaneous entry `entry` (#479). */
   z.strictObject({ kind: z.literal(SlotSubjectKind.Signature), entry: Slug, rank: SpellRank }),
+  /** A spell the familiar of the witch entry `entry` knows: a cantrip, or a spell of `rank` at most. */
+  z.strictObject({ kind: z.literal(SlotSubjectKind.FamiliarSpell), entry: Slug, rank: PreparedRankSchema }),
 ]);
 
 export type SlotSubject = z.output<typeof SlotSubject>;

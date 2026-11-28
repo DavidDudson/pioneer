@@ -6,7 +6,7 @@ import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import { SlotStatus, SlotSubjectKind } from './character-slot';
 import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
-import { preparedStatuses, signatureStatuses } from './prepared-slot-status';
+import { familiarSpellStatuses, preparedStatuses, signatureStatuses } from './prepared-slot-status';
 import { resolveSlotsAt, slotContextOf } from './slot-reads';
 import type { SlotContent } from './slot-reads';
 
@@ -23,7 +23,11 @@ export interface TimelineRow {
 }
 
 /** Spell slots are placed apart from the rest: their class progression is read at each level, not once. */
-const SPELL_SUBJECTS: ReadonlySet<SlotSubjectKind> = new Set([SlotSubjectKind.Spell, SlotSubjectKind.Signature]);
+const SPELL_SUBJECTS: ReadonlySet<SlotSubjectKind> = new Set([
+  SlotSubjectKind.Spell,
+  SlotSubjectKind.Signature,
+  SlotSubjectKind.FamiliarSpell,
+]);
 
 const FIRST_LEVEL = Level.parse(CHARACTER_LEVEL_MIN);
 
@@ -92,7 +96,11 @@ function openedAt(slot: CharacterSlot, opening: ReadonlyMap<SlotKey, Level>): Le
 
 /** Every prepared, repertoire and signature slot the character has at `at`, as read there. */
 function spellSlotsAt(document: CharacterDocument, content: SlotContent, at: Level): Array<CharacterSlot> {
-  return [...preparedStatuses(document, content, at), ...signatureStatuses(document, content, at)];
+  return [
+    ...preparedStatuses(document, content, at),
+    ...signatureStatuses(document, content, at),
+    ...familiarSpellStatuses(document, content, at),
+  ];
 }
 
 /**

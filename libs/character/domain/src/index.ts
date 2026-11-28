@@ -227,6 +227,17 @@ export type { UnplacedPickPatch } from './unplaced-pick-patch';
 export type { UnplacedPickBreak, UnplacedPicks } from './unplaced-picks';
 
 export {
+  FAMILIAR_REPOSITORY_ENTRY,
+  FamiliarSlotKind,
+  FamiliarSpellRefusal,
+  familiarSpellRefusal,
+  familiarSpellSlots,
+  isFamiliarSpellKey,
+} from './familiar-spells';
+
+export type { FamiliarSpellSlot } from './familiar-spells';
+
+export {
   castRanks,
   isSignatureKey,
   SignaturePickProblem,

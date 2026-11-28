@@ -126,7 +126,8 @@ function kindOf(subject: SlotSubject, content: SlotContent): ChoiceSourceKind {
     }
 
     case SlotSubjectKind.Spell:
-    case SlotSubjectKind.Signature: {
+    case SlotSubjectKind.Signature:
+    case SlotSubjectKind.FamiliarSpell: {
       return ChoiceSourceKind.Spellcasting;
     }
 

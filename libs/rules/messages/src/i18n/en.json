@@ -1333,6 +1333,8 @@
         "languageFrom": "Language from {entry}",
         "cantripSpell": "Cantrip",
         "rankSpell": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank spell",
+        "familiarCantrip": "Familiar cantrip",
+        "familiarRankSpell": "Familiar spell, up to {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
         "rankSignatureSpell": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank signature spell"
       },
       "invalid": {

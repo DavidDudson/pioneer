@@ -5,6 +5,7 @@ import type { CharacterDocument } from './character-document';
 import { CharacterLevel } from './character-fields';
 import { SlotInvalidMessage, SlotSubjectKind } from './character-slot';
 import type { CharacterSlot, SlotSubject } from './character-slot';
+import { familiarSpellSlots } from './familiar-spells';
 import { PreparedPickProblem } from './prepared-pick-problem';
 import { preparedSlots } from './prepared-spells';
 import { signatureSlots } from './signature-spells';
@@ -100,5 +101,32 @@ export function signatureStatuses(
         : message(SlotInvalidMessage.SpellNotInRepertoire);
 
     return invalidSlot(read, slot.stored, reason);
+  });
+}
+
+/**
+ * Each slot of the spells the witch's familiar knows at `at` (ADR-0044), its level unless a later one is asked: a pick is
+ * invalid when the slot doesn't take it. Read above the character's level, a slot is planned there.
+ */
+export function familiarSpellStatuses(
+  document: CharacterDocument,
+  content: SlotContent,
+  at: Level = Level.parse(document.level),
+): Array<CharacterSlot> {
+  const planned = plannedAt(document, at);
+
+  return familiarSpellSlots(atLevel(document, at), preparedReads(document, content, at)).map((slot) => {
+    const read: SlotRead = {
+      key: slot.key,
+      subject: { kind: SlotSubjectKind.FamiliarSpell, entry: slot.entry, rank: slot.rank },
+      stored: slot.stored,
+      planned,
+    };
+
+    if (slot.stored === undefined || slot.pick !== undefined) {
+      return validSlot(read, slot.pick?.name);
+    }
+
+    return invalidSlot(read, slot.stored, invalidReason(slot.stored, content.lookup));
   });
 }

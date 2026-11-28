@@ -45,3 +45,7 @@ Alternatives:
 - Every prepared entry is offered its tradition's whole list. That is the rule for a cleric or a druid; a wizard prepares
   from a spellbook and a witch from what the familiar knows (Player Core), which nothing records yet, so both are
   offered more than they could prepare until spellbooks and familiars hold spells.
+
+**Update (familiar spells).** What a witch's familiar knows is now recorded: `familiar:` slots in `build.choices`
+([familiar-spells.md](../architecture/familiar-spells.md)). A witch's prepared slots still offer the tradition's whole
+list until preparing is limited to those picks.

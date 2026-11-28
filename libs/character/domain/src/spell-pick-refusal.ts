@@ -2,6 +2,7 @@ import type { SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import type { CharacterDocument } from './character-document';
+import { FamiliarSpellRefusal, familiarSpellRefusal, isFamiliarSpellKey } from './familiar-spells';
 import { PreparedRefusal, preparedRefusal } from './prepared-refusal';
 import { isSpellSlotKey } from './prepared-spells';
 import type { PreparedReads } from './prepared-spells';
@@ -28,9 +29,14 @@ const SIGNATURE_REFUSALS: Readonly<Record<SignatureRefusal, SlotRefusal>> = {
   [SignatureRefusal.NotOffered]: NOT_OFFERED,
 };
 
-/** Whether `slot` is a spell pick's key: a prepared, repertoire or signature slot's. */
+const FAMILIAR_REFUSALS: Readonly<Record<FamiliarSpellRefusal, SlotRefusal>> = {
+  [FamiliarSpellRefusal.NotOpen]: NOT_OPEN,
+  [FamiliarSpellRefusal.NotOffered]: NOT_OFFERED,
+};
+
+/** Whether `slot` is a spell pick's key: a prepared, repertoire, signature or familiar spell slot's. */
 export function isSpellPickKey(slot: SlotKey): boolean {
-  return isSpellSlotKey(slot) || isSignatureKey(slot);
+  return isSpellSlotKey(slot) || isSignatureKey(slot) || isFamiliarSpellKey(slot);
 }
 
 /**
@@ -42,6 +48,12 @@ export function spellPickRefusal(
   reads: PreparedReads,
   pick: SlotPick,
 ): SlotRefusal | undefined {
+  if (isFamiliarSpellKey(pick.slot)) {
+    const refusal = familiarSpellRefusal(document, reads, pick);
+
+    return refusal === undefined ? undefined : FAMILIAR_REFUSALS[refusal];
+  }
+
   if (isSignatureKey(pick.slot)) {
     const refusal = signatureRefusal(document, reads, pick);
 
