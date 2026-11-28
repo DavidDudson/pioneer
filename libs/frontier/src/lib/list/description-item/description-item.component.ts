@@ -1,5 +1,5 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { cva } from 'class-variance-authority';
+import { cva, cx } from 'class-variance-authority';
 
 import { Grid } from '../../layout/grid/grid.component';
 import { textVariants } from '../../text/text.variants';
@@ -33,7 +33,7 @@ export class DescriptionItem {
 
   protected readonly list = inject(DescriptionList);
   protected readonly classes = computed(() =>
-    `block ${rowVariants({ padding: this.padding(), divided: this.divided() })}`.trim(),
+    cx('block', rowVariants({ padding: this.padding(), divided: this.divided() })),
   );
   protected readonly termClasses = termClasses;
   protected readonly valueClasses = valueClasses;

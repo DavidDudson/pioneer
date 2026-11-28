@@ -128,4 +128,9 @@ describe(DescriptionList, () => {
     await TestBed.inject(ApplicationRef).whenStable();
     expect(sorted(row(list).className)).toStrictEqual(sorted(await gridClasses({ ...shared, termFrom: 'lg' })));
   });
+
+  it('leaves each row unpadded and undivided unless the row asks', async () => {
+    const { list } = await render({}, ['Speed']);
+    expect(sorted(row(list).parentElement?.parentElement?.className)).toStrictEqual(['block', 'p-none']);
+  });
 });

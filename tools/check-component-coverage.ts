@@ -95,10 +95,20 @@ const EXEMPTIONS = {
     spec: 'list/description-list/description-list.component.spec.ts',
     story: 'list/description-list/description-list.stories.ts',
   },
-  'list/list-item/list-item.component.ts': {
-    reason: 'A list row; its markup is only valid inside the list.',
-    spec: 'list/list/list.component.spec.ts',
-    story: 'list/list/list.stories.ts',
+  'list/item/item-actions.component.ts': {
+    reason: 'The trailing part of fr-list-item; only meaningful inside it.',
+    spec: 'list/list-item/list-item.component.spec.ts',
+    story: 'list/list-item/list-item.stories.ts',
+  },
+  'list/item/item-content.component.ts': {
+    reason: 'The middle part of fr-list-item; only meaningful inside it.',
+    spec: 'list/list-item/list-item.component.spec.ts',
+    story: 'list/list-item/list-item.stories.ts',
+  },
+  'list/item/item-media.component.ts': {
+    reason: 'The leading part of fr-list-item; only meaningful inside it.',
+    spec: 'list/list-item/list-item.component.spec.ts',
+    story: 'list/list-item/list-item.stories.ts',
   },
   'text/text/phrase.component.ts': {
     reason: 'Internal to fr-text, reached through its element input.',

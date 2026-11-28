@@ -18,12 +18,14 @@ export const SkeletonWidth = { Xs: 'xs', Sm: 'sm', Md: 'md', Lg: 'lg', Full: 'fu
 
 export type SkeletonWidth = ValueOf<typeof SkeletonWidth>;
 
+const FILL = 'animate-shimmer bg-surface-skeleton forced-colors:bg-system-gray-text';
+
 const skeletonVariants = cva('block', {
   variants: {
     kind: {
-      text: 'h-lh animate-shimmer bg-surface-skeleton forced-colors:bg-system-gray-text',
-      block: 'h-2xl animate-shimmer bg-surface-skeleton forced-colors:bg-system-gray-text',
-      square: 'size-xl animate-shimmer bg-surface-skeleton forced-colors:bg-system-gray-text',
+      text: `h-lh ${FILL}`,
+      block: `h-2xl ${FILL}`,
+      square: `size-xl ${FILL}`,
       item: 'flex items-center gap-sm',
     } satisfies Record<SkeletonKind, string>,
     width: {

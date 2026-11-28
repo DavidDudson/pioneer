@@ -1,5 +1,5 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import { cva } from 'class-variance-authority';
+import { cva, cx } from 'class-variance-authority';
 
 import { Space } from '../../tokens';
 import { rowVariants } from '../item/row';
@@ -35,6 +35,6 @@ export class ListItem {
 
   protected readonly rowClasses = rowClasses;
   protected readonly classes = computed(() =>
-    `list-item ${rowVariants({ padding: this.padding(), divided: this.divided() })}`.trim(),
+    cx('list-item', rowVariants({ padding: this.padding(), divided: this.divided() })),
   );
 }

@@ -41,6 +41,13 @@ describe(Skeleton, () => {
     expect([...host.classList]).toContain(expected);
   });
 
+  it.each([SkeletonKind.Text, SkeletonKind.Block, SkeletonKind.Square])('shimmers as a %s', async (kind) => {
+    const host = await render({ kind });
+    expect([...host.classList]).toStrictEqual(
+      expect.arrayContaining(['animate-shimmer', 'bg-surface-skeleton', 'forced-colors:bg-system-gray-text']),
+    );
+  });
+
   it('shapes a block', async () => {
     const host = await render({ kind: SkeletonKind.Block, width: SkeletonWidth.Full });
     expect([...host.classList]).toStrictEqual(expect.arrayContaining(['h-2xl', 'w-full']));
@@ -52,11 +59,12 @@ describe(Skeleton, () => {
     expect([...host.classList].filter((name) => name.startsWith('w-'))).toStrictEqual([]);
   });
 
-  it('is a row of media and two lines as an item, with no fill of its own', async () => {
+  it('is a square then two lines as an item, with no fill of its own', async () => {
     const host = await render({ kind: SkeletonKind.Item });
-    expect([
-      host.querySelectorAll('fr-skeleton').length,
-      [...host.classList].includes('animate-shimmer'),
-    ]).toStrictEqual([3, false]);
+    const parts = Array.from(host.querySelectorAll('fr-skeleton'), (part) => [...part.classList]);
+    expect([parts.length, [...host.classList].includes('animate-shimmer')]).toStrictEqual([3, false]);
+    expect(parts[0]).toContain('size-xl');
+    expect(parts[1]).toContain('w-placeholder-md');
+    expect(parts[2]).toContain('w-placeholder-lg');
   });
 });
