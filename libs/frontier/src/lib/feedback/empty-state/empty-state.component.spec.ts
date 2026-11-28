@@ -28,6 +28,17 @@ describe(EmptyState, () => {
     expect(words(host)).toBe('MediaTitleAction');
   });
 
+  it('slots a header, a bare description and the action apart', async () => {
+    const host = await renderProjected(EmptyState, {}, [
+      element('button', 'Action'),
+      element('fr-empty-state-header', 'Header'),
+      element('fr-empty-state-description', 'Description'),
+    ]);
+
+    expect(words(host)).toBe('HeaderDescriptionAction');
+    expect(actionRow(host)?.textContent.trim()).toBe('Action');
+  });
+
   it('leaves the action row empty without an action, so it collapses', async () => {
     const host = await renderProjected(EmptyState, {}, [element('fr-empty-state-title', 'Title')]);
     expect(actionRow(host)?.childNodes).toHaveLength(0);

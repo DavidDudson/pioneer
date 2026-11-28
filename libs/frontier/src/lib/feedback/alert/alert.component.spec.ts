@@ -13,8 +13,10 @@ import { Alert, AlertTone } from './alert.component';
 
 interface Rendered {
   readonly component: ComponentRef<Alert>;
-  /** The live region. */
+  /** The element that carries the live-region role. */
   readonly region: HTMLElement;
+  /** The element that lays out the icon, text and dismiss button, and sets the tone. */
+  readonly wrapper: HTMLElement;
 }
 
 /** Renders `fr-alert` with `text` projected and returns it and the element that carries the role. */
@@ -36,13 +38,14 @@ async function render(inputs: ComponentInputs<Alert>, text = 'Name is required')
   appRef.attachView(component.hostView);
   await appRef.whenStable();
   // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
-  const region = (component.location.nativeElement as HTMLElement).firstElementChild;
+  const wrapper = (component.location.nativeElement as HTMLElement).firstElementChild;
+  const region = wrapper?.querySelector<HTMLElement>('[role]');
 
-  if (!(region instanceof HTMLElement)) {
-    throw new TypeError('fr-alert rendered no element');
+  if (!(wrapper instanceof HTMLElement) || !region) {
+    throw new TypeError('fr-alert rendered no live region');
   }
 
-  return { component, region };
+  return { component, region, wrapper };
 }
 
 describe(Alert, () => {
@@ -51,9 +54,9 @@ describe(Alert, () => {
   });
 
   it('is a danger alert by default', async () => {
-    const { region } = await render({});
+    const { region, wrapper } = await render({});
     expect(region.getAttribute('role')).toBe('alert');
-    expect([...region.classList]).toStrictEqual(expect.arrayContaining(['text-caption', 'text-danger-fg']));
+    expect([...wrapper.classList]).toStrictEqual(expect.arrayContaining(['text-caption', 'text-danger-fg']));
     expect(region.textContent.trim()).toBe('Name is required');
   });
 
@@ -63,9 +66,9 @@ describe(Alert, () => {
     [AlertTone.Success, 'status', 'text-success-fg'],
     [AlertTone.Info, 'status', 'text-info-fg'],
   ])('announces %s as role="%s" in its tone', async (tone, role, colour) => {
-    const { region } = await render({ tone });
+    const { region, wrapper } = await render({ tone });
     expect(region.getAttribute('role')).toBe(role);
-    expect([...region.classList]).toContain(colour);
+    expect([...wrapper.classList]).toContain(colour);
   });
 
   it('takes an id for aria-describedby, and none by default', async () => {
@@ -81,24 +84,35 @@ describe(Alert, () => {
     expect(region.textContent.trim()).toBe('');
   });
 
-  it('shows no icon and no dismiss button by default', async () => {
-    const { region } = await render({});
-    expect(region.querySelector('svg')).toBeNull();
-    expect(region.querySelector('button')).toBeNull();
+  it('adds no box of its own for plain text, and a flex row with an icon or a dismiss button', async () => {
+    const plain = await render({});
+    expect([...plain.wrapper.classList]).toContain('contents');
+    const withIcon = await render({ icon: Info });
+    expect([...withIcon.wrapper.classList]).toStrictEqual(expect.arrayContaining(['flex', 'gap-xs']));
+    const dismissible = await render({ dismissible: true });
+    expect([...dismissible.wrapper.classList]).toContain('flex');
   });
 
-  it('shows its icon as decoration', async () => {
-    const { region } = await render({ icon: Info });
-    expect(region.querySelector('svg')?.getAttribute('aria-hidden')).toBe('true');
+  it('shows no icon and no dismiss button by default', async () => {
+    const { wrapper } = await render({});
+    expect(wrapper.querySelector('svg')).toBeNull();
+    expect(wrapper.querySelector('button')).toBeNull();
+  });
+
+  it('shows its icon as decoration, outside the live region', async () => {
+    const { region, wrapper } = await render({ icon: Info });
+    expect(wrapper.querySelector('svg')?.getAttribute('aria-hidden')).toBe('true');
+    expect(region.querySelector('svg')).toBeNull();
   });
 
   it('adds a labelled dismiss button when dismissible, and emits dismissed when pressed', async () => {
-    const { component, region } = await render({ dismissible: true });
+    const { component, region, wrapper } = await render({ dismissible: true });
     let dismissals = 0;
     component.instance.dismissed.subscribe(() => {
       dismissals += 1;
     });
-    const button = region.querySelector('button');
+    const button = wrapper.querySelector('button');
+    expect(region.querySelector('button')).toBeNull();
     expect(button?.getAttribute('aria-label')).toBe('Dismiss');
     button?.click();
     expect(dismissals).toBe(1);

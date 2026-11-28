@@ -7,10 +7,9 @@ import { Stack } from '../../layout/stack/stack.component';
 const actionVariants = cva('flex flex-wrap items-center gap-sm pt-xs empty:hidden');
 
 /**
- * What a list or search shows when it has nothing, built from parts: an optional `fr-empty-state-media`, then an
- * `fr-empty-state-header` holding an `fr-empty-state-title` and an optional `fr-empty-state-description`, then
- * whatever else is projected as the action. The title is text, not a heading, so empty regions stay out of the
- * document outline. A title or description may also sit directly in the empty state, without a header.
+ * What a list or search shows when it has nothing, from parts: media, then a header (or a bare title and
+ * description), then the projected action. The title is text, not a heading, so empty regions stay out of the
+ * document outline.
  *
  * ```html
  * <fr-empty-state>

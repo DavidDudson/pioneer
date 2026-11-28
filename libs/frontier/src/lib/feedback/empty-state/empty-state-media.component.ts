@@ -5,7 +5,7 @@ import type { IconGlyph } from '../../icon/icon-glyph';
 import { Icon } from '../../icon/icon.component';
 
 /** One title line tall, so the icon centres on the title's first line. */
-const mediaVariants = cva('flex h-lh items-center');
+const mediaVariants = cva('flex h-lh items-center empty:hidden');
 
 /** The leading part of an `fr-empty-state`: a decorative `icon`, or any projected media. */
 @Component({
