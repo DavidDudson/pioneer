@@ -2,6 +2,7 @@
 
 - Status: Accepted; locale resolution superseded by [0013](0013-account-only-display-preferences.md)
 - Date: 2026-10-08
+- Amended by: [0084](0084-first-ui-languages-and-translation-workflow.md) (first languages, workflow, content locale default)
 
 ## Context
 
