@@ -30,14 +30,15 @@ horse). 89 are missing.
 | Treasure Vault (Remastered)                                                      |       2 | yes             | Oozeform Chair, Rootball Chair                                                                                                                                                                                 |
 | Draconic Codex, Impossible Lands, Secrets of Magic, Hellbreakers, Hell's Destiny |  1 each | yes             | Riding Dragonet, Water Wraith, Shadow Hound, Isgeri Boarhound, Thruneosaurus Rex                                                                                                                               |
 | Grand Bazaar                                                                     |       6 | no              | Beetle, Capybara, Legchair, Moth, Pangolin, Terror Bird                                                                                                                                                        |
-| Pathfinder adventure paths (#149, #154, #177, #181, #201, #208, #209)            |      22 | no              | Camel, Hyena, Vulture, Cave Gecko, Cave Pterosaur, Monitor Lizard, Elephant, Rhinoceros, Triceratops, Tyrannosaurus, five undead (#181), Chetamog, War Pig, Wyvern                                             |
+| Pathfinder adventure paths (#149, #154, #177, #181, #201, #208, #209)            |      18 | no              | Camel, Hyena, Vulture, Cave Gecko, Cave Pterosaur, Monitor Lizard, Elephant, Rhinoceros, Triceratops, Tyrannosaurus, five undead (#181), Chetamog, War Pig, Wyvern                                             |
 | Feybound, Highhelm, Monsters of Myth, Jimothy                                    |       8 | no              | Cu Sith, Giant Dragonfly, Unicorn, Augdunar, Draft Lizard, Goat, Ulgrem-Lurann, Jimothy                                                                                                                        |
 
-73 entries sit in books pioneer already registers (57 not yet imported); 32 sit in books it has no pack for. Legacy-only
-kinds do not exist: every legacy entry has a remaster twin. Specializations: 6 in Player Core p. 211 (pioneer's
-`CompanionSpecialization`), plus Deep Diver, Steadfast Strider, Wildfire Scorcher and Wind Chaser (Legends) and Shade
-(Secrets of Magic). Advanced options: Nimble and Savage (Player Core p. 211), plus Unseen (Dark Archive), Indomitable
-(World Guide) and Genie-Touched (Legends).
+73 entries sit in books pioneer already registers (57 not yet imported); 32 sit in books it has no pack for. Player
+Core 2 holds no companion kinds (its companions are archetype feats). Legacy-only kinds do not exist: every legacy
+entry has a remaster twin. Specializations: 6 in Player Core p. 211 (pioneer's `CompanionSpecialization`), plus Deep
+Diver, Steadfast Strider, Wildfire Scorcher and Wind Chaser (Legends) and Shade (Secrets of Magic). Advanced options:
+Nimble and Savage (Player Core p. 211), plus Unseen (Dark Archive), Indomitable (World Guide) and Genie-Touched
+(Legends).
 
 **Where the data is.**
 
@@ -50,7 +51,7 @@ kinds do not exist: every legacy entry has a remaster twin. Specializations: 6 i
 **Decision.** Companion kinds come from AoN, not from Foundry; the importer's creature selection stays as it is.
 **Reason.** The pinned archive has nothing to select. The community module is a second dependency with no licence file
 for its own text, outside the pin, and Pioneer takes Foundry data only from `foundryvtt/pf2e` at a recorded checksum
-(content-model.md, "Pin"). AoN already fed the 16 Player Core entries (#2265) and carries every field.
+(content-model.md, the "Pin" bullet, line 1217). AoN already fed the 16 Player Core entries (#2265) and carries every field.
 Each entry is authored into a pack's `companion-species.json` only when its book is registered, so the licence class
 (ORC or OGL) is the pack's. Entries in unregistered books wait for their pack, recorded as a reason, not imported.
 
@@ -99,14 +100,14 @@ Advanced maneuvers are one named action per species (Frightening Display, Bear H
 `NoteElement` text today and fully only once G1 and G6 land. They are not feats: `feat:advanced-maneuver` is a
 different entry (animal-companions.md section 3).
 
-| Gap | What is missing                                                        | Story                                |
-| --- | ---------------------------------------------------------------------- | ------------------------------------ |
-| G1  | Rule element that applies a condition or effect to a target on a hit   | new, blocks #2141 and #2142          |
-| G2  | Predicate: target is within the companion's reach, or threatened by it | new, blocks #2141                    |
-| G3  | Roll option for the companion's tier (nimble or savage, specialized)   | folded into #2141                    |
-| G4  | Flanking override, reaction block, latch                               | new, after G1                        |
-| G5  | Roll options for mounted and moved 10 feet                             | folded into #2141                    |
-| G6  | Support as a timed effect the master starts                            | folded into #2141, shared with #2142 |
+| Gap | What is missing                                                        | Story                                                                                                                                               |
+| --- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| G1  | Rule element that applies a condition or effect to a target on a hit   | new, blocks #2141 and #2142                                                                                                                         |
+| G2  | Predicate: target is within the companion's reach, or threatened by it | new, blocks #2141                                                                                                                                   |
+| G3  | Roll option for the companion's tier (nimble or savage, specialized)   | folded into #2141                                                                                                                                   |
+| G4  | Flanking override, reaction block, latch                               | [#2530 feat(rules): flanking override, reaction block and latch for support benefits](https://github.com/DavidDudson/pioneer/issues/2530), after G1 |
+| G5  | Roll options for mounted and moved 10 feet                             | folded into #2141                                                                                                                                   |
+| G6  | Support as a timed effect the master starts                            | folded into #2141, shared with #2142                                                                                                                |
 
 ## 4. Special companions
 
@@ -139,18 +140,18 @@ close it by diffing the two AoN blocks before the Legacy Content variant needs a
 
 ## 6. Stories for the epic
 
-| Story                                                                                                                           | Verdict                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| [#2139 feat(content): companion kinds are content with stat blocks](https://github.com/DavidDudson/pioneer/issues/2139)         | Closed with the 16 Player Core kinds. The remaining kinds are the new import stories below. |
-| [#2140 feat(rules): tier changes for each companion kind](https://github.com/DavidDudson/pioneer/issues/2140)                   | Reduced to the benefit scaling; merged into #2141 (section 2).                              |
-| [#2141 feat(rules): support benefits as rule elements](https://github.com/DavidDudson/pioneer/issues/2141)                      | Kept, blocked by G1 and G2.                                                                 |
-| [#2142 feat(rules): advanced maneuvers as actions](https://github.com/DavidDudson/pioneer/issues/2142)                          | Kept, blocked by G1 and G6.                                                                 |
-| [#2143 feat(rules): construct, dragon, undead and other special companions](https://github.com/DavidDudson/pioneer/issues/2143) | Split (section 4).                                                                          |
-| [#2144 feat(rules): barding and companion items](https://github.com/DavidDudson/pioneer/issues/2144)                            | Unchanged.                                                                                  |
-| New: import Howl of the Wild companions (19) and Rage of Elements elementals (6)                                                | Blocked by nothing.                                                                         |
-| New: import companions of the other registered books (32)                                                                       | Same slice, one PR per few books.                                                           |
-| New: rule element to apply a condition or effect to a target on a hit (G1)                                                      | Blocks #2141 and #2142.                                                                     |
-| New: predicate for a target in the companion's reach (G2)                                                                       | Blocks #2141.                                                                               |
+| Story                                                                                                                                                   | Verdict                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| [#2139 feat(content): companion kinds are content with stat blocks](https://github.com/DavidDudson/pioneer/issues/2139)                                 | Closed with the 16 Player Core kinds. The remaining kinds are the new import stories below. |
+| [#2140 feat(rules): tier changes for each companion kind](https://github.com/DavidDudson/pioneer/issues/2140)                                           | Reduced to the benefit scaling; merged into #2141 (section 2).                              |
+| [#2141 feat(rules): support benefits as rule elements](https://github.com/DavidDudson/pioneer/issues/2141)                                              | Kept, blocked by G1 and G2.                                                                 |
+| [#2142 feat(rules): advanced maneuvers as actions](https://github.com/DavidDudson/pioneer/issues/2142)                                                  | Kept, blocked by G1 and G6.                                                                 |
+| [#2143 feat(rules): construct, dragon, undead and other special companions](https://github.com/DavidDudson/pioneer/issues/2143)                         | Split (section 4).                                                                          |
+| [#2144 feat(rules): barding and companion items](https://github.com/DavidDudson/pioneer/issues/2144)                                                    | Unchanged.                                                                                  |
+| New: [#2523 feat(content): Howl of the Wild and Rage of Elements companion species](https://github.com/DavidDudson/pioneer/issues/2523) (19 and 6)      | Blocked by nothing.                                                                         |
+| New: [#2524 feat(content): companion species of the other registered books](https://github.com/DavidDudson/pioneer/issues/2524) (32)                    | Same slice, one PR per few books.                                                           |
+| New: [#2525 feat(rules): rule element that applies a condition or effect to a target on a hit](https://github.com/DavidDudson/pioneer/issues/2525) (G1) | Blocks #2141 and #2142.                                                                     |
+| New: [#2526 feat(rules): predicate for a target within the companion's reach](https://github.com/DavidDudson/pioneer/issues/2526) (G2)                  | Blocks #2141.                                                                               |
 
 ## Open for the book
 

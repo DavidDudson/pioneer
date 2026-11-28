@@ -152,7 +152,7 @@ member covers both. The shape is #2128's to fix.
 
 ## Gaps in pioneer today
 
-- Companion types (bear, wolf, horse and the rest) are not imported; `remaster-audit.ts` listed `Animal Companion` under
+- Companion types (bear, wolf, horse and the rest) are not imported; `remaster-audit.ts` lists `Animal Companion` under
   `MISSING_KIND_TYPES`. Support benefits and advanced maneuvers sit inside them.
 - The companion feats carry prose only (`rules: []`).
 - The prerequisite matcher leaves "an animal companion" Unknown (#2137).
