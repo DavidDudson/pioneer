@@ -66,6 +66,11 @@ function gradualBoosts(variants: ReadonlyArray<VariantRuleEntry>): boolean {
   return variants.some(({ definition }) => definition.structure?.includes(VariantStructure.GradualBoosts) === true);
 }
 
+/** Whether a variant in force gives an apex attribute increase at 17th level (Automatic Bonus Progression). */
+function apexBoost(variants: ReadonlyArray<VariantRuleEntry>): boolean {
+  return variants.some(({ definition }) => definition.structure?.includes(VariantStructure.ApexBoost) === true);
+}
+
 /**
  * The slot content a registry gives, for a character with `variants` in force. Legacy content is on while its variant
  * rule is in force, or when `legacyContent` says so: an import reads a build for what it holds, whatever the table allows.
@@ -83,7 +88,12 @@ export function slotContent(
     namespaces: registry.rollOptionNamespaces(),
     rootSlots,
     variantRoots: variantGrantRoots(variants),
-    boosts: boostContent(registry, { rootSlots, lookup: () => lookup, gradual: gradualBoosts(variants) }),
+    boosts: boostContent(registry, {
+      rootSlots,
+      lookup: () => lookup,
+      gradual: gradualBoosts(variants),
+      apex: apexBoost(variants),
+    }),
     skills: skillContent(registry),
     languages: languageContent(registry),
     spells: spellContent(registry),

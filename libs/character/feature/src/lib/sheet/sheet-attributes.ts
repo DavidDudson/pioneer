@@ -22,6 +22,7 @@ export const BOOST_LABEL_KEYS: Readonly<Record<BoostSource, string>> = {
   [BoostSource.Class]: 'rules.attributes.boost.class',
   [BoostSource.SecondClass]: 'rules.attributes.boost.secondClass',
   [BoostSource.Free]: 'rules.attributes.boost.free',
+  [BoostSource.Apex]: 'rules.attributes.boost.apex',
 };
 
 /**
@@ -33,7 +34,10 @@ export function sheetAttributes(registry: ContentRegistry, character: Character)
   const content = sheetSlotContent(registry).boosts;
 
   const open = boostSlots(character.document, content).flatMap((slot): Array<OpenBoostLine> =>
-    slot.pick === undefined && slot.source !== BoostSource.Free && slot.level <= character.level
+    slot.pick === undefined &&
+    slot.source !== BoostSource.Free &&
+    slot.source !== BoostSource.Apex &&
+    slot.level <= character.level
       ? [{ key: slot.key, label: message(BOOST_LABEL_KEYS[slot.source], { level: slot.level }) }]
       : [],
   );

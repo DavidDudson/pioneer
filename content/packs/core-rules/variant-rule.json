@@ -601,9 +601,54 @@
             "gte": ["self:level", 19]
           }
         ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 9]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          },
+          {
+            "not": {
+              "gte": ["self:level", 17]
+            }
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
       }
     ],
-    "data": {}
+    "data": {
+      "structure": ["apexBoost"]
+    }
   },
   {
     "id": "c46b73e0-50a1-523c-a265-c4037861c84e",

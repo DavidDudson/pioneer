@@ -33,5 +33,6 @@ export const BOOST_FIXTURES: BoostContent = {
   keyAttribute: (id) => CLASSES.get(id),
   secondClass: false,
   gradual: false,
+  apex: false,
   keyAttributeOptions: () => [],
 };

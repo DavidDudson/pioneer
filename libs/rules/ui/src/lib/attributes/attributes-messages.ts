@@ -10,6 +10,7 @@ export const AttributesMessage = {
   ClassBoost: 'rules.attributes.boost.class',
   SecondClassBoost: 'rules.attributes.boost.secondClass',
   FreeBoost: 'rules.attributes.boost.free',
+  ApexBoost: 'rules.attributes.boost.apex',
 } as const;
 
 /** The three-letter keys ("Str"), for rows too narrow for the full name. */

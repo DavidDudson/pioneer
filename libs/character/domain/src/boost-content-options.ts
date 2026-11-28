@@ -5,4 +5,5 @@ export interface BoostContentOptions {
   readonly rootSlots?: ReadonlyArray<RootSlotDefinition>;
   readonly lookup?: () => ContentLookup;
   readonly gradual?: boolean;
+  readonly apex?: boolean;
 }
