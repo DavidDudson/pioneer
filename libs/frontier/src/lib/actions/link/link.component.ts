@@ -30,15 +30,15 @@ const linkVariants = cva('focus-visible:focus-ring', {
     appearance: {
       inline: 'text-accent-fg underline underline-offset-link hover:decoration-accent-fg',
       // Touch-sized; a tab's label never wraps, the tab row scrolls instead.
-      tab: 'inline-flex h-touch items-center px-sm text-label font-medium whitespace-nowrap underline-offset-link pointer-fine:h-control-sm',
+      tab: 'inline-flex min-h-control-sm items-center px-sm text-label font-medium whitespace-nowrap underline-offset-link',
       // Touch-sized like a tab, but reads as a link: the index wraps instead of scrolling.
       index:
-        'inline-flex h-touch items-center text-accent-fg underline decoration-line-strong underline-offset-link hover:decoration-accent-fg pointer-fine:h-control-sm',
+        'inline-flex min-h-control-sm items-center text-accent-fg underline decoration-line-strong underline-offset-link hover:decoration-accent-fg',
       segment:
-        'inline-flex h-touch items-center justify-center px-sm text-label font-medium whitespace-nowrap no-underline pointer-fine:h-control-sm',
-      menu: 'flex h-touch w-full items-center gap-xs px-sm text-label font-medium text-fg-default hover:bg-surface-sunken pointer-fine:h-control-sm',
+        'inline-flex min-h-control-sm items-center justify-center px-sm text-label font-medium whitespace-nowrap no-underline',
+      menu: 'flex min-h-control-sm w-full items-center gap-xs px-sm text-label font-medium text-fg-default hover:bg-surface-sunken',
       button:
-        'inline-flex h-touch items-center justify-center bg-accent-solid px-md text-body font-medium whitespace-nowrap text-accent-on-solid no-underline hover:bg-accent-solid-hover active:bg-accent-solid-active forced-colors:border pointer-fine:h-control-md',
+        'inline-flex min-h-control-md items-center justify-center bg-accent-solid px-md text-body font-medium whitespace-nowrap text-accent-on-solid no-underline hover:bg-accent-solid-hover active:bg-accent-solid-active forced-colors:border',
     } satisfies Record<LinkAppearance, string>,
     // The page being shown: the underline turns accent and thickens, so the cue is not colour alone.
     current: { true: 'decoration-accent-fg decoration-link-current', false: '' },

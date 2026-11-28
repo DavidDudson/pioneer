@@ -219,11 +219,14 @@ more room, never a separate design.
   explicit overflow region (such as a table). Don't hide content on
   phone to make it fit; reflow it.
 - **Touch targets are at least 44px (2.75rem).** Buttons, controls, select
-  options and inline-edit triggers meet this by default and shrink only
-  under `pointer-fine:` (mouse/trackpad). New interactive components do the
-  same: touch size unprefixed, compact size under `pointer-fine:`. That's an
-  input-capability query, not a layout breakpoint, so any component may use
-  it. Never rely on hover to reveal anything.
+  options and inline-edit triggers meet this by default and shrink only for
+  a mouse or trackpad. The control scale does it once: `h-control-xs|sm|md|lg`
+  (and `min-h-`, `w-`, `ps-`, `pe-` forms) is 2.75rem by default and gets its
+  compact size under `@media (pointer: fine)` in `semantic.css`, so
+  components write one class and never pair `h-touch` with `pointer-fine:`.
+  Prefer `min-h-control-*` so wrapped text never clips; a square icon-only
+  control sets `h-control-*`. That's an input-capability query, not a layout
+  breakpoint. Never rely on hover to reveal anything.
 - **Text inputs use `text-body` (16px) or larger** so iOS doesn't zoom on
   focus.
 - **Safe areas.** `fr-shell` pads for notches and home indicators via

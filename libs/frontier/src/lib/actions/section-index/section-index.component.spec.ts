@@ -66,7 +66,7 @@ describe(SectionIndex, () => {
 
   it('makes every link touch-sized, since each stands alone', async () => {
     const host = await render(SECTIONS);
-    const touch = [...host.querySelectorAll('a')].map((link) => link.classList.contains('h-touch'));
+    const touch = [...host.querySelectorAll('a')].map((link) => link.classList.contains('min-h-control-sm'));
     expect(touch).toStrictEqual([true, true, true]);
   });
 
