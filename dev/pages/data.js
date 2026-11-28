@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795831292385,
+  "lastUpdate": 1795831447201,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -358,6 +358,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 209,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fd2bd8341fde8201782e5dd567b43aadd887c616",
+          "message": "refactor(frontier): share search, translate and virtual-row helpers (#2420)\n\n* refactor(frontier): share the search debounce across the three controls\n\nExtract injectSearchQuery (debounce, stale-query drop, repeat guard) from\nfr-search-input, fr-combobox and fr-picker. SEARCH_DEBOUNCE moves out of\nthe search input into the shared helper.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): add injectTranslate for messages that load late\n\nReplace the translationLoadSuccess re-read in the spell picker, the option\npicker columns and the route crumbs with one injectTranslate signal.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): share virtual rows between the combobox and picker\n\nAdd the frVirtualRows and frVirtualRow directives: the pinned highlight and\npicked rows, scroll-into-view, reset on new rows, measuring and placement\nthat fr-combobox and fr-picker-grid each wired up by hand.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(frontier): act on mob-review findings\n\nDrop the Translate type from the barrel (no consumer outside frontier),\nremove the staleness comment repeated at three injectSearchQuery call\nsites, trim the injectTranslate doc, and cover the resetOn scroll reset\nin the virtual-rows spec.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix(frontier): stop exporting TranslateParams\n\nNothing outside inject-translate.ts imports it, so knip failed the\nworkspace lint.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T11:39:04+10:00",
+          "tree_id": "88b17f62bbadc13d5fbef4b90cce9a5604d3c99e",
+          "url": "https://github.com/DavidDudson/pioneer/commit/fd2bd8341fde8201782e5dd567b43aadd887c616"
+        },
+        "date": 1795831443710,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4272,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 213,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1236,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6377,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 214,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
