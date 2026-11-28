@@ -62,7 +62,11 @@ export { DateInput } from './lib/controls/date-input/date-input.component';
 
 export { FilterBar } from './lib/controls/filter-bar/filter-bar.component';
 
-export { FilterKind, FilterOperator } from './lib/controls/filter-bar/filter-bar.types';
+export { FilterKind, FilterOperator, defaultOperator } from './lib/controls/filter-bar/filter-bar.types';
+
+export { filterCodec } from './lib/controls/filter-bar/filter-codec';
+
+export type { FilterCodec } from './lib/controls/filter-bar/filter-codec';
 
 export type { FilterCondition, FilterField, FilterOption } from './lib/controls/filter-bar/filter-bar.types';
 

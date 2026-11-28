@@ -50,6 +50,17 @@ const OPERATORS: Readonly<Record<FilterKind, ReadonlyArray<FilterOperator>>> = {
   range: [FilterOperator.Is, FilterOperator.Between],
 };
 
+/** The operator a field of this kind starts with, and the one a link leaves unwritten. */
+const DEFAULT_OPERATORS: Readonly<Record<FilterKind, FilterOperator>> = {
+  set: FilterOperator.Is,
+  flag: FilterOperator.Is,
+  range: FilterOperator.Is,
+};
+
+export function defaultOperator(kind: FilterKind): FilterOperator {
+  return DEFAULT_OPERATORS[kind];
+}
+
 /** The operators a field of this kind offers, the default first. */
 export function operatorsFor(kind: FilterKind): ReadonlyArray<FilterOperator> {
   return OPERATORS[kind];
