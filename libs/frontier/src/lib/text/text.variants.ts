@@ -26,10 +26,10 @@ export type FontWeight = ValueOf<typeof FontWeight>;
 export const textVariants = cva('', {
   variants: {
     variant: {
-      display: 'text-display font-bold tracking-tight',
-      title: 'text-title font-semibold tracking-tight',
-      heading: 'text-heading font-semibold',
-      subheading: 'text-subheading font-semibold',
+      display: 'text-display font-bold tracking-tight text-balance',
+      title: 'text-title font-semibold tracking-tight text-balance',
+      heading: 'text-heading font-semibold text-balance',
+      subheading: 'text-subheading font-semibold text-balance',
       lead: 'text-lead',
       body: 'text-body',
       label: 'text-label font-medium',
