@@ -221,8 +221,8 @@ more room, never a separate design.
 - **Touch targets are at least 44px (2.75rem).** Buttons, controls, select
   options and inline-edit triggers meet this by default and shrink only for
   a mouse or trackpad. The control scale does it once: `h-control-xs|sm|md|lg`
-  (and `min-h-`, `w-`, `ps-`, `pe-` forms) is 2.75rem by default and gets its
-  compact size under `@media (pointer: fine)` in `semantic.css`, so
+  (and `min-h-`, `w-`, `ps-`, `pe-` forms) is 2.75rem by default (`lg` is 3rem)
+  and gets its compact size under `@media (pointer: fine)` in `semantic.css`, so
   components write one class and never pair `h-touch` with `pointer-fine:`.
   Prefer `min-h-control-*` so wrapped text never clips; a square icon-only
   control sets `h-control-*`. That's an input-capability query, not a layout

@@ -59,8 +59,8 @@ const forcedPressed = cva([
 ])();
 
 /**
- * Touch first: every size is at least 44px tall unless the pointer is fine (`min-h-control-*` follows the pointer). Under forced colours every
- * variant gets a border, since a fill no longer marks the button's edge.
+ * Touch first: every size is at least 44px tall unless the pointer is fine.
+ * Under forced colours every variant gets a border, since a fill no longer marks the button's edge.
  */
 const buttonVariants = cva(
   [

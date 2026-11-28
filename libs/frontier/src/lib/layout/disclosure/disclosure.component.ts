@@ -23,7 +23,7 @@ const rootVariants = cva('block', {
   },
 });
 
-/** Touch first: the trigger is at least 44px tall unless the pointer is fine (`min-h-control-md`). */
+/** Touch first: the trigger is at least 44px tall unless the pointer is fine. */
 const summaryVariants = cva(
   [
     'flex min-h-control-md cursor-pointer items-center justify-between gap-sm select-none',

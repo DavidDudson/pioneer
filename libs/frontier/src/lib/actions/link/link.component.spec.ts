@@ -131,7 +131,7 @@ describe(Link, () => {
   it('looks like an inline link by default', async () => {
     const anchor = await render({ to: '/campaigns' }, '/characters');
     expect([...anchor.classList]).toStrictEqual(expect.arrayContaining(['text-accent-fg', 'decoration-line-strong']));
-    expect([...anchor.classList]).not.toContain('min-h-control-sm');
+    expect(anchor.className).not.toMatch(/h-control-/u);
   });
 
   it('draws a tab touch-sized and muted, without an underline, while another page is shown', async () => {

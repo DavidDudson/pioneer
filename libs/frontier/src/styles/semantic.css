@@ -19,8 +19,7 @@
   --fr-space-2xl: var(--fr-scale-space-8);
   --fr-space-3xl: var(--fr-scale-space-9);
 
-  /* Sizes. Touch targets are 2.75rem (44px). Every control size is the touch size by default and shrinks under a fine
-     pointer (see the media query below), so components write `h-control-md` and never `h-touch pointer-fine:...`. */
+  /* Sizes. Touch targets are 2.75rem (44px); control sizes start there and shrink under a fine pointer. */
   --fr-size-touch: 2.75rem;
   --fr-size-touch-pair: calc(var(--fr-size-touch) * 2);
   --fr-size-gem: 1.5rem;
