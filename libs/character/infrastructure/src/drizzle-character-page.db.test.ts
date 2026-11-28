@@ -181,6 +181,15 @@ describe.skipIf(adminUrl === undefined)('a page of the character list (postgres)
     expect(past).toMatchObject({ items: [], total: 3, page: 2 });
   });
 
+  test('facet counts see only the owner’s live characters', async () => {
+    const other = await repository.facetsForOwner(otherOwnerId, CharacterFacetQuery.parse({ property: 'class' }));
+    expect(other).toMatchObject({ items: [], total: 0 });
+  });
+
+  test('facet values with the same count come in value order', async () => {
+    expect(await facets({ property: 'level' })).toStrictEqual(['9:2', '1:1', '5:1']);
+  });
+
   test('nobody else’s characters are counted', async () => {
     const filters = JSON.stringify(filterConditionsOf({ name: CharacterSearch.parse('Page') }));
     const page = await repository.pageForOwner(otherOwnerId, CharacterPageQuery.parse({ filters }));

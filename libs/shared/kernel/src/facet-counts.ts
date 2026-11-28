@@ -24,14 +24,6 @@ export const FacetPage = z.object({
 
 export type FacetPage = z.output<typeof FacetPage>;
 
-/** What a facet request holds once read: the property, the other conditions, text to find in a value, a page. */
-export interface FacetRequest {
-  readonly property: string;
-  readonly filters: ReadonlyArray<FilterCondition>;
-  readonly search?: string | undefined;
-  readonly page: number;
-}
-
 /** The conditions that count, a facet's own excluded: picking a value must not hide the others. */
 export function otherConditions(
   conditions: ReadonlyArray<FilterCondition>,

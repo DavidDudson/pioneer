@@ -97,4 +97,4 @@ export {
   type FilterValue,
 } from './filter-condition';
 
-export { FACET_PAGE_SIZE, FacetCount, FacetPage, facetQuery, otherConditions, type FacetRequest } from './facet-counts';
+export { FACET_PAGE_SIZE, FacetCount, FacetPage, facetQuery, otherConditions } from './facet-counts';

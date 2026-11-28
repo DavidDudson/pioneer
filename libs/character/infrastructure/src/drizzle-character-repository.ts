@@ -41,6 +41,8 @@ const SORT_COLUMNS = {
   name: characters.name,
 } as const satisfies Record<CharacterSort, AnyPgColumn>;
 
+const FILTER_COLUMNS = new Map<string, FilterColumn>(Object.entries(CHARACTER_FILTER_COLUMNS));
+
 export class DrizzleCharacterRepository extends CharacterRepository {
   readonly #db: BunSQLDatabase;
   readonly #found = new RequestMemo<CharacterId, Character | undefined>();
@@ -84,7 +86,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
   }
 
   public override async facetsForOwner(ownerId: UserId, query: CharacterFacetQuery): Promise<FacetPage> {
-    const target = new Map<string, FilterColumn>(Object.entries(CHARACTER_FILTER_COLUMNS)).get(query.property);
+    const target = FILTER_COLUMNS.get(query.property);
 
     if (target === undefined) {
       throw new Error(`The character list has no property ${query.property}`);

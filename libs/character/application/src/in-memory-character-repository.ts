@@ -49,8 +49,10 @@ const READ = {
   ancestry: (character) => character.ancestry,
 } as const satisfies Readonly<Record<CharacterFilterProperty, (character: Character) => FilterValue>>;
 
+const READERS = new Map<string, (character: Character) => FilterValue>(Object.entries(READ));
+
 function readProperty(property: string, character: Character): FilterValue {
-  return new Map<string, (character: Character) => FilterValue>(Object.entries(READ)).get(property)?.(character);
+  return READERS.get(property)?.(character);
 }
 
 /** Whether `character` passes every condition; no conditions pass all. */

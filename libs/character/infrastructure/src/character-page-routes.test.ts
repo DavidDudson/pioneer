@@ -12,6 +12,7 @@ import type { AnyElysia } from 'elysia';
 import { characterRoutes } from './character-routes';
 
 const amiri = UserId.parse(newId());
+const kyra = UserId.parse(newId());
 
 /** The part of a page of the list these tests read. */
 interface PageBody {
@@ -127,6 +128,18 @@ describe('the character facets', () => {
     const other = JSON.stringify([{ property: 'name', operator: 'contains', values: ['zzz'] }]);
     const body = await facetsAt(api, `/characters/facets?property=level&filters=${encodeURIComponent(other)}`);
     expect(body).toMatchObject({ items: [], total: 0 });
+  });
+
+  test('counts cover only the caller’s own characters', async () => {
+    const api = app();
+    await create(api, 'Amiri');
+
+    const response = await api.handle(
+      new Request('http://localhost/characters/facets?property=level', { headers: actingAs(kyra) }),
+    );
+
+    // SAFETY: Response.json() is typed any; the route's body has the contract's shape.
+    expect(((await response.json()) as FacetBody).items).toStrictEqual([]);
   });
 
   test.each([

@@ -4,9 +4,8 @@ import { and, asc, count, countDistinct, desc, ilike, isNotNull, sql } from 'dri
 import type { SQL } from 'drizzle-orm';
 import type { PgColumn, PgTable } from 'drizzle-orm/pg-core';
 
+import { escapeLike } from './escape-like';
 import type { Executor } from './executor';
-
-const LIKE_WILDCARDS = /[%_\\]/gu;
 
 /** What a facet read needs: the rows to count (`where`, the list's other conditions already applied) and the value. */
 interface FacetSource {
@@ -16,7 +15,7 @@ interface FacetSource {
 }
 
 /** What narrows the values: text to find in them, and the page. */
-interface FacetWindow {
+interface FacetPaging {
   readonly search?: string | undefined;
   readonly page: number;
 }
@@ -26,18 +25,15 @@ interface FacetWindow {
  * first and then by value so pages are stable. Rows with no value are not counted. `search` matches the value
  * ignoring case, its own wildcards literal.
  */
-export async function facetCounts(db: Executor, source: FacetSource, window: FacetWindow): Promise<FacetPage> {
+export async function facetCounts(db: Executor, source: FacetSource, paging: FacetPaging): Promise<FacetPage> {
   const { table, column, where } = source;
   const value = sql<string>`${column}::text`;
 
-  const found =
-    window.search === undefined
-      ? undefined
-      : ilike(value, `%${window.search.replaceAll(LIKE_WILDCARDS, String.raw`\$&`)}%`);
+  const searchMatch = paging.search === undefined ? undefined : ilike(value, `%${escapeLike(paging.search)}%`);
 
-  const matching = and(where, isNotNull(column), found);
+  const matching = and(where, isNotNull(column), searchMatch);
 
-  const offset = (window.page - 1) * FACET_PAGE_SIZE;
+  const offset = (paging.page - 1) * FACET_PAGE_SIZE;
   const byCount = [desc(count()), asc(value)];
 
   const [items, [counted]] = await Promise.all([
@@ -55,5 +51,5 @@ export async function facetCounts(db: Executor, source: FacetSource, window: Fac
       .where(matching),
   ]);
 
-  return { items, total: counted?.total ?? 0, page: window.page, pageSize: FACET_PAGE_SIZE };
+  return { items, total: counted?.total ?? 0, page: paging.page, pageSize: FACET_PAGE_SIZE };
 }
