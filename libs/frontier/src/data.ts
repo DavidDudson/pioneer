@@ -73,6 +73,8 @@ export {
   PropertyKindId,
 } from './lib/data/property/property.types';
 
+export { tableFromProperties, type TableFromPropertiesOptions } from './lib/data/property/table-from-properties';
+
 export { resolvePropertyCell } from './lib/data/property/resolve-property-cell';
 
 export { VirtualItem } from './lib/data/virtual-list/virtual-item.directive';

@@ -4,6 +4,10 @@ import { Temporal } from '@pioneer/shared/kernel';
 import { expect, userEvent, within } from 'storybook/test';
 
 import { BadgeTone } from '../../text/badge/badge.component';
+import { FRONTIER_PROPERTY_KINDS } from '../property/property-kinds';
+import { PropertyKindId } from '../property/property.types';
+import type { PropertyContext, PropertyDescriptor } from '../property/property.types';
+import { tableFromProperties } from '../property/table-from-properties';
 import { ColumnChooser } from './column-chooser/column-chooser.component';
 import { TableHeaderCell } from './header-cell/header-cell.component';
 import { tableColumns } from './table-features';
@@ -108,6 +112,34 @@ const MIXED_COLUMNS = tableSchema<Trait>()
  */
 export const BuiltFromSchema: StoryObj<Table<Trait>> = {
   args: { data: TRAITS, columns: MIXED_COLUMNS, caption: 'Traits', rowId: (trait: Trait): string => trait.id },
+};
+
+const PARTY_PROPERTIES: ReadonlyArray<PropertyDescriptor<PartyMember>> = [
+  { id: 'name', label: SampleMessage.Name, kind: PropertyKindId.Text, value: (member) => member.name },
+  { id: 'ancestry', label: SampleMessage.Ancestry, kind: PropertyKindId.Text, value: (member) => member.ancestry },
+  { id: 'class', label: SampleMessage.Class, kind: PropertyKindId.Text, value: (member) => member.className },
+  { id: 'level', label: SampleMessage.Level, kind: PropertyKindId.Number, value: (member) => member.level },
+];
+
+/** Plain functions, so the story builds its columns once at module load; an app passes `injectPropertyContext()`. */
+const STORY_CONTEXT: PropertyContext = {
+  compareText: (left, right) => left.localeCompare(right),
+  formatNumber: (value) => value.toLocaleString(),
+  formatDate: (value) => value.toLocaleString(),
+  translate: (key) => key,
+};
+
+const FROM_PROPERTIES = tableFromProperties(PARTY_PROPERTIES, ['name', 'level', 'class'], {
+  kinds: new Map(FRONTIER_PROPERTY_KINDS.map((kind) => [kind.id, kind])),
+  context: STORY_CONTEXT,
+}).build();
+
+/**
+ * Columns come from a property list and the ids to show: `tableFromProperties(properties, ['name', 'level'], …)`.
+ * Header, width and sorting come from each property, and a number sorts by size, as its kind says.
+ */
+export const BuiltFromProperties: TableStory = {
+  args: { data: PARTY, columns: FROM_PROPERTIES, caption: 'Party', rowId: (member: PartyMember): string => member.id },
 };
 
 const HIDEABLE_COLUMNS: ReadonlyArray<TableColumn<PartyMember>> = column.columns([

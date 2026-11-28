@@ -1,6 +1,6 @@
 import type { Type } from '@angular/core';
 import { flexRenderComponent } from '@tanstack/angular-table';
-import type { ColumnDef, FlexRenderComponent, RowData } from '@tanstack/angular-table';
+import type { ColumnDef, FlexRenderComponent, RowData, SortFn } from '@tanstack/angular-table';
 
 import { DateDisplay, DateFormat } from '../../date/date.component';
 import type { DateValue } from '../../date/date.component';
@@ -36,6 +36,8 @@ export interface ComponentColumn<TRow extends RowData, TCell = unknown> extends 
   readonly id: string;
   /** What the column sorts by; the rendered cell is separate. */
   readonly sortValue: (row: TRow) => SortValue;
+  /** Orders two rows when `sortValue` cannot, as a property's kind does. Ascending: the table reverses it. */
+  readonly compare?: (left: TRow, right: TRow) => number;
   readonly component: Type<TCell>;
   /** The component's inputs for one row. */
   readonly inputs: (row: TRow) => CellInputs<TCell>;
@@ -67,7 +69,7 @@ export interface TagColumn<TRow extends RowData> extends ColumnOptions {
 }
 
 /** The options `options` sets, leaving out the ones it doesn't, so an absent one stays absent. */
-function presentOptions(options: ColumnOptions): ColumnOptions {
+export function presentOptions(options: ColumnOptions): ColumnOptions {
   const sortable =
     options.sortable === undefined
       ? { header: options.header }
@@ -97,6 +99,11 @@ function widthMeta(options: ColumnOptions): ColumnExtras {
   const meta = options.code === undefined ? defaultHidden : { ...defaultHidden, code: options.code };
 
   return Object.keys(meta).length === 0 ? {} : { meta };
+}
+
+/** TanStack's sort function for a comparison of two rows' data. */
+function rowCompare<TRow extends RowData>(compare: (left: TRow, right: TRow) => number): SortFn<TableFeatureSet, TRow> {
+  return (left, right): number => compare(left.original, right.original);
 }
 
 /** A column of any value type, before `columns()` unifies it with the rest. */
@@ -178,6 +185,7 @@ export class TableSchema<TRow extends RowData> {
         id: options.id,
         header: options.header,
         enableSorting: options.sortable ?? true,
+        sortFn: options.compare === undefined ? 'auto' : rowCompare(options.compare),
         ...widthMeta(options),
         cell: ({ row }) => flexRenderComponent(options.component, { inputs: options.inputs(row.original) }),
       }),
