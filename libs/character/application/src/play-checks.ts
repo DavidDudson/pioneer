@@ -1,10 +1,13 @@
 import {
+  CompanionProblem,
+  companionProblem,
   ConditionProblem,
   conditionProblem,
   EffectCommandField,
   EffectProblem,
   effectProblem,
   environmentContent,
+  isCompanionCommand,
   isConditionCommand,
   isConsumableCommand,
   isEffectCommand,
@@ -18,6 +21,7 @@ import {
   staffProblem,
 } from '@pioneer/character/domain';
 import type {
+  CompanionId,
   ConditionValued,
   EffectCommand,
   EffectContent,
@@ -38,6 +42,29 @@ const EFFECT_MESSAGES = {
   [EffectProblem.Rank]: 'character.validation.effectRank',
   [EffectProblem.NoUses]: 'character.validation.effectNoUses',
 } as const satisfies Record<EffectProblem, string>;
+
+/** The message each refused companion status edit answers with. */
+const COMPANION_MESSAGES = {
+  [CompanionProblem.Unknown]: 'character.validation.companionUnknown',
+  [CompanionProblem.Illegal]: 'character.validation.companionIllegal',
+} as const satisfies Record<CompanionProblem, string>;
+
+/** Refuses a companion status edit for a companion the character does not have live, or one its status cannot move to. */
+export async function checkCompanion(
+  play: PlayState,
+  command: PlayEdit,
+  live: () => Promise<ReadonlyArray<CompanionId>>,
+): Promise<void> {
+  if (!isCompanionCommand(command)) {
+    return;
+  }
+
+  const problem = companionProblem(play.companions, command, await live());
+
+  if (problem !== undefined) {
+    throw new ValidationError([{ path: ['command'], message: message(COMPANION_MESSAGES[problem]) }]);
+  }
+}
 
 /** The message each refused condition edit answers with. */
 const CONDITION_MESSAGES = {

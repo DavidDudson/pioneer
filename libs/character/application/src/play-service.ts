@@ -37,6 +37,7 @@ import type {
   Character,
   CharacterId,
   CharacterPlay,
+  CompanionId,
   ConditionValued,
   EffectContent,
   PatchedPlay,
@@ -55,11 +56,14 @@ import type { ContentRegistry, ContentSource, HitPoints } from '@pioneer/rules/s
 import { NotFoundError, Uuid, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
+import type { CharacterCompanionRepository } from './character-companion-repository';
 import { contentOfCharacter, variantRulesOfCharacter } from './character-content';
 import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository, PlayWrite } from './character-repository';
+import { InMemoryCharacterCompanionRepository } from './in-memory-character-companion-repository';
 import {
+  checkCompanion,
   checkCondition,
   checkEffect,
   checkEnvironment,
@@ -89,11 +93,36 @@ export class PlayService {
   readonly #characters: CharacterRepository;
   readonly #content: CharacterContentSource;
   readonly #clock: Clock;
+  #companions: CharacterCompanionRepository = new InMemoryCharacterCompanionRepository();
 
   public constructor(characters: CharacterRepository, content: CharacterContentSource, clock: Clock) {
     this.#characters = characters;
     this.#content = content;
     this.#clock = clock;
+  }
+
+  /** This service reading the companions each character owns, which a companion status edit is checked against (ADR-0079). */
+  public withCompanions(companions: CharacterCompanionRepository): this {
+    this.#companions = companions;
+
+    return this;
+  }
+
+  /** Refuses an edit that names an exploration activity, environment, shape or companion the character cannot have. */
+  async #checked(character: Character, play: PlayState, command: PlayEdit): Promise<void> {
+    const registry = async (): Promise<ContentRegistry> => this.#contentOf(character).registry();
+
+    await checkExploration(command, registry);
+    await checkEnvironment(command, registry);
+    await checkShift(character, command, registry);
+    await checkCompanion(play, command, async () => this.#liveCompanions(character.id));
+  }
+
+  /** The ids of the character's live companions. */
+  async #liveCompanions(id: CharacterId): Promise<ReadonlyArray<CompanionId>> {
+    const rows = await this.#companions.listForCharacter(id);
+
+    return rows.filter((each) => each.archived === undefined).map((each) => each.id);
   }
 
   #contentOf(character: Character): ContentSource {
@@ -122,9 +151,7 @@ export class PlayService {
       throw new VersionConflictError('CharacterPlay', id);
     }
 
-    await checkExploration(command, async () => this.#contentOf(character).registry());
-    await checkEnvironment(command, async () => this.#contentOf(character).registry());
-    await checkShift(character, command, async () => this.#contentOf(character).registry());
+    await this.#checked(character, current.play, command);
     const reinventoried = await this.#reinventoried(character, current.play, command);
 
     const { play, events } = isTurnCommand(command)

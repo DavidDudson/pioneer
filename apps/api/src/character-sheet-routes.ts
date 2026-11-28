@@ -22,6 +22,7 @@ import {
   characterSheetBundleRoutes,
   characterUnenabledRoutes,
   characterVariantRoutes,
+  DrizzleCharacterCompanionRepository,
   DrizzleFeatDisplayRepository,
   DrizzleSheetModeRepository,
   featDisplayRoutes,
@@ -63,7 +64,7 @@ export function characterSheetRoutes(ports: CharacterSheetRoutesPorts): Contract
   const { db, clock, authenticator, repository, content, characters, services } = ports;
   const sheetModes = new SheetModeService(repository, new DrizzleSheetModeRepository(db), clock);
   const featDisplay = new FeatDisplayService(repository, new DrizzleFeatDisplayRepository(db), clock);
-  const play = new PlayService(repository, content, clock);
+  const play = new PlayService(repository, content, clock).withCompanions(new DrizzleCharacterCompanionRepository(db));
   const bundle = new CharacterSheetBundleService({ ...services, characters, play, sheetModes, featDisplay });
 
   return sheetModeRoutes(sheetModes, authenticator)

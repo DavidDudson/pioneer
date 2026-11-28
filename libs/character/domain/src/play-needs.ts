@@ -1,5 +1,6 @@
 import { isActiveSpellCommand } from './active-spells';
 import { BreathCommandField, isBreathCommand } from './breath';
+import { isCompanionCommand } from './companion-status';
 import { isEffectCommand } from './effect-commands';
 import { isEnvironmentCommand } from './environments';
 import { isExplorationCommand } from './exploration-commands';
@@ -26,7 +27,8 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
     isSpendCommand(command) ||
     isExplorationCommand(command) ||
     isEnvironmentCommand(command) ||
-    isBreathCommand(command)
+    isBreathCommand(command) ||
+    isCompanionCommand(command)
   ) {
     return false;
   }
@@ -84,7 +86,8 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
     isSpendCommand(command) ||
     isExplorationCommand(command) ||
     isEnvironmentCommand(command) ||
-    isBreathCommand(command)
+    isBreathCommand(command) ||
+    isCompanionCommand(command)
   ) {
     return false;
   }
@@ -142,7 +145,8 @@ export function needsConditionContent(command: PlayCommand): boolean {
     isActiveSpellCommand(command) ||
     isSpendCommand(command) ||
     isExplorationCommand(command) ||
-    isEnvironmentCommand(command)
+    isEnvironmentCommand(command) ||
+    isCompanionCommand(command)
   ) {
     return false;
   }

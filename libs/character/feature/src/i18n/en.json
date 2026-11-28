@@ -1017,6 +1017,8 @@
     "effectBadge": "The badge does not fit that effect: a rolled effect needs its roll, and a counter stays within its range.",
     "effectRank": "Only a polymorph effect is cast at a rank.",
     "effectNoUses": "This effect has no uses to spend.",
+    "companionUnknown": "That companion is not one this character has. Reload the sheet and try again.",
+    "companionIllegal": "A companion can't move to that status from where it is. A dead companion can only be raised.",
     "consumableNotHeld": "That item is not a consumable you hold.",
     "consumableWrongAction": "That spend is not this consumable's activation.",
     "consumableWrongEffect": "That effect is not the one this consumable gives.",
