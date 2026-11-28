@@ -15,7 +15,7 @@ import { OPTIONAL_ROOT_SLOTS } from './character-slots';
 import { FeatPickProblem } from './feat-content';
 import { featPickProblem, prerequisiteReads } from './feat-slots';
 import { languageStatuses } from './language-slot-status';
-import { preparedStatuses, signatureStatuses } from './prepared-slot-status';
+import { familiarSpellStatuses, preparedStatuses, signatureStatuses } from './prepared-slot-status';
 import type { GrantsAt } from './skill-grants';
 import { SkillPickProblem, skillSlots } from './skill-training';
 import { skillReads, slotContextOf } from './slot-offer';
@@ -343,6 +343,7 @@ export function characterSlots(document: CharacterDocument, content: SlotContent
     ...choices,
     ...preparedStatuses(document, content),
     ...signatureStatuses(document, content),
+    ...familiarSpellStatuses(document, content),
   ];
 
   return [...listed, ...hiddenPicks(context, listed)];

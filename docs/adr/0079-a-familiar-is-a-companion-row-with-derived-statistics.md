@@ -44,7 +44,8 @@ Alternatives:
    needs a version of its own.
 4. **Build and play state are split as for the character.**
    - **Build:** the day's familiar and master abilities, and the spells it knows, are choice slots in `build.choices`,
-     keyed `companion:<id>:ability:<n>` and `companion:<id>:spell:<n>` ([ADR-0044](0044-prepared-spells-are-choice-slots.md)).
+     keyed `companion:<id>:ability:<n>`, and the spells it knows keyed `familiar:...` to the witch, not to the row, so a
+     replacement keeps them (see [familiar-spells.md](../architecture/familiar-spells.md)) ([ADR-0044](0044-prepared-spells-are-choice-slots.md)).
    - **Play:** `PlayState.companions` maps `CompanionId` to `{ damage, temp, conditions, status }`. `status` is
      `active`, `absent`, `absorbed` or `dead`. Current HP is the derived maximum minus damage
      ([ADR-0004](0004-store-inputs-not-derived-values.md)). Play commands never touch `characters.version`.

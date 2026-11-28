@@ -5,6 +5,7 @@ import { boostSlots } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { SlotStatus, SlotSubjectKind } from './character-slot';
 import type { CharacterSlot } from './character-slot';
+import { familiarSpellSlots } from './familiar-spells';
 import { featSlots } from './feat-slots';
 import { languageSlots } from './languages';
 import { preparedSlots } from './prepared-spells';
@@ -64,6 +65,8 @@ const CANDIDATES: Readonly<Record<SlotSubjectKind, Candidates>> = {
     idsOf(preparedSlots(document, preparedReads(document, content)).find((slot) => slot.key === key)?.options),
   [SlotSubjectKind.Signature]: (document, content, key) =>
     idsOf(signatureSlots(document, preparedReads(document, content)).find((slot) => slot.key === key)?.options),
+  [SlotSubjectKind.FamiliarSpell]: (document, content, key) =>
+    idsOf(familiarSpellSlots(document, preparedReads(document, content)).find((slot) => slot.key === key)?.options),
   /** A voluntary flaw is never filled for the character. */
   [SlotSubjectKind.Flaw]: () => [],
 };

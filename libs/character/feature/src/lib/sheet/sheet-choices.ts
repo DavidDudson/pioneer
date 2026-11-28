@@ -20,7 +20,7 @@ const STATES: Readonly<Record<SlotStatus, ChoiceState>> = {
 };
 
 /** Slots labelled by their kind: a voluntary flaw, a prepared or repertoire spell slot, a signature spell. */
-type KindSubject = Extract<SlotSubject, { kind: 'flaw' | 'spell' | 'signature' }>;
+type KindSubject = Extract<SlotSubject, { kind: 'flaw' | 'spell' | 'signature' | 'familiar-spell' }>;
 
 /** A `ChoiceSet` slot whose entry is named. */
 type ChoiceSubject = Extract<SlotSubject, { kind: 'choice' }> & { readonly entryName: ContentText };
@@ -47,6 +47,12 @@ function kindLabelOf(subject: KindSubject): MessageDescriptor {
 
   if (subject.kind === SlotSubjectKind.Signature) {
     return message('rules.choices.slot.rankSignatureSpell', { rank: subject.rank });
+  }
+
+  if (subject.kind === SlotSubjectKind.FamiliarSpell) {
+    return subject.rank === SlotRank.Cantrip
+      ? message('rules.choices.slot.familiarCantrip')
+      : message('rules.choices.slot.familiarRankSpell', { rank: subject.rank });
   }
 
   return subject.rank === SlotRank.Cantrip
@@ -92,7 +98,8 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
 
     case SlotSubjectKind.Flaw:
     case SlotSubjectKind.Spell:
-    case SlotSubjectKind.Signature: {
+    case SlotSubjectKind.Signature:
+    case SlotSubjectKind.FamiliarSpell: {
       return kindLabelOf(subject);
     }
 
@@ -173,7 +180,11 @@ export function lineOf(slot: CharacterSlot, lookup?: ContentLookup): ChoiceLine 
 }
 
 /** The spell slots the Spellcasting section shows under their entry instead (#478, #479). */
-const SPELL_SUBJECTS: ReadonlySet<SlotSubjectKind> = new Set([SlotSubjectKind.Spell, SlotSubjectKind.Signature]);
+const SPELL_SUBJECTS: ReadonlySet<SlotSubjectKind> = new Set([
+  SlotSubjectKind.Spell,
+  SlotSubjectKind.Signature,
+  SlotSubjectKind.FamiliarSpell,
+]);
 
 /**
  * A planned slot with nothing picked is the plan's empty space, not a choice to flag. A prepared, repertoire or
