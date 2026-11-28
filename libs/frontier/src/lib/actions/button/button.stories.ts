@@ -75,6 +75,7 @@ export const Sizes: ButtonStory = {
   render: () => ({
     template: `
       <fr-stack direction="horizontal" align="center" gap="sm">
+        <fr-button size="xs">Extra small</fr-button>
         <fr-button size="sm">Small</fr-button>
         <fr-button size="md">Medium</fr-button>
         <fr-button size="lg">Large</fr-button>
