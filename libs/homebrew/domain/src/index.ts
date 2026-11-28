@@ -14,3 +14,9 @@ export { HomebrewPack } from './homebrew-pack';
 export { isWiderThan } from './pack-visibility-order';
 
 export { PackDependencies, PackSummary } from './pack-summary';
+
+export { CreateHomebrewEntryBody, HomebrewEntrySummary, UpdateHomebrewEntryBody } from './homebrew-entry';
+
+export { nameSlug } from './entry-slug';
+
+export { HOMEBREW_ENTRY_KINDS, starterData } from './starter-data';

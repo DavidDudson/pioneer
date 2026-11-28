@@ -1,7 +1,9 @@
 import {
+  HomebrewEntryService,
   HomebrewPackService,
   InMemoryAuthorDirectory,
   InMemoryDependencyUsageDirectory,
+  InMemoryHomebrewEntryRepository,
   InMemoryHomebrewPackRepository,
   InMemoryPackDependencyRepository,
   InMemoryPackDirectory,
@@ -33,6 +35,7 @@ export function app(
   usage = new InMemoryDependencyUsageDirectory(),
 ): AnyElysia {
   const packs = new InMemoryHomebrewPackRepository();
+  const clock = fixedClock('2026-10-10T10:00:00Z');
 
   const directory = new InMemoryPackDirectory(packs).official({
     id: playerCore,
@@ -51,14 +54,15 @@ export function app(
       directory,
       dependencies,
     },
-    fixedClock('2026-10-10T10:00:00Z'),
+    clock,
   );
 
   const dependencyService = new PackDependencyService({ packs, directory, dependencies, usage, enablement });
 
-  return new Elysia()
-    .use(problemHandler)
-    .use(homebrewRoutes({ packs: service, dependencies: dependencyService }, new FakeAuthenticator()));
+  const entries = new HomebrewEntryService({ packs, entries: new InMemoryHomebrewEntryRepository() }, clock);
+  const services = { packs: service, dependencies: dependencyService, entries };
+
+  return new Elysia().use(problemHandler).use(homebrewRoutes(services, new FakeAuthenticator()));
 }
 
 /** No signed-in user. */

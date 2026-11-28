@@ -1,4 +1,4 @@
-import type { HomebrewPackService, PackDependencyService } from '@pioneer/homebrew/application';
+import type { HomebrewEntryService, HomebrewPackService, PackDependencyService } from '@pioneer/homebrew/application';
 import { HomebrewContract } from '@pioneer/homebrew/domain';
 import { ContractRouter } from '@pioneer/shared/server';
 import type { RequestAuthenticator } from '@pioneer/shared/server';
@@ -7,6 +7,7 @@ import type { RequestAuthenticator } from '@pioneer/shared/server';
 export interface HomebrewServices {
   readonly packs: HomebrewPackService;
   readonly dependencies: PackDependencyService;
+  readonly entries: HomebrewEntryService;
 }
 
 /**
@@ -14,7 +15,7 @@ export interface HomebrewServices {
  * otherwise); which packs that user may read or change is the services' policy.
  */
 export function homebrewRoutes(
-  { packs, dependencies }: HomebrewServices,
+  { packs, dependencies, entries }: HomebrewServices,
   auth: RequestAuthenticator,
 ): ContractRouter['app'] {
   return new ContractRouter('homebrew-routes')
@@ -32,6 +33,21 @@ export function homebrewRoutes(
     )
     .handleSignedIn(HomebrewContract.addDependency, auth, async ({ actor, params, body }) =>
       dependencies.add(actor, params.id, body),
+    )
+    .handleSignedIn(HomebrewContract.entries, auth, async ({ actor, params, query }) => [
+      ...(await entries.list(actor, params.id, query.archived === true)),
+    ])
+    .handleSignedIn(HomebrewContract.createEntry, auth, async ({ actor, params, body }) =>
+      entries.create(actor, params.id, body),
+    )
+    .handleSignedIn(HomebrewContract.updateEntry, auth, async ({ actor, params, body }) =>
+      entries.update(actor, { pack: params.id, id: params.entryId }, body),
+    )
+    .handleSignedIn(HomebrewContract.archiveEntry, auth, async ({ actor, params }) =>
+      entries.archive(actor, { pack: params.id, id: params.entryId }),
+    )
+    .handleSignedIn(HomebrewContract.restoreEntry, auth, async ({ actor, params }) =>
+      entries.restore(actor, { pack: params.id, id: params.entryId }),
     )
     .handleSignedIn(HomebrewContract.removeDependency, auth, async ({ actor, params }) =>
       dependencies.remove(actor, params.id, params.dependsOn),
