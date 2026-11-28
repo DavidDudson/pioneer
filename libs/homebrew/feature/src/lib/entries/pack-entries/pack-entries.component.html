@@ -1,0 +1,46 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="2">{{ 'homebrew.entry.heading' | transloco }}</fr-heading>
+    <fr-text variant="caption" tone="subtle">{{ 'homebrew.entry.hint' | transloco }}</fr-text>
+    <fr-toggle-button [(value)]="store.showArchived">{{ 'homebrew.entry.showArchived' | transloco }}</fr-toggle-button>
+    <fr-async-region [errorMessage]="'homebrew.entry.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="sm">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-stack gap="3xs">
+              <fr-skeleton width="sm" />
+              <fr-skeleton width="md" />
+            </fr-stack>
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-entries [frAsyncData]="store.entries">
+        @if (entries.length === 0) {
+          <fr-empty-state
+            ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
+              (store.showArchived() ? 'homebrew.entry.emptyArchived' : 'homebrew.entry.empty') | transloco
+            }}</fr-empty-state-title></fr-empty-state
+          >
+        } @else {
+          <fr-list gap="sm">
+            @for (entry of entries; track entry.id) {
+              <fr-list-item>
+                <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+                  <fr-stack gap="3xs" grow>
+                    <fr-text weight="medium">{{ entry.name }}</fr-text>
+                    <fr-text variant="caption" tone="subtle"
+                      >{{ kindMessages[entry.kind] | transloco }} ·
+                      {{ rarityMessages[entry.rarity] | transloco }}</fr-text
+                    >
+                  </fr-stack>
+                  <pio-pack-entry-actions [entry]="entry" />
+                </fr-stack>
+              </fr-list-item>
+            }
+          </fr-list>
+        }
+      </ng-template>
+    </fr-async-region>
+    <pio-pack-entry-create [packId]="packId()" />
+  </fr-stack>
+</fr-surface>

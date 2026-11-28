@@ -1,0 +1,42 @@
+<fr-async-form [form]="form" [action]="create" [describeError]="describeCreateError">
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="3">{{ 'homebrew.entry.newHeading' | transloco }}</fr-heading>
+    <fr-picker-field
+      [label]="'homebrew.entry.kindLabel' | transloco"
+      [placeholder]="'homebrew.entry.kindPlaceholder' | transloco"
+      [rows]="kinds.rows.shown()"
+      [columns]="kinds.columns()"
+      [rowValue]="kinds.value"
+      [rowLabel]="kinds.label"
+      [formField]="form.kind"
+      (searched)="kinds.rows.query.set($event)"
+      (sorted)="kinds.rows.ordering.set($event)"
+    />
+    <fr-text-field
+      [label]="'homebrew.entry.nameLabel' | transloco"
+      [placeholder]="'homebrew.entry.namePlaceholder' | transloco"
+      [hint]="'homebrew.entry.nameHint' | transloco"
+      [formField]="form.name"
+    />
+    <fr-picker-field
+      [label]="'homebrew.entry.rarityLabel' | transloco"
+      [rows]="rarities.rows.shown()"
+      [columns]="rarities.columns()"
+      [rowValue]="rarities.value"
+      [rowLabel]="rarities.label"
+      [formField]="form.rarity"
+      (searched)="rarities.rows.query.set($event)"
+      (sorted)="rarities.rows.ordering.set($event)"
+    />
+    <fr-stack direction="horizontal" justify="end">
+      <fr-async-button
+        type="submit"
+        variant="primary"
+        [pendingLabel]="'homebrew.entry.creating' | transloco"
+        [successLabel]="'homebrew.entry.created' | transloco"
+      >
+        {{ 'homebrew.entry.create' | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  </fr-stack>
+</fr-async-form>

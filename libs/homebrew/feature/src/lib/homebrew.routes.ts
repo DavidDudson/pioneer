@@ -28,6 +28,14 @@ export const homebrewRoutes: Routes = [
         }),
       },
       {
+        path: ':id/entries/:entryId',
+        loadComponent: loadWithMessages(async () => {
+          const { PackEntryPage } = await import('./entries/pack-entry-page/pack-entry-page.component');
+
+          return PackEntryPage;
+        }),
+      },
+      {
         path: ':id',
         // Opening a pack is the likely next step from the list.
         data: { ...PREFETCH_WHEN_IDLE, [CRUMB]: packCrumb },

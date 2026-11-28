@@ -1,0 +1,20 @@
+@if (entry().archivedAt === undefined) {
+  <fr-link [to]="['entries', entry().id]">{{ 'homebrew.entry.edit' | transloco }}</fr-link>
+  <fr-async-button
+    size="sm"
+    [action]="archive"
+    [describeError]="describeArchiveError"
+    [pendingLabel]="'homebrew.entry.archiving' | transloco"
+    [successLabel]="'homebrew.entry.archived' | transloco"
+    >{{ 'homebrew.entry.archive' | transloco }}</fr-async-button
+  >
+} @else {
+  <fr-async-button
+    size="sm"
+    [action]="restore"
+    [describeError]="describeRestoreError"
+    [pendingLabel]="'homebrew.entry.restoring' | transloco"
+    [successLabel]="'homebrew.entry.restored' | transloco"
+    >{{ 'homebrew.entry.restore' | transloco }}</fr-async-button
+  >
+}
