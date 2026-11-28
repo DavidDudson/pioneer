@@ -4,8 +4,8 @@ import type { ColumnDef, FlexRenderComponent, RowData, SortFn } from '@tanstack/
 
 import { DateDisplay, DateFormat } from '../../date/date.component';
 import type { DateValue } from '../../date/date.component';
+import { Badge } from '../../text/badge/badge.component';
 import type { BadgeTone } from '../../text/badge/badge.component';
-import { Tag } from '../../text/tag/tag.component';
 import type { Size } from '../../tokens';
 import { tableColumns } from './table-features';
 import type { FrontierColumnMeta, TableColumn, TableFeatureSet } from './table-features';
@@ -43,7 +43,7 @@ export interface ComponentColumn<TRow extends RowData, TCell = unknown> extends 
   readonly inputs: (row: TRow) => CellInputs<TCell>;
 }
 
-/** What a `fr-tag` cell shows for one row. */
+/** What a `fr-badge` cell shows for one row. */
 export interface TagCell {
   readonly label: string;
   readonly tone?: BadgeTone;
@@ -62,7 +62,7 @@ export interface DateColumn<TRow extends RowData> extends ColumnOptions {
   readonly format?: DateFormat;
 }
 
-/** A column of a chip, shown by `fr-tag` and sorted by its label. */
+/** A column of a chip, shown by `fr-badge` and sorted by its label. */
 export interface TagColumn<TRow extends RowData> extends ColumnOptions {
   readonly id: string;
   readonly value: (row: TRow) => TagCell;
@@ -158,13 +158,13 @@ export class TableSchema<TRow extends RowData> {
     });
   }
 
-  /** Adds a column of one chip per row, rendered by `fr-tag` and sorted by its label. */
+  /** Adds a column of one chip per row, rendered by `fr-badge` and sorted by its label. */
   public addTag(options: TagColumn<TRow>): this {
     return this.addComponent({
       id: options.id,
       ...presentOptions(options),
       sortValue: (row) => options.value(row).label,
-      component: Tag,
+      component: Badge,
       inputs: (row) => {
         const { label, tone } = options.value(row);
 

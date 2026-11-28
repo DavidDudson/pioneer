@@ -260,8 +260,6 @@ export { ImageAspect, ImageDisplay, ImageFit, ImageLoading, ImageSize } from './
 // Text
 export { Badge, BadgeTone, BadgeVariant } from './lib/text/badge/badge.component';
 
-export { Tag } from './lib/text/tag/tag.component';
-
 export { Stat } from './lib/text/stat/stat.component';
 
 export { Heading, HeadingLevel } from './lib/text/heading/heading.component';

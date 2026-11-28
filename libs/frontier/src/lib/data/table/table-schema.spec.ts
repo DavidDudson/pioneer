@@ -4,8 +4,7 @@ import { Temporal } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
-import { BadgeTone } from '../../text/badge/badge.component';
-import { Tag } from '../../text/tag/tag.component';
+import { Badge, BadgeTone } from '../../text/badge/badge.component';
 import { TableSchema, tableSchema } from './table-schema';
 import { Table } from './table.component';
 
@@ -39,7 +38,7 @@ const SCHEMA = tableSchema<Hero>()
     id: 'ranked',
     header: 'Ranked',
     sortValue: (hero) => RARITY_ORDER[hero.rarity],
-    component: Tag,
+    component: Badge,
     inputs: (hero) => ({ label: RARITY_ORDER[hero.rarity] }),
   })
   .addDate({ id: 'joined', header: 'Joined', value: (hero) => hero.joined });
@@ -81,7 +80,7 @@ describe(tableSchema, () => {
     const fixture = await render();
     expect(column(fixture, 0)).toStrictEqual(['Valeros', 'Kyra', 'Merisiel']);
     expect(column(fixture, 1)).toStrictEqual(['Unique', 'Common', 'Rare']);
-    expect(host(fixture).querySelectorAll('tbody fr-tag')).toHaveLength(HEROES.length * 2);
+    expect(host(fixture).querySelectorAll('tbody fr-badge')).toHaveLength(HEROES.length * 2);
     expect(host(fixture).querySelectorAll('tbody time')).toHaveLength(HEROES.length);
   });
 

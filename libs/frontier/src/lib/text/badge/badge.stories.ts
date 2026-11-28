@@ -86,3 +86,10 @@ export const Traits: BadgeStory = {
     `,
   }),
 };
+
+/** Set the text with `label` where a component holds only a string and a tone, such as a table cell. */
+export const Labelled: BadgeStory = {
+  render: () => ({
+    template: `<fr-badge label="Fire" tone="danger" />`,
+  }),
+};

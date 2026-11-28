@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, input, signal } from '@angu
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterPatchField, OverrideReason } from '@pioneer/character/domain';
-import { AsyncButton, BadgeTone, DateDisplay, Stack, Tag, Text, TextField } from '@pioneer/frontier';
+import { AsyncButton, Badge, BadgeTone, DateDisplay, Stack, Text, TextField } from '@pioneer/frontier';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../data/character-store';
@@ -43,7 +43,7 @@ const Message = {
  */
 @Component({
   selector: 'pio-sheet-custom-effect-row',
-  imports: [AsyncButton, DateDisplay, FormField, Stack, Tag, Text, TextField, TranslocoPipe],
+  imports: [AsyncButton, Badge, DateDisplay, FormField, Stack, Text, TextField, TranslocoPipe],
   templateUrl: './sheet-custom-effect-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

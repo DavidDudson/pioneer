@@ -73,6 +73,21 @@ describe(Badge, () => {
     expect([...span.classList]).toStrictEqual(expect.arrayContaining(['border', ...solidClasses[tone]]));
   });
 
+  it('shows its label input, for a badge fed data instead of content', async () => {
+    const span = await render({ label: 'Feat' }, '');
+    expect(span.textContent.trim()).toBe('Feat');
+  });
+
+  it('shows its label input before projected content', async () => {
+    const span = await render({ label: 'Fire' }, ' (2)');
+    expect(span.textContent.trim()).toBe('Fire (2)');
+  });
+
+  it('shows only the projected content when it has no label', async () => {
+    const span = await render({}, 'Dying 2');
+    expect(span.textContent.trim()).toBe('Dying 2');
+  });
+
   it('shows a decorative leading icon before the label', async () => {
     const span = await render({ icon: Flame });
     const first = span.firstElementChild;

@@ -1,6 +1,6 @@
 @for (group of groups(); track group.label) {
   <fr-stack gap="2xs">
-    <fr-tag [label]="group.label | transloco" [tone]="group.tone" />
+    <fr-badge [label]="group.label | transloco" [tone]="group.tone" />
     @for (reason of group.reasons; track reason.key) {
       <fr-text variant="caption" tone="subtle">{{ reason.key | transloco: reason.params }}</fr-text>
     }

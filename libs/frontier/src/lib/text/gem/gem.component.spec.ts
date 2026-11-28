@@ -27,10 +27,11 @@ describe(Gem, () => {
   it('hides the glyphs from screen readers, colours them by tone on a dark fill, and reads out the label', async () => {
     const host = await render({ tone: 'purple', glyphs: 'ᚠᚢ', label: 'Greater striking' });
 
-    const glyphs = host.querySelector('[aria-hidden="true"]');
+    const glyphs = host.querySelector('fr-glyph [aria-hidden="true"]');
+    const fill = host.querySelector('fr-glyph')?.parentElement;
     expect(glyphs?.textContent.trim()).toBe('ᚠᚢ');
-    expect(glyphs?.className).toContain('text-rune-greater');
-    expect(glyphs?.className).toContain('bg-surface-base');
+    expect(fill?.className).toContain('text-rune-greater');
+    expect(fill?.className).toContain('bg-surface-base');
     expect(host.querySelector('.sr-only')?.textContent).toBe('Greater striking');
   });
 
@@ -39,7 +40,7 @@ describe(Gem, () => {
 
     expect(host.querySelector('.bg-rune-void')).not.toBeNull();
     expect(host.querySelector('[class*="animate-rune-pulse"]')).toBeNull();
-    expect(host.querySelector('[aria-hidden="true"]')?.className).toContain('text-rune-void');
+    expect(host.querySelector('fr-glyph')?.parentElement?.className).toContain('text-rune-void');
   });
 
   it('pulses a filled gem in its tone and holds a hole still', async () => {

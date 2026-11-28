@@ -1,6 +1,6 @@
 /**
- * A trait is a `pio-trait-chip`, so it opens its card: a template may not render one as a bare `fr-badge` or
- * `fr-tag`. A template has no types, so a trait is recognised by what it is called: an interpolation or `[label]`
+ * A trait is a `pio-trait-chip`, so it opens its card: a template may not render one as a bare `fr-badge`. A
+ * template has no types, so a trait is recognised by what it is called: an interpolation or `[label]`
  * binding in the badge that reads `trait`, `traits`, `strike.traits` or anything ending in `Trait` or `Traits`.
  * Not flagged: a literal (`label="Trait"`), a filter option and a trait named inside a sentence, none of which are
  * a `Trait` bound to a badge. `libs/frontier` is exempt, as it knows no schemas.
@@ -12,7 +12,7 @@ import { Span } from './template-nodes.ts';
 import type { VisitedNode } from './template-nodes.ts';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
-const BADGES = new Set(['fr-badge', 'fr-tag']);
+const BADGE_SELECTOR = 'fr-badge';
 
 /** What a badge shows: its interpolations and its `[label]` binding. */
 const SHOWN = /\{\{(?<interpolation>[^}]*)\}\}|\[label\]=(?:"(?<label>[^"]*)"|'(?<single>[^']*)')/gu;
@@ -55,7 +55,7 @@ export const noBareTraitBadge: Rule.RuleModule = {
       Element(node: VisitedNode): void {
         const element = ElementNode.safeParse(node);
 
-        if (!element.success || !BADGES.has(element.data.name)) {
+        if (!element.success || element.data.name !== BADGE_SELECTOR) {
           return;
         }
 

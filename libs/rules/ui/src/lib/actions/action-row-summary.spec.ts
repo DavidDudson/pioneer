@@ -87,7 +87,7 @@ describe('ActionRow summary', () => {
     const fixture = render(PANEL, { ...STRIDE, resource: { kind: ActionResourceKind.Quantity, current: 2 } });
     await focusName(fixture);
     expect(card()?.querySelectorAll('pio-trait-chip')).toHaveLength(STRIDE.traits.length);
-    expect(card()?.querySelectorAll('fr-tag, pio-trait-chip').length).toBeGreaterThan(STRIDE.traits.length);
+    expect(card()?.querySelectorAll('fr-badge, pio-trait-chip').length).toBeGreaterThan(STRIDE.traits.length);
   });
 });
 

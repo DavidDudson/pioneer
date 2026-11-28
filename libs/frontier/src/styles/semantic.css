@@ -29,6 +29,7 @@
   --fr-size-touch: 2.75rem;
   --fr-size-touch-pair: calc(var(--fr-size-touch) * 2);
   --fr-size-gem: 1.5rem;
+  --fr-size-key: 1.5rem;
   --fr-size-control-xs: var(--fr-size-touch);
   --fr-size-control-sm: var(--fr-size-touch);
   --fr-size-control-md: var(--fr-size-touch);

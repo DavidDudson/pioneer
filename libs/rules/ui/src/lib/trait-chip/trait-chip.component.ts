@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { BadgeTone, Tag, Text } from '@pioneer/frontier';
+import { Badge, BadgeTone, Text } from '@pioneer/frontier';
 import { traitId } from '@pioneer/rules/sdk';
 import type { ContentId, Trait } from '@pioneer/rules/sdk';
 
@@ -19,7 +19,7 @@ import { humaniseTrait } from './trait-label';
  */
 @Component({
   selector: 'pio-trait-chip',
-  imports: [ContentPreview, Tag, Text],
+  imports: [Badge, ContentPreview, Text],
   templateUrl: './trait-chip.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

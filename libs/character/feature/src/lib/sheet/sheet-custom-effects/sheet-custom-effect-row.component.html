@@ -2,12 +2,12 @@
 <fr-stack gap="xs">
   <fr-stack direction="horizontal" gap="xs" align="center" wrap>
     <fr-text weight="semibold">{{ effect.name }}</fr-text>
-    <fr-tag
+    <fr-badge
       [label]="(effect.enabled ? Message.On : Message.Off) | transloco"
       [tone]="effect.enabled ? Tone.Success : Tone.Neutral"
     />
     @if (row().gm) {
-      <fr-tag [label]="Message.GmTag | transloco" [tone]="Tone.Info" />
+      <fr-badge [label]="Message.GmTag | transloco" [tone]="Tone.Info" />
     }
   </fr-stack>
   <fr-text>{{ effect.reason }}</fr-text>

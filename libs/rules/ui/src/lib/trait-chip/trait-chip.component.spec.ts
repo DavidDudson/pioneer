@@ -69,6 +69,15 @@ describe(TraitChip, () => {
     expect((fixture.nativeElement as HTMLElement).querySelector('fr-badge span')?.className).toContain('warning');
   });
 
+  it('leaves the colour to the badge: the wrapping text sets none', async () => {
+    const fixture = await render(HELD_TRAIT_PREVIEWS, { trait: FIRE, tone: BadgeTone.Warning });
+
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
+    const host = fixture.nativeElement as HTMLElement;
+    expect(host.querySelector('fr-text > span')).not.toBeNull();
+    expect(host.querySelector('fr-text > span[class*="text-fg-"]')).toBeNull();
+  });
+
   it('opens the trait card when focused, and shows its text', async () => {
     const fixture = await render(HELD_TRAIT_PREVIEWS, { trait: FIRE });
 
