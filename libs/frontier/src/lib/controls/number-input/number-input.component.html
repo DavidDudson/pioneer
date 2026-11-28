@@ -5,7 +5,7 @@
       size="sm"
       iconOnly
       [disabled]="disabled() || !canDecrease()"
-      [ariaLabel]="'frontier.numberInput.decrease' | transloco"
+      [ariaLabel]="'frontier.numberInput.decrease' | transloco: { label: ariaLabel() ?? '' }"
       (pressed)="move(DOWN)"
       ><fr-icon [icon]="MinusIcon"
     /></fr-button>
@@ -35,7 +35,7 @@
       size="sm"
       iconOnly
       [disabled]="disabled() || !canIncrease()"
-      [ariaLabel]="'frontier.numberInput.increase' | transloco"
+      [ariaLabel]="'frontier.numberInput.increase' | transloco: { label: ariaLabel() ?? '' }"
       (pressed)="move(UP)"
       ><fr-icon [icon]="PlusIcon"
     /></fr-button>

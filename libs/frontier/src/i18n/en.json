@@ -75,8 +75,8 @@
       "fraction": "{value}/{max}"
     },
     "numberInput": {
-      "decrease": "Decrease",
-      "increase": "Increase"
+      "decrease": "Decrease {label}",
+      "increase": "Increase {label}"
     },
     "picker": {
       "placeholder": "Select…",

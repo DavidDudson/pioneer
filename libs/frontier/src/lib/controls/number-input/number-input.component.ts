@@ -9,6 +9,7 @@ import {
   output,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { clamp as clampBetween } from '@pioneer/shared/utils';
 import { Minus, Plus } from 'lucide';
 
 import { Button } from '../../actions/button/button.component';
@@ -21,14 +22,7 @@ const WHOLE_STEP = 1;
 const UP = 1;
 const DOWN = -1;
 
-/**
- * Plain number control with native stepping; `min` and `max` bound the stepper and the keypad. `clamp` also pins a typed number inside them (without it a caller can show its own range error). Whole numbers only
- * unless `step` is a fraction. Mid-edit text that doesn't read (`-`, `2.5` in a whole-number box, or an empty box)
- * keeps the last value and reports `complete` false, so bind that to tell a stale value from the one shown.
- * `optional` makes the empty box a value of its own: `value` is undefined and `complete` stays true (an open bound,
- * "any level"). Bind `(entered)` to take numbers only. `steppers` adds minus and plus buttons for touch. In a form
- * use `fr-number-field`.
- */
+/** Plain number control with native stepping. In a form use `fr-number-field`. */
 @Component({
   selector: 'fr-number-input',
   imports: [Button, Icon, Input, TranslocoPipe],
@@ -37,6 +31,7 @@ const DOWN = -1;
   host: { class: 'relative block' },
 })
 export class NumberInput extends Control {
+  /** Undefined only while the box is empty and `optional` is set; otherwise bind `(entered)`, which is a number. */
   public readonly value = model<number | undefined>(undefined);
   /** Every number the box takes, never the empty one: for a control that always holds a number. */
   public readonly entered = output<number>();
@@ -44,7 +39,10 @@ export class NumberInput extends Control {
   public readonly clamp = input(false, { transform: booleanAttribute });
   /** The empty box is no value: `value` goes undefined. Otherwise it keeps the last number. */
   public readonly optional = input(false, { transform: booleanAttribute });
-  /** Whether the box reads as a number or is empty; false while it holds mid-edit text such as `-`. */
+  /**
+   * Whether the box reads as a number (or is empty with `optional`). While it holds mid-edit text such as `-` or
+   * `2.5` in a whole-number box, `value` keeps the last number: bind this to tell a stale value from the one shown.
+   */
   public readonly complete = model(true);
   public readonly min = input<number | undefined>(undefined);
   public readonly max = input<number | undefined>(undefined);
@@ -83,11 +81,11 @@ export class NumberInput extends Control {
     }
 
     const parsed = Number(raw);
-    const reads = this.#whole() ? Number.isInteger(parsed) : Number.isFinite(parsed);
-    this.complete.set(reads);
+    const readsAsNumber = this.#whole() ? Number.isInteger(parsed) : Number.isFinite(parsed);
+    this.complete.set(readsAsNumber);
 
-    if (reads) {
-      this.#take(this.clamp() ? this.#clamp(parsed) : parsed);
+    if (readsAsNumber) {
+      this.#enter(this.clamp() ? this.#withinBounds(parsed) : parsed);
       this.text.set(raw);
     }
   }
@@ -102,14 +100,14 @@ export class NumberInput extends Control {
   }
 
   protected move(direction: number): void {
-    const from = this.complete() ? (this.value() ?? this.min() ?? 0) : (this.value() ?? 0);
-    const moved = this.#round(from + direction * this.step());
+    const current = this.value();
+    const moved = current === undefined ? (this.min() ?? 0) : this.#round(current + direction * this.step());
     this.complete.set(true);
-    this.#take(this.#clamp(moved));
+    this.#enter(this.#withinBounds(moved));
     this.text.set(this.value()?.toString() ?? '');
   }
 
-  #take(taken: number): void {
+  #enter(taken: number): void {
     this.value.set(taken);
     this.entered.emit(taken);
   }
@@ -125,12 +123,8 @@ export class NumberInput extends Control {
     return current === undefined || bound === undefined || (direction < 0 ? current > bound : current < bound);
   }
 
-  #clamp(candidate: number): number {
-    const min = this.min();
-    const max = this.max();
-    const atLeast = min === undefined ? candidate : Math.max(min, candidate);
-
-    return max === undefined ? atLeast : Math.min(max, atLeast);
+  #withinBounds(candidate: number): number {
+    return clampBetween(candidate, this.min() ?? Number.NEGATIVE_INFINITY, this.max() ?? Number.POSITIVE_INFINITY);
   }
 
   /** Drops the float noise a fractional step adds (0.1 + 0.2). */
