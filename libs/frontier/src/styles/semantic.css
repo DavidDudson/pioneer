@@ -71,7 +71,7 @@
   --fr-z-sticky: 10;
   --fr-z-overlay: 20;
 
-  /* Motion: four duration and easing pairs. Reduced motion collapses every one (frontier.css). */
+  /* Motion: four duration and easing pairs. */
   /* enter: a thing arriving; decelerates in. */
   --fr-duration-enter: var(--fr-scale-duration-2);
   --fr-ease-enter: cubic-bezier(0.05, 0.7, 0.1, 1);
@@ -82,7 +82,7 @@
   --fr-duration-move: var(--fr-scale-duration-2);
   --fr-ease-move: cubic-bezier(0.2, 0, 0, 1);
   /* emphasis: a one-off attention cue. Looping and multi-beat animations are multiples of it. */
-  --fr-duration-emphasis: var(--fr-scale-duration-4);
+  --fr-duration-emphasis: var(--fr-scale-duration-3);
   --fr-ease-emphasis: cubic-bezier(0.2, 0, 0, 1);
 }
 

@@ -50,7 +50,7 @@ Read this before touching any UI.
   (`tools/eslint/no-native-elements.ts`) fails, so classify it there first.
 - **Tokens only.** Components take token names (`gap="md"`, `tone="muted"`),
   never lengths or colours. Inside frontier, only semantic utilities exist:
-  the default Tailwind palette, spacing, type, radius, shadow, duration,
+  the default Tailwind palette, spacing, type, radius, shadow, duration, easing (only the four motion eases remain),
   opacity, z-index and animation scales are wiped in
   `src/styles/frontier.css`.
 - **Sharp and flat.** No rounded corners and no shadows, in any theme:

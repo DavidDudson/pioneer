@@ -169,11 +169,7 @@ export const elevationVariants = {
   modal: 'bg-elevation-modal border-elevation-modal-line',
 } as const satisfies Record<Elevation, string>;
 
-/**
- * Motion: a duration and an easing, always taken together. Enter decelerates in, exit accelerates out and is
- * shorter, move is a thing changing place or state, emphasis a one-off attention cue. Reduced motion collapses
- * every one (`frontier.css`).
- */
+/** Motion: a duration and an easing, always taken together (meanings in `semantic.css`). */
 export const Motion = {
   Enter: 'enter',
   Exit: 'exit',
