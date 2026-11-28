@@ -3,16 +3,19 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import {
   CHARACTER_PAGE_SIZE,
   CharacterCommand,
+  CharacterFilter,
   CharacterPageQuery,
   CharacterPatchField,
   CharacterSearch,
   CLASS_SLOT,
+  filterConditionsOf,
 } from '@pioneer/character/domain';
 import type { Character, CharacterId } from '@pioneer/character/domain';
 import { CharacterBuilder, fixtureOwnerId } from '@pioneer/character/domain/testing';
 import type { JsonObject } from '@pioneer/character/domain/testing';
 import { AncestryId, ContentId } from '@pioneer/rules/sdk';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
+import type { FilterCondition } from '@pioneer/shared/kernel';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { sql } from 'drizzle-orm';
@@ -79,10 +82,20 @@ describe.skipIf(adminUrl === undefined)('a page of the character list (postgres)
     return found;
   }
 
-  async function namesOf(query: JsonObject): Promise<ReadonlyArray<string>> {
-    const page = await repository.pageForOwner(pageOwnerId, CharacterPageQuery.parse({ sort: 'name', ...query }));
+  async function namesFor(query: CharacterPageQuery): Promise<ReadonlyArray<string>> {
+    const page = await repository.pageForOwner(pageOwnerId, query);
 
     return page.items.map((character) => character.name);
+  }
+
+  async function run(conditions: ReadonlyArray<FilterCondition>): Promise<ReadonlyArray<string>> {
+    return namesFor(CharacterPageQuery.parse({ sort: 'name', filters: JSON.stringify(conditions) }));
+  }
+
+  async function namesOf(query: JsonObject): Promise<ReadonlyArray<string>> {
+    const filters = JSON.stringify(filterConditionsOf(CharacterFilter.parse(query)));
+
+    return namesFor(CharacterPageQuery.parse({ sort: 'name', filters }));
   }
 
   test('holds a page of the owner’s characters and counts every one', async () => {
@@ -119,8 +132,25 @@ describe.skipIf(adminUrl === undefined)('a page of the character list (postgres)
     expect(await namesOf({ name: CharacterSearch.parse('_') })).toStrictEqual([]);
   });
 
+  test('is not keeps the characters with no value, and any of takes several', async () => {
+    expect(await run([{ property: 'class', operator: 'isNot', values: [fighterId] }])).toStrictEqual([
+      'Page 100%',
+      'Page Bring',
+    ]);
+
+    expect(await run([{ property: 'class', operator: 'isAnyOf', values: [fighterId, wizardId] }])).toStrictEqual([
+      'Page Aldric',
+      'Page Bring',
+      'Page Cass',
+    ]);
+
+    expect(await run([{ property: 'level', operator: 'gt', values: ['5'] }])).toStrictEqual(['Page 100%', 'Page Cass']);
+  });
+
   test('nobody else’s characters are counted', async () => {
-    const page = await repository.pageForOwner(otherOwnerId, CharacterPageQuery.parse({ name: 'Page' }));
+    const filters = JSON.stringify(filterConditionsOf({ name: CharacterSearch.parse('Page') }));
+    const page = await repository.pageForOwner(otherOwnerId, CharacterPageQuery.parse({ filters }));
+
     expect(Number(page.total)).toBe(0);
   });
 
@@ -134,8 +164,10 @@ describe.skipIf(adminUrl === undefined)('a page of the character list (postgres)
   });
 
   test('every filter and page is served by an index', async () => {
-    const filters = [{ classId: fighterId }, { ancestry: elfId }, { minLevel: 2 }, { name: 'a' }, { page: 2 }];
+    const filters = [{ classId: fighterId }, { ancestry: elfId }, { minLevel: 2 }, { name: 'a' }];
     await Promise.all(filters.map(async (filter) => namesOf(filter)));
+    await repository.pageForOwner(pageOwnerId, CharacterPageQuery.parse({ page: 2 }));
+
     expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
   });
 

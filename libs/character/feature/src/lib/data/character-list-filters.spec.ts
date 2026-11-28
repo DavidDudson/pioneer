@@ -1,5 +1,5 @@
 import { convertToParamMap } from '@angular/router';
-import { CharacterPageQuery, FIRST_PAGE, PageNumber } from '@pioneer/character/domain';
+import { CharacterListState, FIRST_PAGE, PageNumber } from '@pioneer/character/domain';
 import { describe, expect, it } from 'vitest';
 
 import { isFiltered, listStateFromParams, pageCount, paramsFromListState } from './character-list-filters';
@@ -7,7 +7,7 @@ import { isFiltered, listStateFromParams, pageCount, paramsFromListState } from 
 const SECOND_PAGE = PageNumber.parse(2);
 
 /** The address's parameters for `state`, as text, without the keys it leaves out. */
-function addressOf(state: CharacterPageQuery): Record<string, string> {
+function addressOf(state: CharacterListState): Record<string, string> {
   const written = Object.entries(paramsFromListState(state));
   const present = written.filter((entry) => entry[1] !== undefined);
 
@@ -38,8 +38,8 @@ describe('the list state in the address', () => {
   });
 
   it('writes a page only past the first', () => {
-    expect(addressOf(CharacterPageQuery.parse({ page: 1 }))).toStrictEqual({});
-    expect(addressOf(CharacterPageQuery.parse({ page: 2 }))).toStrictEqual({ page: '2' });
+    expect(addressOf(CharacterListState.parse({ page: 1 }))).toStrictEqual({});
+    expect(addressOf(CharacterListState.parse({ page: 2 }))).toStrictEqual({ page: '2' });
   });
 });
 

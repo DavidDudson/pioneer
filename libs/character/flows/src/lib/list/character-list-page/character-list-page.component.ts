@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { CharacterPageQuery, CharacterSearch, FIRST_PAGE, PageNumber } from '@pioneer/character/domain';
+import { CharacterListState, CharacterSearch, FIRST_PAGE, PageNumber } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import {
   AncestryOptions,
@@ -48,8 +48,8 @@ const PLACEHOLDERS = ['first', 'second', 'third'] as const;
 const characterKey = (character: Character): string => character.id;
 
 /** The level an edited box holds, or none while it is empty or out of range. */
-const levelOf = (level: number | undefined): CharacterPageQuery['minLevel'] =>
-  CharacterPageQuery.shape.minLevel.safeParse(level).data;
+const levelOf = (level: number | undefined): CharacterListState['minLevel'] =>
+  CharacterListState.shape.minLevel.safeParse(level).data;
 
 /**
  * The home list: the player's characters a page at a time, narrowed by level, class, ancestry and name. The state
@@ -143,10 +143,10 @@ export class CharacterListPage {
   /** Drops every filter, which restores the whole list from its first page. */
   protected async clearFilters(): Promise<void> {
     const { sort, direction } = this.state();
-    await this.#show(CharacterPageQuery.parse({ sort, direction }));
+    await this.#show(CharacterListState.parse({ sort, direction }));
   }
 
-  async #show(state: CharacterPageQuery): Promise<void> {
+  async #show(state: CharacterListState): Promise<void> {
     await this.#router.navigate([], { relativeTo: this.#route, queryParams: paramsFromListState(state) });
   }
 }

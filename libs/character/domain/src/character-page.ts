@@ -1,5 +1,6 @@
 import { AncestryId, ContentId } from '@pioneer/rules/sdk';
-import { Pg } from '@pioneer/shared/kernel';
+import { FilterKind, FilterOperator, filtersParam, Pg } from '@pioneer/shared/kernel';
+import type { FilterCondition, FilterProperties } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Character } from './character';
@@ -35,8 +36,9 @@ export type CharacterSearch = z.infer<typeof CharacterSearch>;
 const QueryLevel = z.coerce.number().pipe(CharacterLevel);
 
 /**
- * What narrows the character list. Each is optional and they combine with AND: a level range (either end open),
- * the class and the ancestry picked, and text in the name. Strict, so a filter that is not here is rejected.
+ * What the list page lets a person narrow by. Each is optional and they combine with AND: a level range (either end
+ * open), the class and the ancestry picked, and text in the name. The API takes these as `FilterCondition`s
+ * (`filterConditionsOf`), not as parameters of their own.
  */
 export const CharacterFilter = z.strictObject({
   minLevel: QueryLevel.optional(),
@@ -47,6 +49,46 @@ export const CharacterFilter = z.strictObject({
 });
 
 export type CharacterFilter = z.output<typeof CharacterFilter>;
+
+/** The character list's filterable properties and what each holds. */
+export const CHARACTER_FILTER_PROPERTIES = {
+  name: FilterKind.Text,
+  level: FilterKind.Number,
+  class: FilterKind.Set,
+  ancestry: FilterKind.Set,
+} as const satisfies FilterProperties;
+
+export type CharacterFilterProperty = keyof typeof CHARACTER_FILTER_PROPERTIES;
+
+/** The conditions that narrow the character list, ANDead. Each is checked against `CHARACTER_FILTER_PROPERTIES`. */
+export const CharacterFilters = filtersParam(CHARACTER_FILTER_PROPERTIES);
+
+export type CharacterFilters = z.output<typeof CharacterFilters>;
+
+function condition(
+  property: CharacterFilterProperty,
+  operator: FilterOperator,
+  ...values: Array<string>
+): FilterCondition {
+  return { property, operator, values };
+}
+
+/** The API conditions for what the page has set, in a fixed order; an unset filter makes none. */
+export function filterConditionsOf(filter: CharacterFilter): ReadonlyArray<FilterCondition> {
+  const { minLevel, maxLevel, classId, ancestry, name } = filter;
+
+  const levels: ReadonlyArray<FilterCondition> =
+    minLevel === undefined && maxLevel === undefined
+      ? []
+      : [condition('level', FilterOperator.Between, String(minLevel ?? ''), String(maxLevel ?? ''))];
+
+  return [
+    ...levels,
+    ...(classId === undefined ? [] : [condition('class', FilterOperator.Is, classId)]),
+    ...(ancestry === undefined ? [] : [condition('ancestry', FilterOperator.Is, ancestry)]),
+    ...(name === undefined ? [] : [condition('name', FilterOperator.Contains, name)]),
+  ];
+}
 
 /** One page of the character list with the count behind it, so a client can say "page 2 of 5". */
 export const CharacterPage = z.object({

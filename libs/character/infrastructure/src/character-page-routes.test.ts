@@ -50,6 +50,13 @@ async function create(api: AnyElysia, name: string): Promise<void> {
   );
 }
 
+/** The list's path with one condition on it, as a client writes it. */
+function withFilter(property: string, operator: string, values: ReadonlyArray<string>): string {
+  const filters = JSON.stringify([{ property, operator, values }]);
+
+  return `/characters?filters=${encodeURIComponent(filters)}`;
+}
+
 describe('the character list page', () => {
   test('a page comes back with its total, and the name filter narrows it', async () => {
     const api = app();
@@ -57,7 +64,7 @@ describe('the character list page', () => {
     await create(api, 'Kyra');
     const everyone = await pageAt(api, '/characters');
     expect(everyone).toMatchObject({ total: 2, page: 1, pageSize: 24 });
-    const named = await pageAt(api, '/characters?name=kyr');
+    const named = await pageAt(api, withFilter('name', 'contains', ['kyr']));
     expect(named.items.map((character) => character.name)).toStrictEqual(['Kyra']);
     expect(named.total).toBe(1);
   });
@@ -65,15 +72,17 @@ describe('the character list page', () => {
   test('a level range that nobody is in is an empty page', async () => {
     const api = app();
     await create(api, 'Amiri');
-    const page = await pageAt(api, '/characters?minLevel=2');
+    const page = await pageAt(api, withFilter('level', 'gte', ['2']));
     expect(page).toMatchObject({ items: [], total: 0 });
   });
 
   test.each([
     ['a page below the first', '/characters?page=0'],
     ['a page that is not a number', '/characters?page=next'],
-    ['a level above 20', '/characters?maxLevel=21'],
-    ['a class that is not an id', '/characters?classId=fighter'],
+    ['gt on a text property', withFilter('name', 'gt', ['a'])],
+    ['a level that is not a number', withFilter('level', 'is', ['high'])],
+    ['a property the list lacks', withFilter('owner', 'is', ['someone'])],
+    ['filters that are not JSON', '/characters?filters=level'],
     ['a filter that is not one', '/characters?owner=someone'],
   ])('%s is a 422', async (_name, path) => {
     const response = await get(app(), path);

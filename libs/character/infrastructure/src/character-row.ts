@@ -1,8 +1,8 @@
 import { Character, decodeCharacterDocument, PlayStateSchema } from '@pioneer/character/domain';
 import type { CharacterPlay, PlayState } from '@pioneer/character/domain';
+import type { AncestryId, ContentId } from '@pioneer/rules/sdk';
 import { Temporal } from '@pioneer/shared/kernel';
 
-import { listColumnsOf } from './character-list-filter';
 import type { characterPlay, characters } from './character.table';
 
 type Row = typeof characters.$inferSelect;
@@ -19,6 +19,18 @@ type StoredPlay = PlayRow['state'] | null | undefined;
 interface JoinedRow {
   readonly character: Row;
   readonly play: StoredPlay;
+}
+
+/** What `listColumnsOf` reads: each column's value, null while its slot is empty. */
+interface ListColumns {
+  readonly ancestryId: AncestryId | null;
+  readonly classId: ContentId | null;
+}
+
+/** The list columns a row keeps in step with its character's document: the ancestry and class picked. */
+function listColumnsOf(character: Character): ListColumns {
+  // oxlint-disable-next-line unicorn/no-null -- null clears the column; undefined would leave the last pick
+  return { ancestryId: character.ancestry ?? null, classId: character.classId ?? null };
 }
 
 /** Stored play state, read at the current shape: a field added since it was written takes its default. */

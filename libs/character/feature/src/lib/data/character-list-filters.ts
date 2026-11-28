@@ -1,5 +1,5 @@
 import type { ParamMap, Params } from '@angular/router';
-import { CharacterPageQuery, FIRST_PAGE } from '@pioneer/character/domain';
+import { CharacterListState, FIRST_PAGE } from '@pioneer/character/domain';
 
 /** The query-string keys the list's state lives under, one per filter and the page. */
 const STATE_KEYS = ['minLevel', 'maxLevel', 'classId', 'ancestry', 'name', 'page'] as const;
@@ -8,26 +8,26 @@ const STATE_KEYS = ['minLevel', 'maxLevel', 'classId', 'ancestry', 'name', 'page
  * The list's state as the address holds it. A key that does not read (a page of "next", a level of 40) is left out, so
  * a mangled link opens the list as it is by default rather than failing.
  */
-export function listStateFromParams(params: ParamMap): CharacterPageQuery {
+export function listStateFromParams(params: ParamMap): CharacterListState {
   const kept: Record<string, string> = {};
 
   for (const key of STATE_KEYS) {
     const value = params.get(key);
-    const reads = value !== null && CharacterPageQuery.shape[key].safeParse(value).success;
+    const reads = value !== null && CharacterListState.shape[key].safeParse(value).success;
 
     if (reads) {
       kept[key] = value;
     }
   }
 
-  return CharacterPageQuery.parse(kept);
+  return CharacterListState.parse(kept);
 }
 
 /**
  * The query parameters for `state`: only what differs from the default list, so an unfiltered first page has none.
  * A key that is absent is `undefined`, which navigation leaves out of the address.
  */
-export function paramsFromListState(state: CharacterPageQuery): Params {
+export function paramsFromListState(state: CharacterListState): Params {
   return {
     minLevel: state.minLevel,
     maxLevel: state.maxLevel,
@@ -39,7 +39,7 @@ export function paramsFromListState(state: CharacterPageQuery): Params {
 }
 
 /** Whether any filter narrows the list; the page does not. */
-export function isFiltered(state: CharacterPageQuery): boolean {
+export function isFiltered(state: CharacterListState): boolean {
   return (
     state.minLevel !== undefined ||
     state.maxLevel !== undefined ||
