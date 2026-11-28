@@ -1,0 +1,15 @@
+<fr-stack direction="horizontal" gap="sm" justify="between" align="center">
+  <fr-stack gap="2xs">
+    @if (heading(); as heading) {
+      <fr-heading [level]="level()" [variant]="headingVariant()" [anchor]="anchor()">{{ heading }}</fr-heading>
+    } @else {
+      <fr-heading busy [level]="level()" [variant]="headingVariant()" [anchor]="anchor()"
+        ><fr-skeleton width="md"
+      /></fr-heading>
+    }
+    @if (description(); as description) {
+      <fr-text element="p" tone="muted">{{ description }}</fr-text>
+    }
+  </fr-stack>
+  <ng-content />
+</fr-stack>

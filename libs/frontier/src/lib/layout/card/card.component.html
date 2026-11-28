@@ -1,0 +1,16 @@
+@if (showHeader()) {
+  <fr-card-header
+    [heading]="heading()"
+    [description]="description()"
+    [level]="level()"
+    [headingVariant]="headingVariant()"
+    [anchor]="anchor()"
+  >
+    <ng-content select="[frCardActions]" />
+  </fr-card-header>
+}
+<ng-content />
+@if (footer()) {
+  <fr-divider />
+}
+<ng-content select="fr-card-footer" />
