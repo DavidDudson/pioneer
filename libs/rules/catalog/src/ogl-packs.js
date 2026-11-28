@@ -43,6 +43,7 @@ export async function impossibleLandsPack() {
     import('@pioneer/content/packs/impossible-lands/armor.json'),
     import('@pioneer/content/packs/impossible-lands/class-feature.json'),
     import('@pioneer/content/packs/impossible-lands/consumable.json'),
+    import('@pioneer/content/packs/impossible-lands/creature.json'),
     import('@pioneer/content/packs/impossible-lands/effect.json'),
     import('@pioneer/content/packs/impossible-lands/equipment.json'),
     import('@pioneer/content/packs/impossible-lands/feat.json'),
@@ -111,6 +112,7 @@ export async function bookOfTheDeadPack() {
     import('@pioneer/content/packs/book-of-the-dead/archetype.json'),
     import('@pioneer/content/packs/book-of-the-dead/background.json'),
     import('@pioneer/content/packs/book-of-the-dead/consumable.json'),
+    import('@pioneer/content/packs/book-of-the-dead/creature.json'),
     import('@pioneer/content/packs/book-of-the-dead/deity.json'),
     import('@pioneer/content/packs/book-of-the-dead/effect.json'),
     import('@pioneer/content/packs/book-of-the-dead/equipment.json'),
@@ -125,6 +127,7 @@ export async function gamemasteryGuidePack() {
   return pack(import('@pioneer/content/packs/gamemastery-guide/pack.json'), [
     import('@pioneer/content/packs/gamemastery-guide/action.json'),
     import('@pioneer/content/packs/gamemastery-guide/consumable.json'),
+    import('@pioneer/content/packs/gamemastery-guide/creature.json'),
     import('@pioneer/content/packs/gamemastery-guide/effect.json'),
     import('@pioneer/content/packs/gamemastery-guide/equipment.json'),
     import('@pioneer/content/packs/gamemastery-guide/feat.json'),
@@ -155,6 +158,7 @@ export async function bestiary1Pack() {
   return pack(import('@pioneer/content/packs/bestiary-1/pack.json'), [
     import('@pioneer/content/packs/bestiary-1/action.json'),
     import('@pioneer/content/packs/bestiary-1/consumable.json'),
+    import('@pioneer/content/packs/bestiary-1/creature.json'),
     import('@pioneer/content/packs/bestiary-1/deity.json'),
     import('@pioneer/content/packs/bestiary-1/effect.json'),
     import('@pioneer/content/packs/bestiary-1/equipment.json'),
@@ -167,6 +171,7 @@ export async function bestiary2Pack() {
   return pack(import('@pioneer/content/packs/bestiary-2/pack.json'), [
     import('@pioneer/content/packs/bestiary-2/action.json'),
     import('@pioneer/content/packs/bestiary-2/consumable.json'),
+    import('@pioneer/content/packs/bestiary-2/creature.json'),
     import('@pioneer/content/packs/bestiary-2/deity.json'),
     import('@pioneer/content/packs/bestiary-2/effect.json'),
     import('@pioneer/content/packs/bestiary-2/ritual.json'),
@@ -176,6 +181,7 @@ export async function bestiary2Pack() {
 export async function bestiary3Pack() {
   return pack(import('@pioneer/content/packs/bestiary-3/pack.json'), [
     import('@pioneer/content/packs/bestiary-3/action.json'),
+    import('@pioneer/content/packs/bestiary-3/creature.json'),
     import('@pioneer/content/packs/bestiary-3/deity.json'),
     import('@pioneer/content/packs/bestiary-3/effect.json'),
     import('@pioneer/content/packs/bestiary-3/ritual.json'),

@@ -1,0 +1,1110 @@
+[
+  {
+    "id": "b547f052-3fcb-558f-8e7e-a5780503e9b6",
+    "pack": "gamemastery-guide",
+    "kind": "creature",
+    "slug": "creature:acolyte-of-nethys",
+    "name": "Acolyte of Nethys",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Underling clerics are still learning the tenets of their faith and answer to a superior priest. Their days are spent in devotion and learning, sequestered in temples."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religions inspire devout individuals to uphold their tenets. Many of these devotees seek to bring respite and hope, but others have darker motives."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.npc-gallery.Actor.crTWewxna93vEt6B"
+    },
+    "data": {
+      "role": "npc",
+      "size": "medium",
+      "perception": 7,
+      "attributes": {
+        "str": 1,
+        "dex": 2,
+        "con": -1,
+        "int": 2,
+        "wis": 4,
+        "cha": 1
+      },
+      "armorClass": 15,
+      "saves": {
+        "fortitude": 2,
+        "reflex": 5,
+        "will": 9
+      },
+      "hitPoints": 16,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "arcana",
+          "modifier": 5
+        },
+        {
+          "skill": "crafting",
+          "modifier": 5
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 4
+        },
+        {
+          "skill": "occultism",
+          "modifier": 5
+        },
+        {
+          "skill": "religion",
+          "modifier": 7
+        }
+      ],
+      "languages": ["common"],
+      "strikes": [
+        {
+          "name": "Staff",
+          "range": "melee",
+          "bonus": 4,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "bludgeoning",
+              "bonus": 1
+            }
+          ],
+          "traits": ["two-hand-d8"]
+        },
+        {
+          "name": "Crossbow",
+          "range": "melee",
+          "bonus": 5,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing"
+            }
+          ],
+          "traits": ["reload-1"]
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Prepared Spells",
+          "tradition": "divine",
+          "preparation": "prepared",
+          "dc": 17,
+          "attack": 9,
+          "spells": [
+            {
+              "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+              "rank": 1
+            },
+            {
+              "spell": "1330902b-a95f-54ea-9a07-3764617bd887",
+              "rank": 1
+            },
+            {
+              "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e",
+              "rank": 1
+            },
+            {
+              "spell": "b0b84836-b7a0-59ca-9379-6efdfb022f9e",
+              "rank": 1
+            },
+            {
+              "spell": "bb73ff19-7c70-5f9f-8c0e-dbd71c099926",
+              "rank": 1
+            },
+            {
+              "spell": "02c769dd-dba8-5437-8189-28b9800afaac",
+              "rank": 1
+            },
+            {
+              "spell": "6dee4f5d-f584-5402-af2a-d3738ec685b3",
+              "rank": 1
+            }
+          ]
+        },
+        {
+          "name": "Cleric Domain Spells",
+          "tradition": "divine",
+          "preparation": "focus",
+          "dc": 17,
+          "attack": 9,
+          "spells": [
+            {
+              "spell": "0629bdd2-9278-53b8-9ec6-b843f3b379e9",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "d2cc3864-d2af-594f-8c80-0fb1b8c0f561"
+        },
+        {
+          "item": "60667521-c259-5a78-a22b-4eec12f99701"
+        },
+        {
+          "item": "f7fb0c74-e723-5bf1-8d3b-028a036544d2",
+          "quantity": 10
+        }
+      ]
+    }
+  },
+  {
+    "id": "a3c3b0df-1035-5632-bda4-46ccbef2712c",
+    "pack": "gamemastery-guide",
+    "kind": "creature",
+    "slug": "creature:antipaladin",
+    "name": "Antipaladin",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["chaotic", "evil", "human", "humanoid", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There is perhaps nothing more anathematic to peace than an antipaladin. Dedicated holy warriors to the darkest and foulest of deities, antipaladins work to fulfill the vile wishes of their evil masters. The zeal with which they implement the plans of dark gods makes them truly fearsome foes for anyone allied with the forces of good."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Villains pursue selfish and cruel goals, trampling over anyone foolish or purehearted enough to stand in their way."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.npc-gallery.Actor.K2STan8izudm9eEn"
+    },
+    "data": {
+      "role": "npc",
+      "size": "medium",
+      "perception": 10,
+      "attributes": {
+        "str": 4,
+        "dex": 1,
+        "con": 3,
+        "int": 0,
+        "wis": 1,
+        "cha": 3
+      },
+      "armorClass": 25,
+      "saves": {
+        "fortitude": 14,
+        "reflex": 10,
+        "will": 12
+      },
+      "hitPoints": 75,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 20,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 13
+        },
+        {
+          "skill": "deception",
+          "modifier": 10
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 12
+        },
+        {
+          "skill": "religion",
+          "modifier": 8
+        },
+        {
+          "skill": "survival",
+          "modifier": 8
+        }
+      ],
+      "languages": ["common"],
+      "strikes": [
+        {
+          "name": "Greataxe",
+          "range": "melee",
+          "bonus": 15,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d12",
+              "damageType": "slashing",
+              "bonus": 10
+            }
+          ],
+          "traits": ["sweep"]
+        },
+        {
+          "name": "Javelin",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 10
+            }
+          ],
+          "traits": ["thrown-30"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Destructive Vengeance",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "An enemy within 15 feet damages the antipaladin"
+                }
+              ]
+            }
+          ],
+          "traits": ["divine"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " An enemy within 15 feet damages the antipaladin"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The antipaladin increases the amount of damage they take by 2d6 and deals 2d6 to the triggering enemy, choosing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "spirit"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " or "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "void"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage. In addition, the antipaladin deals 2 extra damage of the chosen type with their Strikes against the triggering creature until the end of the antipaladin's next turn."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:destructive-vengeance",
+              "toggleable": true,
+              "suboptions": [
+                {
+                  "value": "spirit",
+                  "label": "Spirit"
+                },
+                {
+                  "value": "void",
+                  "label": "Void"
+                }
+              ]
+            },
+            {
+              "key": "AdjustStrike",
+              "property": "traits",
+              "mode": "add",
+              "value": "unholy"
+            }
+          ]
+        },
+        {
+          "name": "Intimidating Strike",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The antipaladin makes a melee Strike. If they hit and deal damage, the target is Frightened 1, or Frightened 2 on a critical hit."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Champion Devotion Spells",
+          "tradition": "divine",
+          "preparation": "focus",
+          "dc": 20,
+          "attack": 12,
+          "spells": [
+            {
+              "spell": "acc4d6ca-be8c-5a92-a926-3294052c3586",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "56860e3f-5bd7-5ada-b769-323e0b01dbab"
+        },
+        {
+          "item": "9ef2bee7-8e09-57cd-bbc3-0969d4e40ff0",
+          "quantity": 10
+        },
+        {
+          "item": "6c6438b9-b581-59d9-8ffa-c23d7a23d501"
+        },
+        {
+          "item": "25edd26d-e2b9-5219-a7cc-935cb8d631eb"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ac048b6c-5faf-51ef-b756-820fa549428e",
+    "pack": "gamemastery-guide",
+    "kind": "creature",
+    "slug": "creature:barkeep",
+    "name": "Barkeep",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Barkeeps are often friends and mentors within a community, lending an ear while supplying libations. The best barkeeps have some talent for storytelling and passing on valuable advice."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Countless adventures begin in a tavern or a pub. Maybe it's because such places attract the risk-prone, or maybe it's because everyone needs a little liquid courage before they decide to take on a group of rampaging ogres."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.npc-gallery.Actor.6IADTZHYowxObqAk"
+    },
+    "data": {
+      "role": "npc",
+      "size": "medium",
+      "perception": 6,
+      "attributes": {
+        "str": 3,
+        "dex": 0,
+        "con": 2,
+        "int": 0,
+        "wis": 1,
+        "cha": 3
+      },
+      "armorClass": 14,
+      "saves": {
+        "fortitude": 7,
+        "reflex": 3,
+        "will": 6
+      },
+      "hitPoints": 25,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 6
+        },
+        {
+          "skill": "deception",
+          "modifier": 6
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 8
+        },
+        {
+          "skill": "performance",
+          "modifier": 6
+        },
+        {
+          "skill": "society",
+          "modifier": 5
+        },
+        {
+          "skill": "thievery",
+          "modifier": 3
+        },
+        {
+          "skill": "alcohol-lore",
+          "modifier": 9
+        }
+      ],
+      "languages": ["common"],
+      "strikes": [
+        {
+          "name": "Sap",
+          "range": "melee",
+          "bonus": 6,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 3
+            }
+          ],
+          "traits": ["agile", "nonlethal"]
+        },
+        {
+          "name": "Fist",
+          "range": "melee",
+          "bonus": 6,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "bludgeoning",
+              "bonus": 3
+            }
+          ],
+          "traits": ["agile", "nonlethal", "unarmed"]
+        },
+        {
+          "name": "Pewter Mug",
+          "range": "melee",
+          "bonus": 3,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "bludgeoning",
+              "bonus": 3
+            }
+          ],
+          "traits": ["thrown-10"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Bar Brawler",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The barkeep has been in enough bar fights to know how to throw a few punches. When fighting in their bar and making a nonlethal attack, the barkeep gains a +1 circumstance bonus to attack rolls and deals an additional 1d4 damage."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:bar-brawler",
+              "toggleable": true
+            },
+            {
+              "key": "FlatModifier",
+              "selectors": ["attack"],
+              "type": "circumstance",
+              "value": 1,
+              "predicate": ["option:bar-brawler", "item:trait:nonlethal"]
+            },
+            {
+              "key": "DamageDice",
+              "selectors": ["strike-damage"],
+              "diceNumber": 1,
+              "dieSize": "d4",
+              "predicate": ["option:bar-brawler", "item:trait:nonlethal"]
+            }
+          ]
+        },
+        {
+          "name": "Barkeep's Advice",
+          "cost": "three",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "traits": ["auditory", "fortune", "linguistic", "mental"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per day"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The barkeep gives some pertinent advice to a single creature other than themself. For 24 hours, when that creature fails a skill check or saving throw, they can recall this advice and reroll the check, using the second result instead. Once that creature uses this ability, its effect ends."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature that receives the Barkeep's Advice is temporarily immune to the ability for 1 month."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "items": [
+        {
+          "item": "01d52b79-3964-59ed-ba54-ba1d79bbc689"
+        }
+      ]
+    }
+  },
+  {
+    "id": "93b939c5-e7a9-5654-af29-63978bbf7ca5",
+    "pack": "gamemastery-guide",
+    "kind": "creature",
+    "slug": "creature:priest-of-pharasma",
+    "name": "Priest of Pharasma",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cloistered priests safeguard their temples and communities. They are the stalwart keepers of their god's tenets, devoted to spreading the word. Their guidance or healing services come at the cost of a donation."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religions inspire devout individuals to uphold their tenets. Many of these devotees seek to bring respite and hope, but others have darker motives."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.npc-gallery.Actor.XpkGaDlyMH2V5wxR"
+    },
+    "data": {
+      "role": "npc",
+      "size": "medium",
+      "perception": 14,
+      "attributes": {
+        "str": 3,
+        "dex": 3,
+        "con": 1,
+        "int": 0,
+        "wis": 4,
+        "cha": 2
+      },
+      "armorClass": 21,
+      "saves": {
+        "fortitude": 11,
+        "reflex": 11,
+        "will": 14
+      },
+      "hitPoints": 80,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "diplomacy",
+          "modifier": 12
+        },
+        {
+          "skill": "medicine",
+          "modifier": 14
+        },
+        {
+          "skill": "religion",
+          "modifier": 14
+        },
+        {
+          "skill": "society",
+          "modifier": 11
+        },
+        {
+          "skill": "survival",
+          "modifier": 12
+        }
+      ],
+      "languages": ["common"],
+      "strikes": [
+        {
+          "name": "Dagger",
+          "range": "melee",
+          "bonus": 13,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 5
+            }
+          ],
+          "traits": ["agile", "magical", "versatile-s"]
+        },
+        {
+          "name": "Dagger",
+          "range": "melee",
+          "bonus": 13,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 5
+            }
+          ],
+          "traits": ["agile", "magical", "thrown-10", "versatile-s"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Healing Hands",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When the priest casts Heal, they roll d10s instead of d8s."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Steady Spellcasting",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If another creatures reaction would disrupt the priest's spellcasting action, the priest attempts a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "flat",
+                  "dc": 15
+                },
+                {
+                  "type": "text",
+                  "text": ". If the priest succeeds, their action isn't disrupted."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Prepared Spells",
+          "tradition": "divine",
+          "preparation": "prepared",
+          "dc": 24,
+          "attack": 16,
+          "spells": [
+            {
+              "spell": "6daf8b44-7cc4-54f2-90f6-7675ff45abe8",
+              "rank": 3
+            },
+            {
+              "spell": "306213b0-9e11-55d8-b630-8786ea86a27d",
+              "rank": 2
+            },
+            {
+              "spell": "f0caf35f-ac1a-5948-8e6c-b2fafb2e6cf9",
+              "rank": 2
+            },
+            {
+              "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+              "rank": 1
+            },
+            {
+              "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e",
+              "rank": 1
+            },
+            {
+              "spell": "b0b84836-b7a0-59ca-9379-6efdfb022f9e",
+              "rank": 1
+            },
+            {
+              "spell": "80b48120-353b-5f69-b1bb-3e35afc9066a",
+              "rank": 1
+            },
+            {
+              "spell": "02c769dd-dba8-5437-8189-28b9800afaac",
+              "rank": 1
+            },
+            {
+              "spell": "6dee4f5d-f584-5402-af2a-d3738ec685b3",
+              "rank": 1
+            },
+            {
+              "spell": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f",
+              "rank": 1
+            }
+          ]
+        },
+        {
+          "name": "Cleric Domain Spells",
+          "tradition": "divine",
+          "preparation": "focus",
+          "dc": 24,
+          "attack": 16,
+          "spells": [
+            {
+              "spell": "e44bf97c-2c78-553a-b190-fe9ff3f2353e",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "aea5fd3d-cb47-57b8-9622-601490152a97"
+        }
+      ]
+    }
+  },
+  {
+    "id": "abc0b542-c529-5bc0-9025-7a1aab14f8a8",
+    "pack": "gamemastery-guide",
+    "kind": "creature",
+    "slug": "creature:server",
+    "name": "Server",
+    "level": -1,
+    "rarity": "common",
+    "traits": ["human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Always on the move from patron to patron, servers are the backbone of any tavern or eatery. Their work hones both their agility and their diplomacy."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Countless adventures begin in a tavern or a pub. Maybe it's because such places attract the risk-prone, or maybe it's because everyone needs a little liquid courage before they decide to take on a group of rampaging ogres."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.npc-gallery.Actor.OSCpJYTr6xNIxqZi"
+    },
+    "data": {
+      "role": "npc",
+      "size": "medium",
+      "perception": 3,
+      "attributes": {
+        "str": 1,
+        "dex": 4,
+        "con": 0,
+        "int": 0,
+        "wis": 1,
+        "cha": 2
+      },
+      "armorClass": 16,
+      "saves": {
+        "fortitude": 2,
+        "reflex": 7,
+        "will": 5
+      },
+      "hitPoints": 7,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 6
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 4
+        },
+        {
+          "skill": "thievery",
+          "modifier": 5
+        }
+      ],
+      "languages": ["common"],
+      "strikes": [
+        {
+          "name": "Fist",
+          "range": "melee",
+          "bonus": 6,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "bludgeoning",
+              "bonus": 1
+            }
+          ],
+          "traits": ["agile", "nonlethal", "unarmed"]
+        },
+        {
+          "name": "Pewter Mug",
+          "range": "melee",
+          "bonus": 6,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "bludgeoning",
+              "bonus": 1
+            }
+          ],
+          "traits": ["thrown-10"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Quick Catch",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "An object that the server could hold in one hand is dropped within the server's reach"
+                }
+              ]
+            }
+          ],
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The server has at least one hand free"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " An object that the server could hold in one hand is dropped within the server's reach"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The server has at least one hand free"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The server catches the dropped object before it hits the floor or leaves their reach."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  }
+]
