@@ -38,6 +38,9 @@
     "table": {
       "columns": "Columns",
       "resetColumns": "Reset columns",
+      "loadMore": "Load more",
+      "loadingMore": "Loading more",
+      "sortRank": "Sort position {rank}",
       "sample": {
         "name": "Name",
         "ancestry": "Ancestry",

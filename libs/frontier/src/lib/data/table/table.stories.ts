@@ -178,3 +178,44 @@ export const Density: TableStory = {
     await expect(canvasElement.querySelector('td')).toHaveClass('py-3xs');
   },
 };
+
+const SERVER_PAGE: ReadonlyArray<PartyMember> = [
+  ...PARTY,
+  { id: 'amiri', name: 'Amiri', ancestry: 'Human', className: 'Barbarian', level: 2 },
+  { id: 'ezren', name: 'Ezren', ancestry: 'Human', className: 'Wizard', level: 3 },
+];
+
+/**
+ * A server's list: `manualSorting` leaves the order of `data` alone and only reports the sort, `hasMore` shows
+ * *Load more*, which emits `loadMore`, and `loadingMore` makes it busy until the next rows arrive.
+ */
+export const ServerList: TableStory = {
+  args: { data: SERVER_PAGE, manualSorting: true, hasMore: true, loadingMore: false },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: 'Name' }));
+    await expect(canvasElement.querySelector('td')).toHaveTextContent('Valeros');
+    await expect(canvas.getByRole('button', { name: 'Load more' })).toBeEnabled();
+  },
+};
+
+/** The next rows are loading: *Load more* is busy and presses are ignored. */
+export const LoadingMore: TableStory = { args: { data: SERVER_PAGE, hasMore: true, loadingMore: true } };
+
+/** Hold Shift while pressing headers to sort by several columns; each shows its place in the sort. */
+export const MultiSort: TableStory = {
+  args: {
+    sorting: [
+      { column: 'ancestry', descending: false },
+      { column: 'level', descending: true },
+    ],
+  },
+};
+
+/** `stickyHeader` keeps the header row in view while the rows scroll; `stickyFirstColumn` pins the first column. */
+export const Sticky: TableStory = {
+  args: { data: [...SERVER_PAGE, ...SERVER_PAGE, ...SERVER_PAGE], stickyHeader: true, stickyFirstColumn: true },
+  play: async ({ canvasElement }) => {
+    await expect(canvasElement.querySelector('th')).toHaveClass('sticky');
+  },
+};

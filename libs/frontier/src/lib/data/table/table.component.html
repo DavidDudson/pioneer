@@ -5,7 +5,7 @@
   (defaulted)="resetColumns()"
 />
 <fr-table-density [class]="densitySwitchClasses()" [(value)]="density" />
-<div [class]="scrollerClasses">
+<div [class]="scrollerClasses()">
   <table [class]="tableClasses">
     <caption [class]="captionClasses()">
       {{
@@ -15,10 +15,10 @@
     <thead>
       @for (group of table.getHeaderGroups(); track group.id) {
         <tr>
-          @for (header of group.headers; track header.id) {
-            <th scope="col" [class]="headerCellClasses()" [attr.aria-sort]="ariaSort(header) ?? null">
+          @for (header of group.headers; track header.id; let first = $first) {
+            <th scope="col" [class]="headerClass(first)" [attr.aria-sort]="ariaSort(header) ?? null">
               @if (!header.isPlaceholder) {
-                <fr-table-header-cell [header]="header" />
+                <fr-table-header-cell [header]="header" [sortCount]="sorting().length" />
               }
             </th>
           }
@@ -28,8 +28,8 @@
     <tbody>
       @for (row of table.getRowModel().rows; track row.id) {
         <tr>
-          @for (cell of row.getVisibleCells(); track cell.id) {
-            <td [class]="cellClasses()">
+          @for (cell of row.getVisibleCells(); track cell.id; let first = $first) {
+            <td [class]="cellClass(first)">
               <ng-container *flexRenderCell="cell; let value">{{ value }}</ng-container>
             </td>
           }
@@ -38,3 +38,7 @@
     </tbody>
   </table>
 </div>
+<div [class]="footerClasses()">
+  <fr-button [busy]="loadingMore()" (pressed)="loadMore.emit()">{{ loadMoreLabel() }}</fr-button>
+</div>
+<div role="status" [class]="statusClasses">{{ status() }}</div>
