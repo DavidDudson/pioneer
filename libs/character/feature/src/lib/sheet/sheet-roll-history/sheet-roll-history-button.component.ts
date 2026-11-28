@@ -13,8 +13,7 @@ interface LastRollSummary {
 }
 
 /**
- * The header's entry for the roll history (#342): the last roll's total and degree, which opens the history. Nothing
- * shows until a roll has been made, here or on an earlier visit.
+ * The header's entry for the roll history: the last roll's total and degree, which opens it.
  */
 @Component({
   selector: 'pio-sheet-roll-history-button',

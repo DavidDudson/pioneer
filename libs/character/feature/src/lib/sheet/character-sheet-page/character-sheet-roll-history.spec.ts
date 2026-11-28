@@ -6,6 +6,8 @@ import { DieFace } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { describe, expect, it, vi } from 'vitest';
 
+import type { RollHistoryStore } from '../../data/roll-history-entry';
+import { ROLL_HISTORY_STORE } from '../../data/roll-history-store';
 import { MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { fakeDialog, render, settle, textOf } from '../../testing/sheet-tabs-testing';
 
@@ -124,5 +126,29 @@ describe('CharacterSheetPage roll history', () => {
       expect(textOf(history(root))).toContain('No rolls yet');
     });
     expect(textOf(entry(root))).toBe('');
+  });
+
+  it('still shows and clears rolls when the store fails', async () => {
+    fakeDialog();
+    const failing = vi.fn<() => Promise<never>>().mockRejectedValue(new Error('IndexedDB blocked'));
+    const store: RollHistoryStore = { list: failing, append: failing, replace: failing, clear: failing };
+    TestBed.configureTestingModule({ providers: [{ provide: ROLL_HISTORY_STORE, useValue: store }] });
+    rolling(12);
+    const { root } = await openSheet(FIGHTER);
+
+    await rolled(root, 'Athletics');
+    present(entry(root).querySelector('button')).click();
+    render();
+
+    const clear = await vi.waitFor(() =>
+      present([...history(root).querySelectorAll('button')].find((button) => textOf(button) === 'Clear history')),
+    );
+
+    clear.click();
+    render();
+
+    await vi.waitFor(() => {
+      expect(textOf(history(root))).toContain('No rolls yet');
+    });
   });
 });

@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Button, ButtonVariant, DateDisplay, Disclosure, Drawer, Stack, Text } from '@pioneer/frontier';
 import { RollCard } from '@pioneer/play/ui';
+import type { RollView } from '@pioneer/play/ui';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import { BreakdownView } from '@pioneer/rules/ui';
 import { Temporal } from '@pioneer/shared/kernel';
@@ -11,11 +12,17 @@ import { SheetState } from '../sheet-state';
 import { historyRollView } from './roll-history-view';
 import { SheetRollHistory } from './sheet-roll-history';
 
-/**
- * The character's roll history, newest first, in a drawer beside the sheet: each roll as the roll card showed it, with
- * the breakdown it was made with, and an action that clears the lot. Its host takes no room, so the drawer lays out
- * as a child of the page.
- */
+/** The query parameter that holds the drawer open in the address, apart from the side panel's. */
+const ROLL_HISTORY_PARAM = 'rollHistory';
+
+/** A kept roll as the drawer lists it, worked out once rather than on every pass. */
+interface HistoryRow {
+  readonly entry: RollHistoryEntry;
+  readonly view: RollView;
+  readonly when: Temporal.Instant;
+}
+
+/** The character's roll history in a drawer beside the sheet: each roll as it was rolled, newest first, and a clear action. */
 @Component({
   selector: 'pio-sheet-roll-history-drawer',
   imports: [BreakdownView, Button, DateDisplay, Disclosure, Drawer, RollCard, Stack, Text, TranslocoPipe],
@@ -30,10 +37,14 @@ export class SheetRollHistoryDrawer {
   protected readonly originNames = this.#sheet.originNames;
   protected readonly kind = StatisticKind.Check;
   protected readonly clearVariant = ButtonVariant.Danger;
-  protected readonly view = historyRollView;
-
-  // oxlint-disable-next-line class-methods-use-this -- the template calls it; it needs no state
-  protected when({ at }: RollHistoryEntry): Temporal.Instant {
-    return Temporal.Instant.fromEpochMilliseconds(at);
-  }
+  protected readonly param = ROLL_HISTORY_PARAM;
+  protected readonly rows = computed((): ReadonlyArray<HistoryRow> =>
+    this.history.open()
+      ? this.history.entries().map((entry) => ({
+          entry,
+          view: historyRollView(entry),
+          when: Temporal.Instant.fromEpochMilliseconds(entry.at),
+        }))
+      : [],
+  );
 }

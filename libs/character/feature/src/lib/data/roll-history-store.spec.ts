@@ -77,6 +77,16 @@ describe.each([
     await expect(names(store, MERISIEL)).resolves.toStrictEqual(['Acrobatics']);
   });
 
+  it('does not bring back a roll that was dropped when it is rewritten', async () => {
+    const store = make();
+    const key = await store.append(entryFor(MERISIEL, 'Athletics'), CAP);
+    await store.clear(MERISIEL);
+
+    await store.replace(key, entryFor(MERISIEL, 'Acrobatics'));
+
+    await expect(names(store, MERISIEL)).resolves.toStrictEqual([]);
+  });
+
   it('clears one character and leaves the others', async () => {
     const store = make();
     await store.append(entryFor(MERISIEL, 'Athletics'), CAP);

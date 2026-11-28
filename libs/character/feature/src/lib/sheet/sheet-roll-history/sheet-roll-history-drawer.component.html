@@ -1,13 +1,15 @@
-<fr-drawer [title]="'character.sheet.roll.history.title' | transloco" [(open)]="history.open">
+<fr-drawer [param]="param" [title]="'character.sheet.roll.history.title' | transloco" [(open)]="history.open">
   <fr-stack gap="md">
-    @for (entry of history.entries(); track entry) {
+    @for (row of rows(); track row) {
       <fr-stack gap="xs">
         <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
-          <fr-text weight="semibold">{{ 'character.sheet.roll.heading' | transloco: { name: entry.name } }}</fr-text>
-          <fr-text variant="caption" tone="subtle"><fr-date format="relative" [value]="when(entry)" /></fr-text>
+          <fr-text weight="semibold">{{
+            'character.sheet.roll.heading' | transloco: { name: row.entry.name }
+          }}</fr-text>
+          <fr-text variant="caption" tone="subtle"><fr-date format="relative" [value]="row.when" /></fr-text>
         </fr-stack>
-        <pio-roll-card [roll]="view(entry)" [dc]="entry.dc" />
-        @if (entry.statistic; as statistic) {
+        <pio-roll-card [roll]="row.view" [dc]="row.entry.dc" />
+        @if (row.entry.statistic; as statistic) {
           <fr-disclosure>
             <fr-text frDisclosureSummary>{{ 'character.sheet.roll.breakdown' | transloco }}</fr-text>
             <pio-breakdown
@@ -22,7 +24,7 @@
     } @empty {
       <fr-text tone="subtle">{{ 'character.sheet.roll.history.empty' | transloco }}</fr-text>
     }
-    @if (history.entries().length > 0) {
+    @if (rows().length > 0) {
       <fr-button [variant]="clearVariant" (pressed)="history.clear()">{{
         'character.sheet.roll.history.clear' | transloco
       }}</fr-button>

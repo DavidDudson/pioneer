@@ -162,12 +162,17 @@ export class SheetRolls implements StatisticRoller {
   public typeDc(dc: Dc | undefined): void {
     this.dc.set(dc);
     this.#rolled.update((rolled) => (rolled === undefined ? rolled : { ...rolled, dc: undefined }));
-    // oxlint-disable-next-line typescript/no-floating-promises -- the history catches every error, so it never rejects
-    this.#history.reviseNewest((entry) => ({
-      ...entry,
-      dc,
-      degree: entry.statistic === undefined ? undefined : rolledDegree(entry.roll, dc),
-    }));
+  }
+
+  /**
+   * Types the DC on the card of the roll shown, and keeps it with that roll in the history. Other callers set a DC
+   * ahead of a roll with `typeDc`, which must not rewrite the roll before.
+   */
+  public editDc(dc: Dc | undefined): void {
+    this.typeDc(dc);
+    this.#history.reviseNewest((entry) =>
+      entry.statistic === undefined ? entry : { ...entry, dc, degree: rolledDegree(entry.roll, dc) },
+    );
   }
 
   /** Sets the check up for the player to review: the situations claimed so far are chosen, and more can be. */
@@ -180,7 +185,7 @@ export class SheetRolls implements StatisticRoller {
   /**
    * Rolls initiative with `selector` at once (#506): the statistic derived as an initiative check, so the modifiers
    * aimed at initiative and the options an initiative roll supplies count, with the situations claimed for the
-   * statistic. The roll is kept nowhere but the last roll; nothing about initiative is play state.
+   * statistic. The roll is kept in the roll history and as the last roll; nothing about initiative is play state.
    */
   public rollInitiative(name: string, selector: Selector): void {
     const as = initiativeRoll(selector);
@@ -292,7 +297,6 @@ export class SheetRolls implements StatisticRoller {
       dc: undefined,
       damage,
     });
-    // oxlint-disable-next-line typescript/no-floating-promises -- the history catches every error, so it never rejects
     this.#history.append({ name, expression, roll, reasons: [], damage });
     this.#present(name, roll, placed);
   }
@@ -307,7 +311,6 @@ export class SheetRolls implements StatisticRoller {
     const roll = rollWithFortune(outcome.expression, NO_FORTUNE, this.#random);
     this.#rolled.set({ id: this.#count, name, statistic, expression: outcome.expression, roll, reasons, dc, check });
     const cardDc = this.cardDc();
-    // oxlint-disable-next-line typescript/no-floating-promises -- the history catches every error, so it never rejects
     this.#history.append({
       name,
       statistic,
