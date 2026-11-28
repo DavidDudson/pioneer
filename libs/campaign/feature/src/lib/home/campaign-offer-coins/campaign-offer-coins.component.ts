@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, signal } f
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CampaignContract, CampaignId, CharacterId, OfferedCoinsSchema } from '@pioneer/campaign/domain';
 import type { CampaignParty, OfferedCoins, PartyCharacter } from '@pioneer/campaign/domain';
-import { AsyncButton, Disclosure, Grid, Message, NumberInput, Stack, Text } from '@pioneer/frontier';
+import { Alert, AsyncButton, Disclosure, Grid, NumberInput, Stack, Text } from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
 import { ApiClient } from '@pioneer/shared/web';
@@ -35,7 +35,7 @@ const NOTHING: CoinCounts = { pp: 0, gp: 0, sp: 0, cp: 0 };
  */
 @Component({
   selector: 'pio-campaign-offer-coins',
-  imports: [AsyncButton, Disclosure, Grid, Message, NumberInput, Picker, Stack, Text, TranslocoPipe],
+  imports: [AsyncButton, Disclosure, Grid, Alert, NumberInput, Picker, Stack, Text, TranslocoPipe],
   templateUrl: './campaign-offer-coins.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

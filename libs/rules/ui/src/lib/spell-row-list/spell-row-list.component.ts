@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { EmptyState, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
+import { EmptyState, EmptyStateTitle, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
 
 import { SpellListMessage } from '../spell-list/spell-list-messages';
 import { SpellRow } from '../spell-row/spell-row.component';
@@ -22,7 +22,18 @@ import type { SpellRowLine } from './spell-row-line';
  */
 @Component({
   selector: 'pio-spell-row-list',
-  imports: [EmptyState, List, ListItem, Skeleton, SpellItemControls, SpellRow, Stack, Text, TranslocoPipe],
+  imports: [
+    EmptyState,
+    EmptyStateTitle,
+    List,
+    ListItem,
+    Skeleton,
+    SpellItemControls,
+    SpellRow,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './spell-row-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -3,7 +3,7 @@ import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { attributeModifiers, itemContent, runeContent } from '@pioneer/character/domain';
 import type { InvestedCount, ItemContent, RunedContent } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, Heading, Message, Stack } from '@pioneer/frontier';
+import { Alert, AsyncData, AsyncPending, AsyncRegion, Heading, Stack } from '@pioneer/frontier';
 import type { AsyncQuery } from '@pioneer/frontier';
 import { Attribute } from '@pioneer/rules/sdk';
 import type { AttributeModifier, ContentRegistry } from '@pioneer/rules/sdk';
@@ -47,7 +47,7 @@ import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
     ItemEdits,
     ItemOffer,
     ItemRuneEdits,
-    Message,
+    Alert,
     PartyInventory,
     Stack,
     TranslocoPipe,

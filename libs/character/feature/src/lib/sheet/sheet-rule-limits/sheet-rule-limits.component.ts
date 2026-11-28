@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AsyncData, AsyncPending, AsyncRegion, List, Message, Skeleton, Stack } from '@pioneer/frontier';
+import { Alert, AsyncData, AsyncPending, AsyncRegion, List, Skeleton, Stack } from '@pioneer/frontier';
 
 import { CharacterRuleLimitSettingStore } from '../../data/character-rule-limit-setting-store';
 import { SheetRuleLimitRow } from './sheet-rule-limit-row.component';
@@ -15,7 +15,7 @@ const PLACEHOLDERS = ['first', 'second', 'third', 'fourth'] as const;
  */
 @Component({
   selector: 'pio-sheet-rule-limits',
-  imports: [AsyncData, AsyncPending, AsyncRegion, List, Message, SheetRuleLimitRow, Skeleton, Stack, TranslocoPipe],
+  imports: [AsyncData, AsyncPending, AsyncRegion, List, Alert, SheetRuleLimitRow, Skeleton, Stack, TranslocoPipe],
   templateUrl: './sheet-rule-limits.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   EmptyState,
+  EmptyStateTitle,
   injectTranslate,
   List,
   ListItem,
@@ -53,7 +54,7 @@ const LOADING_ROWS = 2;
  */
 @Component({
   selector: 'pio-investments',
-  imports: [EmptyState, List, ListItem, Meter, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [EmptyState, EmptyStateTitle, List, ListItem, Meter, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './investments.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -298,7 +298,7 @@ describe(InlineField, () => {
 
   it('shows a notice under the value, read out with the edit button', async () => {
     const rendered = await render({ notice: 'Counts for nothing' });
-    const message = rendered.host.querySelector('fr-message');
+    const message = rendered.host.querySelector('fr-alert');
     expect(message?.textContent.trim()).toBe('Counts for nothing');
     const describedBy = readButton(rendered)?.getAttribute('aria-describedby');
     expect(describedBy).toBe(message?.querySelector('span')?.id);

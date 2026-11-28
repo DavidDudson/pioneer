@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Disclosure, Heading, List, ListItem, Message, Stack, Surface, Text } from '@pioneer/frontier';
+import { Alert, Disclosure, Heading, List, ListItem, Stack, Surface, Text } from '@pioneer/frontier';
 import { HomebrewEntryOutcome } from '@pioneer/interop/pioneer';
 import type { HomebrewPackReport } from '@pioneer/interop/pioneer';
 
@@ -27,7 +27,7 @@ interface PackView {
  */
 @Component({
   selector: 'pio-pioneer-import-homebrew',
-  imports: [Disclosure, Heading, List, ListItem, Message, Stack, Surface, Text, TranslocoPipe],
+  imports: [Disclosure, Heading, List, ListItem, Alert, Stack, Surface, Text, TranslocoPipe],
   templateUrl: './pioneer-import-homebrew.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -7,8 +7,11 @@
   </fr-stack>
 } @else {
   <fr-empty-state
-    [icon]="missingIcon"
-    [title]="Message.MissingTitle | transloco"
-    [description]="Message.MissingDescription | transloco"
-  />
+    ><fr-empty-state-media [icon]="missingIcon" /><fr-empty-state-header
+      ><fr-empty-state-title>{{ Message.MissingTitle | transloco }}</fr-empty-state-title
+      ><fr-empty-state-description>{{
+        Message.MissingDescription | transloco
+      }}</fr-empty-state-description></fr-empty-state-header
+    ></fr-empty-state
+  >
 }

@@ -3,6 +3,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import {
   Button,
   EmptyState,
+  EmptyStateTitle,
   Field,
   FieldError,
   Heading,
@@ -70,7 +71,20 @@ interface ValueRangeParams {
  */
 @Component({
   selector: 'pio-adjustment-editor',
-  imports: [Button, EmptyState, Field, FieldError, Heading, Label, NumberInput, Picker, Stack, Text, TranslocoPipe],
+  imports: [
+    Button,
+    EmptyState,
+    EmptyStateTitle,
+    Field,
+    FieldError,
+    Heading,
+    Label,
+    NumberInput,
+    Picker,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './adjustment-editor.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -19,7 +19,11 @@
                 continueWith[provider] | transloco
               }}</fr-button>
             } @empty {
-              <fr-empty-state [icon]="unavailableIcon" [title]="'identity.signIn.unavailable' | transloco" />
+              <fr-empty-state
+                ><fr-empty-state-media [icon]="unavailableIcon" /><fr-empty-state-title>{{
+                  'identity.signIn.unavailable' | transloco
+                }}</fr-empty-state-title></fr-empty-state
+              >
             }
           </fr-stack>
         </ng-template>

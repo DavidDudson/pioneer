@@ -9,7 +9,7 @@
   <ng-template let-rules [frAsyncData]="store.settings">
     <fr-stack gap="md">
       @if (rules.campaign; as campaign) {
-        <fr-message tone="info">{{ 'character.ruleLimits.campaignDecides' | transloco: { campaign } }}</fr-message>
+        <fr-alert tone="info">{{ 'character.ruleLimits.campaignDecides' | transloco: { campaign } }}</fr-alert>
       }
       <fr-list gap="sm">
         @for (setting of rules.limits; track setting.limit) {

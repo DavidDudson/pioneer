@@ -11,7 +11,7 @@ import {
 import { TranslocoPipe } from '@jsverse/transloco';
 
 import { Button } from '../../actions/button/button.component';
-import { Message, MessageTone } from '../../feedback/message/message.component';
+import { Alert, AlertTone } from '../../feedback/alert/alert.component';
 import { Skeleton } from '../../feedback/skeleton/skeleton.component';
 import { uniqueId } from '../../ids';
 import { Stack } from '../../layout/stack/stack.component';
@@ -41,7 +41,7 @@ const AUTOFOCUS = '[data-autofocus]';
  */
 @Component({
   selector: 'fr-inline-field',
-  imports: [Button, Message, SaveStatus, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [Button, Alert, SaveStatus, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './inline-field.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block', '[attr.aria-busy]': 'edit().busy() || null' },
@@ -59,8 +59,8 @@ export class InlineField<TValue> {
   protected readonly message = computed(() => this.edit().validationError() ?? this.edit().error());
   protected readonly messageTone = computed(() =>
     this.status() === InlineEditStatus.Conflict && this.edit().validationError() === undefined
-      ? MessageTone.Warning
-      : MessageTone.Danger,
+      ? AlertTone.Warning
+      : AlertTone.Danger,
   );
 
   readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);

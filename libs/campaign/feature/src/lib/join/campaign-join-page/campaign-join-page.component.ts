@@ -2,7 +2,7 @@ import { afterNextRender, ChangeDetectionStrategy, Component, inject } from '@an
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { InviteToken } from '@pioneer/campaign/domain';
-import { injectAsyncAction, Link, Message, Page, PageBody, PageHeader, Stack, Surface, Text } from '@pioneer/frontier';
+import { Alert, injectAsyncAction, Link, Page, PageBody, PageHeader, Stack, Surface, Text } from '@pioneer/frontier';
 import { ApiError } from '@pioneer/shared/web';
 
 import { CampaignStore } from '../../data/campaign-store';
@@ -17,7 +17,7 @@ import { PendingInvite } from '../../data/pending-invite';
  */
 @Component({
   selector: 'pio-campaign-join-page',
-  imports: [Link, Message, Page, PageBody, PageHeader, Stack, Surface, Text, TranslocoPipe],
+  imports: [Link, Alert, Page, PageBody, PageHeader, Stack, Surface, Text, TranslocoPipe],
   templateUrl: './campaign-join-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

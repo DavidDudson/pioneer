@@ -21,6 +21,7 @@ import {
   SheetMode,
 } from '@pioneer/character/domain';
 import {
+  Alert,
   AsyncData,
   AsyncPending,
   AsyncRegion,
@@ -28,7 +29,6 @@ import {
   Grid,
   Heading,
   InlineField,
-  Message,
   Responsive,
   Section,
   SectionBody,
@@ -96,7 +96,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     HeritagePicker,
     ImportResult,
     InlineField,
-    Message,
+    Alert,
     Section,
     SectionBody,
     SheetClassFields,

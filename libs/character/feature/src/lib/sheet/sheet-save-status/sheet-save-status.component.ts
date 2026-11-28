@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AsyncButton, Message, Stack, Text } from '@pioneer/frontier';
+import { Alert, AsyncButton, Stack, Text } from '@pioneer/frontier';
 
 import { CharacterStore } from '../../data/character-store';
 import { SaveState } from '../../data/edit-tracker';
@@ -12,7 +12,7 @@ import { SaveState } from '../../data/edit-tracker';
  */
 @Component({
   selector: 'pio-sheet-save-status',
-  imports: [AsyncButton, Message, Stack, Text, TranslocoPipe],
+  imports: [AsyncButton, Alert, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-save-status.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -13,7 +13,9 @@
       >
     </fr-stack>
   } @empty {
-    <fr-empty-state [title]="'play.dice.none' | transloco" />
+    <fr-empty-state
+      ><fr-empty-state-title>{{ 'play.dice.none' | transloco }}</fr-empty-state-title></fr-empty-state
+    >
   }
   <fr-stack direction="horizontal" align="end" gap="sm" wrap>
     <fr-field>

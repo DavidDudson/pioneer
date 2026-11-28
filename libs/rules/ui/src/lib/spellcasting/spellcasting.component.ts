@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Badge, EmptyState, Heading, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
+import { Badge, EmptyState, EmptyStateTitle, Heading, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { SpellSlots } from '@pioneer/rules/engine';
 import { SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
@@ -66,6 +66,7 @@ function slotBlocks(entry: SpellcastingEntryLine): ReadonlyArray<SlotBlock> {
   imports: [
     Badge,
     EmptyState,
+    EmptyStateTitle,
     Heading,
     List,
     ListItem,

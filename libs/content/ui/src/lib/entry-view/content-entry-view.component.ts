@@ -1,6 +1,15 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { EmptyState, HeadingLevel, Link, Stack } from '@pioneer/frontier';
+import {
+  EmptyState,
+  EmptyStateDescription,
+  EmptyStateHeader,
+  EmptyStateMedia,
+  EmptyStateTitle,
+  HeadingLevel,
+  Link,
+  Stack,
+} from '@pioneer/frontier';
 import { EntryPreviewView } from '@pioneer/rules/ui';
 import type { EntryPreview } from '@pioneer/rules/ui';
 import { PackageSearch } from 'lucide';
@@ -19,7 +28,17 @@ const EntryViewMessage = {
  */
 @Component({
   selector: 'pio-content-entry-view',
-  imports: [EmptyState, EntryPreviewView, Link, Stack, TranslocoPipe],
+  imports: [
+    EmptyState,
+    EmptyStateMedia,
+    EmptyStateHeader,
+    EmptyStateTitle,
+    EmptyStateDescription,
+    EntryPreviewView,
+    Link,
+    Stack,
+    TranslocoPipe,
+  ],
   templateUrl: './content-entry-view.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

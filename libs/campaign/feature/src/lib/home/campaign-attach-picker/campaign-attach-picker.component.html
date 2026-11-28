@@ -1,7 +1,10 @@
 <fr-stack gap="sm">
   <fr-heading variant="label" [level]="3">{{ 'campaign.party.attachHeading' | transloco }}</fr-heading>
   @if (attachable().length === 0) {
-    <fr-empty-state [icon]="emptyIcon" [title]="'campaign.party.noneToAttach' | transloco">
+    <fr-empty-state
+      ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
+        'campaign.party.noneToAttach' | transloco
+      }}</fr-empty-state-title>
       <fr-link [to]="['/characters']">{{ 'campaign.party.toCharacters' | transloco }}</fr-link>
     </fr-empty-state>
   }

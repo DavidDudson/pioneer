@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LocaleFormat, Message, Text } from '@pioneer/frontier';
+import { Alert, LocaleFormat, Text } from '@pioneer/frontier';
 
 import type { FormulaCheck } from '../formula-check';
 import { CheckStatus } from '../rules-check';
@@ -11,7 +11,7 @@ import { CheckStatus } from '../rules-check';
  */
 @Component({
   selector: 'pio-formula-result',
-  imports: [Message, Text, TranslocoPipe],
+  imports: [Alert, Text, TranslocoPipe],
   templateUrl: './formula-result.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

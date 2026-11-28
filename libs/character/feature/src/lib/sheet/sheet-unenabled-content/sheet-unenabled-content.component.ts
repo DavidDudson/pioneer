@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import type { UnenabledContent } from '@pioneer/character/domain';
-import { List, ListItem, Message, Stack, Text } from '@pioneer/frontier';
+import { Alert, List, ListItem, Stack, Text } from '@pioneer/frontier';
 
 import { CharacterUnenabledStore } from '../../data/character-unenabled-store';
 
@@ -66,7 +66,7 @@ function groupsOf(content: UnenabledContent): ReadonlyArray<UnenabledGroup> {
  */
 @Component({
   selector: 'pio-sheet-unenabled-content',
-  imports: [List, ListItem, Message, Stack, Text, TranslocoPipe],
+  imports: [List, ListItem, Alert, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-unenabled-content.component.html',
   providers: [CharacterUnenabledStore],
   changeDetection: ChangeDetectionStrategy.OnPush,

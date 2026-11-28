@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import type { TemplateRef } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { EmptyState, Heading, List, ListItem, Skeleton, Stack } from '@pioneer/frontier';
+import { EmptyState, EmptyStateTitle, Heading, List, ListItem, Skeleton, Stack } from '@pioneer/frontier';
 
 import type { InventoryGroup } from './inventory-line';
 import { InventoryMessage, PLACEMENT_MESSAGES } from './inventory-messages';
@@ -24,7 +24,7 @@ const LOADING_ROWS = 3;
  */
 @Component({
   selector: 'pio-inventory',
-  imports: [EmptyState, Heading, InventoryRow, List, ListItem, Skeleton, Stack, TranslocoPipe],
+  imports: [EmptyState, EmptyStateTitle, Heading, InventoryRow, List, ListItem, Skeleton, Stack, TranslocoPipe],
   templateUrl: './inventory.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

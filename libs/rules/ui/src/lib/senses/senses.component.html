@@ -1,7 +1,9 @@
 <fr-stack gap="sm">
   @if (shown(); as shown) {
     @if (shown.empty) {
-      <fr-empty-state [title]="None | transloco" />
+      <fr-empty-state
+        ><fr-empty-state-title>{{ None | transloco }}</fr-empty-state-title></fr-empty-state
+      >
     } @else {
       <pio-sense-list [senses]="shown.senses" [entryNames]="entryNames()" [names]="originNames()" />
     }

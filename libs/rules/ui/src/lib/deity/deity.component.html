@@ -10,7 +10,9 @@
     <fr-skeleton kind="block" width="full" />
   </fr-stack>
 } @else if (shown === undefined) {
-  <fr-empty-state [title]="Message.None | transloco" />
+  <fr-empty-state
+    ><fr-empty-state-title>{{ Message.None | transloco }}</fr-empty-state-title></fr-empty-state
+  >
 } @else {
   <fr-stack gap="md">
     <fr-text variant="subheading">{{ shown.name }}</fr-text>

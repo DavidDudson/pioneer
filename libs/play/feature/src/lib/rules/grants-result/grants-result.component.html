@@ -5,7 +5,9 @@
   @let rows = shown();
   <fr-stack gap="lg">
     @if (rows.items.length === 0) {
-      <fr-empty-state [title]="'play.rules.noGrants' | transloco" />
+      <fr-empty-state
+        ><fr-empty-state-title>{{ 'play.rules.noGrants' | transloco }}</fr-empty-state-title></fr-empty-state
+      >
     }
     <pio-grant-list [rows]="rows.items">{{ 'play.rules.grantedHeading' | transloco }}</pio-grant-list>
     <pio-grant-list [rows]="rows.duplicates">{{ 'play.rules.duplicatesHeading' | transloco }}</pio-grant-list>

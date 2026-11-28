@@ -17,11 +17,10 @@
           @let shown = visible(key.keyItems);
           @if (shown.length === 0) {
             <fr-empty-state
-              [icon]="emptyIcon"
-              [title]="
+              ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
                 (key.keyItems.length === 0 ? 'campaign.keyItems.none' : 'campaign.keyItems.noneHeld') | transloco
-              "
-            />
+              }}</fr-empty-state-title></fr-empty-state
+            >
           }
           <fr-list gap="sm">
             @for (keyItem of shown; track keyItem.id) {

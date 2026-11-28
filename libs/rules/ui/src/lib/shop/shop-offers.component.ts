@@ -1,7 +1,20 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, model } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { EmptyState, injectTranslate, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
+import {
+  EmptyState,
+  EmptyStateDescription,
+  EmptyStateHeader,
+  EmptyStateMedia,
+  EmptyStateTitle,
+  injectTranslate,
+  List,
+  ListItem,
+  LocaleFormat,
+  Skeleton,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { PackageSearch } from 'lucide';
 
@@ -29,7 +42,20 @@ interface OfferRow {
  */
 @Component({
   selector: 'pio-shop-offers',
-  imports: [EmptyState, List, ListItem, ShopOfferRow, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [
+    EmptyState,
+    EmptyStateMedia,
+    EmptyStateHeader,
+    EmptyStateTitle,
+    EmptyStateDescription,
+    List,
+    ListItem,
+    ShopOfferRow,
+    Skeleton,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './shop-offers.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

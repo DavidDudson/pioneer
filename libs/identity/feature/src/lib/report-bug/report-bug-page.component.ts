@@ -4,11 +4,11 @@ import { form, FormField, validateStandardSchema } from '@angular/forms/signals'
 import { ActivatedRoute } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
+  Alert,
+  AlertTone,
   AsyncButton,
   AsyncForm,
   Heading,
-  Message,
-  MessageTone,
   Page,
   PageBody,
   PageHeader,
@@ -57,7 +57,7 @@ interface AttachedCharacter {
     AsyncForm,
     FormField,
     Heading,
-    Message,
+    Alert,
     Page,
     PageBody,
     PageHeader,
@@ -78,7 +78,7 @@ export class ReportBugPage {
     requireSync: true,
   });
 
-  protected readonly successTone = MessageTone.Success;
+  protected readonly successTone = AlertTone.Success;
   protected readonly sent = signal(false);
   /** Set when the reporter asked to share the character and the server could not copy it. */
   protected readonly sentWithoutCharacter = signal(false);

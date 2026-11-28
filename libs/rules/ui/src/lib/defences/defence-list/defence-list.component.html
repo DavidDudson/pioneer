@@ -1,7 +1,9 @@
 <fr-stack gap="xs">
   <fr-heading [level]="3">{{ list().heading }}</fr-heading>
   @if (list().defences.length === 0) {
-    <fr-empty-state [title]="list().empty" />
+    <fr-empty-state
+      ><fr-empty-state-title>{{ list().empty }}</fr-empty-state-title></fr-empty-state
+    >
   } @else {
     <fr-list gap="xs">
       @for (defence of list().defences; track $index) {

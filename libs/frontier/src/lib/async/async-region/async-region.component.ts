@@ -2,7 +2,7 @@ import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, contentChild, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 
-import { Message } from '../../feedback/message/message.component';
+import { Alert } from '../../feedback/alert/alert.component';
 import { AsyncData } from './async-data.directive';
 import { AsyncError } from './async-error.directive';
 import { AsyncPending } from './async-pending.directive';
@@ -23,7 +23,7 @@ import { AsyncPending } from './async-pending.directive';
  */
 @Component({
   selector: 'fr-async-region',
-  imports: [Message, NgTemplateOutlet, TranslocoPipe],
+  imports: [Alert, NgTemplateOutlet, TranslocoPipe],
   templateUrl: './async-region.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block', '[attr.aria-busy]': 'pending() || null' },

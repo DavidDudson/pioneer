@@ -90,7 +90,19 @@ export { DateDisplay, DateFormat, type DateValue } from './lib/date/date.compone
 // Feedback
 export { EmptyState } from './lib/feedback/empty-state/empty-state.component';
 
-export { Message, MessageTone } from './lib/feedback/message/message.component';
+export { EmptyStateDescription } from './lib/feedback/empty-state/empty-state-description.component';
+
+export { EmptyStateHeader } from './lib/feedback/empty-state/empty-state-header.component';
+
+export { EmptyStateMedia } from './lib/feedback/empty-state/empty-state-media.component';
+
+export { EmptyStateTitle } from './lib/feedback/empty-state/empty-state-title.component';
+
+export { Alert, AlertTone } from './lib/feedback/alert/alert.component';
+
+export { AlertDescription } from './lib/feedback/alert/alert-description.component';
+
+export { AlertTitle } from './lib/feedback/alert/alert-title.component';
 
 export { Meter, MeterVariant } from './lib/feedback/meter/meter.component';
 

@@ -19,7 +19,7 @@ const labelVariants = cva('', {
 /**
  * What an async action is doing, in place: its label while pending (screen readers only unless `showLabel`), a tick
  * on success, nothing at rest. A control that shows its state on its own border sets `announceOnly`. Errors are shown by the owner as a
- * `fr-message`, next to the thing that failed.
+ * `fr-alert`, next to the thing that failed.
  */
 @Component({
   selector: 'fr-async-indicator',

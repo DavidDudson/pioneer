@@ -1,6 +1,8 @@
 @if (rows(); as languages) {
   @if (languages.length === 0) {
-    <fr-empty-state [title]="Message.None | transloco" />
+    <fr-empty-state
+      ><fr-empty-state-title>{{ Message.None | transloco }}</fr-empty-state-title></fr-empty-state
+    >
   } @else {
     <fr-list gap="xs">
       @for (language of languages; track language.key) {

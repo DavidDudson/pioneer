@@ -1,6 +1,6 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { EmptyState, List, ListItem, Skeleton } from '@pioneer/frontier';
+import { EmptyState, EmptyStateTitle, List, ListItem, Skeleton } from '@pioneer/frontier';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -36,7 +36,7 @@ export interface ChoiceLockChange {
  */
 @Component({
   selector: 'pio-choices',
-  imports: [ChoiceRow, EmptyState, List, ListItem, Skeleton, TranslocoPipe],
+  imports: [ChoiceRow, EmptyState, EmptyStateTitle, List, ListItem, Skeleton, TranslocoPipe],
   templateUrl: './choices.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

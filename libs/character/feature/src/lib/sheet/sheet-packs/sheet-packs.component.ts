@@ -1,6 +1,17 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AsyncData, AsyncPending, AsyncRegion, EmptyState, List, Message, Skeleton, Stack } from '@pioneer/frontier';
+import {
+  Alert,
+  AsyncData,
+  AsyncPending,
+  AsyncRegion,
+  EmptyState,
+  EmptyStateMedia,
+  EmptyStateTitle,
+  List,
+  Skeleton,
+  Stack,
+} from '@pioneer/frontier';
 import type { ContentPackId } from '@pioneer/rules/sdk';
 import { Package } from 'lucide';
 
@@ -23,8 +34,10 @@ const PLACEHOLDERS = ['first', 'second'] as const;
     AsyncPending,
     AsyncRegion,
     EmptyState,
+    EmptyStateMedia,
+    EmptyStateTitle,
     List,
-    Message,
+    Alert,
     SheetPackPicker,
     SheetPackRow,
     Skeleton,

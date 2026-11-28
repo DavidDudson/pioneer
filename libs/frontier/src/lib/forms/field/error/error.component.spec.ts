@@ -9,7 +9,7 @@ describe(FieldError, () => {
     harness.add(FieldError, 'Name is required.');
     await harness.stable();
     const message = harness.root.querySelector(`#${harness.field.instance.errorId}`);
-    expect(message?.closest('fr-message')).not.toBeNull();
+    expect(message?.closest('fr-alert')).not.toBeNull();
     expect(message?.textContent.trim()).toBe('Name is required.');
   });
 

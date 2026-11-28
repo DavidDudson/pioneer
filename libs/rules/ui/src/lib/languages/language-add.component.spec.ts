@@ -111,7 +111,7 @@ describe(LanguageAdd, () => {
 
     await choose(fixture, 'Elven');
     await vi.waitFor(() => {
-      expect(host(fixture).querySelector('fr-message')).not.toBeNull();
+      expect(host(fixture).querySelector('fr-alert')).not.toBeNull();
     });
     expect(host(fixture).querySelector('pio-language-picker')).not.toBeNull();
   });

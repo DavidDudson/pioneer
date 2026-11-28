@@ -20,6 +20,8 @@
       }
     </fr-field>
   } @empty {
-    <fr-empty-state [title]="'play.rules.noReferences' | transloco" />
+    <fr-empty-state
+      ><fr-empty-state-title>{{ 'play.rules.noReferences' | transloco }}</fr-empty-state-title></fr-empty-state
+    >
   }
 </fr-stack>

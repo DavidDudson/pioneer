@@ -1,6 +1,8 @@
 @if (shown(); as strikes) {
   @if (strikes.length === 0) {
-    <fr-empty-state [title]="Statistics.NoStrikes | transloco" />
+    <fr-empty-state
+      ><fr-empty-state-title>{{ Statistics.NoStrikes | transloco }}</fr-empty-state-title></fr-empty-state
+    >
   } @else {
     <fr-list gap="3xs">
       @for (row of strikes; track row.key) {

@@ -3,7 +3,16 @@ import { form, FormField, validateStandardSchema } from '@angular/forms/signals'
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { EnabledPackId } from '@pioneer/campaign/domain';
 import type { CampaignId, PackCandidate } from '@pioneer/campaign/domain';
-import { AsyncButton, AsyncForm, EmptyState, Heading, Link, Stack } from '@pioneer/frontier';
+import {
+  AsyncButton,
+  AsyncForm,
+  EmptyState,
+  EmptyStateMedia,
+  EmptyStateTitle,
+  Heading,
+  Link,
+  Stack,
+} from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import { injectOptionRows } from '@pioneer/rules/ui';
@@ -23,7 +32,19 @@ interface EnableModel {
 /** The packs the GM may read and has not enabled, to enable one, with the packs it extends, in the open campaign. */
 @Component({
   selector: 'pio-campaign-pack-picker',
-  imports: [AsyncButton, AsyncForm, EmptyState, FormField, Heading, Link, PickerField, Stack, TranslocoPipe],
+  imports: [
+    AsyncButton,
+    AsyncForm,
+    EmptyState,
+    EmptyStateMedia,
+    EmptyStateTitle,
+    FormField,
+    Heading,
+    Link,
+    PickerField,
+    Stack,
+    TranslocoPipe,
+  ],
   templateUrl: './campaign-pack-picker.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

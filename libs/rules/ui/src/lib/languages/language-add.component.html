@@ -12,7 +12,7 @@
       />
       <fr-async-indicator showLabel [status]="saving.status()" />
       @if (saving.errorMessage(); as error) {
-        <fr-message>{{ error }}</fr-message>
+        <fr-alert>{{ error }}</fr-alert>
       }
     } @else {
       <fr-stack direction="horizontal">

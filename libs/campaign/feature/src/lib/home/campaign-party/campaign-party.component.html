@@ -24,7 +24,11 @@
         <fr-stack gap="md">
           <pio-campaign-gm-avatar [name]="gmName()" />
           @if (party.characters.length === 0) {
-            <fr-empty-state [icon]="emptyIcon" [title]="'campaign.party.empty' | transloco" />
+            <fr-empty-state
+              ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
+                'campaign.party.empty' | transloco
+              }}</fr-empty-state-title></fr-empty-state
+            >
           } @else {
             <fr-list gap="sm">
               @for (character of party.characters; track character.characterId) {

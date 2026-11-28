@@ -93,18 +93,23 @@
             @if (characters.total === 0) {
               @if (filtered()) {
                 <fr-empty-state
-                  [icon]="emptyIcon"
-                  [title]="'character.list.noMatches' | transloco"
-                  [description]="'character.list.noMatchesHint' | transloco"
-                >
+                  ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-header
+                    ><fr-empty-state-title>{{ 'character.list.noMatches' | transloco }}</fr-empty-state-title
+                    ><fr-empty-state-description>{{
+                      'character.list.noMatchesHint' | transloco
+                    }}</fr-empty-state-description></fr-empty-state-header
+                  >
                   <fr-button (pressed)="clearFilters()">{{ 'character.list.filters.clear' | transloco }}</fr-button>
                 </fr-empty-state>
               } @else {
                 <fr-empty-state
-                  [icon]="emptyIcon"
-                  [title]="'character.list.empty' | transloco"
-                  [description]="'character.list.emptyHint' | transloco"
-                />
+                  ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-header
+                    ><fr-empty-state-title>{{ 'character.list.empty' | transloco }}</fr-empty-state-title
+                    ><fr-empty-state-description>{{
+                      'character.list.emptyHint' | transloco
+                    }}</fr-empty-state-description></fr-empty-state-header
+                  ></fr-empty-state
+                >
               }
             } @else {
               @let pages = pageCount(characters.total, characters.pageSize);

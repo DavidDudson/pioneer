@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Badge, EmptyState, Heading, List, ListItem, Stack, Text } from '@pioneer/frontier';
+import { Badge, EmptyState, EmptyStateTitle, Heading, List, ListItem, Stack, Text } from '@pioneer/frontier';
 import { DefenceStatusKind } from '@pioneer/rules/engine';
 import type { ContentId } from '@pioneer/rules/sdk';
 
@@ -13,7 +13,7 @@ import type { ShownList } from '../shown-defences';
 /** One list of the defences panel under its heading, already worded, or the empty state saying it has none. */
 @Component({
   selector: 'pio-defence-list',
-  imports: [Badge, EmptyState, Heading, List, ListItem, OriginChainView, Stack, Text, TranslocoPipe],
+  imports: [Badge, EmptyState, EmptyStateTitle, Heading, List, ListItem, OriginChainView, Stack, Text, TranslocoPipe],
   templateUrl: './defence-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

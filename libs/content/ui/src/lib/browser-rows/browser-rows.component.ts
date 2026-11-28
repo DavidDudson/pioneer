@@ -1,6 +1,17 @@
 import { ChangeDetectionStrategy, Component, computed, input, model, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Button, ButtonVariant, EmptyState, List, ListItem, Stack } from '@pioneer/frontier';
+import {
+  Button,
+  ButtonVariant,
+  EmptyState,
+  EmptyStateDescription,
+  EmptyStateHeader,
+  EmptyStateMedia,
+  EmptyStateTitle,
+  List,
+  ListItem,
+  Stack,
+} from '@pioneer/frontier';
 import { Table, TableDensity } from '@pioneer/frontier/data';
 import type { TableColumn, TableViewSort } from '@pioneer/frontier/data';
 import { PackageSearch } from 'lucide';
@@ -26,7 +37,20 @@ const rowId = (row: BrowseRow): string => row.id;
  */
 @Component({
   selector: 'pio-browser-rows',
-  imports: [Button, EmptyState, LegacyBadge, List, ListItem, Stack, Table, TranslocoPipe],
+  imports: [
+    Button,
+    EmptyState,
+    EmptyStateMedia,
+    EmptyStateHeader,
+    EmptyStateTitle,
+    EmptyStateDescription,
+    LegacyBadge,
+    List,
+    ListItem,
+    Stack,
+    Table,
+    TranslocoPipe,
+  ],
   templateUrl: './browser-rows.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

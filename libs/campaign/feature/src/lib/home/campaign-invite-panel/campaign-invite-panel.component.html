@@ -44,7 +44,11 @@
       </ng-template>
       <ng-template let-invites [frAsyncData]="store.invites">
         @if (invites.length === 0) {
-          <fr-empty-state [icon]="emptyIcon" [title]="'campaign.invites.empty' | transloco" />
+          <fr-empty-state
+            ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-title>{{
+              'campaign.invites.empty' | transloco
+            }}</fr-empty-state-title></fr-empty-state
+          >
         } @else {
           <fr-list gap="sm">
             @for (invite of invites; track invite.id) {

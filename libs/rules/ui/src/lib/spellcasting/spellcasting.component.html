@@ -1,6 +1,8 @@
 @if (rows(); as lines) {
   @if (lines.length === 0) {
-    <fr-empty-state [title]="Message.None | transloco" />
+    <fr-empty-state
+      ><fr-empty-state-title>{{ Message.None | transloco }}</fr-empty-state-title></fr-empty-state
+    >
   } @else {
     <fr-list gap="sm">
       @for (row of lines; track row.entry.key) {

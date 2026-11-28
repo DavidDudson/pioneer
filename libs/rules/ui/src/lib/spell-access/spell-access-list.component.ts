@@ -1,6 +1,16 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
+import {
+  AsyncButton,
+  EmptyState,
+  EmptyStateTitle,
+  Icon,
+  List,
+  ListItem,
+  Skeleton,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { X } from 'lucide';
 
@@ -32,7 +42,19 @@ interface AccessRow {
  */
 @Component({
   selector: 'pio-spell-access-list',
-  imports: [ContentPreview, AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [
+    ContentPreview,
+    AsyncButton,
+    EmptyState,
+    EmptyStateTitle,
+    Icon,
+    List,
+    ListItem,
+    Skeleton,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './spell-access-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

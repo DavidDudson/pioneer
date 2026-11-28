@@ -1,10 +1,13 @@
 <fr-stack gap="md">
   @if (list().total === 0) {
     <fr-empty-state
-      [icon]="emptyIcon"
-      [title]="Message.EmptyTitle | transloco"
-      [description]="(list().searching ? Message.SearchEmptyDescription : Message.EmptyDescription) | transloco"
-    />
+      ><fr-empty-state-media [icon]="emptyIcon" /><fr-empty-state-header
+        ><fr-empty-state-title>{{ Message.EmptyTitle | transloco }}</fr-empty-state-title
+        ><fr-empty-state-description>{{
+          (list().searching ? Message.SearchEmptyDescription : Message.EmptyDescription) | transloco
+        }}</fr-empty-state-description></fr-empty-state-header
+      ></fr-empty-state
+    >
   } @else {
     @if (table()) {
       <fr-table

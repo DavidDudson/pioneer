@@ -1,72 +1,75 @@
-import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
 import { Dices } from 'lucide';
-import { describe, expect, it, onTestFinished } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-import type { ComponentInputs } from '../../testing/component-inputs';
+import { element, part, renderProjected } from '../../testing/render-projected';
+import { EmptyStateDescription } from './empty-state-description.component';
+import { EmptyStateHeader } from './empty-state-header.component';
+import { EmptyStateMedia } from './empty-state-media.component';
+import { EmptyStateTitle } from './empty-state-title.component';
 import { EmptyState } from './empty-state.component';
-
-/** Renders an empty state with `action` projected (none by default) and returns its host element. */
-async function render(inputs: ComponentInputs<EmptyState>, action: ReadonlyArray<Node> = []): Promise<HTMLElement> {
-  const emptyState = createComponent(EmptyState, {
-    environmentInjector: TestBed.inject(EnvironmentInjector),
-    projectableNodes: [[...action]],
-  });
-
-  onTestFinished(() => {
-    emptyState.destroy();
-  });
-  emptyState.setInput('title', 'No rolls yet');
-
-  for (const [name, value] of Object.entries(inputs)) {
-    emptyState.setInput(name, value);
-  }
-
-  const appRef = TestBed.inject(ApplicationRef);
-  appRef.attachView(emptyState.hostView);
-  await appRef.whenStable();
-
-  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
-  return emptyState.location.nativeElement as HTMLElement;
-}
-
-function paragraphs(host: HTMLElement): Array<string> {
-  return [...host.querySelectorAll('p')].map((paragraph) => paragraph.textContent.trim());
-}
 
 /** The row the action is projected into. */
 function actionRow(host: HTMLElement): HTMLDivElement | undefined {
   return [...host.querySelectorAll('div')].find((div) => div.classList.contains('empty:hidden'));
 }
 
+function words(host: HTMLElement): string {
+  return host.textContent.replaceAll(/\s+/gu, ' ').trim();
+}
+
 describe(EmptyState, () => {
-  it('shows the title as text, not a heading', async () => {
-    const host = await render({});
-    expect(paragraphs(host)).toStrictEqual(['No rolls yet']);
-    expect(host.querySelector('h1, h2, h3, h4')).toBeNull();
-  });
+  it('lays media, then header or title, then the action, whatever order they are given in', async () => {
+    const host = await renderProjected(EmptyState, {}, [
+      element('button', 'Action'),
+      element('fr-empty-state-title', 'Title'),
+      element('fr-empty-state-media', 'Media'),
+    ]);
 
-  it('shows the description under the title when given', async () => {
-    const host = await render({ description: 'Enter an expression and roll.' });
-    expect(paragraphs(host)).toStrictEqual(['No rolls yet', 'Enter an expression and roll.']);
-  });
-
-  it('shows no icon unless given one, and then as decoration', async () => {
-    const plain = await render({});
-    expect(plain.querySelector('svg')).toBeNull();
-    const withIcon = await render({ icon: Dices });
-    expect(withIcon.querySelector('svg')?.getAttribute('aria-hidden')).toBe('true');
-  });
-
-  it('projects the action into the action row', async () => {
-    const action = document.createElement('span');
-    action.textContent = 'Roll';
-    const host = await render({}, [action]);
-    expect(actionRow(host)?.textContent.trim()).toBe('Roll');
+    expect(words(host)).toBe('MediaTitleAction');
   });
 
   it('leaves the action row empty without an action, so it collapses', async () => {
-    const host = await render({});
+    const host = await renderProjected(EmptyState, {}, [element('fr-empty-state-title', 'Title')]);
     expect(actionRow(host)?.childNodes).toHaveLength(0);
+  });
+
+  it('has no title attribute, so the browser shows no tooltip', async () => {
+    const host = await renderProjected(EmptyState, {}, [element('fr-empty-state-title', 'Title')]);
+    expect(host.hasAttribute('title')).toBe(false);
+  });
+});
+
+describe(EmptyStateTitle, () => {
+  it('shows its text as a paragraph, not a heading', async () => {
+    const host = await renderProjected(EmptyStateTitle, {}, [element('span', 'No rolls yet')]);
+    expect(part(host, 'p').textContent.trim()).toBe('No rolls yet');
+    expect(host.querySelector('h1, h2, h3, h4')).toBeNull();
+  });
+});
+
+describe(EmptyStateDescription, () => {
+  it('shows its text as a paragraph', async () => {
+    const host = await renderProjected(EmptyStateDescription, {}, [element('span', 'Enter an expression and roll.')]);
+    expect(part(host, 'p').textContent.trim()).toBe('Enter an expression and roll.');
+  });
+});
+
+describe(EmptyStateHeader, () => {
+  it('groups what is projected', async () => {
+    const host = await renderProjected(EmptyStateHeader, {}, [
+      element('span', 'Title'),
+      element('span', 'Description'),
+    ]);
+
+    expect(words(host)).toBe('TitleDescription');
+  });
+});
+
+describe(EmptyStateMedia, () => {
+  it('shows no icon unless given one, and then as decoration', async () => {
+    const plain = await renderProjected(EmptyStateMedia, {}, []);
+    expect(plain.querySelector('svg')).toBeNull();
+    const withIcon = await renderProjected(EmptyStateMedia, { icon: Dices }, []);
+    expect(withIcon.querySelector('svg')?.getAttribute('aria-hidden')).toBe('true');
   });
 });

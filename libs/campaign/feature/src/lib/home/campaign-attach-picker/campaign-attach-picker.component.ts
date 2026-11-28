@@ -3,7 +3,16 @@ import { form, FormField, validateStandardSchema } from '@angular/forms/signals'
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterId } from '@pioneer/campaign/domain';
 import type { CampaignId, OwnedCharacter } from '@pioneer/campaign/domain';
-import { AsyncButton, AsyncForm, EmptyState, Heading, Link, Stack } from '@pioneer/frontier';
+import {
+  AsyncButton,
+  AsyncForm,
+  EmptyState,
+  EmptyStateMedia,
+  EmptyStateTitle,
+  Heading,
+  Link,
+  Stack,
+} from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
 import { ContentLoader } from '@pioneer/rules/data-access';
@@ -28,7 +37,19 @@ interface AttachModel {
 /** The user's characters that are in no campaign, to bring one into the open campaign's party. */
 @Component({
   selector: 'pio-campaign-attach-picker',
-  imports: [AsyncButton, AsyncForm, EmptyState, FormField, Heading, Link, PickerField, Stack, TranslocoPipe],
+  imports: [
+    AsyncButton,
+    AsyncForm,
+    EmptyState,
+    EmptyStateMedia,
+    EmptyStateTitle,
+    FormField,
+    Heading,
+    Link,
+    PickerField,
+    Stack,
+    TranslocoPipe,
+  ],
   templateUrl: './campaign-attach-picker.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
