@@ -233,6 +233,9 @@ more room, never a separate design.
   Prefer `min-h-control-*` so wrapped text never clips; a square icon-only
   control sets `h-control-*`. That's an input-capability query, not a layout
   breakpoint. Never rely on hover to reveal anything.
+- **Line-heights are rem on the 4px grid.** Each `--text-*--line-height` is a multiple of 0.25rem, never a ratio, so rows
+  land on whole pixels and `h-lh` (skeleton, alert and empty-state icons) matches a line of that text. Display to
+  subheading text also sets `text-balance`.
 - **Text inputs use `text-body` (16px) or larger** so iOS doesn't zoom on
   focus.
 - **Safe areas.** `fr-shell` pads for notches and home indicators via

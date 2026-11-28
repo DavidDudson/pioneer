@@ -65,6 +65,22 @@ describe(Text, () => {
     expect([...rendered.classList]).not.toContain('text-body');
   });
 
+  it.each([TextVariant.Display, TextVariant.Title, TextVariant.Heading, TextVariant.Subheading])(
+    'balances the lines of the %s variant',
+    async (variant) => {
+      const rendered = await render({ variant });
+      expect([...rendered.classList]).toContain('text-balance');
+    },
+  );
+
+  it.each([TextVariant.Lead, TextVariant.Body, TextVariant.Label, TextVariant.Caption])(
+    'leaves the lines of the %s variant unbalanced',
+    async (variant) => {
+      const rendered = await render({ variant });
+      expect([...rendered.classList]).not.toContain('text-balance');
+    },
+  );
+
   it.each([
     [TextVariant.Display, 'font-display'],
     [TextVariant.Title, 'font-display'],

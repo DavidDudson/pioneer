@@ -56,6 +56,20 @@ export const Variants: TextStory = {
   }),
 };
 
+/** Display to subheading wrap balanced, and every variant's line height is rem on the 4px grid. */
+export const WrappedHeadings: TextStory = {
+  render: () => ({
+    props: { variants: Object.values(TextVariant) },
+    template: `
+      <fr-stack gap="sm" class="max-w-sm">
+        @for (variant of variants; track variant) {
+          <fr-text [variant]="variant" element="p">{{ variant }}: The party pushes deeper into the Stolen Lands</fr-text>
+        }
+      </fr-stack>
+    `,
+  }),
+};
+
 /** The three font utilities (ADR-0085). Storybook loads no font files, so the faces show only in the app. */
 export const FontRoles: TextStory = {
   render: () => ({
