@@ -73,8 +73,7 @@ describe(AsyncButton, () => {
     button(fixture).click();
     await settle();
     expect(button(fixture).getAttribute('aria-busy')).toBe('true');
-    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
-    expect((fixture.nativeElement as HTMLElement).querySelector('fr-spinner')).not.toBeNull();
+    expect(button(fixture).dataset['status']).toBe('pending');
 
     button(fixture).click();
     await settle();

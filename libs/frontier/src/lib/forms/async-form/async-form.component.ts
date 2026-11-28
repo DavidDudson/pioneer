@@ -17,8 +17,8 @@ const formClasses = cva('block')();
  * A form whose submit calls the server. Validates through signal forms
  * (`submit()` marks every field touched and only runs the action when valid),
  * then runs `action` with the model's value as a TanStack mutation.
- * `fr-async-button type="submit"` inside shows the submission: spinner while
- * pending, a tick on success, the failure inline. Mod+Enter submits from
+ * `fr-async-button type="submit"` inside shows the submission: a turning border while
+ * pending, a green flash on success, the failure inline. Mod+Enter submits from
  * anywhere in the form, unless its submit button is disabled.
  *
  * ```html

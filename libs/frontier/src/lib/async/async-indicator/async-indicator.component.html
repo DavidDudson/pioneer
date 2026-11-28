@@ -1,8 +1,10 @@
 @if (status() === Status.Pending) {
-  <span [class]="classes()"><fr-spinner [label]="pendingLabel() ?? ('frontier.async.pending' | transloco)" /></span>
+  <span role="status" [class]="labelClasses()">{{ pendingLabel() ?? ('frontier.async.pending' | transloco) }}</span>
 } @else if (status() === Status.Success) {
   <span role="status" [class]="classes()"
-    ><span [class]="labelClasses()">{{ successLabel() ?? ('frontier.async.success' | transloco) }}</span
-    ><fr-icon [icon]="TickIcon"
-  /></span>
+    ><span [class]="labelClasses()">{{ successLabel() ?? ('frontier.async.success' | transloco) }}</span>
+    @if (!announceOnly()) {
+      <fr-icon [icon]="TickIcon" />
+    }
+  </span>
 }

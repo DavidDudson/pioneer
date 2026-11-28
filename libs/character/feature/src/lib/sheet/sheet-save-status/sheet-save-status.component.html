@@ -1,9 +1,6 @@
 @switch (store.saveState()) {
   @case (State.Saving) {
-    <fr-stack direction="horizontal" gap="2xs" align="center">
-      <fr-spinner />
-      <fr-text variant="caption" tone="muted">{{ 'character.sheet.saveState.saving' | transloco }}</fr-text>
-    </fr-stack>
+    <fr-text variant="caption" tone="muted" role="status">{{ 'character.sheet.saveState.saving' | transloco }}</fr-text>
   }
   @case (State.Failed) {
     <fr-stack direction="horizontal" gap="xs" align="center" wrap>

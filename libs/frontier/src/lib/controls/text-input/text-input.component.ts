@@ -1,5 +1,6 @@
-import { booleanAttribute, ChangeDetectionStrategy, Component, input, model } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 
+import { AsyncStatus } from '../../async/async-action';
 import { Control } from '../control';
 import { Input } from '../input/input.component';
 
@@ -14,7 +15,7 @@ import { Input } from '../input/input.component';
   imports: [Input],
   templateUrl: './text-input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'block' },
+  host: { class: 'block status-border', '[attr.data-status]': 'dataStatus()' },
 })
 export class TextInput extends Control {
   public readonly value = model('');
@@ -22,4 +23,8 @@ export class TextInput extends Control {
   public readonly monospace = input(false, { transform: booleanAttribute });
   /** Room at the end for two icon buttons, which the parent places over the control (a refreshable input). */
   public readonly trailing = input(false, { transform: booleanAttribute });
+  /** The state of the load or save behind the value, shown on the control's border. */
+  public readonly status = input<AsyncStatus>(AsyncStatus.Idle);
+
+  protected readonly dataStatus = computed(() => (this.status() === AsyncStatus.Idle ? undefined : this.status()));
 }

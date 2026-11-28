@@ -8,10 +8,7 @@
           <fr-link exact [to]="['/campaigns']">{{ 'campaign.join.toCampaigns' | transloco }}</fr-link>
         </fr-stack>
       } @else {
-        <fr-stack direction="horizontal" gap="sm" align="center">
-          <fr-spinner [label]="'campaign.join.joining' | transloco" />
-          <fr-text tone="muted">{{ 'campaign.join.joining' | transloco }}</fr-text>
-        </fr-stack>
+        <fr-text tone="muted" role="status">{{ 'campaign.join.joining' | transloco }}</fr-text>
       }
     </fr-surface>
   </fr-page-body>

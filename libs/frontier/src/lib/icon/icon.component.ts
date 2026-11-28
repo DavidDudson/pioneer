@@ -1,4 +1,4 @@
-import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 /* oxlint-disable eslint/no-restricted-imports -- the one renderer of icon data */
 import { LucideDynamicIcon } from '@lucide/angular';
 import type { LucideIconData } from '@lucide/angular';
@@ -16,7 +16,6 @@ const iconVariants = cva('inline-block shrink-0', {
   variants: {
     size: { sm: 'size-sm', md: 'size-md', lg: 'size-lg' } satisfies Record<Size, string>,
     tone: { inherit: '', ...toneVariants } satisfies Record<Tone | 'inherit', string>,
-    spin: { true: 'animate-spin', false: '' },
   },
 });
 
@@ -37,13 +36,9 @@ export class Icon {
   public readonly size = input<Size>(Size.Sm);
   public readonly tone = input<Tone | undefined>(undefined);
   public readonly label = input<string | undefined>(undefined);
-  /** Rotate continuously. Progress indicators only. */
-  public readonly spin = input(false, { transform: booleanAttribute });
 
   protected readonly strokeWidth = STROKE_WIDTH;
   /** The renderer takes an icon object; Lucide's own data is only the shapes. */
   protected readonly drawn = computed<LucideIconData>(() => ({ name: 'icon', node: this.icon() }));
-  protected readonly classes = computed(() =>
-    iconVariants({ size: this.size(), tone: this.tone() ?? 'inherit', spin: this.spin() }),
-  );
+  protected readonly classes = computed(() => iconVariants({ size: this.size(), tone: this.tone() ?? 'inherit' }));
 }
