@@ -2,7 +2,7 @@ import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 
 import { Text } from '../../text/text/text.component';
-import { Space } from '../../tokens';
+import { GapRole, Space } from '../../tokens';
 import { ListItem } from '../list-item/list-item.component';
 import { List } from './list.component';
 
@@ -18,7 +18,7 @@ const meta: Meta<List> = {
   argTypes: {
     gap: { control: 'select', options: Object.values(Space) },
   },
-  args: { ordered: false, markers: false, gap: Space.Xs },
+  args: { ordered: false, markers: false, gap: GapRole.ListItem },
   render: (args) => ({
     props: { ...args, steps: STEPS },
     template: `

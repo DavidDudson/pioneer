@@ -16,6 +16,22 @@ export const Space = {
 
 export type Space = ValueOf<typeof Space>;
 
+/** The gap a part keeps between its children, by the role of what it holds (the gap ladder in `AGENTS.md`). */
+export const GapRole = {
+  /** A page body: its header, cards and drawer. */
+  Page: Space.Xl,
+  /** A card or section: its header, body and footer. */
+  Card: Space.Md,
+  /** The items of a list or description list. */
+  ListItem: Space.Sm,
+  /** The cells of a row: media, content, actions. */
+  Row: Space.Sm,
+  /** A title and its caption, or a label and its field. */
+  Text: Space.Xs2,
+} as const;
+
+export type GapRole = ValueOf<typeof GapRole>;
+
 /** Semantic insets (`semantic.css`): what a control, a panel and a page pad themselves with. */
 export const Inset = {
   Control: 'inset-control',

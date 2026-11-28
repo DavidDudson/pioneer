@@ -1,4 +1,4 @@
-<fr-stack gap="3xs">
+<fr-stack gap="2xs">
   @if (loading()) {
     <fr-skeleton width="md" />
     <fr-skeleton width="lg" />
@@ -7,7 +7,7 @@
       <fr-text weight="medium">{{ heading }}</fr-text>
     }
     @if (byline(); as byline) {
-      <fr-text variant="caption" tone="muted">{{ byline }}</fr-text>
+      <fr-text variant="caption" tone="subtle">{{ byline }}</fr-text>
     }
     <ng-content />
   }

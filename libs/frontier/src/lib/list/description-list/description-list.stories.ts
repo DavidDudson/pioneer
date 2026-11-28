@@ -10,7 +10,7 @@ import { Disclosure } from '../../layout/disclosure/disclosure.component';
 import { Stack } from '../../layout/stack/stack.component';
 import { succeedSlowly } from '../../testing/story-actions';
 import { Text } from '../../text/text/text.component';
-import { Container, Space } from '../../tokens';
+import { Container, GapRole, Space } from '../../tokens';
 import { DescriptionItem } from '../description-item/description-item.component';
 import { DescriptionList } from './description-list.component';
 
@@ -42,7 +42,7 @@ const meta: Meta<DescriptionList> = {
     gap: { control: 'select', options: Object.values(Space) },
     columnsFrom: { control: 'inline-radio', options: Object.values(Container) },
   },
-  args: { gap: Space.Xs, columnsFrom: Container.Sm },
+  args: { gap: GapRole.ListItem, columnsFrom: Container.Sm },
   render: (args) => ({
     props: args,
     template: `

@@ -28,7 +28,7 @@ describe(List, () => {
     const list = await render({});
     expect(list.tagName).toBe('UL');
     expect(list.className).toContain('list-none');
-    expect(list.className).toContain('gap-xs');
+    expect(list.className).toContain('gap-sm');
   });
 
   it('renders an <ol> when ordered, numbered when it shows markers', async () => {

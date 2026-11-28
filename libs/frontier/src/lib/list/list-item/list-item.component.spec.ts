@@ -55,6 +55,13 @@ describe(ItemContent, () => {
     expect(root.textContent.trim()).toBe('ValerosFighterbadge');
   });
 
+  it('sets the byline as a subtle caption, a title-and-caption gap below the heading', async () => {
+    const root = await renderProjected(ItemContent, { heading: 'Valeros', byline: 'Fighter' }, []);
+    const [, byline] = root.querySelectorAll('fr-text');
+    expect([byline?.getAttribute('variant'), byline?.getAttribute('tone')]).toStrictEqual(['caption', 'subtle']);
+    expect(root.querySelector('fr-stack')?.getAttribute('gap')).toBe('2xs');
+  });
+
   it('leaves out a byline it was not given', async () => {
     const root = await renderProjected(ItemContent, { heading: 'Valeros' }, []);
     expect(root.querySelectorAll('fr-text')).toHaveLength(1);
