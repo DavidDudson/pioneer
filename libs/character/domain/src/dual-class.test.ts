@@ -5,6 +5,7 @@ import type { Proficiency, VariantRuleEntry } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { boostSets, BoostSource } from './attribute-boosts';
+import type { CharacterDocument } from './character-document';
 import { SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import {
@@ -22,8 +23,11 @@ import {
   secondSubclassSlot,
   subclassSlot,
 } from './class-build';
-import { rootSlotOptions, slotContent } from './slot-offer';
+import type { SkillSlot } from './skill-training';
+import { SkillSlotKind, skillSlots } from './skill-training';
+import { rootSlotOptions, skillReads, slotContent } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId } from './testing';
+import type { PlayerCoreClass } from './testing';
 
 const DUAL_CLASS = 'variant-rule:dual-class';
 
@@ -164,5 +168,40 @@ describe('a Fighter with Cleric as the second class', () => {
 
     const second = boostSets(fighterFighter, withDual.boosts).find((each) => each.source === BoostSource.SecondClass);
     expect(second?.slots.map((slot) => [String(slot.key), slot.pick])).toEqual([['boost:1:second-class:0', 'str']]);
+  });
+});
+
+const dualOf = (first: PlayerCoreClass, second: PlayerCoreClass): CharacterDocument =>
+  new CharacterBuilder()
+    .named('Dual')
+    .picking('class', playerCoreClassId(first))
+    .picking(SECOND_CLASS_SLOT, playerCoreClassId(second))
+    .build().document;
+
+const slotsOf = (document: CharacterDocument, content: typeof withDual): ReadonlyArray<SkillSlot> =>
+  skillSlots(document, skillReads(document, content));
+
+const trainings = (slots: ReadonlyArray<SkillSlot>): number =>
+  slots.filter((slot) => slot.kind === SkillSlotKind.Training && slot.level === 1).length;
+
+const increaseLevels = (slots: ReadonlyArray<SkillSlot>): Array<number> =>
+  slots.flatMap((slot) => (slot.kind === SkillSlotKind.Increase ? [slot.level] : []));
+
+describe('skill slots with a second class', () => {
+  test('trains the larger number of additional skills of the two classes, not the first alone', () => {
+    const document = dualOf('cleric', 'fighter');
+    expect(trainings(slotsOf(document, withDual))).toBe(trainings(slotsOf(document, withoutDual)) + 1);
+  });
+
+  test('keeps the first class when it gives the larger number', () => {
+    const document = dualOf('fighter', 'cleric');
+    expect(trainings(slotsOf(document, withDual))).toBe(trainings(slotsOf(document, withoutDual)));
+  });
+
+  test('gains a skill increase at each level either class gives one, once', () => {
+    const document = dualOf('fighter', 'rogue');
+    const levels = increaseLevels(slotsOf(document, withDual));
+    expect(levels).toEqual(Array.from({ length: 19 }, (_unused, index) => index + 2));
+    expect(increaseLevels(slotsOf(document, withoutDual))).toEqual([3, 5, 7, 9, 11, 13, 15, 17, 19]);
   });
 });
