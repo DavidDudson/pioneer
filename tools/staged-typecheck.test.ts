@@ -34,7 +34,7 @@ describe('projectRootsOf', () => {
 describe('isScript', () => {
   test('is true for the tools and the Frontier scripts', () => {
     expect(isScript('tools/ci-plan.ts')).toBe(true);
-    expect(isScript('libs/frontier/scripts/generate-ramps.ts')).toBe(true);
+    expect(isScript('libs/frontier/scripts/terrazzo.config.ts')).toBe(true);
   });
 
   test('is false for a project file', () => {
