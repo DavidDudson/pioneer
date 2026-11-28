@@ -2,6 +2,7 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, 
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva, cx } from 'class-variance-authority';
 
+import { AsyncStatus } from '../../async/async-action';
 import { Size } from '../../tokens';
 
 export const ButtonVariant = {
@@ -67,7 +68,7 @@ const buttonVariants = cva(
     'inline-flex items-center gap-xs whitespace-nowrap',
     'transition-colors duration-fast ease-standard focus-visible:focus-ring',
     'disabled:cursor-not-allowed disabled:opacity-disabled aria-busy:cursor-progress',
-    'forced-colors:border',
+    'status-border forced-colors:border',
   ],
   {
     variants: {
@@ -168,6 +169,8 @@ export class Button {
   public readonly disabled = input(false, { transform: booleanAttribute });
   /** Work is in flight: announced as busy and presses are ignored, but focus stays. */
   public readonly busy = input(false, { transform: booleanAttribute });
+  /** The state of an action this button runs, shown on its border: a turning arc while pending, a green or red flash after. */
+  public readonly status = input<AsyncStatus>(AsyncStatus.Idle);
   /** Accessible name when the visible content is not enough (e.g. a value to edit). */
   public readonly ariaLabel = input<string | undefined>(undefined);
   public readonly describedBy = input<string | undefined>(undefined);
@@ -192,6 +195,7 @@ export class Button {
   public readonly rollShifted = input(false, { transform: booleanAttribute });
   public readonly pressed = output<MouseEvent>();
 
+  protected readonly dataStatus = computed(() => (this.status() === AsyncStatus.Idle ? undefined : this.status()));
   protected readonly classes = computed(() => {
     const variant = this.variant();
 

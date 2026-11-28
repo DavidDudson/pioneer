@@ -27,7 +27,7 @@ const AUTOFOCUS = '[data-autofocus]';
 
 /**
  * Chrome for one inline-editable value: label, read view, per-field skeleton,
- * spinner, saved tick, Revert, error/conflict message. No save or cancel
+ * border status, saved tick, Revert, error/conflict message. No save or cancel
  * buttons: the value saves itself (see `InlineEdit`). The editor control is
  * projected, focused when opened, and only rendered while open. It is focused at its first control, or at the first
  * control inside an element marked `data-autofocus` when other controls come ahead of the one to type in:

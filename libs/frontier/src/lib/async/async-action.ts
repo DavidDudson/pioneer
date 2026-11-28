@@ -10,9 +10,9 @@ import type { MutationStatus } from '@tanstack/angular-query-experimental';
 export const AsyncStatus = {
   /** Not started, or back to rest after a success. */
   Idle: 'idle',
-  /** In flight: show a spinner in place, block a second press. */
+  /** In flight: turn the border in place, block a second press. */
   Pending: 'pending',
-  /** Just succeeded: show a tick for `SUCCESS_FLASH`, then return to idle. */
+  /** Just succeeded: flash the border green for `SUCCESS_FLASH`, then return to idle. */
   Success: 'success',
   /** Failed: show the message inline until the next attempt. */
   Error: 'error',

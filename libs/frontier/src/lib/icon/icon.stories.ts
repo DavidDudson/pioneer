@@ -1,6 +1,6 @@
 import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { Dices, Heart, LoaderCircle, Shield, Sword, Swords } from 'lucide';
+import { Dices, Heart, Shield, Sword, Swords } from 'lucide';
 
 import { Stack } from '../layout/stack/stack.component';
 import { Size, Tone } from '../tokens';
@@ -17,7 +17,7 @@ const meta: Meta<Icon> = {
     size: { control: 'inline-radio', options: Object.values(Size) },
     tone: { control: 'select', options: [undefined, ...Object.values(Tone)] },
   },
-  args: { icon: Sword, size: Size.Md, spin: false },
+  args: { icon: Sword, size: Size.Md },
   render: (args) => ({
     props: args,
     // An icon is an array of shapes, which argsToTemplate would serialise, so it is bound by hand.
@@ -33,8 +33,6 @@ export const Default: IconStory = {};
 export const Labelled: IconStory = {
   args: { icon: Heart, tone: Tone.Danger, label: 'Hit points' },
 };
-
-export const Spinning: IconStory = { args: { icon: LoaderCircle, spin: true } };
 
 export const Sizes: IconStory = {
   render: () => ({

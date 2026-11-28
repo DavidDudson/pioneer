@@ -36,17 +36,17 @@ function element(fixture: ComponentFixture<RefreshableInput>, selector: string):
 }
 
 describe(RefreshableInput, () => {
-  it('loads when it appears and shows a spinner meanwhile', async () => {
+  it('loads when it appears and turns the border of the input meanwhile', async () => {
     const pending = Promise.withResolvers<string>();
     const fixture = render(loadingFrom([pending.promise]));
-    expect(element(fixture, 'fr-spinner').tagName).toBe('FR-SPINNER');
+    expect(element(fixture, 'fr-text-input').dataset['status']).toBe('pending');
     pending.resolve('Seelah');
     await vi.waitFor(() => {
       expect(fixture.componentInstance.value()).toBe('Seelah');
     });
     fixture.detectChanges();
     // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
-    expect((fixture.nativeElement as HTMLElement).querySelector('fr-spinner')).toBeNull();
+    expect(element(fixture, 'fr-text-input').dataset['status']).toBeUndefined();
   });
 
   it('loads again when refresh is pressed', async () => {

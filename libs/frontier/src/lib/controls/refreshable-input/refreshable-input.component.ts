@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, effect, input, model, signal, untracked } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, input, model, signal, untracked } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 import { RefreshCw } from 'lucide';
 
 import { Button } from '../../actions/button/button.component';
-import { Spinner } from '../../feedback/spinner/spinner.component';
+import { AsyncStatus } from '../../async/async-action';
 import { Icon } from '../../icon/icon.component';
 import { Control } from '../control';
 import { TextInput } from '../text-input/text-input.component';
@@ -13,15 +13,15 @@ const actionsClasses = cva('absolute inset-y-none end-none flex items-center')()
 
 /**
  * A text control whose value is fetched: it loads when it appears (and whenever `load` changes), and its refresh
- * button, at the end of the input, loads again. While a load is in flight the button's icon is a spinner and the
- * button is busy. The value stays editable by hand; a load that finishes after a newer one started is dropped. A
+ * button, at the end of the input, loads again. While a load is in flight the input's border turns and the
+ * button is busy; a failed load flashes the border red. The value stays editable by hand; a load that finishes after a newer one started is dropped. A
  * failed load leaves the value as it was and marks the control invalid.
  *
  * Project buttons with `frAction` to put them before the refresh button (`pio-roll-table-input`'s table button).
  */
 @Component({
   selector: 'fr-refreshable-input',
-  imports: [Button, Icon, Spinner, TextInput, TranslocoPipe],
+  imports: [Button, Icon, TextInput, TranslocoPipe],
   templateUrl: './refreshable-input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'relative block' },
@@ -36,6 +36,13 @@ export class RefreshableInput extends Control {
   protected readonly actionsClasses = actionsClasses;
   protected readonly loading = signal(false);
   protected readonly failed = signal(false);
+  protected readonly status = computed<AsyncStatus>(() => {
+    if (this.loading()) {
+      return AsyncStatus.Pending;
+    }
+
+    return this.failed() ? AsyncStatus.Error : AsyncStatus.Idle;
+  });
 
   /** Which load is the latest; an older one's answer is dropped. */
   #latest = 0;

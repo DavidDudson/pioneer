@@ -3,7 +3,6 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 import { Check } from 'lucide';
 
-import { Spinner } from '../../feedback/spinner/spinner.component';
 import { Icon } from '../../icon/icon.component';
 import { AsyncStatus } from '../async-action';
 
@@ -18,13 +17,13 @@ const labelVariants = cva('', {
 });
 
 /**
- * What an async action is doing, in place: a spinner while pending, a tick
- * on success, nothing at rest. Errors are shown by the owner as a
+ * What an async action is doing, in place: its label while pending (screen readers only unless `showLabel`), a tick
+ * on success, nothing at rest. A control that shows its state on its own border sets `announceOnly`. Errors are shown by the owner as a
  * `fr-message`, next to the thing that failed.
  */
 @Component({
   selector: 'fr-async-indicator',
-  imports: [Icon, Spinner, TranslocoPipe],
+  imports: [Icon, TranslocoPipe],
   templateUrl: './async-indicator.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },
@@ -37,8 +36,16 @@ export class AsyncIndicator {
   /** Show the success label as text (e.g. "Saved" beside the tick); otherwise it is for screen readers only. */
   public readonly showLabel = input(false, { transform: booleanAttribute });
 
+  /** Announce the state to screen readers only: no visible label and no tick. The owner shows it some other way. */
+  public readonly announceOnly = input(false, { transform: booleanAttribute });
+
   protected readonly Status = AsyncStatus;
   protected readonly TickIcon = Check;
   protected readonly classes = computed(() => indicatorVariants({ status: this.status() }));
-  protected readonly labelClasses = computed(() => labelVariants({ visible: this.showLabel() }));
+  protected readonly labelClasses = computed(() =>
+    labelVariants({ visible: this.showLabel() && !this.announceOnly() }),
+  );
+  protected readonly pendingClasses = computed(() =>
+    labelVariants({ visible: this.showLabel() && !this.announceOnly() }),
+  );
 }
