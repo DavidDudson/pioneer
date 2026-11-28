@@ -1,30 +1,34 @@
 /*
- * Typefaces. The player picks the body and monospace faces (`data-font-body`, `data-font-mono` on <html>,
- * set by LocalePreferences, which also loads the matching stylesheet from Google Fonts); the default is
- * thematic. The brand face is for the wordmark only and never changes. Every stack ends in a generic
- * family, so text shows at once and a script the face lacks falls back per glyph.
+ * Font roles (ADR-0085): display, UI and text, plus mono and the wordmark's brand face. The body choice
+ * (`data-font-body`) overrides UI and text together, so the accessibility faces always win; display changes only
+ * for `system`. Every stack ends in a generic family. LocalePreferences loads the matching stylesheets.
  */
 :root {
-  --fr-font-body: 'Crimson Pro', ui-serif, Georgia, serif;
-  --fr-font-display: var(--fr-font-body);
+  --fr-font-display: Fraunces, ui-serif, Georgia, serif;
+  --fr-font-ui: 'Atkinson Hyperlegible Next', ui-sans-serif, system-ui, sans-serif;
+  --fr-font-text: 'Crimson Pro', ui-serif, Georgia, serif;
   --fr-font-mono: 'Fira Code', ui-monospace, monospace;
   --fr-font-brand: 'Pirata One', 'Crimson Pro', ui-serif, Georgia, serif;
 }
 
 :root[data-font-body='readable'] {
-  --fr-font-body: 'Atkinson Hyperlegible Next', ui-sans-serif, system-ui, sans-serif;
+  --fr-font-text: 'Atkinson Hyperlegible Next', ui-sans-serif, system-ui, sans-serif;
 }
 
 :root[data-font-body='lexend'] {
-  --fr-font-body: Lexend, ui-sans-serif, system-ui, sans-serif;
+  --fr-font-ui: Lexend, ui-sans-serif, system-ui, sans-serif;
+  --fr-font-text: Lexend, ui-sans-serif, system-ui, sans-serif;
 }
 
 :root[data-font-body='opendyslexic'] {
-  --fr-font-body: OpenDyslexic, ui-sans-serif, system-ui, sans-serif;
+  --fr-font-ui: OpenDyslexic, ui-sans-serif, system-ui, sans-serif;
+  --fr-font-text: OpenDyslexic, ui-sans-serif, system-ui, sans-serif;
 }
 
 :root[data-font-body='system'] {
-  --fr-font-body: ui-sans-serif, system-ui, sans-serif;
+  --fr-font-display: ui-sans-serif, system-ui, sans-serif;
+  --fr-font-ui: ui-sans-serif, system-ui, sans-serif;
+  --fr-font-text: ui-sans-serif, system-ui, sans-serif;
 }
 
 :root[data-font-mono='typewriter'] {

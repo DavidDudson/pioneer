@@ -341,11 +341,21 @@ story the same way.
 
 ## Fonts
 
-Typefaces are tokens too (`styles/fonts.css`): `--fr-font-body|display|mono|brand`, with the player's choice as
-`data-font-body` / `data-font-mono` on `<html>`. Display text uses the body face; only the wordmark
-(`fr-text` variant `brand`) uses the brand face, which never changes. A font file is not bundled: the app loads
-the chosen face's stylesheet from Google Fonts on demand (`FontStylesheets` in `@pioneer/shared/web`). Every stack
-ends in a generic family. Never hard-code a family in a component; use the `font-*` utilities.
+Typefaces are tokens too (`styles/fonts.css`, ADR-0085), in three roles plus two specials:
+`--fr-font-display` (page titles, section headings), `--fr-font-ui` (controls, labels, tables) and
+`--fr-font-text` (long rules prose and the page default), with `--fr-font-mono` and the wordmark's `--fr-font-brand`.
+The Tailwind utilities are `font-display`, `font-ui`, `font-text`, `font-mono` and `font-brand`; never hard-code a
+family in a component.
+
+The player's choice is `data-font-body` / `data-font-mono` on `<html>`. The body choice sets the UI and text roles
+together, so `readable`, `lexend` and `opendyslexic` always win over the thematic faces; the display face stays
+Fraunces for all of them and changes only for `system`, which sets all three to the device's sans. Every stack ends
+in a generic family.
+
+A font file is not bundled: the app loads the faces the current choice needs from Google Fonts on demand
+(`FontStylesheets` in `@pioneer/shared/web`), as one `css2` request for every Google family plus the wordmark's own
+request (OpenDyslexic comes from Fontsource). A new face goes in `fonts.css` and in the loader's family table, and
+`tools/font-roles.test.ts` checks the roles for every choice.
 
 ## Components
 

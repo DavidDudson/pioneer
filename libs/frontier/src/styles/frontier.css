@@ -244,8 +244,9 @@
   /* fr-grid termFrom: a fixed term column, so terms line up across rows, and the value takes the rest. */
   --grid-template-columns-term: var(--fr-size-term) minmax(0, 1fr);
 
-  --font-body: var(--fr-font-body);
   --font-display: var(--fr-font-display);
+  --font-ui: var(--fr-font-ui);
+  --font-text: var(--fr-font-text);
   --font-mono: var(--fr-font-mono);
   --font-brand: var(--fr-font-brand);
   --font-weight-regular: 400;
@@ -542,7 +543,7 @@
   html {
     background: var(--fr-surface-canvas);
     color: var(--fr-fg-default);
-    font-family: var(--fr-font-body);
+    font-family: var(--fr-font-text);
     -webkit-font-smoothing: antialiased;
   }
 

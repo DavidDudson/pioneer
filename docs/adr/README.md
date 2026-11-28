@@ -89,6 +89,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0082](0082-the-coin-ledger-is-stored-beside-the-coins-it-explains.md)       | The coin ledger is stored beside the coins it explains                                        |
 | [0083](0083-frontier-primitive-tokens-are-dtcg-generated-by-terrazzo.md)     | Frontier primitive tokens are DTCG, generated to CSS by Terrazzo                              |
 | [0084](0084-first-ui-languages-and-translation-workflow.md)                  | German and French first; translators submit pull requests against catalog files               |
+| [0085](0085-frontier-has-display-ui-and-text-font-roles.md)                  | Frontier has display, UI and text font roles                                                  |
 
 Template:
 
