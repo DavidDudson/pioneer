@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'bun:test';
 
 import { alterItem, deriveStatistics, StatisticInputsJson, variantRulesInPlay } from '@pioneer/rules/engine';
-import type { ItemNumbers, RuleInPlay, StatisticInputs, StatisticResult } from '@pioneer/rules/engine';
-import { wielded } from '@pioneer/rules/engine/testing';
+import type { AlterableItem, ItemNumbers, RuleInPlay, StatisticInputs, StatisticResult } from '@pioneer/rules/engine';
+import { inPlay, wielded } from '@pioneer/rules/engine/testing';
 import { FormulaValue } from '@pioneer/rules/formula';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import type { Origin } from '@pioneer/rules/sdk';
@@ -165,6 +165,31 @@ function altered(
 
 const { Potency, Resilient, Striking, AcBonus } = NumericItemProperty;
 
+/** The upgrade to +4 a mythic potency rune gives (ADR-0078). */
+const MYTHIC_POTENCY = {
+  key: 'ItemAlteration',
+  items: ['item:type:weapon'],
+  property: 'potency',
+  mode: 'upgrade',
+  value: 4,
+};
+
+/** An equipped weapon with the `numbers` its runes give. */
+function weaponWith(...pairs: ReadonlyArray<readonly [NumericItemProperty, number]>): AlterableItem {
+  const rollOptions = ['type:weapon', 'equipped'].map((option) => RollOptionTail.parse(option));
+
+  return { rollOptions, numbers: held(...pairs), traits: [], damageType: undefined, materials: [], propertyRunes: [] };
+}
+
+/** The numbers of `item` once `rules` have altered it at `level`. */
+function numbersOf(
+  rules: ReadonlyArray<RuleInPlay>,
+  level: number,
+  item: AlterableItem,
+): ReadonlyMap<NumericItemProperty, number> {
+  return alterItem({ rules, facts: factsAt(level) }, item).numbers;
+}
+
 describe('Automatic Bonus Progression and item runes', () => {
   test.each(LEVELS)('level %i: potency runes stop counting on weapons and armour', (level) => {
     expect(altered('weapon', level, held([Potency, 3])).get(Potency)).toBe(0);
@@ -180,6 +205,20 @@ describe('Automatic Bonus Progression and item runes', () => {
 
     expect(altered('weapon', level, held()).get(Striking)).toBe(expected);
     expect(altered('weapon', level, held([Striking, 3])).get(Striking)).toBe(expected);
+  });
+
+  test.each(LEVELS)('level %i: the order of the rules leaves the dice as they were', (level) => {
+    const item = weaponWith([Striking, 1]);
+    const forwards = numbersOf(RULES, level, item).get(Striking);
+    const backwards = numbersOf(RULES.toReversed(), level, item).get(Striking);
+
+    expect(backwards).toBe(forwards);
+  });
+
+  test.each(LEVELS)('level %i: a mythic potency rune, applied before the variant, leaves no potency', (level) => {
+    const mythic = inPlay(MYTHIC_POTENCY, 'mythic');
+
+    expect(numbersOf([mythic, ...RULES], level, weaponWith([Potency, 3])).get(Potency)).toBe(0);
   });
 
   test("armour's own item bonus is left alone", () => {

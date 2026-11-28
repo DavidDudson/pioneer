@@ -90,7 +90,9 @@ Core: untrained `0`, trained `2 + @level` up to legendary `8 + @level`), and the
 `proficiency-without-level` (GM Core): a `ProficiencyBonus` rule element whose table drops level and makes untrained
 -2. A variant enabled for a character is put in play like any rule element, with a `variant` origin hop, and each base
 term reading `@prof` names it ([ADR-0026](../adr/0026-proficiency-bonus-table-is-content.md)). `characterStatistics` and
-`rollSetups` take the enabled variants in `StatisticSources.variants` and put them in play ahead of the character's items.
+`rollSetups` take the enabled variants in `StatisticSources.variants` and put them in play after the character's
+items, before the character's own overrides. The last alteration of an item property wins, so a variant's
+(Automatic Bonus Progression's `override`) is final and no rune an item holds can raise a grade after it.
 
 The fly, swim, climb and burrow Speeds start at 0: an ancestry gives none, so a `Change` that upgrades one
 (`speed:fly`) raises it from nothing, and one that finds a Speed already higher leaves it. A Speed penalty from the
@@ -887,7 +889,9 @@ found:
 - `potency`, `striking` and `resilient` are the grades of the item's fundamental runes, which the Strike's potency and
   damage dice and the armour's AC bonus and save bonus read after the alterations. Automatic Bonus Progression
   overrides them (to 0, then to the devastating attack dice of the character's level for `striking`).
-  Overrides apply in array order and the last one that holds wins. Inventory weapons and armour are altered, and so are
+  Overrides apply in array order and the last one that holds wins: a variant's rules come after the items', so
+  Automatic Bonus Progression's override beats a mythic potency rune's upgrade, and its four `striking` overrides carry
+  level predicates that cannot hold together. Inventory weapons and armour are altered, and so are
   the Strikes the character's grants give (a fist): `grantedStrikes` runs each through the same alterations, so an
   unarmed Strike gets the devastating attack dice. An authorized rune's needles and a released animated weapon's attack
   read the altered grades too (`weaponGrades`), never the raw runes.

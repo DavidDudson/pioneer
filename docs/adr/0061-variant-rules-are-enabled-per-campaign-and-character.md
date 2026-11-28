@@ -43,7 +43,8 @@ Pack switched off:
   campaign's packs, and changing its own is a 409. Detaching brings its own rows back untouched.
 - The GM changes a campaign's set (403 for a player, 404 for a non-member); only the owner reads or changes a
   character's (404 for anyone else).
-- The engine takes the set as `StatisticSources.variants`, in play ahead of the character's items. The server derives
+- The engine takes the set as `StatisticSources.variants`, in play after the character's items, so a variant's
+  item alterations are applied last. The server derives
   with `CharacterContent#variantRules`; the sheet loads the same set from the API.
 - `VariantRuleData` and `VariantRuleDefinition` declare `structure`, a closed set (`extraSlots`, `secondClass`). `extraSlots`
   makes the variant a grant root of its own (`variantGrantRoots`), whose rule elements open the extra slots, and
