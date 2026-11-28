@@ -5,11 +5,7 @@ const GOOGLE_FONTS = 'https://fonts.googleapis.com/css2';
 const GOOGLE_FONT_FILES = 'https://fonts.gstatic.com';
 const FONTSOURCE = 'https://cdn.jsdelivr.net/npm/@fontsource/opendyslexic@5';
 
-/**
- * A Google Fonts family as the `css2` API spells it: `family` orders the request (the API wants families sorted by
- * name) and `spec` is the part after `family=`. Google's CSS splits a face by `unicode-range`, so the browser
- * downloads only the pieces the page's text uses.
- */
+/** `family` orders the request (`css2` wants families sorted by name); `spec` is the part after `family=`. */
 interface FamilySpec {
   readonly family: string;
   readonly spec: string;
@@ -33,11 +29,7 @@ const COURIER_PRIME: FamilySpec = {
   spec: 'Courier+Prime:ital,wght@0,400;0,700;1,400;1,700',
 };
 
-/**
- * The families each body choice needs from Google Fonts: the display role's face (`System` uses the device's) and
- * the UI and text roles' faces. Faces left out are the device's own and need nothing; OpenDyslexic is not on Google
- * Fonts, so it comes from Fontsource (below).
- */
+/** OpenDyslexic is not on Google Fonts, so `FONTSOURCE_STYLESHEETS` serves it; the device's faces need nothing. */
 const BODY_FAMILIES: Readonly<Record<BodyFont, ReadonlyArray<FamilySpec>>> = {
   [BodyFont.Thematic]: [FRAUNCES, CRIMSON_PRO, ATKINSON],
   [BodyFont.Readable]: [FRAUNCES, ATKINSON],
@@ -63,7 +55,7 @@ function googleStylesheet(families: ReadonlyArray<FamilySpec>): ReadonlyArray<st
   }
 
   const query = families
-    .toSorted((first, second) => first.family.localeCompare(second.family))
+    .toSorted((first, second) => (first.family < second.family ? -1 : 1))
     .map(({ spec }) => `family=${spec}`)
     .join('&');
 

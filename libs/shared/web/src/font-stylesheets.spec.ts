@@ -9,13 +9,42 @@ function stylesheets(): Array<string> {
   return [...document.head.querySelectorAll<HTMLLinkElement>('link[rel="stylesheet"]')].map((link) => link.href);
 }
 
+/** The family names in the Google stylesheet's URL, in request order (the wordmark's own request left out). */
+function googleFamilies(): Array<string> {
+  return stylesheets()
+    .filter((href) => href.includes('family=') && !href.includes('Pirata+One'))
+    .flatMap((href) => new URL(href).searchParams.getAll('family'))
+    .map((family) => family.slice(0, family.indexOf(':')));
+}
+
 function removeLinks(): void {
   for (const link of TestBed.inject(DOCUMENT).head.querySelectorAll('link')) {
     link.remove();
   }
 }
 
-/** Stylesheets each choice took before the roles: the body face (OpenDyslexic took two, the device's none). */
+const compareNames = (first: string, second: string): number => first.localeCompare(second);
+
+/** The Google families each body font needs, sorted by name; the device font needs none. */
+const BODY_FAMILIES: Readonly<Record<BodyFont, ReadonlyArray<string>>> = {
+  [BodyFont.Thematic]: ['Atkinson Hyperlegible Next', 'Crimson Pro', 'Fraunces'],
+  [BodyFont.Readable]: ['Atkinson Hyperlegible Next', 'Fraunces'],
+  [BodyFont.Lexend]: ['Fraunces', 'Lexend'],
+  [BodyFont.OpenDyslexic]: ['Fraunces'],
+  [BodyFont.System]: [],
+};
+
+const MONO_FAMILIES: Readonly<Record<MonoFont, ReadonlyArray<string>>> = {
+  [MonoFont.Standard]: ['Fira Code'],
+  [MonoFont.Typewriter]: ['Courier Prime'],
+  [MonoFont.System]: [],
+};
+
+const BODY_ROWS = Object.values(BodyFont).map((body) => ({ body, expected: BODY_FAMILIES[body] }));
+
+const MONO_ROWS = Object.values(MonoFont).map((mono) => ({ mono, expected: MONO_FAMILIES[mono] }));
+
+/** Stylesheets the body face needs on its own: OpenDyslexic two Fontsource files, the device's none. */
 const BODY_REQUESTS: Readonly<Record<BodyFont, number>> = {
   [BodyFont.Thematic]: 1,
   [BodyFont.Readable]: 1,
@@ -24,7 +53,7 @@ const BODY_REQUESTS: Readonly<Record<BodyFont, number>> = {
   [BodyFont.System]: 0,
 };
 
-/** The mono face took one, the device's none. */
+/** Stylesheets the mono face needs on its own. */
 const MONO_REQUESTS: Readonly<Record<MonoFont, number>> = {
   [MonoFont.Standard]: 1,
   [MonoFont.Typewriter]: 1,
@@ -33,18 +62,15 @@ const MONO_REQUESTS: Readonly<Record<MonoFont, number>> = {
 
 const WORDMARK_REQUESTS = 1;
 
-/**
- * The one choice that costs a request more than before: OpenDyslexic comes from Fontsource in two files, and the
- * display face then needs a Google request of its own (with a Google mono face it shares that request).
- */
-const DISPLAY_FACE_EXTRA = (body: BodyFont, mono: MonoFont): number =>
+/** OpenDyslexic with a device mono face leaves Fraunces without a Google request to share. */
+const extraDisplayFaceRequests = (body: BodyFont, mono: MonoFont): number =>
   body === BodyFont.OpenDyslexic && mono === MonoFont.System ? 1 : 0;
 
 const BUDGET = Object.values(BodyFont).flatMap((body) =>
   Object.values(MonoFont).map((mono) => ({
     body,
     mono,
-    limit: WORDMARK_REQUESTS + BODY_REQUESTS[body] + MONO_REQUESTS[mono] + DISPLAY_FACE_EXTRA(body, mono),
+    limit: WORDMARK_REQUESTS + BODY_REQUESTS[body] + MONO_REQUESTS[mono] + extraDisplayFaceRequests(body, mono),
   })),
 );
 
@@ -70,14 +96,19 @@ describe(FontStylesheets, () => {
   it('lists the families sorted by name, as the css2 API requires', () => {
     TestBed.inject(FontStylesheets).load(BodyFont.Thematic, MonoFont.Typewriter);
 
-    const families = stylesheets()
-      .filter((href) => href.includes('family=Fraunces'))
-      .flatMap((href) => new URL(href).searchParams.getAll('family'))
-      .map((family) => family.slice(0, family.indexOf(':')));
+    expect(googleFamilies()).toStrictEqual(['Atkinson Hyperlegible Next', 'Courier Prime', 'Crimson Pro', 'Fraunces']);
+  });
 
-    expect(families).toHaveLength(4);
+  it.each(BODY_ROWS)('asks for exactly the families the $body body font needs', ({ body, expected }) => {
+    TestBed.inject(FontStylesheets).load(body, MonoFont.System);
 
-    expect(families).toStrictEqual(families.toSorted((first, second) => first.localeCompare(second)));
+    expect(googleFamilies()).toStrictEqual(expected);
+  });
+
+  it.each(MONO_ROWS)('adds the $mono mono face to the request', ({ mono, expected }) => {
+    TestBed.inject(FontStylesheets).load(BodyFont.Lexend, mono);
+
+    expect(googleFamilies()).toStrictEqual([...expected, 'Fraunces', 'Lexend'].toSorted(compareNames));
   });
 
   it('adds only the faces not loaded yet', () => {

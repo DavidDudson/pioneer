@@ -15,7 +15,7 @@ const GENERIC_FAMILIES = new Set(['serif', 'sans-serif', 'monospace']);
 
 const ATKINSON = "'Atkinson Hyperlegible Next'";
 
-/** The first family each role resolves to, per body choice (ADR-0085). `undefined` is the device's own face. */
+/** The first family each role resolves to, per body choice (ADR-0085); `system` is the device's generic sans. */
 const FIRST_FAMILY: Readonly<Record<BodyFont, { display: string; ui: string; text: string }>> = {
   thematic: { display: 'Fraunces', ui: ATKINSON, text: "'Crimson Pro'" },
   readable: { display: 'Fraunces', ui: ATKINSON, text: ATKINSON },

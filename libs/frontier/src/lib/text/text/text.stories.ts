@@ -56,11 +56,7 @@ export const Variants: TextStory = {
   }),
 };
 
-/**
- * The three font roles (ADR-0085): display for titles and headings, UI for controls, labels and tables, text for
- * long rules prose. Switch the body font in the toolbar to see the accessibility faces take over the UI and text
- * roles while display keeps its own face.
- */
+/** The three font utilities (ADR-0085). Storybook loads no font files, so the faces show only in the app. */
 export const FontRoles: TextStory = {
   render: () => ({
     template: `
