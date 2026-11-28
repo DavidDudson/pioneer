@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
-import { TranslocoPipe } from '@jsverse/transloco';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CompanionArchiveReason, CompanionName } from '@pioneer/character/domain';
 import type { Companion } from '@pioneer/character/domain';
 import { Button, Stack, Surface, Text } from '@pioneer/frontier';
@@ -12,20 +12,16 @@ import type { CompanionPick, CompanionSpeciesOption } from '@pioneer/rules/ui';
 import { CharacterCompanionStore } from '../../data/character-companion-store';
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
+import { companionFacts } from '../sheet-companion-facts';
+import type { CompanionFact, Translate } from '../sheet-companion-facts';
 import { companionSlots, speciesOf, speciesOfCompanion, statisticsOfCompanion } from '../sheet-companions';
 import type { CompanionSlotView } from '../sheet-companions';
 
 /** What a companion card shows: its name, species and the statistics derived for the master's level. */
 interface CompanionCard {
   readonly companion: Companion;
-  /** The lines under the name: the message key of each and what it interpolates. */
+  /** The lines under the name. */
   readonly facts: readonly CompanionFact[];
-}
-
-/** One line of a companion card. */
-interface CompanionFact {
-  readonly key: string;
-  readonly params: Readonly<Record<string, string | number>>;
 }
 
 /** One species choice as the section shows it: the card of the companion it granted, and the form to name one. */
@@ -56,16 +52,14 @@ interface CompanionEntry {
 export class SheetCompanionsSection {
   readonly #characters = inject(CharacterStore);
   readonly #companions = inject(CharacterCompanionStore);
+  readonly #transloco = inject(TranslocoService);
+  readonly #translate: Translate = (key, params) => this.#transloco.translate(key, params);
   readonly #registry = injectContentRegistry([ContentKind.CompanionSpecies]);
 
   protected readonly Message = {
     None: 'character.sheet.companions.none',
     Replace: 'character.sheet.companions.replace',
     Release: 'character.sheet.companions.release',
-    Species: 'character.sheet.companions.species',
-    HitPoints: 'character.sheet.companions.hitPoints',
-    ArmorClass: 'character.sheet.companions.armorClass',
-    Speed: 'character.sheet.companions.speed',
     Source: 'character.sheet.companions.source',
   } as const;
 
@@ -90,15 +84,8 @@ export class SheetCompanionsSection {
       const statistics =
         held === undefined || table === undefined ? undefined : statisticsOfCompanion(held, level, table, tiers);
 
-      const facts: readonly CompanionFact[] =
-        held === undefined || statistics === undefined
-          ? []
-          : [
-              { key: this.Message.Species, params: { species: held.name } },
-              { key: this.Message.HitPoints, params: { value: statistics.hitPoints.total } },
-              { key: this.Message.ArmorClass, params: { value: statistics.armorClass.total } },
-              { key: this.Message.Speed, params: { value: statistics.speed } },
-            ];
+      const facts =
+        held === undefined || statistics === undefined ? [] : companionFacts(held.name, statistics, this.#translate);
 
       return {
         view,
