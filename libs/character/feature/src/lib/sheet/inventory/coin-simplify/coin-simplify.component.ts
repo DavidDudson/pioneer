@@ -7,8 +7,8 @@ import { AsyncButton, Stack, Text } from '@pioneer/frontier';
 import { CharacterStore } from '../../../data/character-store';
 import { describeSaveError } from '../../sheet-field';
 
-/** Names why Simplify is off: no coin can be traded up. */
-const NOTHING_TO_TRADE_ID = 'pio-coin-simplify-nothing';
+/** Names why Simplify is off; each instance takes its own, as the sheet can show more than one. */
+let nothingToTradeIds = 0;
 
 /**
  * Simplify, under the coins: trades small coins up into larger ones (10 cp to 1 sp, 10 sp to 1 gp, 10 gp to 1 pp) as a
@@ -24,7 +24,7 @@ export class CoinSimplify {
   readonly #store = inject(CharacterStore);
   readonly #i18n = inject(TranslocoService);
 
-  protected readonly nothingToTradeId = NOTHING_TO_TRADE_ID;
+  protected readonly nothingToTradeId = `pio-coin-simplify-nothing-${(nothingToTradeIds += 1)}`;
   /** Whether any coin can be traded up; false while the character loads, when the button is off anyway. */
   protected readonly tradable: Signal<boolean> = computed(() => {
     const coins = this.#store.selected()?.document.inventory.coins;

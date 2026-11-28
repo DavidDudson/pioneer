@@ -96,4 +96,11 @@ describe('simplifying coins', () => {
       }),
     );
   });
+
+  test('a trade the larger coin has no room for is left undone', () => {
+    const coins = CoinsSchema.parse({ pp: 2_147_483_647, gp: 10 });
+
+    expect(simplifiedCoins(coins)).toStrictEqual(coins);
+    expect(canSimplify(coins)).toBe(false);
+  });
 });

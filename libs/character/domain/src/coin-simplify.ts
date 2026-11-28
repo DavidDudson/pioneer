@@ -11,7 +11,7 @@ const SMALLEST_FIRST: ReadonlyArray<Coin> = [Coin.Copper, Coin.Silver, Coin.Gold
 /**
  * `coins` with every ten of a coin traded up for one of the next (10 cp to 1 sp, 10 sp to 1 gp, 10 gp to 1 pp), the
  * smaller coins first so a carry can carry again. What does not make a whole larger coin stays, and the value never
- * changes.
+ * changes. A trade the larger coin has no room for is left undone.
  */
 export function simplifiedCoins(coins: Coins): Coins {
   const simplified: Coins = { ...coins };
@@ -26,8 +26,12 @@ export function simplifiedCoins(coins: Coins): Coins {
     const trade = Math.floor(COPPER_PER_COIN[larger] / COPPER_PER_COIN[coin]);
     const carried = Math.floor(simplified[coin] / trade);
 
-    simplified[coin] = CoinAmount.parse(simplified[coin] - carried * trade);
-    simplified[larger] = CoinAmount.parse(simplified[larger] + carried);
+    const merged = CoinAmount.safeParse(simplified[larger] + carried);
+
+    if (merged.success) {
+      simplified[coin] = CoinAmount.parse(simplified[coin] - carried * trade);
+      simplified[larger] = merged.data;
+    }
   }
 
   return simplified;

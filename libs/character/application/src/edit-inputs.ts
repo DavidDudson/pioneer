@@ -33,7 +33,7 @@ interface Unaffordable {
 
 const UNAFFORDABLE_ITEM: Unaffordable = { field: 'quantity', key: 'character.validation.cannotAfford' };
 const UNAFFORDABLE_TAKE: Unaffordable = { field: 'coins', key: 'character.validation.cannotTakeCoins' };
-const OVERFULL_PURSE_KEY = 'character.validation.cannotHoldCoins';
+const OVERFULL_PURSE: Unaffordable = { field: 'coins', key: 'character.validation.cannotHoldCoins' };
 const NOTHING_TO_SIMPLIFY: Unaffordable = { field: 'coins', key: 'character.validation.nothingToSimplify' };
 const UNAFFORDABLE_KIT: Unaffordable = { field: 'kit', key: 'character.validation.cannotAffordKit' };
 
@@ -47,6 +47,15 @@ function affordable(character: Character, cost: CopperValue, { field, key }: Una
   }
 
   return cost;
+}
+
+/** No inputs, once `allowed`; refused on its field, with its reason, when not. */
+function refuseUnless(allowed: boolean, { field, key }: Unaffordable): EditInputs {
+  if (!allowed) {
+    throw new ValidationError([{ path: ['patch', field], message: message(key) }]);
+  }
+
+  return {};
 }
 
 /** The lines a kit edit adds, each with a fresh id (`kitItems`), and what a bought kit costs at its price. */
@@ -71,19 +80,25 @@ async function kitInputs(content: ContentSource, character: Character, patch: Ki
 
 /** Coin edits that add no item: a take is refused when the purse is worth less, a gift when it cannot hold it, a simplify when no coin trades up. */
 function coinInputs(character: Character, patch: CoinPatch): EditInputs {
-  if (patch.field === CharacterPatchField.TakeCoins) {
-    affordable(character, coinsValue(patch.coins), UNAFFORDABLE_TAKE);
-  } else if (patch.field === CharacterPatchField.GiftCoins) {
-    if (!canHoldCoins(character.document, patch.coins)) {
-      throw new ValidationError([{ path: ['patch', 'coins'], message: message(OVERFULL_PURSE_KEY) }]);
+  switch (patch.field) {
+    case CharacterPatchField.TakeCoins: {
+      affordable(character, coinsValue(patch.coins), UNAFFORDABLE_TAKE);
+
+      return {};
     }
-  } else if (!canSimplify(character.document.inventory.coins)) {
-    const { field, key } = NOTHING_TO_SIMPLIFY;
 
-    throw new ValidationError([{ path: ['patch', field], message: message(key) }]);
+    case CharacterPatchField.GiftCoins: {
+      return refuseUnless(canHoldCoins(character.document, patch.coins), OVERFULL_PURSE);
+    }
+
+    case CharacterPatchField.SimplifyCoins: {
+      return refuseUnless(canSimplify(character.document.inventory.coins), NOTHING_TO_SIMPLIFY);
+    }
+
+    default: {
+      return patch satisfies never;
+    }
   }
-
-  return {};
 }
 
 /**
