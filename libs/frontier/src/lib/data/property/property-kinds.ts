@@ -7,7 +7,7 @@ import { PropertyAlign, PropertyKindId } from './property.types';
 import type { PropertyContext, PropertyKind } from './property.types';
 
 /** The message keys of a yes or no, spelled out in full. */
-export const BOOL_MESSAGES = {
+const BOOL_MESSAGES = {
   yes: 'frontier.property.bool.yes',
   no: 'frontier.property.bool.no',
 } as const;
