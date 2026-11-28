@@ -1,0 +1,13 @@
+@if (failed()) {
+  <fr-stack gap="xs">
+    <fr-alert>{{ 'frontier.async.loadFailed' | transloco }}</fr-alert>
+    <fr-button (pressed)="retried.emit()">{{ 'frontier.table.retry' | transloco }}</fr-button>
+  </fr-stack>
+} @else {
+  <fr-empty-state>
+    <fr-empty-state-title>{{ emptyTitle() | transloco }}</fr-empty-state-title>
+    @if (filtered()) {
+      <fr-button (pressed)="cleared.emit()">{{ 'frontier.async.clearFilters' | transloco }}</fr-button>
+    }
+  </fr-empty-state>
+}

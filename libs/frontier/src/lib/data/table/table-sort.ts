@@ -1,6 +1,7 @@
-import type { SortingState, Updater } from '@tanstack/angular-table';
+import type { RowData, SortingState, Updater } from '@tanstack/angular-table';
 
 import type { TableViewSort } from '../table-view/table-view.types';
+import type { TableHeader } from './table-features';
 
 /** TanStack's sorting state for a table's sorts. */
 export function toSortingState(sort: ReadonlyArray<TableViewSort>): SortingState {
@@ -18,4 +19,13 @@ export function sortAfter(
   updater: Updater<SortingState>,
 ): ReadonlyArray<TableViewSort> {
   return fromSortingState(Array.isArray(updater) ? updater : updater(toSortingState(sort)));
+}
+
+const ARIA_SORT = { asc: 'ascending', desc: 'descending' } as const;
+
+/** A header's `aria-sort`, or nothing while its column is not sorted. */
+export function ariaSort<TData extends RowData>(header: TableHeader<TData>): string | undefined {
+  const sorted = header.column.getIsSorted();
+
+  return sorted === false ? undefined : ARIA_SORT[sorted];
 }

@@ -59,6 +59,11 @@ const EXEMPTIONS = {
     reason: 'Only renders inside a table header.',
     story: 'data/table/table.stories.ts',
   },
+  'data/table/table-notice/table-notice.component.ts': {
+    reason: "What an empty or failed table says in its body; it only renders inside a table's cell.",
+    spec: 'data/table/table-states.spec.ts',
+    story: 'data/table/table.stories.ts',
+  },
   'layout/card/card-content.component.ts': {
     reason: 'A body of the card; it only projects its content, padded from the card.',
     spec: 'layout/card/card.component.spec.ts',
