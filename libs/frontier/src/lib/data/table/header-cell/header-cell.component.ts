@@ -2,6 +2,7 @@ import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { FlexRender } from '@tanstack/angular-table';
 import type { RowData } from '@tanstack/angular-table';
+import { cva } from 'class-variance-authority';
 import { ChevronDown, ChevronUp } from 'lucide';
 
 import { Button } from '../../../actions/button/button.component';
@@ -9,6 +10,8 @@ import { Icon } from '../../../icon/icon.component';
 import { injectTranslate } from '../../../locale/inject-translate';
 import { HEADER_KEY } from '../table-features';
 import type { TableHeader } from '../table-features';
+
+const rankClasses = cva('text-caption text-fg-muted')();
 
 const SORT_ICON = { asc: ChevronUp, desc: ChevronDown } as const;
 
@@ -22,6 +25,8 @@ const SORT_ICON = { asc: ChevronUp, desc: ChevronDown } as const;
 })
 export class TableHeaderCell<TData extends RowData> {
   public readonly header = input.required<TableHeader<TData>>();
+  /** How many columns the table sorts by; each shows its place in the sort when it is more than one. */
+  public readonly sortCount = input(0);
 
   readonly #translate = injectTranslate();
 
@@ -39,4 +44,18 @@ export class TableHeaderCell<TData extends RowData> {
 
     return sorted === false ? undefined : SORT_ICON[sorted];
   });
+
+  /** This column's place in the sort, from 1, shown only while more than one column sorts. */
+  protected readonly rank = computed(() => {
+    const { column } = this.header();
+
+    return this.sortCount() > 1 && column.getIsSorted() !== false ? column.getSortIndex() + 1 : undefined;
+  });
+
+  protected readonly rankClasses = rankClasses;
+
+  /** Shift adds the column to the sort; a plain press sorts by it alone. */
+  protected sort(press: MouseEvent): void {
+    this.header().column.toggleSorting(undefined, press.shiftKey);
+  }
 }

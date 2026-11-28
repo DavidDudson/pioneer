@@ -38,6 +38,8 @@
     "table": {
       "columns": "Columns",
       "resetColumns": "Reset columns",
+      "loadMore": "Load more",
+      "loadingMore": "Loading more",
       "sample": {
         "name": "Name",
         "ancestry": "Ancestry",

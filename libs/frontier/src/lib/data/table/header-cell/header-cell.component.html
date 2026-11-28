@@ -6,10 +6,11 @@
   }
 </ng-template>
 @if (header().column.getCanSort()) {
-  <fr-button variant="inline" (pressed)="header().column.toggleSorting()">
+  <fr-button variant="inline" (pressed)="sort($event)">
     <ng-container *ngTemplateOutlet="content" />
     @if (sortIcon(); as icon) {
       <fr-icon [icon]="icon" />
+      <span [class]="rankClasses">{{ rank() }}</span>
     }
   </fr-button>
 } @else {
