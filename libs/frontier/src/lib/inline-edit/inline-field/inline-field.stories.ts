@@ -125,7 +125,7 @@ export const SeveralFields: InlineFieldStory = {
             [min]="1"
             [max]="20"
             [value]="level.draft()"
-            (valueChange)="level.change($event)"
+            (entered)="level.change($event)"
             (committed)="level.flushSoon()"
             (cancelled)="level.cancel()"
           />

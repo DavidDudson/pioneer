@@ -3,7 +3,7 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
 import { FilterChips } from '../filter-chips/filter-chips.component';
-import { OptionalNumberInput } from '../optional-number-input/optional-number-input.component';
+import { NumberInput } from '../number-input/number-input.component';
 import type { SelectOption } from '../select/select.component';
 import { FilterKind, FilterOperator } from './filter-bar.types';
 import type { FilterField } from './filter-bar.types';
@@ -26,7 +26,7 @@ function toText(value: number | undefined): string {
  */
 @Component({
   selector: 'fr-filter-values',
-  imports: [FilterChips, OptionalNumberInput, TranslocoPipe],
+  imports: [FilterChips, NumberInput, TranslocoPipe],
   templateUrl: './filter-values.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },

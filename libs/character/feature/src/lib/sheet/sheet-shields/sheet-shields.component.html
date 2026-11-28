@@ -11,7 +11,7 @@
           [min]="0"
           [max]="amountMax"
           [value]="amount()"
-          (valueChange)="amount.set($event)"
+          (entered)="amount.set($event)"
           (completeChange)="complete.set($event)"
         />
         @for (shown of shields(); track shown.line.key) {
@@ -23,7 +23,7 @@
                 [min]="1"
                 [max]="shown.line.layersLeft"
                 [value]="layers()"
-                (valueChange)="layers.set($event)"
+                (entered)="layers.set($event)"
               />
             }
             <fr-async-button

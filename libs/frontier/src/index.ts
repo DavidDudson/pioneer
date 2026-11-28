@@ -68,8 +68,6 @@ export { FilterChips } from './lib/controls/filter-chips/filter-chips.component'
 
 export { NumberInput } from './lib/controls/number-input/number-input.component';
 
-export { OptionalNumberInput } from './lib/controls/optional-number-input/optional-number-input.component';
-
 export { RefreshableInput } from './lib/controls/refreshable-input/refreshable-input.component';
 
 export { SearchInput } from './lib/controls/search-input/search-input.component';

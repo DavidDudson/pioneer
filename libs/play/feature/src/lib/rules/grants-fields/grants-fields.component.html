@@ -22,7 +22,7 @@
   />
   <fr-field [invalid]="badLevel()">
     <fr-label>{{ 'play.rules.grantLevelLabel' | transloco }}</fr-label>
-    <fr-number-input [min]="levelRange.min" [max]="levelRange.max" [(value)]="level" />
+    <fr-number-input [min]="levelRange.min" [max]="levelRange.max" [value]="level()" (entered)="level.set($event)" />
     @if (badLevel()) {
       <fr-field-error>{{ 'play.rules.badLevel' | transloco: levelRange }}</fr-field-error>
     } @else {

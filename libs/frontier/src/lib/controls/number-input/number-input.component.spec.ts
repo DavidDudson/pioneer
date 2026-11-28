@@ -1,8 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import type { ComponentInputs } from '../../testing/component-inputs';
+import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { NumberInput } from './number-input.component';
 
 interface Rendered {
@@ -50,7 +51,16 @@ function press(rendered: Rendered, key: 'Enter' | 'Escape'): void {
   rendered.fixture.detectChanges();
 }
 
+function buttons(rendered: Rendered): ReadonlyArray<HTMLButtonElement> {
+  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
+  return [...(rendered.fixture.nativeElement as HTMLElement).querySelectorAll('button')];
+}
+
 describe(NumberInput, () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
+  });
+
   it('is a whole-number input with a numeric keypad, named by ariaLabel', () => {
     const { input } = render();
     expect(input.type).toBe('number');
@@ -82,16 +92,110 @@ describe(NumberInput, () => {
   });
 
   it.each([
-    { state: 'empty', text: '' },
-    { state: 'a fraction', text: '2.5' },
-  ])('keeps the last whole number while the box is $state, and reports it incomplete', ({ text }) => {
+    { state: 'empty', text: '', complete: false },
+    { state: 'a fraction', text: '2.5', complete: false },
+    { state: 'a lone minus', text: '-', complete: false },
+  ])('keeps the last whole number while the box is $state, and reports it incomplete', ({ text, complete }) => {
     const rendered = render({ value: 3 });
     type(rendered, text);
     expect(rendered.fixture.componentInstance.value()).toBe(3);
-    expect(rendered.fixture.componentInstance.complete()).toBe(false);
+    expect(rendered.fixture.componentInstance.complete()).toBe(complete);
     type(rendered, '7');
     expect(rendered.fixture.componentInstance.value()).toBe(7);
     expect(rendered.fixture.componentInstance.complete()).toBe(true);
+  });
+
+  it('takes an emptied box as no value, and complete, when optional', () => {
+    const rendered = render({ value: 3, optional: true, placeholder: 'Any' });
+    expect(rendered.input.placeholder).toBe('Any');
+    type(rendered, '');
+    expect(rendered.fixture.componentInstance.value()).toBeUndefined();
+    expect(rendered.fixture.componentInstance.complete()).toBe(true);
+  });
+
+  it('shows no value as an empty box and 0 as 0', () => {
+    expect(render().input.value).toBe('');
+    expect(render({ value: 0 }).input.value).toBe('0');
+  });
+
+  it('emits entered for numbers only', () => {
+    const rendered = render({ value: 3, optional: true });
+    const seen: Array<number> = [];
+    rendered.fixture.componentInstance.entered.subscribe((entered) => {
+      seen.push(entered);
+    });
+    type(rendered, '5');
+    type(rendered, '');
+    type(rendered, '-');
+    expect(seen).toStrictEqual([5]);
+  });
+
+  it('clamps a typed number to min and max, without rewriting the box until Enter', () => {
+    const rendered = render({ value: 5, min: 10, max: 20, clamp: true });
+    type(rendered, '1');
+    expect(rendered.fixture.componentInstance.value()).toBe(10);
+    expect(rendered.input.value).toBe('1');
+    type(rendered, '15');
+    expect(rendered.fixture.componentInstance.value()).toBe(15);
+    type(rendered, '99');
+    expect(rendered.fixture.componentInstance.value()).toBe(20);
+    press(rendered, 'Enter');
+    expect(rendered.input.value).toBe('20');
+  });
+
+  it('keeps an out-of-range number when not clamping', () => {
+    const rendered = render({ value: 5, min: 10, max: 20 });
+    type(rendered, '99');
+    expect(rendered.fixture.componentInstance.value()).toBe(99);
+  });
+
+  it('takes a fraction when its step is one tenth, with the decimal keypad', () => {
+    const rendered = render({ step: 0.1 });
+    expect(rendered.input.step).toBe('0.1');
+    expect(rendered.input.inputMode).toBe('decimal');
+    type(rendered, '0.1');
+    expect(rendered.fixture.componentInstance.value()).toBe(0.1);
+  });
+
+  it('has no stepper buttons unless asked', () => {
+    expect(buttons(render())).toHaveLength(0);
+  });
+
+  describe('steppers', () => {
+    it('steps down and up by step, within the bounds', () => {
+      const rendered = render({ value: 1, min: 0, max: 2, steppers: true });
+      const [down, up] = buttons(rendered);
+      down?.click();
+      rendered.fixture.detectChanges();
+      expect(rendered.fixture.componentInstance.value()).toBe(0);
+      expect(down?.disabled).toBe(true);
+      up?.click();
+      up?.click();
+      rendered.fixture.detectChanges();
+      expect(rendered.fixture.componentInstance.value()).toBe(2);
+      expect(up?.disabled).toBe(true);
+      expect(rendered.input.value).toBe('2');
+    });
+
+    it('starts an empty box at min, or 0', () => {
+      const bounded = render({ min: 4, steppers: true });
+      buttons(bounded)[1]?.click();
+      expect(bounded.fixture.componentInstance.value()).toBe(5);
+      const open = render({ steppers: true });
+      buttons(open)[1]?.click();
+      expect(open.fixture.componentInstance.value()).toBe(1);
+    });
+
+    it('steps a fraction without float noise', () => {
+      const rendered = render({ value: 0.2, step: 0.1, steppers: true });
+      buttons(rendered)[1]?.click();
+      expect(rendered.fixture.componentInstance.value()).toBe(0.3);
+    });
+
+    it('disables both buttons with the control', () => {
+      const rendered = render({ value: 1, steppers: true, disabled: true });
+      expect(buttons(rendered).every((button) => button.disabled)).toBe(true);
+    });
   });
 
   it('commits on Enter and cancels on Escape', () => {

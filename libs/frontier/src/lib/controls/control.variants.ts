@@ -33,11 +33,11 @@ export const controlVariants = cva(
 
 /**
  * A touch-target-wide slot at one end of an `adorned` control, holding its icon or icon button.
- * The start slot is decorative, so presses pass through to the input.
+ * The start slot is decorative, so presses pass through to the input; `startAction` is a start slot that takes presses.
  */
 export const adornmentVariants = cva('absolute inset-y-none flex w-control-md items-center justify-center', {
   variants: {
-    edge: { start: 'pointer-events-none start-none text-fg-subtle', end: 'end-none' },
+    edge: { start: 'pointer-events-none start-none text-fg-subtle', end: 'end-none', startAction: 'start-none' },
     /** Dims with the disabled control. */
     disabled: { true: 'opacity-disabled', false: '' },
   },

@@ -15,14 +15,16 @@
       } @else {
         <fr-stack gap="xs">
           <fr-grid [columns]="2">
-            <fr-optional-number-input
+            <fr-number-input
+              optional
               [ariaLabel]="Message.Min | transloco: { facet: facetLabel }"
               [placeholder]="Message.Any | transloco"
               [step]="row.step"
               [value]="row.min"
               (valueChange)="bound(row.facet, Side.Min, $event)"
             />
-            <fr-optional-number-input
+            <fr-number-input
+              optional
               [ariaLabel]="Message.Max | transloco: { facet: facetLabel }"
               [placeholder]="Message.Any | transloco"
               [step]="row.step"

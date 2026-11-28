@@ -9,7 +9,7 @@
         [min]="0"
         [max]="amountMax"
         [value]="amount()"
-        (valueChange)="amount.set($event)"
+        (entered)="amount.set($event)"
         (completeChange)="complete.set($event)"
       />
       <fr-toggle-button [value]="critical()" (valueChange)="critical.set($event)">{{

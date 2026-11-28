@@ -12,7 +12,7 @@
       [min]="valueMin"
       [max]="valueMax"
       [value]="startValue()"
-      (valueChange)="startValue.set($event)"
+      (entered)="startValue.set($event)"
       (completeChange)="startComplete.set($event)"
     />
   }

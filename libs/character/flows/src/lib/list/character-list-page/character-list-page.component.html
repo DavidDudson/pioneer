@@ -37,7 +37,8 @@
                 [value]="state().ancestry"
                 (valueChange)="setAncestry($event)"
               />
-              <fr-optional-number-input
+              <fr-number-input
+                optional
                 [ariaLabel]="'character.list.filters.minLevel' | transloco"
                 [placeholder]="'character.list.filters.minLevel' | transloco"
                 [min]="1"
@@ -45,7 +46,8 @@
                 [value]="state().minLevel"
                 (valueChange)="setMinLevel($event)"
               />
-              <fr-optional-number-input
+              <fr-number-input
+                optional
                 [ariaLabel]="'character.list.filters.maxLevel' | transloco"
                 [placeholder]="'character.list.filters.maxLevel' | transloco"
                 [min]="1"

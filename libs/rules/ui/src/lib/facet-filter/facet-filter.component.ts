@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, model } fr
 import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Disclosure, FilterChips, Grid, LocaleFormat, OptionalNumberInput, Stack, Text } from '@pioneer/frontier';
+import { Disclosure, FilterChips, Grid, LocaleFormat, NumberInput, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import type { FacetCounts, FacetDefinition, FacetId, FacetValue, FilterState } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
@@ -30,7 +30,7 @@ function summaryKeyOf(row: FacetRow): string {
  */
 @Component({
   selector: 'pio-facet-filter',
-  imports: [Disclosure, FilterChips, Grid, OptionalNumberInput, Stack, Text, TranslocoPipe],
+  imports: [Disclosure, FilterChips, Grid, NumberInput, Stack, Text, TranslocoPipe],
   templateUrl: './facet-filter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

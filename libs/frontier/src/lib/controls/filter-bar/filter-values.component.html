@@ -1,13 +1,15 @@
 @if (isRange()) {
   <div [class]="rangeClasses">
-    <fr-optional-number-input
+    <fr-number-input
+      optional
       [value]="min()"
       [ariaLabel]="minLabel() | transloco"
       [placeholder]="'frontier.filterBar.any' | transloco"
       (valueChange)="setMin($event)"
     />
     @if (isBetween()) {
-      <fr-optional-number-input
+      <fr-number-input
+        optional
         [value]="max()"
         [ariaLabel]="'frontier.filterBar.max' | transloco"
         [placeholder]="'frontier.filterBar.any' | transloco"

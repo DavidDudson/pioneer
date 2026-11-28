@@ -33,8 +33,9 @@
       <fr-number-input
         [min]="valueMin"
         [max]="valueMax"
-        [(value)]="value"
+        [value]="value()"
         [(complete)]="valueComplete"
+        (entered)="value.set($event)"
         (committed)="add()"
       />
       @if (valueInvalid()) {

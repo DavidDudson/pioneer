@@ -11,7 +11,7 @@
         [max]="valueMax"
         [value]="row.entry.value"
         [complete]="row.entry.complete"
-        (valueChange)="setValue(row.path, $event)"
+        (entered)="setValue(row.path, $event)"
         (completeChange)="setComplete(row.path, $event)"
       />
       <fr-field-hint>{{ row.meaning.key | transloco: row.meaning.params }}</fr-field-hint>
