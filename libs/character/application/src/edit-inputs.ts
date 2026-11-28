@@ -1,4 +1,5 @@
 import {
+  canHoldCoins,
   CharacterPatchField,
   coinsValue,
   InventoryItemId,
@@ -10,7 +11,7 @@ import {
   payCost,
   purchaseCost,
 } from '@pioneer/character/domain';
-import type { Character, CharacterPatch, EditInputs, KitPatch } from '@pioneer/character/domain';
+import type { Character, CharacterPatch, CoinGrantPatch, EditInputs, KitPatch } from '@pioneer/character/domain';
 import type { ContentSource, CopperValue } from '@pioneer/rules/sdk';
 import { message, newId, ValidationError } from '@pioneer/shared/kernel';
 
@@ -30,6 +31,7 @@ interface Unaffordable {
 
 const UNAFFORDABLE_ITEM: Unaffordable = { field: 'quantity', key: 'character.validation.cannotAfford' };
 const UNAFFORDABLE_TAKE: Unaffordable = { field: 'coins', key: 'character.validation.cannotTakeCoins' };
+const OVERFULL_PURSE_KEY = 'character.validation.cannotHoldCoins';
 const UNAFFORDABLE_KIT: Unaffordable = { field: 'kit', key: 'character.validation.cannotAffordKit' };
 
 /**
@@ -64,6 +66,21 @@ async function kitInputs(content: ContentSource, character: Character, patch: Ki
   return { kitItems: lines, cost: affordable(character, cost, UNAFFORDABLE_KIT) };
 }
 
+/** A take of coins is refused when the purse is worth less, a gift when the purse cannot hold it; neither adds an item. */
+function coinInputs(character: Character, patch: CoinGrantPatch): EditInputs {
+  if (patch.field === CharacterPatchField.TakeCoins) {
+    affordable(character, coinsValue(patch.coins), UNAFFORDABLE_TAKE);
+
+    return {};
+  }
+
+  if (!canHoldCoins(character.document, patch.coins)) {
+    throw new ValidationError([{ path: ['patch', 'coins'], message: message(OVERFULL_PURSE_KEY) }]);
+  }
+
+  return {};
+}
+
 /**
  * What `patch` needs worked out before it applies: a fresh id for an added item, the lines an added kit expands into,
  * each with a fresh id, and what a purchase costs, refused when the coins are worth less. Run after
@@ -78,10 +95,8 @@ export async function editInputs(
     return kitInputs(content, character, patch);
   }
 
-  if (patch.field === CharacterPatchField.TakeCoins) {
-    affordable(character, coinsValue(patch.coins), UNAFFORDABLE_TAKE);
-
-    return {};
+  if (patch.field === CharacterPatchField.TakeCoins || patch.field === CharacterPatchField.GiftCoins) {
+    return coinInputs(character, patch);
   }
 
   if (patch.field !== CharacterPatchField.BuyItem) {

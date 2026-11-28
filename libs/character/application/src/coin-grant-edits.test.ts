@@ -43,11 +43,12 @@ describe('CharacterService coin gifts and takes', () => {
   /** The issues the service refuses `patch` with. */
   async function refusal(patch: CharacterPatch): Promise<ReadonlyArray<FieldIssue>> {
     const error = await rejection(service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
-    expect(error).toBeInstanceOf(ValidationError);
 
-    // SAFETY: the call under test rejects with a ValidationError for this patch.
-    // The rejection() helper returns the thrown value as unknown.
-    return (error as ValidationError).issues;
+    if (!(error instanceof ValidationError)) {
+      throw new TypeError(`Expected a ValidationError, got ${String(error)}`);
+    }
+
+    return error.issues;
   }
 
   test('gifts and takes coins, each audited by name with its reason and note', async () => {
@@ -90,6 +91,20 @@ describe('CharacterService coin gifts and takes', () => {
         reason: LedgerReason.Loot,
       }),
     ).toStrictEqual([{ path: ['patch', 'coins'], message: { key: 'character.validation.cannotTakeCoins' } }]);
+    expect(await service.get(amiri, character.id)).toStrictEqual(before);
+  });
+
+  test('refuses a gift the purse cannot hold, and changes nothing', async () => {
+    await edit({ field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ cp: 2_147_483_000 }) });
+    const before = character;
+
+    expect(
+      await refusal({
+        field: CharacterPatchField.GiftCoins,
+        coins: CoinsSchema.parse({ cp: 1000 }),
+        reason: LedgerReason.Gift,
+      }),
+    ).toStrictEqual([{ path: ['patch', 'coins'], message: { key: 'character.validation.cannotHoldCoins' } }]);
     expect(await service.get(amiri, character.id)).toStrictEqual(before);
   });
 });

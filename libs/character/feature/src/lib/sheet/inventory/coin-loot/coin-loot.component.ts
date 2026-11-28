@@ -34,14 +34,10 @@ const REASON_MESSAGES: Readonly<Record<CoinGrantReason, string>> = {
   [LedgerReason.Loot]: 'character.sheet.inventory.loot.reason.loot',
 };
 
-/** Names why a take is off: the purse is worth less than the coins. */
-const CANNOT_TAKE_ID = 'pio-coin-loot-cannot-take';
+/** Names why a take is off; each instance takes its own, as the shop and the inventory can both show one. */
+let cannotTakeIds = 0;
 
-/**
- * Coins added without paying (loot, a GM reward, a gift), or taken, in any mix of platinum, gold, silver and copper,
- * with a reason and a note: a `giftCoins` or a `takeCoins`. Take is disabled, with the reason, when the purse is
- * worth less. Inline, never a dialog.
- */
+/** Coins added without paying or taken, in any mix, with a reason and a note: a `giftCoins` or a `takeCoins`. */
 @Component({
   selector: 'pio-coin-loot',
   imports: [
@@ -64,7 +60,7 @@ export class CoinLoot {
   readonly #store = inject(CharacterStore);
   readonly #i18n = inject(TranslocoService);
 
-  protected readonly cannotTakeId = CANNOT_TAKE_ID;
+  protected readonly cannotTakeId = `pio-coin-loot-cannot-take-${(cannotTakeIds += 1)}`;
   protected readonly model = signal<CoinLootModel>(EMPTY_COIN_LOOT);
   protected readonly form = form(this.model, (path) => {
     validateStandardSchema(path, CoinLootDraft);
@@ -79,13 +75,14 @@ export class CoinLoot {
   /** Whether the purse is worth enough to take what the form holds; true while it holds nothing to take. */
   protected readonly takeable: Signal<boolean> = computed(() => {
     const character = this.#store.selected();
-    const parsed = CoinLootForm.safeParse(this.model());
+    const { pp, gp, sp, cp } = this.model();
+    const coins = CoinsSchema.safeParse({ pp, gp, sp, cp });
 
-    if (character === undefined || !parsed.success) {
+    if (character === undefined || !coins.success) {
       return true;
     }
 
-    return canTakeCoins(character.document, CoinsSchema.parse(parsed.data));
+    return canTakeCoins(character.document, coins.data);
   });
 
   private readonly lootForm = viewChild.required(AsyncForm);

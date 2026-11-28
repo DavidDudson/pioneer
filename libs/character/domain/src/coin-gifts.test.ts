@@ -6,7 +6,7 @@ import { array, assert, integer, property } from 'fast-check';
 
 import { Character } from './character';
 import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
-import { canTakeCoins } from './coin-gifts';
+import { canHoldCoins, canTakeCoins } from './coin-gifts';
 import { CoinChangeSchema, ledgerCoins, LedgerNote, LedgerReason } from './coin-ledger';
 import { CoinsSchema, InventorySchema } from './inventory';
 import type { Inventory } from './inventory';
@@ -103,7 +103,7 @@ describe('gifting and taking coins', () => {
 
     expect(canTakeCoins(character.document, coins)).toBe(false);
     expect(() => character.apply({ field: CharacterPatchField.TakeCoins, coins, reason: loot }, now)).toThrow(
-      'worth less',
+      'Cannot take',
     );
   });
 
@@ -146,5 +146,37 @@ describe('gifting and taking coins', () => {
         expect(ledgerCoins(ledger)).toStrictEqual(coins);
       }),
     );
+  });
+
+  test('taking exactly what the purse is worth empties it', () => {
+    const character = withPurse(InventorySchema.parse({ coins: { gp: 1, sp: 5 } }));
+    const coins = CoinsSchema.parse({ gp: 1, sp: 5 });
+
+    expect(canTakeCoins(character.document, coins)).toBe(true);
+
+    const taken = character.apply({ field: CharacterPatchField.TakeCoins, coins, reason: loot }, now);
+
+    expect(taken.document.inventory.coins).toStrictEqual(CoinsSchema.parse({}));
+  });
+
+  test('a purse that a gift would overfill cannot hold it', () => {
+    const character = withPurse(InventorySchema.parse({ coins: { cp: 2_147_483_000 } }));
+
+    expect(canHoldCoins(character.document, CoinsSchema.parse({ cp: 647 }))).toBe(true);
+    expect(canHoldCoins(character.document, CoinsSchema.parse({ cp: 648 }))).toBe(false);
+  });
+
+  test.each([
+    ['', false],
+    ['   ', false],
+    ['x', true],
+    ['x'.repeat(200), true],
+    ['x'.repeat(201), false],
+  ])('a note of %p is accepted: %p', (text, accepted) => {
+    expect(LedgerNote.safeParse(text).success).toBe(accepted);
+  });
+
+  test('a note is trimmed', () => {
+    expect(LedgerNote.parse(' x ')).toBe(LedgerNote.parse('x'));
   });
 });

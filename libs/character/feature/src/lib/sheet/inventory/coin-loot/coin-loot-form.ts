@@ -15,10 +15,7 @@ function holdsCoins(form: z.infer<typeof CoinLootFields>): boolean {
   return coinsValue(form) > 0;
 }
 
-/**
- * What the form checks while it is filled in: any mix of coins, at least one held, an optional note, and a reason that
- * is a gift or loot, as a string like the model's.
- */
+/** What the form checks while it is filled in: the reason is a string here, like the model's. */
 export const CoinLootDraft = CoinLootFields.refine((form) => CoinGrantReason.safeParse(form.reason).success).refine(
   holdsCoins,
 );

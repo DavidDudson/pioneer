@@ -8,6 +8,15 @@ import { CoinAmount } from './coins';
 import type { Coins } from './coins';
 import { coinsValue, payCost } from './purse';
 
+const COINS: ReadonlyArray<Coin> = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper];
+
+/** Whether every coin of the purse, with `coins` added, is still a count a purse can hold. */
+export function canHoldCoins(document: CharacterDocument, coins: Coins): boolean {
+  const purse = document.inventory.coins;
+
+  return COINS.every((coin) => CoinAmount.safeParse(purse[coin] + coins[coin]).success);
+}
+
 /** `document` with `coins` added to its purse, coin for coin. */
 function withGiftedCoins(document: CharacterDocument, coins: Coins): CharacterDocument {
   const purse = document.inventory.coins;
@@ -25,12 +34,14 @@ export function canTakeCoins(document: CharacterDocument, coins: Coins): boolean
   return payCost(document.inventory.coins, coinsValue(coins)) !== undefined;
 }
 
-/** `document` with `coins` taken from its purse. A purse worth less is a caller's bug: the service refuses it first. */
+/** `document` with `coins` taken from its purse; throws when the purse is worth less. */
 function withTakenCoins(document: CharacterDocument, coins: Coins): CharacterDocument {
   const left = payCost(document.inventory.coins, coinsValue(coins));
 
   if (left === undefined) {
-    throw new TypeError('The purse is worth less than the coins to take');
+    throw new TypeError(
+      `Cannot take ${JSON.stringify(coins)} from a purse of ${JSON.stringify(document.inventory.coins)}`,
+    );
   }
 
   return withCoins(document, left);

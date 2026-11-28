@@ -934,6 +934,7 @@
     "unknownItem": "That item is not available. Choose another.",
     "cannotAfford": "This character can't afford that: its coins are worth less than the cost. Buy fewer, or add it without paying.",
     "cannotAffordKit": "This character can't afford that kit: its coins are worth less than its price. Add it without paying instead.",
+    "cannotHoldCoins": "This character's purse can't hold that many more coins.",
     "cannotTakeCoins": "This character's coins are worth less than that, so they can't be taken.",
     "unknownKit": "That kit is not available. Choose another.",
     "unknownKitItem": "That kit holds an item no loaded content has, so it can't be added. Choose another kit.",
