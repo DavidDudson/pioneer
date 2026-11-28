@@ -1,7 +1,7 @@
 import { array, assert, integer, property, string } from 'fast-check';
 import { describe, expect, it } from 'vitest';
 
-import { defaultOperator, FilterKind, FilterOperator } from './filter-bar.types';
+import { defaultOperator, FilterKind, FilterOperator, operatorsFor } from './filter-bar.types';
 import type { FilterCondition, FilterField } from './filter-bar.types';
 import { filterCodec } from './filter-codec';
 
@@ -82,8 +82,39 @@ describe('filter codec', () => {
     expect(codec.decode('traits:fire')).toHaveLength(1);
   });
 
-  it('starts each kind on its first operator', () => {
-    expect(defaultOperator(FilterKind.Range)).toBe(FilterOperator.Is);
+  it('starts every kind on the first operator it offers', () => {
+    const kinds: ReadonlyArray<FilterKind> = [FilterKind.Set, FilterKind.Range, FilterKind.Flag];
+
+    expect(kinds.map((kind) => defaultOperator(kind))).toStrictEqual(kinds.map((kind) => operatorsFor(kind)[0]));
+  });
+
+  it('reads flags, and drops operators a field lacks', () => {
+    expect(CODEC.decode('consumable:yes~consumable:!no')).toStrictEqual([
+      condition('consumable', FilterOperator.Is, 'yes'),
+      condition('consumable', FilterOperator.IsNot, 'no'),
+    ]);
+    expect(CODEC.decode('consumable:yes,no')).toStrictEqual([]);
+    expect(CODEC.encode([condition('consumable', FilterOperator.IsAnyOf, 'yes', 'no')])).toBe('');
+    expect(CODEC.encode([condition('level', FilterOperator.IsNot, '3')])).toBe('');
+  });
+
+  it('writes a shape it cannot keep as its canonical equivalent', () => {
+    const anyOfOne = CODEC.encode([condition('traits', FilterOperator.IsAnyOf, 'fire')]);
+    const notTwo = CODEC.encode([condition('traits', FilterOperator.IsNot, 'a', 'b')]);
+
+    expect(CODEC.decode(anyOfOne)).toStrictEqual([condition('traits', FilterOperator.Is, 'fire')]);
+    expect(CODEC.decode(notTwo)).toStrictEqual([
+      condition('traits', FilterOperator.IsNot, 'a'),
+      condition('traits', FilterOperator.IsNot, 'b'),
+    ]);
+  });
+
+  it('leaves out empty values and bounds that are not plain numbers', () => {
+    expect(CODEC.encode([condition('traits', FilterOperator.IsNot, '')])).toBe('');
+    expect(CODEC.encode([condition('traits', FilterOperator.IsAnyOf, 'a', '')])).toBe('traits:a');
+    expect(CODEC.encode([condition('level', FilterOperator.Between, '1.', '5')])).toBe('');
+    expect(CODEC.encode([condition('level', FilterOperator.Is, 'abc')])).toBe('');
+    expect(CODEC.decode('level:0x10~level:1e3..5~level: 3')).toStrictEqual([]);
   });
 
   it('round-trips values holding its own characters', () => {
