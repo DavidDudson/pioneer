@@ -13,7 +13,7 @@ import { filterParamName } from '@pioneer/rules/sdk';
 import type { QueryParams } from '@pioneer/rules/sdk';
 
 import { ALL_FACETS, BROWSE_KINDS, facetsOf, KIND_PARAM, kindsFromQuery, kindsToQuery } from './browse-kinds';
-import { injectBrowseColumns } from './browse-messages';
+import { injectBrowseColumns, provideBrowseKinds } from './browse-messages';
 import { searchFromQuery } from './browse-search';
 import { listedKinds } from './browse-state';
 import { ContentBrowser } from './content-browser.component';
@@ -45,6 +45,7 @@ const BrowseMessage = {
   selector: 'pio-content-browser-page',
   imports: [ContentBrowser, Page, PageBody, PageHeader, TranslocoPipe],
   templateUrl: './content-browser-page.component.html',
+  providers: [provideBrowseKinds()],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContentBrowserPage {

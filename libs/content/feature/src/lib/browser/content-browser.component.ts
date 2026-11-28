@@ -43,12 +43,12 @@ import {
 } from '../entry/entry-lookup';
 import { browseSources, storeLinks } from '../entry/entry-sources';
 import { ROLE_MESSAGES, SIZE_ORDER } from './browse-creature';
-import { BROWSE_KINDS, facetsOf, isBrowseKind, KIND_MESSAGES } from './browse-kinds';
+import { BROWSE_KINDS, browseFeat, facetsOf, isBrowseKind, KIND_MESSAGES } from './browse-kinds';
 import type { BrowseKind } from './browse-kinds';
 import { isLegacyEntry, packLicenses, replacedBy, replacementsOf, shownEntries } from './browse-legacy';
 import { browseList, entriesOf } from './browse-list';
 import type { BrowseList } from './browse-list';
-import { injectBrowseColumns, injectMessagesChanged } from './browse-messages';
+import { injectBrowseColumns, injectMessagesChanged, provideBrowseKinds } from './browse-messages';
 import { injectBrowseRegistry } from './browse-registry';
 import { injectBrowseSearch, searchFromQuery } from './browse-search';
 import type { BrowseSearch } from './browse-search';
@@ -72,6 +72,7 @@ const NO_LICENSES: ReadonlyMap<PackId, ContentLicense> = new Map();
   imports: [ContentBrowserView],
   templateUrl: './content-browser.component.html',
   providers: [
+    provideBrowseKinds(),
     { provide: RICH_TEXT_LINKS, useFactory: (): RichTextLinks => inject(ContentBrowser).links },
     { provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(ContentBrowser).previews },
   ],
@@ -278,6 +279,7 @@ export class ContentBrowser {
       level: this.#levelText(entry),
       levelValue: 'level' in entry && entry.level !== undefined ? entry.level : undefined,
       creature: entry.kind === ContentKind.Creature ? this.#creatureOf(entry.data) : undefined,
+      feat: browseFeat(entry, traits, (id) => this.#index()?.get(id)?.name),
       traits,
       sources: browseSources(entry, this.#licenses()),
       legacy: isLegacyEntry(entry, this.#licenses()),

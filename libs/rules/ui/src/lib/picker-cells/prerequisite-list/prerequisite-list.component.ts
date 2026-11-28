@@ -43,7 +43,7 @@ const STATE_VIEWS = {
  * "Met: Trained in Athletics" or "Not met: Trained in Athletics".
  *
  * ```html
- * <pio-prerequisite-list [prerequisites]="row.prerequisites" />
+ * <pio-prerequisite-list [value]="row.prerequisites" />
  * ```
  */
 @Component({
@@ -53,7 +53,7 @@ const STATE_VIEWS = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrerequisiteList {
-  public readonly prerequisites = input.required<ReadonlyArray<PrerequisiteLine>>();
+  public readonly value = input.required<ReadonlyArray<PrerequisiteLine>>();
 
   protected readonly Message = PickerCellMessage;
   protected readonly views = STATE_VIEWS;

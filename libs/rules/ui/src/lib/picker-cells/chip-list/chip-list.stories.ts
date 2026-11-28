@@ -12,7 +12,7 @@ export default meta;
 /** Traits, the unusual ones toned by rarity. */
 export const Traits: ChipListStory = {
   args: {
-    chips: [
+    value: [
       { label: 'Fire' },
       { label: 'Evocation' },
       { label: 'Uncommon', tone: BadgeTone.Warning },
@@ -22,11 +22,11 @@ export const Traits: ChipListStory = {
 };
 
 /** Traditions. */
-export const Traditions: ChipListStory = { args: { chips: [{ label: 'Arcane' }, { label: 'Primal' }] } };
+export const Traditions: ChipListStory = { args: { value: [{ label: 'Arcane' }, { label: 'Primal' }] } };
 
 /** More chips than fit a row wrap onto the next. */
 export const Wrapping: ChipListStory = {
   args: {
-    chips: [...Array.from({ length: 14 }).keys()].map((index) => ({ label: `Trait ${String(index + 1)}` })),
+    value: [...Array.from({ length: 14 }).keys()].map((index) => ({ label: `Trait ${String(index + 1)}` })),
   },
 };

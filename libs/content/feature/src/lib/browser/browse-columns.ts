@@ -1,7 +1,19 @@
 import type { BrowseRow } from '@pioneer/content/ui';
 import { BrowseSources, LegacyBadge } from '@pioneer/content/ui';
-import type { TableColumn } from '@pioneer/frontier/data';
-import { PickerCellMessage, RulesTableSchema } from '@pioneer/rules/ui';
+import { PropertyKindId, tableFromProperties } from '@pioneer/frontier/data';
+import type { PropertyDescriptor, TableColumn, TableFromPropertiesOptions, TableSchema } from '@pioneer/frontier/data';
+import { FeatCategory, Rarity } from '@pioneer/rules/sdk';
+import {
+  ActionKind,
+  CommonPropertyId,
+  FEAT_PROPERTIES,
+  FeatPropertyId,
+  PickerCellMessage,
+  RulesTableSchema,
+  TRAITS_PROPERTY,
+  viewProperties,
+} from '@pioneer/rules/ui';
+import type { FeatFacts } from '@pioneer/rules/ui';
 
 import { BrowseColumn, BrowseColumnCode } from './browse-column';
 
@@ -17,6 +29,20 @@ const ColumnMessage = {
   Source: 'content.column.source',
   Legacy: 'content.column.legacy',
 } as const;
+
+/** What a row with no feat part reads: only a list of feats shows these columns, so no row is read through it. */
+const NO_FEAT: FeatFacts = {
+  id: '',
+  name: '',
+  level: undefined,
+  traits: [],
+  sources: [],
+  category: FeatCategory.General,
+  action: ActionKind.Passive,
+  rarity: Rarity.Common,
+  prerequisites: [],
+  note: undefined,
+};
 
 /** What a row with nothing to compare sorts by: before every level, creatures' -1 included. */
 const NO_LEVEL = Number.NEGATIVE_INFINITY;
@@ -57,16 +83,9 @@ function withCreatureColumns(schema: RulesTableSchema<BrowseRow>): RulesTableSch
     });
 }
 
-/** Traits, source and whether the entry is legacy, which close the table. */
-function withClosingColumns(schema: RulesTableSchema<BrowseRow>): RulesTableSchema<BrowseRow> {
+/** Source and whether the entry is legacy, which close every list. */
+function withSourceAndLegacyColumns<TSchema extends TableSchema<BrowseRow>>(schema: TSchema): TSchema {
   return schema
-    .addTraits({
-      id: BrowseColumn.Traits,
-      code: BrowseColumnCode.Traits,
-      header: ColumnMessage.Traits,
-      value: (row) => row.traits,
-      hideable: true,
-    })
     .addComponent({
       id: BrowseColumn.Source,
       code: BrowseColumnCode.Source,
@@ -85,6 +104,19 @@ function withClosingColumns(schema: RulesTableSchema<BrowseRow>): RulesTableSche
       inputs: (row) => ({ legacy: row.legacy, replacedBy: row.replacedBy }),
       hideable: true,
     });
+}
+
+/** Traits, source and whether the entry is legacy, which close the table. */
+function withClosingColumns(schema: RulesTableSchema<BrowseRow>): RulesTableSchema<BrowseRow> {
+  return withSourceAndLegacyColumns(
+    schema.addTraits({
+      id: BrowseColumn.Traits,
+      code: BrowseColumnCode.Traits,
+      header: ColumnMessage.Traits,
+      value: (row) => row.traits,
+      hideable: true,
+    }),
+  );
 }
 
 /**
@@ -119,4 +151,70 @@ export function browseColumns(kindHidden: boolean, creatures: boolean): Readonly
     });
 
   return withClosingColumns(creatures ? withCreatureColumns(base) : base).build();
+}
+
+/** The codes of the properties only a feat has; the common ones carry their own. */
+const FEAT_COLUMN_CODES: ReadonlyMap<string, string> = new Map([
+  [FeatPropertyId.Category, BrowseColumnCode.Category],
+  [FeatPropertyId.Actions, BrowseColumnCode.Actions],
+  [FeatPropertyId.Prerequisites, BrowseColumnCode.Prerequisites],
+]);
+
+/** The feat columns after the name and kind, in order; the source and legacy columns close the table. */
+const FEAT_BROWSE_IDS: ReadonlyArray<string> = [
+  FeatPropertyId.Level,
+  FeatPropertyId.Category,
+  FeatPropertyId.Actions,
+  FeatPropertyId.Traits,
+  FeatPropertyId.Prerequisites,
+];
+
+/** A feat property as a browser column: hideable but for the name, with the code a shared link names. */
+function browseProperty(property: PropertyDescriptor<BrowseRow>): PropertyDescriptor<BrowseRow> {
+  const hideable = property.id !== FeatPropertyId.Name;
+  const code = FEAT_COLUMN_CODES.get(property.id);
+
+  return code === undefined ? { ...property, hideable } : { ...property, code, hideable };
+}
+
+/** The browser's own kind column, which a list of one kind hides. */
+function kindProperty(kindHidden: boolean): PropertyDescriptor<BrowseRow> {
+  return {
+    id: BrowseColumn.Kind,
+    label: ColumnMessage.Kind,
+    kind: PropertyKindId.Text,
+    value: (row) => row.kind,
+    code: BrowseColumnCode.Kind,
+    hideable: true,
+    defaultHidden: kindHidden,
+  };
+}
+
+/**
+ * `FEAT_PROPERTIES` as the browser's columns: read from the feat part of each row, every one but the name hideable
+ * and carrying the code a shared link names. The traits are the row's own chips, already toned by rarity.
+ */
+function featProperties(kindHidden: boolean): ReadonlyArray<PropertyDescriptor<BrowseRow>> {
+  const properties = FEAT_PROPERTIES.map((property) =>
+    property.id === CommonPropertyId.Traits ? TRAITS_PROPERTY : property,
+  );
+
+  const viewed = viewProperties(properties, (row: BrowseRow) => row.feat ?? NO_FEAT).map((property) =>
+    browseProperty(property),
+  );
+
+  return [...viewed, kindProperty(kindHidden)];
+}
+
+/**
+ * The columns of a list of feats: the name, the kind, then the feat's level, category, action cost, traits and
+ * prerequisites from `FEAT_PROPERTIES`, then the source and whether the entry is legacy.
+ */
+export function featBrowseColumns(
+  kindHidden: boolean,
+  options: TableFromPropertiesOptions,
+): ReadonlyArray<TableColumn<BrowseRow>> {
+  const ids = [FeatPropertyId.Name, BrowseColumn.Kind, ...FEAT_BROWSE_IDS];
+
+  return withSourceAndLegacyColumns(tableFromProperties(featProperties(kindHidden), ids, options)).build();
 }

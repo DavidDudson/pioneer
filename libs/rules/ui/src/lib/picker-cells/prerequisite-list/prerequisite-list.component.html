@@ -1,8 +1,8 @@
-@if (prerequisites().length === 0) {
+@if (value().length === 0) {
   <fr-text tone="muted">{{ Message.None | transloco }}</fr-text>
 } @else {
   <fr-list gap="3xs">
-    @for (line of prerequisites(); track line.label) {
+    @for (line of value(); track line.label) {
       @let view = views[line.state];
       <fr-list-item>
         <fr-stack direction="horizontal" gap="2xs" align="center">

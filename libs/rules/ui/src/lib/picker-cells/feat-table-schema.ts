@@ -13,7 +13,7 @@ export class FeatTableSchema<TRow extends RowData> extends RulesTableSchema<TRow
       ...options,
       sortValue: (row) => options.value(row).filter(({ state }) => state === PrerequisiteState.Unmet).length,
       component: PrerequisiteList,
-      inputs: (row) => ({ prerequisites: options.value(row) }),
+      inputs: (row) => ({ value: options.value(row) }),
     });
   }
 }

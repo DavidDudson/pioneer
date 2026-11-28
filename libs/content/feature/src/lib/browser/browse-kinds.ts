@@ -1,5 +1,7 @@
 import { ContentKind, facetsFor } from '@pioneer/rules/sdk';
-import type { FacetDefinition, RegisteredKind } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, FacetDefinition, RegisteredKind } from '@pioneer/rules/sdk';
+import { entryTarget, featActionKind, PrerequisiteState, richTextWords } from '@pioneer/rules/ui';
+import type { Chip, FeatFacts } from '@pioneer/rules/ui';
 
 import { firstQueryText } from './query-text';
 import type { QueryText } from './query-text';
@@ -77,4 +79,36 @@ export const ALL_FACETS: ReadonlyArray<FacetDefinition> = facetsFor(BROWSE_KINDS
 /** Whether the browser lists `kind`. */
 export function isBrowseKind(kind: ContentKind): kind is BrowseKind {
   return BROWSE_KINDS.some((browsed) => browsed === kind);
+}
+
+/**
+ * What `FEAT_PROPERTIES` read from a feat, or nothing for an entry of another kind. The browser has no character, so
+ * each prerequisite is unknown, never met or unmet (ADR-0002).
+ */
+export function browseFeat(
+  entry: ContentEntry,
+  traits: ReadonlyArray<Chip>,
+  nameOf: (id: ContentId) => string | undefined,
+): FeatFacts | undefined {
+  if (entry.kind !== ContentKind.Feat) {
+    return undefined;
+  }
+
+  const printed = entry.data.prerequisites;
+  const prerequisites = printed === undefined ? '' : richTextWords(printed, nameOf);
+
+  return {
+    id: entry.id,
+    entry: entry.id,
+    name: entry.name,
+    to: entryTarget(entry),
+    level: entry.level,
+    traits,
+    sources: entry.sources,
+    category: entry.data.category,
+    action: featActionKind(entry),
+    rarity: entry.rarity,
+    prerequisites: prerequisites === '' ? [] : [{ label: prerequisites, state: PrerequisiteState.Unknown }],
+    note: undefined,
+  };
 }

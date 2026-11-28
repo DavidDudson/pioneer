@@ -4,7 +4,7 @@ import { LevelCell } from './level-cell.component';
 
 type LevelStory = StoryObj<LevelCell>;
 
-const meta: Meta<LevelCell> = { title: 'Rules/Picker cells/Level', component: LevelCell, args: { level: 3 } };
+const meta: Meta<LevelCell> = { title: 'Rules/Picker cells/Level', component: LevelCell, args: { value: 3 } };
 
 export default meta;
 
@@ -12,4 +12,4 @@ export default meta;
 export const Level: LevelStory = {};
 
 /** A level 20 entry. */
-export const TopLevel: LevelStory = { args: { level: 20 } };
+export const TopLevel: LevelStory = { args: { value: 20 } };

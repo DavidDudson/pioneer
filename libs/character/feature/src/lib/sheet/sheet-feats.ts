@@ -6,17 +6,9 @@ import type {
   FeatSlot,
   PrerequisiteClauseStatus,
 } from '@pioneer/character/domain';
-import { BlockKind, ContentKind, FeatCategory, InlineKind, Rarity, Trait } from '@pioneer/rules/sdk';
-import type {
-  ContentEntry,
-  ContentId,
-  ContentRegistry,
-  InlineNode,
-  RichText,
-  SlotKey,
-  SourceRef,
-} from '@pioneer/rules/sdk';
-import { ActionKind, PrerequisiteState } from '@pioneer/rules/ui';
+import { ContentKind, FeatCategory, Rarity, Trait } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, SlotKey, SourceRef } from '@pioneer/rules/sdk';
+import { ActionKind, featActionKind, PrerequisiteState, richTextWords } from '@pioneer/rules/ui';
 import type { Chip, FeatPickerRow, PrerequisiteLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -80,22 +72,6 @@ export interface SheetFeats {
   readonly planned: ReadonlyArray<SheetFeatSlot>;
 }
 
-/** The words of rich text: its text, and each reference by its label or the name of the entry it names. */
-function plainText(text: RichText, nameOf: (id: ContentId) => string | undefined): string {
-  const inline = (node: InlineNode): string => {
-    if (node.type === InlineKind.Text) {
-      return node.text;
-    }
-
-    return node.type === InlineKind.Ref ? (node.label ?? nameOf(node.id) ?? '') : '';
-  };
-
-  return text
-    .map((block) => (block.type === BlockKind.Paragraph ? block.content.map((node) => inline(node)).join('') : ''))
-    .join(' ')
-    .trim();
-}
-
 /** What a feat entry says that the domain's option does not: how it is taken and used, and where it is printed. */
 interface FeatFacts {
   readonly category: FeatCategory;
@@ -103,17 +79,6 @@ interface FeatFacts {
   readonly rarity: Rarity;
   readonly traits: ReadonlyArray<Chip>;
   readonly sources: ReadonlyArray<SourceRef>;
-}
-
-/** A feat's cost: its action glyph, a variable one, or none for a passive feat. */
-function actionKindOf(entry: ContentEntry & { readonly kind: typeof ContentKind.Feat }): ActionKind {
-  const { cost, upTo } = entry.data.action ?? {};
-
-  if (cost === undefined) {
-    return ActionKind.Passive;
-  }
-
-  return upTo === undefined ? cost : ActionKind.Variable;
 }
 
 function factsOf(registry: ContentRegistry, entry: ContentEntry | undefined): FeatFacts {
@@ -129,7 +94,7 @@ function factsOf(registry: ContentRegistry, entry: ContentEntry | undefined): Fe
 
   return {
     category: entry.data.category,
-    action: actionKindOf(entry),
+    action: featActionKind(entry),
     rarity: entry.rarity,
     traits: traitChips(
       registry,
@@ -147,7 +112,7 @@ interface OptionReads {
 }
 
 function optionOf(option: FeatOption, { registry, nameOf, entryOf }: OptionReads): SheetFeatOption {
-  const prerequisites = option.prerequisites === undefined ? undefined : plainText(option.prerequisites, nameOf);
+  const prerequisites = option.prerequisites === undefined ? undefined : richTextWords(option.prerequisites, nameOf);
 
   const locked =
     option.locked === undefined

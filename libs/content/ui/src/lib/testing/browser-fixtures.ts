@@ -45,6 +45,7 @@ export const BROWSER_ROWS: ReadonlyArray<BrowseRow> = PACK.otherEntries.map((ent
     level: '1',
     levelValue: 1,
     creature: undefined,
+    feat: undefined,
     traits: entry.traits.map((trait) => ({ label: trait, tone: 'neutral' as const })),
     sources: [{ source: BOOK, book: undefined, license: ContentLicense.Orc }],
     legacy: false,

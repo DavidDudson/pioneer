@@ -306,6 +306,31 @@ export { SummaryCell } from './lib/picker-cells/summary-cell/summary-cell.compon
 
 export { FeatPicker } from './lib/feat-picker/feat-picker.component';
 
+export {
+  COMMON_PROPERTIES,
+  CommonPropertyId,
+  LEVEL_PROPERTY,
+  NAME_PROPERTY,
+  SOURCE_PROPERTY,
+  TRAITS_PROPERTY,
+} from './lib/properties/common-properties';
+
+export type { CommonFacts } from './lib/properties/common-facts';
+
+export { featActionKind, richTextWords } from './lib/properties/feat-reads';
+
+export { viewProperties } from './lib/properties/view-properties';
+
+export type { FeatFacts } from './lib/properties/feat-facts';
+
+export { FEAT_PICKER_COLUMNS, FEAT_PROPERTIES, FeatPropertyId } from './lib/properties/feat-properties';
+
+export {
+  provideRulesPropertyKinds,
+  RULES_PROPERTY_KINDS,
+  RulesPropertyKindId,
+} from './lib/properties/rules-property-kinds';
+
 export { FeatPickerColumn, type FeatPickerRow } from './lib/feat-picker/feat-picker-row';
 
 export type {

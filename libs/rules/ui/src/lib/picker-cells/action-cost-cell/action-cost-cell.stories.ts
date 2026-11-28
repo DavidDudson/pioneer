@@ -8,19 +8,19 @@ type ActionCostStory = StoryObj<ActionCostCell>;
 const meta: Meta<ActionCostCell> = {
   title: 'Rules/Picker cells/Action cost',
   component: ActionCostCell,
-  argTypes: { cost: { control: 'select', options: Object.values(ActionKind) } },
+  argTypes: { value: { control: 'select', options: Object.values(ActionKind) } },
 };
 
 export default meta;
 
 /** One action. */
-export const OneAction: ActionCostStory = { args: { cost: ActionKind.One } };
+export const OneAction: ActionCostStory = { args: { value: ActionKind.One } };
 
 /** A reaction. */
-export const Reaction: ActionCostStory = { args: { cost: ActionKind.Reaction } };
+export const Reaction: ActionCostStory = { args: { value: ActionKind.Reaction } };
 
 /** A cost that varies. */
-export const Variable: ActionCostStory = { args: { cost: ActionKind.Variable } };
+export const Variable: ActionCostStory = { args: { value: ActionKind.Variable } };
 
 /** No cost: a passive ability. */
-export const Passive: ActionCostStory = { args: { cost: ActionKind.Passive } };
+export const Passive: ActionCostStory = { args: { value: ActionKind.Passive } };

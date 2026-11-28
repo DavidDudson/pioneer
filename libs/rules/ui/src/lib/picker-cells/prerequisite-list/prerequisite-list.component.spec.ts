@@ -6,7 +6,7 @@ import { PrerequisiteList, PrerequisiteState } from './prerequisite-list.compone
 describe(PrerequisiteList, () => {
   it('reads each prerequisite out as met or not met', async () => {
     const host = await renderCell(PrerequisiteList, {
-      prerequisites: [
+      value: [
         { label: 'Trained in Athletics', state: PrerequisiteState.Met },
         { label: 'Strength 16', state: PrerequisiteState.Unmet },
       ],
@@ -18,7 +18,7 @@ describe(PrerequisiteList, () => {
 
   it('reads a prerequisite that cannot be checked as such, never as not met', async () => {
     const host = await renderCell(PrerequisiteList, {
-      prerequisites: [{ label: 'Worships a deity of magic', state: PrerequisiteState.Unknown }],
+      value: [{ label: 'Worships a deity of magic', state: PrerequisiteState.Unknown }],
     });
 
     const spoken = [...host.querySelectorAll('.sr-only')].map((line) => line.textContent.trim());
@@ -26,7 +26,7 @@ describe(PrerequisiteList, () => {
   });
 
   it('shows a dash when there are none', async () => {
-    const host = await renderCell(PrerequisiteList, { prerequisites: [] });
+    const host = await renderCell(PrerequisiteList, { value: [] });
     expect(host.textContent.trim()).toBe('—');
   });
 });
