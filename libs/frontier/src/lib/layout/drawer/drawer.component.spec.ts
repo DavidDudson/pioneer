@@ -118,6 +118,16 @@ describe(Drawer, () => {
     const root = await render('/spells');
     expect(root.querySelector('dialog')).toBeNull();
     expect(root.classList.contains('hidden')).toBe(true);
+    expect(root.className).toContain('w-none');
+  });
+
+  it('moves into the page on the enter pair and out on the exit pair', async () => {
+    const root = await render('/spells');
+    expect(root.className).toContain('duration-exit');
+    await TestBed.inject(Router).navigateByUrl('/spells?drawer=open');
+    await settle();
+    expect(root.className).toContain('duration-enter');
+    expect(part(root, 'dialog').className).toContain('transition-fade-width');
   });
 
   it('opens from the query parameter as a labelled dialog with its content', async () => {

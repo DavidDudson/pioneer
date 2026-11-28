@@ -31,7 +31,13 @@
   (overlayKeydown)="$event.key === 'Escape' && close()"
 >
   <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events -- the panel only listens for clicks that bubble from its links. -->
-  <div role="group" [attr.aria-label]="label()" [class]="panelClasses" (click)="pressed($event)">
+  <div
+    role="group"
+    [attr.aria-label]="label()"
+    [class]="panelClasses"
+    [animate.leave]="leaveClasses"
+    (click)="pressed($event)"
+  >
     <ng-content />
   </div>
 </ng-template>

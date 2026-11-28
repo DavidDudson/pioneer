@@ -619,3 +619,67 @@
 @utility clip-gem {
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
 }
+
+/*
+ * fr-disclosure: the content of a `<details>` grows from nothing on open and folds back on close. The browser owns
+ * the open state, so focus, keys and find-in-page are untouched; only the box animates. Under reduced motion, and
+ * where `::details-content` is unknown, it shows its end state at once.
+ */
+@utility details-motion {
+  @media (prefers-reduced-motion: no-preference) {
+    interpolate-size: allow-keywords;
+
+    &::details-content {
+      block-size: 0;
+      overflow: clip;
+      transition-property: block-size, content-visibility;
+      transition-duration: var(--fr-duration-exit);
+      transition-timing-function: var(--fr-ease-exit);
+      transition-behavior: allow-discrete;
+    }
+
+    &[open]::details-content {
+      block-size: auto;
+      transition-duration: var(--fr-duration-enter);
+      transition-timing-function: var(--fr-ease-enter);
+    }
+  }
+}
+
+/*
+ * Fade and dock motion for what appears in place: overlay panels (fr-dropdown, fr-hover-card) and the docked
+ * fr-drawer. A thing arrives on the enter pair; `fade-out`, put on it as it leaves (Angular's `animate.leave`),
+ * switches the same transition to the exit pair. Neither ever delays input or focus.
+ */
+@utility transition-fade {
+  transition-property: opacity;
+  transition-duration: var(--fr-leave-duration, var(--fr-duration-enter));
+  transition-timing-function: var(--fr-leave-ease, var(--fr-ease-enter));
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+/* The docked drawer's panel: it fades, and keeps pace with a width step. */
+@utility transition-fade-width {
+  transition-property: opacity, width;
+  transition-duration: var(--fr-leave-duration, var(--fr-duration-enter));
+  transition-timing-function: var(--fr-leave-ease, var(--fr-ease-enter));
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+@utility fade-out {
+  opacity: 0;
+  --fr-leave-duration: var(--fr-duration-exit);
+  --fr-leave-ease: var(--fr-ease-exit);
+}
+
+/* The docked drawer's host: its width, and `display`, so it stays in the page until it has closed. */
+@utility transition-dock {
+  transition-property: width, display;
+  transition-behavior: allow-discrete;
+}

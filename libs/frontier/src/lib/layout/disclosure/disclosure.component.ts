@@ -15,7 +15,7 @@ export const DisclosureVariant = {
 
 export type DisclosureVariant = ValueOf<typeof DisclosureVariant>;
 
-const rootVariants = cva('block', {
+const rootVariants = cva('block details-motion', {
   variants: {
     variant: {
       plain: '',

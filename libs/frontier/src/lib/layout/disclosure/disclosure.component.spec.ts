@@ -47,6 +47,10 @@ describe(Disclosure, () => {
     expect(details(fixture).open).toBe(false);
   });
 
+  it('animates its content with the details motion, which gives way to reduced motion', () => {
+    expect(details(render(false)).classList).toContain('details-motion');
+  });
+
   it('opens and closes from the open input', () => {
     const fixture = render(true);
     expect(details(fixture).open).toBe(true);

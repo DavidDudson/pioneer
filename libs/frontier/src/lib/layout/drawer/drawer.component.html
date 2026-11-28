@@ -1,6 +1,12 @@
 @if (open()) {
   <!-- eslint-disable-next-line pioneer/no-interruptions -- the one modal (ADR-0065): a full-screen drawer below `lg`, docked and non-modal above it. -->
-  <dialog #panel [attr.aria-label]="title()" [class]="panelClasses()" (cancel)="cancelFromDialog($event)">
+  <dialog
+    #panel
+    [attr.aria-label]="title()"
+    [class]="panelClasses()"
+    [animate.leave]="leaveClasses()"
+    (cancel)="cancelFromDialog($event)"
+  >
     @if (!overlay()) {
       <div
         role="separator"

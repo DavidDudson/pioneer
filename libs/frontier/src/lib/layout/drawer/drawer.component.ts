@@ -23,7 +23,7 @@ import { X } from 'lucide';
 import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
 import { Heading } from '../../text/heading/heading.component';
-import { elevationVariants } from '../../tokens';
+import { dockedLeaveClasses, hostVariants, panelVariants } from './drawer-classes';
 import { showDialog, watchNarrow } from './drawer-overlay';
 import { DRAWER_OPEN, DRAWER_PARAM } from './drawer-query';
 import type { DrawerWidth } from './drawer-width';
@@ -39,29 +39,6 @@ import {
 } from './drawer-width';
 
 const REM_FALLBACK_PX = 16;
-
-const hostVariants = cva('min-w-none', {
-  variants: {
-    open: { true: 'block @lg:shrink-0', false: 'hidden' },
-    // A modal drawer sits in the top layer, so its host takes no room in the page.
-    overlay: { true: '', false: '' },
-    width: {
-      narrow: '@lg:w-drawer-narrow',
-      default: '@lg:w-drawer-default',
-      wide: '@lg:w-drawer-wide',
-    } satisfies Record<DrawerWidth, string>,
-  },
-  compoundVariants: [{ open: true, overlay: true, class: 'contents' }],
-});
-
-const panelVariants = cva('flex gap-sm border-none text-fg-default', {
-  variants: {
-    overlay: {
-      true: `fixed inset-none m-none size-full max-h-none max-w-none overflow-auto p-md backdrop:bg-surface-overlay ${elevationVariants.modal}`,
-      false: `static m-none w-full p-none ${elevationVariants.overlay}`,
-    },
-  },
-});
 
 const contentClasses = cva('flex min-w-none flex-1 flex-col gap-md')();
 const headerClasses = cva('flex items-center justify-between gap-sm')();
@@ -140,7 +117,8 @@ export class Drawer {
   protected readonly hostClasses = computed(() =>
     hostVariants({ open: this.open(), overlay: this.overlay(), width: this.width() }),
   );
-  protected readonly panelClasses = computed(() => panelVariants({ overlay: this.overlay() }));
+  protected readonly panelClasses = computed(() => panelVariants({ overlay: this.overlay(), width: this.width() }));
+  protected readonly leaveClasses = computed(() => (this.overlay() ? '' : dockedLeaveClasses));
 
   private readonly queryParams = toSignal(this.route.queryParamMap);
   private readonly queryOpen = computed(() => this.queryParams()?.get(this.param()) === DRAWER_OPEN);

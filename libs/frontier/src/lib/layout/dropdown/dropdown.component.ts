@@ -12,7 +12,12 @@ import { elevationVariants } from '../../tokens';
 /** A box of its own, never `contents`: the overlay positions against the origin's rect, which `contents` has none of. */
 const originClasses = cva('inline-flex')();
 
-const panelClasses = cva(`z-overlay max-w-prose min-w-dropdown border p-xs ${elevationVariants.overlay}`)();
+const panelClasses = cva(
+  `z-overlay max-w-prose min-w-dropdown border p-xs transition-fade ${elevationVariants.overlay}`,
+)();
+
+/** Applied while the panel leaves: it fades out on the exit pair and is removed once that ends. */
+const leaveClasses = 'fade-out';
 
 export const DropdownAlign = OverlayAlign;
 
@@ -54,6 +59,7 @@ export class Dropdown {
   protected readonly caret = ChevronDown;
   protected readonly originClasses = originClasses;
   protected readonly panelClasses = panelClasses;
+  protected readonly leaveClasses = leaveClasses;
   protected readonly positions = computed(() => overlayPositions(this.align()));
   /** A visible caption must be part of the accessible name (WCAG 2.5.3), so the label follows it. */
   protected readonly triggerLabel = computed(() => {
