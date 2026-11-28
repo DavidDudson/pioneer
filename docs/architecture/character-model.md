@@ -550,8 +550,11 @@ Earn Income (#513) is the `earnIncome` patch: a task level (0 to 20), the rank i
 Income Earned table has no untrained column), the degree of success the skill check reached and the days worked. The
 domain pays the table's amount for each day (`earn-income.json`, Player Core Table 4-2) into the purse as one `income`
 entry, so a critical failure leaves no entry. The client rolls, as for every check, and sends the degree.
-Later stories add their own reasons (coin gifting, crafting and ritual costs). The Wealth section shows
-the purse's worth in gold and the entries, newest first.
+`giftCoins` adds any mix of coins without paying and `takeCoins` removes them: each carries a reason (`gift` or `loot`)
+and an optional note, which the entry keeps. A take is worth its coins' value, so it makes change where a larger coin
+must break, and is refused (`character.validation.cannotTakeCoins`) when the purse is worth less. Later stories add
+their own reasons (crafting and ritual costs). The Wealth section shows the purse's worth in gold and the entries,
+newest first.
 
 `inventory.customItems` lists the items an import found no content for (schema version 19, #310): an id, the name
 Pathbuilder gave, a quantity and `origin: import`. A custom item weighs nothing, takes no container, carry state, rune

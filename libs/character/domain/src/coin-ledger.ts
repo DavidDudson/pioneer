@@ -18,6 +18,10 @@ export const LedgerReason = {
   Income: 'income',
   /** Coins moved to or from another character or the party stash. */
   Transfer: 'transfer',
+  /** Coins added without paying: a gift from another player or a GM. */
+  Gift: 'gift',
+  /** Coins found or won: treasure, a reward, a payout. */
+  Loot: 'loot',
 } as const;
 
 export type LedgerReason = ValueOf<typeof LedgerReason>;
@@ -42,11 +46,22 @@ export const LedgerTime = z.iso.datetime({ precision: 3 }).brand<'LedgerTime'>()
 
 export type LedgerTime = z.infer<typeof LedgerTime>;
 
-/** One change to the character's coins with its reason. An opening entry written by an upgrade has no time. */
+const LEDGER_NOTE_MAX_LENGTH = 200;
+
+/** What the player wrote beside a gift or a take: where the coins came from or went. */
+export const LedgerNote = z.string().trim().min(1).max(LEDGER_NOTE_MAX_LENGTH).brand<'LedgerNote'>();
+
+export type LedgerNote = z.infer<typeof LedgerNote>;
+
+/**
+ * One change to the character's coins with its reason and, for a gift or a take, the player's note. An opening entry
+ * written by an upgrade has no time.
+ */
 export const LedgerEntrySchema = z.strictObject({
   reason: z.enum(LedgerReason),
   change: CoinChangeSchema,
   at: LedgerTime.optional(),
+  note: LedgerNote.optional(),
 });
 
 export type LedgerEntry = z.infer<typeof LedgerEntrySchema>;
@@ -81,6 +96,7 @@ export function withCoinEntry(
     readonly before: Coins;
     readonly after: Coins;
     readonly reason: LedgerReason;
+    readonly note: LedgerNote | undefined;
     readonly now: Temporal.Instant;
   },
 ): ReadonlyArray<LedgerEntry> {
@@ -92,5 +108,7 @@ export function withCoinEntry(
 
   const at = LedgerTime.parse(edit.now.toString({ smallestUnit: 'millisecond' }));
 
-  return [...ledger, { reason: edit.reason, change, at }];
+  const entry: LedgerEntry = { reason: edit.reason, change, at };
+
+  return [...ledger, edit.note === undefined ? entry : { ...entry, note: edit.note }];
 }

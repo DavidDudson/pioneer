@@ -1,0 +1,43 @@
+<fr-async-form [form]="form" [action]="add" [describeError]="describeError">
+  <fr-stack gap="sm">
+    <fr-heading variant="subheading" [level]="4">{{ 'character.sheet.inventory.loot.heading' | transloco }}</fr-heading>
+    <fr-grid [columns]="4">
+      <fr-number-field [label]="'character.sheet.inventory.coin.pp' | transloco" [formField]="form.pp" />
+      <fr-number-field [label]="'character.sheet.inventory.coin.gp' | transloco" [formField]="form.gp" />
+      <fr-number-field [label]="'character.sheet.inventory.coin.sp' | transloco" [formField]="form.sp" />
+      <fr-number-field [label]="'character.sheet.inventory.coin.cp' | transloco" [formField]="form.cp" />
+    </fr-grid>
+    <fr-segmented-field
+      [label]="'character.sheet.inventory.loot.reasonLabel' | transloco"
+      [options]="reasons"
+      [formField]="form.reason"
+    />
+    <fr-text-field [label]="'character.sheet.inventory.loot.note' | transloco" [formField]="form.note" />
+    @if (!takeable()) {
+      <fr-text variant="caption" tone="muted" [id]="cannotTakeId">{{
+        'character.sheet.inventory.loot.cannotTake' | transloco
+      }}</fr-text>
+    }
+    <fr-stack direction="horizontal" justify="end" gap="sm" wrap>
+      <fr-async-button
+        [action]="take"
+        [disabled]="form().invalid() || !takeable() || adding()"
+        [describedBy]="takeable() ? undefined : cannotTakeId"
+        [describeError]="describeError"
+        [pendingLabel]="'character.sheet.inventory.loot.taking' | transloco"
+        [successLabel]="'character.sheet.inventory.loot.taken' | transloco"
+      >
+        {{ 'character.sheet.inventory.loot.take' | transloco }}
+      </fr-async-button>
+      <fr-async-button
+        type="submit"
+        variant="primary"
+        [disabled]="form().invalid() || taking()"
+        [pendingLabel]="'character.sheet.inventory.loot.adding' | transloco"
+        [successLabel]="'character.sheet.inventory.loot.added' | transloco"
+      >
+        {{ 'character.sheet.inventory.loot.add' | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  </fr-stack>
+</fr-async-form>

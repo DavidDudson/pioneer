@@ -1,5 +1,6 @@
 import {
   CharacterPatchField,
+  coinsValue,
   InventoryItemId,
   isKitPatch,
   itemContent,
@@ -28,6 +29,7 @@ interface Unaffordable {
 }
 
 const UNAFFORDABLE_ITEM: Unaffordable = { field: 'quantity', key: 'character.validation.cannotAfford' };
+const UNAFFORDABLE_TAKE: Unaffordable = { field: 'coins', key: 'character.validation.cannotTakeCoins' };
 const UNAFFORDABLE_KIT: Unaffordable = { field: 'kit', key: 'character.validation.cannotAffordKit' };
 
 /**
@@ -74,6 +76,12 @@ export async function editInputs(
 ): Promise<EditInputs> {
   if (isKitPatch(patch)) {
     return kitInputs(content, character, patch);
+  }
+
+  if (patch.field === CharacterPatchField.TakeCoins) {
+    affordable(character, coinsValue(patch.coins), UNAFFORDABLE_TAKE);
+
+    return {};
   }
 
   if (patch.field !== CharacterPatchField.BuyItem) {

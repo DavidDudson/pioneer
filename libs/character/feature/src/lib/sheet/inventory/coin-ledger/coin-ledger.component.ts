@@ -27,6 +27,14 @@ const REASON_MESSAGES: Readonly<Record<LedgerReason, string>> = {
   [LedgerReason.Adjustment]: 'character.sheet.inventory.ledger.reason.adjustment',
   [LedgerReason.Income]: 'character.sheet.inventory.ledger.reason.income',
   [LedgerReason.Transfer]: 'character.sheet.inventory.ledger.reason.transfer',
+  [LedgerReason.Gift]: 'character.sheet.inventory.ledger.reason.gift',
+  [LedgerReason.Loot]: 'character.sheet.inventory.ledger.reason.loot',
+};
+
+/** The reason as the message that says so with the player's note, for the reasons that carry one. */
+const NOTED_REASON_MESSAGES: Readonly<Partial<Record<LedgerReason, string>>> = {
+  [LedgerReason.Gift]: 'character.sheet.inventory.ledger.reason.giftNoted',
+  [LedgerReason.Loot]: 'character.sheet.inventory.ledger.reason.lootNoted',
 };
 
 /** One coin's part of an entry: its short name and the signed amount, as text. */
@@ -48,6 +56,8 @@ interface EntryRow {
   readonly reason: string;
   readonly amounts: ReadonlyArray<AmountRow>;
   readonly at: Temporal.Instant | undefined;
+  /** What the reason's message takes: the player's note, when it has a place for one. */
+  readonly params: Readonly<Record<string, string>>;
 }
 
 /** The Wealth section: what the coins are worth in gold and every change to them, newest first. */
@@ -102,9 +112,11 @@ export class CoinLedger {
 
     return {
       key,
-      reason: REASON_MESSAGES[entry.reason],
+      reason:
+        (entry.note === undefined ? undefined : NOTED_REASON_MESSAGES[entry.reason]) ?? REASON_MESSAGES[entry.reason],
       amounts,
       at: entry.at === undefined ? undefined : Temporal.Instant.from(entry.at),
+      params: { note: entry.note ?? '' },
     };
   }
 }
