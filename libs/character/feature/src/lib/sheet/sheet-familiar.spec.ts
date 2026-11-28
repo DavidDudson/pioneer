@@ -14,7 +14,7 @@ import { FamiliarCardMovement, FamiliarCardSense, FamiliarCardStatus } from '@pi
 import { fixedClock, newId } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
-import { familiarCardView, liveFamiliar } from './sheet-familiar';
+import { familiarCardView, liveFamiliar, patronReplaceable } from './sheet-familiar';
 
 const NOW = fixedClock('2026-11-28T10:00:00Z').now();
 const PIP = CompanionId.parse(newId());
@@ -110,5 +110,27 @@ describe(familiarCardView, () => {
     const view = familiarCardView({ companion: pip, statistics, play: { [PIP]: wrecked }, translate });
 
     expect(view.hitPoints.current).toBe(0);
+  });
+});
+
+describe('a familiar the patron replaces', () => {
+  const dead = { [PIP]: { ...FRESH_COMPANION, status: CompanionStatus.Dead } };
+
+  it('is the dead familiar of a witch', () => {
+    expect(patronReplaceable([pip], dead, true)).toBe(pip);
+  });
+
+  it('is nothing for a living familiar', () => {
+    expect(patronReplaceable([pip], {}, true)).toBeUndefined();
+  });
+
+  it('is nothing for a character who is no witch: others replace theirs in downtime', () => {
+    expect(patronReplaceable([pip], dead, false)).toBeUndefined();
+  });
+
+  it('is nothing for a familiar already replaced', () => {
+    const replaced = { ...pip, archived: { at: NOW, reason: CompanionArchiveReason.Replaced } };
+
+    expect(patronReplaceable([replaced], dead, true)).toBeUndefined();
   });
 });

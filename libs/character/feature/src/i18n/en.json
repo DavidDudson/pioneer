@@ -637,7 +637,9 @@
       "amount": "Hit Points for the familiar",
       "command": "Command",
       "commanded": "Commanded: 2 actions this turn",
-      "noConditions": "No conditions on the familiar"
+      "noConditions": "No conditions on the familiar",
+      "replaceNote": "{name} is dead. Your patron replaces your familiar at your next daily preparations, and the new one knows the same spells.",
+      "replace": "Have the patron replace it"
     },
     "companions": {
       "heading": "Companions",

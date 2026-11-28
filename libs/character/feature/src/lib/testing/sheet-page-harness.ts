@@ -208,8 +208,8 @@ async function answerReads(character: JsonObject, options: SheetOptions): Promis
     await answerItemApprovalsRead();
   }
 
-  // The Encounter tab asks for the companions to know whether the character has a familiar to list.
-  if (options.tab === SheetMode.Encounter) {
+  // The Encounter and Downtime tabs ask for the companions: whether there is a familiar to list, or a dead one to replace.
+  if (options.tab === SheetMode.Encounter || options.tab === SheetMode.Downtime) {
     await answerCompanionsRead();
   }
 }
