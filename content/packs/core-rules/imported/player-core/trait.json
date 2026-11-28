@@ -2588,7 +2588,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This trait indicates abilities from the guardian class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -3662,7 +3672,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Naaris are planar scions descended from efreet."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [

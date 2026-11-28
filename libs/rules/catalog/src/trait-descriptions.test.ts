@@ -5,32 +5,16 @@ import * as z from 'zod';
 
 const PACKS = `${import.meta.dir}/../../../../content/packs`;
 
-const UNMAPPED = 'pf2e-8.6.0 maps no description key to it';
-const MISSING_KEY = 'pf2e-8.6.0 maps it to a description key its lang files lack';
-const NO_DESCRIPTION = 'pf2e-8.6.0 maps it to PF2E.TraitNoDescription';
+const NO_AON_TEXT = 'pf2e-8.6.0 has no description for it, and Archives of Nethys notes it has none either';
 
-/** The traits Foundry has no text for, each with why. */
+/** The traits with no text in Foundry or on Archives of Nethys (ADR-0087), each with why. */
 const WITHOUT_DESCRIPTION: ReadonlyMap<string, string> = new Map([
-  ['couatl', UNMAPPED],
-  ['dragonet', MISSING_KEY],
-  ['duergar', UNMAPPED],
-  ['gigas', UNMAPPED],
-  ['graveknight', UNMAPPED],
-  ['guardian', UNMAPPED],
-  ['hungerseed', UNMAPPED],
-  ['jotunborn', UNMAPPED],
-  ['kaiju', UNMAPPED],
-  ['locathah', UNMAPPED],
-  ['naari', MISSING_KEY],
-  ['pervasive-magic', UNMAPPED],
-  ['sarangay', UNMAPPED],
-  ['siktempora', UNMAPPED],
-  ['spellshot', NO_DESCRIPTION],
-  ['tanuki', UNMAPPED],
-  ['trial', UNMAPPED],
-  ['wraithvine', UNMAPPED],
-  ['yaksha', UNMAPPED],
-  ['yaoguai', UNMAPPED],
+  ['graveknight', NO_AON_TEXT],
+  ['kaiju', NO_AON_TEXT],
+  ['pervasive-magic', NO_AON_TEXT],
+  ['siktempora', NO_AON_TEXT],
+  ['spellshot', NO_AON_TEXT],
+  ['wraithvine', NO_AON_TEXT],
 ]);
 
 const Block = z.unknown();
