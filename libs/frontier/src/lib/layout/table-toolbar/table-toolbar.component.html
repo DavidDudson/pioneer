@@ -1,0 +1,26 @@
+<fr-stack gap="none">
+  <fr-stack horizontalFrom="md" gap="sm" align="start">
+    <fr-box grow><ng-content select="[frToolbarSearch]" /></fr-box>
+    @if (hasButtons()) {
+      <fr-box hiddenFrom="md">
+        <fr-stack direction="horizontal" gap="sm">
+          @if (hasFilters()) {
+            <fr-toggle-button [(value)]="filtersOpen">{{
+              'frontier.tableToolbar.filters' | transloco
+            }}</fr-toggle-button>
+          }
+          @if (hasView()) {
+            <fr-toggle-button [(value)]="viewOpen">{{ 'frontier.tableToolbar.columns' | transloco }}</fr-toggle-button>
+          }
+        </fr-stack>
+      </fr-box>
+    }
+    @if (hasFilters()) {
+      <fr-box grow shownFrom="md" [revealed]="filtersOpen()"><ng-content select="[frToolbarFilters]" /></fr-box>
+    }
+    @if (hasView()) {
+      <fr-box grow shownFrom="md" [revealed]="viewOpen()"><ng-content select="[frToolbarView]" /></fr-box>
+    }
+  </fr-stack>
+  <div aria-live="polite" aria-atomic="true" [class]="liveClasses"><ng-content select="[frToolbarCount]" /></div>
+</fr-stack>

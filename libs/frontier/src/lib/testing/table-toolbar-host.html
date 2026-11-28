@@ -1,0 +1,9 @@
+<fr-table-toolbar [label]="label">
+  <span frToolbarSearch>{{ slots.search }}</span>
+  @if (withFilters()) {
+  <span frToolbarFilters>{{ slots.filters }}</span>
+  } @if (withView()) {
+  <span frToolbarView>{{ slots.view }}</span>
+  }
+  <span frToolbarCount>{{ count() }}</span>
+</fr-table-toolbar>

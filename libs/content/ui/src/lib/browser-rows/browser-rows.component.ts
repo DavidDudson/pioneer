@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input, model, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Button, ButtonVariant, EmptyState, List, ListItem, Stack, Text } from '@pioneer/frontier';
+import { Button, ButtonVariant, EmptyState, List, ListItem, Stack } from '@pioneer/frontier';
 import { Table } from '@pioneer/frontier/data';
 import type { TableColumn, TableViewSort } from '@pioneer/frontier/data';
 import { PackageSearch } from 'lucide';
@@ -12,7 +12,6 @@ import { LegacyBadge } from '../legacy-badge/legacy-badge.component';
 
 const RowsMessage = {
   Caption: 'contentBrowser.list.caption',
-  Count: 'contentBrowser.list.count',
   More: 'contentBrowser.list.more',
   EmptyTitle: 'contentBrowser.list.emptyTitle',
   EmptyDescription: 'contentBrowser.list.emptyDescription',
@@ -27,7 +26,7 @@ const rowId = (row: BrowseRow): string => row.id;
  */
 @Component({
   selector: 'pio-browser-rows',
-  imports: [Button, EmptyState, LegacyBadge, List, ListItem, Stack, Table, Text, TranslocoPipe],
+  imports: [Button, EmptyState, LegacyBadge, List, ListItem, Stack, Table, TranslocoPipe],
   templateUrl: './browser-rows.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

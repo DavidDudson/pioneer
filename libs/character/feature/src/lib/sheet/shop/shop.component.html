@@ -6,25 +6,32 @@
       @if (content(); as content) {
         @let shown = list();
         <fr-stack gap="md">
-          <fr-search-input
-            [ariaLabel]="'character.sheet.shop.search' | transloco"
-            [placeholder]="'character.sheet.shop.search' | transloco"
-            (searched)="search($event)"
-          />
-          <fr-stack gap="xs">
-            <fr-stack direction="horizontal">
-              <fr-toggle-button [value]="everything()" (valueChange)="showEverything($event)">{{
-                'character.sheet.shop.everything' | transloco
-              }}</fr-toggle-button>
-            </fr-stack>
-            @if (preset() && level() !== undefined) {
-              <fr-text element="p" variant="caption" tone="muted">{{
-                'character.sheet.shop.available' | transloco: { level: level() }
-              }}</fr-text>
-            }
+          <fr-stack gap="none">
+            <fr-table-toolbar>
+              <fr-search-input
+                frToolbarSearch
+                [ariaLabel]="'character.sheet.shop.search' | transloco"
+                [placeholder]="'character.sheet.shop.search' | transloco"
+                (searched)="search($event)"
+              />
+              <fr-stack frToolbarFilters gap="md">
+                <fr-stack gap="xs">
+                  <fr-stack direction="horizontal">
+                    <fr-toggle-button [value]="everything()" (valueChange)="showEverything($event)">{{
+                      'character.sheet.shop.everything' | transloco
+                    }}</fr-toggle-button>
+                  </fr-stack>
+                  @if (preset() && level() !== undefined) {
+                    <fr-text element="p" variant="caption" tone="muted">{{
+                      'character.sheet.shop.available' | transloco: { level: level() }
+                    }}</fr-text>
+                  }
+                </fr-stack>
+                <pio-facet-filter [counts]="shown?.counts ?? []" [state]="state()" (stateChange)="filter($event)" />
+              </fr-stack>
+            </fr-table-toolbar>
+            <pio-shop-offers [offers]="shown?.offers" [(picked)]="picked" />
           </fr-stack>
-          <pio-facet-filter [counts]="shown?.counts ?? []" [state]="state()" (stateChange)="filter($event)" />
-          <pio-shop-offers [offers]="shown?.offers" [(picked)]="picked" />
           @for (item of pickedItems(); track item.id) {
             <pio-shop-order [content]="content" [item]="item" />
           }

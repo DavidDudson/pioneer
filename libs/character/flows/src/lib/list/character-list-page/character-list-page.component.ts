@@ -32,7 +32,9 @@ import {
   Skeleton,
   Stack,
   Surface,
+  TableToolbar,
   Text,
+  ToolbarFilters,
 } from '@pioneer/frontier';
 import { VirtualItem, VirtualList } from '@pioneer/frontier/data';
 import { AncestryId, ContentId } from '@pioneer/rules/sdk';
@@ -74,7 +76,9 @@ const levelOf = (level: number | undefined): CharacterPageQuery['minLevel'] =>
     Skeleton,
     Stack,
     Surface,
+    TableToolbar,
     Text,
+    ToolbarFilters,
     TranslocoPipe,
     VirtualItem,
     VirtualList,

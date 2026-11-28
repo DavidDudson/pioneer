@@ -197,6 +197,12 @@ export { DRAWER_OPEN, DRAWER_PARAM } from './lib/layout/drawer/drawer-query';
 
 export { PageHeader } from './lib/layout/page-header/page-header.component';
 
+export { TableToolbar } from './lib/layout/table-toolbar/table-toolbar.component';
+
+export { ToolbarFilters } from './lib/layout/table-toolbar/toolbar-filters.directive';
+
+export { ToolbarView } from './lib/layout/table-toolbar/toolbar-view.directive';
+
 export { CRUMB, type Crumb } from './lib/layout/page-header/route-crumbs';
 
 export { SectionBody } from './lib/layout/section/section-body.directive';

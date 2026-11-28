@@ -67,6 +67,25 @@ describe(Box, () => {
     expect([...inner.classList]).toStrictEqual(expect.arrayContaining(['px-md', '@lg:px-xl']));
   });
 
+  it('shows the box only from a container size, unless revealed', async () => {
+    const hidden = await render({ shownFrom: 'md' });
+    expect([...hidden.host.classList]).toStrictEqual(expect.arrayContaining(['hidden', '@md:block']));
+    expect([...hidden.host.classList]).not.toContain('block');
+    const revealed = await render({ shownFrom: 'md', revealed: '' });
+    expect([...revealed.host.classList]).toContain('block');
+    expect([...revealed.host.classList]).not.toContain('hidden');
+  });
+
+  it('hides the box from a container size up', async () => {
+    const { host } = await render({ hiddenFrom: 'md' });
+    expect([...host.classList]).toStrictEqual(expect.arrayContaining(['block', '@md:hidden']));
+  });
+
+  it('keeps the visibility off the inner element, which sits inside the box own container', async () => {
+    const { inner } = await render({ shownFrom: 'md', hiddenFrom: 'lg' });
+    expect([...inner.classList]).toStrictEqual(['p-none']);
+  });
+
   it('projects its content into the inner element', async () => {
     const { inner } = await render({});
     expect(inner.textContent).toBe('Ability scores');
