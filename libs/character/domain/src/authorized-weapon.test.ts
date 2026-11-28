@@ -1,7 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
+import type { ModifierInputs } from '@pioneer/rules/engine';
+import { inPlay } from '@pioneer/rules/engine/testing';
+import { PredicateFacts } from '@pioneer/rules/predicate';
 import { DamageFormula, FundamentalRune, RuneType } from '@pioneer/rules/sdk';
-import { installRulesFakes } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import { authorizedDamage, unauthorizedWielder } from './authorized-weapon';
 import { CharacterName } from './character-fields';
@@ -71,25 +74,25 @@ const base = items.get(itemFixtureId(ItemFixture.Longsword));
 
 describe('authorized rune', () => {
   test('hurts with a d8 piercing and a d4 persistent bleed without a striking rune', () => {
-    expect(authorizedDamage(sword(), base, runes)).toEqual({
+    expect(authorizedDamage(sword(), base, { runes })).toEqual({
       piercing: DamageFormula.parse('1d8'),
       bleed: DamageFormula.parse('1d4'),
     });
   });
 
   test('adds a die of each for every die of the weapon, striking grades included', () => {
-    expect(authorizedDamage(sword({ striking: 1 }), base, runes)?.piercing).toBe(DamageFormula.parse('2d8'));
-    expect(authorizedDamage(sword({ striking: 2 }), base, runes)?.bleed).toBe(DamageFormula.parse('3d4'));
-    expect(authorizedDamage(sword({ striking: 3 }), base, runes)?.piercing).toBe(DamageFormula.parse('4d8'));
+    expect(authorizedDamage(sword({ striking: 1 }), base, { runes })?.piercing).toBe(DamageFormula.parse('2d8'));
+    expect(authorizedDamage(sword({ striking: 2 }), base, { runes })?.bleed).toBe(DamageFormula.parse('3d4'));
+    expect(authorizedDamage(sword({ striking: 3 }), base, { runes })?.piercing).toBe(DamageFormula.parse('4d8'));
   });
 
   test('does nothing without the rune', () => {
-    expect(authorizedDamage(sword({ authorized: false }), base, runes)).toBeUndefined();
+    expect(authorizedDamage(sword({ authorized: false }), base, { runes })).toBeUndefined();
   });
 
   test('hurts a wielder who is not the owner or one allowed', () => {
     expect(unauthorizedWielder(sword(), base, { runes, wielder: CharacterName.parse('Kyra') })).toEqual(
-      authorizedDamage(sword(), base, runes),
+      authorizedDamage(sword(), base, { runes }),
     );
   });
 
@@ -105,5 +108,19 @@ describe('authorized rune', () => {
     expect(
       unauthorizedWielder(sword({ named: false }), base, { runes, wielder: CharacterName.parse('Kyra') }),
     ).toBeUndefined();
+  });
+
+  test('reads the striking grade the alterations in play give, once, not the rune', () => {
+    const rules: ModifierInputs = {
+      rules: [
+        inPlay(
+          { key: 'ItemAlteration', items: ['item:type:weapon'], property: 'striking', mode: 'override', value: 2 },
+          'striking',
+        ),
+      ],
+      facts: new PredicateFacts([], CORE_NAMESPACES),
+    };
+
+    expect(authorizedDamage(sword({ striking: 1 }), base, { runes, rules })?.piercing).toBe(DamageFormula.parse('3d8'));
   });
 });

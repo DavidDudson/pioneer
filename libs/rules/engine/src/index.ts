@@ -127,6 +127,8 @@ export {
   potencyAfter,
 } from './item-alterations';
 
+export { levelPotency } from './level-potency';
+
 export { type AlteredAction, alterAction } from './altered-action';
 
 export {

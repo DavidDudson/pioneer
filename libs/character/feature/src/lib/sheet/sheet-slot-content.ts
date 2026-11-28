@@ -1,5 +1,7 @@
-import { slotContent } from '@pioneer/character/domain';
-import type { SlotContent } from '@pioneer/character/domain';
+import { equippedRulesWithVariants, slotContent } from '@pioneer/character/domain';
+import type { Character, CharacterDocument, ItemContent, SlotContent } from '@pioneer/character/domain';
+import { NO_MODIFIERS } from '@pioneer/rules/engine';
+import type { ModifierInputs } from '@pioneer/rules/engine';
 import { contentKey, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 
@@ -28,4 +30,34 @@ const AUTOMATIC_BONUS_PROGRESSION = contentKey(
 /** Whether Automatic Bonus Progression is in force for the registry's character. */
 export function sheetHasAutomaticBonusProgression(registry: ContentRegistry): boolean {
   return variantsInForce(registry).some(({ key }) => key === AUTOMATIC_BONUS_PROGRESSION);
+}
+
+/** The rules in play for the character `selected` reads: its gear's, with those of the variant rules in force ahead. */
+export function sheetEquippedRules(
+  registry: ContentRegistry,
+  items: ItemContent,
+  selected: () => Character | undefined,
+): () => ModifierInputs {
+  const built = new WeakMap<CharacterDocument, ModifierInputs>();
+
+  return (): ModifierInputs => {
+    const character = selected();
+
+    if (character === undefined) {
+      return NO_MODIFIERS;
+    }
+
+    const { document } = character;
+
+    const rules =
+      built.get(document) ??
+      equippedRulesWithVariants(document, items, {
+        slots: sheetSlotContent(registry),
+        variants: variantsInForce(registry),
+      });
+
+    built.set(document, rules);
+
+    return rules;
+  };
 }

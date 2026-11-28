@@ -1,9 +1,13 @@
 import { describe, expect, test } from 'bun:test';
 
+import type { ModifierInputs, RuleInPlay } from '@pioneer/rules/engine';
+import { inPlay } from '@pioneer/rules/engine/testing';
 import { resolveGrants } from '@pioneer/rules/grants';
 import type { GrantResolution } from '@pioneer/rules/grants';
 import { entry, idOf, inputsOf, picked, picksOf, slotOf } from '@pioneer/rules/grants/testing';
-import { BaseWeapon, Feet, RollOption, Trait, WeaponDamage } from '@pioneer/rules/sdk';
+import { PredicateFacts } from '@pioneer/rules/predicate';
+import { BaseWeapon, Feet, RollOption, RuneGrade, Trait, WeaponDamage } from '@pioneer/rules/sdk';
+import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { grantedStrikes } from './granted-strikes';
 import type { JsonObject } from './testing';
@@ -115,5 +119,56 @@ describe('grantedStrikes', () => {
     );
 
     expect(strikes.map(({ damage }) => damage?.die)).toEqual(['d8']);
+  });
+});
+
+/** An alteration giving the striking grade `value` from `fromLevel` level. */
+function alteration(value: number, fromLevel: number): RuleInPlay {
+  return inPlay(
+    {
+      key: 'ItemAlteration',
+      items: ['item:type:weapon'],
+      property: 'striking',
+      mode: 'override',
+      value,
+      predicate: [{ gte: ['self:level', fromLevel] }],
+    },
+    'striking',
+  );
+}
+
+/** Rules that give every weapon the striking grade of `level`, as Automatic Bonus Progression does. */
+function devastating(level: number): ModifierInputs {
+  return {
+    rules: [alteration(1, 4), alteration(2, 12), alteration(3, 19)],
+    facts: new PredicateFacts([RollOption.parse(`self:level:${level}`)], CORE_NAMESPACES),
+  };
+}
+
+function reading(): ModifierInputs {
+  throw new Error('rules read for nothing');
+}
+
+describe('grantedStrikes under item alterations', () => {
+  const fist = resolved({ 'iron-fists': FIST });
+
+  test('a fist takes the striking grade the alterations give its level, and none without them', () => {
+    const [without] = grantedStrikes(fist, NO_FAVOURED);
+    const [at12] = grantedStrikes(fist, NO_FAVOURED, () => devastating(12));
+    const [at3] = grantedStrikes(fist, NO_FAVOURED, () => devastating(3));
+
+    expect(without?.striking).toBeUndefined();
+    expect(at12?.striking).toBe(RuneGrade.parse(2));
+    expect(at3?.striking).toBeUndefined();
+  });
+
+  test('an attack of its own is altered too', () => {
+    const [jaws] = grantedStrikes(resolved({ 'ancestry-jaws': JAWS }), NO_FAVOURED, () => devastating(19));
+
+    expect(jaws?.striking).toBe(RuneGrade.parse(3));
+  });
+
+  test('reads the rules only when a Strike is given', () => {
+    expect(grantedStrikes(resolved({}), NO_FAVOURED, reading)).toEqual([]);
   });
 });
