@@ -1,6 +1,6 @@
 # 0083. Frontier's primitive tokens are DTCG files, generated to CSS by Terrazzo
 
-- Status: Proposed
+- Status: Proposed; decisions 1 and 2 superseded by [0086](0086-frontier-colour-scales-are-12-steps-with-both-modes-in-one-token.md)
 - Date: 2026-11-28
 
 ## Context

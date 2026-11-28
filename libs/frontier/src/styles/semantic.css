@@ -1,8 +1,9 @@
 /*
  * Tier 2: semantic tokens. Components and the Tailwind theme reference only
- * these. Colours reference role ramps (`--fr-ramp-<role>-<step>`) only, never
- * a hue, so every theme gets both modes for free: a theme picks the ramps'
- * hues (themes/), a mode picks the steps (here).
+ * these. Colours reference role scales (`--fr-ramp-<role>-<1..12>`) only, never a
+ * hue, and a step means the same in both modes, so most colour tokens are written
+ * once. A mode block holds only what the steps cannot carry: surfaces, text on a
+ * bright solid, and fixed-hue colours.
  *
  * Dark is the default, on plain :root. Light is opt-in with
  * <html data-mode="light">; ThemeStore sets it.
@@ -86,28 +87,21 @@
   }
 }
 
-/* Dark mode (default). Elevated surfaces sit between ramp steps, tinted by the neutral hue. */
+/* Colour roles, the same steps in both modes: the ramps flip with the mode. */
 :root {
-  color-scheme: dark;
+  --fr-surface-inverse: var(--fr-ramp-neutral-12);
+  --fr-surface-skeleton: var(--fr-ramp-neutral-4);
 
-  --fr-surface-canvas: var(--fr-ramp-neutral-950);
-  --fr-surface-base: oklch(0.24 calc(var(--fr-ramp-neutral-chroma) * 0.33) var(--fr-ramp-neutral-hue));
-  --fr-surface-raised: oklch(0.28 calc(var(--fr-ramp-neutral-chroma) * 0.39) var(--fr-ramp-neutral-hue));
-  --fr-surface-sunken: oklch(0.2 calc(var(--fr-ramp-neutral-chroma) * 0.28) var(--fr-ramp-neutral-hue));
-  --fr-surface-overlay: oklch(0.3 calc(var(--fr-ramp-neutral-chroma) * 0.44) var(--fr-ramp-neutral-hue));
-  --fr-surface-inverse: var(--fr-ramp-neutral-100);
-  --fr-surface-skeleton: var(--fr-ramp-neutral-800);
+  --fr-fg-default: var(--fr-ramp-neutral-12);
+  --fr-fg-muted: var(--fr-ramp-neutral-11);
+  --fr-fg-subtle: var(--fr-ramp-neutral-10);
+  --fr-fg-disabled: var(--fr-ramp-neutral-8);
+  --fr-fg-inverse: var(--fr-ramp-neutral-1);
 
-  --fr-fg-default: var(--fr-ramp-neutral-50);
-  --fr-fg-muted: var(--fr-ramp-neutral-300);
-  --fr-fg-subtle: var(--fr-ramp-neutral-400);
-  --fr-fg-disabled: var(--fr-ramp-neutral-600);
-  --fr-fg-inverse: var(--fr-ramp-neutral-900);
-
-  --fr-line-subtle: var(--fr-ramp-neutral-800);
-  --fr-line-default: var(--fr-ramp-neutral-700);
-  --fr-line-strong: var(--fr-ramp-neutral-500);
-  --fr-line-focus: var(--fr-ramp-accent-400);
+  --fr-line-subtle: var(--fr-ramp-neutral-6);
+  --fr-line-default: var(--fr-ramp-neutral-7);
+  --fr-line-strong: var(--fr-ramp-neutral-9);
+  --fr-line-focus: var(--fr-ramp-accent-9);
 
   /* Elevation levels, each a surface and its line. */
   --fr-elevation-flat-surface: var(--fr-surface-base);
@@ -119,57 +113,89 @@
   --fr-elevation-modal-surface: var(--fr-surface-base);
   --fr-elevation-modal-line: var(--fr-line-default);
 
-  --fr-accent-solid: var(--fr-ramp-accent-500);
-  --fr-accent-solid-hover: var(--fr-ramp-accent-400);
-  --fr-accent-solid-active: var(--fr-ramp-accent-300);
-  --fr-accent-subtle: var(--fr-ramp-accent-950);
-  --fr-accent-fg: var(--fr-ramp-accent-300);
-  --fr-accent-on-solid: var(--fr-ramp-neutral-950);
-  --fr-accent-line: var(--fr-ramp-accent-700);
+  /* On-solid text is neutral 1: the lightest neutral in light mode, the darkest in dark. */
+  --fr-accent-solid: var(--fr-ramp-accent-9);
+  --fr-accent-solid-hover: var(--fr-ramp-accent-10);
+  --fr-accent-solid-active: var(--fr-ramp-accent-11);
+  --fr-accent-subtle: var(--fr-ramp-accent-3);
+  --fr-accent-fg: var(--fr-ramp-accent-11);
+  --fr-accent-on-solid: var(--fr-ramp-neutral-1);
+  --fr-accent-line: var(--fr-ramp-accent-7);
 
-  --fr-danger-solid: var(--fr-ramp-danger-500);
-  --fr-danger-solid-hover: var(--fr-ramp-danger-400);
-  --fr-danger-solid-active: var(--fr-ramp-danger-300);
-  --fr-danger-subtle: var(--fr-ramp-danger-950);
-  --fr-danger-fg: var(--fr-ramp-danger-300);
-  --fr-danger-on-solid: var(--fr-ramp-neutral-950);
-  --fr-danger-line: var(--fr-ramp-danger-700);
+  --fr-danger-solid: var(--fr-ramp-danger-9);
+  --fr-danger-solid-hover: var(--fr-ramp-danger-10);
+  --fr-danger-solid-active: var(--fr-ramp-danger-11);
+  --fr-danger-subtle: var(--fr-ramp-danger-3);
+  --fr-danger-fg: var(--fr-ramp-danger-11);
+  --fr-danger-on-solid: var(--fr-ramp-neutral-1);
+  --fr-danger-line: var(--fr-ramp-danger-7);
 
-  --fr-success-solid: var(--fr-ramp-success-500);
-  --fr-success-solid-hover: var(--fr-ramp-success-400);
-  --fr-success-solid-active: var(--fr-ramp-success-300);
-  --fr-success-subtle: var(--fr-ramp-success-950);
-  --fr-success-fg: var(--fr-ramp-success-300);
-  --fr-success-on-solid: var(--fr-ramp-neutral-950);
-  --fr-success-line: var(--fr-ramp-success-700);
+  --fr-success-solid: var(--fr-ramp-success-9);
+  --fr-success-solid-hover: var(--fr-ramp-success-10);
+  --fr-success-solid-active: var(--fr-ramp-success-11);
+  --fr-success-subtle: var(--fr-ramp-success-3);
+  --fr-success-fg: var(--fr-ramp-success-11);
+  --fr-success-on-solid: var(--fr-ramp-neutral-1);
+  --fr-success-line: var(--fr-ramp-success-7);
 
-  --fr-warning-solid: var(--fr-ramp-warning-400);
-  --fr-warning-solid-hover: var(--fr-ramp-warning-300);
-  --fr-warning-solid-active: var(--fr-ramp-warning-200);
-  --fr-warning-subtle: var(--fr-ramp-warning-950);
-  --fr-warning-fg: var(--fr-ramp-warning-300);
-  --fr-warning-on-solid: var(--fr-ramp-neutral-950);
-  --fr-warning-line: var(--fr-ramp-warning-700);
+  /* Warning's solid is bright amber in both modes, so its on-solid text is dark in both (the mode blocks set it). Hover and active share step 10. */
+  --fr-warning-solid: var(--fr-ramp-warning-9);
+  --fr-warning-solid-hover: var(--fr-ramp-warning-10);
+  --fr-warning-solid-active: var(--fr-ramp-warning-10);
+  --fr-warning-subtle: var(--fr-ramp-warning-3);
+  --fr-warning-fg: var(--fr-ramp-warning-11);
+  --fr-warning-line: var(--fr-ramp-warning-7);
 
-  --fr-info-solid: var(--fr-ramp-info-500);
-  --fr-info-solid-hover: var(--fr-ramp-info-400);
-  --fr-info-solid-active: var(--fr-ramp-info-300);
-  --fr-info-subtle: var(--fr-ramp-info-950);
-  --fr-info-fg: var(--fr-ramp-info-300);
-  --fr-info-on-solid: var(--fr-ramp-neutral-950);
-  --fr-info-line: var(--fr-ramp-info-700);
+  --fr-info-solid: var(--fr-ramp-info-9);
+  --fr-info-solid-hover: var(--fr-ramp-info-10);
+  --fr-info-solid-active: var(--fr-ramp-info-11);
+  --fr-info-subtle: var(--fr-ramp-info-3);
+  --fr-info-fg: var(--fr-ramp-info-11);
+  --fr-info-on-solid: var(--fr-ramp-neutral-1);
+  --fr-info-line: var(--fr-ramp-info-7);
 
   /* Badge fills: small text on a solid fill, at least 4.5:1 in every theme. Only fr-badge uses these. */
-  --fr-accent-emphasis: var(--fr-ramp-accent-500);
-  --fr-accent-on-emphasis: var(--fr-ramp-neutral-950);
-  --fr-danger-emphasis: var(--fr-ramp-danger-500);
-  --fr-danger-on-emphasis: var(--fr-ramp-neutral-950);
-  --fr-success-emphasis: var(--fr-ramp-success-500);
-  --fr-success-on-emphasis: var(--fr-ramp-neutral-950);
-  --fr-warning-emphasis: var(--fr-ramp-warning-400);
-  --fr-warning-on-emphasis: var(--fr-ramp-neutral-950);
-  --fr-info-emphasis: var(--fr-ramp-info-500);
-  --fr-info-on-emphasis: var(--fr-ramp-neutral-950);
+  --fr-accent-emphasis: var(--fr-ramp-accent-9);
+  --fr-accent-on-emphasis: var(--fr-ramp-neutral-1);
+  --fr-danger-emphasis: var(--fr-ramp-danger-9);
+  --fr-danger-on-emphasis: var(--fr-ramp-neutral-1);
+  --fr-success-emphasis: var(--fr-ramp-success-9);
+  --fr-success-on-emphasis: var(--fr-ramp-neutral-1);
+  --fr-warning-emphasis: var(--fr-ramp-warning-9);
+  --fr-info-emphasis: var(--fr-ramp-info-9);
+  --fr-info-on-emphasis: var(--fr-ramp-neutral-1);
+
+  /* Categorical chart series, in order. Feeds TanStack Charts' --ts-chart-* palette. */
+  --fr-chart-1: var(--fr-ramp-accent-9);
+  --fr-chart-2: var(--fr-ramp-info-9);
+  --fr-chart-3: var(--fr-ramp-success-9);
+  --fr-chart-4: var(--fr-ramp-warning-9);
+  --fr-chart-5: var(--fr-ramp-danger-9);
+  --fr-chart-6: var(--fr-ramp-neutral-9);
+
+  /*
+   * Cues on a roll button. The text colours are saturated step 10 of the status ramps: the paler text steps read as
+   * white on the button. Colour is never the only cue: the popover words each.
+   */
+  --fr-roll-bonus-fg: var(--fr-ramp-success-10);
+  --fr-roll-penalty-fg: var(--fr-ramp-danger-10);
+  --fr-roll-fortune-bg: var(--fr-success-subtle);
+  --fr-roll-misfortune-bg: var(--fr-danger-subtle);
+  --fr-roll-degree-line: var(--fr-info-solid);
+}
+
+/* Dark mode (default). Surfaces stack up the neutral steps: sunken 1, base 2, canvas 3, raised 4, overlay 5. */
+:root {
+  color-scheme: dark;
+
+  --fr-surface-canvas: var(--fr-ramp-neutral-3);
+  --fr-surface-base: var(--fr-ramp-neutral-2);
+  --fr-surface-raised: var(--fr-ramp-neutral-4);
+  --fr-surface-sunken: var(--fr-ramp-neutral-1);
+  --fr-surface-overlay: var(--fr-ramp-neutral-5);
+
+  --fr-warning-on-solid: var(--fr-ramp-neutral-1);
+  --fr-warning-on-emphasis: var(--fr-ramp-neutral-1);
 
   /* Damage types: fixed hues (not theme ramps), so a type reads the same in every theme. Text and dice colour; the type is always named too. */
   --fr-damage-physical: oklch(0.8 0.015 250);
@@ -197,114 +223,20 @@
   --fr-rune-mythic: oklch(0.8 0.14 85);
   /* A rune that does nothing on its item: black in every theme, and it does not pulse. */
   --fr-rune-void: oklch(0.1 0 0);
-
-  /* Categorical chart series, in order. Feeds TanStack Charts' --ts-chart-* palette. */
-  --fr-chart-1: var(--fr-ramp-accent-400);
-  --fr-chart-2: var(--fr-ramp-info-400);
-  --fr-chart-3: var(--fr-ramp-success-400);
-  --fr-chart-4: var(--fr-ramp-warning-400);
-  --fr-chart-5: var(--fr-ramp-danger-400);
-  --fr-chart-6: var(--fr-ramp-neutral-400);
-
-  /*
-   * Cues on a roll button. The text colours are saturated steps of the status ramps: the paler status-fg steps read as
-   * white on the button. The light block below sets darker steps. Colour is never the only cue: the popover words each.
-   */
-  --fr-roll-bonus-fg: var(--fr-ramp-success-500);
-  --fr-roll-penalty-fg: var(--fr-ramp-danger-500);
-  --fr-roll-fortune-bg: var(--fr-success-subtle);
-  --fr-roll-misfortune-bg: var(--fr-danger-subtle);
-  --fr-roll-degree-line: var(--fr-info-solid);
 }
 
-/* Light mode. Same tokens as above; only the ramp steps change. */
+/* Light mode. Surfaces: canvas 2, base, raised and overlay 1, sunken 3. */
 :root[data-mode='light'] {
   color-scheme: light;
 
-  --fr-surface-canvas: var(--fr-ramp-neutral-50);
-  --fr-surface-base: oklch(1 0 0);
-  --fr-surface-raised: oklch(1 0 0);
-  --fr-surface-sunken: var(--fr-ramp-neutral-100);
-  --fr-surface-overlay: oklch(1 0 0);
-  --fr-surface-inverse: var(--fr-ramp-neutral-900);
-  --fr-surface-skeleton: var(--fr-ramp-neutral-200);
+  --fr-surface-canvas: var(--fr-ramp-neutral-2);
+  --fr-surface-base: var(--fr-ramp-neutral-1);
+  --fr-surface-raised: var(--fr-ramp-neutral-1);
+  --fr-surface-sunken: var(--fr-ramp-neutral-3);
+  --fr-surface-overlay: var(--fr-ramp-neutral-1);
 
-  --fr-fg-default: var(--fr-ramp-neutral-900);
-  /* Muted 800, subtle 700: subtle at 600 drops under 4.5:1 on sunken surfaces. */
-  --fr-fg-muted: var(--fr-ramp-neutral-800);
-  --fr-fg-subtle: var(--fr-ramp-neutral-700);
-  --fr-fg-disabled: var(--fr-ramp-neutral-400);
-  --fr-fg-inverse: var(--fr-ramp-neutral-50);
-
-  --fr-line-subtle: var(--fr-ramp-neutral-200);
-  --fr-line-default: var(--fr-ramp-neutral-300);
-  --fr-line-strong: var(--fr-ramp-neutral-500);
-  /* 700, not 500: the focus ring needs 3:1 on every surface, and 500 is about 2.5:1 on light ones. */
-  --fr-line-focus: var(--fr-ramp-accent-700);
-
-  /* Elevation levels, each a surface and its line. */
-  --fr-elevation-flat-surface: var(--fr-surface-base);
-  --fr-elevation-flat-line: var(--fr-line-subtle);
-  --fr-elevation-raised-surface: var(--fr-surface-raised);
-  --fr-elevation-raised-line: var(--fr-line-default);
-  --fr-elevation-overlay-surface: var(--fr-surface-overlay);
-  --fr-elevation-overlay-line: var(--fr-line-default);
-  --fr-elevation-modal-surface: var(--fr-surface-base);
-  --fr-elevation-modal-line: var(--fr-line-default);
-
-  /* 700, not 600: white text on 600 is about 4.2:1. */
-  --fr-accent-solid: var(--fr-ramp-accent-700);
-  --fr-accent-solid-hover: var(--fr-ramp-accent-800);
-  --fr-accent-solid-active: var(--fr-ramp-accent-900);
-  --fr-accent-subtle: var(--fr-ramp-accent-100);
-  --fr-accent-fg: var(--fr-ramp-accent-700);
-  --fr-accent-on-solid: oklch(1 0 0);
-  --fr-accent-line: var(--fr-ramp-accent-300);
-
-  --fr-danger-solid: var(--fr-ramp-danger-700);
-  --fr-danger-solid-hover: var(--fr-ramp-danger-800);
-  --fr-danger-solid-active: var(--fr-ramp-danger-900);
-  --fr-danger-subtle: var(--fr-ramp-danger-100);
-  --fr-danger-fg: var(--fr-ramp-danger-700);
-  --fr-danger-on-solid: oklch(1 0 0);
-  --fr-danger-line: var(--fr-ramp-danger-300);
-  /*
-   * Success, warning and info text at 800: at 700 they drop under 4.5:1.
-   * Success and info solids at 700, not 600: no text colour reaches 4.5:1 on 600. Warning stays light, with dark text.
-   */
-  --fr-success-solid: var(--fr-ramp-success-700);
-  --fr-success-solid-hover: var(--fr-ramp-success-800);
-  --fr-success-solid-active: var(--fr-ramp-success-900);
-  --fr-success-subtle: var(--fr-ramp-success-100);
-  --fr-success-fg: var(--fr-ramp-success-800);
-  --fr-success-on-solid: oklch(1 0 0);
-  --fr-success-line: var(--fr-ramp-success-300);
-  --fr-warning-solid: var(--fr-ramp-warning-500);
-  --fr-warning-solid-hover: var(--fr-ramp-warning-400);
-  --fr-warning-solid-active: var(--fr-ramp-warning-300);
-  --fr-warning-subtle: var(--fr-ramp-warning-100);
-  --fr-warning-fg: var(--fr-ramp-warning-800);
-  --fr-warning-on-solid: var(--fr-ramp-neutral-950);
-  --fr-warning-line: var(--fr-ramp-warning-300);
-  --fr-info-solid: var(--fr-ramp-info-700);
-  --fr-info-solid-hover: var(--fr-ramp-info-800);
-  --fr-info-solid-active: var(--fr-ramp-info-900);
-  --fr-info-subtle: var(--fr-ramp-info-100);
-  --fr-info-fg: var(--fr-ramp-info-800);
-  --fr-info-on-solid: oklch(1 0 0);
-  --fr-info-line: var(--fr-ramp-info-300);
-
-  /* Badge fills: 700 keeps small white text at 4.5:1; warning stays light. */
-  --fr-accent-emphasis: var(--fr-ramp-accent-700);
-  --fr-accent-on-emphasis: oklch(1 0 0);
-  --fr-danger-emphasis: var(--fr-ramp-danger-700);
-  --fr-danger-on-emphasis: oklch(1 0 0);
-  --fr-success-emphasis: var(--fr-ramp-success-700);
-  --fr-success-on-emphasis: oklch(1 0 0);
-  --fr-warning-emphasis: var(--fr-ramp-warning-500);
-  --fr-warning-on-emphasis: var(--fr-ramp-neutral-950);
-  --fr-info-emphasis: var(--fr-ramp-info-700);
-  --fr-info-on-emphasis: oklch(1 0 0);
+  --fr-warning-on-solid: var(--fr-ramp-neutral-12);
+  --fr-warning-on-emphasis: var(--fr-ramp-neutral-12);
 
   --fr-damage-physical: oklch(0.45 0.015 250);
   --fr-damage-holy: oklch(0.45 0.14 85);
@@ -327,15 +259,4 @@
   --fr-rune-greater: oklch(0.45 0.15 305);
   --fr-rune-major: oklch(0.45 0.17 25);
   --fr-rune-mythic: oklch(0.45 0.12 85);
-
-  --fr-chart-1: var(--fr-ramp-accent-600);
-  --fr-chart-2: var(--fr-ramp-info-600);
-  --fr-chart-3: var(--fr-ramp-success-600);
-  --fr-chart-4: var(--fr-ramp-warning-500);
-  --fr-chart-5: var(--fr-ramp-danger-600);
-  --fr-chart-6: var(--fr-ramp-neutral-600);
-
-  /* Roll button cues: darker steps for the light surfaces; the fills and line follow the status tokens above. */
-  --fr-roll-bonus-fg: var(--fr-ramp-success-700);
-  --fr-roll-penalty-fg: var(--fr-ramp-danger-700);
 }
