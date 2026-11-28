@@ -40,7 +40,9 @@ export default meta;
 export const Open: DrawerStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByRole('dialog', { name: 'Fireball' })).toBeVisible();
+    await waitFor(async () => {
+      await expect(canvas.getByRole('dialog', { name: 'Fireball' })).toBeVisible();
+    });
     await expect(canvas.getByText('The spell list. It narrows and reflows when the drawer opens.')).toBeVisible();
   },
 };
@@ -57,7 +59,10 @@ export const Closing: DrawerStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole('button', { name: 'Close Fireball' }));
-    await expect(canvas.queryByRole('dialog', { name: 'Fireball' })).toBeNull();
+    // The docked drawer fades out before it leaves the page.
+    await waitFor(async () => {
+      await expect(canvas.queryByRole('dialog', { name: 'Fireball' })).toBeNull();
+    });
   },
 };
 
@@ -125,7 +130,9 @@ export const CrossingLg: DrawerStory = {
       await expect(dialog.matches(':modal')).toBe(false);
     });
     await expect(dialog.hasAttribute('open')).toBe(true);
-    await expect(canvas.getByRole('separator', { name: 'Resize Fireball' })).toBeVisible();
+    await waitFor(async () => {
+      await expect(canvas.getByRole('separator', { name: 'Resize Fireball' })).toBeVisible();
+    });
     frame?.style.setProperty('width', '40rem');
     await waitFor(async () => {
       await expect(dialog.matches(':modal')).toBe(true);

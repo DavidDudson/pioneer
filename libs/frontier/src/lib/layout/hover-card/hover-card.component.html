@@ -27,6 +27,7 @@
     role="tooltip"
     [id]="id"
     [class]="cardClasses"
+    [animate.leave]="leaveClasses"
     (mouseenter)="pointer(true)"
     (mouseleave)="pointer(false)"
     (focusin)="focus(true)"

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { expect, within } from 'storybook/test';
+import { expect, waitFor, within } from 'storybook/test';
 
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import { FIGHTER_VITALS, UNARMORED_VITALS } from '../testing/vitals-fixtures';
@@ -32,6 +32,10 @@ export const Expanded: ArmorClassStory = {
     await userEvent.click(canvas.getByText('20'));
     // The card opens in the overlay container on the body, not in the canvas.
     const overlay = within(canvasElement.ownerDocument.body);
-    await expect(await overlay.findByText('Breastplate counts instead.')).toBeVisible();
+    const note = await overlay.findByText('Breastplate counts instead.');
+    // The card fades in: visible once the enter motion has started, not the instant it mounts.
+    await waitFor(async () => {
+      await expect(note).toBeVisible();
+    });
   },
 };

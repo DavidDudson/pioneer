@@ -1,7 +1,7 @@
 import { moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { Menu } from 'lucide';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { Link } from '../../actions/link/link.component';
 import { Avatar } from '../../media/avatar/avatar.component';
@@ -36,7 +36,9 @@ export const IconOnly: DropdownStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole('button', { name: 'Sections' }));
-    await expect(within(document.body).getByRole('link', { name: 'Characters' })).toBeVisible();
+    await waitFor(async () => {
+      await expect(within(document.body).getByRole('link', { name: 'Characters' })).toBeVisible();
+    });
   },
 };
 

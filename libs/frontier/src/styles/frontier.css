@@ -619,3 +619,63 @@
 @utility clip-gem {
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
 }
+
+/* fr-disclosure: animates only the `<details>` content box; reduced motion, and browsers without `::details-content`, get the end state at once. */
+@utility details-motion {
+  @media (prefers-reduced-motion: no-preference) {
+    interpolate-size: allow-keywords;
+
+    &::details-content {
+      block-size: 0;
+      overflow: clip;
+      overflow-clip-margin: calc(var(--fr-focus-ring-width) + var(--fr-focus-ring-offset));
+      transition-property: block-size, content-visibility;
+      transition-duration: var(--fr-duration-exit);
+      transition-timing-function: var(--fr-ease-exit);
+      transition-behavior: allow-discrete;
+    }
+
+    &[open]::details-content {
+      block-size: auto;
+      transition-duration: var(--fr-duration-enter);
+      transition-timing-function: var(--fr-ease-enter);
+    }
+  }
+}
+
+/* Fade and dock motion for overlay panels and the docked drawer: they arrive on the enter pair, and `fade-out` (from `animate.leave`) switches to the exit pair. */
+@utility transition-fade {
+  transition-property: opacity;
+  transition-duration: var(--fr-leave-duration, var(--fr-duration-enter));
+  transition-timing-function: var(--fr-leave-ease, var(--fr-ease-enter));
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+/* The docked drawer's panel: it fades, and keeps pace with a width step. */
+@utility transition-fade-width {
+  transition-property: opacity, width;
+  transition-duration: var(--fr-leave-duration, var(--fr-duration-enter));
+  transition-timing-function: var(--fr-leave-ease, var(--fr-ease-enter));
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+@utility fade-out {
+  opacity: 0;
+  pointer-events: none;
+  --fr-leave-duration: var(--fr-duration-exit);
+  --fr-leave-ease: var(--fr-ease-exit);
+}
+
+/* The docked drawer's host: its width, and `display`, so it stays in the page until it has closed. */
+@utility transition-dock {
+  overflow: clip;
+  overflow-clip-margin: calc(var(--fr-focus-ring-width) + var(--fr-focus-ring-offset));
+  transition-property: width, display;
+  transition-behavior: allow-discrete;
+}
