@@ -59,7 +59,10 @@ export const Closing: DrawerStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole('button', { name: 'Close Fireball' }));
-    await expect(canvas.queryByRole('dialog', { name: 'Fireball' })).toBeNull();
+    // The docked drawer fades out before it leaves the page.
+    await waitFor(async () => {
+      await expect(canvas.queryByRole('dialog', { name: 'Fireball' })).toBeNull();
+    });
   },
 };
 
