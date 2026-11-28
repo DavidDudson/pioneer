@@ -91,11 +91,12 @@ export function statisticsOfCompanion(
   species: SpeciesOption,
   level: Level,
   table: ProficiencyBonusTable,
+  tiers: ReadonlySet<CompanionTier>,
 ): CompanionStatistics {
   return deriveCompanionStatistics({
     level,
     block: species.block,
-    tiers: new Set<CompanionTier>(),
+    tiers,
     proficiencyBonus: companionProficiencyBonus(table, level),
   });
 }
