@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795842749825,
+  "lastUpdate": 1795842793951,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -1978,6 +1978,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 213,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b237fc498393d80c55213a04201aa0abd6fbc326",
+          "message": "feat(engine): read \"an animal companion\" prerequisites (#2493)\n\n* feat(engine): read \"an animal companion\" prerequisites\n\nThe matcher maps the phrase to self:companion:animal-companion, so feats that\nrequire one show met or unmet instead of unknown. Bakes the predicate into the\nthree player-core and advanced-players-guide feats that state it.\n\nCloses #2137\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix(engine): put the animal companion predicate on Heal Companion\n\nThe pack edit landed on Implausible Purchase (Investigator) instead of Heal\nCompanion. Also trims the matcher doc comments to the why.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T14:55:44+10:00",
+          "tree_id": "1320bac2764e786de96240daa9d3d3c8e003f3a5",
+          "url": "https://github.com/DavidDudson/pioneer/commit/b237fc498393d80c55213a04201aa0abd6fbc326"
+        },
+        "date": 1795842790396,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 466,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4299,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 217,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1237,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6409,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 215,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
