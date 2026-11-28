@@ -59,10 +59,7 @@ function usesLeft(
   return { current: Math.max(frequency.max - spent, 0), max: frequency.max };
 }
 
-/**
- * The rows of the prompt for an event (#361): each ability it fired that the player has neither accepted (spent, which
- * the spend log shows, so undoing it brings it back) nor declined, with its cost and uses left.
- */
+/** The rows of an event's prompt: its abilities not yet accepted (read from the spend log) or declined. */
 export function triggerPromptRows(inputs: TriggerPromptInputs): ReadonlyArray<TriggerPromptRow> {
   const { abilities, lines, spendLog, declined } = inputs;
 

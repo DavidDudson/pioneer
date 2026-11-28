@@ -719,7 +719,8 @@
     "trigger": {
       "title": "{count, plural, one {A triggered ability needs your answer} other {# triggered abilities need your answer}}",
       "uses": "{current}/{max} uses left",
-      "decline": "Decline"
+      "decline": "Decline",
+      "declineNamed": "Decline {name}"
     },
     "turn": {
       "label": "Turn",

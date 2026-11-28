@@ -9,12 +9,13 @@ export interface TriggerPrompt {
   readonly abilities: ReadonlyArray<ContentId>;
 }
 
-/** The prompts a turn boundary raised (#361), each with a state of its own so a decline lasts only for its event. */
+/** The prompts a turn boundary raised, each with a state of its own so a decline lasts only for its event. */
 @Component({
   selector: 'pio-sheet-trigger-prompts',
   imports: [SheetTriggerPrompt],
   templateUrl: './sheet-trigger-prompts.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { role: 'status' },
 })
 export class SheetTriggerPrompts {
   public readonly prompts = input.required<ReadonlyArray<TriggerPrompt>>();

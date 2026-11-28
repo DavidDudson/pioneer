@@ -60,8 +60,7 @@ async function render(
 
 /** The element a rendered component sits in. */
 function hostOf(fixture: ComponentFixture<SheetTriggerPromptList>): HTMLElement {
-  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment.
-  // The nativeElement property is typed any.
+  // SAFETY: nativeElement is typed any, and a component host is an HTMLElement under the DOM test environment.
   return fixture.nativeElement as HTMLElement;
 }
 

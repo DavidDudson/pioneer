@@ -99,7 +99,7 @@ export class SheetTurnBar {
   /** What the last Start turn or End turn did, in order. */
   protected readonly log = signal<ReadonlyArray<TurnLogLine>>([]);
 
-  /** The abilities the last Start turn or End turn fired that are left to the player (#361), a fresh prompt for each. */
+  /** The abilities the last Start turn or End turn fired that are left to the player, a fresh prompt for each. */
   protected readonly prompts = signal<ReadonlyArray<TriggerPrompt>>([]);
 
   /** Whether the initiative roll is on offer: Enter encounter opens it, rolling or skipping closes it. */

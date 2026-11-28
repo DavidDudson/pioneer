@@ -7,10 +7,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import type { TriggerPromptRow } from './trigger-prompt-view';
 
-/**
- * The prompt for the abilities an event fired (#361), all in one list: each with its cost and uses left, a Use button
- * that spends it like any other action, and a Decline that dismisses it for this event.
- */
+/** The abilities an event fired, each with its cost, uses left, a Use button and a Decline. */
 @Component({
   selector: 'pio-sheet-trigger-prompt-list',
   imports: [Badge, Button, Stack, Text, TranslocoPipe, UseButtons],

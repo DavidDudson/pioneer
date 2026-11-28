@@ -11,11 +11,7 @@ import { SheetTriggerPromptList } from './sheet-trigger-prompt-list.component';
 import { triggerPromptRows } from './trigger-prompt-view';
 import type { TriggerPromptRow } from './trigger-prompt-view';
 
-/**
- * What an event fired that is left to the player (#361): the abilities with a cost or a choice, offered in one prompt.
- * Using one spends it like any other action, so it is in the spend log and can be undone, which offers it again; a
- * reaction is offered only while the reaction is unspent. Declining dismisses an ability for this event.
- */
+/** The prompt for one event's abilities that need a player decision. */
 @Component({
   selector: 'pio-sheet-trigger-prompt',
   imports: [SheetTriggerPromptList],
@@ -28,6 +24,8 @@ export class SheetTriggerPrompt {
   readonly #spender = inject(SheetSpender);
   readonly #registry = injectContentRegistry(ACTION_CONTENT_KINDS);
   readonly #declined = signal<ReadonlySet<ContentId>>(new Set());
+  /** Spends made before the prompt appeared are not answers to it, such as an ability used earlier in the turn. */
+  readonly #answeredFrom = this.#play.play.data()?.play.spendLog.length ?? 0;
 
   /** The abilities the event fired, in order. */
   public readonly abilities = input.required<ReadonlyArray<ContentId>>();
@@ -49,7 +47,7 @@ export class SheetTriggerPrompt {
       lines,
       frequencies: abilityFrequencies(registry),
       resources,
-      spendLog,
+      spendLog: spendLog.slice(this.#answeredFrom),
       declined: this.#declined(),
     });
   });

@@ -40,7 +40,7 @@ const offer = (over: Partial<TurnOffer> = {}): TurnOffer => ({
   id: ACTION,
   triggerEvent: TriggerEvent.parse({ event: 'turn-start' }),
   rules: [],
-  byItself: false,
+  automatic: false,
   ...over,
 });
 
@@ -143,7 +143,7 @@ describe('promptedAbilities', () => {
   });
 
   test('leaves out one that applies by itself', () => {
-    const list = offered(offer({ byItself: true }));
+    const list = offered(offer({ automatic: true }));
 
     expect(promptedAbilities(TriggerEventType.TurnStart, list, turn())).toStrictEqual([]);
   });

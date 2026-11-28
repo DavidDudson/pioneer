@@ -14,7 +14,12 @@
             </fr-badge>
           }
           <pio-use-buttons [line]="row.line" />
-          <fr-button size="sm" variant="ghost" (pressed)="declined.emit(row.line.id)">
+          <fr-button
+            size="sm"
+            variant="ghost"
+            [ariaLabel]="'character.sheet.trigger.declineNamed' | transloco: { name: row.line.name }"
+            (pressed)="declined.emit(row.line.id)"
+          >
             {{ 'character.sheet.trigger.decline' | transloco }}
           </fr-button>
         </fr-stack>

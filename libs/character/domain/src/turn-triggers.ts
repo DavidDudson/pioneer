@@ -41,13 +41,10 @@ export interface TurnTrigger extends TriggerableAbility {
   readonly tempHp: HitPoints;
 }
 
-/**
- * A granted action that fires at a turn boundary, which the player may be asked about: what it costs and does, and
- * whether it applies by itself, which never prompts.
- */
+/** A granted action that fires at a turn boundary, which the player may be asked about. */
 export interface TurnOffer extends TriggerableAbility {
   /** Whether it applies by itself when its event fires, so the player is not asked. */
-  readonly byItself: boolean;
+  readonly automatic: boolean;
 }
 
 /** What the turn cycle reads to apply triggered abilities by themselves, and to offer the rest. */
@@ -106,7 +103,7 @@ function offersOf(
     return [
       {
         ...ability,
-        byItself: effect !== undefined && action.requirements === undefined && appliesAutomatically(ability),
+        automatic: effect !== undefined && action.requirements === undefined && appliesAutomatically(ability),
       },
     ];
   });
@@ -173,18 +170,14 @@ function payable(cost: ActionCost | undefined, turn: TurnState): boolean {
   return cost === undefined || cost === ActionCost.Free || turn.phase !== TurnPhase.OffTurn;
 }
 
-/**
- * The actions that fire on `event` and are left to the player: a cost, a frequency, a choice or a drawback, or
- * requirements only they can judge. A reaction is offered only while the reaction is unspent, and off-turn only
- * reactions and free actions are, as nothing else could be paid.
- */
+/** The actions that fire on `event` and are left to the player, and that could be paid for now. */
 export function promptedAbilities(
   event: TriggerEventType,
   { offers, facts }: TurnTriggers,
   turn: TurnState,
 ): ReadonlyArray<ContentId> {
   return triggeredAbilities(event, facts, offers)
-    .filter(({ byItself, cost }) => !byItself && payable(cost, turn))
+    .filter(({ automatic, cost }) => !automatic && payable(cost, turn))
     .map(({ id }) => id);
 }
 
