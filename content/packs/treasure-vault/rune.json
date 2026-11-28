@@ -91,7 +91,14 @@
       "etchedOnto": {
         "item": "armor",
         "restriction": "heavy"
-      }
+      },
+      "activations": [
+        {
+          "slug": "advancing",
+          "name": "Advancing",
+          "cost": "free"
+        }
+      ]
     }
   },
   {
@@ -186,7 +193,14 @@
       "etchedOnto": {
         "item": "armor",
         "restriction": "heavy"
-      }
+      },
+      "activations": [
+        {
+          "slug": "advancing-greater",
+          "name": "Advancing (Greater)",
+          "cost": "free"
+        }
+      ]
     }
   },
   {
@@ -962,7 +976,14 @@
       "type": "property",
       "etchedOnto": {
         "item": "armor"
-      }
+      },
+      "activations": [
+        {
+          "slug": "gliding",
+          "name": "Gliding",
+          "cost": "one"
+        }
+      ]
     }
   },
   {
@@ -1777,7 +1798,14 @@
       "type": "property",
       "etchedOnto": {
         "item": "armor"
-      }
+      },
+      "activations": [
+        {
+          "slug": "portable",
+          "name": "Portable",
+          "cost": "three"
+        }
+      ]
     }
   },
   {
@@ -2242,7 +2270,14 @@
       "type": "property",
       "etchedOnto": {
         "item": "armor"
-      }
+      },
+      "activations": [
+        {
+          "slug": "swallow-spike",
+          "name": "Swallow-Spike",
+          "cost": "reaction"
+        }
+      ]
     }
   },
   {
@@ -2450,7 +2485,14 @@
       "type": "property",
       "etchedOnto": {
         "item": "armor"
-      }
+      },
+      "activations": [
+        {
+          "slug": "swallow-spike-greater",
+          "name": "Swallow-Spike (Greater)",
+          "cost": "reaction"
+        }
+      ]
     }
   },
   {
@@ -2658,7 +2700,14 @@
       "type": "property",
       "etchedOnto": {
         "item": "armor"
-      }
+      },
+      "activations": [
+        {
+          "slug": "swallow-spike-major",
+          "name": "Swallow-Spike (Major)",
+          "cost": "reaction"
+        }
+      ]
     }
   },
   {

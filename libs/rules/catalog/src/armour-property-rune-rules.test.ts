@@ -9,43 +9,15 @@ import { RUNES, staleGaps, unaccounted } from './property-rune-gaps';
  */
 const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
   [
-    'rune:advancing',
-    'an activation with no frequency, which the content has no place for (armour activations story): a Stride after a kill',
-  ],
-  [
-    'rune:advancing-greater',
-    'an activation with no frequency, which the content has no place for (armour activations story): a Stride after a kill',
-  ],
-  [
     'rune:aim-aiding',
-    'stops the wearer giving cover to allies: Foundry owns cover and other creatures, and the app does not model them (ADR-0018)',
+    'stops the wearer giving cover to allies: ADR-0018 leaves other creatures and cover to Foundry, so the app builds no model of them (not planned)',
   ],
   ['rune:assisting', 'supports and prostheses chosen on investing: a choice with no statistic to change'],
   ['rune:energy-resistant', 'the engine builds its resistance from the etched energy (`chosenRuneRules`)'],
   ['rune:energy-resistant-greater', 'the engine builds its resistance from the etched energy (`chosenRuneRules`)'],
-  ['rune:gliding', 'an activation with no frequency, which the content has no place for (armour activations story)'],
-  ['rune:portable', 'an activation with no frequency, which the content has no place for (armour activations story)'],
-  ['rune:raiment', 'an activation with no frequency, which the content has no place for (armour activations story)'],
-  ['rune:malleable', 'an activation with no frequency, which the content has no place for (armour activations story)'],
-  [
-    'rune:swallow-spike',
-    'an activation with no frequency, which the content has no place for (armour activations story)',
-  ],
-  [
-    'rune:swallow-spike-greater',
-    'an activation with no frequency, which the content has no place for (armour activations story)',
-  ],
-  [
-    'rune:swallow-spike-major',
-    'an activation with no frequency, which the content has no place for (armour activations story)',
-  ],
-  [
-    'rune:winged-greater',
-    'an activation with no frequency, which the content has no place for (armour activations story)',
-  ],
   [
     'rune:unnerving',
-    'a penalty on the attacker: Foundry owns other creatures and the app does not model them, so no rule reaches it (ADR-0018)',
+    'a penalty on the attacker: ADR-0018 leaves other creatures to Foundry, so no rule reaches it (not planned)',
   ],
 ]);
 
@@ -91,6 +63,20 @@ function expectedBonus({ selector, bonus, actions }: BonusRune): object {
 
   return actions === undefined ? rule : { ...rule, predicate: [{ or: actions }] };
 }
+
+/** The armour runes whose only mechanic is an activation the content lists without a frequency: slug, activation, glyph. */
+const ACTIVATION_RUNES: ReadonlyArray<readonly [string, string, string]> = [
+  ['rune:advancing', 'advancing', 'free'],
+  ['rune:advancing-greater', 'advancing-greater', 'free'],
+  ['rune:gliding', 'gliding', 'one'],
+  ['rune:portable', 'portable', 'three'],
+  ['rune:raiment', 'costume-change', 'one'],
+  ['rune:malleable', 'reconfigure-armor', 'one'],
+  ['rune:swallow-spike', 'swallow-spike', 'reaction'],
+  ['rune:swallow-spike-greater', 'swallow-spike-greater', 'reaction'],
+  ['rune:swallow-spike-major', 'swallow-spike-major', 'reaction'],
+  ['rune:winged-greater', 'take-to-the-skies', 'two'],
+];
 
 const MOONWEAVE_HEALING: ReadonlyArray<readonly [string, number]> = [
   ['rune:moonweave', 2],
@@ -166,4 +152,14 @@ describe('armour property rune rules', () => {
 
     expect(entry?.rules).toMatchObject([{ key: 'TurnStartSave', against: 'hostile-spell' }]);
   });
+
+  test.each(ACTIVATION_RUNES)(
+    '%s lists its activation %s with the cost %s and no frequency',
+    (slug, activation, cost) => {
+      const entry = RUNES.find((rune) => rune.slug === slug);
+
+      expect(entry?.data).toMatchObject({ activations: [{ slug: activation, cost }] });
+      expect(entry?.data).not.toMatchObject({ activations: [{ frequency: expect.anything() }] });
+    },
+  );
 });
