@@ -193,7 +193,7 @@ const UP_TO = 'up to ';
 const SUSTAINED_UP_TO = 'sustained up to ';
 
 /** "4d12 hours": dice of a unit. */
-const ROLLED = /^(?<dice>\d+)(?<die>d(?:4|6|8|10|12)) (?<unit>round|minute|hour|day|week|month|year)s?$/u;
+const ROLLED = /^(?<dice>\d+)(?<die>d(?:[468]|1[02])) (?<unit>round|minute|hour|day|week|month|year)s?$/u;
 
 const DIE_SIZES: ReadonlyMap<string, DieSize> = new Map(Object.values(DieSize).map((die) => [die, die]));
 

@@ -2,8 +2,8 @@ import { characterGrants, featSlots } from '@pioneer/character/domain';
 import type { CharacterDocument, FeatSlot, SlotContent } from '@pioneer/character/domain';
 import { ChoiceValue, ContentId } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
+import { foldName } from '@pioneer/shared/utils';
 
-import { matchKey } from './content-lookup';
 import type { ContentLookup } from './content-lookup';
 import { ImportKind } from './import-kind';
 import type { PathbuilderName } from './import-kind';
@@ -38,18 +38,18 @@ function documentWith(document: CharacterDocument, picks: FeatPicks): CharacterD
 
 /** "skill" or "general" for a Skill Feat or General Feat and the slots that name them; "other" for the rest. */
 function kindWord(text: string | undefined): string {
-  const word = matchKey(text ?? '').split(' ')[0] ?? '';
+  const word = foldName(text ?? '').split(' ')[0] ?? '';
 
   return SHARED_KINDS.has(word) ? word : 'other';
 }
 
 /** Whether Pathbuilder's label for the slot ("Animist Feat 4", "Free Archetype 4") is the slot's prompt less the level. */
 function labelled(slot: FeatSlot, feat: ImportedFeat): boolean {
-  const words = matchKey(feat.slot ?? '')
+  const words = foldName(feat.slot ?? '')
     .split(' ')
     .filter((word) => !LEVEL_WORD.test(word));
 
-  const prompt = matchKey(slot.prompt ?? '').split(' ');
+  const prompt = foldName(slot.prompt ?? '').split(' ');
 
   return words.length > 0 && words.every((word) => prompt.includes(word));
 }
@@ -102,7 +102,7 @@ function answers(
       const option =
         choice === undefined
           ? undefined
-          : slot.options.find((each) => [each.label, each.value].some((text) => matchKey(text) === matchKey(choice)));
+          : slot.options.find((each) => [each.label, each.value].some((text) => foldName(text) === foldName(choice)));
 
       return option === undefined ? [] : [[slot.key, ChoiceValue.parse(option.value)]];
     }),

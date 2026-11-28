@@ -5,9 +5,10 @@
  */
 import path from 'node:path';
 
-import { classifyRemasterCandidate, normaliseName } from '@pioneer/rules/catalog';
+import { classifyRemasterCandidate } from '@pioneer/rules/catalog';
 import type { RemasterClass } from '@pioneer/rules/catalog';
 import { AonListingFile, AonPagesFile, ContentEntryFile } from '@pioneer/rules/sdk';
+import { foldName } from '@pioneer/shared/utils';
 import { Glob } from 'bun';
 import * as z from 'zod';
 
@@ -50,7 +51,7 @@ async function readPackNames(): Promise<ReadonlySet<string>> {
 
   const entries = files.flat();
 
-  return new Set(entries.flatMap(({ name }) => variants(name).map((variant) => normaliseName(variant))));
+  return new Set(entries.flatMap(({ name }) => variants(name).map((variant) => foldName(variant))));
 }
 
 /** An AoN listing row, as the audit reads it. */
@@ -80,7 +81,7 @@ const books = BOOKS.filter((candidate) => only === undefined || candidate === on
 /** The report lines of one book: its counts per class and, when a class is asked for, that class's rows. */
 async function report(book: string): Promise<readonly string[]> {
   const rows = await readRows(book);
-  const missing = rows.filter((row) => !variants(row.name).some((variant) => packNames.has(normaliseName(variant))));
+  const missing = rows.filter((row) => !variants(row.name).some((variant) => packNames.has(foldName(variant))));
   const classified = missing.map((row) => ({ row, class: classifyRemasterCandidate(row, packNames) }));
   const counts = CLASSES.map((name) => `${name} ${classified.filter((item) => item.class === name).length}`);
 

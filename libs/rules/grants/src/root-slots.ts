@@ -1,5 +1,5 @@
-import { ContentId, OriginHopKind } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentKind, OriginHop, SlotKey } from '@pioneer/rules/sdk';
+import { contentIdOf, OriginHopKind } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentId, ContentKind, OriginHop, SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import type { ChoicePicks } from './choices';
@@ -82,8 +82,8 @@ function slotOf(definition: RootSlotDefinition, scope: SlotScope, pick: ContentI
 
 /** The entry `value` names, if the slot offers it. */
 function pickOf(value: ChoiceValue, scope: SlotScope): ContentId | undefined {
-  const id = ContentId.safeParse(value);
-  const entry = id.success ? scope.lookup.entry(id.data) : undefined;
+  const id = contentIdOf(value);
+  const entry = id === undefined ? undefined : scope.lookup.entry(id);
 
   return entry !== undefined && offers(scope, entry) ? entry.id : undefined;
 }

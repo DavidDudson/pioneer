@@ -1,6 +1,6 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { ContentId, OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
+import { ContentId, contentIdOf, OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
 import type {
   ChoiceSetElement,
   ChoiceValue,
@@ -139,9 +139,9 @@ const choiceHop = (slot: SlotKey): OriginHop => ({ kind: OriginHopKind.Choice, s
  * (`feat:order-explorer:leaf-order`), else the plain option as it is.
  */
 function pickName(value: ChoiceValue, lookup: ContentLookup): string {
-  const id = ContentId.safeParse(value);
+  const id = contentIdOf(value);
 
-  return (id.success ? lookup.entry(id.data)?.slug : undefined) ?? value;
+  return (id === undefined ? undefined : lookup.entry(id)?.slug) ?? value;
 }
 
 /** Collects one entry's slots, answered and open, as it reads them in rule order. */

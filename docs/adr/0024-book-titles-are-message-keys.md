@@ -11,7 +11,7 @@ browser. Two ways to store it were considered:
 
 - **Content text** (ADR-0009): the title is a `name` field in per-locale text bundles and `content_entry_texts`,
   like an entry's name, so data can add a book without a code change.
-- **Message keys**: the title is a UI message key in `rules/sdk`'s `en` bundle, mapped from `BookId` in code, and the
+- **Message keys**: the title is a UI message key in `rules/messages`' `en` bundle, mapped from `BookId` in code, and the
   registry rejects a book without one.
 
 ## Decision

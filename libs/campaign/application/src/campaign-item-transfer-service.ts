@@ -167,14 +167,17 @@ export class CampaignItemTransferService {
     const transfer = await this.#withdrawable(actor, id, transferId);
     const withdrawn = { id: transfer.id, status: TransferStatus.Withdrawn };
 
-    if (transfer.status === TransferStatus.Withdrawn) {
-      return withdrawn;
-    }
+    if (transfer.status !== TransferStatus.Withdrawn) {
+      const answered = await this.#transfers.answer({
+        actor,
+        campaignId: id,
+        id: transfer.id,
+        status: withdrawn.status,
+      });
 
-    const answered = await this.#transfers.answer({ actor, campaignId: id, id: transfer.id, status: withdrawn.status });
-
-    if (!answered) {
-      await this.#settled(id, transfer);
+      if (!answered) {
+        await this.#settled(id, transfer);
+      }
     }
 
     return withdrawn;

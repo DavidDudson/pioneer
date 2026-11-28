@@ -39,7 +39,7 @@ function modifierOf(root: HTMLElement, name: string): number {
     .map((item) => textOf(item))
     .find((text) => text.startsWith(name));
 
-  const match = /(?<sign>[+-−])(?<value>\d+)/u.exec(row ?? '');
+  const match = /(?<sign>[+\-−])(?<value>\d+)/u.exec(row ?? '');
 
   if (match === null) {
     throw new Error(`Expected a modifier beside ${name}`);

@@ -49,17 +49,20 @@ function withFeat(slug: string, species?: string): GrantResolution {
 }
 
 describe('the Animal Companion feats', () => {
-  test.each(['feat:animal-companion', 'feat:animal-companion-ranger'])(
-    '%s opens a slot offering every species',
-    (slug) => {
-      const { open, errors } = withFeat(slug);
+  test.each([
+    'feat:animal-companion',
+    'feat:animal-companion-ranger',
+    'feat:beastmaster-dedication',
+    'feat:additional-companion',
+    'feat:cavalier-dedication',
+  ])('%s opens a slot offering every species', (slug) => {
+    const { open, errors } = withFeat(slug);
 
-      expect(errors).toEqual([]);
-      expect(open).toHaveLength(1);
-      expect(open[0]?.options).toHaveLength(16);
-      expect(open[0]?.options.map(({ label }) => String(label))).toContain('Wolf');
-    },
-  );
+    expect(errors).toEqual([]);
+    expect(open).toHaveLength(1);
+    expect(open[0]?.options).toHaveLength(17);
+    expect(open[0]?.options.map(({ label }) => String(label))).toContain('Wolf');
+  });
 
   test('picking a species fills the slot', () => {
     expect(withFeat('feat:animal-companion', 'companion-species:wolf').open).toEqual([]);

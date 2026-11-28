@@ -16,7 +16,7 @@ const ROOTS = [
 /** Where the content model may not reach: the rule elements, the typed overlay and the pack layer built on it. */
 const FORBIDDEN = /^(?:rule-element|typed-|content-pack|content-registry|content-bundle)/u;
 
-const IMPORT = /(?:from|import)\s*\(?\s*['"]\.\/(?<name>[\w-]+)['"]/gu;
+const IMPORT = /(?:from|import)[\s(]*['"]\.\/(?<name>[\w-]+)['"]/gu;
 
 async function importsOf(file: string): Promise<readonly string[]> {
   const source = await Bun.file(`${import.meta.dir}/${file}`).text();

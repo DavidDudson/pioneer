@@ -238,6 +238,8 @@ export function deriveCompanionStatistics(inputs: CompanionInputs): CompanionSta
     size: sizeOf(inputs),
     speed: inputs.block.speed,
     movement: inputs.block.movement ?? {},
+    senses: inputs.block.senses ?? [],
+    special: inputs.block.special ?? [],
     attributes,
     hitPoints: { total: HitPoints.parse(Math.max(ZERO, sum(hitPointLines))), lines: hitPointLines },
     armorClass: checkStatistic(inputs, attributes, {

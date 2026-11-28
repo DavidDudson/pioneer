@@ -24,7 +24,7 @@ type JsonValue = z.core.util.JSONType;
 
 type JsonObject = Readonly<Record<string, JsonValue>>;
 
-const DICE = /^(?<count>\d+)(?<rest>d\d+.*)$/u;
+const DICE = /^(?<count>\d+)(?<rest>d\d.*)$/u;
 
 /** Whether `value` is a JSON object rather than a list or a plain value. */
 function isJsonObject(value: JsonValue): value is JsonObject {

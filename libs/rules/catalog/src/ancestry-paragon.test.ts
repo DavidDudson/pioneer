@@ -7,6 +7,7 @@ import { coreRules } from './testing/core-rules';
 const SLOT_LEVELS = [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
 
 const registry = new ContentRegistry();
+
 registry.register(coreRules);
 
 const variant = registry.variantRules().find(({ definition }) => definition.slug === 'variant-rule:ancestry-paragon');
@@ -16,7 +17,7 @@ function slotLevels(): number[] {
   return (variant?.definition.rules ?? [])
     .filter(({ key }) => key === RuleElementKey.ChoiceSet)
     .map(({ predicate }) => JSON.stringify(predicate))
-    .map((text) => Number(/(\d+)\]/.exec(text)?.[1]));
+    .map((text) => Number(/(?<level>\d+)\]/u.exec(text)?.groups?.['level']));
 }
 
 describe('the Ancestry Paragon variant in the core rules pack', () => {

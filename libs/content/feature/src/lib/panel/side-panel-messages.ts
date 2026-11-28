@@ -1,7 +1,7 @@
 import type { Type } from '@angular/core';
 import type { TranslocoService } from '@jsverse/transloco';
 import { contentBrowserMessages } from '@pioneer/content/ui';
-import { rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadMessageScopes } from '@pioneer/shared/web';
 import type { MessageScope } from '@pioneer/shared/web';

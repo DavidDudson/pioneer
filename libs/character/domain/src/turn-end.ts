@@ -70,6 +70,7 @@ function then({ events }: TurnOutcome, play: PlayState, more: readonly TurnEvent
 function typed(result: TermResult, type: PersistentDamage['type']): TermResult {
   const tags = { type };
 
+  // oxlint-disable-next-line sonarjs/no-all-duplicated-branches -- same text, different types: the test narrows `result`, so each `term` keeps its own member of the union
   return 'dice' in result
     ? { ...result, term: { ...result.term, tags } }
     : { ...result, term: { ...result.term, tags } };

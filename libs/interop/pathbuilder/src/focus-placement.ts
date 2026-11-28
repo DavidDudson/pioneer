@@ -2,10 +2,10 @@ import { characterFocus, characterGrants, characterSpellcasting } from '@pioneer
 import type { CharacterDocument, CharacterFocus, SlotContent } from '@pioneer/character/domain';
 import type { ChoiceSlot } from '@pioneer/rules/grants';
 import { ContentId, RuleElementKey, SlotRank } from '@pioneer/rules/sdk';
+import { foldName } from '@pioneer/shared/utils';
 
 import { openPicks, picking } from './choice-search';
 import type { ChoicePick } from './choice-search';
-import { matchKey } from './content-lookup';
 import { ImportKind, PathbuilderName } from './import-kind';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 import { SpellGapReason } from './spell-listing';
@@ -17,7 +17,7 @@ interface Placed {
   readonly choices: SpellPicks;
   /** The picks still allowed: one for each spell wanted, so a pick that undoes another cannot go on for ever. */
   readonly passes: number;
-  /** The names the export carries, by `matchKey`: an option with one of them is the one the export means. */
+  /** The names the export carries, by `foldName`: an option with one of them is the one the export means. */
   readonly exported: ReadonlySet<string>;
 }
 
@@ -172,7 +172,7 @@ function helpful(placed: Placed, content: SpellPlacementContent, left: readonly 
   const meant = helping.find((pick) => {
     const label = labelOf(open, pick);
 
-    return label !== undefined && exported.has(matchKey(label));
+    return label !== undefined && exported.has(foldName(label));
   });
 
   return meant ?? helping[0];
@@ -237,7 +237,7 @@ export function placeFocus(
   value: PathbuilderImport,
 ): FocusPlacement {
   const wanted = listed(value, content);
-  const exported = new Set(value.names.map((each) => matchKey(each.name)));
+  const exported = new Set(value.names.map((each) => foldName(each.name)));
   const placed = pickChoices({ document, choices: {}, passes: wanted.length, exported }, content, wanted);
 
   return { choices: placed.choices, gaps: lacking(placed.document, content, wanted) };

@@ -12,7 +12,6 @@ import { provideI18n } from '@pioneer/shared/web';
 import { QueryClient } from '@tanstack/angular-query-experimental';
 import { beforeAll, expect, onTestFinished, vi } from 'vitest';
 
-import { characterRoutes } from '../character.routes';
 import type { JsonObject } from './json-fixture';
 import {
   PREBUILD_TIMEOUT,
@@ -22,6 +21,7 @@ import {
 import { answerItemApprovalsRead } from './rule-limit-reads-testing';
 import { ruleLimitSettingsOf } from './rule-limit-settings-testing';
 import { answerSheetBundle, NO_CHARACTER_PACKS, NO_VARIANT_RULES, playOf } from './sheet-reads-testing';
+import { SHEET_TEST_ROUTES } from './sheet-routes-testing';
 
 /**
  * Loads the sheet page's chunk (the page, the engine and the tabs under it) before the first test of each spec file.
@@ -217,7 +217,7 @@ export async function openSheet(character: JsonObject = MERISIEL, options: Sheet
   await prebuildServerStateTesting([], options.packs);
   TestBed.configureTestingModule({
     providers: [
-      provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
+      provideRouter([{ path: 'characters', children: SHEET_TEST_ROUTES }], withComponentInputBinding()),
       ...provideServerStateTesting([], options.packs),
       provideI18n({ en: async () => frontierMessages }),
       ...(options.providers ?? []),

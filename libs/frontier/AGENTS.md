@@ -27,9 +27,9 @@ Read this before touching any UI.
 - **One owner per native element.** Inside frontier, each element with
   behaviour or semantics is rendered by exactly one primitive, and everything
   else composes that primitive: `<button>` only in `fr-button` (and the
-  select trigger), `<input>` only in the plain controls, `<a>` only in
-  `fr-link`, `<label>` only in `fr-label`, `<form>` only in `fr-form` /
-  `fr-async-form`, `<h1>`–`<h4>` only in `fr-heading`, `<p>`, `<pre>`,
+  select trigger), `<input>` only in `fr-input` (the text, search, number and date controls compose it; the
+  combobox, picker and file button keep their own), `<a>` only in `fr-link`, `<label>` only in `fr-label`,
+  `<form>` only in `fr-form` / `fr-async-form`, `<h1>`–`<h4>` only in `fr-heading`, `<p>`, `<pre>`,
   `<code>`, `<kbd>`, `<abbr>`, `<q>`, `<em>` and `<strong>` only in `fr-text`, `<blockquote>` only in
   `fr-quote`, `<ul>` / `<ol>` only in `fr-list` (whose `fr-list-item` hosts are
   the items, `role="listitem"`), table elements only in `fr-table`, `<svg>` only in `fr-icon`,
