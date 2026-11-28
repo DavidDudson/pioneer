@@ -188,7 +188,7 @@ export {
   PackVisibility,
 } from './content-pack';
 
-export { contentId, ContentId, ContentKey, contentKey, ContentPackId, contentPackId } from './content-id';
+export { contentId, ContentId, contentIdOf, ContentKey, contentKey, ContentPackId, contentPackId } from './content-id';
 
 export {
   EntrySlug,
