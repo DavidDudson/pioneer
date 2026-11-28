@@ -3,7 +3,12 @@ import { inject, provideBrowserGlobalErrorListeners, provideZonelessChangeDetect
 import type { ApplicationConfig } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withPreloading } from '@angular/router';
 import { DISTANCE_UNIT } from '@pioneer/frontier';
-import { provideAccountPreferences, provideSignInOnUnauthorized } from '@pioneer/identity/data-access';
+import { TableViewStore } from '@pioneer/frontier/data';
+import {
+  AccountTableViews,
+  provideAccountPreferences,
+  provideSignInOnUnauthorized,
+} from '@pioneer/identity/data-access';
 import { ENTRY_PREVIEWS } from '@pioneer/rules/ui/entry-previews';
 import { Milliseconds } from '@pioneer/shared/kernel';
 import { IdlePreloading, LocalePreferences, provideI18n } from '@pioneer/shared/web';
@@ -28,6 +33,8 @@ export const appConfig: ApplicationConfig = {
     provideI18n(appMessages),
     provideSignInOnUnauthorized(),
     provideAccountPreferences(),
+    // A table that names its entity keeps its columns and density on the signed-in account.
+    { provide: TableViewStore, useExisting: AccountTableViews },
     // Every page that gives no previews of its own still opens a card for a reference.
     { provide: ENTRY_PREVIEWS, useFactory: lazyEntryPreviews },
     { provide: DISTANCE_UNIT, useFactory: () => inject(LocalePreferences).distanceUnit },

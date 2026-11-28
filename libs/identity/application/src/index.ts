@@ -28,6 +28,12 @@ export { type AuthorizationRequest, OAuthProviderPort } from './oauth-provider';
 
 export { PreferencesRepository } from './preferences-repository';
 
+export { TableViewRepository } from './table-view-repository';
+
+export { TableViewService } from './table-view-service';
+
+export { InMemoryTableViewRepository } from './in-memory-table-view-repository';
+
 export { PreferencesService } from './preferences-service';
 
 export { type ActiveSession, SessionRepository } from './session-repository';

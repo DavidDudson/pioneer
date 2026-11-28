@@ -8,6 +8,10 @@ export { DrizzleBugReportRepository } from './drizzle-bug-report-repository';
 
 export { DrizzlePreferencesRepository } from './drizzle-preferences-repository';
 
+export { DrizzleTableViewRepository } from './drizzle-table-view-repository';
+
+export { tableViewRoutes } from './table-view-routes';
+
 export { DrizzleSessionRepository } from './drizzle-session-repository';
 
 export { DrizzleUserRepository } from './drizzle-user-repository';
@@ -24,7 +28,7 @@ export { SessionAuthenticator } from './session-authenticator';
 
 export { sessionSweep } from './session-sweep';
 
-export { bugReports, oauthAccounts, sessions, userPreferences, users } from './identity.table';
+export { bugReports, oauthAccounts, sessions, userPreferences, userTableViews, users } from './identity.table';
 
 export type { OAuthCredentials } from './provider-http';
 

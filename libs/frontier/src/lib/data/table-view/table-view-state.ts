@@ -7,6 +7,8 @@ import type { Params } from '@angular/router';
 import type { FilterCondition } from '../../controls/filter-bar/filter-bar.types';
 import { decodeTableView, encodeTableView } from './table-view';
 import { TableViewKey } from './table-view-keys';
+import { TableViewStore } from './table-view-store';
+import type { StoredDensity, StoredTableView } from './table-view-store';
 import type { TableView, TableViewSchema, TableViewSort } from './table-view.types';
 
 /** Maps the filter bar's conditions to and from the `f` segment, by the page's facet codec. */
@@ -20,6 +22,11 @@ export interface TableViewOptions {
   readonly schema: TableViewSchema | (() => TableViewSchema);
   /** Without one, the bar's filters are not kept in the URL. */
   readonly facets?: FacetTextCodec;
+  /**
+   * Names the table for the account's stored view (`characters`). With it, the columns and density follow
+   * the URL's `c`, then what the account stored, then the table's defaults, and a change is stored as it is made.
+   */
+  readonly entity?: string;
 }
 
 export interface ApplyOptions {
@@ -56,6 +63,8 @@ export class TableViewState {
   readonly #route = inject(ActivatedRoute);
   readonly #schema: () => TableViewSchema;
   readonly #facets: FacetTextCodec | undefined;
+  readonly #entity: string | undefined;
+  readonly #store = inject(TableViewStore, { optional: true });
   readonly #query = toSignal(this.#route.queryParams, { initialValue: this.#route.snapshot.queryParams });
 
   /** The view the URL holds right now. */
@@ -63,6 +72,8 @@ export class TableViewState {
   public readonly sorting: Signal<ReadonlyArray<TableViewSort>>;
   /** The hidden column ids; `undefined` is each column's default. */
   public readonly hidden: Signal<ReadonlyArray<string> | undefined>;
+  /** The density the account stored; `undefined` is the table's default. */
+  public readonly density: Signal<StoredDensity | undefined>;
   public readonly filters: Signal<ReadonlyArray<FilterCondition>>;
   public readonly search: Signal<string>;
   /** `undefined` is the table's default page size. */
@@ -72,9 +83,11 @@ export class TableViewState {
     const { schema } = options;
     this.#schema = 'columns' in schema ? (): TableViewSchema => schema : schema;
     this.#facets = options.facets;
+    this.#entity = options.entity;
     this.view = computed(() => decodeTableView(this.#query(), this.#schema()));
     this.sorting = computed(() => this.view().sort ?? []);
-    this.hidden = computed(() => this.view().hidden);
+    this.hidden = computed(() => this.view().hidden ?? this.#storedHidden());
+    this.density = computed(() => this.#stored().density);
     this.filters = computed(() => this.#decodeFilters(this.view().facets));
     this.search = computed(() => this.view().search ?? '');
     this.pageSize = computed(() => this.view().pageSize);
@@ -86,6 +99,12 @@ export class TableViewState {
 
   public async setHidden(hidden: ReadonlyArray<string> | undefined): Promise<void> {
     await this.apply({ hidden });
+    await this.#storeColumns(hidden);
+  }
+
+  /** Stores the density. It is not part of a shared link, so it never reaches the URL. */
+  public async setDensity(density: StoredDensity | undefined): Promise<void> {
+    await this.#save({ ...this.#stored(), density });
   }
 
   public async setFilters(filters: ReadonlyArray<FilterCondition>): Promise<void> {
@@ -99,6 +118,42 @@ export class TableViewState {
   /** The search text as typed: replaces the history entry. */
   public async setSearch(search: string): Promise<void> {
     await this.apply({ search }, { replaceUrl: true });
+  }
+
+  /** What the account stored for this table, or nothing without an `entity` or a store. */
+  #stored(): StoredTableView {
+    return this.#entity === undefined ? {} : (this.#store?.stored(this.#entity) ?? {});
+  }
+
+  /** The stored visible columns as the hidden ones: every schema column the account's list leaves out. */
+  #storedHidden(): ReadonlyArray<string> | undefined {
+    const { columns } = this.#stored();
+
+    if (columns === undefined) {
+      return undefined;
+    }
+
+    return this.#schema()
+      .columns.map((column) => column.id)
+      .filter((id) => !columns.includes(id));
+  }
+
+  /** Stores the visible columns, in schema order, once the user changes which are hidden. */
+  async #storeColumns(hidden: ReadonlyArray<string> | undefined): Promise<void> {
+    const visible =
+      hidden === undefined
+        ? undefined
+        : this.#schema()
+            .columns.map((column) => column.id)
+            .filter((id) => !hidden.includes(id));
+
+    await this.#save({ ...this.#stored(), columns: visible });
+  }
+
+  async #save(view: StoredTableView): Promise<void> {
+    if (this.#entity !== undefined) {
+      await this.#store?.save(this.#entity, view);
+    }
   }
 
   #decodeFilters(text: string | undefined): ReadonlyArray<FilterCondition> {

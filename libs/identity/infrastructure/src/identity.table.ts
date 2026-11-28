@@ -12,6 +12,8 @@ import type {
   ReportedRoute,
   ReportText,
   SessionId,
+  TableEntity,
+  TableViewPreferences,
   TokenHash,
   UserAgent,
   UserId,
@@ -19,7 +21,7 @@ import type {
 } from '@pioneer/identity/domain';
 import type { BodyFont, DistanceUnit, Locale, MonoFont, Uuid } from '@pioneer/shared/kernel';
 import { sql } from 'drizzle-orm';
-import { boolean, index, jsonb, pgTable, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
+import { boolean, index, jsonb, pgTable, primaryKey, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
 
 /**
  * Drizzle schema for identity (ADR-0010). Migrations live in apps/api/migrations. Every lookup a
@@ -106,6 +108,25 @@ export const userPreferences = pgTable('user_preferences', {
   monoFont: text().$type<MonoFont>(),
   updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
 });
+
+/**
+ * One user's view preferences for one table (ADR-0068's table views), a row once they first change the view. The
+ * preferences are one document: the client sends the whole value and the last write wins. Only ever read by the
+ * primary key, `(user, entity)`.
+ */
+export const userTableViews = pgTable(
+  'user_table_views',
+  {
+    userId: uuid()
+      .$type<UserId>()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    entity: text().$type<TableEntity>().notNull(),
+    preferences: jsonb().$type<TableViewPreferences>().notNull(),
+    updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [primaryKey({ columns: [table.userId, table.entity] })],
+);
 
 /**
  * Bug reports. `characterId` is a plain reference with no foreign key: a report outlives the character

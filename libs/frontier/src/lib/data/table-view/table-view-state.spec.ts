@@ -6,6 +6,8 @@ import { FilterOperator } from '../../controls/filter-bar/filter-bar.types';
 import type { FilterCondition } from '../../controls/filter-bar/filter-bar.types';
 import { injectTableView } from './table-view-state';
 import type { FacetTextCodec, TableViewState } from './table-view-state';
+import { TableViewStore } from './table-view-store';
+import type { StoredTableView } from './table-view-store';
 import type { TableViewSchema } from './table-view.types';
 
 const SCHEMA: TableViewSchema = {
@@ -109,5 +111,79 @@ describe('table view state', () => {
     await state.setSearch('fi');
     await state.setSorting([{ column: 'name', descending: false }]);
     expect(navigate.mock.calls.map(([, extras]) => extras?.replaceUrl)).toStrictEqual([true, false]);
+  });
+});
+
+/** A store that keeps what it is given in memory, as the account's would between visits. */
+class MemoryStore extends TableViewStore {
+  public readonly saved: Array<StoredTableView> = [];
+  #view: StoredTableView;
+
+  public constructor(view: StoredTableView = {}) {
+    super();
+    this.#view = view;
+  }
+
+  public override stored(): StoredTableView {
+    return this.#view;
+  }
+
+  public override async save(_entity: string, view: StoredTableView): Promise<void> {
+    this.saved.push(view);
+    this.#view = view;
+  }
+}
+
+async function openStored(url: string, store: MemoryStore): Promise<TableViewState> {
+  TestBed.configureTestingModule({
+    providers: [provideRouter([{ path: '**', children: [] }]), { provide: TableViewStore, useValue: store }],
+  });
+  await TestBed.inject(Router).navigateByUrl(url);
+
+  return TestBed.runInInjectionContext(() => injectTableView({ schema: SCHEMA, entity: 'characters' }));
+}
+
+describe('table view state with a stored view', () => {
+  it('shows the stored columns when the URL names none', async () => {
+    const state = await openStored('/list', new MemoryStore({ columns: ['name', 'level'], density: 'compact' }));
+    expect(state.hidden()).toStrictEqual(['source']);
+    expect(state.density()).toBe('compact');
+  });
+
+  it('prefers the URL columns to the stored ones', async () => {
+    const state = await openStored('/list?c=-lvl', new MemoryStore({ columns: ['name', 'level'] }));
+    expect(state.hidden()).toStrictEqual(['level']);
+  });
+
+  it('falls back to the table default with nothing stored and nothing in the URL', async () => {
+    const state = await openStored('/list', new MemoryStore());
+    expect(state.hidden()).toBeUndefined();
+    expect(state.density()).toBeUndefined();
+  });
+
+  it('stores a column change as it is made, with no save step', async () => {
+    const store = new MemoryStore();
+    const state = await openStored('/list', store);
+    await state.setHidden(['source']);
+    expect(store.saved).toStrictEqual([{ columns: ['name', 'level'] }]);
+  });
+
+  it('stores a density change without touching the URL, and keeps the columns', async () => {
+    const store = new MemoryStore({ columns: ['name'] });
+    const state = await openStored('/list', store);
+    await state.setDensity('compact');
+    expect(store.saved).toStrictEqual([{ columns: ['name'], density: 'compact' }]);
+    expect(TestBed.inject(Router).url).toBe('/list');
+  });
+
+  it('stores nothing for a table with no entity', async () => {
+    const store = new MemoryStore();
+    TestBed.configureTestingModule({
+      providers: [provideRouter([{ path: '**', children: [] }]), { provide: TableViewStore, useValue: store }],
+    });
+    await TestBed.inject(Router).navigateByUrl('/list');
+    const state = TestBed.runInInjectionContext(() => injectTableView({ schema: SCHEMA }));
+    await state.setHidden(['source']);
+    expect(store.saved).toStrictEqual([]);
   });
 });
