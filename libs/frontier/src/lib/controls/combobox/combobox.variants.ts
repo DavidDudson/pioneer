@@ -16,7 +16,7 @@ export const comboboxPopupClasses = cva(
 );
 
 export const comboboxHostClasses = cva('', {
-  variants: { floating: { true: 'relative block', false: 'grid gap-2xs' } },
+  variants: { floating: { true: 'relative block', false: 'flex flex-col gap-2xs' } },
 });
 
 export const comboboxListboxClasses = cva('relative block w-full')();

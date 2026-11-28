@@ -77,7 +77,7 @@ const triggerLabelVariants = cva('', {
   imports: [AriaCombobox, ComboboxPopup, Icon, PickerGrid, TranslocoPipe],
   templateUrl: './picker.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'grid gap-2xs', '(focusout)': 'focusOut($event)' },
+  host: { class: 'flex flex-col gap-2xs', '(focusout)': 'focusOut($event)' },
 })
 export class Picker<TValue extends string, TRow extends object> extends Control {
   /** The picked value; `undefined` until the user picks. */

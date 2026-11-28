@@ -6,7 +6,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
 import type { IconGlyph } from '../../icon/icon-glyph';
-import { overlayPositions } from '../../overlay-positions';
+import { OverlayAlign, overlayPositions } from '../../overlay-positions';
 import { comboboxOptionDescriptionClasses } from '../combobox/combobox.variants';
 import { Control } from '../control';
 import { controlVariants, forcedOptionClasses } from '../control.variants';
@@ -20,7 +20,7 @@ export interface SelectOption<TValue extends string> {
   readonly icon?: IconGlyph;
 }
 
-const POSITIONS = overlayPositions('start');
+const POSITIONS = overlayPositions(OverlayAlign.Start);
 
 const listboxClasses = cva(
   'z-overlay max-h-listbox overflow-auto border border-line-default bg-surface-overlay p-2xs',
