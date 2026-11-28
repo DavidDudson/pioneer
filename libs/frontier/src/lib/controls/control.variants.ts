@@ -38,7 +38,7 @@ export const controlVariants = cva(
 export const groupedControlVariants = cva(
   [
     'block h-control-md w-full min-w-none bg-transparent px-sm text-body text-fg-default',
-    'placeholder:text-fg-subtle focus-visible:outline-none disabled:cursor-not-allowed',
+    'placeholder:text-fg-subtle focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-disabled',
   ],
   {
     variants: {

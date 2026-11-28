@@ -12,11 +12,11 @@ import { Input } from '../input/input.component';
 
 /**
  * A text control whose value is fetched: it loads when it appears (and whenever `load` changes), and its refresh
- * button, an `fr-input-addon` at the end of its `fr-input-group`, loads again. While a load is in flight the input's border turns and the
- * button is busy; a failed load flashes the border red. The value stays editable by hand; a load that finishes after a newer one started is dropped. A
- * failed load leaves the value as it was and marks the control invalid.
+ * button, an `fr-input-addon` after the input, loads again. While a load is in flight the group's border turns and
+ * the button is busy; a failed load flashes the border red and marks the control invalid, leaving the value as it
+ * was. The value stays editable by hand; a load that finishes after a newer one started is dropped.
  *
- * Project buttons with `frAction` to put them before the refresh button, in the same addon (`pio-roll-table-input`'s table button).
+ * Project buttons with `frAction` to put them before the refresh button, in the same addon.
  */
 @Component({
   selector: 'fr-refreshable-input',
@@ -34,6 +34,7 @@ export class RefreshableInput extends Control {
   protected readonly RefreshIcon = RefreshCw;
   protected readonly loading = signal(false);
   protected readonly failed = signal(false);
+  protected readonly showInvalid = computed(() => this.ariaInvalid() || this.failed());
   protected readonly status = computed<AsyncStatus>(() => {
     if (this.loading()) {
       return AsyncStatus.Pending;

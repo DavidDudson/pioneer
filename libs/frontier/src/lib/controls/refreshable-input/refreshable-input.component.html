@@ -1,9 +1,9 @@
-<fr-input-group [disabled]="disabled()" [invalid]="ariaInvalid() || failed()" [status]="status()">
+<fr-input-group [disabled]="disabled()" [invalid]="showInvalid()" [status]="status()">
   <fr-input
     type="text"
     [ariaLabel]="ariaLabel()"
     [disabled]="disabled()"
-    [invalid]="ariaInvalid() || failed()"
+    [invalid]="showInvalid()"
     [placeholder]="placeholder()"
     [value]="value()"
     (typed)="value.set($event)"

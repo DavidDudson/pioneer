@@ -36,7 +36,7 @@ function element(fixture: ComponentFixture<RefreshableInput>, selector: string):
 }
 
 describe(RefreshableInput, () => {
-  it('loads when it appears and turns the border of the input meanwhile', async () => {
+  it('loads when it appears and turns the border of the group meanwhile', async () => {
     const pending = Promise.withResolvers<string>();
     const fixture = render(loadingFrom([pending.promise]));
     expect(element(fixture, 'fr-input-group').dataset['status']).toBe('pending');
@@ -94,6 +94,7 @@ describe(RefreshableInput, () => {
       fixture.detectChanges();
       expect(element(fixture, 'input').getAttribute('aria-invalid')).toBe('true');
     });
+    expect(element(fixture, 'fr-input-group').classList).toContain('border-danger-line');
     expect(fixture.componentInstance.value()).toBe('Kept');
   });
 });

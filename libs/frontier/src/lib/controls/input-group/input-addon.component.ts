@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 
 const addonVariants = cva('flex shrink-0 items-center justify-center', {
   variants: {
-    /** Holds a button, which takes presses; otherwise the addon is a decorative icon and presses pass to the input. */
+    /** Holds a button, which takes presses; otherwise the addon is a decorative icon the group's press focuses through. */
     action: { true: '', false: 'pointer-events-none min-w-control-md text-fg-subtle' },
   },
   defaultVariants: { action: false },

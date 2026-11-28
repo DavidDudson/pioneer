@@ -50,6 +50,17 @@ describe(InputGroup, () => {
     expect(action?.classList).not.toContain('pointer-events-none');
   });
 
+  it('focuses the input when a press lands on a decorative addon', () => {
+    const { group, fixture } = render();
+    // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
+    document.body.append(fixture.nativeElement as HTMLElement);
+    const decorative = group.querySelector('fr-input-addon');
+    const press = new MouseEvent('mousedown', { bubbles: true, cancelable: true });
+    decorative?.dispatchEvent(press);
+    expect(document.activeElement).toBe(group.querySelector('input'));
+    expect(press.defaultPrevented).toBe(true);
+  });
+
   it('shows the status of a load on its border, and the invalid state', () => {
     const { group, fixture } = render();
     expect(group.dataset['status']).toBeUndefined();

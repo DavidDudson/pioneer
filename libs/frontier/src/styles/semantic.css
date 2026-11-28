@@ -33,7 +33,6 @@
   --fr-size-control-xs: var(--fr-size-touch);
   --fr-size-control-sm: var(--fr-size-touch);
   --fr-size-control-md: var(--fr-size-touch);
-  --fr-size-control-md-pair: calc(var(--fr-size-control-md) * 2);
   --fr-size-control-lg: 3rem;
   --fr-size-listbox: 16rem;
   --fr-size-picker: 24rem;

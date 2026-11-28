@@ -11,8 +11,8 @@ import { InputGroup } from './input-group.component';
 type InputGroupStory = StoryObj<InputGroup>;
 
 /**
- * One box around an input and its addons. Addons go before or after the input, as many as needed; the group draws
- * the border, focus ring and status, so nothing assumes two 44px buttons.
+ * One box around an input and its addons, as many as needed before or after it. The group draws the border, focus
+ * ring and status.
  */
 const meta: Meta<InputGroup> = {
   title: 'Controls/Input Group',
