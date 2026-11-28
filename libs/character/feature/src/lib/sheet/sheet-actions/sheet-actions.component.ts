@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { restrictionsHolding } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Stack } from '@pioneer/frontier';
 import type { ActionMode } from '@pioneer/rules/sdk';
-import { ActionCategory, ActionsView, ActionsViewKind } from '@pioneer/rules/ui';
+import { ActionCategory, ActionsView, ActionsViewKind, TriggeredPrompt } from '@pioneer/rules/ui';
 import type { ActionLine } from '@pioneer/rules/ui';
 import { map } from 'rxjs';
 
@@ -38,7 +38,7 @@ function kindFrom(text: string | null): ActionCategory | undefined {
  */
 @Component({
   selector: 'pio-sheet-actions',
-  imports: [ActionsView, AsyncData, AsyncPending, AsyncRegion, SheetConsumableRoll, Stack],
+  imports: [ActionsView, AsyncData, AsyncPending, AsyncRegion, SheetConsumableRoll, Stack, TriggeredPrompt],
   templateUrl: './sheet-actions.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -97,6 +97,17 @@ export class SheetActions {
       queryParamsHandling: 'merge',
       replaceUrl: true,
     });
+  }
+
+  /** The offered triggered abilities, as the lines the engine decided for them now; none once passed. */
+  protected readonly offered = computed((): readonly ActionLine[] => {
+    const offers = new Set(this.#play.offers());
+
+    return (this.lines() ?? []).filter(({ id }) => offers.has(id));
+  });
+
+  protected onPass(): void {
+    this.#play.passOffers();
   }
 
   /** The actions as the engine decides them for the character now; undefined while the content or play state loads. */

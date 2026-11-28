@@ -1,8 +1,8 @@
 import { appliesAutomatically, triggeredAbilities } from '@pioneer/rules/engine';
 import type { TriggerableAbility } from '@pioneer/rules/engine';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { ContentKind, HitPoints, RuleElementKey, TriggerEventType } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import { ActionCost, ContentKind, HitPoints, RuleElementKey, TriggerEventType } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, Predicate } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { Uuid } from '@pioneer/shared/kernel';
 
@@ -33,10 +33,17 @@ const TURN_TRIGGER_EVENTS: ReadonlySet<TriggerEventType> = new Set([
  * does (read as an ability), the effect it applies and the temporary Hit Points that effect gives.
  */
 export interface TurnTrigger extends TriggerableAbility {
-  /** The effect applied to the character. */
-  readonly effect: ContentId;
+  /** The effect applied to the character; none for an ability the player uses by hand. */
+  readonly effect: ContentId | undefined;
   /** The temporary Hit Points the effect gives; none when it gives none. */
   readonly tempHp: HitPoints;
+  /** What must hold to use it; an ability with requirements is never applied automatically. */
+  readonly requirements?: Predicate | undefined;
+}
+
+/** A trigger that has an effect to put on the character. */
+export interface AutoTrigger extends TurnTrigger {
+  readonly effect: ContentId;
 }
 
 /** What the turn cycle reads to apply triggered abilities by themselves. */
@@ -78,12 +85,7 @@ export function turnTriggers(document: CharacterDocument, sources: StatisticSour
     const effect = action.selfEffect === undefined ? undefined : effects.get(action.selfEffect);
     const event = action.triggerEvent;
 
-    if (
-      effect === undefined ||
-      event === undefined ||
-      action.requirements !== undefined ||
-      !TURN_TRIGGER_EVENTS.has(event.event)
-    ) {
+    if (event === undefined || !TURN_TRIGGER_EVENTS.has(event.event)) {
       return [];
     }
 
@@ -95,9 +97,10 @@ export function turnTriggers(document: CharacterDocument, sources: StatisticSour
         cost: action.cost,
         frequency: action.frequency,
         needsChoice: action.effects !== undefined,
-        rules: effect.rules,
-        effect: effect.id,
-        tempHp: tempHpOf(effect.rules),
+        requirements: action.requirements,
+        rules: effect?.rules ?? [],
+        effect: effect?.id,
+        tempHp: tempHpOf(effect?.rules ?? []),
       },
     ];
   });
@@ -105,19 +108,49 @@ export function turnTriggers(document: CharacterDocument, sources: StatisticSour
   return { triggers, facts };
 }
 
+/** Whether `trigger` applies without the player: it has an effect to put on the character, nothing to test, and costs nothing. */
+function appliesWithoutPlayer(trigger: TurnTrigger): trigger is AutoTrigger {
+  return trigger.requirements === undefined && trigger.effect !== undefined && appliesAutomatically(trigger);
+}
+
 /** The triggers that fire on `event` and apply by themselves, leaving out an effect the character already has. */
 export function autoTriggers(
   event: TriggerEventType,
   { triggers, facts }: TurnTriggers,
   active: readonly ActiveEffect[],
-): readonly TurnTrigger[] {
+): readonly AutoTrigger[] {
   return triggeredAbilities(event, facts, triggers).filter(
-    (trigger) => appliesAutomatically(trigger) && !active.some(({ effect }) => effect === trigger.effect),
+    (trigger): trigger is AutoTrigger =>
+      appliesWithoutPlayer(trigger) && !active.some(({ effect }) => effect === trigger.effect),
   );
 }
 
+/** Whether the player can use `trigger` once `event` is over: it has a cost to pay, and at End turn only a reaction can be spent. */
+function usableAfter(event: TriggerEventType, trigger: TurnTrigger, { turn }: Pick<PlayState, 'turn'>): boolean {
+  const reaction = trigger.cost === ActionCost.Reaction;
+
+  if (trigger.cost === undefined || (reaction && turn.reactionUsed)) {
+    return false;
+  }
+
+  return event !== TriggerEventType.TurnEnd || reaction;
+}
+
+/** The triggers on `event` left to the player rather than applied, each ability once, and only those the player can then use. */
+export function offeredTriggers(
+  event: TriggerEventType,
+  { triggers, facts }: TurnTriggers,
+  play: Pick<PlayState, 'turn'>,
+): readonly TurnTrigger[] {
+  const fired = triggeredAbilities(event, facts, triggers).filter(
+    (trigger) => !appliesWithoutPlayer(trigger) && usableAfter(event, trigger, play),
+  );
+
+  return [...new Map(fired.map((trigger) => [trigger.id, trigger])).values()];
+}
+
 /** The free spend that applies `trigger`: it is logged, and taking it back ends the effect and the temporary Hit Points. */
-export function triggerSpend(trigger: TurnTrigger, newId: () => Uuid): SpendRequest {
+export function triggerSpend(trigger: AutoTrigger, newId: () => Uuid): SpendRequest {
   const tempHp = trigger.tempHp > NO_HIT_POINTS ? { tempHp: trigger.tempHp } : undefined;
 
   return {
@@ -129,7 +162,7 @@ export function triggerSpend(trigger: TurnTrigger, newId: () => Uuid): SpendRequ
 }
 
 /** `current` with `trigger` applied as a free spend; unchanged when its effect is already on the character or the turn refuses it. */
-function applyTrigger(current: TurnOutcome, trigger: TurnTrigger, inputs: TriggerInputs): TurnOutcome {
+function applyTrigger(current: TurnOutcome, trigger: AutoTrigger, inputs: TriggerInputs): TurnOutcome {
   const { limits, newId } = inputs;
   const request = triggerSpend(trigger, newId);
   const alreadyOn = current.play.effects.some(({ effect }) => effect === trigger.effect);
@@ -160,11 +193,20 @@ function applyTrigger(current: TurnOutcome, trigger: TurnTrigger, inputs: Trigge
 export function withTriggered(outcome: TurnOutcome, event: TriggerEventType, inputs: TriggerInputs): TurnOutcome {
   let current = outcome;
 
-  for (const trigger of autoTriggers(event, inputs.triggered(), outcome.play.effects)) {
+  const triggered = inputs.triggered();
+
+  for (const trigger of autoTriggers(event, triggered, outcome.play.effects)) {
     current = applyTrigger(current, trigger, inputs);
   }
 
-  return current;
+  const offers = offeredTriggers(event, triggered, current.play).map(({ id }) => abilityOffered(id));
+
+  return { play: current.play, events: [...current.events, ...offers] };
+}
+
+/** An ability fired at the turn boundary and is left to the player to use. */
+function abilityOffered(ability: ContentId): TurnEvent {
+  return { kind: TurnEventKind.TriggerOffered, ability, message: message(TurnMessage.TriggerOffered) };
 }
 
 /** An ability fired at the turn boundary and put `effect` on the character, with `tempHp` temporary Hit Points. */

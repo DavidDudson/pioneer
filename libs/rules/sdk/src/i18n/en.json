@@ -358,6 +358,8 @@
       "nowView": "Now",
       "allView": "All",
       "emptyNow": "Nothing to do right now.",
+      "triggeredTitle": "Triggered abilities",
+      "triggeredPass": "Let them pass",
       "use": "Use",
       "useForOne": "Use for 1 action",
       "useForMany": "Use for {count} actions",

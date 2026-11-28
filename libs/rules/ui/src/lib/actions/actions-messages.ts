@@ -25,6 +25,10 @@ export const ActionsMessage = {
   FilterSource: 'rules.actions.filterSource',
   /** "Granted by Shield Block": where an action the character was granted comes from. */
   GrantedBy: 'rules.actions.grantedBy',
+  /** Heading over the abilities a turn event offers. */
+  TriggeredTitle: 'rules.actions.triggeredTitle',
+  /** The button that lets the offered abilities pass. */
+  TriggeredPass: 'rules.actions.triggeredPass',
   /** Heading over the actions with no cost. */
   Passive: 'rules.actions.passive',
   /** The button that uses an action. */

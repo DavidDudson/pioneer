@@ -1,6 +1,14 @@
-import { computed, inject, Injectable } from '@angular/core';
-import { CharacterContract } from '@pioneer/character/domain';
-import type { CharacterPlay, PlayCommand, PlayEdit, TurnCommand, TurnEvent } from '@pioneer/character/domain';
+import { computed, inject, Injectable, signal } from '@angular/core';
+import { CharacterContract, TurnCommandField, TurnEventKind } from '@pioneer/character/domain';
+import type {
+  CharacterId,
+  CharacterPlay,
+  PlayCommand,
+  PlayEdit,
+  TurnCommand,
+  TurnEvent,
+} from '@pioneer/character/domain';
+import type { ContentId } from '@pioneer/rules/sdk';
 import { ApiClient, ApiError } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
@@ -44,7 +52,33 @@ export class PlayStore {
 
   /** A turn-cycle edit, as `send` makes it, answering with what the turn boundary did, in order. */
   public async sendTurn(command: TurnCommand): Promise<readonly TurnEvent[]> {
-    return this.#patch(command);
+    const id = this.#id();
+    const boundary = command.field === TurnCommandField.StartTurn || command.field === TurnCommandField.EndTurn;
+
+    const events = await this.#patch(command);
+
+    if (boundary && id !== undefined && id === this.#id()) {
+      const abilities = events.flatMap((event) => (event.kind === TurnEventKind.TriggerOffered ? [event.ability] : []));
+      this.#offered.set({ character: id, abilities });
+    }
+
+    return events.filter((event) => event.kind !== TurnEventKind.TriggerOffered);
+  }
+
+  readonly #offered = signal<{ readonly character: CharacterId; readonly abilities: readonly ContentId[] } | undefined>(
+    undefined,
+  );
+
+  /** The abilities the last turn boundary of the open character offered, until passed. */
+  public readonly offers = computed((): readonly ContentId[] => {
+    const offered = this.#offered();
+
+    return offered !== undefined && offered.character === this.#id() ? offered.abilities : [];
+  });
+
+  /** The player let the offered abilities pass for this event. */
+  public passOffers(): void {
+    this.#offered.set(undefined);
   }
 
   async #patch(command: PlayEdit): Promise<readonly TurnEvent[]> {

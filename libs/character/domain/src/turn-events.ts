@@ -17,6 +17,7 @@ import { AirRounds, SuffocationChecks } from './breath';
 import { ConditionInstanceId } from './conditions';
 import type { ActiveCondition } from './conditions';
 import { EffectInstanceId } from './effects';
+import { TriggerOfferedEvent } from './trigger-offered-event';
 
 /** What happened to a character as a turn started or ended: the turn bar, the spend log and triggered abilities read these. */
 export const TurnEventKind = {
@@ -24,6 +25,7 @@ export const TurnEventKind = {
   Healed: 'healed',
   EffectExpired: 'effectExpired',
   TriggeredAbility: 'triggeredAbility',
+  TriggerOffered: 'triggerOffered',
   SpellEnded: 'spellEnded',
   ConditionEnded: 'conditionEnded',
   ConditionLowered: 'conditionLowered',
@@ -45,6 +47,7 @@ export const TurnMessage = {
   Regeneration: 'character.turn.regeneration',
   EffectExpired: 'character.turn.effectExpired',
   TriggeredAbility: 'character.turn.triggeredAbility',
+  TriggerOffered: 'character.turn.triggerOffered',
   SpellEnded: 'character.turn.spellEnded',
   ConditionEnded: 'character.turn.conditionEnded',
   ConditionLowered: 'character.turn.conditionLowered',
@@ -90,6 +93,7 @@ export const TurnEventSchema = z.discriminatedUnion('kind', [
     tempHp: HitPoints,
     message: MessageDescriptorSchema,
   }),
+  TriggerOfferedEvent,
   z.object({
     kind: z.literal(TurnEventKind.SpellEnded),
     spell: ContentId,
