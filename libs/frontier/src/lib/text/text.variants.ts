@@ -22,12 +22,7 @@ export const FontWeight = { Regular: 'regular', Medium: 'medium', Semibold: 'sem
 
 export type FontWeight = ValueOf<typeof FontWeight>;
 
-/**
- * Typography shared by every text-bearing primitive (fr-text, fr-heading, fr-label, fr-link). Each variant also
- * picks a font role (ADR-0084): headings and titles the display face, labels and captions the UI face, `lead` the
- * text face. `body` sets none, so it takes the role of what holds it: rules prose the text face, a table cell the
- * UI face. A monospace text keeps `font-mono` instead of the role.
- */
+/** Typography shared by every text-bearing primitive. `body` sets no font role, so it takes its container's (ADR-0084). */
 export const textVariants = cva('', {
   variants: {
     variant: {

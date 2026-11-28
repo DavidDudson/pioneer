@@ -28,12 +28,12 @@ const linkVariants = cva('focus-visible:focus-ring', {
     appearance: {
       inline: 'text-accent-fg underline underline-offset-link hover:decoration-accent-fg',
       // Touch-sized; a tab's label never wraps, the tab row scrolls instead.
-      tab: 'inline-flex min-h-control-sm items-center px-sm text-label font-medium whitespace-nowrap underline-offset-link',
+      tab: 'inline-flex min-h-control-sm items-center px-sm font-ui text-label font-medium whitespace-nowrap underline-offset-link',
       segment:
-        'inline-flex min-h-control-sm items-center justify-center px-sm text-label font-medium whitespace-nowrap no-underline',
-      menu: 'flex min-h-control-sm w-full items-center gap-xs px-sm text-label font-medium text-fg-default hover:bg-surface-sunken',
+        'inline-flex min-h-control-sm items-center justify-center px-sm font-ui text-label font-medium whitespace-nowrap no-underline',
+      menu: 'flex min-h-control-sm w-full items-center gap-xs px-sm font-ui text-label font-medium text-fg-default hover:bg-surface-sunken',
       button:
-        'inline-flex min-h-control-md items-center justify-center bg-accent-solid px-md text-body font-medium whitespace-nowrap text-accent-on-solid no-underline hover:bg-accent-solid-hover active:bg-accent-solid-active forced-colors:border',
+        'inline-flex min-h-control-md items-center justify-center bg-accent-solid px-md font-ui text-body font-medium whitespace-nowrap text-accent-on-solid no-underline hover:bg-accent-solid-hover active:bg-accent-solid-active forced-colors:border',
     } satisfies Record<LinkAppearance, string>,
     // The page being shown: the underline turns accent and thickens, so the cue is not colour alone.
     current: { true: 'decoration-accent-fg decoration-link-current', false: '' },

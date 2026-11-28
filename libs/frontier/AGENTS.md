@@ -353,7 +353,8 @@ Fraunces for all of them and changes only for `system`, which sets all three to 
 in a generic family.
 
 `text.variants.ts` and `control.variants.ts` pick the role once, so a feature template names none: headings, `title`,
-`display` and `subheading` use display; `label`, `caption`, buttons, inputs and tables use UI; `lead` uses text. `body`
+`display` and `subheading` use display; `label`, `caption`, buttons, button-like links, tabs, options, badges,
+breadcrumbs, inputs and tables use UI; `lead` uses text; `brand` keeps `font-brand`. `body`
 sets no role and takes the one of what holds it (the page is text, so rules prose reads as text; a table cell reads as
 UI). Monospace text keeps `font-mono` in place of the role.
 

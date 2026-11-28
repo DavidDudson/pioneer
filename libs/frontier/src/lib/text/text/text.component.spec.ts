@@ -87,6 +87,15 @@ describe(Text, () => {
     },
   );
 
+  it.each([TextElement.Code, TextElement.Preformatted, TextElement.Keyboard])(
+    'sets <%s> in the mono face alone, whatever its variant',
+    async (element) => {
+      const rendered = await render({ element, variant: TextVariant.Label });
+      expect([...rendered.classList]).toContain('font-mono');
+      expect([...rendered.classList]).not.toContain('font-ui');
+    },
+  );
+
   it.each([TextVariant.Display, TextVariant.Label, TextVariant.Lead])(
     'sets monospace %s text in the mono face alone',
     async (variant) => {
