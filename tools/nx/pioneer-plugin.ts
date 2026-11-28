@@ -10,6 +10,7 @@ import type { CreateNodes, TargetConfiguration } from '@nx/devkit';
 
 import { readProjectFacts } from './project-facts.ts';
 import type { ProjectFacts } from './project-facts.ts';
+import { inferAngularTest } from './targets/angular-test.ts';
 import { inferBunTest } from './targets/bun-test.ts';
 import { inferLintTemplates } from './targets/lint-templates.ts';
 import { inferTypecheck } from './targets/typecheck.ts';
@@ -21,7 +22,7 @@ type TargetInferrer = (facts: ProjectFacts) => TargetConfiguration | undefined;
 const INFERRERS = {
   typecheck: inferTypecheck,
   'lint-templates': inferLintTemplates,
-  test: inferBunTest,
+  test: (facts: ProjectFacts): TargetConfiguration | undefined => inferAngularTest(facts) ?? inferBunTest(facts),
 } satisfies Record<string, TargetInferrer>;
 
 function inferTargets(facts: ProjectFacts): Record<string, TargetConfiguration> {

@@ -73,14 +73,6 @@
       },
       "defaultConfiguration": "development"
     },
-    "test": {
-      "executor": "@angular/build:unit-test",
-      "options": {
-        "buildTarget": "web:build:development",
-        "tsConfig": "apps/web/tsconfig.spec.json",
-        "runner": "vitest"
-      }
-    },
     "verify-styles": {
       "dependsOn": ["build"],
       "cache": true,

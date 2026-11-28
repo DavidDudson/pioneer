@@ -6,14 +6,6 @@
   "prefix": "pio",
   "tags": ["scope:browser", "type:ui", "platform:web"],
   "targets": {
-    "test": {
-      "executor": "@angular/build:unit-test",
-      "options": {
-        "buildTarget": "web:build:development",
-        "tsConfig": "libs/content/ui/tsconfig.spec.json",
-        "runner": "vitest"
-      }
-    },
     "storybook": {
       "options": {
         "port": 6010

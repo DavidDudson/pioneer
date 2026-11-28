@@ -6,14 +6,6 @@
   "prefix": "fr",
   "tags": ["scope:shared", "type:ui", "platform:web"],
   "targets": {
-    "test": {
-      "executor": "@angular/build:unit-test",
-      "options": {
-        "buildTarget": "web:build:development",
-        "tsConfig": "libs/frontier/tsconfig.spec.json",
-        "runner": "vitest"
-      }
-    },
     "test-storybook": {
       "cache": true,
       "parallelism": false,

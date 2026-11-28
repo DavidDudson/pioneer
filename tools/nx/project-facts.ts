@@ -1,5 +1,5 @@
 /** What the inferrers of `pioneer-plugin.ts` ask about a project. Read once per project, from its folder. */
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
 export interface ProjectFacts {
@@ -7,6 +7,8 @@ export interface ProjectFacts {
   readonly root: string;
   /** Whether the project's `tsconfig.json` sets `angularCompilerOptions`: an Angular project, checked with `ngc`. */
   readonly angular: boolean;
+  /** Whether a file exists at this path, relative to the project's folder. */
+  readonly exists: (file: string) => boolean;
   /** Whether a file anywhere under the project (not in `node_modules` or a dot folder) has a name that passes. */
   readonly hasFile: (matches: (file: string) => boolean) => boolean;
 }
@@ -34,6 +36,7 @@ export function readProjectFacts(root: string, workspaceRoot: string): ProjectFa
   return {
     root,
     angular: tsconfig.angularCompilerOptions !== undefined,
+    exists: (file) => existsSync(path.join(absoluteRoot, file)),
     hasFile: (matches) => hasMatchingFile(absoluteRoot, matches),
   };
 }
