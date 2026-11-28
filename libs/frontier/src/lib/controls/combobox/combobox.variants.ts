@@ -1,5 +1,6 @@
 import { cva } from 'class-variance-authority';
 
+import { elevationVariants } from '../../tokens';
 import { controlVariants, forcedOptionClasses } from '../control.variants';
 
 export const comboboxInputClasses = controlVariants();
@@ -8,12 +9,9 @@ export const comboboxInputClasses = controlVariants();
  * In the page flow below the input by default: on a phone it pushes content down instead of covering it. A floating list
  * floats over the content under the input's own width, for a combobox in a bar that must not grow.
  */
-export const comboboxPopupClasses = cva(
-  'block max-h-listbox overflow-auto border border-line-default bg-surface-overlay',
-  {
-    variants: { floating: { true: 'absolute inset-x-none top-full z-overlay', false: '' } },
-  },
-);
+export const comboboxPopupClasses = cva(`block max-h-listbox overflow-auto border ${elevationVariants.overlay}`, {
+  variants: { floating: { true: 'absolute inset-x-none top-full z-overlay', false: '' } },
+});
 
 export const comboboxHostClasses = cva('', {
   variants: { floating: { true: 'relative block', false: 'flex flex-col gap-2xs' } },

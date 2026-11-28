@@ -81,6 +81,28 @@ export const paddingVariants = {
   '3xl': 'p-3xl',
 } as const satisfies Record<Space, string>;
 
+/**
+ * Elevation: how far a surface sits above the page. A level is a surface and its line, so a component takes both
+ * from one name and never pairs `bg-surface-*` with `border-line-*` by hand. Flat is the page's own plane (shell
+ * bars), raised a panel on it, overlay anything that floats over the page, modal what blocks the page.
+ */
+export const Elevation = {
+  Flat: 'flat',
+  Raised: 'raised',
+  Overlay: 'overlay',
+  Modal: 'modal',
+} as const;
+
+export type Elevation = ValueOf<typeof Elevation>;
+
+/** Surface and line colour of each level. The border width stays with the component. */
+export const elevationVariants = {
+  flat: 'bg-elevation-flat border-elevation-flat-line',
+  raised: 'bg-elevation-raised border-elevation-raised-line',
+  overlay: 'bg-elevation-overlay border-elevation-overlay-line',
+  modal: 'bg-elevation-modal border-elevation-modal-line',
+} as const satisfies Record<Elevation, string>;
+
 export const toneVariants = {
   default: 'text-fg-default',
   muted: 'text-fg-muted',

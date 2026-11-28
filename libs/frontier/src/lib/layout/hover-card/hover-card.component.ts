@@ -20,6 +20,7 @@ import type { Subscription } from 'rxjs';
 
 import { uniqueId } from '../../ids';
 import { OverlayAlign, overlayPositions } from '../../overlay-positions';
+import { elevationVariants } from '../../tokens';
 import { HoverCardContent } from './hover-card-content.directive';
 
 const HOVER_DELAY: Milliseconds = Milliseconds.parse(200);
@@ -28,9 +29,7 @@ const POSITIONS = overlayPositions(OverlayAlign.Start);
 
 const triggerClasses = cva('inline')();
 
-const cardClasses = cva(
-  'z-overlay max-w-prose border border-line-default bg-surface-overlay p-inset-panel text-body',
-)();
+const cardClasses = cva(`z-overlay max-w-prose border p-inset-panel text-body ${elevationVariants.overlay}`)();
 
 /**
  * A preview that opens beside what it describes while the pointer rests on it or focus is inside it, and closes

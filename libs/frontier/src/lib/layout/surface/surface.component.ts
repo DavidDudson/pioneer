@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
-import { paddingVariants, Space } from '../../tokens';
+import { elevationVariants, paddingVariants, Space } from '../../tokens';
 
 export const SurfaceVariant = { Base: 'base', Raised: 'raised', Sunken: 'sunken', Outline: 'outline' } as const;
 
@@ -12,7 +12,7 @@ export const surfaceVariants = cva('block', {
   variants: {
     variant: {
       base: 'bg-surface-base forced-colors:border',
-      raised: 'border border-line-default bg-surface-raised',
+      raised: `border ${elevationVariants.raised}`,
       sunken: 'bg-surface-sunken forced-colors:border',
       outline: 'border border-line-default',
     } satisfies Record<SurfaceVariant, string>,

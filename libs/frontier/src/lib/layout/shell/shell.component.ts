@@ -24,6 +24,7 @@ import { Link } from '../../actions/link/link.component';
 import { Icon } from '../../icon/icon.component';
 import { Badge } from '../../text/badge/badge.component';
 import { Text } from '../../text/text/text.component';
+import { elevationVariants } from '../../tokens';
 import { Box } from '../box/box.component';
 import { Dropdown, DropdownAlign } from '../dropdown/dropdown.component';
 import { HeaderCrumbs } from '../header-crumbs/header-crumbs';
@@ -43,7 +44,7 @@ const bodyRowClasses = cva('flex flex-1 flex-col @lg:flex-row')();
  */
 const panelVariants = cva(
   [
-    'sticky z-sticky overflow-auto border-line-subtle bg-surface-base',
+    `sticky z-sticky overflow-auto ${elevationVariants.flat}`,
     'bottom-none h-shell-panel-bar border-t p-sm pb-safe-bottom',
     '@lg:top-shell-header @lg:h-rail-height @lg:w-shell-panel @lg:shrink-0 @lg:self-start @lg:border-s @lg:pb-none',
   ].join(' '),
@@ -51,14 +52,14 @@ const panelVariants = cva(
 );
 
 const contentClasses = cva('min-w-none flex-1 focus:outline-hidden')();
-const headerClasses = cva('sticky top-none z-sticky border-b border-line-subtle bg-surface-base pt-safe-top')();
+const headerClasses = cva(`sticky top-none z-sticky border-b pt-safe-top ${elevationVariants.flat}`)();
 
 /** The search takes the row's width once open; until then it is out of the layout, behind its button. */
 const searchVariants = cva('', {
   variants: { open: { true: 'min-w-none flex-1 *:block', false: 'hidden' } },
 });
 
-const footerClasses = cva('border-t border-line-subtle bg-surface-base pb-safe-bottom')();
+const footerClasses = cva(`border-t pb-safe-bottom ${elevationVariants.flat}`)();
 
 /** The id of the shell's `<main>`, which its skip link moves focus to. There is one shell per page. */
 const MAIN_ID = 'fr-main';

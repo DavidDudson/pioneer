@@ -83,6 +83,15 @@
   --color-line-strong: var(--fr-line-strong);
   --color-line-focus: var(--fr-line-focus);
 
+  --color-elevation-flat: var(--fr-elevation-flat-surface);
+  --color-elevation-flat-line: var(--fr-elevation-flat-line);
+  --color-elevation-raised: var(--fr-elevation-raised-surface);
+  --color-elevation-raised-line: var(--fr-elevation-raised-line);
+  --color-elevation-overlay: var(--fr-elevation-overlay-surface);
+  --color-elevation-overlay-line: var(--fr-elevation-overlay-line);
+  --color-elevation-modal: var(--fr-elevation-modal-surface);
+  --color-elevation-modal-line: var(--fr-elevation-modal-line);
+
   --color-accent-solid: var(--fr-accent-solid);
   --color-accent-solid-hover: var(--fr-accent-solid-hover);
   --color-accent-solid-active: var(--fr-accent-solid-active);

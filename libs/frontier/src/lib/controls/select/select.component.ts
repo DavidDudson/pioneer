@@ -7,6 +7,7 @@ import { cva } from 'class-variance-authority';
 
 import type { IconGlyph } from '../../icon/icon-glyph';
 import { OverlayAlign, overlayPositions } from '../../overlay-positions';
+import { elevationVariants } from '../../tokens';
 import { comboboxOptionDescriptionClasses } from '../combobox/combobox.variants';
 import { Control } from '../control';
 import { controlVariants, forcedOptionClasses } from '../control.variants';
@@ -22,9 +23,7 @@ export interface SelectOption<TValue extends string> {
 
 const POSITIONS = overlayPositions(OverlayAlign.Start);
 
-const listboxClasses = cva(
-  'z-overlay max-h-listbox overflow-auto border border-line-default bg-surface-overlay p-2xs',
-)();
+const listboxClasses = cva(`z-overlay max-h-listbox overflow-auto border p-2xs ${elevationVariants.overlay}`)();
 
 const optionClasses = cva([
   'cursor-pointer px-sm py-sm text-body aria-selected:bg-accent-subtle aria-selected:text-accent-fg pointer-fine:py-xs highlighted:bg-surface-sunken',

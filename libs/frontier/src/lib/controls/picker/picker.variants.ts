@@ -1,9 +1,10 @@
 import { cva } from 'class-variance-authority';
 
+import { elevationVariants } from '../../tokens';
 import { forcedOptionClasses } from '../control.variants';
 
 /** In the page flow below the trigger, never an overlay: on a phone it pushes content down instead of covering it. */
-export const pickerPanelClasses = cva('block border border-line-default bg-surface-overlay')();
+export const pickerPanelClasses = cva(`block border ${elevationVariants.overlay}`)();
 export const pickerSearchClasses = cva('block border-b border-line-subtle p-xs')();
 
 /** Scrolls both ways, so a wide table moves inside the panel and never the page. */
@@ -12,7 +13,7 @@ export const pickerGridClasses = cva('block w-full')();
 
 /** Sticks to the top of the scroller, and scrolls sideways with the body. */
 export const pickerHeaderRowClasses = cva(
-  'sticky top-none z-sticky flex w-max min-w-full border-b border-line-default bg-surface-overlay',
+  `sticky top-none z-sticky flex w-max min-w-full border-b ${elevationVariants.overlay}`,
 )();
 
 /** The rows' box: as tall as all the rows together, so the scroll bar is true; rows place themselves inside it. */
