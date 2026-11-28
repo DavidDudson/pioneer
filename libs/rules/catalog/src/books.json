@@ -563,6 +563,18 @@
     "released": "2022-04-27"
   },
   {
+    "id": "knights-of-lastwall",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "released": "2022-05-25",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=123",
+    "legacy": "whole",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-knights-of-lastwall/",
+    "foundryVersion": "8.6.0"
+  },
+  {
     "id": "gamemastery-guide",
     "publisher": "paizo",
     "license": "OGL",

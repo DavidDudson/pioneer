@@ -1,0 +1,437 @@
+[
+  {
+    "id": "c4b00415-bd13-5716-b8b4-36ce2c2e0e42",
+    "pack": "knights-of-lastwall",
+    "kind": "shield",
+    "slug": "shield:guardian-shield",
+    "name": "Guardian Shield",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["divine", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "guardian shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a steel shield engraved with the symbol of a good deity."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You conjure a Medium guardian with the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "2b8c44ad-bc75-5547-91d6-75b0f174e910"
+          },
+          {
+            "type": "text",
+            "text": " spell, but it carries a shield instead of weapons and can't attack. The guardian appears in an unoccupied space next to an ally of your choice within range and uses the Raise a Shield action, granting that ally a +2 circumstance bonus to AC until the beginning of your next turn or until your ally is no longer adjacent to the spiritual guardian. Each time you Sustain the Activation, the guardian moves to the ally, as long as the ally remains within range, and Raises its Shield, granting its bonus again until the beginning of your next turn or until your ally is no longer adjacent to the spiritual guardian. When the ally receiving the AC bonus takes damage beyond the 10 that's redirected to the guardian, you can use a reaction to have the guardian reduce damage for your ally even more by interposing itself further. When it blocks damage in this way, it reduces the damage your ally takes by an additional 20 (for a total of 30 damage reduced), but Dismisses the guardian, immediately ending the activation."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "36"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "18"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hY6Qn7HwKxYaGk2S"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": 1,
+      "hardness": 9,
+      "hitPoints": 36,
+      "activations": [
+        {
+          "slug": "guardian-shield",
+          "name": "Guardian Shield",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "7dcf256a-8f67-5fe7-9da0-e232634601f1",
+    "pack": "knights-of-lastwall",
+    "kind": "shield",
+    "slug": "shield:shining-shield",
+    "name": "Shining Shield",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kalabrynne Iomedar commissioned the first of these shields, which have become some of the Shining Sentinels' most valued equipment, replicated among these knights. A "
+          },
+          {
+            "type": "text",
+            "text": "shining shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a seemingly simple wooden shield with the Shining Oath engraved on the inside."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While raised, a "
+          },
+          {
+            "type": "text",
+            "text": "shining shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " moves itself to provide cover for your allies. If you have this shield raised and would provide cover to an ally against a foe by standing between them, the cover you provide increases one step. Thus, if you were to grant lesser cover, you grant standard cover instead; if you were to grant standard cover, you instead grant greater cover."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You shout an oath to protect the innocent and weak, and the shield gives off bright light. All enemies in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " around you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 27,
+            "outcomes": {
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "For 1 round, the creature ignores other creatures in the area and concentrates on bringing you down. The creature will still attack anyone preventing them from attacking you, uses tactics deemed most convenient to defeat you, and works with other creatures that confront you."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the duration is 1 minute."
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "text": " save, with the following effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 round, the creature ignores other creatures in the area and concentrates on bringing you down. The creature will still attack anyone preventing them from attacking you, uses tactics deemed most convenient to defeat you, and works with other creatures that confront you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the duration is 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "24"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.M8QYa10fHOyViC5V"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 1,
+      "hardness": 6,
+      "hitPoints": 24,
+      "activations": [
+        {
+          "slug": "shining-shield",
+          "name": "Shining Shield",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  }
+]

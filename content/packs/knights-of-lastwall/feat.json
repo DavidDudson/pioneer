@@ -1,0 +1,5333 @@
+[
+  {
+    "id": "81137ca8-f569-5986-aac9-35fb42bb4e04",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:agile-shield-grip",
+    "name": "Agile Shield Grip",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["champion", "fighter"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a shield with a shield boss or shield spikes in one hand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You change your grip on the shield, allowing you to combine rapid attacks with your shield boss or shield spikes and your main weapon's Strikes in a series of swift motions. You reduce your shield boss and shield spikes weapon damage die to 1d4. As long as the weapon damage die is 1d4, your shield boss and shield spike Strikes gain the agile weapon trait. You can use Agile Shield Grip again to switch to a normal grip, returning the damage to the usual amount and removing the agile trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:agile-shield-grip",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.dFQj6gLrbQi7APiA"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding a shield with a shield boss or shield spikes in one hand."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "59e11937-a517-5bef-b2b0-f356bea8b073",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:always-ready",
+    "name": "Always Ready",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Extensive training against undead has taught you to cover your weak points, even when you think that you're alone. You aren't "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": ", or flanking undead of your level or lower. However, the undead can still help their allies flank. If all of your opponents are undead, you gain a +1 circumstance bonus to initiative rolls; the GM determines whether to apply this bonus if undead are disguised as another type of creature, if another type of creature is disguised as undead, or if there are additional opponents you haven't noticed who aren't undead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:all-undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vUQ3XwCT0i3ydX1U"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "20686d6f-ac0d-5666-aff1-5400bf62907e",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:angel-of-vindication",
+    "name": "Angel of Vindication",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your mark is an undead creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To aid with your mission of destroying undead, you've specialized in techniques to destroy them, much as other assassins learn to kill the living. When you Strike an "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " undead foe with a weapon that has the backstabber weapon trait, you deal 3 extra precision damage instead of 1. If the weapon is a +3 weapon, you deal 6 extra precision damage instead of 2. If you have the Angel of Death feat, your attacks also instantly destroy undead at 0 Hit Points, and attempts for the undead to rejuvenate-such as via a lich's soul cage or a ghost's rejuvenation ability-fail unless the effect's counteract rank is higher than half your level when you killed the creature (rounded up), or originates from an artifact or deity. Finally, if you have the Assassinate feat and an undead mark critically fails its save against your Assassinate, it is destroyed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kPhym38UCLJpjnJD"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Assassin Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:assassin-dedication"],
+      "action": {
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your mark is an undead creature."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "c0e5ae56-68b3-5de7-8f82-3730b5f99a22"
+    }
+  },
+  {
+    "id": "e6b04b83-3d90-5005-be6d-4907e4c26387",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:ashen-veil",
+    "name": "Ashen Veil",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["archetype", "manipulate", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "By smearing ash or tainted earth over your skin and armor, you shroud yourself from the dead. You become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to undead using vision or lifesense, allowing you to Hide and "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": " without other sources of cover or concealment. This effect lasts only as long as you continue to take no actions other than to Hide, Sneak, or other surreptitious actions. The GM determines which actions end the effect, but attacking, casting spells, activating items, and the like always do."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.gEj8aJmCThMzAjKY"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Reclaimant Dedication; expert in Religion; master in Stealth"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feat:knight-reclaimant-dedication",
+        {
+          "gte": ["skill:religion:rank", 2]
+        },
+        {
+          "gte": ["skill:stealth:rank", 3]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Reclaimant Dedication",
+          "predicate": ["feat:knight-reclaimant-dedication"]
+        },
+        {
+          "text": "expert in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "master in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 3]
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three"
+      },
+      "archetype": "24e0c86a-ef76-50c0-92b0-52fe0f9aaf78"
+    }
+  },
+  {
+    "id": "30c9086e-4510-5ff6-9b93-1faa8e884bda",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:bless-shield",
+    "name": "Bless Shield",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your uttered prayers become an aegis, drawing the blessing of your deity across the surface of your shield. Until the beginning of your next turn your shield, any shield boss, or shield spikes gain the effects of a ghost touch property rune. Additionally, damage you take as a result of an incorporeal creature's Strike can trigger your Shield Block reaction, even if the damage isn't physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.n5T4ChWJqDUblYfR"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication; you worship a good-aligned deity"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Lastwall Sentry Dedication"
+        },
+        {
+          "text": "you worship a good-aligned deity"
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "a0038f8d-99d6-5f28-8a9c-bca04db3ad46",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:chemical-purification",
+    "name": "Chemical Purification",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["additive2", "alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use Quick Alchemy to craft an alchemist's fire or ghost charge, and that bomb's level is at least 2 levels lower than your advanced alchemy level."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You developed a method to chemically purify and consecrate your bombs on the fly. You include this additive mixture when crafting your alchemist's fire or ghost charge. The created bomb deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "vitality",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage in addition to whatever damage it would normally cause. As usual for vitality damage, this damage harms only undead and creatures with void healing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qFR5OddDBmhZe6nl"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You use Quick Alchemy to craft an alchemist's fire or ghost charge, and that bomb's level is at least 2 levels lower than your advanced alchemy level."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "round"
+        }
+      }
+    }
+  },
+  {
+    "id": "0467daac-407a-56fc-9598-7c6aaa21b9d8",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:consecrate-spell",
+    "name": "Consecrate Spell",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["cleric", "concentrate", "oracle", "sorcerer", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You infuse a spell with the power of your faith, consecrating it. If the next action you use is to Cast a Spell that targets a single undead, you can expend a Focus Point, channeling the power of your focus spells into the primary spell. If you do, the spell you cast deals additional spirit or vitality damage (your choice) equal to the rank of your focus spells. As normal for additional damage, this additional damage is doubled if the spell cast requires an attack roll and the result of the attack roll is a critical hit, or if the spell cast requires a saving throw and the result of the saving throw is a critical failure."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:consecrate-spell-damage",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "spirit",
+            "label": "Spirit"
+          },
+          {
+            "value": "vitality",
+            "label": "Vitality"
+          }
+        ],
+        "predicate": ["spellshape:consecrate-spell"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.JQs2O2TTgKWXgJgZ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ability to cast focus spells; divine spells"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "ability to cast focus spells"
+        },
+        {
+          "text": "divine spells"
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "6f294186-285b-5829-ae18-258c3bc6dfb0",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:corpse-killers-defiance",
+    "name": "Corpse-Killer's Defiance",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["barbarian", "swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You destroy an undead foe."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You defy Tar-Baphon with every undead you destroy, using your victory to rally your allies. Allies that can see you gain a +1 status bonus to attack and damage rolls against undead for 1 round, or a +2 status bonus to attack and damage rolls against undead for 2 rounds if the undead foe destroyed was a creature of your level or higher."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2746e041-340d-57a0-b3b1-a7cbbe9dd6b1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1876e078-2adb-5579-9a28-5d5853d012f1"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fzERYW7BJQoxlvoD"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You destroy an undead foe."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "d4b10f4b-98cb-55bf-bf21-585221f19ef9",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:crimson-oath-devotion",
+    "name": "Crimson Oath Devotion",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've made the Crimson Oath a part of yourself; you mumble it in your sleep and recite it under your breath as you march. You become an expert in divine spell attacks and spell DCs. If you have spent at least 2 Focus Points since the last time you Refocused, you recover 2 Focus Points when you Refocus instead of 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Bi4rdz48MgkSY7su"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Reclaimant Dedication; ability to cast focus spells"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Reclaimant Dedication",
+          "predicate": ["feat:knight-reclaimant-dedication"]
+        },
+        {
+          "text": "ability to cast focus spells"
+        }
+      ],
+      "archetype": "24e0c86a-ef76-50c0-92b0-52fe0f9aaf78"
+    }
+  },
+  {
+    "id": "2eb62850-bafc-53d1-af5a-2d18f732b987",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:detonating-spell",
+    "name": "Detonating Spell",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["cleric", "concentrate", "oracle", "sorcerer", "spellshape", "witch", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spell becomes volatile and explosive. If the next action you use is to Cast a Spell that deals damage to a single target and the spell successfully damages that target, the spell explodes, dealing splash damage equal to the rank of the spell cast to adjacent creatures. Unlike normally, this splash damage doesn't apply to the target. The splash damage dealt is of the same type the spell deals."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.K5ZONljq5XzS8MQc"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "f05b4074-e435-54a2-8002-5623c3c7315d",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:devoted-guardian",
+    "name": "Devoted Guardian",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["champion", "fighter"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was to Raise a Shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You adopt a wide stance, ready to defend both yourself and your chosen ward. Select one adjacent creature. As long as your shield is raised and the creature remains adjacent to you, the creature gains a +1 circumstance bonus to their AC, or a +2 circumstance bonus if the shield you raised was a tower shield."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YwVdaszwpDJd6kf9"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your last action was to Raise a Shield."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "3fefecaf-c2e6-5df7-8941-84ee92e87ec9",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:divine-emissary",
+    "name": "Divine Emissary",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["sorcerer", "witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar is a divine emissary, sent to you by your deity or patron and infused with celestial powers. You can select one additional familiar ability each day, which must be one of the following divine emissary familiar abilities. You can't select more than one divine emissary familiar ability at a time."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "59346130-ec8a-5f17-a957-530c28727a50"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "1f86984d-5eb0-5dc5-ba43-9414d10ce48f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "23dc40d9-6235-57e6-ad9e-235f035549ed"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "1fb51cd1-f4af-5c72-9a08-5e481ff78347"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PiBXXCeDNQGfQVoJ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "a familiar; you follow a good-aligned deity or patron"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "a familiar",
+          "predicate": ["self:companion:familiar"]
+        },
+        {
+          "text": "you follow a good-aligned deity or patron"
+        }
+      ]
+    }
+  },
+  {
+    "id": "f821c33f-43f1-5446-aba8-0e2ee97acb0d",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:divine-healing",
+    "name": "Divine Healing",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Although you aren't a proper champion of your faith, your deity still recognizes your efforts and provides you with a small divine ability to help others. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ff652482-2177-52e0-973f-1ec91c5e2f69"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a focus pool of 1 Focus Point or increase the number of Focus Points in your focus pool by 1. You refill your focus pool during your daily preparations, and you regain 1 Focus Point by spending 10 minutes using the Refocus activity to pray to your deity or perform service toward their causes. You are trained in divine spell attack rolls and spell DCs. Your spellcasting ability is Charisma."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You must refrain from performing your deity's anathema or lose the ability to cast this spell until you atone."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6qHoUiEudUgUB1Uq"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication; expert in religion; worship a deity with a divine font that grants heal"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        },
+        {
+          "text": "expert in religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "worship a deity with a divine font that grants heal"
+        }
+      ],
+      "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
+    }
+  },
+  {
+    "id": "ff441531-24f3-5564-844d-6f816c2994a4",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:drive-back",
+    "name": "Drive Back",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy within your reach Strikes an ally adjacent to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have your shield raised."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You push the enemy back and attempt to intercede between the foe and your ally. You attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " the triggering enemy with your shield just as it attacks, pushing it back just after the attempt. Your shield has the shove trait for this Shove attempt. If the shove succeeds, you throw off your enemy's timing, and the enemy takes a -1 circumstance penalty on its attack roll against your ally."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.X6nwiA2uJ2UQIOKB"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bastion Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:bastion-dedication"],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have your shield raised."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An enemy within your reach Strikes an ally adjacent to you."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "e2ad95c8-0738-5e2d-98f8-e8bd76a25772"
+    }
+  },
+  {
+    "id": "aced3a09-790b-543a-bc9e-aa53d03ab964",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:eclipsed-vitality",
+    "name": "Eclipsed Vitality",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shroud yourself in ashes that hide the vital essence sought by life-sensing undead. You're always taking precautions when "
+          },
+          {
+            "type": "ref",
+            "id": "99d1c863-cb6b-5d09-8fb8-2ca0996ac20a",
+            "label": "Avoiding Notice"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d",
+            "label": "Hiding"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4",
+            "label": "Sneaking"
+          },
+          {
+            "type": "text",
+            "text": " to foil lifesense, and you're "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to any creature using only precise lifesense to observe you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.smYXWVI9WXmqpiCs"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Assassin Dedication or Scout Dedication; master in Stealth"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:assassin-dedication", "feat:scout-dedication"]
+        },
+        {
+          "gte": ["skill:stealth:rank", 3]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Assassin Dedication or Scout Dedication",
+          "predicate": [
+            {
+              "or": ["feat:assassin-dedication", "feat:scout-dedication"]
+            }
+          ]
+        },
+        {
+          "text": "master in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 3]
+            }
+          ]
+        }
+      ],
+      "archetype": "c0e5ae56-68b3-5de7-8f82-3730b5f99a22"
+    }
+  },
+  {
+    "id": "ec4f1791-b8f2-59da-a4d1-5f0cdb381ca8",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:emissary-of-peace",
+    "name": "Emissary of Peace",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even when bloodshed is inevitable, you would rather see your foes surrender. You attempt a Diplomacy check to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " against a single foe whose Hit Points are at less than half of their maximum value, followed by an immediate Request to convince that creature to cease fighting. You take a -5 penalty to your Diplomacy check. The GM sets the DC of the Request based on the circumstances; it's generally at least a very hard DC for the creature's level. Some creatures might simply refuse, and those who agree to parley might find your arguments lacking and start fighting again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.SGBLDcT4wI5VUDCZ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication; master in Diplomacy"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feat:knight-vigilant-dedication",
+        {
+          "gte": ["skill:diplomacy:rank", 3]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        },
+        {
+          "text": "master in Diplomacy",
+          "predicate": [
+            {
+              "gte": ["skill:diplomacy:rank", 3]
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three"
+      },
+      "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
+    }
+  },
+  {
+    "id": "8494fcf2-e638-5b69-825e-a4bd30c2d9f4",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:empyreal-aura",
+    "name": "Empyreal Aura",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype", "aura"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As an ultimate foe of evil and protector of the innocent, your very presence is a ward against evil. Each evil creature within "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of you at the end of your turn must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against the higher of your class DC or spell DC or else become "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure). On a successful save, the creature is temporarily immune for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "empyreal-aura",
+        "radius": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5f0EbNl7DHkiKCIr"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication; legendary in Religion"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feat:knight-vigilant-dedication",
+        {
+          "gte": ["skill:religion:rank", 4]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        },
+        {
+          "text": "legendary in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 4]
+            }
+          ]
+        }
+      ],
+      "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
+    }
+  },
+  {
+    "id": "8cbe4687-1194-5323-baa5-934c8a95a80c",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:familiar-foe",
+    "name": "Familiar Foe",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You regularly face off against undead and can identify many with a glance. You gain a +1 circumstance bonus on skill checks to Recall Knowledge about undead. Whenever you roll a critical failure on a check to Recall Knowledge about undead, you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0UzxiSrTfVs0jvBa"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication; expert in Religion or Undead Lore"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Lastwall Sentry Dedication"
+        },
+        {
+          "text": "expert in Religion or Undead Lore",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:religion:rank", 2]
+                },
+                {
+                  "gte": ["skill:lore:undead:rank", 2]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "bf87d312-952a-595a-b470-b03881c56add",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:final-rest",
+    "name": "Final Rest",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As stubborn in death as you are in life, you vow you'll never aid your hated enemies. You can't be transformed into an undead, except by effects that originate from an artifact or deity. Undead creatures that touch your corpse take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage each time they do, or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage each time they expose themselves to your corpse in a more thorough manner, such as by biting or carrying your corpse."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZiSmhTsnQMLqsmyw"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2db3fce2-95a4-5232-a0f6-659770e687a3",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:flashing-shield",
+    "name": "Flashing Shield",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the Shield Block reaction, and the opponent that triggered the Shield Block is undead and adjacent to you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your shield flares with holy light as you block the attack, searing the undead with the power of your faith. The triggering undead takes vitality damage equal to half your level and becomes "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.1NS6AM2oVNKb4LhX"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication; you worship a good-aligned deity"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Lastwall Sentry Dedication"
+        },
+        {
+          "text": "you worship a good-aligned deity"
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You use the Shield Block reaction, and the opponent that triggered the Shield Block is undead and adjacent to you."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "c0f1d9b3-9a43-5c8d-9080-9d8bef74f47d",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:for-love-for-lightning",
+    "name": "For Love, For Lightning",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A character who performs a specialized mission for Clarethe Iomedar has access to this option."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rumors suggest this technique was pioneered by knights who undertook missions for Clarethe Iomedar at the half-moon, but many Crimson Reclaimers have since mastered it. You learn the "
+          },
+          {
+            "type": "ref",
+            "id": "9179938b-1b6f-530f-899b-24295874fff2"
+          },
+          {
+            "type": "text",
+            "text": " focus spell. If you don't already have one, you gain a focus pool of 1 Focus Point, which you can regain using the Refocus activity to recite the Crimson Oath and meditate on its teachings; if you already have a focus pool, increase the number of Focus Points in your focus pool by 1. Your knight reclaimant focus spells are divine spells; when you gain this feat, you become trained in divine spell attacks and spell DCs. Charisma is the key spellcasting ability for knight reclaimant focus spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uQExVrBNPJeS66sO"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Reclaimant Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:knight-reclaimant-dedication"],
+      "archetype": "24e0c86a-ef76-50c0-92b0-52fe0f9aaf78"
+    }
+  },
+  {
+    "id": "69acc496-872d-5d50-9c8f-e71c48a689fb",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:ghost-wrangler",
+    "name": "Ghost Wrangler",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["barbarian", "divine", "rage"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spirits around you coalesce upon your fists, enabling you to seize and harm other ghosts and spirits. Until the beginning of your next turn, your fists gain the effects of the ghost touch property rune, and you can make Strength-based skill checks against incorporeal creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.00OnDt8UEMwfoYWH"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "spirit instinct"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "selfEffect": "baba91b9-c30d-51dc-8026-4d52e54801e1"
+      }
+    }
+  },
+  {
+    "id": "7e4432c3-f751-50b4-9cf8-dfb79a476255",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:grave-sight",
+    "name": "Grave Sight",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ability to sense undead has improved. You sense undead as an imprecise sense with a range of 60 feet: an uncomfortable sensation brushes against your spirit and stinks of rot. When in proximity to an undead, you can sense its presence, but it has the "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " condition instead of the "
+          },
+          {
+            "type": "ref",
+            "id": "a861c051-d5ee-5a52-9334-b7289778180f"
+          },
+          {
+            "type": "text",
+            "text": " condition. An undead using a disguise or otherwise trying to hide its presence must attempt a Deception or Stealth check against your Perception DC to hide its presence from you. If the creature succeeds, it's undetected, and you have to use the "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " basic action to detect the creature. As with hearing and other imprecise senses, you still need to Seek to locate an undetected creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lszcn7eO3olp5vEt"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication; Grave Sense"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Lastwall Sentry Dedication"
+        },
+        {
+          "text": "Grave Sense"
+        }
+      ],
+      "archetype": "daefd91f-1776-5275-943b-0ad735a34337"
+    }
+  },
+  {
+    "id": "ab35d3ee-3e2c-5ac9-8f46-9d89a4cf5c7c",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:gravelands-herbalist",
+    "name": "Gravelands Herbalist",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Knights of Lastwall have access to this feat."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your time with the Knights of Lastwall has taught you the secrets of creating and improving upon "
+          },
+          {
+            "type": "ref",
+            "id": "5debd1c0-5566-5e10-a1c2-372fe2da8247"
+          },
+          {
+            "type": "text",
+            "text": ". Add Lastwall soup to your list of herbal items. At 10th level, you can make "
+          },
+          {
+            "type": "ref",
+            "id": "b2085aac-69ca-5976-99c4-55075e9a1e31"
+          },
+          {
+            "type": "text",
+            "text": " that grants a +3 item bonus. At 18th level, you can make "
+          },
+          {
+            "type": "ref",
+            "id": "fc5ab5c9-f13d-5801-935e-5757eb66cfb3"
+          },
+          {
+            "type": "text",
+            "text": " that grants a +4 item bonus, and its nourishing properties grant you 10 temporary Hit Points that last up to 10 minutes after eating it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.M9WIUEPY6IoRtgWN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Herbalist Dedication; Trained in Religion"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feat:herbalist-dedication",
+        {
+          "gte": ["skill:religion:rank", 1]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Herbalist Dedication",
+          "predicate": ["feat:herbalist-dedication"]
+        },
+        {
+          "text": "Trained in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 1]
+            }
+          ]
+        }
+      ],
+      "archetype": "b6db30bb-587e-57ad-9a1e-8f757a05774f"
+    }
+  },
+  {
+    "id": "f3b42fe0-83aa-5ff9-abc9-7533ac422aa3",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:guarded-advance-knight-vigilant",
+    "name": "Guarded Advance (Knight Vigilant)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You slowly advance on the battlefield, taking utmost caution. You either "
+          },
+          {
+            "type": "ref",
+            "id": "ac5eeb13-9962-5be8-83e0-b5fd6270e3d6"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5c3e30ec-2520-5b84-b2bf-c03dd6b8d65a"
+          },
+          {
+            "type": "text",
+            "text": " or Raise a Shield and Step."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Nb8MUoTpyX9u8di4"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:knight-vigilant-dedication"],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
+    }
+  },
+  {
+    "id": "65e6c579-6d83-5d91-a57b-fce69d841455",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:hilt-hammer",
+    "name": "Hilt Hammer",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know how to turn any weapon into a bone-crushing implement of skeletal destruction. Melee weapons you wield gain the versatile B trait. You can use the weapon only to deal bludgeoning damage when making melee attacks. At the GM's discretion, specific weapons might not be able to gain the versatile B trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:melee"],
+        "property": "traits",
+        "mode": "add",
+        "value": "versatile-b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RtYOsmb9R71J9ce2"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Reclaimant Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:knight-reclaimant-dedication"],
+      "archetype": "24e0c86a-ef76-50c0-92b0-52fe0f9aaf78"
+    }
+  },
+  {
+    "id": "49fe779c-e41b-5190-8b6d-d448f3b2a1dc",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:holy-light",
+    "name": "Holy Light",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["champion", "cleric", "concentrate", "divine", "light"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You raise your arms to the sky and pray fervently, surrounding yourself in a beacon of holy light. The beacon sheds bright light in a "
+          },
+          {
+            "type": "template",
+            "shape": "cylinder",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " centered on you until the beginning of your next turn. Evil creatures in the area must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save equal to your class DC or spell DC (whichever is higher) or become "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.xmf6oUYarFJGajtr"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "you follow a good-aligned deity"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "e0952958-fb6f-5b4d-a552-ad141f421d8c",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:inspiring-resilience",
+    "name": "Inspiring Resilience",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["bard", "champion", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You and at least one other creature become the target of a spell or effect with the emotion, fear, or mental trait that allows a saving throw, and you haven't rolled the save yet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You show defiance in times of hardship and inspire your companions to persevere. Allies within 30 feet of you gain a +1 circumstance bonus to their Will save against the triggering effect, or a +2 circumstance bonus if the effect originated from an undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a5372de2-50c2-50bc-844a-17604f65b194"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.AbsqV1P8OAhChcRl"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You and at least one other creature become the target of a spell or effect with the emotion, fear, or mental trait that allows a saving throw, and you haven't rolled the save yet."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "e446fa22-6768-5fa8-9a1f-a7f16986a253",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:instant-armor",
+    "name": "Instant Armor",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A knight is nothing without their armor, and you know how to keep yours ready. You can perform a 10-minute ritual, which has the conjuration and magical traits, to divert a set of heavy armor you are wearing into an extradimensional space connected to you. While the armor is in this space, you can use a three-action activity, which has the concentrate, conjuration, and teleportation traits, to phase the armor back and instantly don it. The armor automatically phases away if you don another set of armor, if you become "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ", or if you die. If you are incapable of wearing the armor when it phases back, it appears in your square instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MLiEMjyZXE43wmrq"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:knight-vigilant-dedication"],
+      "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
+    }
+  },
+  {
+    "id": "23f90052-888f-5cfd-b000-47f185bdaf26",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:instinctual-interception",
+    "name": "Instinctual Interception",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You react to movement with hardly a thought, seeming constantly poised to spring. At the start of each of your turns, you gain an additional reaction that you can use only to Interrupt Charge."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RHdY0xczRYzkIdJt"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication; Interrupt Charge"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:knight-vigilant-dedication", "feat:interrupt-charge"],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        },
+        {
+          "text": "Interrupt Charge",
+          "predicate": ["feat:interrupt-charge"]
+        }
+      ],
+      "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
+    }
+  },
+  {
+    "id": "bfa95f3d-cffc-50fa-87e3-13f404eb3028",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:interrupt-charge",
+    "name": "Interrupt Charge",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A foe within reach attempts to move away from you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a hand free."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to snag the foe before they run away. Attempt an Athletics check against the higher of the triggering creature's Athletics DC or Fortitude DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You disrupt the movement."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are able to slow the triggering creature down. It takes a –10-foot circumstance penalty to its Speed for the rest of its triggering movement. This penalty might cause the triggering creature's movement to end immediately based on its affected Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature instead takes a –5-foot circumstance penalty to its Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MjPqgBQU9W4kelfz"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:knight-vigilant-dedication"],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have a hand free."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A foe within reach attempts to move away from you."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
+    }
+  },
+  {
+    "id": "00915a18-3c35-5cc9-82fb-ba41c84ac622",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:keep-up-the-good-fight",
+    "name": "Keep up the Good Fight",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A foe's Strike reduces you to 0 Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You had more than 1 Hit Point before the triggering Strike, and the Strike wouldn't kill you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your devotion to helping others and doing good keeps you going, even against insurmountable odds. Instead of being knocked out, you are reduced to 1 Hit Point, gain a number of temporary Hit Points equal to your level for 1 round, and increase your wounded value by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.xdv75qkv5TOFlHmM"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:knight-vigilant-dedication"],
+      "action": {
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You had more than 1 Hit Point before the triggering Strike, and the Strike wouldn't kill you."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A foe's Strike reduces you to 0 Hit Points."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      },
+      "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
+    }
+  },
+  {
+    "id": "9ae86ee1-67b7-5752-823e-6ef53a3060e3",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:knights-retaliation",
+    "name": "Knight's Retaliation",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["fighter", "swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An undead creature within your reach critically fails a Strike against you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You knock the enemy's blow aside and twist, unbalancing your foe. You attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " the triggering creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.jZy91ekcS9ZqmdEH"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Athletics"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 1]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An undead creature within your reach critically fails a Strike against you."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "7ee969c7-397b-5d18-90ca-1f6b9177fec3",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:knock-sense",
+    "name": "Knock Sense",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["champion", "fighter"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attack carefully to knock some sense into a creature whose actions aren't their own. Make a Strike against a "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " ally. The Strike is nonlethal and doesn't take a -2 penalty for using a weapon without the nonlethal trait; if you hit and deal damage, your ally automatically succeeds at the flat check to remove the confused condition when taking damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.gVXefUaMzg7S1vpm"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "dc2ccd3c-3c05-5644-b412-d7e43a6f2760",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:lead-the-way",
+    "name": "Lead the Way",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You move forward, creating an opening for others to follow. Choose one adjacent ally who has a reaction available. You Stride, and that ally can use their reaction to immediately Stride. The ally must end their Stride adjacent to you. If the ally Strides in this way, they don't trigger reactions that are normally triggered by movement. You, however, still trigger those reactions normally."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TW0fUdqqB69rIbRx"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:knight-vigilant-dedication"],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
+    }
+  },
+  {
+    "id": "33bfe1ce-a668-5f4f-be42-fd8588a56415",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:miraculous-intervention",
+    "name": "Miraculous Intervention",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["champion", "cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An adjacent fiend or undead begins to use a reaction."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through divine intervention or whispered prayers, you foil an enemy's response. If the triggering creature's level is equal to or lower than yours, you disrupt the triggering reaction. If the triggering creature's level is higher than yours, you must make an attack roll or spell attack roll against its AC (your choice). On a success, you disrupt the reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.APfPNpUQlKlCAJkS"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An adjacent fiend or undead begins to use a reaction."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "ad795490-983e-5f3a-9c3a-77abce7efb91",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:necromantic-bulwark",
+    "name": "Necromantic Bulwark",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regular exposure to necromantic effects left you better able to defend against them. When you have your shield raised, you gain your shield's circumstance bonus to saving throws against effects that would deal void damage. If you have the Shield Block reaction, void damage you take can trigger the reaction, even though the damage isn't physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.R337W7VveJxlEddE"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6b26805a-4370-5b1e-a4b1-fae0f913b887",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:necromantic-deflection",
+    "name": "Necromantic Deflection",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["champion", "druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You imbue your shield with life-giving energy to deflect harmful necromantic magic. When you have your shield raised, you gain the shield's circumstance bonus to your AC and saving throws against necromancy spells. If you have the Shield Block reaction, damage you take as a result of a necromancy spell can trigger that reaction, even if it isn't physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YZEG7LsiIIhwRB91"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "3cf6111d-0fd5-5881-87b9-1d550c36e5f2",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:no-stranger-to-death",
+    "name": "No Stranger to Death",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your regular exposure to the insidious putrescence of undeath inured you to its effects. You gain a +2 circumstance bonus to saving throws made against spells and effects with the death, disease, and evil traits. Whenever you become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": ", reduce the status penalty you take from the condition by 1, to a minimum of 0."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["item:trait:death", "item:trait:disease", "item:trait:evil"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all"],
+        "mode": "add",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["penalty:slug:drained", "penalty:slug:sickened"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.D3ypq5kAmLbwrgjq"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1796a518-7987-5a50-9a73-b644d45d9e44",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:nonlethal-takedown",
+    "name": "Nonlethal Takedown",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You prefer to use nonlethal means against living opponents, but the weapons you carry are lethal enough to destroy undead. You don't take the normal -2 circumstance penalty when attacking nonlethally with a weapon that lacks the nonlethal trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.k5C1WNuYQ4u7nSHt"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "77a2f168-9fe4-5598-945a-3ad1e3e9383d",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:practiced-opposition",
+    "name": "Practiced Opposition",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've battled more undead than you care to remember, often with little time to prepare between foes, forcing you to rely on experience and muscle memory to guide your blade. Attempt a check to Recall Knowledge about an undead you can see and then Strike that undead. If your attempt to Recall Knowledge is successful, your Strike treats the target's resistances as 5 lower. The target is then immune to your Practiced Opposition for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.64DgI5CHP7K9kbbg"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "c28dced9-df82-5920-8e29-b40905a98601",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:prayer-touched-weapon",
+    "name": "Prayer-Touched Weapon",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["cleric", "oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per turn"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your most recent action was to cast a non-cantrip divine spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You coat a weapon you're wielding in prayers and the divine power given to you by your deity. Until the end of your turn, the weapon deals an extra "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. As usual for vitality damage, this damage harms only undead and creatures with void healing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2qR4QAgJVArv63Z2"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "divine spells; you follow a good-aligned deity"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "divine spells"
+        },
+        {
+          "text": "you follow a good-aligned deity"
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your most recent action was to cast a non-cantrip divine spell."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "turn"
+        },
+        "selfEffect": "44ddec42-7fab-5fe0-92d1-f0e19ae4817c"
+      }
+    }
+  },
+  {
+    "id": "83346d25-4df7-51dc-a2c4-ba1173d4b1f9",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:preventative-treatment",
+    "name": "Preventative Treatment",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["archetype", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You provide preventative remedies and care to help your patient fight off future maladies. You Treat a Condition the target doesn't yet have, naming any condition you could normally treat with Treat Condition. The counteract check gains the secret trait, so the GM rolls it secretly. The next time within the next minute the creature would be affected by that condition, your treatment immediately attempts to reduce the condition value with the effects of Treat Condition, using the secret roll result for the check. Preventative Treatment lasts on a creature for 1 minute, until the treatment is used, or until you use Preventative Treatment again on that creature, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MSqgBffcAXTg700A"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Medic Dedication; Treat Condition"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:medic-dedication", "feat:treat-condition"],
+      "prerequisiteClauses": [
+        {
+          "text": "Medic Dedication",
+          "predicate": ["feat:medic-dedication"]
+        },
+        {
+          "text": "Treat Condition",
+          "predicate": ["feat:treat-condition"]
+        }
+      ],
+      "archetype": "192f6e54-09a1-5617-9625-a153383d0ca9"
+    }
+  },
+  {
+    "id": "a55027ea-1aaf-5ac7-9ec0-7324b0d02466",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:purifying-breeze",
+    "name": "Purifying Breeze",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["cleric", "oracle", "sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your most recent action was to cast a non-cantrip spell with the healing trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transfer the divine essence of your magic to the air around you, cleansing it of toxins. Attempt a counteract check against each airborne disease or poison effect in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " around you. Regardless of your success or failure, until the beginning of your next turn, all creatures in the purified area gain a +1 status bonus to Fortitude saving throws."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "82097281-881a-5cde-a20c-fdb814b33728"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.k42ntHdg70ZMEKrs"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "divine spells"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your most recent action was to cast a non-cantrip spell with the healing trait."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "63d6cb92-68d6-5b90-a196-43f3a5a1eade",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:push-back-the-dead",
+    "name": "Push Back the Dead!",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["archetype", "auditory", "emotion", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call to your ally and strengthen their resolve and abilities to defend against the horrific tricks undead bring to bear. The ally gains a +2 circumstance bonus to saves against effects originating from undead. It also gains resistance to damage from Strikes made by undead creatures equal to half your Charisma modifier."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8468886c-1ec0-5593-b645-80a77fb6a29b"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.BtZJJClWCpc31Ven"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Marshal Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:marshal-dedication"],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "75e1bc45-641b-5048-86cf-9534939ed0d7"
+    }
+  },
+  {
+    "id": "20a21b82-847d-54ee-a2fa-ac85cceed989",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:reclaimant-plea",
+    "name": "Reclaimant Plea",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call on the power of the Crimson Oath to gain magical aid. Choose one of the following spells: "
+          },
+          {
+            "type": "ref",
+            "id": "e6fb2afd-9c8b-5e88-8adb-e4a8db11fe03"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c116ade1-041d-5bc1-a428-dcd37ab4e61e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "67633206-076f-520c-b8a2-8d30d756fa26"
+          },
+          {
+            "type": "text",
+            "text": ". You can Cast that Spell once per day as a 4th-rank divine innate spell. At 14th level, the spell heightens to 5th level, and at 16th level, the spell heightens to 6th level. If you anger the mysterious source of the Crimson Oath's power, you lose the ability to cast the spell until you atone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can select this feat a second time at 14th level, gaining a second spell from the list above, "
+          },
+          {
+            "type": "ref",
+            "id": "fe6197b4-46d2-5cf1-9ed7-8998d72e221b"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "ec86e8bc-b424-5986-b497-8706ceaad978"
+          },
+          {
+            "type": "text",
+            "text": ", which you can cast once per day; you also become an expert in spell attack modifiers and DCs. You can select this feat a third time at 18th level, gaining either a third spell from the list above, "
+          },
+          {
+            "type": "text",
+            "text": "death ward",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "flame strike",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "68d88c47-4c04-5ede-9922-4c4648784b3c"
+          },
+          {
+            "type": "text",
+            "text": ", which you can cast once per day; additionally, all three spells from this feat heighten to 7th level, and you become a master of spell attack modifiers and DCs."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qmORiUubF2CVgIva"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Reclaimant Dedication; ability to cast divine spells"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Reclaimant Dedication",
+          "predicate": ["feat:knight-reclaimant-dedication"]
+        },
+        {
+          "text": "ability to cast divine spells"
+        }
+      ],
+      "maxTakable": "unlimited",
+      "archetype": "24e0c86a-ef76-50c0-92b0-52fe0f9aaf78"
+    }
+  },
+  {
+    "id": "9f724994-864b-5aa1-9785-dbf6322de849",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:reliable-squire",
+    "name": "Reliable Squire",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["bard", "champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know the path to victory isn't traveled alone, and you lend aid to your companions whenever you can. You gain a +2 circumstance bonus to checks to Aid. If you roll a critical failure on a check to Aid, you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:aid"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["attack"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "predicate": ["action:aid"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill-check"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "predicate": ["action:aid"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.cT18roxM5P5MWDRT"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "73154fce-62cc-597f-a6fd-4f7801431100",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:repulse-the-wicked",
+    "name": "Repulse the Wicked",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An undead within your reach critically fails an attack roll targeting you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use your foe's failure as an opening to push them away. You attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " the undead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.IeAbL6fkRsd1hL6r"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An undead within your reach critically fails an attack roll targeting you."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "fe0ae046-777c-5ec8-b39f-7ba3405fe8ab",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:resilient-mind",
+    "name": "Resilient Mind",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["champion", "cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're firm in your convictions and have girded your mind against outside influence. You gain a +1 circumstance bonus to saves against mental effects. This bonus increases to +2 against mental effects originating from undead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "resilient-mind",
+        "predicate": ["item:trait:mental"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "resilient-mind",
+        "mode": "override",
+        "value": 2,
+        "predicate": ["origin:mode:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0Bm4WMi9u0EOHbkp"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "375e2876-cac5-58e3-8f1f-a95fe301a9ff",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:resolute-defender",
+    "name": "Resolute Defender",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hold your shield together with the power of your faith and conviction, refusing to let wood splinter and steel shatter until the day's battles are won. If a shield would be destroyed due to damage taken during your Shield Block, the shield remains intact at 1 Hit Point instead. Its construction is weakened until you repair it, preventing you from using Resolute Defender to save the same shield again until your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.gQKPKSS5KyK3uUfs"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "0bfb220a-4e4f-5a8f-ace4-ddeaa19d6294",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:retaliatory-cleansing",
+    "name": "Retaliatory Cleansing",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would take damage from an adjacent creature's Strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're holding holy water or a bomb that deals vitality damage in one of your hands."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You twist your hand in front of the blow, ensuring the enemy's attack shatters the required holy water or bomb. The creature takes the on-hit and splash damage from the holy water or required bomb, not counting any additional effects you would add or apply when you throw the bomb, such as weapon specialization or Calculated Splash. You're splashed by the holy water or required bomb, although since vitality damage harms only undead and creatures with void healing, it's unlikely you will take damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.y7SYHv0DWkkwjT95"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're holding holy water or a bomb that deals vitality damage in one of your hands."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You would take damage from an adjacent creature's Strike."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "59cf8e2a-039e-5581-a15e-6020b4058639",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:sacred-armaments",
+    "name": "Sacred Armaments",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through the power of your faith or the blessing of a priest, your weapons are fully effective against incorporeal creatures. Weapons you wield have the effects of a "
+          },
+          {
+            "type": "ref",
+            "id": "3e294082-c3ff-58be-ab80-1608b9c6229a"
+          },
+          {
+            "type": "text",
+            "text": " property rune for as long as you wield them."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MOAThpfl92zO5p08"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b36b56b3-0785-5b63-8bb6-bb64f4e38db2",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:shared-sight",
+    "name": "Shared Sight",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["bard", "concentrate", "sorcerer", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bestow the mystical vision granted to you by your muse upon your allies. If your next action is to cast a non-cantrip spell that affects one or more of your allies, all affected allies gain your spiritsense for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vFa9crHKkNkPUjFl"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Soulsight"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:soulsight-bard", "feat:soulsight-sorcerer"]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "6d5424ef-081b-5f05-b236-3f62f4c38187",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:shepherd-of-desolation",
+    "name": "Shepherd of Desolation",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype", "aura"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know how to keep others alive in the Gravelands' murkiest shadows. Allies within "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " of you gain the benefit of "
+          },
+          {
+            "type": "ref",
+            "id": "e85a301c-8cce-566d-a623-113d2b10bca5"
+          },
+          {
+            "type": "text",
+            "text": ". If you are a champion, this aura is a champion aura, even though you gained it from Knight Reclaimant instead of a champion feat or feature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RSwrDo9i0RKoAI6D"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Reclaimant Dedication; Survivor of Desolation"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:knight-reclaimant-dedication", "feat:survivor-of-desolation"],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Reclaimant Dedication",
+          "predicate": ["feat:knight-reclaimant-dedication"]
+        },
+        {
+          "text": "Survivor of Desolation",
+          "predicate": ["feat:survivor-of-desolation"]
+        }
+      ],
+      "archetype": "24e0c86a-ef76-50c0-92b0-52fe0f9aaf78"
+    }
+  },
+  {
+    "id": "3b4dfc78-55a3-5333-8f9f-4f461d6c253c",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:shield-wall",
+    "name": "Shield Wall",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["champion", "fighter"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your shield is raised and an adjacent ally Raises a Shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use your shield in tandem with an ally's, forming a barricade. Both you and the triggering creature have "
+          },
+          {
+            "type": "ref",
+            "id": "1641de44-6f7c-5d91-a244-e75af5f60d64",
+            "label": "Standard Cover"
+          },
+          {
+            "type": "text",
+            "text": " as long as you remain adjacent to each other and you both have your shields raised; when this is no longer the case, the effect ends. You and your ally can't use this cover to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": ", as it's obvious you're standing there holding your shields, but you and your ally can use it to "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": ". Normally, if you and your ally don't move, Shield Wall lasts until the beginning of your next turn, when your shield is no longer raised."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.QpRzvfWdj6YH9TyE"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your shield is raised and an adjacent ally Raises a Shield."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "3b9a7383-dacd-5bbb-8af8-297718340cc0",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:staggering-fire",
+    "name": "Staggering Fire",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned how to fire at enemies to slow them down, allowing innocents and fellow knights alike time to escape. Make a ranged Strike with a weapon in the bow or crossbow weapon group. On a hit, the target takes a –5-foot circumstance penalty to its Speed until the end of its turn, or a –10-foot circumstance penalty on a critical hit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "af741365-80ee-5920-86e4-73ab0393ec97"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:staggering-fire",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fngPLUD4Sltho2kn"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Archer Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:archer-dedication"],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "f371a87d-cd7b-55a6-b9a1-68cd233da022"
+    }
+  },
+  {
+    "id": "6a3802bc-f05a-5526-8693-a5c76f1ab439",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:stalwart-standard",
+    "name": "Stalwart Standard",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your banner makes it harder for your foes to push your allies around and encourages your allies to protect the innocent. Allies benefiting from your Cavalier's Banner feat also gain a +1 circumstance bonus to their Fortitude and Reflex DCs against attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": ". Each benefited ally also gains a +1 status bonus to attack rolls against any creature that has dealt damage to an innocent of a lower level than that ally within the last round; summoned creatures, companions, or any creatures you or your allies put into danger on purpose to attempt to gain this bonus don't count."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OCvgmAFz4qgj2Scf"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cavalier's Banner; Knight Vigilant Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:cavaliers-banner", "feat:knight-vigilant-dedication"],
+      "prerequisiteClauses": [
+        {
+          "text": "Cavalier's Banner",
+          "predicate": ["feat:cavaliers-banner"]
+        },
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c178fbe4-d3c1-57dd-8d82-d098304e7783",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:the-tyrant-falls",
+    "name": "The Tyrant Falls!",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've reached the apex of the Crimson Oath's power. The oath's power is overwhelming—too much for a mortal frame—but victory is worth any price. When you use this feat, you cry out the final line of the Crimson Oath, unleashing unbridled power for 1 minute. You can Dismiss this effect. While this effect is active, you gain the following effects:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "At the beginning of each of your turns, you become "
+                },
+                {
+                  "type": "ref",
+                  "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                  "label": "Drained 1"
+                },
+                {
+                  "type": "text",
+                  "text": " or increase the value of your drained condition by 1 if you are already drained. You can't reduce the value of your drained condition or remove it while The Tyrant Falls! is active. While The Tyrant Falls! is active, your drained condition does not penalize your Fortitude save."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can cast "
+                },
+                {
+                  "type": "ref",
+                  "id": "474b1c35-f0e7-5774-9fd0-52ea10e8ee84"
+                },
+                {
+                  "type": "text",
+                  "text": " at will without expending Focus Points. When you do, increase the area to a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 40
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You gain resistance to all damage equal to half your character level."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Any melee weapon you wield gains the reach trait if it didn't already possess it, or increases its reach by 5 feet if it already has the reach trait. Your Strikes with that weapon deal an extra 2d6 vitality or void damage (whichever is more effective against the target)."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.H63SJLkenhLDkVnN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Reclaimant Dedication; Invoke the Crimson Oath"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:knight-reclaimant-dedication", "feat:invoke-the-crimson-oath"],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Reclaimant Dedication",
+          "predicate": ["feat:knight-reclaimant-dedication"]
+        },
+        {
+          "text": "Invoke the Crimson Oath",
+          "predicate": ["feat:invoke-the-crimson-oath"]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "24e0c86a-ef76-50c0-92b0-52fe0f9aaf78"
+    }
+  },
+  {
+    "id": "e20ef936-b184-5bd5-8faa-15bf4801c978",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:thwart-evil",
+    "name": "Thwart Evil",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature you can see uses a spell or ability that has the evil or void traits."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You react instinctively when you sense evil forming, thrusting your spiritual energy toward the source to snuff out evil before it fully manifests. Attempt to counteract the triggering spell or ability using your Religion modifier as your counteract modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ibaxh77mm8ttObdk"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication; master in Religion"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Lastwall Sentry Dedication"
+        },
+        {
+          "text": "master in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 3]
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature you can see uses a spell or ability that has the evil or void traits."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "63c96e1c-bcb3-58d3-a19f-ea2eb20911ce",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:tower-shield-mastery",
+    "name": "Tower Shield Mastery",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned how to maximize the defensive abilities of your tower shield. You are constantly "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " and can use the additional action only to "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": " behind your tower shield after you have Raised it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.aZ5JdFKA7L8NYl4o"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:knight-vigilant-dedication"],
+      "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
+    }
+  },
+  {
+    "id": "b0363899-7dbe-57c0-acf1-ab7dbbf6a849",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:united-assault",
+    "name": "United Assault",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["fighter", "flourish", "ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through countless battles, you've learned you're stronger when working alongside your allies. Make a Strike. Your Strike gains a circumstance bonus to damage rolls equal to the number of other different creatures that damaged the target since the end of the target's last turn, to a maximum of a +4 circumstance bonus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:united-assault",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "1",
+            "label": "One"
+          },
+          {
+            "value": "2",
+            "label": "Two"
+          },
+          {
+            "value": "3",
+            "label": "Three"
+          },
+          {
+            "value": "4",
+            "label": "Four"
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:united-assault"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yYLVGhedXD7lFQMn"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "e908b326-6d7d-5ccc-91d6-0967792c3648",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:vigilant-benediction",
+    "name": "Vigilant Benediction",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Unwilling to be outdone by the Crimson Reclaimers and their oath, you've petitioned the gods of good for a sliver of divine magic. Choose one of the following deities whose requirements you meet-for the Any Deity option below, you can select a deity the GM deems appropriate-and one of the listed spells. You can Cast that Spell once per day as a 4th-rank divine innate spell, and you become trained in spell attack modifiers and DCs. At 14th level, the spell heightens to 5th level; at 16th level, the spell heightens to 6th level. Once you've selected a deity and a spell, you can't change this selection. You don't need to worship the deity as your patron deity, as they are willing to grant this boon on behalf of your worthy cause. You must refrain from performing your deity's anathema or lose the ability to cast this spell until you atone."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Any Deity",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d54ee3a3-6742-53c8-9070-17edcb0cae19"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7714caac-f16d-54e3-aab2-39f0ba58f85e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b75bc402-e325-58e4-9a6e-380c4d221d73"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gendowyn",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Iomedae",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "19a34df3-2235-5e84-8597-17cc1cc9f505"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Irori",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "2e797ff1-fcb3-5e23-af04-bc8fc9271425"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Kazutal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2e797ff1-fcb3-5e23-af04-bc8fc9271425"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Milani",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "19a34df3-2235-5e84-8597-17cc1cc9f505"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ragathiel",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "19a34df3-2235-5e84-8597-17cc1cc9f505"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sarenrae",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "12b87fec-1e48-544a-8e02-78d8f5b1e78b"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can select this feat a second time at 14th level, gaining a second spell to cast once per day from your chosen deity's list or the Any Deity list, and you become an expert in spell attack modifiers and DCs. You can select this feat a third time at 18th level. If you do, you gain a third spell to cast once per day from your chosen deity's list or the Any Deity list, and all three spells are heightened to 7th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lIpfj1JeFFS7Zn6D"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication; alignment permitted by the chosen deity"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        },
+        {
+          "text": "alignment permitted by the chosen deity"
+        }
+      ],
+      "maxTakable": "unlimited",
+      "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
+    }
+  },
+  {
+    "id": "3971079a-8ca2-5581-80b1-59fcecb9ed42",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:viking-vindicator",
+    "name": "Viking Vindicator",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are one of the raiders eagerly planning to launch an assault by sea on the Whispering Tyrant's Isle of Terror. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cbe81225-3622-5e70-b006-9e6dbc9d4ee5"
+          },
+          {
+            "type": "text",
+            "text": " fighter feat, though it's a viking feat for you instead. As normal when gaining an additional feat from an archetype feat, gaining Sudden Charge doesn't count toward fulfilling the special requirement for Viking Dedication. If you already had Sudden Charge, you can retrain it as part of gaining this feat. When you use Sudden Charge to Strike a target in shallow water, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against your Strike, as you use the water kicked up by your passage to camouflage your angle of attack. If you have "
+          },
+          {
+            "type": "ref",
+            "id": "a52824a1-ccfb-5bb0-ad8b-e810e968d9cd"
+          },
+          {
+            "type": "text",
+            "text": " or Viking Weapon Specialist, add the bastard sword and rapier to the list of weapons in those feats."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "cbe81225-3622-5e70-b006-9e6dbc9d4ee5"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.3xiWBDSR8miAotpa"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Viking Dedication"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:viking-dedication"],
+      "archetype": "9ba58280-864c-5b4a-8999-055a3077f8fc"
+    }
+  },
+  {
+    "id": "b572d46f-a06d-5162-897d-160a45dcf019",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:voice-cold-as-death",
+    "name": "Voice Cold as Death",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["archetype", "auditory", "concentrate", "emotion", "fear", "mental", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are not "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Channeling the energy of the Crimson Oath into your voice, you pronounce a threat in a tone so icy it freezes the blood. Attempt an Intimidation check to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": "; you don't suffer a penalty if the target doesn't understand the language you're speaking, but this otherwise functions as normal. You can't use Intimidating Glare or any other effect that would cause your Demoralize attempt to lose the auditory trait as part of using this feat. If you critically succeed at your Intimidation check, the target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 2"
+          },
+          {
+            "type": "text",
+            "text": " if the target is undead. After using this feat, you are fatigued until the end of your next turn, and you can't use this feat again until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.WQtt44keeBP8t25P"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Reclaimant Dedication; master in Intimidation"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feat:knight-reclaimant-dedication",
+        {
+          "gte": ["skill:intimidation:rank", 3]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Reclaimant Dedication",
+          "predicate": ["feat:knight-reclaimant-dedication"]
+        },
+        {
+          "text": "master in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 3]
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are not Fatigued."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "24e0c86a-ef76-50c0-92b0-52fe0f9aaf78"
+    }
+  },
+  {
+    "id": "2c62d353-e47b-5d02-b835-942fb9463d8b",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:wave-the-flag",
+    "name": "Wave the Flag",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["archetype", "emotion", "flourish", "mental", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You wave your banner, inspiring allies to throw off the shackles of fear. Each ally presently benefiting from your Cavalier's Banner feat reduces their current frightened condition by 1 and can choose to immediately attempt a new saving throw against any one mental effect currently affecting them. Regardless of the result, any ally that attempts a save is temporarily immune to Wave the Flag for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.AYVf9MU8oo1QWbGv"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cavalier's Banner"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": ["feat:cavaliers-banner"],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "410d49be-1670-5e01-962f-57138f33a06d"
+    }
+  },
+  {
+    "id": "0ea6d93b-55e5-53bd-8235-fc5a3331bc83",
+    "pack": "knights-of-lastwall",
+    "kind": "feat",
+    "slug": "feat:withstand-death",
+    "name": "Withstand Death",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through repeated exposure, you've trained to resist the damage wrought by undead. Your resistance to void damage also applies to damage dealt by the attacks and abilities of undead creatures, regardless of damage type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.LiLnDkoFcwW1RxqZ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication; Necromantic Resistance"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Lastwall Sentry Dedication"
+        },
+        {
+          "text": "Necromantic Resistance",
+          "predicate": ["feat:necromantic-resistance-undead-slayer"]
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,149 @@
+[
+  {
+    "id": "2158c1fb-676b-5dc7-b2aa-d0ac24b19939",
+    "pack": "knights-of-lastwall",
+    "kind": "rune",
+    "slug": "rune:called-lastwall",
+    "name": "Called (Lastwall)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "called",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " weapon can be teleported to its owner's hand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (command, envision)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You imprint upon the weapon, proclaiming yourself as its owner. This allows you to use the rune's second activation until someone else uses this activation or succeeds at a Will save to prevent you from using the second activation."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, envision"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You extend your hand and call the weapon. If the weapon is within 100 feet of you, it appears in your hand even if it was "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ". If the weapon is in another creature's possession, that creature can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "save:will"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your Will DC. If the creature succeeds, your bond as the owner is broken, and you can't use this activation again until you use the first activation to restore the connection."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6XX3tYxkyQXCMAbd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon"
+      }
+    }
+  }
+]

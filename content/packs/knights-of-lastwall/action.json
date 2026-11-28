@@ -1,0 +1,179 @@
+[
+  {
+    "id": "59346130-ec8a-5f17-a957-530c28727a50",
+    "pack": "knights-of-lastwall",
+    "kind": "action",
+    "slug": "action:erudite",
+    "name": "Erudite",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar has incredible religious knowledge. Despite being a minion, your familiar gains 1 reaction at the start of its turns, which it can use only to "
+          },
+          {
+            "type": "ref",
+            "id": "75d39cda-442b-5171-bf18-4645b8813fd3"
+          },
+          {
+            "type": "text",
+            "text": " you on a Religion check (it still has to prepare to help you as normal for the Aid reaction). It automatically succeeds its check to Aid you with Religion checks or automatically critically succeeds if you're a master in Religion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.cy7bdQqVANipyljS"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "1f86984d-5eb0-5dc5-ba43-9414d10ce48f",
+    "pack": "knights-of-lastwall",
+    "kind": "action",
+    "slug": "action:luminous",
+    "name": "Luminous",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar glows with a comforting light. It sheds bright light in a 30-foot radius and dim light for the next 30 feet. It can suppress or resume this light by using an action, which has the concentrate trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:luminous",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.ou91pzf9TlOnIjYn"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "23dc40d9-6235-57e6-ad9e-235f035549ed",
+    "pack": "knights-of-lastwall",
+    "kind": "action",
+    "slug": "action:medic",
+    "name": "Medic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar can draw upon the power of your deity to "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          },
+          {
+            "type": "text",
+            "text": " once per day. The familiar can cast the 1-action version of "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at a level 2 levels lower than your highest-rank spell slot, which it can cast only on you. You must be able to cast 3rd-rank spells from spell slots to select this ability."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.ReIgBsaM95BTvHpN"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "1fb51cd1-f4af-5c72-9a08-5e481ff78347",
+    "pack": "knights-of-lastwall",
+    "kind": "action",
+    "slug": "action:radiant",
+    "name": "Radiant",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar is filled with a divine radiance that makes it resistant to the forces of evil. Your familiar gains resistance to evil and void damage equal to half your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: As effects placed on one actor cannot reference data from another actor, the resistance of half the PC level is not automatable. Please update the familiars resistances accordingly.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.3y6GGXQgyJ4Hq4Yt"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  }
+]

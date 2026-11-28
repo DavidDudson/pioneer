@@ -1,0 +1,406 @@
+[
+  {
+    "id": "f546c340-b02e-51ce-80ba-7c228cd1c755",
+    "pack": "knights-of-lastwall",
+    "kind": "deity",
+    "slug": "deity:graveladys-guard",
+    "name": "Gravelady's Guard",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It is only natural for Pharasma to head a pantheon whose primary focus is destroying the undead at any cost. The Lady of Graves is joined by Arazni (The Unyielding) with her hatred for unwilling undeath, and Gorum (Our Lord in Iron), who rejoices in victory via fair combat. The devotees of this pantheon believe nothing is more important than stopping the spread of undeath and bringing swift justice to those who practice such twisted magic. This order's adherents slay undead wherever they menace innocent people, tend to wounds inflicted by the undead, perform the proper rituals to prepare a corpse for burial and safeguard it against undeath, and aid those who lost loved ones to the blight of the unliving."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " destroying undead, healing, fate, battle, death"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " destroy undead, lay bodies to rest, battle the evils of necromancy"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " create undead, practice necromancy, desecrate a corpse, cower from battle"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.QArqJ387HeYgGZxG"
+    },
+    "data": {
+      "category": "pantheon",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["confidence", "death", "fate", "protection"],
+        "alternate": []
+      },
+      "font": ["heal"],
+      "attributes": ["con", "wis"],
+      "skills": ["skill:athletics"],
+      "weapons": ["dagger"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "1c97409b-bd67-5df2-a7d3-a49aff4d3896"
+        },
+        {
+          "rank": 3,
+          "spell": "0474b135-7232-52c1-beff-221dccc82e78"
+        },
+        {
+          "rank": 6,
+          "spell": "062680d1-edd9-5d3d-b358-fc861d29d3ff"
+        }
+      ]
+    }
+  },
+  {
+    "id": "54cc27c6-da8d-513e-9628-8f7df15e108f",
+    "pack": "knights-of-lastwall",
+    "kind": "deity",
+    "slug": "deity:keepers-of-the-hearth",
+    "name": "Keepers of the Hearth",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through art and tales from the continent of Arcadia, the goddess Kazutal (Mother Jaguar) is becoming increasingly popular in the Inner Sea Region due to her devotion to defending and providing for those in need, as well as fostering a powerful sense of community. Joined by Milani (The Everbloom), who opposes oppression in all forms and seeks to help those unable to protect themselves, and by Iomedae (The Inheritor) who values fighting for justice, the Keepers of the Hearth stress the importance of defending the weak and defenseless in any community, especially those unwillingly subjugated or taken advantage of. Keepers not only protect those weaker than themselves but also do their best to teach the skills necessary for a community to defend and provide for itself. Many of those most devoted to the aspect of training and teaching self-defense also look to Irori (Master of Masters) for guidance and motivation as part of their faith."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " protecting and defending the innocent, maintaining the spirit and traditions of a community"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " protect those in need of help, stand up to bullies, teach communities to defend themselves"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " prey on the weak, abuse power, sow discord in a community"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.AJ7Wgpj5Ext9wbtj"
+    },
+    "data": {
+      "category": "pantheon",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["family", "freedom", "might", "protection"],
+        "alternate": []
+      },
+      "font": ["heal"],
+      "attributes": ["str", "wis"],
+      "skills": ["skill:society"],
+      "weapons": ["light-hammer"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7"
+        },
+        {
+          "rank": 2,
+          "spell": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+        },
+        {
+          "rank": 4,
+          "spell": "2e797ff1-fcb3-5e23-af04-bc8fc9271425"
+        }
+      ]
+    }
+  },
+  {
+    "id": "42a29ebb-3378-509a-a659-1375c6b201bf",
+    "pack": "knights-of-lastwall",
+    "kind": "deity",
+    "slug": "deity:sorrows-sword",
+    "name": "Sorrow's Sword",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sorrow's Sword gained a large following among the Crimson Reclaimers because of the pantheon's focus on duty, sacrifice, and channeling the pain of past losses into motivation to overcome any future obstacle. The two principal deities are Ragathiel (General of Vengeance), who brings his devotion to duty and revenge, and Vildeis (The Cardinal Martyr), who believes that evil should be destroyed at all costs—even self-sacrifice. For the Crimson Reclaimers, this means never forgetting the pain and trauma caused by the Whispering Tyrant in Lastwall, and channeling that grief into fuel for righteous revenge. Beyond these two major divine influences, three other deities represent values the followers of the pantheon hold dear. Gorum (Our Lord in Iron) preaches strength and victory in battle. Iomedae (The Inheritor) led the charge on many successful attacks against Tar-Baphon, so it's only natural that her legendary deeds, and sense of honor, justice, and valor speak to followers of Sorrow's Sword. Many consider Arazni (The Unyielding) to be a strong part of this pantheon, due to her edict to survive at all costs and her abhorrence for the creation of unwilling undead. Arazni's inclusion is complicated by Vildeis and Ragathiel's feelings about evil, which is why Arazni is not an official member of the pantheon among all followers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " vengeance, reclaiming lost homelands, drawing strength from sorrow"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " avenge the wronged, destroy evildoers, lead the charge in battle, remember your community's history"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " cower from combat, forgive those who have committed grave offenses, abandon or deceive allies"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.gpS3hv7LP2IRwEHT"
+    },
+    "data": {
+      "category": "pantheon",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["duty", "might", "sorrow", "zeal"],
+        "alternate": []
+      },
+      "font": ["harm", "heal"],
+      "attributes": ["con", "str"],
+      "skills": ["skill:intimidation"],
+      "weapons": ["bastard-sword"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+        },
+        {
+          "rank": 4,
+          "spell": "19a34df3-2235-5e84-8597-17cc1cc9f505"
+        },
+        {
+          "rank": 6,
+          "spell": "e4628be0-93e0-58ba-adb1-d9e656f43da5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "edffad1c-6043-51c8-84be-92334f504c6d",
+    "pack": "knights-of-lastwall",
+    "kind": "deity",
+    "slug": "deity:the-endless-road",
+    "name": "The Endless Road",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Followers of the Endless Road pantheon are encouraged to pursue their personal journeys, to see the larger world, and to gain a more balanced perspective. If they have not found a community to call their own at the end of their traveling days, they are encouraged to pass on their knowledge for future generations. Whether this means creating their own community, writing a series of tomes, or creating works of art, they must pass on what they've learned as best they can. Followers pray to Desna (The Song of the Spheres) to bless their overland travels from her home in the stars, and to Gozreh (The Wind and the Waves) not only to help them travel over the seas and through the wilderness, but to do so without disrupting the gentle balance of nature. Finally, they call upon Gruhastha (The Keeper) for the strength needed to pursue a journey of personal exploration and self-improvement despite challenges along the way."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " travel, preaching, self-improvement, recruiting"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " see the world to find your place in it, seek common bonds, share community histories"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " close your ears and heart to others, do not seek to better yourself, resist the call to explore new places"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.p4TbCVOwHB4ccmT4"
+    },
+    "data": {
+      "category": "pantheon",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["confidence", "knowledge", "travel", "truth"],
+        "alternate": []
+      },
+      "font": ["heal"],
+      "attributes": ["cha", "wis"],
+      "skills": ["skill:society"],
+      "weapons": ["starknife"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "b629c2bc-449a-5a58-aa95-992e36fc8aa9"
+        },
+        {
+          "rank": 4,
+          "spell": "04ad7d29-a93e-5d13-9563-5e013d6ca611"
+        },
+        {
+          "rank": 7,
+          "spell": "8001267e-7972-5d1d-868f-eaba30e2c938"
+        }
+      ]
+    }
+  }
+]

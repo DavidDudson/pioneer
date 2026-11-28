@@ -31,6 +31,7 @@ export const OFFICIAL_PACK_IDS = [
   'howl-of-the-wild',
   'impossible-lands',
   'impossible-magic',
+  'knights-of-lastwall',
   'monster-core',
   'monster-core-2',
   'mwangi-expanse',

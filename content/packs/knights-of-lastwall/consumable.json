@@ -1,0 +1,852 @@
+[
+  {
+    "id": "0c471809-6567-502e-8ba3-7495c06135fb",
+    "pack": "knights-of-lastwall",
+    "kind": "consumable",
+    "slug": "consumable:anointing-oil",
+    "name": "Anointing Oil",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Carried by many Knights of Lastwall, this amber-colored, fragrant-smelling oil is meant to prevent those who fall in battle from rising as undead. Applying "
+          },
+          {
+            "type": "text",
+            "text": "anointing oil",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to a corpse casts "
+          },
+          {
+            "type": "ref",
+            "id": "2d4c6edd-9059-52d9-b547-c7da47a9c1c5"
+          },
+          {
+            "type": "text",
+            "text": " on it. The effects last for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The oil is repugnant to the undead. An undead creature that touches a corpse treated with this oil is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " until the contact is broken or the oil's effect wears off."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.89955RkZoEmVNo3V"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 18
+        }
+      },
+      "bulk": "light",
+      "category": "oil",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "611d924c-9742-5507-b23e-09c368153e22",
+    "pack": "knights-of-lastwall",
+    "kind": "consumable",
+    "slug": "consumable:anointing-oil-greater",
+    "name": "Anointing Oil (Greater)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Carried by many Knights of Lastwall, this amber-colored, fragrant-smelling oil is meant to prevent those who fall in battle from rising as undead. Applying "
+          },
+          {
+            "type": "text",
+            "text": "anointing oil",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to a corpse casts a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "2d4c6edd-9059-52d9-b547-c7da47a9c1c5"
+          },
+          {
+            "type": "text",
+            "text": " on it. The effects last for 24 hours. The funerary rites of the Knights of Lastwall sometimes include using this type of oil on their dead if they are to be buried."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The oil is repugnant to the undead. An undead creature that touches a corpse treated with this oil is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " until the contact is broken or the oil's effect wears off."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.znITT3WIS59TYtCu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 180
+        }
+      },
+      "bulk": "light",
+      "category": "oil",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "cb4852ad-a90e-50a0-a1cf-7e98474b904b",
+    "pack": "knights-of-lastwall",
+    "kind": "consumable",
+    "slug": "consumable:camp-shroud-greater",
+    "name": "Camp Shroud (Greater)",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["consumable", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Knights make use of this magically treated powder to help hide their camps while traveling through the Gravelands or other dangerous regions. When you toss the powder into a campfire or other sizable fire, the fire produces a thin mist that enshrouds everything in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 25
+          },
+          {
+            "type": "text",
+            "text": " from the fire. The mist creates protective illusions that remain for up to 12 hours and make it difficult to spot the area from afar. You can end the effect earlier by putting out the fire. Light and smoke produced in the area aren't visible from outside the area. The illusions don't prevent sound from traveling nor prevent the area or its inhabitants from being seen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature outside the area that uses the "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action or "
+          },
+          {
+            "type": "ref",
+            "id": "13c83114-7186-5ae6-99eb-2730f9d20d72"
+          },
+          {
+            "type": "text",
+            "text": " activity to examine the area or look for smoke and light coming from that direction can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " check to disbelieve the illusion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AGD0qLB8zKGinKwv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ac27d858-8577-532f-8001-9a04da3f35fc",
+    "pack": "knights-of-lastwall",
+    "kind": "consumable",
+    "slug": "consumable:camp-shroud-lesser",
+    "name": "Camp Shroud (Lesser)",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["consumable", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Knights make use of this magically treated powder to help hide their camps while traveling through the Gravelands or other dangerous regions. When you toss the powder into a campfire or other sizable fire, the fire produces a thin mist that enshrouds everything in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " from the fire. The mist creates protective illusions that remain for up to 12 hours and make it difficult to spot the area from afar. You can end the effect earlier by putting out the fire. Light and smoke produced in the area aren't visible from outside the area. The illusions don't prevent sound from traveling nor prevent the area or its inhabitants from being seen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature outside the area that uses the "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action or "
+          },
+          {
+            "type": "ref",
+            "id": "13c83114-7186-5ae6-99eb-2730f9d20d72"
+          },
+          {
+            "type": "text",
+            "text": " activity to examine the area or look for smoke and light coming from that direction can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 23
+          },
+          {
+            "type": "text",
+            "text": " check to disbelieve the illusion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1XoBUEUearOzrwEs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 65
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "864e445c-7d88-5e30-88b6-8e13dbdfde7b",
+    "pack": "knights-of-lastwall",
+    "kind": "consumable",
+    "slug": "consumable:camp-shroud-major",
+    "name": "Camp Shroud (Major)",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["consumable", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Knights make use of this magically treated powder to help hide their camps while traveling through the Gravelands or other dangerous regions. When you toss the powder into a campfire or other sizable fire, the fire produces a thin mist that enshrouds everything in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " from the fire. The mist creates protective illusions that remain for up to 12 hours and make it difficult to spot the area from afar. You can end the effect earlier by putting out the fire. Light and smoke produced in the area aren't visible from outside the area. The illusions don't prevent sound from traveling nor prevent the area or its inhabitants from being seen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature outside the area that uses the "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action or "
+          },
+          {
+            "type": "ref",
+            "id": "13c83114-7186-5ae6-99eb-2730f9d20d72"
+          },
+          {
+            "type": "text",
+            "text": " activity to examine the area or look for smoke and light coming from that direction can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " check to disbelieve the illusion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HgI87CKuhY8IbFWG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1500
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6832a3ab-2436-5f4b-bb75-2908937b9851",
+    "pack": "knights-of-lastwall",
+    "kind": "consumable",
+    "slug": "consumable:camp-shroud-minor",
+    "name": "Camp Shroud (Minor)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consumable", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Knights make use of this magically treated powder to help hide their camps while traveling through the Gravelands or other dangerous regions. When you toss the powder into a campfire or other sizable fire, the fire produces a thin mist that enshrouds everything in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " from the fire. The mist creates protective illusions that remain for up to 12 hours and make it difficult to spot the area from afar. You can end the effect earlier by putting out the fire. Light and smoke produced in the area aren't visible from outside the area. The illusions don't prevent sound from traveling nor prevent the area or its inhabitants from being seen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature outside the area that uses the "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action or "
+          },
+          {
+            "type": "ref",
+            "id": "13c83114-7186-5ae6-99eb-2730f9d20d72"
+          },
+          {
+            "type": "text",
+            "text": " activity to examine the area or look for smoke and light coming from that direction can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " check to disbelieve the illusion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Yqz5M71vM1RcvlCx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0065a427-96c4-5bad-8bbd-18e1b21053d5",
+    "pack": "knights-of-lastwall",
+    "kind": "consumable",
+    "slug": "consumable:camp-shroud-moderate",
+    "name": "Camp Shroud (Moderate)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["consumable", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Knights make use of this magically treated powder to help hide their camps while traveling through the Gravelands or other dangerous regions. When you toss the powder into a campfire or other sizable fire, the fire produces a thin mist that enshrouds everything in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " from the fire. The mist creates protective illusions that remain for up to 12 hours and make it difficult to spot the area from afar. You can end the effect earlier by putting out the fire. Light and smoke produced in the area aren't visible from outside the area. The illusions don't prevent sound from traveling nor prevent the area or its inhabitants from being seen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature outside the area that uses the "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action or "
+          },
+          {
+            "type": "ref",
+            "id": "13c83114-7186-5ae6-99eb-2730f9d20d72"
+          },
+          {
+            "type": "text",
+            "text": " activity to examine the area or look for smoke and light coming from that direction can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " check to disbelieve the illusion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JPNKZPtsdNpoLsBT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 175
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "de4927ba-7aad-56df-814e-be2676ecff76",
+    "pack": "knights-of-lastwall",
+    "kind": "consumable",
+    "slug": "consumable:ghost-oil",
+    "name": "Ghost Oil",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The vials containing this translucent, unsubstantial oil are always cold to the touch. Applying "
+          },
+          {
+            "type": "text",
+            "text": "ghost oil",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to a melee weapon you're wielding or carrying causes it to become semitransparent and gain the effects of a "
+          },
+          {
+            "type": "ref",
+            "id": "3e294082-c3ff-58be-ab80-1608b9c6229a"
+          },
+          {
+            "type": "text",
+            "text": " rune, but it also makes the weapon unable to harm corporeal creatures. The oil has no effect when applied to another creature's weapon. The effect of the oil lasts for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ca9b9081-d789-5771-bf28-8bd358525b36"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MIP28AmODXgyF2D2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 18
+        }
+      },
+      "bulk": "light",
+      "category": "oil",
+      "effect": "ca9b9081-d789-5771-bf28-8bd358525b36",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "fc5ab5c9-f13d-5801-935e-5757eb66cfb3",
+    "pack": "knights-of-lastwall",
+    "kind": "consumable",
+    "slug": "consumable:lastwall-soup-greater",
+    "name": "Lastwall Soup (Greater)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Crimson Reclaimers make this rich, hearty soup using herbs that baffle the senses of the undead. A bowl of Lastwall soup is as nourishing as a full meal. Gravelands Herbalists have spent time with the Knights of Lastwall, and have learned how to improve upon Lastwall soup."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 hour after consuming a bowl of improved Lastwall soup, you gain a +3 item bonus to Stealth checks and DCs against undead. In addition, you gain 10 temporary hit points that last for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "363ea1af-c0dc-5bae-a665-db1124353348"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: Paizo did not provide a price for this item, so we set it as appropriate for a level 18 consumable.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ed8gAxli6Of58kAM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3500
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "effect": "363ea1af-c0dc-5bae-a665-db1124353348",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b2085aac-69ca-5976-99c4-55075e9a1e31",
+    "pack": "knights-of-lastwall",
+    "kind": "consumable",
+    "slug": "consumable:lastwall-soup-improved",
+    "name": "Lastwall Soup (Improved)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "knights-of-lastwall"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Crimson Reclaimers make this rich, hearty soup using herbs that baffle the senses of the undead. A bowl of Lastwall soup is as nourishing as a full meal. Gravelands Herbalists have spent time with the Knights of Lastwall, and have learned how to improve upon Lastwall soup."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 hour after consuming a bowl of improved Lastwall soup, you gain a +3 item bonus to Stealth checks and DCs against undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "363ea1af-c0dc-5bae-a665-db1124353348"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: Paizo did not provide a price for this item, so we set it as appropriate for a level 10 consumable.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VcEd9Bh4q5vQfpLv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "effect": "363ea1af-c0dc-5bae-a665-db1124353348",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

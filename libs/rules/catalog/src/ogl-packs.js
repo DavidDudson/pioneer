@@ -181,3 +181,20 @@ export async function bestiary3Pack() {
     import('@pioneer/content/packs/bestiary-3/ritual.json'),
   ]);
 }
+
+export async function knightsOfLastwallPack() {
+  return pack(import('@pioneer/content/packs/knights-of-lastwall/pack.json'), [
+    import('@pioneer/content/packs/knights-of-lastwall/action.json'),
+    import('@pioneer/content/packs/knights-of-lastwall/armor.json'),
+    import('@pioneer/content/packs/knights-of-lastwall/background.json'),
+    import('@pioneer/content/packs/knights-of-lastwall/consumable.json'),
+    import('@pioneer/content/packs/knights-of-lastwall/deity.json'),
+    import('@pioneer/content/packs/knights-of-lastwall/effect.json'),
+    import('@pioneer/content/packs/knights-of-lastwall/equipment.json'),
+    import('@pioneer/content/packs/knights-of-lastwall/feat.json'),
+    import('@pioneer/content/packs/knights-of-lastwall/rune.json'),
+    import('@pioneer/content/packs/knights-of-lastwall/shield.json'),
+    import('@pioneer/content/packs/knights-of-lastwall/spell.json'),
+    import('@pioneer/content/packs/knights-of-lastwall/weapon.json'),
+  ]);
+}

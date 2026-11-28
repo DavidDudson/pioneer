@@ -28,6 +28,7 @@ const howlOfTheWild = PackId.parse('howl-of-the-wild');
 const warOfImmortals = PackId.parse('war-of-immortals');
 const mwangiExpanse = PackId.parse('mwangi-expanse');
 const impossibleMagic = PackId.parse('impossible-magic');
+const knightsOfLastwall = PackId.parse('knights-of-lastwall');
 const gunsAndGears = PackId.parse('guns-and-gears');
 const battlecry = PackId.parse('battlecry');
 const chelaxInfernalInheritance = PackId.parse('cheliax-infernal-inheritance');
@@ -112,6 +113,7 @@ describe('content catalog', () => {
       howlOfTheWild,
       impossibleLands,
       impossibleMagic,
+      knightsOfLastwall,
       monsterCore,
       monsterCore2,
       mwangiExpanse,

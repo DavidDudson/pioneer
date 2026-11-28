@@ -43,6 +43,7 @@ export const FOUNDRY_IMPORTS: ReadonlyArray<FoundryImport> = [
   imported('core-rulebook'),
   imported('advanced-players-guide'),
   imported('book-of-the-dead'),
+  imported('knights-of-lastwall'),
   imported('gamemastery-guide'),
   imported('dark-archive'),
   imported('bestiary-1'),

@@ -47,7 +47,8 @@ A few things the remastered books still point at, such as the Goloma ancestry, e
 published under the [Open Game License
 1.0a](https://github.com/foundryvtt/pf2e/blob/pf2e-8.6.0/static/licenses/OpenGameLicense.md). Pioneer imports those
 books whole (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide`, `impossible-lands`,
-`ancestry-guide`, `book-of-the-dead`, `gamemastery-guide`, `dark-archive`, `bestiary-1`, `bestiary-2`, `bestiary-3`)
+`ancestry-guide`, `book-of-the-dead`, `knights-of-lastwall`, `gamemastery-guide`, `dark-archive`, `bestiary-1`,
+`bestiary-2`, `bestiary-3`)
 and declares them `OGL` in the book registry and pack manifest. Only Open Game Content is used; Product Identity is
 not. Section 15 of the licence is reproduced on the Legal page for each such book. Flagging a book `legacy: whole` in
 the book registry means adding its Section 15 notice there too.

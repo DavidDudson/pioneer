@@ -147,6 +147,7 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -205,6 +206,7 @@ describe('LegalPage', () => {
       'Core Rulebook',
       "Advanced Player's Guide",
       'Book of the Dead',
+      'Lost Omens Knights of Lastwall',
       'Gamemastery Guide',
       'Dark Archive',
       'Bestiary',
@@ -219,7 +221,7 @@ describe('LegalPage', () => {
       ...Array.from({ length: 2 }, () => 'ORC License'),
       ...Array.from({ length: 3 }, () => 'Open Game License 1.0a'),
       ...Array.from({ length: 29 }, () => 'ORC License'),
-      ...Array.from({ length: 9 }, () => 'Open Game License 1.0a'),
+      ...Array.from({ length: 10 }, () => 'Open Game License 1.0a'),
     ]);
   });
 
@@ -249,6 +251,7 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Core Rulebook\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Advanced Player's Guide\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Book of the Dead\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens Knights of Lastwall\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Gamemastery Guide\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Dark Archive\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Bestiary\s*Foundry release pf2e-8\.6\.0$/u),
