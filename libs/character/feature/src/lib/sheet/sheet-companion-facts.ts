@@ -1,8 +1,10 @@
-import type { CompanionStatistic, CompanionStatistics } from '@pioneer/rules/engine';
+import type { CompanionStatistics } from '@pioneer/rules/engine';
 import { Attribute, CompanionMovement, CompanionSkill, DamageType, Size } from '@pioneer/rules/sdk';
 
 /** Names a message key, with what it interpolates. */
-export type Translate = (key: string, params?: Readonly<Record<string, string | number>>) => string;
+type FactParams = Readonly<Record<string, string | number>>;
+
+export type Translate = (key: string, params?: FactParams) => string;
 
 /** The size names, spelled out so the key check sees each. */
 const SIZE_KEYS: Readonly<Record<Size, string>> = {
@@ -57,7 +59,7 @@ const DAMAGE_KEYS: Readonly<Partial<Record<DamageType, string>>> = {
 };
 
 /** The message keys of the lines a companion card shows. */
-export const CompanionFactMessage = {
+const CompanionFactMessage = {
   Species: 'character.sheet.companions.species',
   Size: 'character.sheet.companions.size',
   HitPoints: 'character.sheet.companions.hitPoints',
@@ -82,36 +84,92 @@ function signed(value: number): string {
   return value < 0 ? `${value}` : `+${value}`;
 }
 
-function entries<Key extends string>(
-  keys: Readonly<Partial<Record<Key, string>>>,
-  values: Readonly<Partial<Record<Key, number>>>,
-  translate: Translate,
-  show: (value: number) => string,
-): string {
-  return Object.entries<string | undefined>(keys)
-    .flatMap(([key, name]): readonly string[] => {
-      const value = values[key as Key];
+/** A name's message key and the number that goes with it, when there is one. */
+type Named = readonly [string, number | undefined];
 
-      return name === undefined || value === undefined ? [] : [`${translate(name)} ${show(value)}`];
-    })
+function listed(pairs: readonly Named[], translate: Translate, show: (value: number) => string): string {
+  return pairs
+    .flatMap(([name, value]): readonly string[] => (value === undefined ? [] : [`${translate(name)} ${show(value)}`]))
     .join(', ');
 }
 
-function totals(statistics: CompanionStatistics): Readonly<Record<Attribute, number>> {
-  const { attributes } = statistics;
-
-  return {
-    [Attribute.Strength]: attributes.str.total,
-    [Attribute.Dexterity]: attributes.dex.total,
-    [Attribute.Constitution]: attributes.con.total,
-    [Attribute.Intelligence]: attributes.int.total,
-    [Attribute.Wisdom]: attributes.wis.total,
-    [Attribute.Charisma]: attributes.cha.total,
-  };
+function fact(key: string, translate: Translate, params: FactParams = {}): CompanionFact {
+  return { key, text: translate(key, params) };
 }
 
-function totalOf(statistic: CompanionStatistic | undefined): number | undefined {
-  return statistic?.total;
+/** The size, Hit Points and defences, and Speed. */
+function bodyFacts(species: string, statistics: CompanionStatistics, translate: Translate): readonly CompanionFact[] {
+  return [
+    fact(CompanionFactMessage.Species, translate, { species }),
+    fact(CompanionFactMessage.Size, translate, { size: translate(SIZE_KEYS[statistics.size]) }),
+    fact(CompanionFactMessage.HitPoints, translate, { value: statistics.hitPoints.total }),
+    fact(CompanionFactMessage.ArmorClass, translate, { value: statistics.armorClass.total }),
+    fact(CompanionFactMessage.Speed, translate, { value: statistics.speed }),
+    fact(CompanionFactMessage.Saves, translate, {
+      fortitude: signed(statistics.fortitude.total),
+      reflex: signed(statistics.reflex.total),
+      will: signed(statistics.will.total),
+      perception: signed(statistics.perception.total),
+    }),
+  ];
+}
+
+/** The lists: other movement, attributes, skills and senses, each left out when empty. */
+function listFacts(statistics: CompanionStatistics, translate: Translate): readonly CompanionFact[] {
+  const { attributes, movement, skills } = statistics;
+
+  const lists: readonly (readonly [string, string])[] = [
+    [
+      CompanionFactMessage.Movement,
+      listed(
+        Object.values(CompanionMovement).map((kind): Named => [MOVEMENT_KEYS[kind], movement[kind]]),
+        translate,
+        String,
+      ),
+    ],
+    [
+      CompanionFactMessage.Attributes,
+      listed(
+        Object.values(Attribute).map((attribute): Named => [ATTRIBUTE_KEYS[attribute], attributes[attribute].total]),
+        translate,
+        signed,
+      ),
+    ],
+    [
+      CompanionFactMessage.Skills,
+      listed(
+        Object.values(CompanionSkill).map((skill): Named => [SKILL_KEYS[skill], skills[skill]?.total]),
+        translate,
+        signed,
+      ),
+    ],
+    [CompanionFactMessage.Senses, statistics.senses.join(', ')],
+  ];
+
+  return lists.flatMap(([key, list]): readonly CompanionFact[] =>
+    list === '' ? [] : [fact(key, translate, { list })],
+  );
+}
+
+/** What the species says under Special, and a line per strike. */
+function attackFacts(statistics: CompanionStatistics, translate: Translate): readonly CompanionFact[] {
+  const special = statistics.special.map((line): CompanionFact => ({
+    key: `${CompanionFactMessage.Special}:${line}`,
+    text: translate(CompanionFactMessage.Special, { line }),
+  }));
+
+  const strikes = statistics.strikes.map((strike): CompanionFact => ({
+    key: `${CompanionFactMessage.Strike}:${strike.slug}`,
+    text: translate(CompanionFactMessage.Strike, {
+      attack: signed(strike.attack.total),
+      dice: strike.dice,
+      die: strike.die ?? '',
+      bonus: signed(strike.damage.total),
+      type: translate(DAMAGE_KEYS[strike.damageType] ?? DAMAGE_KEYS[DamageType.Bludgeoning] ?? ''),
+    }),
+  }));
+
+  return [...special, ...strikes];
 }
 
 /** The lines a card shows for a companion: its size and Hit Points, defences, movement, attributes, skills and strikes. */
@@ -120,71 +178,9 @@ export function companionFacts(
   statistics: CompanionStatistics,
   translate: Translate,
 ): readonly CompanionFact[] {
-  const skills = Object.fromEntries(
-    Object.entries(statistics.skills).map(([skill, statistic]) => [skill, totalOf(statistic)]),
-  );
-  const movement = entries(MOVEMENT_KEYS, statistics.movement, translate, String);
-
-  const lines: readonly CompanionFact[] = [
-    { key: CompanionFactMessage.Species, text: translate(CompanionFactMessage.Species, { species }) },
-    {
-      key: CompanionFactMessage.Size,
-      text: translate(CompanionFactMessage.Size, { size: translate(SIZE_KEYS[statistics.size]) }),
-    },
-    {
-      key: CompanionFactMessage.HitPoints,
-      text: translate(CompanionFactMessage.HitPoints, { value: statistics.hitPoints.total }),
-    },
-    {
-      key: CompanionFactMessage.ArmorClass,
-      text: translate(CompanionFactMessage.ArmorClass, { value: statistics.armorClass.total }),
-    },
-    { key: CompanionFactMessage.Speed, text: translate(CompanionFactMessage.Speed, { value: statistics.speed }) },
-    {
-      key: CompanionFactMessage.Movement,
-      text: movement === '' ? '' : translate(CompanionFactMessage.Movement, { list: movement }),
-    },
-    {
-      key: CompanionFactMessage.Attributes,
-      text: translate(CompanionFactMessage.Attributes, {
-        list: entries(ATTRIBUTE_KEYS, totals(statistics), translate, signed),
-      }),
-    },
-    {
-      key: CompanionFactMessage.Saves,
-      text: translate(CompanionFactMessage.Saves, {
-        fortitude: signed(statistics.fortitude.total),
-        reflex: signed(statistics.reflex.total),
-        will: signed(statistics.will.total),
-        perception: signed(statistics.perception.total),
-      }),
-    },
-    {
-      key: CompanionFactMessage.Skills,
-      text: translate(CompanionFactMessage.Skills, { list: entries(SKILL_KEYS, skills, translate, signed) }),
-    },
-    {
-      key: CompanionFactMessage.Senses,
-      text:
-        statistics.senses.length === 0
-          ? ''
-          : translate(CompanionFactMessage.Senses, { list: statistics.senses.join(', ') }),
-    },
-    ...statistics.special.map((line): CompanionFact => ({
-      key: `${CompanionFactMessage.Special}:${line}`,
-      text: translate(CompanionFactMessage.Special, { line }),
-    })),
-    ...statistics.strikes.map((strike): CompanionFact => ({
-      key: `${CompanionFactMessage.Strike}:${strike.slug}`,
-      text: translate(CompanionFactMessage.Strike, {
-        attack: signed(strike.attack.total),
-        dice: strike.dice,
-        die: strike.die ?? '',
-        bonus: signed(strike.damage.total),
-        type: translate(DAMAGE_KEYS[strike.damageType] ?? DAMAGE_KEYS[DamageType.Bludgeoning] ?? ''),
-      }),
-    })),
+  return [
+    ...bodyFacts(species, statistics, translate),
+    ...listFacts(statistics, translate),
+    ...attackFacts(statistics, translate),
   ];
-
-  return lines.filter(({ text }) => text !== '');
 }

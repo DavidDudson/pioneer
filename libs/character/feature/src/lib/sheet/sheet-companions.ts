@@ -101,13 +101,20 @@ export function speciesOfCompanion(companion: Companion, species: readonly Speci
     : undefined;
 }
 
+/** What of the master decides a companion's statistics: its level and the tiers its feats give. */
+export interface CompanionMaster {
+  readonly level: Level;
+  readonly tiers: ReadonlySet<CompanionTier>;
+}
+
 /** What a companion card shows of its statistics: the master's level and the content's proficiency table decide them. */
 export function statisticsOfCompanion(
   species: SpeciesOption,
-  level: Level,
+  master: CompanionMaster,
   table: ProficiencyBonusTable,
-  tiers: ReadonlySet<CompanionTier>,
 ): CompanionStatistics {
+  const { level, tiers } = master;
+
   return deriveCompanionStatistics({
     level,
     block: species.block,

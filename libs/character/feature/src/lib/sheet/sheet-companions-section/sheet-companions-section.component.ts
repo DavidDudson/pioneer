@@ -75,14 +75,18 @@ export class SheetCompanionsSection {
     const species = speciesOf(registry);
     const table = registry.proficiencyBonus();
     const level = Level.parse(character.level);
-    const tiers = companionTiersFromFeats(Object.values(character.document.build.choices));
+
+    const master = {
+      level,
+      tiers: companionTiersFromFeats(Object.values(character.document.build.choices)),
+    };
 
     return companionSlots(slots, species, read).map((view): CompanionEntry => {
       const { companion, picked } = view;
       const held = companion === undefined ? undefined : speciesOfCompanion(companion, species);
 
       const statistics =
-        held === undefined || table === undefined ? undefined : statisticsOfCompanion(held, level, table, tiers);
+        held === undefined || table === undefined ? undefined : statisticsOfCompanion(held, master, table);
 
       const facts =
         held === undefined || statistics === undefined ? [] : companionFacts(held.name, statistics, this.#translate);
