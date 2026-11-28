@@ -3,7 +3,7 @@ import { cva, cx } from 'class-variance-authority';
 
 import { Grid } from '../../layout/grid/grid.component';
 import { textVariants } from '../../text/text.variants';
-import { Space } from '../../tokens';
+import { figureClasses, Space } from '../../tokens';
 import { DescriptionList } from '../description-list/description-list.component';
 import { rowVariants } from '../item/row';
 
@@ -13,7 +13,7 @@ const termClasses = textVariants({ variant: 'label', tone: 'muted', class: 'brea
  * May shrink below its content's width, so a long value wraps instead of widening the row. Figures are tabular and
  * lining, so a column of values lines up and a changing value does not shift its neighbours.
  */
-const valueClasses = cva('min-w-none lining-nums tabular-nums')();
+const valueClasses = cva(['min-w-none', figureClasses])();
 
 /**
  * One row of an `fr-description-list`: the host is its `listitem`, holding a `term` and a `definition` (the

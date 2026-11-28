@@ -16,10 +16,17 @@ const FRONTIER = /(?:^|\/)libs\/frontier\//u;
 /** The whole content of the element: one interpolation. */
 const INTERPOLATION = /^\s*\{\{(?<expression>[^{}]*)\}\}\s*$/u;
 const CALL_SUFFIX = /\(\)$/u;
+const CLOSE_TAG = /<\/fr-text>\s*$/u;
+
+/** What follows the name in a piped or conditional expression. */
+const EXPRESSION_TAIL = /[|?].*$/su;
 const FIGURE_NAMES = new Set(['modifier', 'bonus', 'total', 'dc', 'ac', 'score', 'count', 'bulk']);
 
 /** An input that already gives the text aligned digits. */
 const ALIGNED = /\s\[?(?:numeric|monospace|minWidth)\]?[=\s>]/u;
+
+/** An input switched off: `numeric="false"` or `[monospace]="false"` does not align the digits. */
+const SWITCHED_OFF = /\s\[?(?:numeric|monospace)\]?=["']false["']/u;
 
 const ElementNode = z.looseObject({ name: z.string(), sourceSpan: Span, startSourceSpan: Span });
 
@@ -48,11 +55,11 @@ export const numericFigures: Rule.RuleModule = {
         const { sourceSpan, startSourceSpan } = element.data;
         const { text } = context.sourceCode;
         const openTag = text.slice(startSourceSpan.start.offset, startSourceSpan.end.offset);
-        const content = text.slice(startSourceSpan.end.offset, sourceSpan.end.offset).replace(/<\/fr-text>\s*$/u, '');
+        const content = text.slice(startSourceSpan.end.offset, sourceSpan.end.offset).replace(CLOSE_TAG, '');
         const expression = INTERPOLATION.exec(content)?.groups?.['expression'];
-        const name = expression?.trim().replace(CALL_SUFFIX, '').split('.').at(-1);
+        const name = expression?.replace(EXPRESSION_TAIL, '').trim().replace(CALL_SUFFIX, '').split('.').at(-1);
 
-        if (name === undefined || !FIGURE_NAMES.has(name) || ALIGNED.test(openTag)) {
+        if (name === undefined || !FIGURE_NAMES.has(name) || (ALIGNED.test(openTag) && !SWITCHED_OFF.test(openTag))) {
           return;
         }
 

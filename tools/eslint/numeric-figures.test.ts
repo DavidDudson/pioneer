@@ -20,6 +20,10 @@ tester.run('numeric-figures', numericFigures, {
     // Fixed width already, or a figure by definition.
     { filename: FEATURE, code: `<fr-text monospace>{{ check.dc }}</fr-text>` },
     { filename: FEATURE, code: `<fr-text minWidth="modifier">{{ modifier }}</fr-text>` },
+    { filename: FEATURE, code: `<fr-text [minWidth]="width()">{{ modifier }}</fr-text>` },
+    { filename: FEATURE, code: `<fr-text [monospace]="fixed()">{{ total }}</fr-text>` },
+    { filename: FEATURE, code: `<fr-text tone="muted" numeric variant="caption">{{ total }}</fr-text>` },
+    { filename: FEATURE, code: `<fr-text numeric>{{ total() | number }}</fr-text>` },
     // Prose, and names that only contain a figure's name.
     { filename: FEATURE, code: `<fr-text>{{ rule().packTitle }}</fr-text>` },
     { filename: FEATURE, code: `<fr-text>{{ 'sheet.total' | transloco }}</fr-text>` },
@@ -29,6 +33,12 @@ tester.run('numeric-figures', numericFigures, {
     { filename: 'libs/frontier/src/lib/text/text/text.component.html', code: `<fr-text>{{ count }}</fr-text>` },
   ],
   invalid: [
+    { filename: FEATURE, code: `<fr-text [numeric]="false">{{ total }}</fr-text>`, errors: [{ messageId: 'figure' }] },
+    { filename: FEATURE, code: `<fr-text numeric="false">{{ total }}</fr-text>`, errors: [{ messageId: 'figure' }] },
+    { filename: FEATURE, code: `<fr-text>{{ modifier }}</fr-text>`, errors: [{ messageId: 'figure' }] },
+    { filename: FEATURE, code: `<fr-text>{{ score }}</fr-text>`, errors: [{ messageId: 'figure' }] },
+    { filename: FEATURE, code: `<fr-text>{{ item.bulk }}</fr-text>`, errors: [{ messageId: 'figure' }] },
+    { filename: FEATURE, code: `<fr-text>{{ total() | number }}</fr-text>`, errors: [{ messageId: 'figure' }] },
     { filename: FEATURE, code: `<fr-text>{{ count() }}</fr-text>`, errors: [{ messageId: 'figure' }] },
     {
       filename: FEATURE,

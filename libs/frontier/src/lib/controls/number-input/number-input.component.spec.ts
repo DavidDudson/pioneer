@@ -70,6 +70,11 @@ describe(NumberInput, () => {
     expect(input.classList).toContain('tabular-nums');
   });
 
+  it('sets its figures lining as well as tabular', () => {
+    const { input } = render();
+    expect(input.classList).toContain('lining-nums');
+  });
+
   it('shows the bound value', () => {
     const { input } = render({ value: 3 });
     expect(input.value).toBe('3');

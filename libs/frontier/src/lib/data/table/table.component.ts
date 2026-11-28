@@ -4,7 +4,7 @@ import type { RowData, SortingState, Updater } from '@tanstack/angular-table';
 import { cva } from 'class-variance-authority';
 
 import { injectTranslate } from '../../locale/inject-translate';
-import { elevationVariants } from '../../tokens';
+import { elevationVariants, figureClasses } from '../../tokens';
 import { TableDensity } from '../table-view/table-view-store';
 import type { TableViewSort } from '../table-view/table-view.types';
 import { ColumnChooser } from './column-chooser/column-chooser.component';
@@ -24,7 +24,7 @@ function ariaSort<TData extends RowData>(header: TableHeader<TData>): string | u
 }
 
 const scrollerClasses = cva('block w-full overflow-x-auto')();
-const tableClasses = cva('w-full border-collapse font-ui text-body lining-nums tabular-nums')();
+const tableClasses = cva(['w-full border-collapse font-ui text-body', figureClasses])();
 
 const captionVariants = cva('pb-xs text-start text-label font-medium text-fg-muted', {
   variants: { hidden: { true: 'sr-only', false: '' } },
