@@ -101,7 +101,7 @@ export const Loading: TableStory = {
   },
 };
 
-/** The rows could not load: an inline error and *Retry*, which emits `retry`. */
+/** The rows could not load: an inline error and *Retry*, which emits `retried`. */
 export const Failed: TableStory = {
   args: { data: [], failed: true },
   play: async ({ canvasElement }) => {

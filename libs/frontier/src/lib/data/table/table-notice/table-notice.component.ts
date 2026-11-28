@@ -7,7 +7,6 @@ import { EmptyStateTitle } from '../../../feedback/empty-state/empty-state-title
 import { EmptyState } from '../../../feedback/empty-state/empty-state.component';
 import { Stack } from '../../../layout/stack/stack.component';
 
-/** The empty state's title, by whether a filter is active. */
 const EMPTY_TITLE = { filtered: 'frontier.async.noMatches', plain: 'frontier.async.empty' } as const;
 
 /**
@@ -25,7 +24,7 @@ export class TableNotice {
   public readonly failed = input(false, { transform: booleanAttribute });
   public readonly filtered = input(false, { transform: booleanAttribute });
   /** The user pressed *Retry*. */
-  public readonly retry = output();
+  public readonly retried = output();
   /** The user pressed *Clear filters*. */
   public readonly cleared = output();
 

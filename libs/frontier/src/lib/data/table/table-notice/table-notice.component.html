@@ -1,7 +1,7 @@
 @if (failed()) {
   <fr-stack gap="xs">
     <fr-alert>{{ 'frontier.async.loadFailed' | transloco }}</fr-alert>
-    <fr-button (pressed)="retry.emit()">{{ 'frontier.table.retry' | transloco }}</fr-button>
+    <fr-button (pressed)="retried.emit()">{{ 'frontier.table.retry' | transloco }}</fr-button>
   </fr-stack>
 } @else {
   <fr-empty-state>

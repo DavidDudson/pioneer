@@ -45,13 +45,14 @@ async function render(inputs: ComponentInputs<Table<Member>> = {}): Promise<Rend
 
   await fixture.whenStable();
 
-  // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
-  return { fixture, host: fixture.nativeElement as HTMLElement };
+  const host: HTMLElement = fixture.nativeElement;
+
+  return { fixture, host };
 }
 
 describe('Table states', () => {
   it('shows a skeleton cell for each visible column and no rows while loading', async () => {
-    const { host } = await render({ loading: true });
+    const { host } = await render({ data: [], loading: true });
     expect(host.querySelectorAll('tbody tr')).toHaveLength(5);
     expect(host.querySelectorAll('tbody tr:first-child td fr-skeleton')).toHaveLength(2);
     expect(host.querySelector('table')?.getAttribute('aria-busy')).toBe('true');
@@ -59,19 +60,19 @@ describe('Table states', () => {
   });
 
   it('skeletons only the columns that are shown', async () => {
-    const { host } = await render({ loading: true, columnVisibility: ['level'] });
+    const { host } = await render({ data: [], loading: true, columnVisibility: ['level'] });
     expect(host.querySelectorAll('tbody tr:first-child td fr-skeleton')).toHaveLength(1);
   });
 
   it('uses no spinner while loading', async () => {
-    const { host } = await render({ loading: true });
+    const { host } = await render({ data: [], loading: true });
     expect(host.querySelector('[role="progressbar"], fr-spinner')).toBeNull();
   });
 
-  it('shows an inline error and emits retry when Retry is pressed', async () => {
-    const { fixture, host } = await render({ failed: true });
+  it('shows an inline error and emits retried when Retry is pressed', async () => {
+    const { fixture, host } = await render({ data: [], failed: true });
     let retried = 0;
-    fixture.componentInstance.retry.subscribe(() => {
+    fixture.componentInstance.retried.subscribe(() => {
       retried += 1;
     });
     expect(host.querySelector('tbody [role="alert"]')?.textContent).toContain('Could not load this');
@@ -84,6 +85,7 @@ describe('Table states', () => {
     const { host } = await render({ data: [] });
     expect(host.querySelector('tbody')?.textContent).toContain('Nothing here yet.');
     expect(host.querySelector('tbody button')).toBeNull();
+    expect(host.querySelector('[role="status"]')?.textContent.trim()).toBe('Nothing here yet.');
   });
 
   it('offers Clear filters on a filtered empty table, which emits cleared', async () => {
@@ -93,8 +95,59 @@ describe('Table states', () => {
       cleared += 1;
     });
     expect(host.querySelector('tbody')?.textContent).toContain('Nothing matches.');
+    expect(host.querySelector('[role="status"]')?.textContent.trim()).toBe('Nothing matches.');
     host.querySelector<HTMLButtonElement>('tbody button')?.click();
     expect(cleared).toBe(1);
+  });
+
+  it('offers Retry and not Clear filters when a load failed under a filter', async () => {
+    const { host } = await render({ data: [], failed: true, filtered: true });
+    expect(host.querySelectorAll('tbody button')).toHaveLength(1);
+    expect(host.querySelector('tbody button')?.textContent.trim()).toBe('Retry');
+  });
+
+  it('shows the skeleton, not the error, when a failed load is retried', async () => {
+    const { fixture, host } = await render({ data: [], failed: true });
+    fixture.componentRef.setInput('loading', true);
+    await fixture.whenStable();
+    expect(host.querySelector('tbody [role="alert"]')).toBeNull();
+    expect(host.querySelectorAll('tbody fr-skeleton')).toHaveLength(10);
+  });
+
+  it('clears the skeleton, busy mark and status once rows arrive', async () => {
+    const { fixture, host } = await render({ data: [], loading: true });
+    fixture.componentRef.setInput('data', PARTY);
+    fixture.componentRef.setInput('loading', false);
+    await fixture.whenStable();
+    expect(host.querySelector('tbody fr-skeleton')).toBeNull();
+    expect(host.querySelector('table')?.hasAttribute('aria-busy')).toBe(false);
+    expect(host.querySelector('[role="status"]')?.textContent.trim()).toBe('');
+    expect(host.querySelectorAll('tbody tr td:first-child')).toHaveLength(2);
+  });
+
+  it('keeps rows already loaded when loading or failed is set', async () => {
+    const { host } = await render({ loading: true, failed: true });
+    expect(host.querySelector('tbody fr-skeleton')).toBeNull();
+    expect(host.querySelector('tbody [role="alert"]')).toBeNull();
+    expect(host.querySelectorAll('tbody tr td:first-child')).toHaveLength(2);
+  });
+
+  it('hides Load more under the skeleton, the error and the empty state', async () => {
+    const { fixture, host } = await render({ data: [], hasMore: true, loading: true });
+    const footer = host.querySelector('[role="status"]')?.previousElementSibling;
+    expect(footer?.classList).toContain('hidden');
+    fixture.componentRef.setInput('loading', false);
+    fixture.componentRef.setInput('failed', true);
+    await fixture.whenStable();
+    expect(footer?.classList).toContain('hidden');
+  });
+
+  it('narrows the notice cell when a column is hidden after rendering', async () => {
+    const { fixture, host } = await render({ data: [], failed: true });
+    expect(host.querySelector('tbody td')?.getAttribute('colspan')).toBe('2');
+    fixture.componentRef.setInput('columnVisibility', ['level']);
+    await fixture.whenStable();
+    expect(host.querySelector('tbody td')?.getAttribute('colspan')).toBe('1');
   });
 
   it('shows the rows once loaded', async () => {

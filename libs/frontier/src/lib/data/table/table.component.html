@@ -28,7 +28,7 @@
     </thead>
     <tbody>
       @switch (body()) {
-        @case ('loading') {
+        @case (TableBody.Loading) {
           @for (row of skeletonRows; track row) {
             <tr>
               @for (column of table.getVisibleLeafColumns(); track column.id; let first = $first) {
@@ -37,7 +37,7 @@
             </tr>
           }
         }
-        @case ('rows') {
+        @case (TableBody.Rows) {
           @for (row of table.getRowModel().rows; track row.id) {
             <tr>
               @for (cell of row.getVisibleCells(); track cell.id; let first = $first) {
@@ -50,11 +50,11 @@
         }
         @default {
           <tr>
-            <td [class]="cellClass(true)" [attr.colspan]="columnCount()">
+            <td [class]="cellClass(false)" [attr.colspan]="columnCount()">
               <fr-table-notice
-                [failed]="body() === 'failed'"
+                [failed]="body() === TableBody.Failed"
                 [filtered]="filtered()"
-                (retry)="retry.emit()"
+                (retried)="retried.emit()"
                 (cleared)="cleared.emit()"
               />
             </td>
