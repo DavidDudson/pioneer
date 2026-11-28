@@ -5,7 +5,8 @@ import { Search, X } from 'lucide';
 import { Button } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
 import { Control } from '../control';
-import { adornmentVariants } from '../control.variants';
+import { InputAddon } from '../input-group/input-addon.component';
+import { InputGroup } from '../input-group/input-group.component';
 import { Input } from '../input/input.component';
 import { injectSearchQuery } from '../search-query';
 
@@ -19,10 +20,10 @@ import { injectSearchQuery } from '../search-query';
  */
 @Component({
   selector: 'fr-search-input',
-  imports: [Button, Icon, Input, TranslocoPipe],
+  imports: [Button, Icon, Input, InputAddon, InputGroup, TranslocoPipe],
   templateUrl: './search-input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'relative block' },
+  host: { class: 'block' },
 })
 export class SearchInput extends Control {
   public readonly value = model('');
@@ -32,8 +33,6 @@ export class SearchInput extends Control {
 
   protected readonly SearchIcon = Search;
   protected readonly ClearIcon = X;
-  protected readonly iconSlotClasses = computed(() => adornmentVariants({ edge: 'start', disabled: this.disabled() }));
-  protected readonly clearSlotClasses = adornmentVariants({ edge: 'end' });
   protected readonly control = viewChild.required(Input);
   protected readonly clearable = computed(() => this.value() !== '' && !this.disabled());
 

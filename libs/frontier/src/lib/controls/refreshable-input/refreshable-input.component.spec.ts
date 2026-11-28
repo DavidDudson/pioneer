@@ -39,14 +39,14 @@ describe(RefreshableInput, () => {
   it('loads when it appears and turns the border of the input meanwhile', async () => {
     const pending = Promise.withResolvers<string>();
     const fixture = render(loadingFrom([pending.promise]));
-    expect(element(fixture, 'fr-text-input').dataset['status']).toBe('pending');
+    expect(element(fixture, 'fr-input-group').dataset['status']).toBe('pending');
     pending.resolve('Seelah');
     await vi.waitFor(() => {
       expect(fixture.componentInstance.value()).toBe('Seelah');
     });
     fixture.detectChanges();
     // SAFETY: a rendered component's host element is always an HTMLElement under the DOM test environment; nativeElement is typed any.
-    expect(element(fixture, 'fr-text-input').dataset['status']).toBeUndefined();
+    expect(element(fixture, 'fr-input-group').dataset['status']).toBeUndefined();
   });
 
   it('flashes the border red when a load fails, and clears it on the next load', async () => {
@@ -54,11 +54,11 @@ describe(RefreshableInput, () => {
     const fixture = render(loadingFrom([failure, Promise.resolve('Seelah')]));
     await vi.waitFor(() => {
       fixture.detectChanges();
-      expect(element(fixture, 'fr-text-input').dataset['status']).toBe('error');
+      expect(element(fixture, 'fr-input-group').dataset['status']).toBe('error');
     });
     await fixture.componentInstance.refresh();
     fixture.detectChanges();
-    expect(element(fixture, 'fr-text-input').dataset['status']).toBeUndefined();
+    expect(element(fixture, 'fr-input-group').dataset['status']).toBeUndefined();
   });
 
   it('loads again when refresh is pressed', async () => {

@@ -1,30 +1,29 @@
 import { ChangeDetectionStrategy, Component, computed, effect, input, model, signal, untracked } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { cva } from 'class-variance-authority';
 import { RefreshCw } from 'lucide';
 
 import { Button } from '../../actions/button/button.component';
 import { AsyncStatus } from '../../async/async-action';
 import { Icon } from '../../icon/icon.component';
 import { Control } from '../control';
-import { TextInput } from '../text-input/text-input.component';
-
-const actionsClasses = cva('absolute inset-y-none end-none flex items-center')();
+import { InputAddon } from '../input-group/input-addon.component';
+import { InputGroup } from '../input-group/input-group.component';
+import { Input } from '../input/input.component';
 
 /**
  * A text control whose value is fetched: it loads when it appears (and whenever `load` changes), and its refresh
- * button, at the end of the input, loads again. While a load is in flight the input's border turns and the
+ * button, an `fr-input-addon` at the end of its `fr-input-group`, loads again. While a load is in flight the input's border turns and the
  * button is busy; a failed load flashes the border red. The value stays editable by hand; a load that finishes after a newer one started is dropped. A
  * failed load leaves the value as it was and marks the control invalid.
  *
- * Project buttons with `frAction` to put them before the refresh button (`pio-roll-table-input`'s table button).
+ * Project buttons with `frAction` to put them before the refresh button, in the same addon (`pio-roll-table-input`'s table button).
  */
 @Component({
   selector: 'fr-refreshable-input',
-  imports: [Button, Icon, TextInput, TranslocoPipe],
+  imports: [Button, Icon, Input, InputAddon, InputGroup, TranslocoPipe],
   templateUrl: './refreshable-input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'relative block' },
+  host: { class: 'block' },
 })
 export class RefreshableInput extends Control {
   public readonly value = model('');
@@ -33,7 +32,6 @@ export class RefreshableInput extends Control {
   public readonly load = input.required<() => Promise<string>>();
 
   protected readonly RefreshIcon = RefreshCw;
-  protected readonly actionsClasses = actionsClasses;
   protected readonly loading = signal(false);
   protected readonly failed = signal(false);
   protected readonly status = computed<AsyncStatus>(() => {

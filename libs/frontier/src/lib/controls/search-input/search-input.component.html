@@ -1,26 +1,27 @@
-<span [class]="iconSlotClasses()"><fr-icon [icon]="SearchIcon" /></span>
-<fr-input
-  type="search"
-  enterKeyHint="search"
-  adornment="both"
-  [value]="value()"
-  [placeholder]="placeholder()"
-  [disabled]="disabled()"
-  [invalid]="invalid()"
-  [ariaLabel]="ariaLabel()"
-  (typed)="type($event)"
-  (committed)="commit()"
-  (cancelled)="cancel()"
-/>
-@if (clearable()) {
-  <span [class]="clearSlotClasses">
-    <fr-button
-      variant="ghost"
-      size="sm"
-      iconOnly
-      [ariaLabel]="'frontier.searchInput.clear' | transloco"
-      (pressed)="clearAndFocus()"
-      ><fr-icon [icon]="ClearIcon"
-    /></fr-button>
-  </span>
-}
+<fr-input-group [disabled]="disabled()" [invalid]="invalid()">
+  <fr-input-addon><fr-icon [icon]="SearchIcon" /></fr-input-addon>
+  <fr-input
+    type="search"
+    enterKeyHint="search"
+    [value]="value()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [invalid]="invalid()"
+    [ariaLabel]="ariaLabel()"
+    (typed)="type($event)"
+    (committed)="commit()"
+    (cancelled)="cancel()"
+  />
+  @if (clearable()) {
+    <fr-input-addon action>
+      <fr-button
+        variant="ghost"
+        size="sm"
+        iconOnly
+        [ariaLabel]="'frontier.searchInput.clear' | transloco"
+        (pressed)="clearAndFocus()"
+        ><fr-icon [icon]="ClearIcon"
+      /></fr-button>
+    </fr-input-addon>
+  }
+</fr-input-group>
