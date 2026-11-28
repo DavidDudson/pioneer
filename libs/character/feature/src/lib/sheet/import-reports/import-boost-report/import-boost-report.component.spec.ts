@@ -4,7 +4,8 @@ import { TranslocoService } from '@jsverse/transloco';
 import { BoostSource } from '@pioneer/character/domain';
 import { frontierMessages } from '@pioneer/frontier';
 import type { ModifierDifference, UnplacedBoost } from '@pioneer/interop/pathbuilder';
-import { Attribute, AttributeModifier, Level, rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
+import { Attribute, AttributeModifier, Level } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';
 

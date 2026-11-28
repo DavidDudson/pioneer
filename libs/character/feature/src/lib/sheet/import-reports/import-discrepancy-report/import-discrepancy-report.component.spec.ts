@@ -4,7 +4,8 @@ import { TranslocoService } from '@jsverse/transloco';
 import { frontierMessages } from '@pioneer/frontier';
 import { DiscrepancyKind } from '@pioneer/interop/pathbuilder';
 import type { DiscrepancyReport } from '@pioneer/interop/pathbuilder';
-import { Proficiency, rulesMessages, Selector } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
+import { Proficiency, Selector } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';
 

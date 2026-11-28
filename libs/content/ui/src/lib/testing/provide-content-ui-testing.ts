@@ -3,7 +3,7 @@ import type { EnvironmentProviders } from '@angular/core';
 import { TranslocoTestingModule } from '@jsverse/transloco';
 import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat';
 import { frontierMessages } from '@pioneer/frontier';
-import { rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages } from '@pioneer/rules/messages';
 import { kernelMessages } from '@pioneer/shared/kernel';
 
 import browserMessages from '../../i18n/en.json';

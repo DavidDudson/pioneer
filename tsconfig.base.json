@@ -40,6 +40,7 @@
       "@pioneer/shared/server/testing": ["./libs/shared/server/src/testing/index.ts"],
       "@pioneer/shared/utils": ["./libs/shared/utils/src/index.ts"],
       "@pioneer/shared/web": ["./libs/shared/web/src/index.ts"],
+      "@pioneer/rules/messages": ["./libs/rules/messages/src/index.ts"],
       "@pioneer/rules/sdk": ["./libs/rules/sdk/src/index.ts"],
       "@pioneer/rules/sdk/testing": ["./libs/rules/sdk/src/testing/index.ts"],
       "@pioneer/rules/dice": ["./libs/rules/dice/src/index.ts"],
