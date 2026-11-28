@@ -213,6 +213,8 @@ export default defineConfig({
     'pioneer/no-route-resolvers': 'error',
     'pioneer/layout-variants': 'error',
     'pioneer/class-tokens': 'error',
+    // A panel or overlay takes its surface from an elevation level (libs/frontier/AGENTS.md).
+    'pioneer/elevation-levels': 'error',
     // `const fileExists = await file.exists(); if (!fileExists)`, never `if (!(await file.exists()))`.
     'pioneer/no-await-in-condition': 'error',
     // User content is archived, never deleted (ADR-0062); the database refuses it too.
@@ -412,6 +414,8 @@ export default defineConfig({
     'pioneer/no-route-resolvers': 'error',
     'pioneer/layout-variants': 'error',
     'pioneer/class-tokens': 'error',
+    // A panel or overlay takes its surface from an elevation level (libs/frontier/AGENTS.md).
+    'pioneer/elevation-levels': 'error',
     // `const fileExists = await file.exists(); if (!fileExists)`, never `if (!(await file.exists()))`.
     'pioneer/no-await-in-condition': 'error',
     // User content is archived, never deleted (ADR-0062); the database refuses it too.
