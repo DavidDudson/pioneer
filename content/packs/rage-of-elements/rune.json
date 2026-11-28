@@ -84,7 +84,14 @@
       "etchedOnto": {
         "item": "armor",
         "restriction": "medium-or-heavy-metal"
-      }
+      },
+      "activations": [
+        {
+          "slug": "reconfigure-armor",
+          "name": "Reconfigure Armor",
+          "cost": "one"
+        }
+      ]
     }
   },
   {

@@ -3597,7 +3597,14 @@
       "type": "property",
       "etchedOnto": {
         "item": "armor"
-      }
+      },
+      "activations": [
+        {
+          "slug": "costume-change",
+          "name": "Costume Change",
+          "cost": "one"
+        }
+      ]
     }
   },
   {
@@ -6648,7 +6655,14 @@
       "type": "property",
       "etchedOnto": {
         "item": "armor"
-      }
+      },
+      "activations": [
+        {
+          "slug": "take-to-the-skies",
+          "name": "Take to the Skies",
+          "cost": "two"
+        }
+      ]
     }
   },
   {
