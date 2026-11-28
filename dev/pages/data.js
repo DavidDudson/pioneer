@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795836301115,
+  "lastUpdate": 1795836410093,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer page budgets": [
@@ -1378,6 +1378,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "page /characters/:id: LCP",
             "value": 216,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6dbe92645eac78555fd232dadfc3982df32ea025",
+          "message": "fix(contrast): let size and status-angle tokens sit inside @media and keyframes (#2462)\n\nThe token cascade reader rejects any --fr-* token set outside a top-level\n:root rule. #2447 put control sizes in @media (pointer: fine) and #2448 a\nkeyframe on --fr-status-angle, so check:contrast threw. No contrast pair\nreads either family, so nested rules that set only those are skipped;\na nested rule that sets any other token still throws.\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-11-28T13:07:34+10:00",
+          "tree_id": "3dbe67c80d5aad40e736c3e6331486c6fd06a1e6",
+          "url": "https://github.com/DavidDudson/pioneer/commit/6dbe92645eac78555fd232dadfc3982df32ea025"
+        },
+        "date": 1795836406386,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "page /characters: requests",
+            "value": 465,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters: transfer",
+            "value": 4282,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters: LCP",
+            "value": 211,
+            "unit": "ms",
+            "extra": "median of the Lighthouse runs, simulated"
+          },
+          {
+            "name": "page /characters/:id: requests",
+            "value": 1235,
+            "unit": "requests",
+            "extra": "all resources, desktop preset"
+          },
+          {
+            "name": "page /characters/:id: transfer",
+            "value": 6386,
+            "unit": "KB",
+            "extra": "transfer size of all resources"
+          },
+          {
+            "name": "page /characters/:id: LCP",
+            "value": 211,
             "unit": "ms",
             "extra": "median of the Lighthouse runs, simulated"
           }
